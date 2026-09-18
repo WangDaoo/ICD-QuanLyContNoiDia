@@ -1,0 +1,30 @@
+{
+  "name": "icd-management",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.5.2",
+  "engines": {
+    "node": ">=22.22.3"
+  },
+  "scripts": {
+    "dev:api": "pnpm --filter @icd/api dev",
+    "dev:web": "pnpm --filter @icd/web dev",
+    "dev:mobile": "pnpm --filter @icd/mobile start",
+
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "eslint": "10.10.0",
+    "globals": "17.12.0",
+    "prettier": "3.9.7",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.70.0"
+  }
+}

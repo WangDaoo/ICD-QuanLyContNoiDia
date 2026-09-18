@@ -1,0 +1,16 @@
+node_modules
+dist
+build
+coverage
+
+.pnpm-store
+.expo
+
+apps/api/src/generated
+
+services/ml-service/.venv
+services/ml-service/__pycache__
+services/ml-service/artifacts
+
+*.log
+pnpm-lock.yaml

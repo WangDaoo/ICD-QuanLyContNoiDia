@@ -1,0 +1,180 @@
+import {
+  PERMISSION_CODES,
+} from '../../../src/common/constants/permission-codes.constants';
+
+export const permissions = [
+  {
+    code: PERMISSION_CODES.USERS_READ,
+    name: 'Xem người dùng',
+    description:
+      'Cho phép xem tài khoản người dùng ICD.',
+  },
+
+  {
+    code: PERMISSION_CODES.USERS_MANAGE,
+    name: 'Quản lý người dùng',
+    description:
+      'Cho phép tạo, sửa và vô hiệu hóa người dùng ICD.',
+  },
+
+  {
+    code: PERMISSION_CODES.ROLES_READ,
+    name: 'Xem phân quyền',
+    description:
+      'Cho phép xem role và permission.',
+  },
+
+  {
+    code: PERMISSION_CODES.ROLES_MANAGE,
+    name: 'Quản lý phân quyền',
+    description:
+      'Cho phép quản lý role và permission mapping.',
+  },
+
+  {
+    code: PERMISSION_CODES.SETTINGS_READ,
+    name: 'Xem cấu hình',
+    description:
+      'Cho phép xem cấu hình ICD.',
+  },
+
+  {
+    code: PERMISSION_CODES.SETTINGS_MANAGE,
+    name: 'Quản lý cấu hình',
+    description:
+      'Cho phép thay đổi cấu hình ICD.',
+  },
+
+  {
+    code: PERMISSION_CODES.MANIFEST_READ,
+    name: 'Xem manifest',
+    description:
+      'Cho phép xem danh sách và chi tiết manifest.',
+  },
+
+  {
+    code: PERMISSION_CODES.MANIFEST_CREATE,
+    name: 'Tạo manifest',
+    description:
+      'Cho phép tạo manifest mới.',
+  },
+
+  {
+    code: PERMISSION_CODES.MANIFEST_SUBMIT,
+    name: 'Nộp manifest',
+    description:
+      'Cho phép nộp hoặc xác nhận manifest.',
+  },
+
+  {
+    code: PERMISSION_CODES.CONTAINER_READ,
+    name: 'Xem container',
+    description:
+      'Cho phép tra cứu thông tin container.',
+  },
+
+  {
+    code: PERMISSION_CODES.GATE_IN_CREATE,
+    name: 'Tạo Gate-in',
+    description:
+      'Cho phép thực hiện thủ tục gate-in cho container.',
+  },
+
+  {
+    code: PERMISSION_CODES.YARD_READ,
+    name: 'Xem bãi',
+    description:
+      'Cho phép xem layout bãi và vị trí container.',
+  },
+
+  {
+    code: PERMISSION_CODES.YARD_UPDATE,
+    name: 'Cập nhật bãi',
+    description:
+      'Cho phép điều chỉnh vị trí và trạng thái trong bãi.',
+  },
+
+  {
+    code: PERMISSION_CODES.YARD_MOVE,
+    name: 'Di chuyển container',
+    description:
+      'Cho phép đảo chuyển vị trí container trong bãi.',
+  },
+
+  {
+    code: PERMISSION_CODES.YARD_INSPECT,
+    name: 'Giám định bãi',
+    description:
+      'Cho phép ghi nhận hư hỏng, kiểm tra seal/tình trạng container.',
+  },
+
+  {
+    code: PERMISSION_CODES.BILLING_MANAGE,
+    name: 'Quản lý tính cước',
+    description:
+      'Cho phép tạo biểu cước, tính phí lưu bãi và cắm điện.',
+  },
+
+  {
+    code: PERMISSION_CODES.GATE_PASS_CREATE,
+    name: 'Tạo Gate Pass',
+    description:
+      'Cho phép cấp phiếu giao nhận container qua cổng.',
+  },
+
+  {
+    code: PERMISSION_CODES.GATE_PASS_USE,
+    name: 'Sử dụng Gate Pass',
+    description:
+      'Cho phép xác thực và hoàn tất phiếu gate pass tại cổng.',
+  },
+
+  {
+    code: PERMISSION_CODES.REPORTS_READ,
+    name: 'Xem báo cáo',
+    description:
+      'Cho phép xem thống kê và báo cáo vận hành bãi ICD.',
+  },
+
+  {
+    code: PERMISSION_CODES.HANDOVER_CREATE,
+    name: 'Tạo biên bản bàn giao',
+    description:
+      'Cho phép tạo biên bản bàn giao cho chặng vận chuyển tiếp theo.',
+  },
+
+  {
+    code: PERMISSION_CODES.HANDOVER_READ,
+    name: 'Xem biên bản bàn giao',
+    description:
+      'Cho phép tra cứu và theo dõi trạng thái biên bản bàn giao.',
+  },
+
+  {
+    code: PERMISSION_CODES.HANDOVER_CONFIRM,
+    name: 'Xác nhận bàn giao',
+    description:
+      'Cho phép xác nhận tiếp nhận hoặc bàn giao container thành công.',
+  },
+
+  {
+    code: PERMISSION_CODES.HANDOVER_DISPUTE,
+    name: 'Ghi nhận tranh chấp bàn giao',
+    description:
+      'Cho phép ghi nhận khiếu nại hoặc sự cố bất thường khi bàn giao.',
+  },
+
+  {
+    code: PERMISSION_CODES.PARTNER_CLIENT_MANAGE,
+    name: 'Quản lý đối tác tích hợp',
+    description:
+      'Cho phép quản lý API key và quyền truy cập của hệ thống đối tác.',
+  },
+
+  {
+    code: PERMISSION_CODES.PARTNER_API_LOG_READ,
+    name: 'Xem log tích hợp',
+    description:
+      'Cho phép xem lịch sử gọi API tích hợp từ đối tác bên ngoài.',
+  },
+] as const;

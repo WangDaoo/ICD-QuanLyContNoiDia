@@ -1,0 +1,104 @@
+# ==============================
+# Dependencies
+# ==============================
+
+node_modules/
+.pnpm-store/
+
+# ==============================
+# Build
+# ==============================
+
+dist/
+build/
+coverage/
+.next/
+.vite/
+
+# ==============================
+# Environment
+# ==============================
+
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+!.env.example
+
+# ==============================
+# Logs
+# ==============================
+
+*.log
+logs/
+
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ==============================
+# IDE / Editor
+# ==============================
+
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+*.swp
+*.swo
+
+# ==============================
+# Operating System
+# ==============================
+
+.DS_Store
+Thumbs.db
+
+# ==============================
+# Prisma
+# ==============================
+
+apps/api/src/generated/prisma/
+
+# ==============================
+# Expo / React Native
+# ==============================
+
+.expo/
+.expo-shared/
+
+apps/mobile/android/
+apps/mobile/ios/
+
+# ==============================
+# Python
+# ==============================
+
+__pycache__/
+*.py[cod]
+
+.venv/
+venv/
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ==============================
+# ML artifacts
+# ==============================
+
+services/ml-service/artifacts/*
+!services/ml-service/artifacts/.gitkeep
+
+# ==============================
+# Temporary files
+# ==============================
+
+tmp/
+temp/
+.cache/

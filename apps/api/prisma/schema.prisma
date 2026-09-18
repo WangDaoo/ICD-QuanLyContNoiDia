@@ -1,0 +1,225 @@
+// ============================================================
+// ICD Management System
+// Database Foundation
+//
+// Database: MySQL 8.x
+// Engine: InnoDB
+// ORM: Prisma 7
+//
+// Quy ước:
+// - UUID logic lưu CHAR(36).
+// - Database naming dùng snake_case.
+// - Prisma naming dùng camelCase / PascalCase.
+// - Timestamp dùng DATETIME(3), lưu UTC.
+// ============================================================
+
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  runtime      = "nodejs"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+// ============================================================
+// ICD SITE
+// ============================================================
+
+model IcdSite {
+  id   String @id @default(uuid()) @db.Char(36)
+  code String @unique @db.VarChar(50)
+  name String @db.VarChar(150)
+
+  active Boolean @default(true)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
+
+  users    User[]
+  settings IcdSetting[]
+
+  @@map("icd_site")
+}
+
+// ============================================================
+// USER
+// ============================================================
+
+model User {
+  id String @id @default(uuid()) @db.Char(36)
+
+  icdId String @map("icd_id") @db.Char(36)
+
+  name  String @db.VarChar(150)
+  email String @unique @db.VarChar(191)
+
+  passwordHash String @map("password_hash") @db.VarChar(255)
+
+  active Boolean @default(true)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
+
+  icd IcdSite @relation(fields: [icdId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  roles    UserRole[]
+  sessions AuthSession[]
+
+  updatedSettings IcdSetting[] @relation("IcdSettingUpdatedBy")
+
+  @@index([icdId])
+  @@index([active])
+  @@map("user")
+}
+
+// ============================================================
+// AUTH SESSION
+//
+// Mỗi lần đăng nhập tạo một session.
+//
+// Không lưu Refresh Token plaintext.
+// Database chỉ lưu SHA-256 hash của token.
+// ============================================================
+
+model AuthSession {
+  id String @id @default(uuid()) @db.Char(36)
+
+  userId String @map("user_id") @db.Char(36)
+
+  refreshTokenHash String @map("refresh_token_hash") @db.Char(64)
+
+  expiresAt DateTime @map("expires_at") @db.DateTime(3)
+
+  lastUsedAt DateTime? @map("last_used_at") @db.DateTime(3)
+
+  revokedAt DateTime? @map("revoked_at") @db.DateTime(3)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+
+  updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@index([userId, revokedAt])
+  @@index([expiresAt])
+  @@map("auth_session")
+}
+
+// ============================================================
+// ROLE
+// ============================================================
+
+model Role {
+  id String @id @default(uuid()) @db.Char(36)
+
+  code String @unique @db.VarChar(50)
+  name String @db.VarChar(100)
+
+  description String? @db.VarChar(255)
+
+  active Boolean @default(true)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
+
+  users       UserRole[]
+  permissions RolePermission[]
+
+  @@map("role")
+}
+
+// ============================================================
+// PERMISSION
+// ============================================================
+
+model Permission {
+  id String @id @default(uuid()) @db.Char(36)
+
+  code String @unique @db.VarChar(100)
+  name String @db.VarChar(150)
+
+  description String? @db.VarChar(255)
+
+  active Boolean @default(true)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
+
+  roles RolePermission[]
+
+  @@map("permission")
+}
+
+// ============================================================
+// USER ↔ ROLE
+// ============================================================
+
+model UserRole {
+  userId String @map("user_id") @db.Char(36)
+  roleId String @map("role_id") @db.Char(36)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  role Role @relation(fields: [roleId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@id([userId, roleId])
+  @@index([roleId])
+  @@map("user_role")
+}
+
+// ============================================================
+// ROLE ↔ PERMISSION
+// ============================================================
+
+model RolePermission {
+  roleId       String @map("role_id") @db.Char(36)
+  permissionId String @map("permission_id") @db.Char(36)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+
+  role       Role       @relation(fields: [roleId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  permission Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@id([roleId, permissionId])
+  @@index([permissionId])
+  @@map("role_permission")
+}
+
+// ============================================================
+// ICD SETTING
+// ============================================================
+
+model IcdSetting {
+  id String @id @default(uuid()) @db.Char(36)
+
+  icdId String @map("icd_id") @db.Char(36)
+
+  key   String @db.VarChar(100)
+  value String @db.Text
+
+  /**
+   * Chưa ép enum vì đặc tả hiện tại mới định nghĩa
+   * field value_type nhưng chưa chốt danh sách type.
+   * Business layer sẽ validate khi module Settings
+   * được triển khai.
+   */
+  valueType String @map("value_type") @db.VarChar(30)
+
+  description String? @db.VarChar(255)
+
+  updatedBy String? @map("updated_by") @db.Char(36)
+
+  updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
+
+  icd IcdSite @relation(fields: [icdId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  updatedByUser User? @relation("IcdSettingUpdatedBy", fields: [updatedBy], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  @@unique([icdId, key])
+  @@index([updatedBy])
+  @@map("icd_setting")
+}
