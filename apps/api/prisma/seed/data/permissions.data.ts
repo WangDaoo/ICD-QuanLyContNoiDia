@@ -158,6 +158,66 @@ export const permissions = [
   },
 
   {
+    code:
+      PERMISSION_CODES
+        .TRUCK_VISIT_READ,
+
+    name:
+      'Xem chuyến xe ra/vào',
+
+    description:
+      'Cho phép xem Truck Visit và danh sách container thuộc chuyến.',
+  },
+
+  {
+    code:
+      PERMISSION_CODES
+        .TRUCK_VISIT_CREATE,
+
+    name:
+      'Tạo chuyến xe ra/vào',
+
+    description:
+      'Cho phép tạo Truck Visit/Gate Appointment.',
+  },
+
+  {
+    code:
+      PERMISSION_CODES
+        .TRUCK_VISIT_UPDATE,
+
+    name:
+      'Cập nhật chuyến xe ra/vào',
+
+    description:
+      'Cho phép cập nhật Truck Visit khi còn SCHEDULED.',
+  },
+
+  {
+    code:
+      PERMISSION_CODES
+        .TRUCK_VISIT_ARRIVE,
+
+    name:
+      'Xác nhận xe đến cổng',
+
+    description:
+      'Cho phép chuyển Truck Visit từ SCHEDULED sang ARRIVED.',
+  },
+
+  {
+    code:
+      PERMISSION_CODES
+        .TRUCK_VISIT_CANCEL,
+
+    name:
+      'Hủy chuyến xe ra/vào',
+
+    description:
+      'Cho phép hủy Truck Visit trước khi bắt đầu Gate-in.',
+  },
+
+  {
     code: PERMISSION_CODES.GATE_IN_CREATE,
     name: 'Tạo Gate-in',
     description:

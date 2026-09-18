@@ -39,6 +39,10 @@ import {
 } from './modules/roles/roles.module';
 
 import {
+  TruckVisitsModule,
+} from './modules/truck-visits/truck-visits.module';
+
+import {
   UsersModule,
 } from './modules/users/users.module';
 
@@ -70,6 +74,8 @@ import {
     ContainersModule,
 
     MovementOrdersModule,
+
+    TruckVisitsModule,
   ],
 })
 export class AppModule {}

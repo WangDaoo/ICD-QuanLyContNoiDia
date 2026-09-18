@@ -65,6 +65,21 @@ export const PERMISSION_CODES = {
   MOVEMENT_ORDER_CANCEL:
     'movement_order.cancel',
 
+  TRUCK_VISIT_READ:
+    'truck_visit.read',
+
+  TRUCK_VISIT_CREATE:
+    'truck_visit.create',
+
+  TRUCK_VISIT_UPDATE:
+    'truck_visit.update',
+
+  TRUCK_VISIT_ARRIVE:
+    'truck_visit.arrive',
+
+  TRUCK_VISIT_CANCEL:
+    'truck_visit.cancel',
+
   GATE_IN_CREATE:
     'gate_in.create',
 

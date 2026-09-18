@@ -1,15 +1,46 @@
-/**
- * truck-visits / truck-visit-state.policy.ts
- *
- * Mục đích:
- * File dự kiến triển khai cho module truck-visits. Quản lý chuyến xe/lịch hẹn vật lý tại cổng ICD.
- *
- * Quy tắc khi triển khai:
- * - Ownership module: Truck Visit lifecycle: scheduled/arrived/in-progress/completed/cancelled.
- * - Tuân thủ pattern chung trong docs/development/OPERATION_PATTERNS.md.
- * - Chưa có logic; chỉ thêm code khi bắt đầu triển khai module này.
- *
- * Lưu ý:
- * - File hiện tại chỉ là khung, chưa có logic thực thi.
- * - Không tự ý mở rộng trách nhiệm của file nếu chưa cập nhật RULES.md của module.
- */
+import { BadRequestException, Injectable } from '@nestjs/common';
+
+import { TruckVisitStatus } from '../../../generated/prisma/client';
+import { TRUCK_VISIT_ERROR_CODES } from '../constants/truck-visit-error-codes.constants';
+
+@Injectable()
+export class TruckVisitStatePolicy {
+  assertCanArrive(status: TruckVisitStatus): void {
+    if (status !== TruckVisitStatus.SCHEDULED) {
+      throw new BadRequestException({
+        code: TRUCK_VISIT_ERROR_CODES.CANNOT_ARRIVE,
+        message: `Không thể chuyển chuyến xe sang trạng thái ARRIVED từ trạng thái hiện tại (${status}).`,
+      });
+    }
+  }
+
+  assertCanCancel(status: TruckVisitStatus): void {
+    if (
+      status !== TruckVisitStatus.SCHEDULED &&
+      status !== TruckVisitStatus.ARRIVED
+    ) {
+      throw new BadRequestException({
+        code: TRUCK_VISIT_ERROR_CODES.CANNOT_CANCEL,
+        message: `Không thể hủy chuyến xe khi đang ở trạng thái ${status}.`,
+      });
+    }
+  }
+
+  assertCanStartInProgress(status: TruckVisitStatus): void {
+    if (status !== TruckVisitStatus.ARRIVED) {
+      throw new BadRequestException({
+        code: TRUCK_VISIT_ERROR_CODES.INVALID_STATE,
+        message: `Chuyến xe phải ở trạng thái ARRIVED để bắt đầu xử lý tại cổng/bãi (hiện tại: ${status}).`,
+      });
+    }
+  }
+
+  assertCanComplete(status: TruckVisitStatus): void {
+    if (status !== TruckVisitStatus.IN_PROGRESS) {
+      throw new BadRequestException({
+        code: TRUCK_VISIT_ERROR_CODES.INVALID_STATE,
+        message: `Chuyến xe phải ở trạng thái IN_PROGRESS để hoàn thành (hiện tại: ${status}).`,
+      });
+    }
+  }
+}
