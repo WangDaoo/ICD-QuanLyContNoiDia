@@ -1,15 +1,51 @@
-/**
- * gate-in / gate-in.controller.ts
- *
- * Mục đích:
- * File dự kiến triển khai cho module gate-in. Điều phối nghiệp vụ tiếp nhận container vào ICD.
- *
- * Quy tắc khi triển khai:
- * - Ownership module: Gate-in orchestration; không sở hữu toàn bộ Container Visit model.
- * - Tuân thủ pattern chung trong docs/development/OPERATION_PATTERNS.md.
- * - Chưa có logic; chỉ thêm code khi bắt đầu triển khai module này.
- *
- * Lưu ý:
- * - File hiện tại chỉ là khung, chưa có logic thực thi.
- * - Không tự ý mở rộng trách nhiệm của file nếu chưa cập nhật RULES.md của module.
- */
+import {
+  Body,
+  Controller,
+  Get,
+  HttpCode,
+  HttpStatus,
+  Param,
+  ParseUUIDPipe,
+  Post,
+} from '@nestjs/common';
+
+import { PERMISSION_CODES } from '../../common/constants/permission-codes.constants';
+import { CurrentUser } from '../../common/decorators/current-user.decorator';
+import { Permissions } from '../../common/decorators/permissions.decorator';
+import type { AuthenticatedUser } from '../../common/types/authenticated-user.types';
+import { CreateContainerReceptionDto } from './dto/create-container-reception.dto';
+import { GateInService } from './gate-in.service';
+
+@Controller('containers')
+export class GateInController {
+  constructor(private readonly gateInService: GateInService) {}
+
+  @Get(':visitId/gate-in-context')
+  @Permissions(PERMISSION_CODES.GATE_IN_CREATE)
+  async getContext(
+    @CurrentUser() user: AuthenticatedUser,
+    @Param('visitId', ParseUUIDPipe) visitId: string,
+  ) {
+    return this.gateInService.getContext(visitId, user);
+  }
+
+  @Post(':visitId/gate-in')
+  @HttpCode(HttpStatus.OK)
+  @Permissions(PERMISSION_CODES.GATE_IN_CREATE)
+  async gateIn(
+    @CurrentUser() user: AuthenticatedUser,
+    @Param('visitId', ParseUUIDPipe) visitId: string,
+    @Body() dto: CreateContainerReceptionDto,
+  ) {
+    return this.gateInService.gateIn(visitId, dto, user);
+  }
+
+  @Get(':visitId/reception')
+  @Permissions(PERMISSION_CODES.CONTAINER_READ)
+  async getReception(
+    @CurrentUser() user: AuthenticatedUser,
+    @Param('visitId', ParseUUIDPipe) visitId: string,
+  ) {
+    return this.gateInService.getReceptionByVisitId(visitId, user);
+  }
+}

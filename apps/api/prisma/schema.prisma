@@ -51,6 +51,7 @@ enum ContainerSize {
 enum ContainerVisitStatus {
   PENDING
   AUTHORIZED
+  IN_YARD
   IN_TRANSIT
   ARRIVED
   INSPECTED
@@ -142,13 +143,14 @@ model User {
 
   icd IcdSite @relation(fields: [icdId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
-  roles                    UserRole[]
-  sessions                 AuthSession[]
-  updatedSettings          IcdSetting[]     @relation("IcdSettingUpdatedBy")
-  createdManifests         Manifest[]
-  containerEvents          ContainerEvent[]
-  createdMovementOrders    MovementOrder[]  @relation("MovementOrderCreatedBy")
-  authorizedMovementOrders MovementOrder[]  @relation("MovementOrderAuthorizedBy")
+  roles                       UserRole[]
+  sessions                    AuthSession[]
+  updatedSettings             IcdSetting[]         @relation("IcdSettingUpdatedBy")
+  createdManifests            Manifest[]
+  containerEvents             ContainerEvent[]
+  createdMovementOrders       MovementOrder[]      @relation("MovementOrderCreatedBy")
+  authorizedMovementOrders    MovementOrder[]      @relation("MovementOrderAuthorizedBy")
+  receivedContainerReceptions ContainerReception[] @relation("ContainerReceptionReceivedBy")
 
   @@index([icdId])
   @@index([active])
@@ -329,7 +331,6 @@ model ShippingLine {
 
   @@index([active])
   @@index([name])
-
   @@map("shipping_line")
 }
 
@@ -360,7 +361,6 @@ model Consignee {
 
   @@index([active])
   @@index([name])
-
   @@map("consignee")
 }
 
@@ -385,7 +385,6 @@ model ClearingAgent {
 
   @@index([active])
   @@index([name])
-
   @@map("clearing_agent")
 }
 
@@ -410,7 +409,6 @@ model Transporter {
 
   @@index([active])
   @@index([name])
-
   @@map("transporter")
 }
 
@@ -454,11 +452,9 @@ model Manifest {
   masterBls MasterBl[]
 
   @@unique([icdId, manifestNo])
-
   @@index([icdId, status])
   @@index([shippingLineId])
   @@index([eta])
-
   @@map("manifest")
 }
 
@@ -486,9 +482,7 @@ model MasterBl {
   houseBls HouseBl[]
 
   @@unique([manifestId, mblNumber])
-
   @@index([shippingLineId])
-
   @@map("master_bl")
 }
 
@@ -526,10 +520,8 @@ model HouseBl {
   containerVisits ContainerVisit[]
 
   @@unique([masterBlId, hblNumber])
-
   @@index([consigneeId])
   @@index([clearingAgentId])
-
   @@map("house_bl")
 }
 
@@ -591,6 +583,9 @@ model ContainerVisit {
 
   currentLocation String? @map("current_location") @db.VarChar(100)
 
+  gateInAt  DateTime? @map("gate_in_at") @db.DateTime(3)
+  gateOutAt DateTime? @map("gate_out_at") @db.DateTime(3)
+
   createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
   updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
 
@@ -601,6 +596,7 @@ model ContainerVisit {
   events          ContainerEvent[]
   movementOrders  MovementOrder[]
   truckVisitLinks TruckVisitContainer[]
+  reception       ContainerReception?
 
   @@index([icdId, status])
   @@index([containerId])
@@ -719,6 +715,7 @@ model TruckVisit {
   transporter Transporter? @relation(fields: [transporterId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
   containers TruckVisitContainer[]
+  receptions ContainerReception[]
 
   @@index([icdId, status, appointmentAt])
   @@index([transporterId])
@@ -748,4 +745,52 @@ model TruckVisitContainer {
   @@map("truck_visit_container")
 }
 
+// ============================================================
+// CONTAINER RECEPTION
+//
+// Bằng chứng nghiệp vụ của một lần Gate-in thành công.
+//
+// Một Container Visit chỉ được có tối đa một Reception.
+// Reception không bị update/xóa thông thường vì đây là
+// dữ liệu lịch sử tại thời điểm container vào ICD.
+// ============================================================
 
+model ContainerReception {
+  id String @id @default(uuid()) @db.Char(36)
+
+  containerVisitId String @unique @map("container_visit_id") @db.Char(36)
+
+  truckVisitId String? @map("truck_visit_id") @db.Char(36)
+
+  actualSeal String @map("actual_seal") @db.VarChar(100)
+
+  actualWeight Decimal? @map("actual_weight") @db.Decimal(14, 3)
+
+  conditionCode String? @map("condition_code") @db.VarChar(80)
+
+  conditionNotes String? @map("condition_notes") @db.Text
+
+  /**
+   * Reference tới ảnh đã upload.
+   * Batch này chưa xây object-storage/upload service.
+   * photo_ref chỉ lưu reference/path do upload layer cung cấp.
+   */
+  photoRef String? @map("photo_ref") @db.Text
+
+  receivedById String @map("received_by") @db.Char(36)
+
+  receivedAt DateTime @default(now()) @map("received_at") @db.DateTime(3)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+
+  containerVisit ContainerVisit @relation(fields: [containerVisitId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  truckVisit TruckVisit? @relation(fields: [truckVisitId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  receivedByUser User @relation("ContainerReceptionReceivedBy", fields: [receivedById], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  @@index([truckVisitId])
+  @@index([receivedById])
+  @@index([receivedAt])
+  @@map("container_reception")
+}

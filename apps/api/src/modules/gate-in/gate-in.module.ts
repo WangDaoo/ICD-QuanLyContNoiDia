@@ -1,15 +1,16 @@
-/**
- * gate-in / gate-in.module.ts
- *
- * Mục đích:
- * File dự kiến triển khai cho module gate-in. Điều phối nghiệp vụ tiếp nhận container vào ICD.
- *
- * Quy tắc khi triển khai:
- * - Ownership module: Gate-in orchestration; không sở hữu toàn bộ Container Visit model.
- * - Tuân thủ pattern chung trong docs/development/OPERATION_PATTERNS.md.
- * - Chưa có logic; chỉ thêm code khi bắt đầu triển khai module này.
- *
- * Lưu ý:
- * - File hiện tại chỉ là khung, chưa có logic thực thi.
- * - Không tự ý mở rộng trách nhiệm của file nếu chưa cập nhật RULES.md của module.
- */
+import { Module } from '@nestjs/common';
+
+import { ContainersModule } from '../containers/containers.module';
+import { MovementOrdersModule } from '../movement-orders/movement-orders.module';
+import { TruckVisitsModule } from '../truck-visits/truck-visits.module';
+import { GateInController } from './gate-in.controller';
+import { GateInService } from './gate-in.service';
+import { GateInPolicy } from './policies/gate-in.policy';
+
+@Module({
+  imports: [ContainersModule, MovementOrdersModule, TruckVisitsModule],
+  controllers: [GateInController],
+  providers: [GateInService, GateInPolicy],
+  exports: [GateInService, GateInPolicy],
+})
+export class GateInModule {}

@@ -23,6 +23,13 @@ export interface MovementOrderContainerContext {
   containerNumber: string;
 }
 
+export interface GateInContainerContext {
+  id: string;
+  state: ContainerVisitStatus;
+  containerNumber: string;
+  expectedSeal: string | null;
+}
+
 @Injectable()
 export class ContainerVisitTransitionService {
   constructor(
@@ -101,6 +108,63 @@ export class ContainerVisitTransitionService {
   }
 
   /**
+   * Lock row Container Visit cho Gate-in.
+   *
+   * Mục tiêu:
+   * - chống hai Gate-in request chạy đồng thời;
+   * - serialize state transition AUTHORIZED → IN_YARD;
+   * - bảo vệ UNIQUE reception ở tầng business.
+   */
+  async lockForGateIn(
+    tx: Prisma.TransactionClient,
+    visitId: string,
+    icdId: string,
+  ): Promise<GateInContainerContext> {
+    await tx.$queryRaw(
+      Prisma.sql`
+        SELECT id
+        FROM container_visit
+        WHERE id = ${visitId}
+          AND icd_id = ${icdId}
+        FOR UPDATE
+      `,
+    );
+
+    const visit = await tx.containerVisit.findFirst({
+      where: {
+        id: visitId,
+        icdId,
+      },
+      select: {
+        id: true,
+        status: true,
+        sealNumber: true,
+        container: {
+          select: {
+            containerNumber: true,
+          },
+        },
+      },
+    });
+
+    if (!visit) {
+      throw new NotFoundException({
+        code: CONTAINER_ERROR_CODES.VISIT_NOT_FOUND,
+        message: 'Không tìm thấy Container Visit.',
+      });
+    }
+
+    this.statePolicy.assertCanGateIn(visit.status);
+
+    return {
+      id: visit.id,
+      state: visit.status,
+      containerNumber: visit.container.containerNumber,
+      expectedSeal: visit.sealNumber,
+    };
+  }
+
+  /**
    * Module Containers sở hữu state của Container Visit.
    *
    * Movement Order không được tự update container_visit bằng Prisma.
@@ -161,6 +225,64 @@ export class ContainerVisitTransitionService {
       referenceType: 'movement_order',
       referenceId: input.movementOrderId,
       note: 'Container visit authorized via Movement Order',
+    });
+  }
+
+  /**
+   * Re-check state ngay tại write và chuyển state sang IN_YARD.
+   */
+  async markInYardByGateIn(
+    tx: Prisma.TransactionClient,
+    input: {
+      visitId: string;
+      icdId: string;
+      receptionId: string;
+      truckVisitId: string;
+      gateInAt: Date;
+      actorUserId: string;
+      actualSeal: string;
+      actualWeight?: number;
+      conditionCode?: string;
+      sealComparison: 'MATCH' | 'MISMATCH' | 'NO_REFERENCE';
+    },
+  ): Promise<void> {
+    const result = await tx.containerVisit.updateMany({
+      where: {
+        id: input.visitId,
+        icdId: input.icdId,
+        status: ContainerVisitStatus.AUTHORIZED,
+        gateInAt: null,
+      },
+      data: {
+        status: ContainerVisitStatus.IN_YARD,
+        gateInAt: input.gateInAt,
+      },
+    });
+
+    if (result.count !== 1) {
+      throw new ConflictException({
+        code: CONTAINER_ERROR_CODES.INVALID_STATE,
+        message:
+          'Container Visit đã thay đổi trạng thái. Không thể Gate-in.',
+      });
+    }
+
+    await this.eventService.record(tx, {
+      containerVisitId: input.visitId,
+      eventType: CONTAINER_EVENT_TYPES.GATE_IN,
+      fromStatus: ContainerVisitStatus.AUTHORIZED,
+      toStatus: ContainerVisitStatus.IN_YARD,
+      actorUserId: input.actorUserId,
+      referenceType: 'container_reception',
+      referenceId: input.receptionId,
+      metadataJson: {
+        truckVisitId: input.truckVisitId,
+        gateInAt: input.gateInAt.toISOString(),
+        actualSeal: input.actualSeal,
+        actualWeight: input.actualWeight ?? null,
+        conditionCode: input.conditionCode ?? null,
+        sealComparison: input.sealComparison,
+      },
     });
   }
 }

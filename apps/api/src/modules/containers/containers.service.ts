@@ -64,6 +64,7 @@ export class ContainersService {
         orderBy: { createdAt: 'desc' },
         include: {
           container: true,
+          reception: true,
           houseBl: {
             include: {
               masterBl: {
@@ -98,6 +99,22 @@ export class ContainersService {
       where: { id: visitId, icdId },
       include: {
         container: true,
+        reception: {
+          include: {
+            receivedByUser: {
+              select: {
+                id: true,
+                name: true,
+                email: true,
+              },
+            },
+            truckVisit: {
+              include: {
+                transporter: true,
+              },
+            },
+          },
+        },
         houseBl: {
           include: {
             masterBl: {

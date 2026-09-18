@@ -331,4 +331,34 @@ export class MovementOrdersService {
       return updated;
     });
   }
+
+  async getUsableForGateInOrThrow(
+    tx: Prisma.TransactionClient,
+    containerVisitId: string,
+    icdId: string,
+  ) {
+    const now = new Date();
+    const order = await tx.movementOrder.findFirst({
+      where: {
+        containerVisitId,
+        containerVisit: {
+          icdId,
+        },
+        status: MovementOrderStatus.AUTHORIZED,
+        expiresAt: {
+          gt: now,
+        },
+      },
+    });
+
+    if (!order) {
+      throw new ConflictException({
+        code: MOVEMENT_ORDER_ERROR_CODES.ORDER_EXPIRED,
+        message:
+          'Container Visit không có Movement Order nào ở trạng thái AUTHORIZED và còn hiệu lực.',
+      });
+    }
+
+    return order;
+  }
 }

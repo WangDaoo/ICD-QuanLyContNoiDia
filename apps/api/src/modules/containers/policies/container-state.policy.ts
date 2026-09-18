@@ -13,6 +13,14 @@ export class ContainerStatePolicy {
     }
   }
 
+  assertCanGateIn(status: ContainerVisitStatus): void {
+    if (status !== ContainerVisitStatus.AUTHORIZED) {
+      throw this.invalidState(
+        'Chỉ Container Visit AUTHORIZED mới được Gate-in.',
+      );
+    }
+  }
+
   private invalidState(message: string): ConflictException {
     return new ConflictException({
       code: CONTAINER_ERROR_CODES.INVALID_STATE,
@@ -28,6 +36,7 @@ export class ContainerStatePolicy {
       ContainerVisitStatus.CANCELLED,
     ],
     [ContainerVisitStatus.AUTHORIZED]: [
+      ContainerVisitStatus.IN_YARD,
       ContainerVisitStatus.IN_TRANSIT,
       ContainerVisitStatus.CANCELLED,
     ],
@@ -45,8 +54,14 @@ export class ContainerStatePolicy {
       ContainerVisitStatus.GATE_IN_CONFIRMED,
     ],
     [ContainerVisitStatus.GATE_IN_CONFIRMED]: [
+      ContainerVisitStatus.IN_YARD,
       ContainerVisitStatus.STACKED,
       ContainerVisitStatus.UNDER_CUSTOMS_HOLD,
+    ],
+    [ContainerVisitStatus.IN_YARD]: [
+      ContainerVisitStatus.STACKED,
+      ContainerVisitStatus.UNDER_CUSTOMS_HOLD,
+      ContainerVisitStatus.GATE_PASS_ISSUED,
     ],
     [ContainerVisitStatus.STACKED]: [
       ContainerVisitStatus.UNDER_CUSTOMS_HOLD,
