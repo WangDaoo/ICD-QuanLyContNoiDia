@@ -74,10 +74,24 @@ export const permissions = [
   },
 
   {
+    code: PERMISSION_CODES.MANIFEST_UPDATE,
+    name: 'Cập nhật Manifest',
+    description:
+      'Cho phép cập nhật Manifest, MBL và HBL khi hồ sơ còn được phép chỉnh sửa.',
+  },
+
+  {
     code: PERMISSION_CODES.MANIFEST_SUBMIT,
     name: 'Nộp manifest',
     description:
       'Cho phép nộp hoặc xác nhận manifest.',
+  },
+
+  {
+    code: PERMISSION_CODES.MANIFEST_CANCEL,
+    name: 'Hủy Manifest',
+    description:
+      'Cho phép chuyển Manifest sang trạng thái CANCELLED.',
   },
 
   {

@@ -19,6 +19,10 @@ import {
 } from './modules/health/health.module';
 
 import {
+  ManifestsModule,
+} from './modules/manifests/manifests.module';
+
+import {
   MasterDataModule,
 } from './modules/master-data/master-data.module';
 
@@ -52,6 +56,8 @@ import {
     RolesModule,
 
     MasterDataModule,
+
+    ManifestsModule,
   ],
 })
 export class AppModule {}

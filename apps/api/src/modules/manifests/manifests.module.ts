@@ -1,15 +1,46 @@
-/**
- * manifests / manifests.module.ts
- *
- * Mục đích:
- * File dự kiến triển khai cho module manifests. Quản lý Manifest và quan hệ dữ liệu đầu vào trước khi container tới ICD.
- *
- * Quy tắc khi triển khai:
- * - Ownership module: Manifest lifecycle và metadata liên quan.
- * - Tuân thủ pattern chung trong docs/development/OPERATION_PATTERNS.md.
- * - Chưa có logic; chỉ thêm code khi bắt đầu triển khai module này.
- *
- * Lưu ý:
- * - File hiện tại chỉ là khung, chưa có logic thực thi.
- * - Không tự ý mở rộng trách nhiệm của file nếu chưa cập nhật RULES.md của module.
- */
+import {
+  Module,
+} from '@nestjs/common';
+
+import {
+  HouseBlsController,
+} from './controllers/house-bls.controller';
+
+import {
+  ManifestsController,
+} from './controllers/manifests.controller';
+
+import {
+  MasterBlsController,
+} from './controllers/master-bls.controller';
+
+import {
+  HouseBlService,
+} from './services/house-bl.service';
+
+import {
+  ManifestService,
+} from './services/manifest.service';
+
+import {
+  MasterBlService,
+} from './services/master-bl.service';
+
+@Module({
+  controllers: [
+    ManifestsController,
+    MasterBlsController,
+    HouseBlsController,
+  ],
+  providers: [
+    ManifestService,
+    MasterBlService,
+    HouseBlService,
+  ],
+  exports: [
+    ManifestService,
+    MasterBlService,
+    HouseBlService,
+  ],
+})
+export class ManifestsModule {}

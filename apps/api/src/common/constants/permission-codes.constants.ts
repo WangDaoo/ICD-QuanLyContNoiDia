@@ -29,8 +29,14 @@ export const PERMISSION_CODES = {
   MANIFEST_CREATE:
     'manifest.create',
 
+  MANIFEST_UPDATE:
+    'manifest.update',
+
   MANIFEST_SUBMIT:
     'manifest.submit',
+
+  MANIFEST_CANCEL:
+    'manifest.cancel',
 
   CONTAINER_READ:
     'container.read',

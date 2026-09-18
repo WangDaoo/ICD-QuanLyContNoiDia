@@ -25,6 +25,16 @@ datasource db {
 }
 
 // ============================================================
+// ENUMS
+// ============================================================
+
+enum ManifestStatus {
+  DRAFT
+  SUBMITTED
+  CANCELLED
+}
+
+// ============================================================
 // ICD SITE
 // ============================================================
 
@@ -38,8 +48,9 @@ model IcdSite {
   createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
   updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
 
-  users    User[]
-  settings IcdSetting[]
+  users     User[]
+  settings  IcdSetting[]
+  manifests Manifest[]
 
   @@map("icd_site")
 }
@@ -65,10 +76,10 @@ model User {
 
   icd IcdSite @relation(fields: [icdId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
-  roles    UserRole[]
-  sessions AuthSession[]
-
-  updatedSettings IcdSetting[] @relation("IcdSettingUpdatedBy")
+  roles            UserRole[]
+  sessions         AuthSession[]
+  updatedSettings  IcdSetting[]  @relation("IcdSettingUpdatedBy")
+  createdManifests Manifest[]
 
   @@index([icdId])
   @@index([active])
@@ -244,6 +255,9 @@ model ShippingLine {
 
   updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
 
+  manifests Manifest[]
+  masterBls MasterBl[]
+
   @@index([active])
   @@index([name])
 
@@ -273,6 +287,8 @@ model Consignee {
 
   updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
 
+  houseBls HouseBl[]
+
   @@index([active])
   @@index([name])
 
@@ -295,6 +311,8 @@ model ClearingAgent {
   createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
 
   updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
+
+  houseBls HouseBl[]
 
   @@index([active])
   @@index([name])
@@ -324,4 +342,122 @@ model Transporter {
 
   @@map("transporter")
 }
+
+// ============================================================
+// MANIFEST
+// ============================================================
+
+model Manifest {
+  id String @id @default(uuid()) @db.Char(36)
+
+  icdId String @map("icd_id") @db.Char(36)
+
+  manifestNo String @map("manifest_no") @db.VarChar(50)
+
+  shippingLineId String @map("shipping_line_id") @db.Char(36)
+
+  vesselName String @map("vessel_name") @db.VarChar(150)
+
+  voyageNo String @map("voyage_no") @db.VarChar(100)
+
+  eta DateTime @db.DateTime(3)
+
+  portOfLoading String @map("port_of_loading") @db.VarChar(100)
+
+  portOfDischarge String @map("port_of_discharge") @db.VarChar(100)
+
+  status ManifestStatus @default(DRAFT)
+
+  createdById String @map("created_by") @db.Char(36)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+
+  updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
+
+  icd IcdSite @relation(fields: [icdId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  shippingLine ShippingLine @relation(fields: [shippingLineId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  createdByUser User @relation(fields: [createdById], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  masterBls MasterBl[]
+
+  @@unique([icdId, manifestNo])
+
+  @@index([icdId, status])
+  @@index([shippingLineId])
+  @@index([eta])
+
+  @@map("manifest")
+}
+
+// ============================================================
+// MASTER B/L
+// ============================================================
+
+model MasterBl {
+  id String @id @default(uuid()) @db.Char(36)
+
+  manifestId String @map("manifest_id") @db.Char(36)
+
+  mblNumber String @map("mbl_number") @db.VarChar(100)
+
+  shippingLineId String @map("shipping_line_id") @db.Char(36)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+
+  updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
+
+  manifest Manifest @relation(fields: [manifestId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  shippingLine ShippingLine @relation(fields: [shippingLineId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  houseBls HouseBl[]
+
+  @@unique([manifestId, mblNumber])
+
+  @@index([shippingLineId])
+
+  @@map("master_bl")
+}
+
+// ============================================================
+// HOUSE B/L
+// ============================================================
+
+model HouseBl {
+  id String @id @default(uuid()) @db.Char(36)
+
+  masterBlId String @map("master_bl_id") @db.Char(36)
+
+  hblNumber String @map("hbl_number") @db.VarChar(100)
+
+  consigneeId String @map("consignee_id") @db.Char(36)
+
+  clearingAgentId String @map("clearing_agent_id") @db.Char(36)
+
+  cargoDescription String @map("cargo_description") @db.Text
+
+  grossWeight Decimal @map("gross_weight") @db.Decimal(14, 3)
+
+  packageCount Int @map("package_count")
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+
+  updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
+
+  masterBl MasterBl @relation(fields: [masterBlId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  consignee Consignee @relation(fields: [consigneeId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  clearingAgent ClearingAgent @relation(fields: [clearingAgentId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  @@unique([masterBlId, hblNumber])
+
+  @@index([consigneeId])
+  @@index([clearingAgentId])
+
+  @@map("house_bl")
+}
+
 
