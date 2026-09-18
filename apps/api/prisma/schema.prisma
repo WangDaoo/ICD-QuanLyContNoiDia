@@ -223,3 +223,105 @@ model IcdSetting {
   @@index([updatedBy])
   @@map("icd_setting")
 }
+
+// ============================================================
+// SHIPPING LINE
+//
+// Global master catalog.
+// Không scope theo ICD Site.
+// ============================================================
+
+model ShippingLine {
+  id String @id @default(uuid()) @db.Char(36)
+
+  name String @db.VarChar(150)
+
+  scacCode String @unique @map("scac_code") @db.VarChar(10)
+
+  active Boolean @default(true)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+
+  updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
+
+  @@index([active])
+  @@index([name])
+
+  @@map("shipping_line")
+}
+
+// ============================================================
+// CONSIGNEE
+// ============================================================
+
+model Consignee {
+  id String @id @default(uuid()) @db.Char(36)
+
+  name String @db.VarChar(150)
+
+  taxCode String @unique @map("tax_code") @db.VarChar(50)
+
+  phone String? @db.VarChar(30)
+
+  email String? @db.VarChar(191)
+
+  address String? @db.VarChar(500)
+
+  active Boolean @default(true)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+
+  updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
+
+  @@index([active])
+  @@index([name])
+
+  @@map("consignee")
+}
+
+// ============================================================
+// CLEARING AGENT
+// ============================================================
+
+model ClearingAgent {
+  id String @id @default(uuid()) @db.Char(36)
+
+  name String @db.VarChar(150)
+
+  licenseNo String @unique @map("license_no") @db.VarChar(100)
+
+  active Boolean @default(true)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+
+  updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
+
+  @@index([active])
+  @@index([name])
+
+  @@map("clearing_agent")
+}
+
+// ============================================================
+// TRANSPORTER
+// ============================================================
+
+model Transporter {
+  id String @id @default(uuid()) @db.Char(36)
+
+  name String @db.VarChar(150)
+
+  taxCode String @unique @map("tax_code") @db.VarChar(50)
+
+  active Boolean @default(true)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+
+  updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
+
+  @@index([active])
+  @@index([name])
+
+  @@map("transporter")
+}
+

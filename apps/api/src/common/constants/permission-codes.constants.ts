@@ -17,6 +17,12 @@ export const PERMISSION_CODES = {
   SETTINGS_MANAGE:
     'settings.manage',
 
+  MASTER_DATA_READ:
+    'master_data.read',
+
+  MASTER_DATA_MANAGE:
+    'master_data.manage',
+
   MANIFEST_READ:
     'manifest.read',
 

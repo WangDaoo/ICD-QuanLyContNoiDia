@@ -1,15 +1,67 @@
-/**
- * master-data / master-data.module.ts
- *
- * Mục đích:
- * File dự kiến triển khai cho module master-data. Quản lý shipping line, consignee, agent, transporter và danh mục dùng chung.
- *
- * Quy tắc khi triển khai:
- * - Ownership module: Master data; không xử lý lifecycle container.
- * - Tuân thủ pattern chung trong docs/development/OPERATION_PATTERNS.md.
- * - Chưa có logic; chỉ thêm code khi bắt đầu triển khai module này.
- *
- * Lưu ý:
- * - File hiện tại chỉ là khung, chưa có logic thực thi.
- * - Không tự ý mở rộng trách nhiệm của file nếu chưa cập nhật RULES.md của module.
- */
+import {
+  Module,
+} from '@nestjs/common';
+
+import {
+  PrismaModule,
+} from '../../database/prisma.module';
+
+import {
+  ShippingLinesController,
+} from './controllers/shipping-lines.controller';
+
+import {
+  ConsigneesController,
+} from './controllers/consignees.controller';
+
+import {
+  ClearingAgentsController,
+} from './controllers/clearing-agents.controller';
+
+import {
+  TransportersController,
+} from './controllers/transporters.controller';
+
+import {
+  ShippingLineService,
+} from './services/shipping-line.service';
+
+import {
+  ConsigneeService,
+} from './services/consignee.service';
+
+import {
+  ClearingAgentService,
+} from './services/clearing-agent.service';
+
+import {
+  TransporterService,
+} from './services/transporter.service';
+
+@Module({
+  imports: [
+    PrismaModule,
+  ],
+
+  controllers: [
+    ShippingLinesController,
+    ConsigneesController,
+    ClearingAgentsController,
+    TransportersController,
+  ],
+
+  providers: [
+    ShippingLineService,
+    ConsigneeService,
+    ClearingAgentService,
+    TransporterService,
+  ],
+
+  exports: [
+    ShippingLineService,
+    ConsigneeService,
+    ClearingAgentService,
+    TransporterService,
+  ],
+})
+export class MasterDataModule {}

@@ -46,6 +46,20 @@ export const permissions = [
   },
 
   {
+    code: PERMISSION_CODES.MASTER_DATA_READ,
+    name: 'Xem dữ liệu danh mục',
+    description:
+      'Cho phép xem Shipping Line, Consignee, Clearing Agent và Transporter.',
+  },
+
+  {
+    code: PERMISSION_CODES.MASTER_DATA_MANAGE,
+    name: 'Quản lý dữ liệu danh mục',
+    description:
+      'Cho phép tạo, cập nhật và kích hoạt/vô hiệu hóa Master Data.',
+  },
+
+  {
     code: PERMISSION_CODES.MANIFEST_READ,
     name: 'Xem manifest',
     description:

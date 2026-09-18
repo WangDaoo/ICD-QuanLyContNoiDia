@@ -1,15 +1,55 @@
-/**
- * master-data / query-master-data.dto.ts
- *
- * Mục đích:
- * File dự kiến triển khai cho module master-data. Quản lý shipping line, consignee, agent, transporter và danh mục dùng chung.
- *
- * Quy tắc khi triển khai:
- * - Ownership module: Master data; không xử lý lifecycle container.
- * - Tuân thủ pattern chung trong docs/development/OPERATION_PATTERNS.md.
- * - Chưa có logic; chỉ thêm code khi bắt đầu triển khai module này.
- *
- * Lưu ý:
- * - File hiện tại chỉ là khung, chưa có logic thực thi.
- * - Không tự ý mở rộng trách nhiệm của file nếu chưa cập nhật RULES.md của module.
- */
+import {
+  Transform,
+  Type,
+} from 'class-transformer';
+
+import {
+  IsBoolean,
+  IsInt,
+  IsOptional,
+  IsString,
+  Max,
+  MaxLength,
+  Min,
+} from 'class-validator';
+
+export class QueryMasterDataDto {
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  page: number = 1;
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  @Max(100)
+  pageSize: number = 20;
+
+  @IsOptional()
+  @Transform(
+    ({ value }) =>
+      typeof value === 'string'
+        ? value.trim()
+        : value,
+  )
+  @IsString()
+  @MaxLength(191)
+  search?: string;
+
+  @IsOptional()
+  @Transform(({ value }) => {
+    if (value === 'true') {
+      return true;
+    }
+
+    if (value === 'false') {
+      return false;
+    }
+
+    return value;
+  })
+  @IsBoolean()
+  active?: boolean;
+}
