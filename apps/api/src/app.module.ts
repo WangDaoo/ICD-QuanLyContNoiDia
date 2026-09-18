@@ -15,6 +15,10 @@ import {
 } from './modules/auth/auth.module';
 
 import {
+  ContainersModule,
+} from './modules/containers/containers.module';
+
+import {
   HealthModule,
 } from './modules/health/health.module';
 
@@ -58,6 +62,8 @@ import {
     MasterDataModule,
 
     ManifestsModule,
+
+    ContainersModule,
   ],
 })
 export class AppModule {}

@@ -41,6 +41,15 @@ export const PERMISSION_CODES = {
   CONTAINER_READ:
     'container.read',
 
+  CONTAINER_CREATE:
+    'container.create',
+
+  CONTAINER_UPDATE:
+    'container.update',
+
+  CONTAINER_CANCEL:
+    'container.cancel',
+
   GATE_IN_CREATE:
     'gate_in.create',
 

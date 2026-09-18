@@ -34,6 +34,50 @@ enum ManifestStatus {
   CANCELLED
 }
 
+enum ContainerType {
+  DRY
+  REEFER
+  FLATRACK
+  OPENTOP
+  TANK
+}
+
+enum ContainerSize {
+  SIZE_20
+  SIZE_40
+  SIZE_45
+}
+
+enum ContainerVisitStatus {
+  PENDING
+  AUTHORIZED
+  IN_TRANSIT
+  ARRIVED
+  INSPECTED
+  GATE_IN_REQUESTED
+  GATE_IN_CONFIRMED
+  STACKED
+  UNDER_CUSTOMS_HOLD
+  CUSTOMS_CLEARED
+  GATE_PASS_ISSUED
+  GATE_OUT_CONFIRMED
+  EXITED
+  CANCELLED
+}
+
+enum ContainerCategory {
+  IMPORT
+  EXPORT
+  STORAGE
+}
+
+enum ContainerHoldStatus {
+  NONE
+  CUSTOMS_HOLD
+  ICD_HOLD
+  PAYMENT_HOLD
+}
+
 // ============================================================
 // ICD SITE
 // ============================================================
@@ -48,9 +92,10 @@ model IcdSite {
   createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
   updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
 
-  users     User[]
-  settings  IcdSetting[]
-  manifests Manifest[]
+  users           User[]
+  settings        IcdSetting[]
+  manifests       Manifest[]
+  containerVisits ContainerVisit[]
 
   @@map("icd_site")
 }
@@ -78,8 +123,9 @@ model User {
 
   roles            UserRole[]
   sessions         AuthSession[]
-  updatedSettings  IcdSetting[]  @relation("IcdSettingUpdatedBy")
+  updatedSettings  IcdSetting[]     @relation("IcdSettingUpdatedBy")
   createdManifests Manifest[]
+  containerEvents  ContainerEvent[]
 
   @@index([icdId])
   @@index([active])
@@ -452,12 +498,120 @@ model HouseBl {
 
   clearingAgent ClearingAgent @relation(fields: [clearingAgentId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
+  containerVisits ContainerVisit[]
+
   @@unique([masterBlId, hblNumber])
 
   @@index([consigneeId])
   @@index([clearingAgentId])
 
   @@map("house_bl")
+}
+
+// ============================================================
+// CONTAINER (Physical asset)
+// ============================================================
+
+model Container {
+  id String @id @default(uuid()) @db.Char(36)
+
+  containerNumber String @unique @map("container_number") @db.VarChar(11)
+
+  isoCode String @map("iso_code") @db.VarChar(10)
+
+  size ContainerSize
+  type ContainerType
+
+  height     Decimal? @db.Decimal(5, 2)
+  tareWeight Decimal? @map("tare_weight") @db.Decimal(10, 3)
+  maxPayload Decimal? @map("max_payload") @db.Decimal(10, 3)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
+
+  visits ContainerVisit[]
+
+  @@index([containerNumber])
+  @@map("container")
+}
+
+// ============================================================
+// CONTAINER VISIT (ICD Lifecycle instance)
+// ============================================================
+
+model ContainerVisit {
+  id String @id @default(uuid()) @db.Char(36)
+
+  icdId String @map("icd_id") @db.Char(36)
+
+  containerId String @map("container_id") @db.Char(36)
+
+  houseBlId String? @map("house_bl_id") @db.Char(36)
+
+  sealNumber String? @map("seal_number") @db.VarChar(50)
+
+  cargoDescription String? @map("cargo_description") @db.Text
+
+  grossWeight Decimal? @map("gross_weight") @db.Decimal(14, 3)
+
+  status ContainerVisitStatus @default(PENDING)
+
+  category ContainerCategory @default(IMPORT)
+
+  holdStatus ContainerHoldStatus @default(NONE) @map("hold_status")
+
+  isOverstay Boolean @default(false) @map("is_overstay")
+
+  dwellDays Int @default(0) @map("dwell_days")
+
+  currentLocation String? @map("current_location") @db.VarChar(100)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
+
+  icd       IcdSite   @relation(fields: [icdId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  container Container @relation(fields: [containerId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  houseBl   HouseBl?  @relation(fields: [houseBlId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  events ContainerEvent[]
+
+  @@index([icdId, status])
+  @@index([containerId])
+  @@index([houseBlId])
+  @@index([category])
+  @@index([holdStatus])
+  @@map("container_visit")
+}
+
+// ============================================================
+// CONTAINER EVENT (Timeline log)
+// ============================================================
+
+model ContainerEvent {
+  id String @id @default(uuid()) @db.Char(36)
+
+  visitId String @map("visit_id") @db.Char(36)
+
+  eventType String @map("event_type") @db.VarChar(100)
+
+  fromStatus ContainerVisitStatus? @map("from_status")
+  toStatus   ContainerVisitStatus? @map("to_status")
+
+  actorId String? @map("actor_id") @db.Char(36)
+
+  metadata Json?
+
+  note String? @db.Text
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+
+  visit ContainerVisit @relation(fields: [visitId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  actor User?          @relation(fields: [actorId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  @@index([visitId])
+  @@index([actorId])
+  @@index([eventType])
+  @@map("container_event")
 }
 
 

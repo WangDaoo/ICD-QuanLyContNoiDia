@@ -102,6 +102,27 @@ export const permissions = [
   },
 
   {
+    code: PERMISSION_CODES.CONTAINER_CREATE,
+    name: 'Tạo Container Visit',
+    description:
+      'Cho phép đăng ký container và tạo một vòng đời Container Visit mới.',
+  },
+
+  {
+    code: PERMISSION_CODES.CONTAINER_UPDATE,
+    name: 'Cập nhật Container Visit',
+    description:
+      'Cho phép cập nhật thông tin Container Visit khi trạng thái nghiệp vụ cho phép.',
+  },
+
+  {
+    code: PERMISSION_CODES.CONTAINER_CANCEL,
+    name: 'Hủy Container Visit',
+    description:
+      'Cho phép hủy Container Visit khi chưa bắt đầu vận hành.',
+  },
+
+  {
     code: PERMISSION_CODES.GATE_IN_CREATE,
     name: 'Tạo Gate-in',
     description:
