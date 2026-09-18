@@ -78,6 +78,13 @@ enum ContainerHoldStatus {
   PAYMENT_HOLD
 }
 
+enum MovementOrderStatus {
+  DRAFT
+  AUTHORIZED
+  EXPIRED
+  CANCELLED
+}
+
 // ============================================================
 // ICD SITE
 // ============================================================
@@ -121,11 +128,13 @@ model User {
 
   icd IcdSite @relation(fields: [icdId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
-  roles            UserRole[]
-  sessions         AuthSession[]
-  updatedSettings  IcdSetting[]     @relation("IcdSettingUpdatedBy")
-  createdManifests Manifest[]
-  containerEvents  ContainerEvent[]
+  roles                    UserRole[]
+  sessions                 AuthSession[]
+  updatedSettings          IcdSetting[]     @relation("IcdSettingUpdatedBy")
+  createdManifests         Manifest[]
+  containerEvents          ContainerEvent[]
+  createdMovementOrders    MovementOrder[]  @relation("MovementOrderCreatedBy")
+  authorizedMovementOrders MovementOrder[]  @relation("MovementOrderAuthorizedBy")
 
   @@index([icdId])
   @@index([active])
@@ -573,7 +582,8 @@ model ContainerVisit {
   container Container @relation(fields: [containerId], references: [id], onDelete: Restrict, onUpdate: Cascade)
   houseBl   HouseBl?  @relation(fields: [houseBlId], references: [id], onDelete: SetNull, onUpdate: Cascade)
 
-  events ContainerEvent[]
+  events         ContainerEvent[]
+  movementOrders MovementOrder[]
 
   @@index([icdId, status])
   @@index([containerId])
@@ -612,6 +622,42 @@ model ContainerEvent {
   @@index([actorId])
   @@index([eventType])
   @@map("container_event")
+}
+
+// ============================================================
+// MOVEMENT ORDER
+// ============================================================
+
+model MovementOrder {
+  id String @id @default(uuid()) @db.Char(36)
+
+  containerVisitId String @map("container_visit_id") @db.Char(36)
+
+  status MovementOrderStatus @default(DRAFT)
+
+  authorizedById String? @map("authorized_by") @db.Char(36)
+
+  authorizedAt DateTime? @map("authorized_at") @db.DateTime(3)
+
+  expiresAt DateTime? @map("expires_at") @db.DateTime(3)
+
+  createdById String @map("created_by") @db.Char(36)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+
+  updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
+
+  containerVisit ContainerVisit @relation(fields: [containerVisitId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  createdByUser User @relation("MovementOrderCreatedBy", fields: [createdById], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  authorizedByUser User? @relation("MovementOrderAuthorizedBy", fields: [authorizedById], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  @@index([containerVisitId, status])
+  @@index([status, expiresAt])
+  @@index([createdById])
+  @@index([authorizedById])
+  @@map("movement_order")
 }
 
 

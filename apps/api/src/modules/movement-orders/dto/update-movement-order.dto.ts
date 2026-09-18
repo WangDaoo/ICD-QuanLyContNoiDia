@@ -1,7 +1,7 @@
 import { Type } from 'class-transformer';
 import { IsDate, IsOptional } from 'class-validator';
 
-export class AuthorizeMovementOrderDto {
+export class UpdateMovementOrderDto {
   @IsOptional()
   @Type(() => Date)
   @IsDate()

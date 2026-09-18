@@ -1,6 +1,24 @@
-import { ContainerVisitStatus } from '../../../generated/prisma/client';
+import { ConflictException, Injectable } from '@nestjs/common';
 
+import { ContainerVisitStatus } from '../../../generated/prisma/client';
+import { CONTAINER_ERROR_CODES } from '../constants/container-error-codes.constants';
+
+@Injectable()
 export class ContainerStatePolicy {
+  assertCanAuthorizeMovement(status: ContainerVisitStatus): void {
+    if (status !== ContainerVisitStatus.PENDING) {
+      throw this.invalidState(
+        'Chỉ Container Visit PENDING mới được authorize bằng Movement Order.',
+      );
+    }
+  }
+
+  private invalidState(message: string): ConflictException {
+    return new ConflictException({
+      code: CONTAINER_ERROR_CODES.INVALID_STATE,
+      message,
+    });
+  }
   private static readonly VALID_TRANSITIONS: Record<
     ContainerVisitStatus,
     readonly ContainerVisitStatus[]

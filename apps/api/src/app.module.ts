@@ -31,6 +31,10 @@ import {
 } from './modules/master-data/master-data.module';
 
 import {
+  MovementOrdersModule,
+} from './modules/movement-orders/movement-orders.module';
+
+import {
   RolesModule,
 } from './modules/roles/roles.module';
 
@@ -64,6 +68,8 @@ import {
     ManifestsModule,
 
     ContainersModule,
+
+    MovementOrdersModule,
   ],
 })
 export class AppModule {}

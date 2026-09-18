@@ -123,6 +123,41 @@ export const permissions = [
   },
 
   {
+    code: PERMISSION_CODES.MOVEMENT_ORDER_READ,
+    name: 'Xem Movement Order',
+    description:
+      'Cho phép xem lệnh vận chuyển container về ICD.',
+  },
+
+  {
+    code: PERMISSION_CODES.MOVEMENT_ORDER_CREATE,
+    name: 'Tạo Movement Order',
+    description:
+      'Cho phép tạo lệnh vận chuyển cho Container Visit.',
+  },
+
+  {
+    code: PERMISSION_CODES.MOVEMENT_ORDER_UPDATE,
+    name: 'Cập nhật Movement Order',
+    description:
+      'Cho phép cập nhật Movement Order khi còn DRAFT.',
+  },
+
+  {
+    code: PERMISSION_CODES.MOVEMENT_ORDER_AUTHORIZE,
+    name: 'Authorize Movement Order',
+    description:
+      'Cho phép xác nhận container được phép vận chuyển về ICD.',
+  },
+
+  {
+    code: PERMISSION_CODES.MOVEMENT_ORDER_CANCEL,
+    name: 'Hủy Movement Order',
+    description:
+      'Cho phép hủy Movement Order còn DRAFT.',
+  },
+
+  {
     code: PERMISSION_CODES.GATE_IN_CREATE,
     name: 'Tạo Gate-in',
     description:

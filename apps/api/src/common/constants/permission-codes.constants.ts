@@ -50,6 +50,21 @@ export const PERMISSION_CODES = {
   CONTAINER_CANCEL:
     'container.cancel',
 
+  MOVEMENT_ORDER_READ:
+    'movement_order.read',
+
+  MOVEMENT_ORDER_CREATE:
+    'movement_order.create',
+
+  MOVEMENT_ORDER_UPDATE:
+    'movement_order.update',
+
+  MOVEMENT_ORDER_AUTHORIZE:
+    'movement_order.authorize',
+
+  MOVEMENT_ORDER_CANCEL:
+    'movement_order.cancel',
+
   GATE_IN_CREATE:
     'gate_in.create',
 
