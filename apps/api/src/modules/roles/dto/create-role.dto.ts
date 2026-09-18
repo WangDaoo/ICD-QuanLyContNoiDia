@@ -1,15 +1,43 @@
-/**
- * roles / create-role.dto.ts
- *
- * Mục đích:
- * File dự kiến triển khai cho module roles. Quản lý role, permission và ma trận phân quyền.
- *
- * Quy tắc khi triển khai:
- * - Ownership module: Role/permission mapping.
- * - Tuân thủ pattern chung trong docs/development/OPERATION_PATTERNS.md.
- * - Chưa có logic; chỉ thêm code khi bắt đầu triển khai module này.
- *
- * Lưu ý:
- * - File hiện tại chỉ là khung, chưa có logic thực thi.
- * - Không tự ý mở rộng trách nhiệm của file nếu chưa cập nhật RULES.md của module.
- */
+import {
+  Transform,
+} from 'class-transformer';
+
+import {
+  IsOptional,
+  IsString,
+  Matches,
+  MaxLength,
+  MinLength,
+} from 'class-validator';
+
+export class CreateRoleDto {
+  @Transform(
+    ({ value }) =>
+      typeof value === 'string'
+        ? value
+            .trim()
+            .toUpperCase()
+        : value,
+  )
+  @IsString()
+  @MinLength(2)
+  @MaxLength(50)
+  @Matches(
+    /^[A-Z][A-Z0-9_]*$/,
+    {
+      message:
+        'Role code chỉ được chứa A-Z, 0-9 và dấu gạch dưới.',
+    },
+  )
+  code!: string;
+
+  @IsString()
+  @MinLength(2)
+  @MaxLength(100)
+  name!: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(255)
+  description?: string;
+}

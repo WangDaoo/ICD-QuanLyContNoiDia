@@ -1,15 +1,54 @@
-/**
- * users / create-user.dto.ts
- *
- * Mục đích:
- * File dự kiến triển khai cho module users. Quản lý tài khoản người dùng nội bộ ICD.
- *
- * Quy tắc khi triển khai:
- * - Ownership module: User profile, trạng thái tài khoản; không tự quyết định permission.
- * - Tuân thủ pattern chung trong docs/development/OPERATION_PATTERNS.md.
- * - Chưa có logic; chỉ thêm code khi bắt đầu triển khai module này.
- *
- * Lưu ý:
- * - File hiện tại chỉ là khung, chưa có logic thực thi.
- * - Không tự ý mở rộng trách nhiệm của file nếu chưa cập nhật RULES.md của module.
- */
+import {
+  Transform,
+} from 'class-transformer';
+
+import {
+  ArrayMinSize,
+  ArrayUnique,
+  IsArray,
+  IsEmail,
+  IsString,
+  MaxLength,
+  MinLength,
+} from 'class-validator';
+
+export class CreateUserDto {
+  @Transform(
+    ({ value }) =>
+      typeof value === 'string'
+        ? value.trim()
+        : value,
+  )
+  @IsString()
+  @MinLength(2)
+  @MaxLength(150)
+  name!: string;
+
+  @Transform(
+    ({ value }) =>
+      typeof value === 'string'
+        ? value
+            .trim()
+            .toLowerCase()
+        : value,
+  )
+  @IsEmail()
+  @MaxLength(191)
+  email!: string;
+
+  @IsString()
+  @MinLength(12)
+  @MaxLength(128)
+  password!: string;
+
+  @IsArray()
+  @ArrayMinSize(1)
+  @ArrayUnique()
+  @IsString({
+    each: true,
+  })
+  @MaxLength(50, {
+    each: true,
+  })
+  roleCodes!: string[];
+}
