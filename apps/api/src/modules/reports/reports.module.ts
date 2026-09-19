@@ -1,15 +1,38 @@
-/**
- * reports / reports.module.ts
- *
- * Mục đích:
- * File dự kiến triển khai cho module reports. Cung cấp báo cáo tổng hợp và export.
- *
- * Quy tắc khi triển khai:
- * - Ownership module: Read model/report query, không update core business data.
- * - Tuân thủ pattern chung trong docs/development/OPERATION_PATTERNS.md.
- * - Chưa có logic; chỉ thêm code khi bắt đầu triển khai module này.
- *
- * Lưu ý:
- * - File hiện tại chỉ là khung, chưa có logic thực thi.
- * - Không tự ý mở rộng trách nhiệm của file nếu chưa cập nhật RULES.md của module.
- */
+import { Module } from '@nestjs/common';
+
+import { PrismaModule } from '../../database/prisma.module';
+import { ReportsController } from './reports.controller';
+import { ContainerTurnoverReportService } from './services/container-turnover-report.service';
+import { EdiHealthReportService } from './services/edi-health-report.service';
+import { FinancialReportService } from './services/financial-report.service';
+import { GateActivityReportService } from './services/gate-activity-report.service';
+import { ReportExportService } from './services/report-export.service';
+import { ReportSummaryService } from './services/report-summary.service';
+import { ReportTimeService } from './services/report-time.service';
+import { YardInventoryReportService } from './services/yard-inventory-report.service';
+
+@Module({
+  imports: [PrismaModule],
+  controllers: [ReportsController],
+  providers: [
+    ReportTimeService,
+    GateActivityReportService,
+    ContainerTurnoverReportService,
+    YardInventoryReportService,
+    FinancialReportService,
+    EdiHealthReportService,
+    ReportSummaryService,
+    ReportExportService,
+  ],
+  exports: [
+    ReportTimeService,
+    GateActivityReportService,
+    ContainerTurnoverReportService,
+    YardInventoryReportService,
+    FinancialReportService,
+    EdiHealthReportService,
+    ReportSummaryService,
+    ReportExportService,
+  ],
+})
+export class ReportsModule {}

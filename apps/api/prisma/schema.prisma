@@ -782,6 +782,8 @@ model ContainerVisit {
   ediOutboxMessages EdiOutboxMessage[]
 
   @@index([icdId, status])
+  @@index([icdId, gateInAt])
+  @@index([icdId, gateOutAt])
   @@index([containerId])
   @@index([houseBlId])
   @@index([category])
@@ -1075,6 +1077,8 @@ model ContainerLocationLog {
   @@index([containerVisitId, endedAt])
   @@index([yardSlotId, endedAt])
   @@index([startedAt])
+  @@index([endedAt])
+  @@index([yardSlotId, startedAt, endedAt])
   @@map("container_location_log")
 }
 
