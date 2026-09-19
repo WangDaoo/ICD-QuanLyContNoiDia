@@ -40,6 +40,40 @@ const environmentSchema = z
     JWT_ISSUER: z.string().min(1).default('icd-api'),
 
     JWT_AUDIENCE: z.string().min(1).default('icd-clients'),
+
+    TOKEN_ENCRYPTION_KEY: z
+      .string()
+      .min(32)
+      .default('0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef'),
+
+    SMTP_HOST: z.string().optional(),
+
+    SMTP_PORT: z.coerce.number().int().optional().default(587),
+
+    SMTP_SECURE: z
+      .preprocess((val) => val === 'true' || val === true, z.boolean())
+      .optional()
+      .default(false),
+
+    SMTP_USER: z.string().optional(),
+
+    SMTP_PASS: z.string().optional(),
+
+    SMTP_FROM: z.string().optional().default('ICD Notification <noreply@icd.local>'),
+
+    FIREBASE_PROJECT_ID: z.string().optional(),
+
+    FIREBASE_CLIENT_EMAIL: z.string().optional(),
+
+    FIREBASE_PRIVATE_KEY: z.string().optional(),
+
+    APNS_KEY_ID: z.string().optional(),
+
+    APNS_TEAM_ID: z.string().optional(),
+
+    APNS_BUNDLE_ID: z.string().optional(),
+
+    APNS_PRIVATE_KEY: z.string().optional(),
   })
   .superRefine((environment, context) => {
     if (environment.JWT_ACCESS_TTL_SECONDS >= environment.JWT_REFRESH_TTL_SECONDS) {

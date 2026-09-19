@@ -46,6 +46,8 @@ import { ReportsModule } from './modules/reports/reports.module';
 
 import { PartnerHandoverModule } from './modules/partner-handover/partner-handover.module';
 
+import { NotificationsModule } from './modules/notifications/notifications.module';
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -97,6 +99,9 @@ import { PartnerHandoverModule } from './modules/partner-handover/partner-handov
     GateOutModule,
 
     PartnerHandoverModule,
+
+    NotificationsModule,
   ],
 })
 export class AppModule {}
+

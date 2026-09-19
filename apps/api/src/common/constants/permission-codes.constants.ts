@@ -106,6 +106,11 @@ export const PERMISSION_CODES = {
   EDI_ACK_INGEST: 'edi.ack.ingest',
 
   EDI_ALERT_MANAGE: 'edi.alert.manage',
+
+  NOTIFICATION_READ: 'notification.read',
+
+  NOTIFICATION_MANAGE: 'notification.manage',
 } as const;
 
 export type PermissionCode = (typeof PERMISSION_CODES)[keyof typeof PERMISSION_CODES];
+

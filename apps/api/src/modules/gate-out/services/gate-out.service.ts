@@ -14,6 +14,7 @@ import { GatePassReadinessService } from '../../gate-pass/services/gate-pass-rea
 import { GatePassTransitionService } from '../../gate-pass/services/gate-pass-transition.service';
 import { YardLocationService } from '../../yard/services/yard-location.service';
 import { EdiOutboxService } from '../../edi/services/edi-outbox.service';
+import { NotificationTriggerService } from '../../notifications/services/notification-trigger.service';
 import { GATE_OUT_ERROR_CODES } from '../constants/gate-out-error-codes.constants';
 import { ConfirmGateOutDto } from '../dto/confirm-gate-out.dto';
 
@@ -30,6 +31,7 @@ export class GateOutService {
     private readonly yardLocationService: YardLocationService,
     private readonly eventService: ContainerEventService,
     private readonly ediOutboxService: EdiOutboxService,
+    private readonly notificationTriggerService: NotificationTriggerService,
   ) {}
 
   async confirmGateOut(dto: ConfirmGateOutDto, actor: AuthenticatedUser) {
@@ -38,7 +40,7 @@ export class GateOutService {
       actor.icdId,
     );
 
-    return this.prisma.$transaction(async (tx) => {
+    const result = await this.prisma.$transaction(async (tx) => {
       // 1. Lock ContainerVisit first
       const visit = await this.containerTransitionService.lockForGateOut(
         tx,
@@ -173,5 +175,20 @@ export class GateOutService {
         status: ContainerVisitStatus.EXITED,
       };
     });
+
+    // 10. Fire Gate-Out notification asynchronously (isolated from core transaction)
+    this.notificationTriggerService
+      .triggerGateOutNotification({
+        icdId: actor.icdId,
+        containerVisitId: result.containerVisitId,
+        containerNo: result.containerNumber,
+        userId: actor.id,
+      })
+      .catch((err) => {
+        this.logger.error(`Error triggering gate-out notification: ${err.message}`);
+      });
+
+    return result;
   }
 }
+
