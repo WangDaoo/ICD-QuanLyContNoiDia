@@ -322,4 +322,16 @@ export const permissions = [
     name: 'Phát lệnh gửi EDI',
     description: 'Cho phép kích hoạt gửi thủ công các thông điệp EDI đến hãng tàu.',
   },
+
+  {
+    code: PERMISSION_CODES.EDI_ACK_INGEST,
+    name: 'Tiếp nhận phản hồi EDI (ACK)',
+    description: 'Cho phép tiếp nhận và xử lý thông điệp CONTRL/APERAK từ hãng tàu.',
+  },
+
+  {
+    code: PERMISSION_CODES.EDI_ALERT_MANAGE,
+    name: 'Quản lý sự cố EDI (Alerts)',
+    description: 'Cho phép xác nhận và xử lý các sự cố vận hành EDI Outbox và ACK.',
+  },
 ] as const;

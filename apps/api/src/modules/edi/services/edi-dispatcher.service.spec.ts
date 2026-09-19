@@ -2,6 +2,7 @@ import { EdiDispatcherService } from './edi-dispatcher.service';
 import { EdiOutboxStatus, EdiTransport } from '../../../generated/prisma/client';
 import { PrismaService } from '../../../database/prisma.service';
 import { EdiConfigService } from './edi-config.service';
+import { EdiAlertService } from './edi-alert.service';
 import { EdiMockTransport } from '../transports/edi-mock.transport';
 import { EdiHttpsTransport } from '../transports/edi-https.transport';
 import { EdiSftpTransport } from '../transports/edi-sftp.transport';
@@ -17,6 +18,9 @@ describe('EdiDispatcherService', () => {
   };
   let mockConfigService: {
     getConfig: jest.Mock;
+  };
+  let mockAlertService: {
+    createOrUpdateAlert: jest.Mock;
   };
   let mockMockTransport: {
     deliver: jest.Mock;
@@ -47,6 +51,10 @@ describe('EdiDispatcherService', () => {
       }),
     };
 
+    mockAlertService = {
+      createOrUpdateAlert: jest.fn().mockResolvedValue({}),
+    };
+
     mockMockTransport = {
       deliver: jest.fn().mockResolvedValue({ externalReference: 'MOCK-123' }),
     };
@@ -60,6 +68,7 @@ describe('EdiDispatcherService', () => {
     service = new EdiDispatcherService(
       mockPrisma as unknown as PrismaService,
       mockConfigService as unknown as EdiConfigService,
+      mockAlertService as unknown as EdiAlertService,
       mockMockTransport as unknown as EdiMockTransport,
       mockHttpsTransport as unknown as EdiHttpsTransport,
       mockSftpTransport as unknown as EdiSftpTransport,

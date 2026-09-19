@@ -1,11 +1,15 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { Cron, CronExpression } from '@nestjs/schedule';
 import {
+  EdiAlertSeverity,
+  EdiAlertSourceType,
+  EdiAlertType,
   EdiOutboxStatus,
   EdiTransport,
 } from '../../../generated/prisma/client';
 import { PrismaService } from '../../../database/prisma.service';
 import { EdiConfigService } from './edi-config.service';
+import { EdiAlertService } from './edi-alert.service';
 import { EdiMockTransport } from '../transports/edi-mock.transport';
 import { EdiHttpsTransport } from '../transports/edi-https.transport';
 import { EdiSftpTransport } from '../transports/edi-sftp.transport';
@@ -24,6 +28,7 @@ export class EdiDispatcherService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly configService: EdiConfigService,
+    private readonly alertService: EdiAlertService,
     private readonly mockTransport: EdiMockTransport,
     private readonly httpsTransport: EdiHttpsTransport,
     private readonly sftpTransport: EdiSftpTransport,
@@ -169,6 +174,23 @@ export class EdiDispatcherService {
             lastError: deliveryError ?? 'Unknown error',
           },
         });
+
+        try {
+          await this.alertService.createOrUpdateAlert({
+            icdId: routingSnapshot.icdId,
+            sourceType: EdiAlertSourceType.OUTBOX,
+            sourceId: msg.id,
+            alertType: EdiAlertType.DELIVERY_FAILURE,
+            severity: isDead
+              ? EdiAlertSeverity.CRITICAL
+              : EdiAlertSeverity.ERROR,
+            title: `Lỗi truyền tin EDI (${nextStatus}) - ${msg.messageType}`,
+            message: `Thông điệp ${msg.id} gặp lỗi khi gửi: ${deliveryError ?? 'Không xác định'}. Lần thử: ${nextAttemptCount}/${maxRetries}.`,
+          });
+        } catch (alertErr) {
+          this.logger.error(`Failed to create alert for message ${msg.id}:`, alertErr);
+        }
+
         failedCount++;
       }
     }

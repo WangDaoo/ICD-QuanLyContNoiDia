@@ -209,6 +209,42 @@ enum EdiOutboxStatus {
   DEAD
 }
 
+enum EdiAcknowledgementType {
+  CONTRL
+  APERAK
+}
+
+enum EdiAcknowledgementStatus {
+  ACCEPTED
+  REJECTED
+  ERROR
+  UNMATCHED
+}
+
+enum EdiAlertStatus {
+  OPEN
+  ACKNOWLEDGED
+  RESOLVED
+}
+
+enum EdiAlertSeverity {
+  WARNING
+  ERROR
+  CRITICAL
+}
+
+enum EdiAlertSourceType {
+  OUTBOX
+  ACKNOWLEDGEMENT
+}
+
+enum EdiAlertType {
+  DELIVERY_FAILURE
+  ACK_REJECTED
+  ACK_ERROR
+  ACK_UNMATCHED
+}
+
 // ============================================================
 // ICD SITE
 // ============================================================
@@ -233,6 +269,7 @@ model IcdSite {
   serviceOrders   ServiceOrder[]
   auditLogs       AuditLog[]
   ediRoutes       EdiRoute[]
+  ediAlerts       EdiAlert[]
 
   @@map("icd_site")
 }
@@ -282,6 +319,8 @@ model User {
   releasedOperationalHolds    OperationalHold[]      @relation("OperationalHoldReleasedBy")
   issuedGatePasses            GatePass[]             @relation("GatePassIssuedBy")
   auditLogs                   AuditLog[]             @relation("AuditLogActor")
+  acknowledgedEdiAlerts       EdiAlert[]             @relation("EdiAlertAcknowledgedBy")
+  resolvedEdiAlerts           EdiAlert[]             @relation("EdiAlertResolvedBy")
 
   @@index([icdId])
   @@index([active])
@@ -457,10 +496,11 @@ model ShippingLine {
 
   updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
 
-  manifests         Manifest[]
-  masterBls         MasterBl[]
-  ediRoutes         EdiRoute[]
-  ediOutboxMessages EdiOutboxMessage[]
+  manifests           Manifest[]
+  masterBls           MasterBl[]
+  ediRoutes           EdiRoute[]
+  ediOutboxMessages   EdiOutboxMessage[]
+  ediAcknowledgements EdiAcknowledgement[]
 
   @@index([active])
   @@index([name])
@@ -1582,9 +1622,115 @@ model EdiOutboxMessage {
 
   shippingLine ShippingLine @relation(fields: [shippingLineId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
+  acknowledgements EdiAcknowledgement[]
+
   @@index([status, nextRetryAt, createdAt])
   @@index([shippingLineId, createdAt])
   @@index([containerVisitId, createdAt])
   @@index([processingStartedAt])
   @@map("edi_outbox_message")
+}
+
+// ============================================================
+// EDI ACKNOWLEDGEMENT (CONTRL / APERAK / Application receipts)
+// ============================================================
+
+model EdiAcknowledgement {
+  id String @id @default(uuid()) @db.Char(36)
+
+  outboxMessageId String? @map("outbox_message_id") @db.Char(36)
+
+  shippingLineId String @map("shipping_line_id") @db.Char(36)
+
+  ackType EdiAcknowledgementType @map("ack_type")
+
+  status EdiAcknowledgementStatus
+
+  externalReference String? @map("external_reference") @db.VarChar(255)
+
+  /**
+   * Raw CONTRL / APERAK hoặc raw JSON receipt.
+   */
+  rawPayload String? @map("raw_payload") @db.LongText
+
+  /**
+   * Parser-specific structure.
+   * Không dùng làm source-of-truth cho lifecycle ICD.
+   */
+  parsedPayload Json? @map("parsed_payload")
+
+  /**
+   * Technical extension để webhook/SFTP polling
+   * không ghi cùng receipt nhiều lần.
+   */
+  dedupeKey String @unique @map("dedupe_key") @db.Char(64)
+
+  receivedAt DateTime @default(now()) @map("received_at") @db.DateTime(3)
+
+  outboxMessage EdiOutboxMessage? @relation(fields: [outboxMessageId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  shippingLine  ShippingLine      @relation(fields: [shippingLineId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  @@index([outboxMessageId, receivedAt])
+  @@index([shippingLineId, receivedAt])
+  @@index([status, receivedAt])
+  @@index([ackType, receivedAt])
+  @@map("edi_acknowledgement")
+}
+
+// ============================================================
+// EDI OPERATIONAL ALERT / INCIDENT
+// ============================================================
+
+model EdiAlert {
+  id String @id @default(uuid()) @db.Char(36)
+
+  icdId String @map("icd_id") @db.Char(36)
+
+  sourceType EdiAlertSourceType @map("source_type")
+
+  /**
+   * ID của EdiOutboxMessage hoặc
+   * EdiAcknowledgement.
+   */
+  sourceId String @map("source_id") @db.Char(36)
+
+  alertType EdiAlertType @map("alert_type")
+
+  severity EdiAlertSeverity
+
+  status EdiAlertStatus @default(OPEN)
+
+  title String @db.VarChar(200)
+
+  message String @db.Text
+
+  occurrenceCount Int @default(1) @map("occurrence_count")
+
+  firstOccurredAt DateTime @default(now()) @map("first_occurred_at") @db.DateTime(3)
+
+  lastOccurredAt DateTime @default(now()) @map("last_occurred_at") @db.DateTime(3)
+
+  acknowledgedById String? @map("acknowledged_by") @db.Char(36)
+
+  acknowledgedAt DateTime? @map("acknowledged_at") @db.DateTime(3)
+
+  resolvedById String? @map("resolved_by") @db.Char(36)
+
+  resolvedAt DateTime? @map("resolved_at") @db.DateTime(3)
+
+  resolutionNote String? @map("resolution_note") @db.Text
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+
+  updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
+
+  icd                IcdSite @relation(fields: [icdId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  acknowledgedByUser User?   @relation("EdiAlertAcknowledgedBy", fields: [acknowledgedById], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  resolvedByUser     User?   @relation("EdiAlertResolvedBy", fields: [resolvedById], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  @@unique([sourceType, sourceId, alertType])
+  @@index([icdId, status, severity])
+  @@index([alertType, status])
+  @@index([lastOccurredAt])
+  @@map("edi_alert")
 }
