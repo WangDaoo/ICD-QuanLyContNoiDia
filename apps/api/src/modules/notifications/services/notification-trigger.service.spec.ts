@@ -72,6 +72,8 @@ describe('NotificationTriggerService', () => {
       recipientEmail: 'test@example.com',
       title: 'Gate Out',
       body: 'Body',
+      sourceType: 'ContainerVisit',
+      sourceId: 'visit-1',
       dedupeKey: 'GATE_OUT:visit-1',
     });
 
@@ -95,6 +97,8 @@ describe('NotificationTriggerService', () => {
       recipientEmail: 'consignee@example.com',
       title: 'Gate Out',
       body: 'Body',
+      sourceType: 'ContainerVisit',
+      sourceId: 'visit-1',
       dedupeKey: 'GATE_OUT:visit-1',
     });
 

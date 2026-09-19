@@ -46,6 +46,20 @@ const environmentSchema = z
       .min(32)
       .default('0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef'),
 
+    GATE_PASS_QR_SECRET: z
+      .string()
+      .min(32)
+      .default('0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef'),
+
+    CORS_ORIGINS: z
+      .string()
+      .default('http://localhost:3000,http://localhost:5173,http://localhost:8081,http://127.0.0.1:3000,http://127.0.0.1:5173'),
+
+    SWAGGER_ENABLED: z
+      .preprocess((val) => val === 'true' || val === true || val === undefined, z.boolean())
+      .optional()
+      .default(true),
+
     SMTP_HOST: z.string().optional(),
 
     SMTP_PORT: z.coerce.number().int().optional().default(587),

@@ -93,8 +93,8 @@ describe('MlClient', () => {
     expect(result).not.toBeNull();
     expect(result?.modelVersion).toBe('yard-xgb-v1.2.0');
     expect(result?.candidates).toHaveLength(2);
-    expect(result?.candidates[0].yardSlotId).toBe('slot-2');
-    expect(result?.candidates[0].mlRank).toBe(1);
+    expect(result?.candidates[0]!.yardSlotId).toBe('slot-2');
+    expect(result?.candidates[0]!.mlRank).toBe(1);
   });
 
   it('filters out any hallucinated candidate IDs not present in original input', async () => {
@@ -115,7 +115,7 @@ describe('MlClient', () => {
 
     expect(result).not.toBeNull();
     expect(result?.candidates).toHaveLength(1);
-    expect(result?.candidates[0].yardSlotId).toBe('slot-1');
+    expect(result?.candidates[0]!.yardSlotId).toBe('slot-1');
   });
 
   it('returns null when fetch fails with network error or 500 status', async () => {

@@ -1,11 +1,14 @@
 import { Transform } from 'class-transformer';
-import { IsString, MaxLength, MinLength } from 'class-validator';
+import { IsString, IsUUID, MaxLength, MinLength } from 'class-validator';
 
 export class ConfirmGateOutDto {
+  @IsUUID()
+  visitId!: string;
+
   /**
    * Mobile gửi lại chính QR token đã scan.
    *
-   * Backend không tin gatePassId từ client.
+   * Backend dùng QR token để lookup Gate Pass và cross-check visitId.
    */
   @Transform(({ value }) => (typeof value === 'string' ? value.trim() : value))
   @IsString()

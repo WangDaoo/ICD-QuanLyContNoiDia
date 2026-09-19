@@ -14,11 +14,20 @@ export class HealthService {
   constructor(private readonly prisma: PrismaService) {}
 
   async check() {
+    return this.ready();
+  }
+
+  live() {
+    return {
+      status: 'ok',
+      service: 'icd-api',
+      uptime: process.uptime(),
+      timestamp: new Date().toISOString(),
+    };
+  }
+
+  async ready() {
     try {
-      /**
-       * Chưa có Prisma model nên dùng query đơn giản
-       * để xác minh connection thật tới MySQL.
-       */
       await this.prisma.$queryRawUnsafe('SELECT 1');
 
       return {
@@ -28,10 +37,6 @@ export class HealthService {
         timestamp: new Date().toISOString(),
       };
     } catch {
-      /**
-       * Không expose chi tiết exception/database
-       * ra ngoài health endpoint.
-       */
       throw new ServiceUnavailableException({
         status: 'error',
         service: 'icd-api',

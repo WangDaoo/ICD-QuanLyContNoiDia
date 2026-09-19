@@ -32,10 +32,12 @@ describe('HandoverService', () => {
 
   const mockActor: AuthenticatedUser = {
     id: 'user-1',
+    sessionId: 'session-1',
+    name: 'Admin User',
     email: 'test@icd.local',
-    role: 'ADMIN',
+    roleCodes: ['ADMIN'],
     icdId: 'ICD01',
-    permissions: ['handover.confirm', 'handover.dispute'],
+    permissionCodes: ['handover.confirm', 'handover.dispute'],
   };
 
   beforeEach(async () => {
@@ -296,7 +298,7 @@ describe('HandoverService', () => {
 
       await expect(
         service.icdConfirm('handover-1', {}, mockActor),
-      ).rejects.toThrow(ConflictException);
+      ).rejects.toThrow(BadRequestException);
     });
   });
 

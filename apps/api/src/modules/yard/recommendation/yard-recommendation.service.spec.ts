@@ -25,11 +25,12 @@ describe('YardRecommendationService', () => {
 
   const sampleActor: AuthenticatedUser = {
     id: 'user-1',
-    username: 'yard_op',
-    fullName: 'Yard Operator',
-    role: 'YARD_OPERATOR',
+    sessionId: 'session-1',
+    name: 'Yard Operator',
+    email: 'yard@icd.local',
+    roleCodes: ['YARD_OPERATOR'],
     icdId: 'icd-1',
-    permissions: ['YARD_UPDATE', 'YARD_READ'],
+    permissionCodes: ['YARD_UPDATE', 'YARD_READ'],
   };
 
   const sampleVisit = {
@@ -158,8 +159,8 @@ describe('YardRecommendationService', () => {
     expect(result.algorithm).toBe(YardRecommendationAlgorithm.RULE_BASED_V1);
     expect(result.modelVersion).toBeNull();
     expect(result.data).toHaveLength(2);
-    expect(result.data[0].ruleScore).toBe(100);
-    expect(result.data[0].mlProbability).toBeNull();
+    expect(result.data[0]!.ruleScore).toBe(100);
+    expect(result.data[0]!.mlProbability).toBeNull();
     expect(result.contextToken).toBeDefined();
 
     expect(mockPrisma.yardRecommendation.create).toHaveBeenCalled();
@@ -181,10 +182,10 @@ describe('YardRecommendationService', () => {
 
     expect(result.algorithm).toBe(YardRecommendationAlgorithm.ML_RERANK);
     expect(result.modelVersion).toBe('ml-yard-model-v2.1');
-    expect(result.data[0].yardSlotId).toBe('slot-2');
-    expect(result.data[0].rank).toBe(1);
-    expect(result.data[0].mlProbability).toBe(0.92);
-    expect(result.data[1].yardSlotId).toBe('slot-1');
+    expect(result.data[0]!.yardSlotId).toBe('slot-2');
+    expect(result.data[0]!.rank).toBe(1);
+    expect(result.data[0]!.mlProbability).toBe(0.92);
+    expect(result.data[1]!.yardSlotId).toBe('slot-1');
   });
 
   it('verifies context token accurately', () => {
@@ -197,7 +198,7 @@ describe('YardRecommendationService', () => {
   });
 
   it('records selection feedback on slot assign', async () => {
-    await service.recordFeedback(mockPrisma, 'rec-1', 'slot-1');
+    await service.recordFeedback(mockPrisma as any, 'rec-1', 'slot-1');
 
     expect(mockPrisma.yardRecommendationCandidate.updateMany).toHaveBeenCalledWith({
       where: {

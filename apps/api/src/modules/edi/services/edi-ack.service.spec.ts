@@ -40,9 +40,11 @@ describe('EdiAckService', () => {
   const mockActor: AuthenticatedUser = {
     id: 'user-1',
     icdId: 'icd-1',
+    sessionId: 'session-1',
+    name: 'Ops User',
     email: 'ops@icd.local',
-    role: 'OPERATIONS',
-    permissions: [],
+    roleCodes: ['OPERATIONS'],
+    permissionCodes: [],
   };
 
   beforeEach(() => {

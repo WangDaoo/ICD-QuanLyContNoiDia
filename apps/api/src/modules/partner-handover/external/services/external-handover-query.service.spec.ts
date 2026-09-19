@@ -86,7 +86,7 @@ describe('ExternalHandoverQueryService', () => {
         handover_id: 'handover-1',
         transport_code: 'TR-100',
         container_code: 'CONT-100',
-        container_type: '20GP',
+        container_type: ContainerType.DRY,
         status: TransportHandoverStatus.READY_FOR_HANDOVER,
         ready_at: new Date('2026-09-19T08:00:00Z'),
         expected_delivery_at: new Date('2026-09-19T14:00:00Z'),

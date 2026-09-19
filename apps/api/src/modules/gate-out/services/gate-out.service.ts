@@ -40,6 +40,13 @@ export class GateOutService {
       actor.icdId,
     );
 
+    if (target.containerVisitId !== dto.visitId) {
+      throw new ConflictException({
+        code: 'GATE_PASS_VISIT_MISMATCH',
+        message: 'Phiếu ra cổng không thuộc Container Visit này.',
+      });
+    }
+
     const result = await this.prisma.$transaction(async (tx) => {
       // 1. Lock ContainerVisit first
       const visit = await this.containerTransitionService.lockForGateOut(

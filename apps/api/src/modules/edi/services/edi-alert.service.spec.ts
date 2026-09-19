@@ -35,9 +35,11 @@ describe('EdiAlertService', () => {
   const mockActor: AuthenticatedUser = {
     id: 'user-1',
     icdId: 'icd-1',
+    sessionId: 'session-1',
+    name: 'Test User',
     email: 'test@example.com',
-    role: 'OPERATIONS',
-    permissions: [],
+    roleCodes: ['OPERATIONS'],
+    permissionCodes: [],
   };
 
   beforeEach(() => {

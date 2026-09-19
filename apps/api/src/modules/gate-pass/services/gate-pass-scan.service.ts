@@ -1,24 +1,25 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../../../database/prisma.service';
 import { AuthenticatedUser } from '../../../common/types/authenticated-user.types';
 import { ContainerVisitStatus, GatePassStatus } from '../../../generated/prisma/client';
 import { GATE_PASS_ERROR_CODES } from '../constants/gate-pass-error-codes.constants';
-import { hashGatePassQrToken } from '../utils/gate-pass-qr-token.util';
 import { GatePassReadinessService } from './gate-pass-readiness.service';
+import { GatePassTokenService } from './gate-pass-token.service';
 
 @Injectable()
 export class GatePassScanService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly readinessService: GatePassReadinessService,
+    private readonly gatePassTokenService: GatePassTokenService,
   ) {}
 
   async scanGatePass(qrToken: string, actor: AuthenticatedUser) {
-    const qrTokenHash = hashGatePassQrToken(qrToken);
+    const payload = this.gatePassTokenService.verify(qrToken);
 
     const gatePass = await this.prisma.gatePass.findFirst({
       where: {
-        qrTokenHash,
+        id: payload.gatePassId,
         containerVisit: {
           icdId: actor.icdId,
         },
@@ -39,8 +40,16 @@ export class GatePassScanService {
 
     if (!gatePass) {
       throw new NotFoundException({
-        code: GATE_PASS_ERROR_CODES.INVALID_QR_TOKEN,
-        message: 'QR Gate Pass không hợp lệ.',
+        code: GATE_PASS_ERROR_CODES.GATE_PASS_NOT_FOUND,
+        message: 'Không tìm thấy Phiếu ra cổng.',
+      });
+    }
+
+    const hash = this.gatePassTokenService.hash(qrToken);
+    if (hash !== gatePass.qrTokenHash) {
+      throw new ConflictException({
+        code: 'GATE_PASS_TOKEN_INVALID',
+        message: 'QR Phiếu ra cổng không hợp lệ.',
       });
     }
 

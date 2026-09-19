@@ -39,7 +39,7 @@ describe('NotificationDispatcherService', () => {
   beforeEach(async () => {
     prisma = {
       notificationDelivery: {
-        findMany: jest.Mock ? jest.fn() : null,
+        findMany: jest.fn(),
         update: jest.fn(),
       },
       notificationDevice: {

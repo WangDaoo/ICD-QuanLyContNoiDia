@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 
 import { PrismaService } from '../../../database/prisma.service';
 import { Prisma } from '../../../generated/prisma/client';
+import { REPORT_GROUP_BY } from '../constants/report.constants';
 import { FinancialReportService } from './financial-report.service';
 import { ReportTimeService } from './report-time.service';
 
@@ -76,6 +77,7 @@ describe('FinancialReportService', () => {
     const result = await service.getRevenueReport('icd-1', {
       fromDate: '2026-03-01',
       toDate: '2026-03-15',
+      groupBy: REPORT_GROUP_BY.DAY,
     });
 
     expect(result.summary.totalRevenue).toBe(500000);

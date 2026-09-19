@@ -28,11 +28,12 @@ describe('YardAssignmentService', () => {
 
   const sampleActor: AuthenticatedUser = {
     id: 'user-1',
-    username: 'yard_op',
-    fullName: 'Yard Operator',
-    role: 'YARD_OPERATOR',
+    sessionId: 'session-1',
+    name: 'Yard Operator',
+    email: 'yard@icd.local',
+    roleCodes: ['YARD_OPERATOR'],
     icdId: 'icd-1',
-    permissions: ['YARD_UPDATE', 'YARD_READ'],
+    permissionCodes: ['YARD_UPDATE', 'YARD_READ'],
   };
 
   const sampleVisit = {

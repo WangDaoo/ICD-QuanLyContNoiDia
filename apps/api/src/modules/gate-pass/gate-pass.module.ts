@@ -8,6 +8,7 @@ import { GatePassController } from './gate-pass.controller';
 import { GatePassLookupService } from './services/gate-pass-lookup.service';
 import { GatePassReadinessService } from './services/gate-pass-readiness.service';
 import { GatePassScanService } from './services/gate-pass-scan.service';
+import { GatePassTokenService } from './services/gate-pass-token.service';
 import { GatePassTransitionService } from './services/gate-pass-transition.service';
 import { GatePassService } from './services/gate-pass.service';
 
@@ -16,6 +17,7 @@ import { GatePassService } from './services/gate-pass.service';
   controllers: [GatePassController],
   providers: [
     GatePassService,
+    GatePassTokenService,
     GatePassReadinessService,
     GatePassLookupService,
     GatePassTransitionService,
@@ -23,6 +25,7 @@ import { GatePassService } from './services/gate-pass.service';
   ],
   exports: [
     GatePassService,
+    GatePassTokenService,
     GatePassReadinessService,
     GatePassLookupService,
     GatePassTransitionService,

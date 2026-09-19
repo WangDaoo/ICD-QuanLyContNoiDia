@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
-
+import { APP_GUARD } from '@nestjs/core';
 import { ConfigModule } from '@nestjs/config';
+import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 
 import { validateEnvironment } from './config/env.validation';
 
@@ -58,6 +59,13 @@ import { NotificationsModule } from './modules/notifications/notifications.modul
       validate: validateEnvironment,
     }),
 
+    ThrottlerModule.forRoot([
+      {
+        ttl: 60000,
+        limit: 100,
+      },
+    ]),
+
     RequestContextModule,
 
     AuditModule,
@@ -101,6 +109,12 @@ import { NotificationsModule } from './modules/notifications/notifications.modul
     PartnerHandoverModule,
 
     NotificationsModule,
+  ],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: ThrottlerGuard,
+    },
   ],
 })
 export class AppModule {}

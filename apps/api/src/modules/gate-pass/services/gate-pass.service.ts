@@ -2,8 +2,10 @@ import {
   BadRequestException,
   ConflictException,
   Injectable,
+  InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
+import { randomUUID } from 'node:crypto';
 import * as crypto from 'crypto';
 import { ContainerVisitStatus, GatePassStatus, Prisma } from '../../../generated/prisma/client';
 import { PrismaService } from '../../../database/prisma.service';
@@ -15,6 +17,7 @@ import { GATE_PASS_ERROR_CODES } from '../constants/gate-pass-error-codes.consta
 import { CancelGatePassDto } from '../dto/cancel-gate-pass.dto';
 import { IssueGatePassDto } from '../dto/issue-gate-pass.dto';
 import { GatePassReadinessService } from './gate-pass-readiness.service';
+import { GatePassTokenService } from './gate-pass-token.service';
 
 @Injectable()
 export class GatePassService {
@@ -23,6 +26,7 @@ export class GatePassService {
     private readonly readinessService: GatePassReadinessService,
     private readonly transitionService: ContainerVisitTransitionService,
     private readonly eventService: ContainerEventService,
+    private readonly gatePassTokenService: GatePassTokenService,
   ) {}
 
   async issue(visitId: string, dto: IssueGatePassDto, actor: AuthenticatedUser) {
@@ -119,20 +123,25 @@ export class GatePassService {
           });
         }
 
-        // 3. Generate secure tokens
+        // 3. Generate secure deterministic tokens
         const timestamp = Date.now().toString(36).toUpperCase();
         const randomPart = crypto.randomBytes(3).toString('hex').toUpperCase();
         const code = `GP-${timestamp}-${randomPart}`;
 
-        const rawToken = crypto.randomBytes(32).toString('hex');
-        const qrTokenHash = crypto.createHash('sha256').update(rawToken).digest('hex');
-
+        const gatePassId = randomUUID();
         const ttlHours = dto.ttlHours ?? 24;
         const expiresAt = new Date(now.getTime() + ttlHours * 3600 * 1000);
+
+        const qrToken = this.gatePassTokenService.create({
+          gatePassId,
+          expiresAt: expiresAt.getTime(),
+        });
+        const qrTokenHash = this.gatePassTokenService.hash(qrToken);
 
         // 4. Create Gate Pass
         const gatePass = await tx.gatePass.create({
           data: {
+            id: gatePassId,
             containerVisitId: visit.id,
             code,
             qrTokenHash,
@@ -170,7 +179,7 @@ export class GatePassService {
 
         return {
           gatePassId: gatePass.id,
-          rawQrToken: rawToken,
+          rawQrToken: qrToken,
         };
       },
     );
@@ -180,6 +189,23 @@ export class GatePassService {
       ...gatePass,
       qrToken: rawQrToken,
     };
+  }
+
+  regenerateQrToken(gatePass: { id: string; expiresAt: Date; qrTokenHash: string }): string {
+    const qrToken = this.gatePassTokenService.create({
+      gatePassId: gatePass.id,
+      expiresAt: gatePass.expiresAt.getTime(),
+    });
+
+    const hash = this.gatePassTokenService.hash(qrToken);
+    if (hash !== gatePass.qrTokenHash) {
+      throw new InternalServerErrorException({
+        code: 'GATE_PASS_TOKEN_INTEGRITY_ERROR',
+        message: 'Không thể tái tạo QR Phiếu ra cổng.',
+      });
+    }
+
+    return qrToken;
   }
 
   async cancel(gatePassId: string, dto: CancelGatePassDto, actor: AuthenticatedUser) {
