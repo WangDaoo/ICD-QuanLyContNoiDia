@@ -1,15 +1,31 @@
-/**
- * work-queue / query-work-queue.dto.ts
- *
- * Mục đích:
- * File dự kiến triển khai cho module work-queue. Tổng hợp công việc cần làm theo role, priority và SLA.
- *
- * Quy tắc khi triển khai:
- * - Ownership module: Work item projection/aggregation, không thay thế state của module nguồn.
- * - Tuân thủ pattern chung trong docs/development/OPERATION_PATTERNS.md.
- * - Chưa có logic; chỉ thêm code khi bắt đầu triển khai module này.
- *
- * Lưu ý:
- * - File hiện tại chỉ là khung, chưa có logic thực thi.
- * - Không tự ý mở rộng trách nhiệm của file nếu chưa cập nhật RULES.md của module.
- */
+import { Type } from 'class-transformer';
+import { IsEnum, IsInt, IsOptional, Max, Min } from 'class-validator';
+import {
+  WORK_QUEUE_TASK_TYPES,
+  WORK_QUEUE_URGENCY,
+  type WorkQueueTaskType,
+  type WorkQueueUrgency,
+} from '../work-queue.constants';
+
+export class QueryWorkQueueDto {
+  @IsOptional()
+  @IsEnum(WORK_QUEUE_TASK_TYPES)
+  type?: WorkQueueTaskType;
+
+  @IsOptional()
+  @IsEnum(WORK_QUEUE_URGENCY)
+  urgency?: WorkQueueUrgency;
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  page?: number = 1;
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  @Max(100)
+  limit?: number = 50;
+}

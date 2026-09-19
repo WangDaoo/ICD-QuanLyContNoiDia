@@ -1,0 +1,27 @@
+export const WORK_QUEUE_TASK_TYPES = {
+  GATE_IN: 'GATE_IN',
+  YARD_ASSIGN: 'YARD_ASSIGN',
+  YARD_OPERATIONS: 'YARD_OPERATIONS',
+  BILLING: 'BILLING',
+  GATE_OUT: 'GATE_OUT',
+} as const;
+
+export type WorkQueueTaskType =
+  (typeof WORK_QUEUE_TASK_TYPES)[keyof typeof WORK_QUEUE_TASK_TYPES];
+
+export const WORK_QUEUE_URGENCY = {
+  OVERDUE: 'OVERDUE',
+  CRITICAL: 'CRITICAL',
+  HIGH: 'HIGH',
+  NORMAL: 'NORMAL',
+} as const;
+
+export type WorkQueueUrgency =
+  (typeof WORK_QUEUE_URGENCY)[keyof typeof WORK_QUEUE_URGENCY];
+
+export const WORK_QUEUE_SLA_DEFAULTS = {
+  GATE_IN_SLA_MINUTES: 120,
+  YARD_ASSIGN_SLA_MINUTES: 60,
+  WORK_QUEUE_DUE_SOON_MINUTES: 30,
+  GATE_OUT_DUE_SOON_MINUTES: 120,
+} as const;

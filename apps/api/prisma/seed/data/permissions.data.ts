@@ -298,4 +298,10 @@ export const permissions = [
     name: 'Xem log tích hợp',
     description: 'Cho phép xem lịch sử gọi API tích hợp từ đối tác bên ngoài.',
   },
+
+  {
+    code: PERMISSION_CODES.AUDIT_READ,
+    name: 'Xem nhật ký Audit',
+    description: 'Cho phép xem lịch sử thay đổi và truy vết request.',
+  },
 ] as const;

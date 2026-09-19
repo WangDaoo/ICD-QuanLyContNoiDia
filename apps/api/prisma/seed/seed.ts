@@ -407,6 +407,45 @@ async function seedDefaultTariff(icdId: string, adminUserId: string): Promise<vo
   }
 }
 
+async function seedWorkQueueSettings(icdId: string): Promise<void> {
+  const workQueueSettings = [
+    {
+      key: 'GATE_IN_SLA_MINUTES',
+      value: '120',
+    },
+    {
+      key: 'YARD_ASSIGN_SLA_MINUTES',
+      value: '60',
+    },
+    {
+      key: 'WORK_QUEUE_DUE_SOON_MINUTES',
+      value: '30',
+    },
+    {
+      key: 'GATE_OUT_DUE_SOON_MINUTES',
+      value: '120',
+    },
+  ];
+
+  for (const setting of workQueueSettings) {
+    await prisma.icdSetting.upsert({
+      where: {
+        icdId_key: {
+          icdId,
+          key: setting.key,
+        },
+      },
+      update: {},
+      create: {
+        icdId,
+        key: setting.key,
+        value: setting.value,
+        valueType: 'NUMBER',
+      },
+    });
+  }
+}
+
 async function main(): Promise<void> {
   console.log('Starting ICD database seed...');
 
@@ -435,6 +474,9 @@ async function main(): Promise<void> {
 
   await seedDefaultTariff(site.id, admin.id);
   console.log('Seeded Default Tariff & Rules.');
+
+  await seedWorkQueueSettings(site.id);
+  console.log('Seeded Work Queue Settings.');
 
   console.log('ICD database seed completed.');
 }

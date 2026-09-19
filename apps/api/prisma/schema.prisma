@@ -207,6 +207,7 @@ model IcdSite {
   yardBlocks      YardBlock[]
   tariffs         Tariff[]
   serviceOrders   ServiceOrder[]
+  auditLogs       AuditLog[]
 
   @@map("icd_site")
 }
@@ -255,6 +256,7 @@ model User {
   placedOperationalHolds      OperationalHold[]      @relation("OperationalHoldPlacedBy")
   releasedOperationalHolds    OperationalHold[]      @relation("OperationalHoldReleasedBy")
   issuedGatePasses            GatePass[]             @relation("GatePassIssuedBy")
+  auditLogs                   AuditLog[]             @relation("AuditLogActor")
 
   @@index([icdId])
   @@index([active])
@@ -1400,4 +1402,42 @@ model GatePass {
   @@index([containerVisitId, status])
   @@index([expiresAt, status])
   @@map("gate_pass")
+}
+
+// ============================================================
+// AUDIT LOG
+// ============================================================
+
+model AuditLog {
+  id String @id @default(uuid()) @db.Char(36)
+
+  icdId String @map("icd_id") @db.Char(36)
+
+  actorUserId String? @map("actor_user_id") @db.Char(36)
+
+  action String @db.VarChar(80)
+
+  entityType String @map("entity_type") @db.VarChar(80)
+
+  entityId String @map("entity_id") @db.VarChar(120)
+
+  oldDataJson Json? @map("old_data_json")
+
+  newDataJson Json? @map("new_data_json")
+
+  reason String? @db.Text
+
+  requestId String @map("request_id") @db.VarChar(128)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+
+  icd       IcdSite @relation(fields: [icdId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  actorUser User?   @relation("AuditLogActor", fields: [actorUserId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  @@index([icdId, createdAt])
+  @@index([actorUserId, createdAt])
+  @@index([entityType, entityId])
+  @@index([action, createdAt])
+  @@index([requestId])
+  @@map("audit_log")
 }

@@ -1,15 +1,25 @@
-/**
- * work-queue / work-queue.controller.ts
- *
- * Mục đích:
- * File dự kiến triển khai cho module work-queue. Tổng hợp công việc cần làm theo role, priority và SLA.
- *
- * Quy tắc khi triển khai:
- * - Ownership module: Work item projection/aggregation, không thay thế state của module nguồn.
- * - Tuân thủ pattern chung trong docs/development/OPERATION_PATTERNS.md.
- * - Chưa có logic; chỉ thêm code khi bắt đầu triển khai module này.
- *
- * Lưu ý:
- * - File hiện tại chỉ là khung, chưa có logic thực thi.
- * - Không tự ý mở rộng trách nhiệm của file nếu chưa cập nhật RULES.md của module.
- */
+import { Controller, Get, Query, UseGuards } from '@nestjs/common';
+import { CurrentUser } from '../../common/decorators/current-user.decorator';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import type { AuthenticatedUser } from '../../common/types/authenticated-user.types';
+import { QueryWorkQueueDto } from './dto/query-work-queue.dto';
+import { WorkQueueService } from './work-queue.service';
+
+@Controller('work-queue')
+@UseGuards(JwtAuthGuard)
+export class WorkQueueController {
+  constructor(private readonly workQueueService: WorkQueueService) {}
+
+  @Get()
+  async getWorkQueue(
+    @CurrentUser() actor: AuthenticatedUser,
+    @Query() query: QueryWorkQueueDto,
+  ) {
+    return this.workQueueService.getWorkQueue(actor, query);
+  }
+
+  @Get('stats')
+  async getStats(@CurrentUser() actor: AuthenticatedUser) {
+    return this.workQueueService.getStats(actor);
+  }
+}

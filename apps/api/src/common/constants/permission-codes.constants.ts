@@ -94,6 +94,8 @@ export const PERMISSION_CODES = {
   PARTNER_CLIENT_MANAGE: 'partner_client.manage',
 
   PARTNER_API_LOG_READ: 'partner_api_log.read',
+
+  AUDIT_READ: 'audit.read',
 } as const;
 
 export type PermissionCode = (typeof PERMISSION_CODES)[keyof typeof PERMISSION_CODES];

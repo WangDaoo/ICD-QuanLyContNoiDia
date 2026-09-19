@@ -34,6 +34,12 @@ import { GateOutModule } from './modules/gate-out/gate-out.module';
 
 import { UsersModule } from './modules/users/users.module';
 
+import { RequestContextModule } from './common/request-context/request-context.module';
+
+import { AuditModule } from './modules/audit/audit.module';
+
+import { WorkQueueModule } from './modules/work-queue/work-queue.module';
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -43,6 +49,12 @@ import { UsersModule } from './modules/users/users.module';
 
       validate: validateEnvironment,
     }),
+
+    RequestContextModule,
+
+    AuditModule,
+
+    WorkQueueModule,
 
     AuthModule,
 
