@@ -1,12 +1,5 @@
-import {
-  ConflictException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
-import {
-  InYardBookingStatus,
-  Prisma,
-} from '../../../generated/prisma/client';
+import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
+import { InYardBookingStatus, Prisma } from '../../../generated/prisma/client';
 import type { AuthenticatedUser } from '../../../common/types/authenticated-user.types';
 import { PrismaService } from '../../../database/prisma.service';
 import { CONTAINER_EVENT_TYPES } from '../../containers/constants/container-event-types.constants';
@@ -26,11 +19,7 @@ export class InYardBookingService {
     private readonly containerEventService: ContainerEventService,
   ) {}
 
-  async createBooking(
-    visitId: string,
-    dto: CreateInYardBookingDto,
-    actor: AuthenticatedUser,
-  ) {
+  async createBooking(visitId: string, dto: CreateInYardBookingDto, actor: AuthenticatedUser) {
     const visit = await this.prisma.containerVisit.findFirst({
       where: {
         id: visitId,
@@ -153,9 +142,7 @@ export class InYardBookingService {
       });
     }
 
-    const validation = this.bookingPolicy.validateCanCompleteBooking(
-      booking.status,
-    );
+    const validation = this.bookingPolicy.validateCanCompleteBooking(booking.status);
     if (!validation.valid) {
       throw new ConflictException({
         code: validation.errorCode,
@@ -205,11 +192,7 @@ export class InYardBookingService {
     return updated;
   }
 
-  async cancelBooking(
-    bookingId: string,
-    dto: CancelInYardBookingDto,
-    actor: AuthenticatedUser,
-  ) {
+  async cancelBooking(bookingId: string, dto: CancelInYardBookingDto, actor: AuthenticatedUser) {
     const booking = await this.prisma.inYardBooking.findFirst({
       where: {
         id: bookingId,
@@ -261,10 +244,7 @@ export class InYardBookingService {
     return cancelled;
   }
 
-  async findBookings(
-    query: QueryInYardBookingsDto,
-    actor: AuthenticatedUser,
-  ) {
+  async findBookings(query: QueryInYardBookingsDto, actor: AuthenticatedUser) {
     const page = query.page ?? 1;
     const limit = query.limit ?? 20;
     const skip = (page - 1) * limit;

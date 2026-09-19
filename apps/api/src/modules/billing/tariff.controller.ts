@@ -1,13 +1,4 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  Patch,
-  Post,
-  Query,
-} from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from '@nestjs/common';
 import { PERMISSION_CODES } from '../../common/constants/permission-codes.constants';
 import { CurrentUser } from '../../common/decorators/current-user.decorator';
 import { Permissions } from '../../common/decorators/permissions.decorator';
@@ -31,30 +22,21 @@ export class TariffController {
 
   @Permissions(PERMISSION_CODES.TARIFF_MANAGE)
   @Post('tariffs')
-  async createTariff(
-    @Body() dto: CreateTariffDto,
-    @CurrentUser() actor: AuthenticatedUser,
-  ) {
+  async createTariff(@Body() dto: CreateTariffDto, @CurrentUser() actor: AuthenticatedUser) {
     const data = await this.tariffService.createTariff(dto, actor);
     return { data };
   }
 
   @Permissions(PERMISSION_CODES.BILLING_READ)
   @Get('tariffs')
-  async findTariffs(
-    @Query() query: QueryTariffsDto,
-    @CurrentUser() actor: AuthenticatedUser,
-  ) {
+  async findTariffs(@Query() query: QueryTariffsDto, @CurrentUser() actor: AuthenticatedUser) {
     const data = await this.tariffService.findTariffs(query, actor);
     return { data };
   }
 
   @Permissions(PERMISSION_CODES.BILLING_READ)
   @Get('tariffs/:id')
-  async findTariffById(
-    @Param('id') id: string,
-    @CurrentUser() actor: AuthenticatedUser,
-  ) {
+  async findTariffById(@Param('id') id: string, @CurrentUser() actor: AuthenticatedUser) {
     const data = await this.tariffService.findTariffById(id, actor);
     return { data };
   }
@@ -94,20 +76,14 @@ export class TariffController {
 
   @Permissions(PERMISSION_CODES.TARIFF_MANAGE)
   @Post('tariffs/:id/activate')
-  async activateTariff(
-    @Param('id') id: string,
-    @CurrentUser() actor: AuthenticatedUser,
-  ) {
+  async activateTariff(@Param('id') id: string, @CurrentUser() actor: AuthenticatedUser) {
     const data = await this.tariffService.activateTariff(id, actor);
     return { data };
   }
 
   @Permissions(PERMISSION_CODES.TARIFF_MANAGE)
   @Post('tariffs/:id/retire')
-  async retireTariff(
-    @Param('id') id: string,
-    @CurrentUser() actor: AuthenticatedUser,
-  ) {
+  async retireTariff(@Param('id') id: string, @CurrentUser() actor: AuthenticatedUser) {
     const data = await this.tariffService.retireTariff(id, actor);
     return { data };
   }

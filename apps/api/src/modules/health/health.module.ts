@@ -15,12 +15,8 @@ import { HealthService } from './health.service';
 @Module({
   imports: [PrismaModule],
 
-  controllers: [
-    HealthController,
-  ],
+  controllers: [HealthController],
 
-  providers: [
-    HealthService,
-  ],
+  providers: [HealthService],
 })
 export class HealthModule {}

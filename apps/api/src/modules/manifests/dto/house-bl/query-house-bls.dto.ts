@@ -1,17 +1,6 @@
-import {
-  Transform,
-  Type,
-} from 'class-transformer';
+import { Transform, Type } from 'class-transformer';
 
-import {
-  IsInt,
-  IsOptional,
-  IsString,
-  IsUUID,
-  Max,
-  MaxLength,
-  Min,
-} from 'class-validator';
+import { IsInt, IsOptional, IsString, IsUUID, Max, MaxLength, Min } from 'class-validator';
 
 export class QueryHouseBlsDto {
   @IsOptional()
@@ -28,12 +17,7 @@ export class QueryHouseBlsDto {
   pageSize: number = 20;
 
   @IsOptional()
-  @Transform(
-    ({ value }) =>
-      typeof value === 'string'
-        ? value.trim()
-        : value,
-  )
+  @Transform(({ value }) => (typeof value === 'string' ? value.trim() : value))
   @IsString()
   @MaxLength(100)
   search?: string;

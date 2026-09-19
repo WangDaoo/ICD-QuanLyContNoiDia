@@ -1,8 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import {
-  ContainerVisitStatus,
-  InYardBookingStatus,
-} from '../../../generated/prisma/client';
+import { ContainerVisitStatus, InYardBookingStatus } from '../../../generated/prisma/client';
 import { YARD_ERROR_CODES } from '../constants/yard-error-codes.constants';
 
 @Injectable()
@@ -16,8 +13,7 @@ export class InYardBookingPolicy {
       return {
         valid: false,
         errorCode: YARD_ERROR_CODES.VISIT_NOT_IN_YARD,
-        message:
-          'Container phải ở trạng thái IN_YARD mới có thể đặt chỗ tác nghiệp bãi.',
+        message: 'Container phải ở trạng thái IN_YARD mới có thể đặt chỗ tác nghiệp bãi.',
       };
     }
     return { valid: true };
@@ -43,10 +39,7 @@ export class InYardBookingPolicy {
     errorCode?: string;
     message?: string;
   } {
-    if (
-      status !== InYardBookingStatus.IN_PROGRESS &&
-      status !== InYardBookingStatus.PENDING
-    ) {
+    if (status !== InYardBookingStatus.IN_PROGRESS && status !== InYardBookingStatus.PENDING) {
       return {
         valid: false,
         errorCode: YARD_ERROR_CODES.BOOKING_NOT_IN_PROGRESS,
@@ -61,15 +54,11 @@ export class InYardBookingPolicy {
     errorCode?: string;
     message?: string;
   } {
-    if (
-      status !== InYardBookingStatus.PENDING &&
-      status !== InYardBookingStatus.IN_PROGRESS
-    ) {
+    if (status !== InYardBookingStatus.PENDING && status !== InYardBookingStatus.IN_PROGRESS) {
       return {
         valid: false,
         errorCode: YARD_ERROR_CODES.BOOKING_CANNOT_BE_CANCELLED,
-        message:
-          'Không thể hủy booking đã ở trạng thái COMPLETED hoặc CANCELLED.',
+        message: 'Không thể hủy booking đã ở trạng thái COMPLETED hoặc CANCELLED.',
       };
     }
     return { valid: true };

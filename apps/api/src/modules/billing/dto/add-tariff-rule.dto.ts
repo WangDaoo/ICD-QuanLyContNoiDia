@@ -1,15 +1,5 @@
-import {
-  IsEnum,
-  IsNotEmpty,
-  IsNumber,
-  IsOptional,
-  IsString,
-  Min,
-} from 'class-validator';
-import {
-  ContainerSize,
-  ContainerType,
-} from '../../../generated/prisma/client';
+import { IsEnum, IsNotEmpty, IsNumber, IsOptional, IsString, Min } from 'class-validator';
+import { ContainerSize, ContainerType } from '../../../generated/prisma/client';
 
 export class AddTariffRuleDto {
   @IsString()

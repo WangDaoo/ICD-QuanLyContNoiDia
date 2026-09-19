@@ -1,40 +1,20 @@
-import {
-  Module,
-} from '@nestjs/common';
+import { Module } from '@nestjs/common';
 
-import {
-  PrismaModule,
-} from '../../database/prisma.module';
+import { PrismaModule } from '../../database/prisma.module';
 
-import {
-  PermissionsController,
-} from './permissions.controller';
+import { PermissionsController } from './permissions.controller';
 
-import {
-  RoleService,
-} from './role.service';
+import { RoleService } from './role.service';
 
-import {
-  RolesController,
-} from './roles.controller';
+import { RolesController } from './roles.controller';
 
 @Module({
-  imports: [
-    PrismaModule,
-  ],
+  imports: [PrismaModule],
 
-  controllers: [
-    RolesController,
+  controllers: [RolesController, PermissionsController],
 
-    PermissionsController,
-  ],
+  providers: [RoleService],
 
-  providers: [
-    RoleService,
-  ],
-
-  exports: [
-    RoleService,
-  ],
+  exports: [RoleService],
 })
 export class RolesModule {}

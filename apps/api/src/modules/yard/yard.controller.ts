@@ -1,12 +1,4 @@
-import {
-  Body,
-  Controller,
-  Get,
-  Param,
-  Patch,
-  Post,
-  Query,
-} from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post, Query } from '@nestjs/common';
 import { PERMISSION_CODES } from '../../common/constants/permission-codes.constants';
 import { CurrentUser } from '../../common/decorators/current-user.decorator';
 import { Permissions } from '../../common/decorators/permissions.decorator';
@@ -61,10 +53,7 @@ export class YardController {
 
   @Permissions(PERMISSION_CODES.YARD_CONFIGURE)
   @Post('yard/blocks')
-  async createBlock(
-    @Body() dto: CreateYardBlockDto,
-    @CurrentUser() actor: AuthenticatedUser,
-  ) {
+  async createBlock(@Body() dto: CreateYardBlockDto, @CurrentUser() actor: AuthenticatedUser) {
     return {
       data: await this.catalogService.createBlock(dto, actor),
     };
@@ -84,10 +73,7 @@ export class YardController {
 
   @Permissions(PERMISSION_CODES.YARD_READ)
   @Get('yard/slots')
-  findSlots(
-    @Query() query: QueryYardSlotsDto,
-    @CurrentUser() actor: AuthenticatedUser,
-  ) {
+  findSlots(@Query() query: QueryYardSlotsDto, @CurrentUser() actor: AuthenticatedUser) {
     return this.catalogService.findSlots(query, actor);
   }
 
@@ -138,11 +124,7 @@ export class YardController {
     @CurrentUser() actor: AuthenticatedUser,
   ) {
     return {
-      data: await this.assignmentService.checkSlot(
-        visitId,
-        dto.yardSlotId,
-        actor,
-      ),
+      data: await this.assignmentService.checkSlot(visitId, dto.yardSlotId, actor),
     };
   }
 
@@ -175,19 +157,13 @@ export class YardController {
 
   @Permissions(PERMISSION_CODES.YARD_READ)
   @Get('yard/movements')
-  findMovements(
-    @Query() query: QueryYardMovementsDto,
-    @CurrentUser() actor: AuthenticatedUser,
-  ) {
+  findMovements(@Query() query: QueryYardMovementsDto, @CurrentUser() actor: AuthenticatedUser) {
     return this.movementService.findMovements(query, actor);
   }
 
   @Permissions(PERMISSION_CODES.YARD_READ)
   @Get('yard/movements/:id')
-  async getMovementById(
-    @Param('id') id: string,
-    @CurrentUser() actor: AuthenticatedUser,
-  ) {
+  async getMovementById(@Param('id') id: string, @CurrentUser() actor: AuthenticatedUser) {
     return {
       data: await this.movementService.getMovementById(id, actor),
     };
@@ -207,10 +183,7 @@ export class YardController {
 
   @Permissions(PERMISSION_CODES.YARD_MOVE)
   @Post('yard/movements/:id/start')
-  async startMovement(
-    @Param('id') id: string,
-    @CurrentUser() actor: AuthenticatedUser,
-  ) {
+  async startMovement(@Param('id') id: string, @CurrentUser() actor: AuthenticatedUser) {
     return {
       data: await this.movementService.startMovement(id, actor),
     };
@@ -218,10 +191,7 @@ export class YardController {
 
   @Permissions(PERMISSION_CODES.YARD_MOVE)
   @Post('yard/movements/:id/complete')
-  async completeMovement(
-    @Param('id') id: string,
-    @CurrentUser() actor: AuthenticatedUser,
-  ) {
+  async completeMovement(@Param('id') id: string, @CurrentUser() actor: AuthenticatedUser) {
     return {
       data: await this.movementService.completeMovement(id, actor),
     };
@@ -254,10 +224,7 @@ export class YardController {
 
   @Permissions(PERMISSION_CODES.YARD_READ)
   @Get('yard/inspections/:id')
-  async getInspectionById(
-    @Param('id') id: string,
-    @CurrentUser() actor: AuthenticatedUser,
-  ) {
+  async getInspectionById(@Param('id') id: string, @CurrentUser() actor: AuthenticatedUser) {
     return {
       data: await this.inspectionService.getInspectionById(id, actor),
     };
@@ -277,10 +244,7 @@ export class YardController {
 
   @Permissions(PERMISSION_CODES.YARD_INSPECT)
   @Post('yard/inspections/:id/start')
-  async startInspection(
-    @Param('id') id: string,
-    @CurrentUser() actor: AuthenticatedUser,
-  ) {
+  async startInspection(@Param('id') id: string, @CurrentUser() actor: AuthenticatedUser) {
     return {
       data: await this.inspectionService.startInspection(id, actor),
     };
@@ -316,19 +280,13 @@ export class YardController {
 
   @Permissions(PERMISSION_CODES.YARD_READ)
   @Get('yard/bookings')
-  findBookings(
-    @Query() query: QueryInYardBookingsDto,
-    @CurrentUser() actor: AuthenticatedUser,
-  ) {
+  findBookings(@Query() query: QueryInYardBookingsDto, @CurrentUser() actor: AuthenticatedUser) {
     return this.bookingService.findBookings(query, actor);
   }
 
   @Permissions(PERMISSION_CODES.YARD_READ)
   @Get('yard/bookings/:id')
-  async getBookingById(
-    @Param('id') id: string,
-    @CurrentUser() actor: AuthenticatedUser,
-  ) {
+  async getBookingById(@Param('id') id: string, @CurrentUser() actor: AuthenticatedUser) {
     return {
       data: await this.bookingService.getBookingById(id, actor),
     };
@@ -348,10 +306,7 @@ export class YardController {
 
   @Permissions(PERMISSION_CODES.YARD_BOOKING)
   @Post('yard/bookings/:id/start')
-  async startBooking(
-    @Param('id') id: string,
-    @CurrentUser() actor: AuthenticatedUser,
-  ) {
+  async startBooking(@Param('id') id: string, @CurrentUser() actor: AuthenticatedUser) {
     return {
       data: await this.bookingService.startBooking(id, actor),
     };

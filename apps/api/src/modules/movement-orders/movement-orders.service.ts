@@ -1,13 +1,6 @@
-import {
-  ConflictException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
+import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
 
-import {
-  MovementOrderStatus,
-  Prisma,
-} from '../../generated/prisma/client';
+import { MovementOrderStatus, Prisma } from '../../generated/prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { CONTAINER_EVENT_TYPES } from '../containers/constants/container-event-types.constants';
 import { ContainerEventService } from '../containers/services/container-event.service';
@@ -126,19 +119,13 @@ export class MovementOrdersService {
     return order;
   }
 
-  async create(
-    icdId: string,
-    visitId: string,
-    actorId: string,
-    dto: CreateMovementOrderDto,
-  ) {
+  async create(icdId: string, visitId: string, actorId: string, dto: CreateMovementOrderDto) {
     return this.prisma.$transaction(async (tx: Prisma.TransactionClient) => {
-      const lockedVisit =
-        await this.containerVisitTransitionService.lockForMovementOrder(
-          tx,
-          visitId,
-          icdId,
-        );
+      const lockedVisit = await this.containerVisitTransitionService.lockForMovementOrder(
+        tx,
+        visitId,
+        icdId,
+      );
 
       const existingActiveOrder = await tx.movementOrder.findFirst({
         where: {
@@ -152,15 +139,11 @@ export class MovementOrdersService {
       if (existingActiveOrder) {
         throw new ConflictException({
           code: MOVEMENT_ORDER_ERROR_CODES.ACTIVE_ORDER_EXISTS,
-          message:
-            'Container Visit đã có Movement Order đang hiệu lực hoặc đang soạn thảo.',
+          message: 'Container Visit đã có Movement Order đang hiệu lực hoặc đang soạn thảo.',
         });
       }
 
-      this.statePolicy.assertCanCreate(
-        lockedVisit.state,
-        lockedVisit.manifestStatus,
-      );
+      this.statePolicy.assertCanCreate(lockedVisit.state, lockedVisit.manifestStatus);
 
       const order = await tx.movementOrder.create({
         data: {
@@ -185,12 +168,7 @@ export class MovementOrdersService {
     });
   }
 
-  async update(
-    icdId: string,
-    orderId: string,
-    actorId: string,
-    dto: UpdateMovementOrderDto,
-  ) {
+  async update(icdId: string, orderId: string, actorId: string, dto: UpdateMovementOrderDto) {
     return this.prisma.$transaction(async (tx: Prisma.TransactionClient) => {
       const order = await tx.movementOrder.findFirst({
         where: {
@@ -231,12 +209,7 @@ export class MovementOrdersService {
     });
   }
 
-  async authorize(
-    icdId: string,
-    orderId: string,
-    actorId: string,
-    dto: AuthorizeMovementOrderDto,
-  ) {
+  async authorize(icdId: string, orderId: string, actorId: string, dto: AuthorizeMovementOrderDto) {
     return this.prisma.$transaction(async (tx: Prisma.TransactionClient) => {
       const order = await tx.movementOrder.findFirst({
         where: {
@@ -286,12 +259,7 @@ export class MovementOrdersService {
     });
   }
 
-  async cancel(
-    icdId: string,
-    orderId: string,
-    actorId: string,
-    dto: CancelMovementOrderDto,
-  ) {
+  async cancel(icdId: string, orderId: string, actorId: string, dto: CancelMovementOrderDto) {
     return this.prisma.$transaction(async (tx: Prisma.TransactionClient) => {
       const order = await tx.movementOrder.findFirst({
         where: {

@@ -1,14 +1,8 @@
-import {
-  BadRequestException,
-  Injectable,
-} from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 
 import { GATE_IN_ERROR_CODES } from '../constants/gate-in-error-codes.constants';
 
-export type SealComparison =
-  | 'MATCH'
-  | 'MISMATCH'
-  | 'NO_REFERENCE';
+export type SealComparison = 'MATCH' | 'MISMATCH' | 'NO_REFERENCE';
 
 export interface SealCheckResult {
   expectedSeal: string | null;
@@ -18,10 +12,7 @@ export interface SealCheckResult {
 
 @Injectable()
 export class GateInPolicy {
-  checkSeal(
-    expectedSeal: string | null,
-    actualSeal: string,
-  ): SealCheckResult {
+  checkSeal(expectedSeal: string | null, actualSeal: string): SealCheckResult {
     const normalizedActual = this.normalizeSeal(actualSeal);
 
     if (!expectedSeal) {
@@ -37,15 +28,11 @@ export class GateInPolicy {
     return {
       expectedSeal: normalizedExpected,
       actualSeal: normalizedActual,
-      comparison:
-        normalizedExpected === normalizedActual ? 'MATCH' : 'MISMATCH',
+      comparison: normalizedExpected === normalizedActual ? 'MATCH' : 'MISMATCH',
     };
   }
 
-  assertSealMismatchHasNote(
-    result: SealCheckResult,
-    conditionNotes?: string,
-  ): void {
+  assertSealMismatchHasNote(result: SealCheckResult, conditionNotes?: string): void {
     if (result.comparison !== 'MISMATCH') {
       return;
     }
@@ -53,8 +40,7 @@ export class GateInPolicy {
     if (!conditionNotes || conditionNotes.trim().length < 3) {
       throw new BadRequestException({
         code: GATE_IN_ERROR_CODES.SEAL_MISMATCH_NOTE_REQUIRED,
-        message:
-          'Seal thực tế khác Seal hồ sơ. Bắt buộc nhập ghi chú bất thường.',
+        message: 'Seal thực tế khác Seal hồ sơ. Bắt buộc nhập ghi chú bất thường.',
       });
     }
   }

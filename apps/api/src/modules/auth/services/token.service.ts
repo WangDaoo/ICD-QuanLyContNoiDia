@@ -1,23 +1,12 @@
-import {
-  randomUUID,
-} from 'node:crypto';
+import { randomUUID } from 'node:crypto';
 
-import {
-  Injectable,
-  UnauthorizedException,
-} from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 
-import {
-  ConfigService,
-} from '@nestjs/config';
+import { ConfigService } from '@nestjs/config';
 
-import {
-  JwtService,
-} from '@nestjs/jwt';
+import { JwtService } from '@nestjs/jwt';
 
-import {
-  AUTH_ERROR_CODES,
-} from '../constants/auth-error-codes.constants';
+import { AUTH_ERROR_CODES } from '../constants/auth-error-codes.constants';
 
 import type {
   AccessTokenPayload,
@@ -28,114 +17,69 @@ import type {
 @Injectable()
 export class TokenService {
   constructor(
-    private readonly jwtService:
-      JwtService,
+    private readonly jwtService: JwtService,
 
-    private readonly configService:
-      ConfigService,
+    private readonly configService: ConfigService,
   ) {}
 
-  async issueTokenPair(
-    userId: string,
-    email: string,
-    sessionId: string,
-  ): Promise<AuthTokenPair> {
-    const accessTtl =
-      this.configService
-        .getOrThrow<number>(
-          'JWT_ACCESS_TTL_SECONDS',
-        );
+  async issueTokenPair(userId: string, email: string, sessionId: string): Promise<AuthTokenPair> {
+    const accessTtl = this.configService.getOrThrow<number>('JWT_ACCESS_TTL_SECONDS');
 
-    const refreshTtl =
-      this.configService
-        .getOrThrow<number>(
-          'JWT_REFRESH_TTL_SECONDS',
-        );
+    const refreshTtl = this.configService.getOrThrow<number>('JWT_REFRESH_TTL_SECONDS');
 
-    const issuer =
-      this.configService
-        .getOrThrow<string>(
-          'JWT_ISSUER',
-        );
+    const issuer = this.configService.getOrThrow<string>('JWT_ISSUER');
 
-    const audience =
-      this.configService
-        .getOrThrow<string>(
-          'JWT_AUDIENCE',
-        );
+    const audience = this.configService.getOrThrow<string>('JWT_AUDIENCE');
 
-    const accessSecret =
-      this.configService
-        .getOrThrow<string>(
-          'JWT_ACCESS_SECRET',
-        );
+    const accessSecret = this.configService.getOrThrow<string>('JWT_ACCESS_SECRET');
 
-    const refreshSecret =
-      this.configService
-        .getOrThrow<string>(
-          'JWT_REFRESH_SECRET',
-        );
+    const refreshSecret = this.configService.getOrThrow<string>('JWT_REFRESH_SECRET');
 
-    const accessPayload:
-      AccessTokenPayload = {
-        sub: userId,
+    const accessPayload: AccessTokenPayload = {
+      sub: userId,
 
-        sid: sessionId,
+      sid: sessionId,
 
-        type: 'access',
+      type: 'access',
 
-        email,
-      };
+      email,
+    };
 
-    const refreshPayload:
-      RefreshTokenPayload = {
-        sub: userId,
+    const refreshPayload: RefreshTokenPayload = {
+      sub: userId,
 
-        sid: sessionId,
+      sid: sessionId,
 
-        /**
-         * Mỗi refresh token có JTI riêng.
-         *
-         * Nhờ vậy token rotate luôn khác token cũ.
-         */
-        jti: randomUUID(),
+      /**
+       * Mỗi refresh token có JTI riêng.
+       *
+       * Nhờ vậy token rotate luôn khác token cũ.
+       */
+      jti: randomUUID(),
 
-        type: 'refresh',
-      };
+      type: 'refresh',
+    };
 
-    const [
-      accessToken,
-      refreshToken,
-    ] = await Promise.all([
-      this.jwtService.signAsync(
-        accessPayload,
-        {
-          secret:
-            accessSecret,
+    const [accessToken, refreshToken] = await Promise.all([
+      this.jwtService.signAsync(accessPayload, {
+        secret: accessSecret,
 
-          issuer,
+        issuer,
 
-          audience,
+        audience,
 
-          expiresIn:
-            accessTtl,
-        },
-      ),
+        expiresIn: accessTtl,
+      }),
 
-      this.jwtService.signAsync(
-        refreshPayload,
-        {
-          secret:
-            refreshSecret,
+      this.jwtService.signAsync(refreshPayload, {
+        secret: refreshSecret,
 
-          issuer,
+        issuer,
 
-          audience,
+        audience,
 
-          expiresIn:
-            refreshTtl,
-        },
-      ),
+        expiresIn: refreshTtl,
+      }),
     ]);
 
     return {
@@ -145,127 +89,58 @@ export class TokenService {
 
       tokenType: 'Bearer',
 
-      expiresIn:
-        accessTtl,
+      expiresIn: accessTtl,
 
-      refreshExpiresIn:
-        refreshTtl,
+      refreshExpiresIn: refreshTtl,
 
-      refreshExpiresAt:
-        new Date(
-          Date.now() +
-            refreshTtl * 1000,
-        ),
+      refreshExpiresAt: new Date(Date.now() + refreshTtl * 1000),
     };
   }
 
-  async verifyAccessToken(
-    token: string,
-  ): Promise<AccessTokenPayload> {
+  async verifyAccessToken(token: string): Promise<AccessTokenPayload> {
     try {
-      const payload =
-        await this.jwtService
-          .verifyAsync<
-            AccessTokenPayload
-          >(
-            token,
-            {
-              secret:
-                this.configService
-                  .getOrThrow<string>(
-                    'JWT_ACCESS_SECRET',
-                  ),
+      const payload = await this.jwtService.verifyAsync<AccessTokenPayload>(token, {
+        secret: this.configService.getOrThrow<string>('JWT_ACCESS_SECRET'),
 
-              issuer:
-                this.configService
-                  .getOrThrow<string>(
-                    'JWT_ISSUER',
-                  ),
+        issuer: this.configService.getOrThrow<string>('JWT_ISSUER'),
 
-              audience:
-                this.configService
-                  .getOrThrow<string>(
-                    'JWT_AUDIENCE',
-                  ),
-            },
-          );
+        audience: this.configService.getOrThrow<string>('JWT_AUDIENCE'),
+      });
 
-      if (
-        payload.type !==
-          'access' ||
-        !payload.sub ||
-        !payload.sid
-      ) {
-        throw new Error(
-          'Invalid access token payload.',
-        );
+      if (payload.type !== 'access' || !payload.sub || !payload.sid) {
+        throw new Error('Invalid access token payload.');
       }
 
       return payload;
     } catch {
       throw new UnauthorizedException({
-        code:
-          AUTH_ERROR_CODES
-            .TOKEN_INVALID,
+        code: AUTH_ERROR_CODES.TOKEN_INVALID,
 
-        message:
-          'Phiên đăng nhập không hợp lệ hoặc đã hết hạn.',
+        message: 'Phiên đăng nhập không hợp lệ hoặc đã hết hạn.',
       });
     }
   }
 
-  async verifyRefreshToken(
-    token: string,
-  ): Promise<RefreshTokenPayload> {
+  async verifyRefreshToken(token: string): Promise<RefreshTokenPayload> {
     try {
-      const payload =
-        await this.jwtService
-          .verifyAsync<
-            RefreshTokenPayload
-          >(
-            token,
-            {
-              secret:
-                this.configService
-                  .getOrThrow<string>(
-                    'JWT_REFRESH_SECRET',
-                  ),
+      const payload = await this.jwtService.verifyAsync<RefreshTokenPayload>(token, {
+        secret: this.configService.getOrThrow<string>('JWT_REFRESH_SECRET'),
 
-              issuer:
-                this.configService
-                  .getOrThrow<string>(
-                    'JWT_ISSUER',
-                  ),
+        issuer: this.configService.getOrThrow<string>('JWT_ISSUER'),
 
-              audience:
-                this.configService
-                  .getOrThrow<string>(
-                    'JWT_AUDIENCE',
-                  ),
-            },
-          );
+        audience: this.configService.getOrThrow<string>('JWT_AUDIENCE'),
+      });
 
-      if (
-        payload.type !==
-          'refresh' ||
-        !payload.sub ||
-        !payload.sid ||
-        !payload.jti
-      ) {
-        throw new Error(
-          'Invalid refresh token payload.',
-        );
+      if (payload.type !== 'refresh' || !payload.sub || !payload.sid || !payload.jti) {
+        throw new Error('Invalid refresh token payload.');
       }
 
       return payload;
     } catch {
       throw new UnauthorizedException({
-        code:
-          AUTH_ERROR_CODES
-            .TOKEN_INVALID,
+        code: AUTH_ERROR_CODES.TOKEN_INVALID,
 
-        message:
-          'Refresh token không hợp lệ hoặc đã hết hạn.',
+        message: 'Refresh token không hợp lệ hoặc đã hết hạn.',
       });
     }
   }

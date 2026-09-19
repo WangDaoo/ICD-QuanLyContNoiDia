@@ -25,13 +25,8 @@ const PASSWORD_HASH_OPTIONS = {
  * Không tự tạo salt.
  * Argon2 library tự sinh unique salt.
  */
-export async function hashPassword(
-  password: string,
-): Promise<string> {
-  return argon2.hash(
-    password,
-    PASSWORD_HASH_OPTIONS,
-  );
+export async function hashPassword(password: string): Promise<string> {
+  return argon2.hash(password, PASSWORD_HASH_OPTIONS);
 }
 
 /**
@@ -40,15 +35,9 @@ export async function hashPassword(
  * Nếu stored hash không hợp lệ,
  * coi như password không đúng.
  */
-export async function verifyPassword(
-  passwordHash: string,
-  password: string,
-): Promise<boolean> {
+export async function verifyPassword(passwordHash: string, password: string): Promise<boolean> {
   try {
-    return await argon2.verify(
-      passwordHash,
-      password,
-    );
+    return await argon2.verify(passwordHash, password);
   } catch {
     return false;
   }

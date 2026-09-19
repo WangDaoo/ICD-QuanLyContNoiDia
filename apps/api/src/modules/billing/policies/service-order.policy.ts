@@ -1,8 +1,4 @@
-import {
-  BadRequestException,
-  ConflictException,
-  Injectable,
-} from '@nestjs/common';
+import { BadRequestException, ConflictException, Injectable } from '@nestjs/common';
 import {
   ContainerVisit,
   ContainerVisitStatus,
@@ -13,10 +9,7 @@ import { BILLING_ERROR_CODES } from '../constants/billing-error-codes.constants'
 
 @Injectable()
 export class ServiceOrderPolicy {
-  canTransition(
-    currentStatus: ServiceOrderStatus,
-    targetStatus: ServiceOrderStatus,
-  ): boolean {
+  canTransition(currentStatus: ServiceOrderStatus, targetStatus: ServiceOrderStatus): boolean {
     if (currentStatus === targetStatus) return true;
 
     if (currentStatus === ServiceOrderStatus.DRAFT) {
@@ -36,10 +29,7 @@ export class ServiceOrderPolicy {
     return false;
   }
 
-  assertCanTransition(
-    currentStatus: ServiceOrderStatus,
-    targetStatus: ServiceOrderStatus,
-  ): void {
+  assertCanTransition(currentStatus: ServiceOrderStatus, targetStatus: ServiceOrderStatus): void {
     if (!this.canTransition(currentStatus, targetStatus)) {
       throw new BadRequestException({
         code: BILLING_ERROR_CODES.SERVICE_ORDER_INVALID_STATE,
@@ -99,10 +89,7 @@ export class ServiceOrderPolicy {
     return consigneeId;
   }
 
-  assertNoExistingDraft(
-    existingDraft: ServiceOrder | null,
-    currentOrderId?: string,
-  ): void {
+  assertNoExistingDraft(existingDraft: ServiceOrder | null, currentOrderId?: string): void {
     if (existingDraft && existingDraft.id !== currentOrderId) {
       throw new ConflictException({
         code: BILLING_ERROR_CODES.DRAFT_ORDER_EXISTS,

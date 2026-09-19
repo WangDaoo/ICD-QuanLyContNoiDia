@@ -1,24 +1,13 @@
-import {
-  BadRequestException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../../../database/prisma.service';
-import {
-  InvoiceStatus,
-  Prisma,
-  ServiceOrderStatus,
-} from '../../../generated/prisma/client';
+import { InvoiceStatus, Prisma, ServiceOrderStatus } from '../../../generated/prisma/client';
 import type { AuthenticatedUser } from '../../../common/types/authenticated-user.types';
 import { CONTAINER_EVENT_TYPES } from '../../containers/constants/container-event-types.constants';
 import { ContainerEventService } from '../../containers/services/container-event.service';
 import { BILLING_ERROR_CODES } from '../constants/billing-error-codes.constants';
 import { IssueInvoiceDto } from '../dto/invoice/issue-invoice.dto';
 import { QueryInvoicesDto } from '../dto/invoice/query-invoices.dto';
-import {
-  INVOICE_DETAIL_INCLUDE,
-  mapInvoice,
-} from '../mappers/invoice.mapper';
+import { INVOICE_DETAIL_INCLUDE, mapInvoice } from '../mappers/invoice.mapper';
 import { generateInvoiceNumber } from '../utils/invoice-number.util';
 
 @Injectable()
@@ -28,11 +17,7 @@ export class InvoiceService {
     private readonly eventService: ContainerEventService,
   ) {}
 
-  async issueInvoice(
-    serviceOrderId: string,
-    dto: IssueInvoiceDto,
-    actor: AuthenticatedUser,
-  ) {
+  async issueInvoice(serviceOrderId: string, dto: IssueInvoiceDto, actor: AuthenticatedUser) {
     return this.prisma.$transaction(async (tx) => {
       const order = await tx.serviceOrder.findUnique({
         where: { id: serviceOrderId },

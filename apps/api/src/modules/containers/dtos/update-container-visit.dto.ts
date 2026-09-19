@@ -1,17 +1,6 @@
-import {
-  IsEnum,
-  IsNumber,
-  IsOptional,
-  IsString,
-  IsUUID,
-  MaxLength,
-  Min,
-} from 'class-validator';
+import { IsEnum, IsNumber, IsOptional, IsString, IsUUID, MaxLength, Min } from 'class-validator';
 
-import {
-  ContainerCategory,
-  ContainerHoldStatus,
-} from '../../../generated/prisma/client';
+import { ContainerCategory, ContainerHoldStatus } from '../../../generated/prisma/client';
 
 export class UpdateContainerVisitDto {
   @IsOptional()

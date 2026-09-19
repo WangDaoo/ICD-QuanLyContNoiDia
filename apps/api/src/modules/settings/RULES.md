@@ -1,12 +1,15 @@
 # RULES — settings
 
 ## Trách nhiệm module
+
 Quản lý cấu hình vận hành ICD.
 
 ## Ownership
+
 Setting có scope hệ thống/site.
 
 ## Quy tắc
+
 - Public method phải dùng động từ rõ nghĩa.
 - Không expose `updateStatus`.
 - Query không thay đổi dữ liệu.

@@ -1,8 +1,4 @@
-import {
-  BadRequestException,
-  ConflictException,
-  Injectable,
-} from '@nestjs/common';
+import { BadRequestException, ConflictException, Injectable } from '@nestjs/common';
 
 import {
   ContainerVisitStatus,
@@ -14,23 +10,18 @@ import { MOVEMENT_ORDER_ERROR_CODES } from '../constants/movement-order-error-co
 
 @Injectable()
 export class MovementOrderStatePolicy {
-  assertCanCreate(
-    visitState: ContainerVisitStatus,
-    manifestStatus: ManifestStatus | null,
-  ): void {
+  assertCanCreate(visitState: ContainerVisitStatus, manifestStatus: ManifestStatus | null): void {
     if (visitState !== ContainerVisitStatus.PENDING) {
       throw new ConflictException({
         code: MOVEMENT_ORDER_ERROR_CODES.CONTAINER_VISIT_INVALID_STATE,
-        message:
-          'Chỉ Container Visit ở trạng thái PENDING mới được tạo Movement Order.',
+        message: 'Chỉ Container Visit ở trạng thái PENDING mới được tạo Movement Order.',
       });
     }
 
     if (manifestStatus !== ManifestStatus.SUBMITTED) {
       throw new ConflictException({
         code: MOVEMENT_ORDER_ERROR_CODES.MANIFEST_NOT_SUBMITTED,
-        message:
-          'Manifest chứa container này chưa được nộp (SUBMITTED).',
+        message: 'Manifest chứa container này chưa được nộp (SUBMITTED).',
       });
     }
   }

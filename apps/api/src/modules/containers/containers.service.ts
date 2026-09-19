@@ -1,8 +1,4 @@
-import {
-  BadRequestException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { Prisma } from '../../generated/prisma/client';
 
 import { PrismaService } from '../../database/prisma.service';
@@ -174,20 +170,13 @@ export class ContainersService {
     });
   }
 
-  async createVisit(
-    icdId: string,
-    actorId: string,
-    dto: CreateContainerVisitDto,
-  ) {
-    const normalizedContainerNumber = Iso6346Validator.normalize(
-      dto.containerNumber,
-    );
+  async createVisit(icdId: string, actorId: string, dto: CreateContainerVisitDto) {
+    const normalizedContainerNumber = Iso6346Validator.normalize(dto.containerNumber);
 
     if (!Iso6346Validator.validate(normalizedContainerNumber)) {
       throw new BadRequestException({
         code: CONTAINER_ERROR_CODES.INVALID_ISO_NUMBER,
-        message:
-          'Invalid container number according to ISO 6346 specification',
+        message: 'Invalid container number according to ISO 6346 specification',
       });
     }
 
@@ -271,12 +260,7 @@ export class ContainersService {
     });
   }
 
-  async updateVisit(
-    icdId: string,
-    visitId: string,
-    actorId: string,
-    dto: UpdateContainerVisitDto,
-  ) {
+  async updateVisit(icdId: string, visitId: string, actorId: string, dto: UpdateContainerVisitDto) {
     const visit = await this.verifyVisitExists(icdId, visitId);
 
     if (!ContainerStatePolicy.canUpdate(visit.status)) {
@@ -336,12 +320,7 @@ export class ContainersService {
     });
   }
 
-  async cancelVisit(
-    icdId: string,
-    visitId: string,
-    actorId: string,
-    dto: CancelContainerVisitDto,
-  ) {
+  async cancelVisit(icdId: string, visitId: string, actorId: string, dto: CancelContainerVisitDto) {
     const visit = await this.verifyVisitExists(icdId, visitId);
 
     if (!ContainerStatePolicy.canCancel(visit.status)) {

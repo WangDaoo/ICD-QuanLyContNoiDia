@@ -1,14 +1,6 @@
-import {
-  ConflictException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
+import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
 
-import {
-  MovementOrderStatus,
-  Prisma,
-  TruckVisitStatus,
-} from '../../generated/prisma/client';
+import { MovementOrderStatus, Prisma, TruckVisitStatus } from '../../generated/prisma/client';
 import type { AuthenticatedUser } from '../../common/types/authenticated-user.types';
 import { PrismaService } from '../../database/prisma.service';
 import { CONTAINER_ERROR_CODES } from '../containers/constants/container-error-codes.constants';
@@ -144,119 +136,95 @@ export class GateInService {
    * 9. Chuyển Truck Visit sang IN_PROGRESS (nếu đang ARRIVED).
    * 10. Hoàn thành Truck Visit sang COMPLETED nếu tất cả containers đã Gate-in.
    */
-  async gateIn(
-    visitId: string,
-    dto: CreateContainerReceptionDto,
-    actor: AuthenticatedUser,
-  ) {
-    const { receptionId, sealComparison } = await this.prisma.$transaction(
-      async (tx) => {
-        const containerCtx =
-          await this.containerTransitionService.lockForGateIn(
-            tx,
-            visitId,
-            actor.icdId,
-          );
+  async gateIn(visitId: string, dto: CreateContainerReceptionDto, actor: AuthenticatedUser) {
+    const { receptionId, sealComparison } = await this.prisma.$transaction(async (tx) => {
+      const containerCtx = await this.containerTransitionService.lockForGateIn(
+        tx,
+        visitId,
+        actor.icdId,
+      );
 
-        const existingReception = await tx.containerReception.findUnique({
-          where: { containerVisitId: visitId },
+      const existingReception = await tx.containerReception.findUnique({
+        where: { containerVisitId: visitId },
+      });
+
+      if (existingReception) {
+        throw new ConflictException({
+          code: GATE_IN_ERROR_CODES.RECEPTION_EXISTS,
+          message: 'Container Visit này đã được Gate-in tiếp nhận trước đó.',
         });
+      }
 
-        if (existingReception) {
-          throw new ConflictException({
-            code: GATE_IN_ERROR_CODES.RECEPTION_EXISTS,
-            message: 'Container Visit này đã được Gate-in tiếp nhận trước đó.',
-          });
-        }
+      await this.movementOrdersService.getUsableForGateInOrThrow(tx, visitId, actor.icdId);
 
-        await this.movementOrdersService.getUsableForGateInOrThrow(
-          tx,
-          visitId,
-          actor.icdId,
-        );
+      const truckCtx = await this.truckVisitTransitionService.getGateInContextOrThrow(
+        tx,
+        dto.truckVisitId,
+        visitId,
+        actor.icdId,
+      );
 
-        const truckCtx =
-          await this.truckVisitTransitionService.getGateInContextOrThrow(
-            tx,
-            dto.truckVisitId,
-            visitId,
-            actor.icdId,
-          );
+      const sealResult = this.gateInPolicy.checkSeal(containerCtx.expectedSeal, dto.actualSeal);
 
-        const sealResult = this.gateInPolicy.checkSeal(
-          containerCtx.expectedSeal,
-          dto.actualSeal,
-        );
+      this.gateInPolicy.assertSealMismatchHasNote(sealResult, dto.conditionNotes);
 
-        this.gateInPolicy.assertSealMismatchHasNote(
-          sealResult,
-          dto.conditionNotes,
-        );
+      const reception = await tx.containerReception.create({
+        data: {
+          containerVisitId: visitId,
+          truckVisitId: dto.truckVisitId,
+          actualSeal: sealResult.actualSeal,
+          actualWeight:
+            dto.actualWeight !== undefined ? new Prisma.Decimal(dto.actualWeight) : null,
+          conditionCode: dto.conditionCode,
+          conditionNotes: dto.conditionNotes,
+          photoRef: dto.photoRef,
+          receivedById: actor.id,
+          receivedAt: new Date(),
+        },
+      });
 
-        const reception = await tx.containerReception.create({
-          data: {
-            containerVisitId: visitId,
-            truckVisitId: dto.truckVisitId,
+      await this.containerTransitionService.markInYardByGateIn(tx, {
+        visitId,
+        icdId: actor.icdId,
+        receptionId: reception.id,
+        truckVisitId: dto.truckVisitId,
+        gateInAt: reception.receivedAt,
+        actorUserId: actor.id,
+        actualSeal: sealResult.actualSeal,
+        actualWeight: dto.actualWeight,
+        conditionCode: dto.conditionCode,
+        sealComparison: sealResult.comparison,
+      });
+
+      if (sealResult.comparison === 'MISMATCH') {
+        await this.containerEventService.record(tx, {
+          containerVisitId: visitId,
+          eventType: CONTAINER_EVENT_TYPES.GATE_IN_SEAL_MISMATCH,
+          actorUserId: actor.id,
+          referenceType: 'container_reception',
+          referenceId: reception.id,
+          note: `Cảnh báo lệch Seal: Hồ sơ [${containerCtx.expectedSeal}], Thực tế [${sealResult.actualSeal}]. Ghi chú: ${dto.conditionNotes ?? 'N/A'}`,
+          metadataJson: {
+            expectedSeal: containerCtx.expectedSeal,
             actualSeal: sealResult.actualSeal,
-            actualWeight:
-              dto.actualWeight !== undefined
-                ? new Prisma.Decimal(dto.actualWeight)
-                : null,
-            conditionCode: dto.conditionCode,
-            conditionNotes: dto.conditionNotes,
-            photoRef: dto.photoRef,
-            receivedById: actor.id,
-            receivedAt: new Date(),
+            conditionNotes: dto.conditionNotes ?? null,
           },
         });
+      }
 
-        await this.containerTransitionService.markInYardByGateIn(tx, {
-          visitId,
-          icdId: actor.icdId,
-          receptionId: reception.id,
-          truckVisitId: dto.truckVisitId,
-          gateInAt: reception.receivedAt,
-          actorUserId: actor.id,
-          actualSeal: sealResult.actualSeal,
-          actualWeight: dto.actualWeight,
-          conditionCode: dto.conditionCode,
-          sealComparison: sealResult.comparison,
-        });
+      await this.truckVisitTransitionService.markInProgress(tx, truckCtx.id, actor.id);
 
-        if (sealResult.comparison === 'MISMATCH') {
-          await this.containerEventService.record(tx, {
-            containerVisitId: visitId,
-            eventType: CONTAINER_EVENT_TYPES.GATE_IN_SEAL_MISMATCH,
-            actorUserId: actor.id,
-            referenceType: 'container_reception',
-            referenceId: reception.id,
-            note: `Cảnh báo lệch Seal: Hồ sơ [${containerCtx.expectedSeal}], Thực tế [${sealResult.actualSeal}]. Ghi chú: ${dto.conditionNotes ?? 'N/A'}`,
-            metadataJson: {
-              expectedSeal: containerCtx.expectedSeal,
-              actualSeal: sealResult.actualSeal,
-              conditionNotes: dto.conditionNotes ?? null,
-            },
-          });
-        }
+      await this.truckVisitTransitionService.completeIfAllContainersGateIn(
+        tx,
+        truckCtx.id,
+        actor.id,
+      );
 
-        await this.truckVisitTransitionService.markInProgress(
-          tx,
-          truckCtx.id,
-          actor.id,
-        );
-
-        await this.truckVisitTransitionService.completeIfAllContainersGateIn(
-          tx,
-          truckCtx.id,
-          actor.id,
-        );
-
-        return {
-          receptionId: reception.id,
-          sealComparison: sealResult.comparison,
-        };
-      },
-    );
+      return {
+        receptionId: reception.id,
+        sealComparison: sealResult.comparison,
+      };
+    });
 
     const receptionRecord = await this.prisma.containerReception.findUnique({
       where: { id: receptionId },

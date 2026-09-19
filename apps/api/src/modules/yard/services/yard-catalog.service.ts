@@ -60,11 +60,7 @@ export class YardCatalogService {
     }
   }
 
-  async updateBlock(
-    blockId: string,
-    dto: UpdateYardBlockDto,
-    actor: AuthenticatedUser,
-  ) {
+  async updateBlock(blockId: string, dto: UpdateYardBlockDto, actor: AuthenticatedUser) {
     if (dto.name === undefined && dto.operational === undefined) {
       throw new BadRequestException({
         code: YARD_ERROR_CODES.UPDATE_EMPTY,
@@ -210,8 +206,7 @@ export class YardCatalogService {
           currentContainer: currentLocation
             ? {
                 containerVisitId: currentLocation.containerVisitId,
-                containerNumber:
-                  currentLocation.containerVisit.container.containerNumber,
+                containerNumber: currentLocation.containerVisit.container.containerNumber,
                 startedAt: currentLocation.startedAt,
               }
             : null,
@@ -226,18 +221,9 @@ export class YardCatalogService {
     };
   }
 
-  async createSlot(
-    blockId: string,
-    dto: CreateYardSlotDto,
-    actor: AuthenticatedUser,
-  ) {
+  async createSlot(blockId: string, dto: CreateYardSlotDto, actor: AuthenticatedUser) {
     const block = await this.getBlockOrThrow(blockId, actor.icdId);
-    const slotCode = buildYardSlotCode(
-      block.blockCode,
-      dto.rowNo,
-      dto.bayNo,
-      dto.tierNo,
-    );
+    const slotCode = buildYardSlotCode(block.blockCode, dto.rowNo, dto.bayNo, dto.tierNo);
 
     try {
       return await this.prisma.yardSlot.create({
@@ -265,11 +251,7 @@ export class YardCatalogService {
     }
   }
 
-  async updateSlot(
-    slotId: string,
-    dto: UpdateYardSlotDto,
-    actor: AuthenticatedUser,
-  ) {
+  async updateSlot(slotId: string, dto: UpdateYardSlotDto, actor: AuthenticatedUser) {
     if (
       dto.supportedContainerType === undefined &&
       dto.reeferPower === undefined &&

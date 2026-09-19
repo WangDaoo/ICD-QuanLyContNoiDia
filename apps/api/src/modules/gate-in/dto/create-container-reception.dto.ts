@@ -1,13 +1,5 @@
 import { Transform, Type } from 'class-transformer';
-import {
-  IsNumber,
-  IsOptional,
-  IsString,
-  IsUUID,
-  MaxLength,
-  Min,
-  MinLength,
-} from 'class-validator';
+import { IsNumber, IsOptional, IsString, IsUUID, MaxLength, Min, MinLength } from 'class-validator';
 
 export class CreateContainerReceptionDto {
   /**
@@ -17,9 +9,7 @@ export class CreateContainerReceptionDto {
   @IsUUID()
   truckVisitId!: string;
 
-  @Transform(({ value }) =>
-    typeof value === 'string' ? value.trim().toUpperCase() : value,
-  )
+  @Transform(({ value }) => (typeof value === 'string' ? value.trim().toUpperCase() : value))
   @IsString()
   @MinLength(1)
   @MaxLength(100)
@@ -38,9 +28,7 @@ export class CreateContainerReceptionDto {
    * vì vậy chưa tự tạo enum.
    */
   @IsOptional()
-  @Transform(({ value }) =>
-    typeof value === 'string' ? value.trim().toUpperCase() : value,
-  )
+  @Transform(({ value }) => (typeof value === 'string' ? value.trim().toUpperCase() : value))
   @IsString()
   @MaxLength(80)
   conditionCode?: string;

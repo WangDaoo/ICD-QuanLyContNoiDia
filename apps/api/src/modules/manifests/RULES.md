@@ -1,12 +1,15 @@
 # RULES — manifests
 
 ## Trách nhiệm module
+
 Quản lý Manifest và quan hệ dữ liệu đầu vào trước khi container tới ICD.
 
 ## Ownership
+
 Manifest lifecycle và metadata liên quan.
 
 ## Quy tắc
+
 - Public method phải dùng động từ rõ nghĩa.
 - Không expose `updateStatus`.
 - Query không thay đổi dữ liệu.

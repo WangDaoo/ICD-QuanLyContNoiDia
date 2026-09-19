@@ -31,5 +31,4 @@ export const YARD_ERROR_CODES = {
   BOOKING_CANNOT_BE_CANCELLED: 'YARD_BOOKING_CANNOT_BE_CANCELLED',
 } as const;
 
-export type YardErrorCode =
-  (typeof YARD_ERROR_CODES)[keyof typeof YARD_ERROR_CODES];
+export type YardErrorCode = (typeof YARD_ERROR_CODES)[keyof typeof YARD_ERROR_CODES];

@@ -1,14 +1,6 @@
-import {
-  BadRequestException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../../../database/prisma.service';
-import {
-  Tariff,
-  TariffRule,
-  TariffStatus,
-} from '../../../generated/prisma/client';
+import { Tariff, TariffRule, TariffStatus } from '../../../generated/prisma/client';
 import type { AuthenticatedUser } from '../../../common/types/authenticated-user.types';
 import { BILLING_ERROR_CODES } from '../constants/billing-error-codes.constants';
 import { AddTariffRuleDto } from '../dto/add-tariff-rule.dto';
@@ -24,10 +16,7 @@ export class TariffService {
     private readonly policy: TariffPolicy,
   ) {}
 
-  async createTariff(
-    dto: CreateTariffDto,
-    actor: AuthenticatedUser,
-  ): Promise<Tariff> {
+  async createTariff(dto: CreateTariffDto, actor: AuthenticatedUser): Promise<Tariff> {
     const effectiveFrom = new Date(dto.effectiveFrom);
     const effectiveTo = dto.effectiveTo ? new Date(dto.effectiveTo) : null;
 
@@ -50,17 +39,11 @@ export class TariffService {
     });
   }
 
-  async updateTariff(
-    id: string,
-    dto: UpdateTariffDto,
-    actor: AuthenticatedUser,
-  ): Promise<Tariff> {
+  async updateTariff(id: string, dto: UpdateTariffDto, actor: AuthenticatedUser): Promise<Tariff> {
     const tariff = await this.getTariffOrThrow(id, actor.icdId);
     this.policy.assertCanModify(tariff);
 
-    const effectiveFrom = dto.effectiveFrom
-      ? new Date(dto.effectiveFrom)
-      : tariff.effectiveFrom;
+    const effectiveFrom = dto.effectiveFrom ? new Date(dto.effectiveFrom) : tariff.effectiveFrom;
     const effectiveTo =
       dto.effectiveTo !== undefined
         ? dto.effectiveTo
@@ -158,10 +141,7 @@ export class TariffService {
     });
   }
 
-  async activateTariff(
-    id: string,
-    actor: AuthenticatedUser,
-  ): Promise<Tariff> {
+  async activateTariff(id: string, actor: AuthenticatedUser): Promise<Tariff> {
     const tariff = await this.prisma.tariff.findFirst({
       where: { id, icdId: actor.icdId },
       include: { rules: true },
@@ -203,10 +183,7 @@ export class TariffService {
     });
   }
 
-  async retireTariff(
-    id: string,
-    actor: AuthenticatedUser,
-  ): Promise<Tariff> {
+  async retireTariff(id: string, actor: AuthenticatedUser): Promise<Tariff> {
     const tariff = await this.getTariffOrThrow(id, actor.icdId);
     this.policy.assertCanTransition(tariff.status, TariffStatus.RETIRED);
 
@@ -218,17 +195,12 @@ export class TariffService {
     });
   }
 
-  async findTariffs(
-    dto: QueryTariffsDto,
-    actor: AuthenticatedUser,
-  ) {
+  async findTariffs(dto: QueryTariffsDto, actor: AuthenticatedUser) {
     return this.prisma.tariff.findMany({
       where: {
         icdId: actor.icdId,
         ...(dto.status ? { status: dto.status } : {}),
-        ...(dto.keyword
-          ? { name: { contains: dto.keyword } }
-          : {}),
+        ...(dto.keyword ? { name: { contains: dto.keyword } } : {}),
       },
       include: {
         rules: {
@@ -265,11 +237,7 @@ export class TariffService {
     return tariff;
   }
 
-  async getActiveTariffForDate(
-    icdId: string,
-    targetDate: Date,
-    explicitTariffId?: string,
-  ) {
+  async getActiveTariffForDate(icdId: string, targetDate: Date, explicitTariffId?: string) {
     if (explicitTariffId) {
       const tariff = await this.prisma.tariff.findFirst({
         where: { id: explicitTariffId, icdId },
@@ -322,10 +290,7 @@ export class TariffService {
     });
   }
 
-  private async getTariffOrThrow(
-    id: string,
-    icdId: string,
-  ): Promise<Tariff> {
+  private async getTariffOrThrow(id: string, icdId: string): Promise<Tariff> {
     const tariff = await this.prisma.tariff.findFirst({
       where: { id, icdId },
     });

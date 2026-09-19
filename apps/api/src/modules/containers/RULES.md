@@ -1,12 +1,15 @@
 # RULES — containers
 
 ## Trách nhiệm module
+
 Quản lý physical container, Container Visit, timeline và lifecycle chính.
 
 ## Ownership
+
 Container/Container Visit state; module khác không update trực tiếp state nếu không qua service/policy được thiết kế.
 
 ## Quy tắc
+
 - Public method phải dùng động từ rõ nghĩa.
 - Không expose `updateStatus`.
 - Query không thay đổi dữ liệu.

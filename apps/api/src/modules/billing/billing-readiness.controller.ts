@@ -7,9 +7,7 @@ import { BillingReadinessService } from './services/billing-readiness.service';
 
 @Controller('billing/readiness')
 export class BillingReadinessController {
-  constructor(
-    private readonly readinessService: BillingReadinessService,
-  ) {}
+  constructor(private readonly readinessService: BillingReadinessService) {}
 
   @Permissions(PERMISSION_CODES.BILLING_READ)
   @Get(':containerVisitId')
@@ -17,10 +15,7 @@ export class BillingReadinessController {
     @Param('containerVisitId') containerVisitId: string,
     @CurrentUser() actor: AuthenticatedUser,
   ) {
-    const data = await this.readinessService.checkReadiness(
-      containerVisitId,
-      actor,
-    );
+    const data = await this.readinessService.checkReadiness(containerVisitId, actor);
     return { data };
   }
 }

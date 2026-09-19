@@ -1,12 +1,15 @@
 # RULES — gate-out
 
 ## Trách nhiệm module
+
 Điều phối xác nhận container rời ICD.
 
 ## Ownership
+
 Gate-out orchestration, re-check readiness trước commit.
 
 ## Quy tắc
+
 - Public method phải dùng động từ rõ nghĩa.
 - Không expose `updateStatus`.
 - Query không thay đổi dữ liệu.

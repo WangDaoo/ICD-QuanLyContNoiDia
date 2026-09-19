@@ -8,8 +8,14 @@ import {
   ServiceOrderStatus,
   YardMovement,
 } from '../../../generated/prisma/client';
-import { BILLING_SERVICE_CODES, type BillingServiceCode } from '../constants/billing-service-codes.constants';
-import { BILLING_SOURCE_TYPES, type BillingSourceType } from '../constants/billing-source-types.constants';
+import {
+  BILLING_SERVICE_CODES,
+  type BillingServiceCode,
+} from '../constants/billing-service-codes.constants';
+import {
+  BILLING_SOURCE_TYPES,
+  type BillingSourceType,
+} from '../constants/billing-source-types.constants';
 
 export interface BillableItemComputation {
   serviceCode: BillingServiceCode;
@@ -37,9 +43,7 @@ export interface ContainerVisitBillingContext {
 
 @Injectable()
 export class BillableQuantityCalculator {
-  calculateBillableItems(
-    context: ContainerVisitBillingContext,
-  ): BillableItemComputation[] {
+  calculateBillableItems(context: ContainerVisitBillingContext): BillableItemComputation[] {
     const { visit, asOfDate, excludeOrderId } = context;
     const items: BillableItemComputation[] = [];
 
@@ -88,14 +92,8 @@ export class BillableQuantityCalculator {
 
       const diffMs = effectiveEndDate.getTime() - startDate.getTime();
       if (diffMs >= 0) {
-        const totalElapsedDays = Math.max(
-          1,
-          Math.ceil(diffMs / (1000 * 60 * 60 * 24)),
-        );
-        const unbilledStorageDays = Math.max(
-          0,
-          totalElapsedDays - previouslyBilledStorageDays,
-        );
+        const totalElapsedDays = Math.max(1, Math.ceil(diffMs / (1000 * 60 * 60 * 24)));
+        const unbilledStorageDays = Math.max(0, totalElapsedDays - previouslyBilledStorageDays);
 
         if (unbilledStorageDays > 0) {
           items.push({
@@ -127,9 +125,7 @@ export class BillableQuantityCalculator {
     }
 
     // 4. Container Inspections
-    const completedInspections = (visit.inspections ?? []).filter(
-      (i) => i.status === 'COMPLETED',
-    );
+    const completedInspections = (visit.inspections ?? []).filter((i) => i.status === 'COMPLETED');
     for (const inspection of completedInspections) {
       const key = `${BILLING_SOURCE_TYPES.CONTAINER_INSPECTION}:${inspection.id}`;
       if (!billedSourceIds.has(key)) {
@@ -144,9 +140,7 @@ export class BillableQuantityCalculator {
     }
 
     // 5. Yard Movements
-    const completedMovements = (visit.yardMovements ?? []).filter(
-      (m) => m.status === 'COMPLETED',
-    );
+    const completedMovements = (visit.yardMovements ?? []).filter((m) => m.status === 'COMPLETED');
     for (const movement of completedMovements) {
       const key = `${BILLING_SOURCE_TYPES.YARD_MOVEMENT}:${movement.id}`;
       if (!billedSourceIds.has(key)) {

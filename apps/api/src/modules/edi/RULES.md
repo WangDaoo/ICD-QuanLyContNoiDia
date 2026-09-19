@@ -1,12 +1,15 @@
 # RULES — edi
 
 ## Trách nhiệm module
+
 Tạo/dispatch EDI message, theo dõi retry, ACK và failure.
 
 ## Ownership
+
 EDI outbox/message/ack; lỗi EDI không rollback core Gate nếu đặc tả không yêu cầu.
 
 ## Quy tắc
+
 - Public method phải dùng động từ rõ nghĩa.
 - Không expose `updateStatus`.
 - Query không thay đổi dữ liệu.

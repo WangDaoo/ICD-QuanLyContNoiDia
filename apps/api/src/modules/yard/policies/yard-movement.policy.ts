@@ -1,12 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import {
-  ContainerVisitStatus,
-  YardMovementStatus,
-} from '../../../generated/prisma/client';
+import { ContainerVisitStatus, YardMovementStatus } from '../../../generated/prisma/client';
 import { YARD_ERROR_CODES } from '../constants/yard-error-codes.constants';
-import {
-  YardAssignmentPolicy,
-} from './yard-assignment.policy';
+import { YardAssignmentPolicy } from './yard-assignment.policy';
 
 export interface YardMovementVisitContext {
   status: ContainerVisitStatus;
@@ -114,15 +109,11 @@ export class YardMovementPolicy {
     errorCode?: string;
     message?: string;
   } {
-    if (
-      status !== YardMovementStatus.IN_PROGRESS &&
-      status !== YardMovementStatus.PENDING
-    ) {
+    if (status !== YardMovementStatus.IN_PROGRESS && status !== YardMovementStatus.PENDING) {
       return {
         valid: false,
         errorCode: YARD_ERROR_CODES.MOVEMENT_NOT_IN_PROGRESS,
-        message:
-          'Chỉ có thể hoàn tất tác nghiệp đảo chuyển khi đang PENDING hoặc IN_PROGRESS.',
+        message: 'Chỉ có thể hoàn tất tác nghiệp đảo chuyển khi đang PENDING hoặc IN_PROGRESS.',
       };
     }
     return { valid: true };
@@ -133,15 +124,11 @@ export class YardMovementPolicy {
     errorCode?: string;
     message?: string;
   } {
-    if (
-      status !== YardMovementStatus.PENDING &&
-      status !== YardMovementStatus.IN_PROGRESS
-    ) {
+    if (status !== YardMovementStatus.PENDING && status !== YardMovementStatus.IN_PROGRESS) {
       return {
         valid: false,
         errorCode: YARD_ERROR_CODES.MOVEMENT_CANNOT_BE_CANCELLED,
-        message:
-          'Không thể hủy yêu cầu đảo chuyển đã ở trạng thái COMPLETED hoặc CANCELLED.',
+        message: 'Không thể hủy yêu cầu đảo chuyển đã ở trạng thái COMPLETED hoặc CANCELLED.',
       };
     }
     return { valid: true };

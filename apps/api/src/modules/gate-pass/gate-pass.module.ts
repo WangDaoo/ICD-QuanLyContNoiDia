@@ -1,15 +1,17 @@
-/**
- * gate-pass / gate-pass.module.ts
- *
- * Mục đích:
- * File dự kiến triển khai cho module gate-pass. Kiểm tra readiness và phát hành/quản lý Phiếu ra cổng.
- *
- * Quy tắc khi triển khai:
- * - Ownership module: Gate Pass lifecycle và readiness aggregation.
- * - Tuân thủ pattern chung trong docs/development/OPERATION_PATTERNS.md.
- * - Chưa có logic; chỉ thêm code khi bắt đầu triển khai module này.
- *
- * Lưu ý:
- * - File hiện tại chỉ là khung, chưa có logic thực thi.
- * - Không tự ý mở rộng trách nhiệm của file nếu chưa cập nhật RULES.md của module.
- */
+import { Module } from '@nestjs/common';
+import { PrismaModule } from '../../database/prisma.module';
+import { BillingModule } from '../billing/billing.module';
+import { ContainersModule } from '../containers/containers.module';
+import { OperationalHoldsModule } from '../operational-holds/operational-holds.module';
+import { YardModule } from '../yard/yard.module';
+import { GatePassController } from './gate-pass.controller';
+import { GatePassReadinessService } from './services/gate-pass-readiness.service';
+import { GatePassService } from './services/gate-pass.service';
+
+@Module({
+  imports: [PrismaModule, ContainersModule, YardModule, OperationalHoldsModule, BillingModule],
+  controllers: [GatePassController],
+  providers: [GatePassService, GatePassReadinessService],
+  exports: [GatePassService, GatePassReadinessService],
+})
+export class GatePassModule {}

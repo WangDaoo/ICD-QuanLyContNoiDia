@@ -21,21 +21,21 @@ Nếu hai rule mâu thuẫn, rule cấp cao hơn được ưu tiên trừ khi t�
 
 ## 3. Naming convention
 
-| Thành phần | Convention | Ví dụ |
-|---|---|---|
-| Biến | `camelCase` | `containerVisit` |
-| Hàm/method | `camelCase`, bắt đầu bằng động từ | `findContainerById` |
-| Boolean | `is/has/can/should` | `hasOperationalHold` |
-| Class | `PascalCase` | `GateInService` |
-| Type/Interface | `PascalCase` | `HandoverSummary` |
-| Enum type | `PascalCase` | `HandoverStatus` |
-| Enum value | `UPPER_SNAKE_CASE` | `IN_TRANSIT` |
-| Constant | `UPPER_SNAKE_CASE` | `DEFAULT_PAGE_SIZE` |
-| File | `kebab-case` | `gate-in.service.ts` |
-| Folder | `kebab-case` | `partner-handover` |
-| DB table/column | `snake_case` | `container_visit_id` |
-| API JSON field | `camelCase` | `containerCode` |
-| API path | `kebab-case` | `/partner-api-logs` |
+| Thành phần      | Convention                        | Ví dụ                |
+| --------------- | --------------------------------- | -------------------- |
+| Biến            | `camelCase`                       | `containerVisit`     |
+| Hàm/method      | `camelCase`, bắt đầu bằng động từ | `findContainerById`  |
+| Boolean         | `is/has/can/should`               | `hasOperationalHold` |
+| Class           | `PascalCase`                      | `GateInService`      |
+| Type/Interface  | `PascalCase`                      | `HandoverSummary`    |
+| Enum type       | `PascalCase`                      | `HandoverStatus`     |
+| Enum value      | `UPPER_SNAKE_CASE`                | `IN_TRANSIT`         |
+| Constant        | `UPPER_SNAKE_CASE`                | `DEFAULT_PAGE_SIZE`  |
+| File            | `kebab-case`                      | `gate-in.service.ts` |
+| Folder          | `kebab-case`                      | `partner-handover`   |
+| DB table/column | `snake_case`                      | `container_visit_id` |
+| API JSON field  | `camelCase`                       | `containerCode`      |
+| API path        | `kebab-case`                      | `/partner-api-logs`  |
 
 ## 4. Quy tắc động từ cho hàm
 
@@ -73,6 +73,7 @@ Không dùng các tên mơ hồ như `process`, `handleData`, `doAction`, `manag
 Module nào sở hữu nghiệp vụ thì module đó chịu trách nhiệm thay đổi trạng thái chính.
 
 Ví dụ:
+
 - `containers`: vòng đời Container Visit.
 - `yard`: vị trí, movement, inspection, booking.
 - `billing`: service order, invoice, payment.
@@ -102,10 +103,12 @@ Một thao tác nghiệp vụ phải theo pattern:
 ## 9. Query và Command
 
 Query:
+
 - `find`, `get`, `search`, `list`, `check`, `calculate`.
 - Không thay đổi DB.
 
 Command:
+
 - `create`, `update`, `confirm`, `cancel`, `issue`, `assign`, `complete`, `release`, `revoke`.
 - Có thể thay đổi DB.
 - Phải audit nếu là action nghiệp vụ quan trọng.
@@ -115,6 +118,7 @@ Command:
 Business error code dùng `UPPER_SNAKE_CASE`.
 
 Ví dụ:
+
 - `CONTAINER_NOT_FOUND`
 - `INVALID_CONTAINER_STATE`
 - `MOVEMENT_ORDER_NOT_AUTHORIZED`
@@ -206,6 +210,7 @@ Comment phải giải thích **vì sao**, không mô tả lại dòng code hiể
 ## 18. Formatting/lint
 
 Khi bắt đầu code thật:
+
 - TypeScript strict mode.
 - ESLint.
 - typescript-eslint.

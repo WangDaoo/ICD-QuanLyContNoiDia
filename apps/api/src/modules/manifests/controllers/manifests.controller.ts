@@ -11,50 +11,29 @@ import {
   Query,
 } from '@nestjs/common';
 
-import {
-  PERMISSION_CODES,
-} from '../../../common/constants/permission-codes.constants';
+import { PERMISSION_CODES } from '../../../common/constants/permission-codes.constants';
 
-import {
-  CurrentUser,
-} from '../../../common/decorators/current-user.decorator';
+import { CurrentUser } from '../../../common/decorators/current-user.decorator';
 
-import {
-  Permissions,
-} from '../../../common/decorators/permissions.decorator';
+import { Permissions } from '../../../common/decorators/permissions.decorator';
 
-import type {
-  AuthenticatedUser,
-} from '../../../common/types/authenticated-user.types';
+import type { AuthenticatedUser } from '../../../common/types/authenticated-user.types';
 
-import {
-  CreateManifestDto,
-} from '../dto/manifest/create-manifest.dto';
+import { CreateManifestDto } from '../dto/manifest/create-manifest.dto';
 
-import {
-  QueryManifestsDto,
-} from '../dto/manifest/query-manifests.dto';
+import { QueryManifestsDto } from '../dto/manifest/query-manifests.dto';
 
-import {
-  UpdateManifestDto,
-} from '../dto/manifest/update-manifest.dto';
+import { UpdateManifestDto } from '../dto/manifest/update-manifest.dto';
 
-import {
-  ManifestService,
-} from '../services/manifest.service';
+import { ManifestService } from '../services/manifest.service';
 
 @Controller('manifests')
 export class ManifestsController {
-  constructor(
-    private readonly manifestService: ManifestService,
-  ) {}
+  constructor(private readonly manifestService: ManifestService) {}
 
   @Get()
   @Permissions(PERMISSION_CODES.MANIFEST_READ)
-  async list(
-    @CurrentUser() user: AuthenticatedUser,
-    @Query() query: QueryManifestsDto,
-  ) {
+  async list(@CurrentUser() user: AuthenticatedUser, @Query() query: QueryManifestsDto) {
     return this.manifestService.list(user.icdId, query);
   }
 
@@ -70,10 +49,7 @@ export class ManifestsController {
   @Post()
   @HttpCode(HttpStatus.CREATED)
   @Permissions(PERMISSION_CODES.MANIFEST_CREATE)
-  async create(
-    @CurrentUser() user: AuthenticatedUser,
-    @Body() dto: CreateManifestDto,
-  ) {
+  async create(@CurrentUser() user: AuthenticatedUser, @Body() dto: CreateManifestDto) {
     return this.manifestService.create(user.icdId, user.id, dto);
   }
 

@@ -1,7 +1,4 @@
-import {
-  Injectable,
-  ServiceUnavailableException,
-} from '@nestjs/common';
+import { Injectable, ServiceUnavailableException } from '@nestjs/common';
 
 import { PrismaService } from '../../database/prisma.service';
 
@@ -14,9 +11,7 @@ import { PrismaService } from '../../database/prisma.service';
  */
 @Injectable()
 export class HealthService {
-  constructor(
-    private readonly prisma: PrismaService,
-  ) {}
+  constructor(private readonly prisma: PrismaService) {}
 
   async check() {
     try {
@@ -24,9 +19,7 @@ export class HealthService {
        * Chưa có Prisma model nên dùng query đơn giản
        * để xác minh connection thật tới MySQL.
        */
-      await this.prisma.$queryRawUnsafe(
-        'SELECT 1',
-      );
+      await this.prisma.$queryRawUnsafe('SELECT 1');
 
       return {
         status: 'ok',

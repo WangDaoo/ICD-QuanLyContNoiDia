@@ -15,9 +15,7 @@ export class ContainerStatePolicy {
 
   assertCanGateIn(status: ContainerVisitStatus): void {
     if (status !== ContainerVisitStatus.AUTHORIZED) {
-      throw this.invalidState(
-        'Chỉ Container Visit AUTHORIZED mới được Gate-in.',
-      );
+      throw this.invalidState('Chỉ Container Visit AUTHORIZED mới được Gate-in.');
     }
   }
 
@@ -40,19 +38,13 @@ export class ContainerStatePolicy {
       ContainerVisitStatus.IN_TRANSIT,
       ContainerVisitStatus.CANCELLED,
     ],
-    [ContainerVisitStatus.IN_TRANSIT]: [
-      ContainerVisitStatus.ARRIVED,
-    ],
+    [ContainerVisitStatus.IN_TRANSIT]: [ContainerVisitStatus.ARRIVED],
     [ContainerVisitStatus.ARRIVED]: [
       ContainerVisitStatus.INSPECTED,
       ContainerVisitStatus.GATE_IN_REQUESTED,
     ],
-    [ContainerVisitStatus.INSPECTED]: [
-      ContainerVisitStatus.GATE_IN_REQUESTED,
-    ],
-    [ContainerVisitStatus.GATE_IN_REQUESTED]: [
-      ContainerVisitStatus.GATE_IN_CONFIRMED,
-    ],
+    [ContainerVisitStatus.INSPECTED]: [ContainerVisitStatus.GATE_IN_REQUESTED],
+    [ContainerVisitStatus.GATE_IN_REQUESTED]: [ContainerVisitStatus.GATE_IN_CONFIRMED],
     [ContainerVisitStatus.GATE_IN_CONFIRMED]: [
       ContainerVisitStatus.IN_YARD,
       ContainerVisitStatus.STACKED,
@@ -67,19 +59,16 @@ export class ContainerStatePolicy {
       ContainerVisitStatus.UNDER_CUSTOMS_HOLD,
       ContainerVisitStatus.GATE_PASS_ISSUED,
     ],
-    [ContainerVisitStatus.UNDER_CUSTOMS_HOLD]: [
-      ContainerVisitStatus.CUSTOMS_CLEARED,
-    ],
+    [ContainerVisitStatus.UNDER_CUSTOMS_HOLD]: [ContainerVisitStatus.CUSTOMS_CLEARED],
     [ContainerVisitStatus.CUSTOMS_CLEARED]: [
       ContainerVisitStatus.GATE_PASS_ISSUED,
       ContainerVisitStatus.STACKED,
     ],
     [ContainerVisitStatus.GATE_PASS_ISSUED]: [
       ContainerVisitStatus.GATE_OUT_CONFIRMED,
+      ContainerVisitStatus.IN_YARD,
     ],
-    [ContainerVisitStatus.GATE_OUT_CONFIRMED]: [
-      ContainerVisitStatus.EXITED,
-    ],
+    [ContainerVisitStatus.GATE_OUT_CONFIRMED]: [ContainerVisitStatus.EXITED],
     [ContainerVisitStatus.EXITED]: [],
     [ContainerVisitStatus.CANCELLED]: [],
   };

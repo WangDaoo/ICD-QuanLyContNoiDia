@@ -1,12 +1,15 @@
 # RULES — notifications
 
 ## Trách nhiệm module
+
 Điều phối Email/Push notification theo business event.
 
 ## Ownership
+
 Notification delivery; không sở hữu state nghiệp vụ nguồn.
 
 ## Quy tắc
+
 - Public method phải dùng động từ rõ nghĩa.
 - Không expose `updateStatus`.
 - Query không thay đổi dữ liệu.

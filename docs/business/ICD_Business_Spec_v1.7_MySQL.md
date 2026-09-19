@@ -1,4 +1,5 @@
 # Đặc tả Nghiệp vụ Tổng thể
+
 # Hệ thống Quản lý Kho bãi Container Nội địa (ICD)
 
 **Phiên bản:** 1.7 — Business-focused / Core ICD + Partner Handover
@@ -25,17 +26,17 @@ Các thành phần kỹ thuật giữ nguyên tiếng Anh để đồng nhất k
 - permission, class/function, request/response field;
 - chuẩn quốc tế: EDI, CODECO, MBL, HBL, ISO 6346.
 
-| Tên hiển thị nghiệp vụ | Thuật ngữ kỹ thuật |
-|---|---|
-| Tiếp nhận vào cổng | Gate-in |
-| Xác nhận ra cổng | Gate-out |
-| Phiếu ra cổng | Gate Pass |
-| Chuyến xe ra/vào | Truck Visit |
-| Vị trí bãi | Yard Slot |
-| Dịch vụ & Thanh toán | Billing |
-| Bàn giao vận chuyển | Transport Handover |
-| Xác nhận của đối tác | Partner Confirmation |
-| Nhật ký API đối tác | Partner API Log |
+| Tên hiển thị nghiệp vụ | Thuật ngữ kỹ thuật   |
+| ---------------------- | -------------------- |
+| Tiếp nhận vào cổng     | Gate-in              |
+| Xác nhận ra cổng       | Gate-out             |
+| Phiếu ra cổng          | Gate Pass            |
+| Chuyến xe ra/vào       | Truck Visit          |
+| Vị trí bãi             | Yard Slot            |
+| Dịch vụ & Thanh toán   | Billing              |
+| Bàn giao vận chuyển    | Transport Handover   |
+| Xác nhận của đối tác   | Partner Confirmation |
+| Nhật ký API đối tác    | Partner API Log      |
 
 ---
 
@@ -62,21 +63,21 @@ Xây dựng hệ thống quản lý ICD tích hợp trên nền tảng **Web + M
 
 Hệ thống gồm các mô đun nghiệp vụ và mô đun hỗ trợ sau:
 
-| STT | Mô đun | Trách nhiệm chính |
-|-----|--------|-------------------|
-| 1 | Bản lược khai hàng hóa (Manifest) & Vận đơn | Manifest, MBL, HBL, danh sách container |
-| 2 | Quản lý container | Tra cứu, timeline, trạng thái Container Visit |
-| 3 | Tiếp nhận vào cổng (Gate-in) | Movement Order, Truck Visit, Reception, xác nhận vào cổng |
-| 4 | Quản lý bãi container (Yard) | Vị trí, assign slot, movement, inspection, stripping/booking |
-| 5 | Dịch vụ & Thanh toán | Tariff, Service Order, Invoice, Payment |
-| 6 | Phiếu ra cổng & Xác nhận ra cổng | Readiness, QR, xác nhận container rời ICD |
-| 7 | Tổng quan & Báo cáo | KPI, gate activity, dwell, yard inventory, revenue, debt |
-| 8 | Phân quyền & Cấu hình | User, role, permission, setting, tariff, master data |
-| 9 | Nhật ký kiểm toán | Lịch sử thay đổi và truy vết request |
-| 10 | Danh sách công việc thông minh | Chuyển trạng thái nghiệp vụ thành danh sách việc theo SLA/role |
-| 11 | Gợi ý vị trí bãi bằng ML | Xếp hạng Yard Slot sau khi đã lọc hard safety rules |
-| 12 | EDI / Email / Thông báo | Trao đổi CODECO/EDI, theo dõi gửi/ACK; email/push theo roadmap |
-| 13 | Tích hợp bàn giao đối tác | ICD cấp API dữ liệu container/handover cho đối tác; nhận Partner confirmation, ICD confirmation, quản lý API Client và API Log |
+| STT | Mô đun                                      | Trách nhiệm chính                                                                                                              |
+| --- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| 1   | Bản lược khai hàng hóa (Manifest) & Vận đơn | Manifest, MBL, HBL, danh sách container                                                                                        |
+| 2   | Quản lý container                           | Tra cứu, timeline, trạng thái Container Visit                                                                                  |
+| 3   | Tiếp nhận vào cổng (Gate-in)                | Movement Order, Truck Visit, Reception, xác nhận vào cổng                                                                      |
+| 4   | Quản lý bãi container (Yard)                | Vị trí, assign slot, movement, inspection, stripping/booking                                                                   |
+| 5   | Dịch vụ & Thanh toán                        | Tariff, Service Order, Invoice, Payment                                                                                        |
+| 6   | Phiếu ra cổng & Xác nhận ra cổng            | Readiness, QR, xác nhận container rời ICD                                                                                      |
+| 7   | Tổng quan & Báo cáo                         | KPI, gate activity, dwell, yard inventory, revenue, debt                                                                       |
+| 8   | Phân quyền & Cấu hình                       | User, role, permission, setting, tariff, master data                                                                           |
+| 9   | Nhật ký kiểm toán                           | Lịch sử thay đổi và truy vết request                                                                                           |
+| 10  | Danh sách công việc thông minh              | Chuyển trạng thái nghiệp vụ thành danh sách việc theo SLA/role                                                                 |
+| 11  | Gợi ý vị trí bãi bằng ML                    | Xếp hạng Yard Slot sau khi đã lọc hard safety rules                                                                            |
+| 12  | EDI / Email / Thông báo                     | Trao đổi CODECO/EDI, theo dõi gửi/ACK; email/push theo roadmap                                                                 |
+| 13  | Tích hợp bàn giao đối tác                   | ICD cấp API dữ liệu container/handover cho đối tác; nhận Partner confirmation, ICD confirmation, quản lý API Client và API Log |
 
 ### 1.4 Ngoài phạm vi
 
@@ -92,33 +93,33 @@ Hệ thống gồm các mô đun nghiệp vụ và mô đun hỗ trợ sau:
 
 ### 2.1 Danh sách vai trò
 
-| Vai trò | Thiết bị chính | Trách nhiệm |
-|---------|----------------|-------------|
-| `ADMIN` | Web | Quản trị người dùng, cấu hình, tariff, master data, audit, Đối tác tích hợp API/API Key |
-| `MANAGER` | Web | Dashboard, báo cáo, giám sát nghiệp vụ, audit, EDI, Handover và Nhật ký API đối tác |
-| `OPERATOR` | Web | Manifest, Container, Billing, Gate Pass, tạo Handover, review Partner confirmation theo quyền |
-| `GATE_STAFF` | Mobile/Web | Truck Visit tại cổng, Gate-in, scan Gate Pass, Gate-out |
-| `YARD_STAFF` | Mobile/Web | Yard assign, movement, inspection, booking |
-| `AGENT` | Web/Mobile | Tra cứu dữ liệu được cấp quyền |
-| `CONSIGNEE` | Mobile/Web | Tra cứu container, billing/gate pass theo phạm vi |
+| Vai trò          | Thiết bị chính   | Trách nhiệm                                                                                       |
+| ---------------- | ---------------- | ------------------------------------------------------------------------------------------------- |
+| `ADMIN`          | Web              | Quản trị người dùng, cấu hình, tariff, master data, audit, Đối tác tích hợp API/API Key           |
+| `MANAGER`        | Web              | Dashboard, báo cáo, giám sát nghiệp vụ, audit, EDI, Handover và Nhật ký API đối tác               |
+| `OPERATOR`       | Web              | Manifest, Container, Billing, Gate Pass, tạo Handover, review Partner confirmation theo quyền     |
+| `GATE_STAFF`     | Mobile/Web       | Truck Visit tại cổng, Gate-in, scan Gate Pass, Gate-out                                           |
+| `YARD_STAFF`     | Mobile/Web       | Yard assign, movement, inspection, booking                                                        |
+| `AGENT`          | Web/Mobile       | Tra cứu dữ liệu được cấp quyền                                                                    |
+| `CONSIGNEE`      | Mobile/Web       | Tra cứu container, billing/gate pass theo phạm vi                                                 |
 | `PARTNER_SYSTEM` | Server-to-server | Hệ thống Logistics/Transport Partner; dùng API Key do ICD cấp để đọc Handover và gửi confirmation |
 
 ### 2.2 Ma trận phân quyền theo mô đun
 
-| Mô đun | ADMIN | MANAGER | OPERATOR | GATE_STAFF | YARD_STAFF | AGENT | CONSIGNEE |
-|--------|-------|---------|----------|------------|------------|-------|-----------|
-| Manifest & B/L | CRUD | R | CRUD | R | R | R | R phạm vi |
-| Container | CRUD | R | CRUD | R | RU | R | R phạm vi |
-| Gate-in / Truck Visit | CRUD | R | CRU | CRU | R | — | — |
-| Yard | CRUD | R | CRU | — | CRU | — | — |
-| Billing | CRUD | R | CRUD | R | — | R | R |
-| Gate Pass / Gate-out | CRUD | RA | CRA | RU | — | R | R |
-| Reports | Full | Full | Hạn chế | — | — | Phạm vi | Phạm vi |
-| Config / RBAC | Full | R | — | — | — | — | — |
-| Audit / EDI Monitor | Full | R | R phạm vi | — | — | — | — |
-| Tích hợp bàn giao đối tác | API Client + Full | R + Confirm theo policy | Create/Review theo quyền | R tóm tắt | R tóm tắt | — | R phạm vi nếu được cấp |
+| Mô đun                    | ADMIN             | MANAGER                 | OPERATOR                 | GATE_STAFF | YARD_STAFF | AGENT   | CONSIGNEE              |
+| ------------------------- | ----------------- | ----------------------- | ------------------------ | ---------- | ---------- | ------- | ---------------------- |
+| Manifest & B/L            | CRUD              | R                       | CRUD                     | R          | R          | R       | R phạm vi              |
+| Container                 | CRUD              | R                       | CRUD                     | R          | RU         | R       | R phạm vi              |
+| Gate-in / Truck Visit     | CRUD              | R                       | CRU                      | CRU        | R          | —       | —                      |
+| Yard                      | CRUD              | R                       | CRU                      | —          | CRU        | —       | —                      |
+| Billing                   | CRUD              | R                       | CRUD                     | R          | —          | R       | R                      |
+| Gate Pass / Gate-out      | CRUD              | RA                      | CRA                      | RU         | —          | R       | R                      |
+| Reports                   | Full              | Full                    | Hạn chế                  | —          | —          | Phạm vi | Phạm vi                |
+| Config / RBAC             | Full              | R                       | —                        | —          | —          | —       | —                      |
+| Audit / EDI Monitor       | Full              | R                       | R phạm vi                | —          | —          | —       | —                      |
+| Tích hợp bàn giao đối tác | API Client + Full | R + Confirm theo policy | Create/Review theo quyền | R tóm tắt  | R tóm tắt  | —       | R phạm vi nếu được cấp |
 
-*CRUD: Create/Read/Update/Delete — A: Approve — R: Read — RU: Read/Update — CRU: Create/Read/Update.*
+_CRUD: Create/Read/Update/Delete — A: Approve — R: Read — RU: Read/Update — CRU: Create/Read/Update._
 
 ---
 
@@ -243,11 +244,13 @@ Bàn giao vận chuyển = DELIVERY_FAILED
 ```
 
 Container vẫn `EXITED`; việc xử lý giao thất bại chỉ nằm trong Module 13.
+
 ## 4. Mô đun nghiệp vụ chi tiết
 
 ### 4.1 Mô đun 1 — Bản lược khai hàng hóa (Manifest) & Vận đơn
 
 #### Mục đích
+
 Nhập dữ liệu chuyến hàng từ hãng tàu/forwarder vào hệ thống làm cơ sở theo dõi toàn bộ vòng đời container.
 
 #### Yêu cầu chức năng
@@ -263,6 +266,7 @@ Nhập dữ liệu chuyến hàng từ hãng tàu/forwarder vào hệ thống l�
 #### Dữ liệu chính
 
 **Manifest**
+
 ```
 - Mã manifest (tự sinh)
 - Ngày tàu đến
@@ -273,6 +277,7 @@ Nhập dữ liệu chuyến hàng từ hãng tàu/forwarder vào hệ thống l�
 ```
 
 **Master BL**
+
 ```
 - Số MBL
 - Manifest (FK)
@@ -281,6 +286,7 @@ Nhập dữ liệu chuyến hàng từ hãng tàu/forwarder vào hệ thống l�
 ```
 
 **House BL**
+
 ```
 - Số HBL
 - Master BL (FK)
@@ -292,6 +298,7 @@ Nhập dữ liệu chuyến hàng từ hãng tàu/forwarder vào hệ thống l�
 ```
 
 **Container (từ Manifest)**
+
 ```
 - Số container (ISO format, ví dụ: MSCU1234567)
 - Loại container: 20GP / 40GP / 40HC / 20RF
@@ -312,6 +319,7 @@ Nhập dữ liệu chuyến hàng từ hãng tàu/forwarder vào hệ thống l�
 ### 4.2 Mô đun 2 — Quản lý Container
 
 #### Mục đích
+
 Là trung tâm theo dõi toàn bộ vòng đời, vị trí, trạng thái và thông tin liên quan của từng container trong hệ thống.
 
 #### Yêu cầu chức năng
@@ -327,6 +335,7 @@ Là trung tâm theo dõi toàn bộ vòng đời, vị trí, trạng thái và t
 #### Dữ liệu chính
 
 **Container**
+
 ```
 - Số container (PK)
 - Loại container
@@ -384,22 +393,24 @@ SCHEDULED → ARRIVED → IN_PROGRESS → COMPLETED
 - Khi toàn bộ container trên chuyến đã xử lý xong, Truck Visit có thể tự chuyển `COMPLETED`.
 - Nếu không dùng Truck Visit trong tình huống đặc biệt, backend vẫn phải validate Movement Order và container state trước khi tạo Reception.
 
-
 ---
 
 ### 4.4 Mô đun 4 — Vận hành bãi container (Yard)
 
 #### Mục đích
+
 Quản lý toàn bộ hoạt động xảy ra trong yard: vị trí container, stripping, kiểm định, di chuyển nội bộ.
 
 #### 4.4.1 Quản lý vị trí (Container Location)
 
 **Yêu cầu chức năng**
+
 - **YD-01** Cập nhật vị trí container trong yard (hàng/block/tầng)
 - **YD-02** Xem sơ đồ yard (grid layout) — Web
 - **YD-03** Tìm container theo vị trí
 
 **Dữ liệu**
+
 ```
 Container Location:
 - Container (FK)
@@ -413,6 +424,7 @@ Container Location:
 **Mục đích:** Lên lịch rút hàng ra khỏi container (đối với hàng FCL → LCL hoặc hàng cần kho đệm).
 
 **Yêu cầu chức năng**
+
 - **ST-01** Tạo booking stripping cho container
 - **ST-02** Lên lịch ngày giờ thực hiện
 - **ST-03** Ghi nhận kết quả: số kiện, trọng lượng, tình trạng hàng
@@ -420,6 +432,7 @@ Container Location:
 - **ST-05** Tạo bulk booking cho nhiều container cùng lúc
 
 **Dữ liệu**
+
 ```
 In Yard Booking:
 - Mã booking
@@ -437,12 +450,14 @@ In Yard Booking:
 **Mục đích:** Ghi nhận kết quả kiểm tra hải quan hoặc kiểm định nội bộ.
 
 **Yêu cầu chức năng**
+
 - **IN-01** Tạo yêu cầu kiểm định
 - **IN-02** Ghi nhận kết quả kiểm định (pass / fail / hold)
 - **IN-03** Upload biên bản kiểm định (PDF)
 - **IN-04** Thông báo kết quả đến Consignee / Clearing Agent
 
 **Dữ liệu**
+
 ```
 Container Inspection:
 - Container (FK)
@@ -457,6 +472,7 @@ Container Inspection:
 #### 4.4.4 Di chuyển nội bộ (Container Verification Movement)
 
 **Yêu cầu chức năng**
+
 - **MV-01** Tạo lệnh di chuyển container từ vị trí A sang vị trí B
 - **MV-02** Xác nhận hoàn thành di chuyển (Mobile — nhân viên yard)
 - **MV-03** Tự động cập nhật vị trí container
@@ -466,18 +482,19 @@ Container Inspection:
 ### 4.5 Mô đun 5 — Dịch vụ & Thanh toán
 
 #### Mục đích
+
 Tính toán và quản lý các khoản phí dịch vụ phát sinh trên container, tạo hoá đơn và theo dõi thanh toán.
 
 #### 5.1 Danh mục dịch vụ & biểu phí
 
-| Loại phí | Đơn vị tính | Ghi chú |
-|----------|------------|---------|
-| Phí lưu kho (Storage) | Container/ngày | Có free days, tính theo loại container |
-| Phí tiếp nhận (Reception) | Container/lần | Một lần khi gate-in |
-| Phí stripping | Container/lần | Khi thực hiện stripping |
-| Phí kiểm định | Lần | Theo loại kiểm định |
-| Corridor levy | Container/ngày | Phí cơ sở hạ tầng |
-| Phí di chuyển nội bộ | Lần | Khi thực hiện movement |
+| Loại phí                  | Đơn vị tính    | Ghi chú                                |
+| ------------------------- | -------------- | -------------------------------------- |
+| Phí lưu kho (Storage)     | Container/ngày | Có free days, tính theo loại container |
+| Phí tiếp nhận (Reception) | Container/lần  | Một lần khi gate-in                    |
+| Phí stripping             | Container/lần  | Khi thực hiện stripping                |
+| Phí kiểm định             | Lần            | Theo loại kiểm định                    |
+| Corridor levy             | Container/ngày | Phí cơ sở hạ tầng                      |
+| Phí di chuyển nội bộ      | Lần            | Khi thực hiện movement                 |
 
 #### 5.2 Yêu cầu chức năng
 
@@ -492,6 +509,7 @@ Tính toán và quản lý các khoản phí dịch vụ phát sinh trên contai
 #### Dữ liệu chính
 
 **Service Order**
+
 ```
 - Mã Service Order
 - Container (FK)
@@ -506,6 +524,7 @@ Tính toán và quản lý các khoản phí dịch vụ phát sinh trên contai
 ```
 
 **Invoice**
+
 ```
 - Mã hoá đơn
 - Service Order (FK)
@@ -536,15 +555,15 @@ Chỉ cho phép container rời ICD khi toàn bộ điều kiện tài chính v�
 
 Backend kiểm tra tối thiểu:
 
-| Blocker | Ý nghĩa |
-|---|---|
-| `CONTAINER_NOT_IN_YARD` | Container chưa ở trạng thái phù hợp |
-| `NO_YARD_POSITION` | Chưa có vị trí Yard hợp lệ |
-| `NO_BILLING` / `BILLING_INCOMPLETE` | Billing chưa hoàn tất |
-| `UNBILLED_SERVICES` | Có dịch vụ phát sinh chưa được bill |
-| `ACTIVE_YARD_OPERATION` | Còn movement/inspection/booking đang active |
-| `INSPECTION_HOLD` | Inspection có kết quả HOLD |
-| `OPERATIONAL_HOLD` | Có Hold nghiệp vụ đang ACTIVE |
+| Blocker                             | Ý nghĩa                                     |
+| ----------------------------------- | ------------------------------------------- |
+| `CONTAINER_NOT_IN_YARD`             | Container chưa ở trạng thái phù hợp         |
+| `NO_YARD_POSITION`                  | Chưa có vị trí Yard hợp lệ                  |
+| `NO_BILLING` / `BILLING_INCOMPLETE` | Billing chưa hoàn tất                       |
+| `UNBILLED_SERVICES`                 | Có dịch vụ phát sinh chưa được bill         |
+| `ACTIVE_YARD_OPERATION`             | Còn movement/inspection/booking đang active |
+| `INSPECTION_HOLD`                   | Inspection có kết quả HOLD                  |
+| `OPERATIONAL_HOLD`                  | Có Hold nghiệp vụ đang ACTIVE               |
 
 #### Yêu cầu chức năng
 
@@ -561,7 +580,6 @@ Backend kiểm tra tối thiểu:
 - UI hiển thị “Ready” không thay thế validation backend tại thời điểm Gate-out.
 - Gate Pass hết hạn/đã dùng/bị huỷ không được tái sử dụng.
 - Lệnh giữ nghiệp vụ/Inspection Hold phải được release/xử lý trước khi cấp hoặc sử dụng Gate Pass.
-
 
 ---
 
@@ -582,15 +600,15 @@ Cho Manager/ADMIN nhìn được tình hình vận hành hiện tại và dữ l
 
 #### Báo cáo chính
 
-| Báo cáo | Mục đích |
-|---|---|
-| Gate Activity | Theo dõi lưu lượng vào/ra |
-| Container Turnover / Dwell | Đo thời gian lưu và tốc độ quay vòng |
-| Current Yard Inventory | Tồn Yard hiện tại theo Block/Slot/Container Type |
-| Historical Yard Inventory EOD | Tái dựng tồn cuối ngày từ lịch sử location |
-| Revenue | Tổng hợp theo payment allocation |
-| Outstanding Debt | Công nợ hiện tại/quá hạn |
-| Partner Handover | Ready/In Transit/Partner Confirmed/ICD Confirmed/Disputed theo partner/kho |
+| Báo cáo                       | Mục đích                                                                   |
+| ----------------------------- | -------------------------------------------------------------------------- |
+| Gate Activity                 | Theo dõi lưu lượng vào/ra                                                  |
+| Container Turnover / Dwell    | Đo thời gian lưu và tốc độ quay vòng                                       |
+| Current Yard Inventory        | Tồn Yard hiện tại theo Block/Slot/Container Type                           |
+| Historical Yard Inventory EOD | Tái dựng tồn cuối ngày từ lịch sử location                                 |
+| Revenue                       | Tổng hợp theo payment allocation                                           |
+| Outstanding Debt              | Công nợ hiện tại/quá hạn                                                   |
+| Partner Handover              | Ready/In Transit/Partner Confirmed/ICD Confirmed/Disputed theo partner/kho |
 
 Web hỗ trợ lọc theo khoảng thời gian và xuất CSV/Excel; PDF/scheduled report có thể để roadmap nếu chưa cần cho phạm vi đồ án.
 
@@ -622,12 +640,12 @@ Web hỗ trợ lọc theo khoảng thời gian và xuất CSV/Excel; PDF/schedul
 
 **Mục đích:** biến trạng thái nghiệp vụ thành danh sách việc cần làm theo role và SLA.
 
-| Task | Điều kiện điển hình |
-|---|---|
-| `GATE_IN` | Container chờ tiếp nhận, Movement Order/Truck Visit hợp lệ |
-| `YARD_ASSIGN` | `IN_YARD` nhưng chưa có vị trí |
-| `YARD_OPERATIONS` | Có movement/inspection/booking cần xử lý |
-| `GATE_OUT` | Gate Pass đã phát hành và còn hiệu lực |
+| Task              | Điều kiện điển hình                                        |
+| ----------------- | ---------------------------------------------------------- |
+| `GATE_IN`         | Container chờ tiếp nhận, Movement Order/Truck Visit hợp lệ |
+| `YARD_ASSIGN`     | `IN_YARD` nhưng chưa có vị trí                             |
+| `YARD_OPERATIONS` | Có movement/inspection/booking cần xử lý                   |
+| `GATE_OUT`        | Gate Pass đã phát hành và còn hiệu lực                     |
 
 Sắp xếp ưu tiên: **Overdue → mức urgency → deadline gần hơn → task cũ hơn**. Frontend dùng action metadata từ backend thay vì tự suy luận quyền chỉ từ state.
 
@@ -670,6 +688,7 @@ Sự cố cần xử lý → hiển thị EDI Operations/Alerts trên Web
 ```
 
 Nguyên tắc quan trọng:
+
 - `SENT` nghĩa là gửi transport thành công, không mặc định đồng nghĩa đối tác đã chấp nhận nghiệp vụ.
 - Retry không được tạo message nghiệp vụ trùng.
 - EDI failure không rollback Gate-in/Gate-out đã hoàn tất; thay vào đó tạo trạng thái lỗi để vận hành xử lý.
@@ -687,13 +706,13 @@ Module 13 không mở rộng quyền của Partner vào core ICD. Partner không
 
 #### Tác nhân
 
-| Actor | Trách nhiệm |
-|---|---|
-| ADMIN | Tạo/rotate/revoke Đối tác tích hợp API/API Key; xem toàn bộ API Log |
-| MANAGER | Giám sát Handover, review confirmation, xem báo cáo và log |
-| OPERATOR | Tạo Handover, đưa sang READY, review confirmation theo quyền |
-| PARTNER_SYSTEM | Lấy dữ liệu được cấp và gọi các API state transition |
-| GATE/YARD STAFF | Chỉ xem tóm tắt Handover khi cần; không quản trị API |
+| Actor           | Trách nhiệm                                                         |
+| --------------- | ------------------------------------------------------------------- |
+| ADMIN           | Tạo/rotate/revoke Đối tác tích hợp API/API Key; xem toàn bộ API Log |
+| MANAGER         | Giám sát Handover, review confirmation, xem báo cáo và log          |
+| OPERATOR        | Tạo Handover, đưa sang READY, review confirmation theo quyền        |
+| PARTNER_SYSTEM  | Lấy dữ liệu được cấp và gọi các API state transition                |
+| GATE/YARD STAFF | Chỉ xem tóm tắt Handover khi cần; không quản trị API                |
 
 #### Đầu vào của Handover
 
@@ -714,6 +733,7 @@ Một Handover tối thiểu cần:
 **Trigger:** Operator tạo sau Gate-out hoặc tại điểm nghiệp vụ được cấu hình cho phép.
 
 **Precondition mặc định:**
+
 - Container Visit tồn tại;
 - không có Handover active xung đột;
 - Partner đang ACTIVE;
@@ -721,6 +741,7 @@ Một Handover tối thiểu cần:
 - transport code hợp lệ/không trùng theo scope.
 
 **Flow:**
+
 ```text
 Chọn Container Visit
 → chọn Partner
@@ -736,6 +757,7 @@ Chọn Container Visit
 Khi Handover chuyển `READY_FOR_HANDOVER`, External API cho phép đúng Partner nhìn thấy Handover đó. Việc công bố không thay đổi `container_visit.state`.
 
 Dữ liệu chia sẻ có thể gồm:
+
 - container number/type;
 - seal/gross weight ở mức cần thiết;
 - Gate-out time;
@@ -744,6 +766,7 @@ Dữ liệu chia sẻ có thể gồm:
 - cargo/items snapshot theo hợp đồng tích hợp.
 
 Không chia sẻ mặc định:
+
 - password/secret;
 - internal audit diff;
 - billing nội bộ chi tiết nếu Partner không cần;
@@ -758,6 +781,7 @@ READY_FOR_HANDOVER → PARTNER_ACCEPTED
 ```
 
 Rule:
+
 - API Key phải ACTIVE;
 - Partner của key phải trùng `transport_handover.partner_api_client_id`;
 - state hiện tại đúng;
@@ -771,6 +795,7 @@ PARTNER_ACCEPTED → IN_TRANSIT
 ```
 
 Partner có thể gửi snapshot:
+
 - departed_at;
 - vehicle plate;
 - driver name/contact;
@@ -781,6 +806,7 @@ Snapshot này phục vụ Handover, **không ghi đè Truck Visit** tại cổng
 #### PH-05 — Đối tác xác nhận kho đã nhận
 
 Partner gửi:
+
 - `received_at`;
 - receiver name/contact;
 - note;
@@ -788,6 +814,7 @@ Partner gửi:
 - optional proof image/signature/reference.
 
 Flow:
+
 ```text
 IN_TRANSIT
 → validate request
@@ -799,6 +826,7 @@ IN_TRANSIT
 #### PH-06 — ICD xác nhận cuối cùng
 
 Operator/Manager mở Handover Detail và review:
+
 - đúng container;
 - đúng transport code;
 - đúng Partner/kho;
@@ -807,6 +835,7 @@ Operator/Manager mở Handover Detail và review:
 - không có discrepancy chưa xử lý.
 
 Nếu chấp nhận:
+
 ```text
 PARTNER_CONFIRMED → ICD_CONFIRMED → COMPLETED
 ```
@@ -816,11 +845,13 @@ Lưu `icd_confirmed_by`, `icd_confirmed_at`, note và audit.
 #### PH-07 — Đối soát / tranh chấp
 
 Nếu confirmation có sai lệch:
+
 ```text
 PARTNER_CONFIRMED → DISPUTED
 ```
 
 Dispute bắt buộc có reason, note và actor. Ví dụ:
+
 - sai container;
 - sai kho;
 - thời gian không hợp lý;
@@ -841,6 +872,7 @@ Hai trạng thái này không rollback Gate-out. Operator có thể tạo Handov
 #### PH-09 — Quản lý đối tác tích hợp API
 
 ICD ADMIN quản lý API Client:
+
 - tạo Client;
 - tạo API Key;
 - plaintext key chỉ hiển thị một lần;
@@ -863,6 +895,7 @@ Các API thay đổi state yêu cầu `Idempotency-Key`.
 #### PH-11 — Nhật ký API đối tác
 
 Mỗi request external lưu:
+
 - Partner;
 - endpoint/method;
 - handover/container/transport code;
@@ -878,6 +911,7 @@ Mỗi request external lưu:
 #### PH-12 — Quy tắc cách ly core ICD
 
 External Partner API chỉ được thao tác:
+
 ```text
 transport_handover
 transport_confirmation
@@ -885,6 +919,7 @@ partner_api_log
 ```
 
 Partner API không được trực tiếp sửa:
+
 ```text
 container_visit.state
 yard_location
@@ -1183,19 +1218,20 @@ partner_api_log
 ```
 
 > Không tạo `partner_container` trùng với `container` của ICD. `transport_handover` tham chiếu trực tiếp `container_visit`; Partner chỉ làm việc trên lifecycle Handover.
+
 ## 8. Tích hợp bên ngoài
 
 ### 8.1 EDI / Shipping Line Integration
 
 EDI phục vụ trao đổi với Shipping Line/Terminal, khác với Module 13 Logistics Partner Integration.
 
-| Trigger | Xử lý |
-|---|---|
-| Gate-in | Tạo CODECO gate-in vào Outbox |
-| Gate-out | Tạo CODECO gate-out vào Outbox |
-| Dispatcher | Gửi qua route đã cấu hình: MOCK / HTTPS / SFTP |
-| Partner response/ACK | Lưu để đối soát delivery/application result |
-| Failure | Đưa vào trạng thái lỗi, cho phép retry và theo dõi incident |
+| Trigger              | Xử lý                                                       |
+| -------------------- | ----------------------------------------------------------- |
+| Gate-in              | Tạo CODECO gate-in vào Outbox                               |
+| Gate-out             | Tạo CODECO gate-out vào Outbox                              |
+| Dispatcher           | Gửi qua route đã cấu hình: MOCK / HTTPS / SFTP              |
+| Partner response/ACK | Lưu để đối soát delivery/application result                 |
+| Failure              | Đưa vào trạng thái lỗi, cho phép retry và theo dõi incident |
 
 Web `/edi` cho phép người vận hành theo dõi Outbox, ACK/receipt và các sự cố cần xử lý. Chi tiết format EDIFACT, HMAC/SFTP, host-key và parser nằm trong tài liệu kỹ thuật EDI riêng, không phải trọng tâm của đặc tả nghiệp vụ tổng thể.
 
@@ -1213,44 +1249,44 @@ Web `/edi` cho phép người vận hành theo dõi Outbox, ACK/receipt và các
 
 ### 8.4 Tích hợp bàn giao đối tác (Module 13)
 
-| API/Operation | Chiều | Mục đích |
-|---|---|---|
-| `GET /external/handovers` | Partner → ICD | Lấy Handover thuộc Partner |
-| `GET /external/handovers/:id` | Partner → ICD | Lấy chi tiết container/handover được phép |
-| `POST .../:id/accept` | Partner → ICD | Xác nhận nhận nhiệm vụ |
-| `POST .../:id/in-transit` | Partner → ICD | Báo container đang vận chuyển |
-| `POST .../:id/warehouse-received` | Partner → ICD | Xác nhận kho đã nhận + optional POD/GPS |
-| ICD Confirm/Dispute | ICD Web nội bộ | Xác nhận cuối hoặc tạo đối soát |
+| API/Operation                     | Chiều          | Mục đích                                  |
+| --------------------------------- | -------------- | ----------------------------------------- |
+| `GET /external/handovers`         | Partner → ICD  | Lấy Handover thuộc Partner                |
+| `GET /external/handovers/:id`     | Partner → ICD  | Lấy chi tiết container/handover được phép |
+| `POST .../:id/accept`             | Partner → ICD  | Xác nhận nhận nhiệm vụ                    |
+| `POST .../:id/in-transit`         | Partner → ICD  | Báo container đang vận chuyển             |
+| `POST .../:id/warehouse-received` | Partner → ICD  | Xác nhận kho đã nhận + optional POD/GPS   |
+| ICD Confirm/Dispute               | ICD Web nội bộ | Xác nhận cuối hoặc tạo đối soát           |
 
 ICD là API Provider và cấp API Key cho Partner. Partner chỉ tác động lifecycle `transport_handover`; không có endpoint external để sửa Gate/Yard/Billing/Gate Pass.
 
 ## 9. Bảng tổng hợp yêu cầu chức năng
 
-| Mã | Chức năng | Mô đun | Ưu tiên |
-|----|-----------|--------|---------|
-| MN-01 | Tạo/import Manifest, MBL, HBL | Manifest | Cao |
-| CT-01 | Tra cứu vòng đời Container Visit | Container | Cao |
-| CT-02 | Quản lý Lệnh giữ nghiệp vụ/Release | Container | Cao |
-| TV-01 | Tạo và xác nhận Truck Visit | Gate-in | Cao |
-| GI-01 | Gate-in/Reception và scan Mobile | Gate-in | Cao |
-| YD-01 | Yard Assign theo hard rules | Yard | Cao |
-| YD-02 | Movement / Inspection / Booking | Yard | Cao |
-| BL-01 | Tính phí, Service Order, Invoice, Payment | Billing | Cao |
-| GP-01 | Readiness + tạo Gate Pass | Gate Pass | Cao |
-| GP-02 | Scan/re-check readiness và Gate-out | Gate Pass | Cao |
-| WQ-01 | Danh sách công việc thông minh theo SLA/role | Work Queue | Cao |
-| ML-01 | ML rerank Yard Slot có fallback | Yard ML | Trung bình |
-| DB-01 | Dashboard và báo cáo vận hành | Reports | Cao |
-| DB-02 | Yard Inventory EOD / Excel export | Reports | Trung bình |
-| EDI-01 | CODECO Outbox + delivery status/ACK | EDI | Trung bình |
-| PH-01 | Tạo/Publish Bàn giao vận chuyển | Module 13 | Cao |
-| PH-02 | Partner đọc Handover/Container được cấp | Module 13 | Cao |
-| PH-03 | Partner Accept / In Transit | Module 13 | Cao |
-| PH-04 | Partner Warehouse Received Confirmation | Module 13 | Cao |
-| PH-05 | ICD Confirm / Dispute | Module 13 | Cao |
-| PH-06 | Quản lý Đối tác tích hợp API/API Key | Module 13 | Cao |
-| PH-07 | Nhật ký API đối tác + Idempotency | Module 13 | Cao |
+| Mã     | Chức năng                                    | Mô đun     | Ưu tiên    |
+| ------ | -------------------------------------------- | ---------- | ---------- |
+| MN-01  | Tạo/import Manifest, MBL, HBL                | Manifest   | Cao        |
+| CT-01  | Tra cứu vòng đời Container Visit             | Container  | Cao        |
+| CT-02  | Quản lý Lệnh giữ nghiệp vụ/Release           | Container  | Cao        |
+| TV-01  | Tạo và xác nhận Truck Visit                  | Gate-in    | Cao        |
+| GI-01  | Gate-in/Reception và scan Mobile             | Gate-in    | Cao        |
+| YD-01  | Yard Assign theo hard rules                  | Yard       | Cao        |
+| YD-02  | Movement / Inspection / Booking              | Yard       | Cao        |
+| BL-01  | Tính phí, Service Order, Invoice, Payment    | Billing    | Cao        |
+| GP-01  | Readiness + tạo Gate Pass                    | Gate Pass  | Cao        |
+| GP-02  | Scan/re-check readiness và Gate-out          | Gate Pass  | Cao        |
+| WQ-01  | Danh sách công việc thông minh theo SLA/role | Work Queue | Cao        |
+| ML-01  | ML rerank Yard Slot có fallback              | Yard ML    | Trung bình |
+| DB-01  | Dashboard và báo cáo vận hành                | Reports    | Cao        |
+| DB-02  | Yard Inventory EOD / Excel export            | Reports    | Trung bình |
+| EDI-01 | CODECO Outbox + delivery status/ACK          | EDI        | Trung bình |
+| PH-01  | Tạo/Publish Bàn giao vận chuyển              | Module 13  | Cao        |
+| PH-02  | Partner đọc Handover/Container được cấp      | Module 13  | Cao        |
+| PH-03  | Partner Accept / In Transit                  | Module 13  | Cao        |
+| PH-04  | Partner Warehouse Received Confirmation      | Module 13  | Cao        |
+| PH-05  | ICD Confirm / Dispute                        | Module 13  | Cao        |
+| PH-06  | Quản lý Đối tác tích hợp API/API Key         | Module 13  | Cao        |
+| PH-07  | Nhật ký API đối tác + Idempotency            | Module 13  | Cao        |
 
 ---
 
-*Tài liệu này là nền tảng để tách ra thành Web Application Spec, Mobile Application Spec, Database Design và Tích hợp bàn giao đối tác API Spec. Core ICD luôn là source-of-truth; Module 13 chỉ mở rộng Handover với hệ thống bên ngoài.*
+_Tài liệu này là nền tảng để tách ra thành Web Application Spec, Mobile Application Spec, Database Design và Tích hợp bàn giao đối tác API Spec. Core ICD luôn là source-of-truth; Module 13 chỉ mở rộng Handover với hệ thống bên ngoài._

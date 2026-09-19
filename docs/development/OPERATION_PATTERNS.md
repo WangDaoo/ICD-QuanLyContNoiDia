@@ -41,6 +41,7 @@ Không expose API `updateStatus`.
 
 Core transaction commit trước.
 Sau đó mới gọi:
+
 - EDI
 - Email
 - Push
@@ -59,6 +60,7 @@ Same key + different payload trả `IDEMPOTENCY_KEY_REUSED`.
 ## 10. Audit
 
 Action quan trọng ghi:
+
 - action
 - entity type/id
 - actor

@@ -12,16 +12,12 @@ import { YardCatalogService } from './services/yard-catalog.service';
 import { YardLocationService } from './services/yard-location.service';
 import { YardMovementService } from './services/yard-movement.service';
 import { YardOperationReadService } from './services/yard-operation-read.service';
+import { YardReadinessService } from './services/yard-readiness.service';
 import { YardController } from './yard.controller';
 
 @Module({
-  imports: [
-    PrismaModule,
-    ContainersModule,
-  ],
-  controllers: [
-    YardController,
-  ],
+  imports: [PrismaModule, ContainersModule],
+  controllers: [YardController],
   providers: [
     YardAssignmentPolicy,
     YardMovementPolicy,
@@ -34,6 +30,7 @@ import { YardController } from './yard.controller';
     ContainerInspectionService,
     InYardBookingService,
     YardOperationReadService,
+    YardReadinessService,
   ],
   exports: [
     YardAssignmentPolicy,
@@ -46,6 +43,7 @@ import { YardController } from './yard.controller';
     ContainerInspectionService,
     InYardBookingService,
     YardOperationReadService,
+    YardReadinessService,
   ],
 })
 export class YardModule {}

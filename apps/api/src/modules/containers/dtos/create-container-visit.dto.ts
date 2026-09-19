@@ -11,11 +11,7 @@ import {
   Min,
 } from 'class-validator';
 
-import {
-  ContainerCategory,
-  ContainerSize,
-  ContainerType,
-} from '../../../generated/prisma/client';
+import { ContainerCategory, ContainerSize, ContainerType } from '../../../generated/prisma/client';
 
 export class CreateContainerVisitDto {
   @IsNotEmpty()

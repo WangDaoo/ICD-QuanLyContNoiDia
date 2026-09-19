@@ -1,12 +1,15 @@
 # RULES — audit
 
 ## Trách nhiệm module
+
 Ghi và truy vấn nhật ký kiểm toán.
 
 ## Ownership
+
 Audit records; module khác gọi audit service theo chuẩn chung.
 
 ## Quy tắc
+
 - Public method phải dùng động từ rõ nghĩa.
 - Không expose `updateStatus`.
 - Query không thay đổi dữ liệu.

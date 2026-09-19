@@ -1,136 +1,80 @@
-import {
-  resolve,
-} from 'node:path';
+import { resolve } from 'node:path';
 
-import {
-  PrismaMariaDb,
-} from '@prisma/adapter-mariadb';
+import { PrismaMariaDb } from '@prisma/adapter-mariadb';
 
-import {
-  config,
-} from 'dotenv';
+import { config } from 'dotenv';
 
-import {
-  PrismaClient,
-} from '../../src/generated/prisma/client';
+import { PrismaClient } from '../../src/generated/prisma/client';
 
-import {
-  ROLE_CODES,
-} from '../../src/common/constants/role-codes.constants';
+import { ROLE_CODES } from '../../src/common/constants/role-codes.constants';
 
-import {
-  hashPassword,
-} from '../../src/common/security/password.util';
+import { hashPassword } from '../../src/common/security/password.util';
 
-import {
-  permissions,
-} from './data/permissions.data';
+import { permissions } from './data/permissions.data';
 
-import {
-  rolePermissions,
-} from './data/role-permissions.data';
+import { rolePermissions } from './data/role-permissions.data';
 
-import {
-  roles,
-} from './data/roles.data';
+import { roles } from './data/roles.data';
 
-import {
-  serviceTypes,
-} from './data/service-types.data';
+import { serviceTypes } from './data/service-types.data';
 
-import {
-  TariffStatus,
-  ContainerSize,
-} from '../../src/generated/prisma/client';
+import { TariffStatus, ContainerSize } from '../../src/generated/prisma/client';
 
 config({
-  path: resolve(
-    process.cwd(),
-    '../../.env',
-  ),
+  path: resolve(process.cwd(), '../../.env'),
 });
 
-function getRequiredEnvironment(
-  key: string,
-): string {
-  const value =
-    process.env[key];
+function getRequiredEnvironment(key: string): string {
+  const value = process.env[key];
 
   if (!value) {
-    throw new Error(
-      `Missing environment variable: ${key}`,
-    );
+    throw new Error(`Missing environment variable: ${key}`);
   }
 
   return value;
 }
 
-const adapter =
-  new PrismaMariaDb({
-    host:
-      process.env.MYSQL_HOST ??
-      '127.0.0.1',
+const adapter = new PrismaMariaDb({
+  host: process.env.MYSQL_HOST ?? '127.0.0.1',
 
-    port: Number(
-      process.env.MYSQL_PORT ??
-        3306,
-    ),
+  port: Number(process.env.MYSQL_PORT ?? 3306),
 
-    user:
-      getRequiredEnvironment(
-        'MYSQL_USER',
-      ),
+  user: getRequiredEnvironment('MYSQL_USER'),
 
-    password:
-      getRequiredEnvironment(
-        'MYSQL_PASSWORD',
-      ),
+  password: getRequiredEnvironment('MYSQL_PASSWORD'),
 
-    database:
-      getRequiredEnvironment(
-        'MYSQL_DATABASE',
-      ),
+  database: getRequiredEnvironment('MYSQL_DATABASE'),
 
-    connectionLimit: 2,
+  connectionLimit: 2,
 
-    connectTimeout: 5_000,
-  });
+  connectTimeout: 5_000,
+});
 
-const prisma =
-  new PrismaClient({
-    adapter,
-  });
+const prisma = new PrismaClient({
+  adapter,
+});
 
 async function seedPermissions(): Promise<void> {
-  for (
-    const permission
-    of permissions
-  ) {
+  for (const permission of permissions) {
     await prisma.permission.upsert({
       where: {
-        code:
-          permission.code,
+        code: permission.code,
       },
 
       update: {
-        name:
-          permission.name,
+        name: permission.name,
 
-        description:
-          permission.description,
+        description: permission.description,
 
         active: true,
       },
 
       create: {
-        code:
-          permission.code,
+        code: permission.code,
 
-        name:
-          permission.name,
+        name: permission.name,
 
-        description:
-          permission.description,
+        description: permission.description,
 
         active: true,
       },
@@ -148,8 +92,7 @@ async function seedRoles(): Promise<void> {
       update: {
         name: role.name,
 
-        description:
-          role.description,
+        description: role.description,
 
         active: true,
       },
@@ -159,8 +102,7 @@ async function seedRoles(): Promise<void> {
 
         name: role.name,
 
-        description:
-          role.description,
+        description: role.description,
 
         active: true,
       },
@@ -168,86 +110,46 @@ async function seedRoles(): Promise<void> {
   }
 }
 
-function getRequiredMapValue(
-  map: Map<string, string>,
-  key: string,
-): string {
-  const value =
-    map.get(key);
+function getRequiredMapValue(map: Map<string, string>, key: string): string {
+  const value = map.get(key);
 
   if (!value) {
-    throw new Error(
-      `Seed reference not found: ${key}`,
-    );
+    throw new Error(`Seed reference not found: ${key}`);
   }
 
   return value;
 }
 
 async function seedRolePermissions(): Promise<void> {
-  const roleRecords =
-    await prisma.role.findMany({
-      select: {
-        id: true,
-        code: true,
-      },
-    });
+  const roleRecords = await prisma.role.findMany({
+    select: {
+      id: true,
+      code: true,
+    },
+  });
 
-  const permissionRecords =
-    await prisma.permission.findMany({
-      select: {
-        id: true,
-        code: true,
-      },
-    });
+  const permissionRecords = await prisma.permission.findMany({
+    select: {
+      id: true,
+      code: true,
+    },
+  });
 
-  const roleIdByCode =
-    new Map(
-      roleRecords.map(
-        (role) => [
-          role.code,
-          role.id,
-        ],
-      ),
-    );
+  const roleIdByCode = new Map(roleRecords.map((role) => [role.code, role.id]));
 
-  const permissionIdByCode =
-    new Map(
-      permissionRecords.map(
-        (permission) => [
-          permission.code,
-          permission.id,
-        ],
-      ),
-    );
+  const permissionIdByCode = new Map(
+    permissionRecords.map((permission) => [permission.code, permission.id]),
+  );
 
-  const mappings =
-    Object.entries(
-      rolePermissions,
-    ).flatMap(
-      ([
-        roleCode,
-        permissionCodes,
-      ]) => {
-        const roleId =
-          getRequiredMapValue(
-            roleIdByCode,
-            roleCode,
-          );
+  const mappings = Object.entries(rolePermissions).flatMap(([roleCode, permissionCodes]) => {
+    const roleId = getRequiredMapValue(roleIdByCode, roleCode);
 
-        return permissionCodes.map(
-          (permissionCode) => ({
-            roleId,
+    return permissionCodes.map((permissionCode) => ({
+      roleId,
 
-            permissionId:
-              getRequiredMapValue(
-                permissionIdByCode,
-                permissionCode,
-              ),
-          }),
-        );
-      },
-    );
+      permissionId: getRequiredMapValue(permissionIdByCode, permissionCode),
+    }));
+  });
 
   await prisma.rolePermission.createMany({
     data: mappings,
@@ -260,15 +162,9 @@ async function seedRolePermissions(): Promise<void> {
  * Bootstrap ICD Site.
  */
 async function seedIcdSite() {
-  const code =
-    getRequiredEnvironment(
-      'BOOTSTRAP_SITE_CODE',
-    );
+  const code = getRequiredEnvironment('BOOTSTRAP_SITE_CODE');
 
-  const name =
-    getRequiredEnvironment(
-      'BOOTSTRAP_SITE_NAME',
-    );
+  const name = getRequiredEnvironment('BOOTSTRAP_SITE_NAME');
 
   return prisma.icdSite.upsert({
     where: {
@@ -295,80 +191,57 @@ async function seedIcdSite() {
  *
  * Chạy seed lại KHÔNG reset password.
  */
-async function seedAdminUser(
-  icdId: string,
-): Promise<void> {
-  const name =
-    getRequiredEnvironment(
-      'BOOTSTRAP_ADMIN_NAME',
-    );
+async function seedAdminUser(icdId: string): Promise<void> {
+  const name = getRequiredEnvironment('BOOTSTRAP_ADMIN_NAME');
 
-  const email =
-    getRequiredEnvironment(
-      'BOOTSTRAP_ADMIN_EMAIL',
-    )
-      .trim()
-      .toLowerCase();
+  const email = getRequiredEnvironment('BOOTSTRAP_ADMIN_EMAIL').trim().toLowerCase();
 
-  const password =
-    getRequiredEnvironment(
-      'BOOTSTRAP_ADMIN_PASSWORD',
-    );
+  const password = getRequiredEnvironment('BOOTSTRAP_ADMIN_PASSWORD');
 
-  let user =
-    await prisma.user.findUnique({
-      where: {
-        email,
-      },
-    });
+  let user = await prisma.user.findUnique({
+    where: {
+      email,
+    },
+  });
 
   if (!user) {
-    const passwordHash =
-      await hashPassword(
-        password,
-      );
+    const passwordHash = await hashPassword(password);
 
-    user =
-      await prisma.user.create({
-        data: {
-          icdId,
+    user = await prisma.user.create({
+      data: {
+        icdId,
 
-          name,
+        name,
 
-          email,
+        email,
 
-          passwordHash,
+        passwordHash,
 
-          active: true,
-        },
-      });
-  } else {
-    user =
-      await prisma.user.update({
-        where: {
-          id: user.id,
-        },
-
-        data: {
-          icdId,
-          name,
-          active: true,
-        },
-      });
-  }
-
-  const adminRole =
-    await prisma.role.findUnique({
-      where: {
-        code:
-          ROLE_CODES.ADMIN,
+        active: true,
       },
     });
+  } else {
+    user = await prisma.user.update({
+      where: {
+        id: user.id,
+      },
+
+      data: {
+        icdId,
+        name,
+        active: true,
+      },
+    });
+  }
+
+  const adminRole = await prisma.role.findUnique({
+    where: {
+      code: ROLE_CODES.ADMIN,
+    },
+  });
 
   if (!adminRole) {
-    throw new Error(
-      'ADMIN role not found.',
-    );
+    throw new Error('ADMIN role not found.');
   }
 
   await prisma.userRole.upsert({
@@ -411,14 +284,9 @@ async function seedServiceTypes(): Promise<void> {
   }
 }
 
-async function seedDefaultTariff(
-  icdId: string,
-  adminUserId: string,
-): Promise<void> {
+async function seedDefaultTariff(icdId: string, adminUserId: string): Promise<void> {
   const serviceTypeRecords = await prisma.serviceType.findMany();
-  const serviceTypeMap = new Map(
-    serviceTypeRecords.map((st) => [st.code, st.id]),
-  );
+  const serviceTypeMap = new Map(serviceTypeRecords.map((st) => [st.code, st.id]));
 
   const existingTariff = await prisma.tariff.findFirst({
     where: {
@@ -453,22 +321,62 @@ async function seedDefaultTariff(
 
     if (receptionId) {
       rulesData.push({ tariffId: tariff.id, serviceTypeId: receptionId, unitPrice: 350000 });
-      rulesData.push({ tariffId: tariff.id, serviceTypeId: receptionId, containerSize: ContainerSize.SIZE_20, unitPrice: 300000 });
-      rulesData.push({ tariffId: tariff.id, serviceTypeId: receptionId, containerSize: ContainerSize.SIZE_40, unitPrice: 450000 });
-      rulesData.push({ tariffId: tariff.id, serviceTypeId: receptionId, containerSize: ContainerSize.SIZE_45, unitPrice: 500000 });
+      rulesData.push({
+        tariffId: tariff.id,
+        serviceTypeId: receptionId,
+        containerSize: ContainerSize.SIZE_20,
+        unitPrice: 300000,
+      });
+      rulesData.push({
+        tariffId: tariff.id,
+        serviceTypeId: receptionId,
+        containerSize: ContainerSize.SIZE_40,
+        unitPrice: 450000,
+      });
+      rulesData.push({
+        tariffId: tariff.id,
+        serviceTypeId: receptionId,
+        containerSize: ContainerSize.SIZE_45,
+        unitPrice: 500000,
+      });
     }
 
     if (storageId) {
       rulesData.push({ tariffId: tariff.id, serviceTypeId: storageId, unitPrice: 50000 });
-      rulesData.push({ tariffId: tariff.id, serviceTypeId: storageId, containerSize: ContainerSize.SIZE_20, unitPrice: 40000 });
-      rulesData.push({ tariffId: tariff.id, serviceTypeId: storageId, containerSize: ContainerSize.SIZE_40, unitPrice: 70000 });
-      rulesData.push({ tariffId: tariff.id, serviceTypeId: storageId, containerSize: ContainerSize.SIZE_45, unitPrice: 80000 });
+      rulesData.push({
+        tariffId: tariff.id,
+        serviceTypeId: storageId,
+        containerSize: ContainerSize.SIZE_20,
+        unitPrice: 40000,
+      });
+      rulesData.push({
+        tariffId: tariff.id,
+        serviceTypeId: storageId,
+        containerSize: ContainerSize.SIZE_40,
+        unitPrice: 70000,
+      });
+      rulesData.push({
+        tariffId: tariff.id,
+        serviceTypeId: storageId,
+        containerSize: ContainerSize.SIZE_45,
+        unitPrice: 80000,
+      });
     }
 
     if (strippingId) {
       rulesData.push({ tariffId: tariff.id, serviceTypeId: strippingId, unitPrice: 800000 });
-      rulesData.push({ tariffId: tariff.id, serviceTypeId: strippingId, containerSize: ContainerSize.SIZE_20, unitPrice: 650000 });
-      rulesData.push({ tariffId: tariff.id, serviceTypeId: strippingId, containerSize: ContainerSize.SIZE_40, unitPrice: 1100000 });
+      rulesData.push({
+        tariffId: tariff.id,
+        serviceTypeId: strippingId,
+        containerSize: ContainerSize.SIZE_20,
+        unitPrice: 650000,
+      });
+      rulesData.push({
+        tariffId: tariff.id,
+        serviceTypeId: strippingId,
+        containerSize: ContainerSize.SIZE_40,
+        unitPrice: 1100000,
+      });
     }
 
     if (inspectionId) {
@@ -477,8 +385,18 @@ async function seedDefaultTariff(
 
     if (movementId) {
       rulesData.push({ tariffId: tariff.id, serviceTypeId: movementId, unitPrice: 150000 });
-      rulesData.push({ tariffId: tariff.id, serviceTypeId: movementId, containerSize: ContainerSize.SIZE_20, unitPrice: 120000 });
-      rulesData.push({ tariffId: tariff.id, serviceTypeId: movementId, containerSize: ContainerSize.SIZE_40, unitPrice: 180000 });
+      rulesData.push({
+        tariffId: tariff.id,
+        serviceTypeId: movementId,
+        containerSize: ContainerSize.SIZE_20,
+        unitPrice: 120000,
+      });
+      rulesData.push({
+        tariffId: tariff.id,
+        serviceTypeId: movementId,
+        containerSize: ContainerSize.SIZE_40,
+        unitPrice: 180000,
+      });
     }
 
     for (const rule of rulesData) {
@@ -490,42 +408,27 @@ async function seedDefaultTariff(
 }
 
 async function main(): Promise<void> {
-  console.log(
-    'Starting ICD database seed...',
-  );
+  console.log('Starting ICD database seed...');
 
   await seedPermissions();
 
-  console.log(
-    `Seeded ${permissions.length} permissions.`,
-  );
+  console.log(`Seeded ${permissions.length} permissions.`);
 
   await seedRoles();
 
-  console.log(
-    `Seeded ${roles.length} roles.`,
-  );
+  console.log(`Seeded ${roles.length} roles.`);
 
   await seedRolePermissions();
 
-  console.log(
-    'Seeded role-permission mappings.',
-  );
+  console.log('Seeded role-permission mappings.');
 
-  const site =
-    await seedIcdSite();
+  const site = await seedIcdSite();
 
-  console.log(
-    `Seeded ICD Site: ${site.code}.`,
-  );
+  console.log(`Seeded ICD Site: ${site.code}.`);
 
-  const admin = await seedAdminUser(
-    site.id,
-  );
+  const admin = await seedAdminUser(site.id);
 
-  console.log(
-    'Seeded bootstrap ADMIN.',
-  );
+  console.log('Seeded bootstrap ADMIN.');
 
   await seedServiceTypes();
   console.log('Seeded Service Types.');
@@ -533,24 +436,15 @@ async function main(): Promise<void> {
   await seedDefaultTariff(site.id, admin.id);
   console.log('Seeded Default Tariff & Rules.');
 
-  console.log(
-    'ICD database seed completed.',
-  );
+  console.log('ICD database seed completed.');
 }
 
 main()
-  .catch(
-    (error: unknown) => {
-      console.error(
-        'ICD database seed failed.',
-        error,
-      );
+  .catch((error: unknown) => {
+    console.error('ICD database seed failed.', error);
 
-      process.exitCode = 1;
-    },
-  )
-  .finally(
-    async () => {
-      await prisma.$disconnect();
-    },
-  );
+    process.exitCode = 1;
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });

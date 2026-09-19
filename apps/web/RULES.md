@@ -1,9 +1,11 @@
 # RULES — React Web
 
 ## Mục tiêu
+
 Web phục vụ nghiệp vụ văn phòng, quản trị và giám sát.
 
 ## Convention
+
 - Component: `PascalCase.tsx`.
 - Hook: `useXxx.ts`.
 - Event handler nội bộ: `handleXxx`.

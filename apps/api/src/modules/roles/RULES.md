@@ -1,12 +1,15 @@
 # RULES — roles
 
 ## Trách nhiệm module
+
 Quản lý role, permission và ma trận phân quyền.
 
 ## Ownership
+
 Role/permission mapping.
 
 ## Quy tắc
+
 - Public method phải dùng động từ rõ nghĩa.
 - Không expose `updateStatus`.
 - Query không thay đổi dữ liệu.

@@ -1,11 +1,5 @@
 import { Type } from 'class-transformer';
-import {
-  IsBoolean,
-  IsIn,
-  IsNumber,
-  IsOptional,
-  Min,
-} from 'class-validator';
+import { IsBoolean, IsIn, IsNumber, IsOptional, Min } from 'class-validator';
 import {
   CONTAINER_TYPES,
   type ContainerType,

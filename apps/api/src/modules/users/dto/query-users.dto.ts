@@ -1,17 +1,6 @@
-import {
-  Transform,
-  Type,
-} from 'class-transformer';
+import { Transform, Type } from 'class-transformer';
 
-import {
-  IsBoolean,
-  IsInt,
-  IsOptional,
-  IsString,
-  Max,
-  MaxLength,
-  Min,
-} from 'class-validator';
+import { IsBoolean, IsInt, IsOptional, IsString, Max, MaxLength, Min } from 'class-validator';
 
 export class QueryUsersDto {
   @IsOptional()
@@ -28,30 +17,23 @@ export class QueryUsersDto {
   pageSize: number = 20;
 
   @IsOptional()
-  @Transform(
-    ({ value }) =>
-      typeof value === 'string'
-        ? value.trim()
-        : value,
-  )
+  @Transform(({ value }) => (typeof value === 'string' ? value.trim() : value))
   @IsString()
   @MaxLength(191)
   search?: string;
 
   @IsOptional()
-  @Transform(
-    ({ value }) => {
-      if (value === 'true') {
-        return true;
-      }
+  @Transform(({ value }) => {
+    if (value === 'true') {
+      return true;
+    }
 
-      if (value === 'false') {
-        return false;
-      }
+    if (value === 'false') {
+      return false;
+    }
 
-      return value;
-    },
-  )
+    return value;
+  })
   @IsBoolean()
   active?: boolean;
 }

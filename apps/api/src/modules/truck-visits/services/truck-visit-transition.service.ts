@@ -1,8 +1,4 @@
-import {
-  ConflictException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
+import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
 
 import {
   ContainerVisitStatus,
@@ -138,9 +134,7 @@ export class TruckVisitTransitionService {
       return null;
     }
 
-    const allInYard = links.every(
-      (l) => l.containerVisit.status === ContainerVisitStatus.IN_YARD,
-    );
+    const allInYard = links.every((l) => l.containerVisit.status === ContainerVisitStatus.IN_YARD);
 
     if (allInYard) {
       return tx.truckVisit.update({
@@ -163,11 +157,7 @@ export class TruckVisitTransitionService {
       actorUserId?: string;
     },
   ): Promise<TruckVisit> {
-    const visit = await this.lockTruckVisit(
-      tx,
-      params.truckVisitId,
-      params.icdId,
-    );
+    const visit = await this.lockTruckVisit(tx, params.truckVisitId, params.icdId);
     this.statePolicy.assertCanStartInProgress(visit.status);
 
     return tx.truckVisit.update({
@@ -186,11 +176,7 @@ export class TruckVisitTransitionService {
       actorUserId?: string;
     },
   ): Promise<TruckVisit> {
-    const visit = await this.lockTruckVisit(
-      tx,
-      params.truckVisitId,
-      params.icdId,
-    );
+    const visit = await this.lockTruckVisit(tx, params.truckVisitId, params.icdId);
     this.statePolicy.assertCanComplete(visit.status);
 
     return tx.truckVisit.update({

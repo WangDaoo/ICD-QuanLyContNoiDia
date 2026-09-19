@@ -1,8 +1,4 @@
-import {
-  IsEnum,
-  IsOptional,
-  IsString,
-} from 'class-validator';
+import { IsEnum, IsOptional, IsString } from 'class-validator';
 import { TariffStatus } from '../../../generated/prisma/client';
 
 export class QueryTariffsDto {

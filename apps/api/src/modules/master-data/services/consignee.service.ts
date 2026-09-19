@@ -5,56 +5,29 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 
-import {
-  Prisma,
-} from '../../../generated/prisma/client';
+import { Prisma } from '../../../generated/prisma/client';
 
-import {
-  isPrismaUniqueConstraintError,
-} from '../../../database/prisma-error.util';
+import { isPrismaUniqueConstraintError } from '../../../database/prisma-error.util';
 
-import {
-  PrismaService,
-} from '../../../database/prisma.service';
+import { PrismaService } from '../../../database/prisma.service';
 
-import {
-  MASTER_DATA_ERROR_CODES,
-} from '../constants/master-data-error-codes.constants';
+import { MASTER_DATA_ERROR_CODES } from '../constants/master-data-error-codes.constants';
 
-import type {
-  CreateConsigneeDto,
-} from '../dto/consignee/create-consignee.dto';
+import type { CreateConsigneeDto } from '../dto/consignee/create-consignee.dto';
 
-import type {
-  UpdateConsigneeDto,
-} from '../dto/consignee/update-consignee.dto';
+import type { UpdateConsigneeDto } from '../dto/consignee/update-consignee.dto';
 
-import type {
-  QueryMasterDataDto,
-} from '../dto/query-master-data.dto';
+import type { QueryMasterDataDto } from '../dto/query-master-data.dto';
 
 @Injectable()
 export class ConsigneeService {
-  constructor(
-    private readonly prisma:
-      PrismaService,
-  ) {}
+  constructor(private readonly prisma: PrismaService) {}
 
-  async findMany(
-    query: QueryMasterDataDto,
-  ) {
-    const {
-      page,
-      pageSize,
-      search,
-      active,
-    } = query;
+  async findMany(query: QueryMasterDataDto) {
+    const { page, pageSize, search, active } = query;
 
-    const where:
-      Prisma.ConsigneeWhereInput = {
-      ...(active !== undefined
-        ? { active }
-        : {}),
+    const where: Prisma.ConsigneeWhereInput = {
+      ...(active !== undefined ? { active } : {}),
 
       ...(search
         ? {
@@ -81,33 +54,23 @@ export class ConsigneeService {
         : {}),
     };
 
-    const [
-      total,
-      data,
-    ] =
-      await this.prisma
-        .$transaction([
-          this.prisma.consignee
-            .count({
-              where,
-            }),
+    const [total, data] = await this.prisma.$transaction([
+      this.prisma.consignee.count({
+        where,
+      }),
 
-          this.prisma.consignee
-            .findMany({
-              where,
+      this.prisma.consignee.findMany({
+        where,
 
-              orderBy: {
-                name: 'asc',
-              },
+        orderBy: {
+          name: 'asc',
+        },
 
-              skip:
-                (page - 1) *
-                pageSize,
+        skip: (page - 1) * pageSize,
 
-              take:
-                pageSize,
-            }),
-        ]);
+        take: pageSize,
+      }),
+    ]);
 
     return {
       data,
@@ -117,56 +80,34 @@ export class ConsigneeService {
         pageSize,
         total,
 
-        totalPages:
-          Math.ceil(
-            total /
-              pageSize,
-          ),
+        totalPages: Math.ceil(total / pageSize),
       },
     };
   }
 
-  async findById(
-    id: string,
-  ) {
-    return this.getByIdOrThrow(
-      id,
-    );
+  async findById(id: string) {
+    return this.getByIdOrThrow(id);
   }
 
-  async create(
-    dto: CreateConsigneeDto,
-  ) {
+  async create(dto: CreateConsigneeDto) {
     try {
-      return await this.prisma
-        .consignee
-        .create({
-          data: {
-            name:
-              dto.name,
+      return await this.prisma.consignee.create({
+        data: {
+          name: dto.name,
 
-            taxCode:
-              dto.taxCode,
+          taxCode: dto.taxCode,
 
-            phone:
-              dto.phone,
+          phone: dto.phone,
 
-            email:
-              dto.email,
+          email: dto.email,
 
-            address:
-              dto.address,
+          address: dto.address,
 
-            active:
-              true,
-          },
-        });
+          active: true,
+        },
+      });
     } catch (error: unknown) {
-      if (
-        isPrismaUniqueConstraintError(
-          error,
-        )
-      ) {
+      if (isPrismaUniqueConstraintError(error)) {
         throw this.identifierInUse();
       }
 
@@ -174,117 +115,77 @@ export class ConsigneeService {
     }
   }
 
-  async update(
-    id: string,
-    dto: UpdateConsigneeDto,
-  ) {
-    if (
-      Object.values(dto)
-        .every(
-          (value) =>
-            value === undefined,
-        )
-    ) {
+  async update(id: string, dto: UpdateConsigneeDto) {
+    if (Object.values(dto).every((value) => value === undefined)) {
       throw this.updateEmpty();
     }
 
-    await this.getByIdOrThrow(
-      id,
-    );
+    await this.getByIdOrThrow(id);
 
     try {
-      return await this.prisma
-        .consignee
-        .update({
-          where: {
-            id,
-          },
-
-          data: {
-            ...dto,
-          },
-        });
-    } catch (error: unknown) {
-      if (
-        isPrismaUniqueConstraintError(
-          error,
-        )
-      ) {
-        throw this.identifierInUse();
-      }
-
-      throw error;
-    }
-  }
-
-  async updateStatus(
-    id: string,
-    active: boolean,
-  ) {
-    await this.getByIdOrThrow(
-      id,
-    );
-
-    return this.prisma
-      .consignee
-      .update({
+      return await this.prisma.consignee.update({
         where: {
           id,
         },
 
         data: {
-          active,
+          ...dto,
         },
       });
+    } catch (error: unknown) {
+      if (isPrismaUniqueConstraintError(error)) {
+        throw this.identifierInUse();
+      }
+
+      throw error;
+    }
   }
 
-  private async getByIdOrThrow(
-    id: string,
-  ) {
-    const item =
-      await this.prisma
-        .consignee
-        .findUnique({
-          where: {
-            id,
-          },
-        });
+  async updateStatus(id: string, active: boolean) {
+    await this.getByIdOrThrow(id);
+
+    return this.prisma.consignee.update({
+      where: {
+        id,
+      },
+
+      data: {
+        active,
+      },
+    });
+  }
+
+  private async getByIdOrThrow(id: string) {
+    const item = await this.prisma.consignee.findUnique({
+      where: {
+        id,
+      },
+    });
 
     if (!item) {
       throw new NotFoundException({
-        code:
-          MASTER_DATA_ERROR_CODES
-            .NOT_FOUND,
+        code: MASTER_DATA_ERROR_CODES.NOT_FOUND,
 
-        message:
-          'Không tìm thấy Consignee.',
+        message: 'Không tìm thấy Consignee.',
       });
     }
 
     return item;
   }
 
-  private identifierInUse():
-    ConflictException {
+  private identifierInUse(): ConflictException {
     return new ConflictException({
-      code:
-        MASTER_DATA_ERROR_CODES
-          .IDENTIFIER_IN_USE,
+      code: MASTER_DATA_ERROR_CODES.IDENTIFIER_IN_USE,
 
-      message:
-        'Mã số thuế Consignee đã tồn tại.',
+      message: 'Mã số thuế Consignee đã tồn tại.',
     });
   }
 
-  private updateEmpty():
-    BadRequestException {
+  private updateEmpty(): BadRequestException {
     return new BadRequestException({
-      code:
-        MASTER_DATA_ERROR_CODES
-          .UPDATE_EMPTY,
+      code: MASTER_DATA_ERROR_CODES.UPDATE_EMPTY,
 
-      message:
-        'Không có dữ liệu cần cập nhật.',
+      message: 'Không có dữ liệu cần cập nhật.',
     });
   }
 }

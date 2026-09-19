@@ -1,8 +1,4 @@
-import {
-  IsEnum,
-  IsOptional,
-  IsString,
-} from 'class-validator';
+import { IsEnum, IsOptional, IsString } from 'class-validator';
 import { ServiceOrderStatus } from '../../../generated/prisma/client';
 
 export class QueryServiceOrdersDto {

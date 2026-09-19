@@ -1,11 +1,4 @@
-import {
-  Body,
-  Controller,
-  Get,
-  Param,
-  Post,
-  Query,
-} from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { PERMISSION_CODES } from '../../common/constants/permission-codes.constants';
 import { CurrentUser } from '../../common/decorators/current-user.decorator';
 import { Permissions } from '../../common/decorators/permissions.decorator';
@@ -22,10 +15,7 @@ export class BillingController {
 
   @Permissions(PERMISSION_CODES.BILLING_READ)
   @Post('preview')
-  async previewBilling(
-    @Body() dto: PreviewBillingDto,
-    @CurrentUser() actor: AuthenticatedUser,
-  ) {
+  async previewBilling(@Body() dto: PreviewBillingDto, @CurrentUser() actor: AuthenticatedUser) {
     const data = await this.serviceOrderService.previewBilling(dto, actor);
     return { data };
   }
@@ -52,30 +42,21 @@ export class BillingController {
 
   @Permissions(PERMISSION_CODES.BILLING_READ)
   @Get(':id')
-  async findServiceOrderById(
-    @Param('id') id: string,
-    @CurrentUser() actor: AuthenticatedUser,
-  ) {
+  async findServiceOrderById(@Param('id') id: string, @CurrentUser() actor: AuthenticatedUser) {
     const data = await this.serviceOrderService.findServiceOrderById(id, actor);
     return { data };
   }
 
   @Permissions(PERMISSION_CODES.BILLING_MANAGE)
   @Post(':id/recalculate')
-  async recalculateDraftOrder(
-    @Param('id') id: string,
-    @CurrentUser() actor: AuthenticatedUser,
-  ) {
+  async recalculateDraftOrder(@Param('id') id: string, @CurrentUser() actor: AuthenticatedUser) {
     const data = await this.serviceOrderService.recalculateDraftOrder(id, actor);
     return { data };
   }
 
   @Permissions(PERMISSION_CODES.BILLING_MANAGE)
   @Post(':id/confirm')
-  async confirmOrder(
-    @Param('id') id: string,
-    @CurrentUser() actor: AuthenticatedUser,
-  ) {
+  async confirmOrder(@Param('id') id: string, @CurrentUser() actor: AuthenticatedUser) {
     const data = await this.serviceOrderService.confirmOrder(id, actor);
     return { data };
   }

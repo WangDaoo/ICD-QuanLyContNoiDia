@@ -3,10 +3,7 @@ import { Prisma } from '../../../generated/prisma/client';
 
 @Injectable()
 export class YardLocationService {
-  async findCurrentForVisit(
-    tx: Prisma.TransactionClient,
-    containerVisitId: string,
-  ) {
+  async findCurrentForVisit(tx: Prisma.TransactionClient, containerVisitId: string) {
     return tx.containerLocationLog.findFirst({
       where: {
         containerVisitId,

@@ -1,4 +1,5 @@
 # Đặc tả Module 13 — Tích hợp bàn giao đối tác API
+
 # ICD Management System
 
 **Phiên bản:** 1.7 — Detailed Business/API Spec
@@ -20,17 +21,17 @@ Các thành phần kỹ thuật giữ nguyên tiếng Anh để đồng nhất k
 - permission, class/function, request/response field;
 - chuẩn quốc tế: EDI, CODECO, MBL, HBL, ISO 6346.
 
-| Tên hiển thị nghiệp vụ | Thuật ngữ kỹ thuật |
-|---|---|
-| Tiếp nhận vào cổng | Gate-in |
-| Xác nhận ra cổng | Gate-out |
-| Phiếu ra cổng | Gate Pass |
-| Chuyến xe ra/vào | Truck Visit |
-| Vị trí bãi | Yard Slot |
-| Dịch vụ & Thanh toán | Billing |
-| Bàn giao vận chuyển | Transport Handover |
-| Xác nhận của đối tác | Partner Confirmation |
-| Nhật ký API đối tác | Partner API Log |
+| Tên hiển thị nghiệp vụ | Thuật ngữ kỹ thuật   |
+| ---------------------- | -------------------- |
+| Tiếp nhận vào cổng     | Gate-in              |
+| Xác nhận ra cổng       | Gate-out             |
+| Phiếu ra cổng          | Gate Pass            |
+| Chuyến xe ra/vào       | Truck Visit          |
+| Vị trí bãi             | Yard Slot            |
+| Dịch vụ & Thanh toán   | Billing              |
+| Bàn giao vận chuyển    | Transport Handover   |
+| Xác nhận của đối tác   | Partner Confirmation |
+| Nhật ký API đối tác    | Partner API Log      |
 
 ---
 
@@ -62,12 +63,12 @@ Partner không quản lý thay ICD.
 
 ## 2. Tác nhân
 
-| Actor | Trách nhiệm |
-|---|---|
-| ICD ADMIN | Tạo/rotate/revoke Đối tác tích hợp API, scopes, xem log |
-| ICD MANAGER | Giám sát Handover, review confirmation, dispute |
-| ICD OPERATOR | Tạo/publish Handover, review theo quyền |
-| PARTNER_SYSTEM | Gọi External API bằng API Key |
+| Actor                   | Trách nhiệm                                               |
+| ----------------------- | --------------------------------------------------------- |
+| ICD ADMIN               | Tạo/rotate/revoke Đối tác tích hợp API, scopes, xem log   |
+| ICD MANAGER             | Giám sát Handover, review confirmation, dispute           |
+| ICD OPERATOR            | Tạo/publish Handover, review theo quyền                   |
+| PARTNER_SYSTEM          | Gọi External API bằng API Key                             |
 | PARTNER_OPERATOR/DRIVER | Người dùng thuộc hệ thống Partner; không phải account ICD |
 
 ---
@@ -210,6 +211,7 @@ limit
 ```
 
 Authorization:
+
 - chỉ trả Handover `partner_api_client_id = caller`;
 - DRAFT không trả;
 - CANCELLED có thể ẩn mặc định.
@@ -286,6 +288,7 @@ Request:
 ```
 
 Validation:
+
 - caller owns Handover;
 - state = READY_FOR_HANDOVER;
 - `accepted_at` hợp lệ;
@@ -402,6 +405,7 @@ Authorization: JWT user ICD
 ```
 
 Precondition:
+
 - state = PARTNER_CONFIRMED;
 - user có `handover.confirm`;
 - latest confirmation hợp lệ.
@@ -506,16 +510,16 @@ Sau đó reschedule/replacement là nghiệp vụ ICD riêng.
 }
 ```
 
-| HTTP | Error class |
-|---|---|
-| 400 | Payload/format invalid |
-| 401 | Missing/invalid/revoked API Key |
-| 403 | Scope denied |
-| 404 | Handover not visible to caller |
-| 409 | Invalid state / idempotency conflict |
-| 422 | Business validation failed |
-| 429 | Rate limited |
-| 500 | Unexpected server error |
+| HTTP | Error class                          |
+| ---- | ------------------------------------ |
+| 400  | Payload/format invalid               |
+| 401  | Missing/invalid/revoked API Key      |
+| 403  | Scope denied                         |
+| 404  | Handover not visible to caller       |
+| 409  | Invalid state / idempotency conflict |
+| 422  | Business validation failed           |
+| 429  | Rate limited                         |
+| 500  | Unexpected server error              |
 
 Business error codes đề xuất:
 
@@ -552,6 +556,7 @@ Authenticate API Key
 ```
 
 Không được:
+
 - commit state nhưng mất confirmation;
 - update core Container Visit state;
 - tạo duplicate event khi Partner retry.
@@ -568,6 +573,7 @@ Web route:
 ```
 
 Chức năng:
+
 - Create client.
 - Chọn scopes.
 - Generate key.
@@ -697,6 +703,7 @@ created_at
 ## 22. Nhật ký kiểm toán
 
 Audit user nội bộ:
+
 - Publish Handover.
 - ICD Confirm.
 - Dispute.
@@ -709,23 +716,27 @@ Partner machine action được nhận diện bởi `partner_api_client_id` + re
 ## 23. Chiến lược kiểm thử
 
 ### Xác thực
+
 - thiếu key;
 - key sai;
 - key revoked;
 - scope thiếu.
 
 ### Cách ly dữ liệu
+
 - Partner A không đọc Handover Partner B;
 - Partner A không state transition Handover B;
 - DRAFT không xuất hiện external list.
 
 ### Idempotency
+
 - replay cùng payload;
 - conflict khác payload;
 - retry sau network uncertainty;
 - không duplicate confirmation.
 
 ### Máy trạng thái
+
 - accept chỉ từ READY;
 - in-transit chỉ từ ACCEPTED;
 - warehouse-received chỉ từ IN_TRANSIT;
@@ -733,6 +744,7 @@ Partner machine action được nhận diện bởi `partner_api_client_id` + re
 - duplicate transition bị chặn/idempotent.
 
 ### Kiểm tra hợp lệ
+
 - warehouse mismatch;
 - received_at < departed_at;
 - invalid GPS;
@@ -740,6 +752,7 @@ Partner machine action được nhận diện bởi `partner_api_client_id` + re
 - transport code/container consistency.
 
 ### Cách ly nghiệp vụ lõi
+
 - Partner request không thay `container_visit.state`;
 - Delivery Failed không rollback EXITED;
 - Partner API error không ảnh hưởng Billing/Gate Pass history.
@@ -762,4 +775,3 @@ Partner machine action được nhận diện bởi `partner_api_client_id` + re
 ```
 
 Kịch bản này thể hiện rõ core ICD độc lập và tích hợp hai hệ thống có xác thực, idempotency, audit và double confirmation.
-

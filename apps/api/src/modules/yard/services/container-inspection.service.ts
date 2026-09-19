@@ -1,12 +1,5 @@
-import {
-  ConflictException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
-import {
-  ContainerInspectionStatus,
-  Prisma,
-} from '../../../generated/prisma/client';
+import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
+import { ContainerInspectionStatus, Prisma } from '../../../generated/prisma/client';
 import type { AuthenticatedUser } from '../../../common/types/authenticated-user.types';
 import { PrismaService } from '../../../database/prisma.service';
 import { CONTAINER_EVENT_TYPES } from '../../containers/constants/container-event-types.constants';
@@ -45,9 +38,7 @@ export class ContainerInspectionService {
       });
     }
 
-    const validation = this.inspectionPolicy.validateCanRequestInspection(
-      visit.status,
-    );
+    const validation = this.inspectionPolicy.validateCanRequestInspection(visit.status);
     if (!validation.valid) {
       throw new ConflictException({
         code: validation.errorCode,
@@ -99,9 +90,7 @@ export class ContainerInspectionService {
       });
     }
 
-    const validation = this.inspectionPolicy.validateCanStartInspection(
-      inspection.status,
-    );
+    const validation = this.inspectionPolicy.validateCanStartInspection(inspection.status);
     if (!validation.valid) {
       throw new ConflictException({
         code: validation.errorCode,
@@ -155,9 +144,7 @@ export class ContainerInspectionService {
       });
     }
 
-    const validation = this.inspectionPolicy.validateCanCompleteInspection(
-      inspection.status,
-    );
+    const validation = this.inspectionPolicy.validateCanCompleteInspection(inspection.status);
     if (!validation.valid) {
       throw new ConflictException({
         code: validation.errorCode,
@@ -218,9 +205,7 @@ export class ContainerInspectionService {
       });
     }
 
-    const validation = this.inspectionPolicy.validateCanCancelInspection(
-      inspection.status,
-    );
+    const validation = this.inspectionPolicy.validateCanCancelInspection(inspection.status);
     if (!validation.valid) {
       throw new ConflictException({
         code: validation.errorCode,
@@ -232,7 +217,9 @@ export class ContainerInspectionService {
       where: { id: inspection.id },
       data: {
         status: ContainerInspectionStatus.CANCELLED,
-        notes: dto.reason ? `${inspection.notes ?? ''} [Hủy: ${dto.reason}]`.trim() : inspection.notes,
+        notes: dto.reason
+          ? `${inspection.notes ?? ''} [Hủy: ${dto.reason}]`.trim()
+          : inspection.notes,
       },
       include: {
         createdByUser: { select: { id: true, name: true, email: true } },
@@ -255,10 +242,7 @@ export class ContainerInspectionService {
     return cancelled;
   }
 
-  async findInspections(
-    query: QueryContainerInspectionsDto,
-    actor: AuthenticatedUser,
-  ) {
+  async findInspections(query: QueryContainerInspectionsDto, actor: AuthenticatedUser) {
     const page = query.page ?? 1;
     const limit = query.limit ?? 20;
     const skip = (page - 1) * limit;

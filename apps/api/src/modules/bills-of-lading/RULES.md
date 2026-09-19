@@ -1,12 +1,15 @@
 # RULES — bills-of-lading
 
 ## Trách nhiệm module
+
 Quản lý Master B/L và House B/L, tránh nhầm với module Billing.
 
 ## Ownership
+
 Vận đơn và liên kết document với container/consignee.
 
 ## Quy tắc
+
 - Public method phải dùng động từ rõ nghĩa.
 - Không expose `updateStatus`.
 - Query không thay đổi dữ liệu.

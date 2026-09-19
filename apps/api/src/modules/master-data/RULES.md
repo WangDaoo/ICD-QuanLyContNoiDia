@@ -1,12 +1,15 @@
 # RULES — master-data
 
 ## Trách nhiệm module
+
 Quản lý shipping line, consignee, agent, transporter và danh mục dùng chung.
 
 ## Ownership
+
 Master data; không xử lý lifecycle container.
 
 ## Quy tắc
+
 - Public method phải dùng động từ rõ nghĩa.
 - Không expose `updateStatus`.
 - Query không thay đổi dữ liệu.

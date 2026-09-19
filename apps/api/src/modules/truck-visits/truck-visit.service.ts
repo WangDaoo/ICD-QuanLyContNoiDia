@@ -182,9 +182,7 @@ export class TruckVisitService {
         ];
 
         const activeTruckVisit = containerVisit.truckVisitLinks.find(
-          (link) =>
-            link.truckVisit &&
-            activeStatuses.includes(link.truckVisit.status),
+          (link) => link.truckVisit && activeStatuses.includes(link.truckVisit.status),
         );
 
         if (activeTruckVisit) {
@@ -251,12 +249,7 @@ export class TruckVisitService {
     });
   }
 
-  async arrive(
-    icdId: string,
-    visitId: string,
-    actorId: string,
-    dto: ArriveTruckVisitDto,
-  ) {
+  async arrive(icdId: string, visitId: string, actorId: string, dto: ArriveTruckVisitDto) {
     return this.prisma.$transaction(async (tx: Prisma.TransactionClient) => {
       const visit = await tx.truckVisit.findFirst({
         where: {
@@ -305,12 +298,7 @@ export class TruckVisitService {
     });
   }
 
-  async cancel(
-    icdId: string,
-    visitId: string,
-    actorId: string,
-    dto: CancelTruckVisitDto,
-  ) {
+  async cancel(icdId: string, visitId: string, actorId: string, dto: CancelTruckVisitDto) {
     return this.prisma.$transaction(async (tx: Prisma.TransactionClient) => {
       const visit = await tx.truckVisit.findFirst({
         where: {

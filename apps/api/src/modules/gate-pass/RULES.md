@@ -1,12 +1,15 @@
 # RULES — gate-pass
 
 ## Trách nhiệm module
+
 Kiểm tra readiness và phát hành/quản lý Phiếu ra cổng.
 
 ## Ownership
+
 Gate Pass lifecycle và readiness aggregation.
 
 ## Quy tắc
+
 - Public method phải dùng động từ rõ nghĩa.
 - Không expose `updateStatus`.
 - Query không thay đổi dữ liệu.

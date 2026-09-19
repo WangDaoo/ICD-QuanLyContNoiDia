@@ -1,4 +1,4 @@
-import { Payment, Prisma } from '../../../generated/prisma/client';
+import { Prisma } from '../../../generated/prisma/client';
 
 export const PAYMENT_DETAIL_INCLUDE = {
   consignee: true,
@@ -34,10 +34,7 @@ export type PaymentWithDetails = Prisma.PaymentGetPayload<{
 
 export function mapPayment(payment: PaymentWithDetails) {
   const totalAmount = Number(payment.amount);
-  const allocatedAmount = payment.allocations.reduce(
-    (sum: number, a) => sum + Number(a.amount),
-    0,
-  );
+  const allocatedAmount = payment.allocations.reduce((sum: number, a) => sum + Number(a.amount), 0);
   const unallocatedAmount = Math.max(0, totalAmount - allocatedAmount);
 
   return {

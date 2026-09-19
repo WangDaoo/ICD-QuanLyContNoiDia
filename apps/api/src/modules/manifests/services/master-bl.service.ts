@@ -5,48 +5,27 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 
-import {
-  Prisma,
-} from '../../../generated/prisma/client';
+import { Prisma } from '../../../generated/prisma/client';
 
-import {
-  PrismaService,
-} from '../../../database/prisma.service';
+import { PrismaService } from '../../../database/prisma.service';
 
-import {
-  MANIFEST_ERROR_CODES,
-} from '../constants/manifest-error-codes.constants';
+import { MANIFEST_ERROR_CODES } from '../constants/manifest-error-codes.constants';
 
-import {
-  CreateMasterBlDto,
-} from '../dto/master-bl/create-master-bl.dto';
+import { CreateMasterBlDto } from '../dto/master-bl/create-master-bl.dto';
 
-import {
-  QueryMasterBlsDto,
-} from '../dto/master-bl/query-master-bls.dto';
+import { QueryMasterBlsDto } from '../dto/master-bl/query-master-bls.dto';
 
-import {
-  UpdateMasterBlDto,
-} from '../dto/master-bl/update-master-bl.dto';
+import { UpdateMasterBlDto } from '../dto/master-bl/update-master-bl.dto';
 
-import {
-  ManifestMapper,
-} from '../mappers/manifest.mapper';
+import { ManifestMapper } from '../mappers/manifest.mapper';
 
-import {
-  ManifestStatePolicy,
-} from '../policies/manifest-state.policy';
+import { ManifestStatePolicy } from '../policies/manifest-state.policy';
 
 @Injectable()
 export class MasterBlService {
-  constructor(
-    private readonly prisma: PrismaService,
-  ) {}
+  constructor(private readonly prisma: PrismaService) {}
 
-  private async getManifestOrThrow(
-    icdId: string,
-    manifestId: string,
-  ) {
+  private async getManifestOrThrow(icdId: string, manifestId: string) {
     const manifest = await this.prisma.manifest.findFirst({
       where: {
         id: manifestId,
@@ -64,11 +43,7 @@ export class MasterBlService {
     return manifest;
   }
 
-  async list(
-    icdId: string,
-    manifestId: string,
-    query: QueryMasterBlsDto,
-  ) {
+  async list(icdId: string, manifestId: string, query: QueryMasterBlsDto) {
     await this.getManifestOrThrow(icdId, manifestId);
 
     const { page, pageSize, search } = query;
@@ -116,11 +91,7 @@ export class MasterBlService {
     };
   }
 
-  async create(
-    icdId: string,
-    manifestId: string,
-    dto: CreateMasterBlDto,
-  ) {
+  async create(icdId: string, manifestId: string, dto: CreateMasterBlDto) {
     const manifest = await this.getManifestOrThrow(icdId, manifestId);
 
     ManifestStatePolicy.assertCanModifyBills(manifest.status);
@@ -176,12 +147,7 @@ export class MasterBlService {
     return ManifestMapper.toMasterBlResponse(mbl);
   }
 
-  async update(
-    icdId: string,
-    manifestId: string,
-    mblId: string,
-    dto: UpdateMasterBlDto,
-  ) {
+  async update(icdId: string, manifestId: string, mblId: string, dto: UpdateMasterBlDto) {
     const manifest = await this.getManifestOrThrow(icdId, manifestId);
 
     ManifestStatePolicy.assertCanModifyBills(manifest.status);
@@ -251,11 +217,7 @@ export class MasterBlService {
     return ManifestMapper.toMasterBlResponse(updated);
   }
 
-  async remove(
-    icdId: string,
-    manifestId: string,
-    mblId: string,
-  ) {
+  async remove(icdId: string, manifestId: string, mblId: string) {
     const manifest = await this.getManifestOrThrow(icdId, manifestId);
 
     ManifestStatePolicy.assertCanModifyBills(manifest.status);

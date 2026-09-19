@@ -26,10 +26,7 @@ export class TruckVisitsController {
 
   @Get()
   @Permissions(PERMISSION_CODES.TRUCK_VISIT_READ)
-  async findAll(
-    @CurrentUser() user: AuthenticatedUser,
-    @Query() query: QueryTruckVisitsDto,
-  ) {
+  async findAll(@CurrentUser() user: AuthenticatedUser, @Query() query: QueryTruckVisitsDto) {
     return this.truckVisitService.findAll(user.icdId, query);
   }
 
@@ -45,10 +42,7 @@ export class TruckVisitsController {
   @Post()
   @HttpCode(HttpStatus.CREATED)
   @Permissions(PERMISSION_CODES.TRUCK_VISIT_CREATE)
-  async create(
-    @CurrentUser() user: AuthenticatedUser,
-    @Body() dto: CreateTruckVisitDto,
-  ) {
+  async create(@CurrentUser() user: AuthenticatedUser, @Body() dto: CreateTruckVisitDto) {
     return this.truckVisitService.create(user.icdId, user.id, dto);
   }
 

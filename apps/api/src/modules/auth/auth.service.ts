@@ -1,52 +1,26 @@
-import {
-  randomUUID,
-} from 'node:crypto';
+import { randomUUID } from 'node:crypto';
 
-import {
-  Injectable,
-  UnauthorizedException,
-} from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 
-import {
-  Prisma,
-} from '../../generated/prisma/client';
+import { Prisma } from '../../generated/prisma/client';
 
-import {
-  PrismaService,
-} from '../../database/prisma.service';
+import { PrismaService } from '../../database/prisma.service';
 
-import type {
-  AuthenticatedUser,
-} from '../../common/types/authenticated-user.types';
+import type { AuthenticatedUser } from '../../common/types/authenticated-user.types';
 
-import {
-  hashToken,
-  tokenHashesEqual,
-} from '../../common/security/token-hash.util';
+import { hashToken, tokenHashesEqual } from '../../common/security/token-hash.util';
 
-import {
-  verifyPassword,
-} from '../../common/security/password.util';
+import { verifyPassword } from '../../common/security/password.util';
 
-import {
-  AUTH_ERROR_CODES,
-} from './constants/auth-error-codes.constants';
+import { AUTH_ERROR_CODES } from './constants/auth-error-codes.constants';
 
-import type {
-  LoginDto,
-} from './dto/login.dto';
+import type { LoginDto } from './dto/login.dto';
 
-import type {
-  RefreshTokenDto,
-} from './dto/refresh-token.dto';
+import type { RefreshTokenDto } from './dto/refresh-token.dto';
 
-import {
-  TokenService,
-} from './services/token.service';
+import { TokenService } from './services/token.service';
 
-import type {
-  AuthResult,
-} from './types/auth-token.types';
+import type { AuthResult } from './types/auth-token.types';
 
 const USER_IDENTITY_SELECT = {
   id: true,
@@ -96,36 +70,26 @@ const USER_LOGIN_SELECT = {
   passwordHash: true,
 } satisfies Prisma.UserSelect;
 
-type UserIdentityRecord =
-  Prisma.UserGetPayload<{
-    select:
-      typeof USER_IDENTITY_SELECT;
-  }>;
+type UserIdentityRecord = Prisma.UserGetPayload<{
+  select: typeof USER_IDENTITY_SELECT;
+}>;
 
 @Injectable()
 export class AuthService {
   constructor(
-    private readonly prisma:
-      PrismaService,
+    private readonly prisma: PrismaService,
 
-    private readonly tokenService:
-      TokenService,
+    private readonly tokenService: TokenService,
   ) {}
 
-  async login(
-    dto: LoginDto,
-  ): Promise<AuthResult> {
-    const user =
-      await this.prisma.user
-        .findUnique({
-          where: {
-            email:
-              dto.email,
-          },
+  async login(dto: LoginDto): Promise<AuthResult> {
+    const user = await this.prisma.user.findUnique({
+      where: {
+        email: dto.email,
+      },
 
-          select:
-            USER_LOGIN_SELECT,
-        });
+      select: USER_LOGIN_SELECT,
+    });
 
     /**
      * Không cho attacker biết:
@@ -139,123 +103,77 @@ export class AuthService {
       throw this.invalidCredentials();
     }
 
-    if (
-      !user.active ||
-      !user.icd.active
-    ) {
+    if (!user.active || !user.icd.active) {
       throw this.invalidCredentials();
     }
 
-    const passwordValid =
-      await verifyPassword(
-        user.passwordHash,
-        dto.password,
-      );
+    const passwordValid = await verifyPassword(user.passwordHash, dto.password);
 
     if (!passwordValid) {
       throw this.invalidCredentials();
     }
 
-    const sessionId =
-      randomUUID();
+    const sessionId = randomUUID();
 
-    const tokens =
-      await this.tokenService
-        .issueTokenPair(
-          user.id,
-          user.email,
-          sessionId,
-        );
+    const tokens = await this.tokenService.issueTokenPair(user.id, user.email, sessionId);
 
-    await this.prisma.authSession
-      .create({
-        data: {
-          id:
-            sessionId,
+    await this.prisma.authSession.create({
+      data: {
+        id: sessionId,
 
-          userId:
-            user.id,
+        userId: user.id,
 
-          refreshTokenHash:
-            hashToken(
-              tokens.refreshToken,
-            ),
+        refreshTokenHash: hashToken(tokens.refreshToken),
 
-          expiresAt:
-            tokens.refreshExpiresAt,
-        },
-      });
+        expiresAt: tokens.refreshExpiresAt,
+      },
+    });
 
     return {
-      accessToken:
-        tokens.accessToken,
+      accessToken: tokens.accessToken,
 
-      refreshToken:
-        tokens.refreshToken,
+      refreshToken: tokens.refreshToken,
 
-      tokenType:
-        tokens.tokenType,
+      tokenType: tokens.tokenType,
 
-      expiresIn:
-        tokens.expiresIn,
+      expiresIn: tokens.expiresIn,
 
-      refreshExpiresIn:
-        tokens.refreshExpiresIn,
+      refreshExpiresIn: tokens.refreshExpiresIn,
 
-      user:
-        this.mapAuthenticatedUser(
-          user,
-          sessionId,
-        ),
+      user: this.mapAuthenticatedUser(user, sessionId),
     };
   }
 
-  async refresh(
-    dto: RefreshTokenDto,
-  ): Promise<AuthResult> {
-    const payload =
-      await this.tokenService
-        .verifyRefreshToken(
-          dto.refreshToken,
-        );
+  async refresh(dto: RefreshTokenDto): Promise<AuthResult> {
+    const payload = await this.tokenService.verifyRefreshToken(dto.refreshToken);
 
-    const session =
-      await this.prisma
-        .authSession
-        .findUnique({
-          where: {
-            id:
-              payload.sid,
-          },
+    const session = await this.prisma.authSession.findUnique({
+      where: {
+        id: payload.sid,
+      },
 
-          select: {
-            id: true,
+      select: {
+        id: true,
 
-            userId: true,
+        userId: true,
 
-            refreshTokenHash:
-              true,
+        refreshTokenHash: true,
 
-            expiresAt:
-              true,
+        expiresAt: true,
 
-            revokedAt:
-              true,
+        revokedAt: true,
 
-            user: {
-              select:
-                USER_IDENTITY_SELECT,
-            },
-          },
-        });
+        user: {
+          select: USER_IDENTITY_SELECT,
+        },
+      },
+    });
 
-    const now =
-      new Date();
+    const now = new Date();
 
     if (
       !session ||
-      session.userId !==
-        payload.sub ||
+      session.userId !== payload.sub ||
       session.revokedAt ||
       session.expiresAt <= now ||
       !session.user.active ||
@@ -264,42 +182,26 @@ export class AuthService {
       throw this.invalidSession();
     }
 
-    const providedHash =
-      hashToken(
-        dto.refreshToken,
-      );
+    const providedHash = hashToken(dto.refreshToken);
 
     /**
      * Token cũ bị reuse sau rotation:
      *
      * revoke toàn session.
      */
-    if (
-      !tokenHashesEqual(
-        session.refreshTokenHash,
-        providedHash,
-      )
-    ) {
-      await this.revokeSession(
-        session.id,
-        session.userId,
-      );
+    if (!tokenHashesEqual(session.refreshTokenHash, providedHash)) {
+      await this.revokeSession(session.id, session.userId);
 
       throw this.invalidSession();
     }
 
-    const newTokens =
-      await this.tokenService
-        .issueTokenPair(
-          session.user.id,
-          session.user.email,
-          session.id,
-        );
+    const newTokens = await this.tokenService.issueTokenPair(
+      session.user.id,
+      session.user.email,
+      session.id,
+    );
 
-    const newRefreshHash =
-      hashToken(
-        newTokens.refreshToken,
-      );
+    const newRefreshHash = hashToken(newTokens.refreshToken);
 
     /**
      * updateMany + old hash tạo atomic compare-and-swap.
@@ -307,73 +209,48 @@ export class AuthService {
      * Nếu hai refresh request dùng cùng token cũ,
      * chỉ một request được phép rotate thành công.
      */
-    const updateResult =
-      await this.prisma
-        .authSession
-        .updateMany({
-          where: {
-            id:
-              session.id,
+    const updateResult = await this.prisma.authSession.updateMany({
+      where: {
+        id: session.id,
 
-            userId:
-              session.userId,
+        userId: session.userId,
 
-            refreshTokenHash:
-              providedHash,
+        refreshTokenHash: providedHash,
 
-            revokedAt:
-              null,
+        revokedAt: null,
 
-            expiresAt: {
-              gt: now,
-            },
-          },
+        expiresAt: {
+          gt: now,
+        },
+      },
 
-          data: {
-            refreshTokenHash:
-              newRefreshHash,
+      data: {
+        refreshTokenHash: newRefreshHash,
 
-            expiresAt:
-              newTokens
-                .refreshExpiresAt,
+        expiresAt: newTokens.refreshExpiresAt,
 
-            lastUsedAt:
-              now,
-          },
-        });
+        lastUsedAt: now,
+      },
+    });
 
-    if (
-      updateResult.count !== 1
-    ) {
-      await this.revokeSession(
-        session.id,
-        session.userId,
-      );
+    if (updateResult.count !== 1) {
+      await this.revokeSession(session.id, session.userId);
 
       throw this.invalidSession();
     }
 
     return {
-      accessToken:
-        newTokens.accessToken,
+      accessToken: newTokens.accessToken,
 
-      refreshToken:
-        newTokens.refreshToken,
+      refreshToken: newTokens.refreshToken,
 
-      tokenType:
-        newTokens.tokenType,
+      tokenType: newTokens.tokenType,
 
-      expiresIn:
-        newTokens.expiresIn,
+      expiresIn: newTokens.expiresIn,
 
-      refreshExpiresIn:
-        newTokens.refreshExpiresIn,
+      refreshExpiresIn: newTokens.refreshExpiresIn,
 
-      user:
-        this.mapAuthenticatedUser(
-          session.user,
-          session.id,
-        ),
+      user: this.mapAuthenticatedUser(session.user, session.id),
     };
   }
 
@@ -383,16 +260,10 @@ export class AuthService {
    * Idempotent:
    * gọi lần hai vẫn không gây lỗi.
    */
-  async logout(
-    user:
-      AuthenticatedUser,
-  ): Promise<{
+  async logout(user: AuthenticatedUser): Promise<{
     success: true;
   }> {
-    await this.revokeSession(
-      user.sessionId,
-      user.id,
-    );
+    await this.revokeSession(user.sessionId, user.id);
 
     return {
       success: true,
@@ -412,112 +283,64 @@ export class AuthService {
    * Role/Permission được lấy lại từ DB,
    * không tin dữ liệu role trong JWT.
    */
-  async getAuthenticatedUser(
-    userId: string,
-    sessionId: string,
-  ): Promise<AuthenticatedUser> {
-    const session =
-      await this.prisma
-        .authSession
-        .findUnique({
-          where: {
-            id:
-              sessionId,
-          },
+  async getAuthenticatedUser(userId: string, sessionId: string): Promise<AuthenticatedUser> {
+    const session = await this.prisma.authSession.findUnique({
+      where: {
+        id: sessionId,
+      },
 
-          select: {
-            userId: true,
+      select: {
+        userId: true,
 
-            revokedAt:
-              true,
+        revokedAt: true,
 
-            expiresAt:
-              true,
+        expiresAt: true,
 
-            user: {
-              select:
-                USER_IDENTITY_SELECT,
-            },
-          },
-        });
+        user: {
+          select: USER_IDENTITY_SELECT,
+        },
+      },
+    });
 
     if (
       !session ||
-      session.userId !==
-        userId ||
+      session.userId !== userId ||
       session.revokedAt ||
-      session.expiresAt <=
-        new Date() ||
+      session.expiresAt <= new Date() ||
       !session.user.active ||
       !session.user.icd.active
     ) {
       throw this.invalidSession();
     }
 
-    return this.mapAuthenticatedUser(
-      session.user,
-      sessionId,
-    );
+    return this.mapAuthenticatedUser(session.user, sessionId);
   }
 
-  private mapAuthenticatedUser(
-    user:
-      UserIdentityRecord,
-    sessionId: string,
-  ): AuthenticatedUser {
-    const activeRoles =
-      user.roles
-        .map(
-          ({ role }) =>
-            role,
-        )
-        .filter(
-          (role) =>
-            role.active,
-        );
+  private mapAuthenticatedUser(user: UserIdentityRecord, sessionId: string): AuthenticatedUser {
+    const activeRoles = user.roles.map(({ role }) => role).filter((role) => role.active);
 
-    const roleCodes =
-      activeRoles.map(
-        (role) =>
-          role.code,
-      );
+    const roleCodes = activeRoles.map((role) => role.code);
 
-    const permissionCodes =
-      [
-        ...new Set(
-          activeRoles.flatMap(
-            (role) =>
-              role.permissions
-                .filter(
-                  ({
-                    permission,
-                  }) =>
-                    permission.active,
-                )
-                .map(
-                  ({
-                    permission,
-                  }) =>
-                    permission.code,
-                ),
-          ),
+    const permissionCodes = [
+      ...new Set(
+        activeRoles.flatMap((role) =>
+          role.permissions
+            .filter(({ permission }) => permission.active)
+            .map(({ permission }) => permission.code),
         ),
-      ];
+      ),
+    ];
 
     return {
-      id:
-        user.id,
+      id: user.id,
 
-      icdId:
-        user.icdId,
+      icdId: user.icdId,
 
       sessionId,
 
-      name:
-        user.name,
+      name: user.name,
 
-      email:
-        user.email,
+      email: user.email,
 
       roleCodes,
 
@@ -525,51 +348,35 @@ export class AuthService {
     };
   }
 
-  private async revokeSession(
-    sessionId: string,
-    userId: string,
-  ): Promise<void> {
-    await this.prisma
-      .authSession
-      .updateMany({
-        where: {
-          id:
-            sessionId,
+  private async revokeSession(sessionId: string, userId: string): Promise<void> {
+    await this.prisma.authSession.updateMany({
+      where: {
+        id: sessionId,
 
-          userId,
+        userId,
 
-          revokedAt:
-            null,
-        },
+        revokedAt: null,
+      },
 
-        data: {
-          revokedAt:
-            new Date(),
-        },
-      });
-  }
-
-  private invalidCredentials():
-    UnauthorizedException {
-    return new UnauthorizedException({
-      code:
-        AUTH_ERROR_CODES
-          .INVALID_CREDENTIALS,
-
-      message:
-        'Email hoặc mật khẩu không đúng.',
+      data: {
+        revokedAt: new Date(),
+      },
     });
   }
 
-  private invalidSession():
-    UnauthorizedException {
+  private invalidCredentials(): UnauthorizedException {
     return new UnauthorizedException({
-      code:
-        AUTH_ERROR_CODES
-          .SESSION_INVALID,
+      code: AUTH_ERROR_CODES.INVALID_CREDENTIALS,
 
-      message:
-        'Phiên đăng nhập không hợp lệ hoặc đã hết hạn.',
+      message: 'Email hoặc mật khẩu không đúng.',
+    });
+  }
+
+  private invalidSession(): UnauthorizedException {
+    return new UnauthorizedException({
+      code: AUTH_ERROR_CODES.SESSION_INVALID,
+
+      message: 'Phiên đăng nhập không hợp lệ hoặc đã hết hạn.',
     });
   }
 }

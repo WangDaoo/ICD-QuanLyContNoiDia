@@ -9,15 +9,7 @@ import { TruckVisitsController } from './truck-visits.controller';
 @Module({
   imports: [ContainersModule],
   controllers: [TruckVisitsController],
-  providers: [
-    TruckVisitService,
-    TruckVisitTransitionService,
-    TruckVisitStatePolicy,
-  ],
-  exports: [
-    TruckVisitService,
-    TruckVisitTransitionService,
-    TruckVisitStatePolicy,
-  ],
+  providers: [TruckVisitService, TruckVisitTransitionService, TruckVisitStatePolicy],
+  exports: [TruckVisitService, TruckVisitTransitionService, TruckVisitStatePolicy],
 })
 export class TruckVisitsModule {}

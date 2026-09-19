@@ -1,9 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../../../database/prisma.service';
-import {
-  InvoiceStatus,
-  ServiceOrderStatus,
-} from '../../../generated/prisma/client';
+import { InvoiceStatus, Prisma, ServiceOrderStatus } from '../../../generated/prisma/client';
 import type { AuthenticatedUser } from '../../../common/types/authenticated-user.types';
 import { BILLING_ERROR_CODES } from '../constants/billing-error-codes.constants';
 import { BillingCalculationService } from './billing-calculation.service';
@@ -67,11 +64,7 @@ export class BillingReadinessService {
       where: {
         containerVisitId,
         status: {
-          in: [
-            ServiceOrderStatus.DRAFT,
-            ServiceOrderStatus.CONFIRMED,
-            ServiceOrderStatus.INVOICED,
-          ],
+          in: [ServiceOrderStatus.DRAFT, ServiceOrderStatus.CONFIRMED, ServiceOrderStatus.INVOICED],
         },
       },
       include: {
@@ -81,9 +74,7 @@ export class BillingReadinessService {
 
     const pendingOrders = orders
       .filter(
-        (o) =>
-          o.status === ServiceOrderStatus.DRAFT ||
-          o.status === ServiceOrderStatus.CONFIRMED,
+        (o) => o.status === ServiceOrderStatus.DRAFT || o.status === ServiceOrderStatus.CONFIRMED,
       )
       .map((o) => ({
         id: o.id,
@@ -95,8 +86,7 @@ export class BillingReadinessService {
       blockers.push(BILLING_BLOCKER_CODES.PENDING_SERVICE_ORDER);
     }
 
-    const unpaidInvoices: BillingReadinessResult['details']['unpaidInvoices'] =
-      [];
+    const unpaidInvoices: BillingReadinessResult['details']['unpaidInvoices'] = [];
 
     for (const order of orders) {
       if (order.status === ServiceOrderStatus.INVOICED) {
@@ -151,6 +141,98 @@ export class BillingReadinessService {
         unpaidInvoices,
         unbilledServicesCount,
       },
+    };
+  }
+
+  async checkWithDb(
+    db: Prisma.TransactionClient,
+    containerVisitId: string,
+    actor?: AuthenticatedUser,
+  ) {
+    const orders = await db.serviceOrder.findMany({
+      where: {
+        containerVisitId,
+        status: {
+          in: [ServiceOrderStatus.DRAFT, ServiceOrderStatus.CONFIRMED, ServiceOrderStatus.INVOICED],
+        },
+      },
+      include: {
+        invoice: true,
+      },
+    });
+
+    const hasNoOrders = orders.length === 0;
+
+    const pendingOrders = orders
+      .filter(
+        (o) => o.status === ServiceOrderStatus.DRAFT || o.status === ServiceOrderStatus.CONFIRMED,
+      )
+      .map((o) => ({
+        id: o.id,
+        orderNumber: o.orderNumber,
+        status: o.status,
+      }));
+
+    const unpaidInvoices = [];
+    for (const order of orders) {
+      if (order.status === ServiceOrderStatus.INVOICED) {
+        if (!order.invoice) {
+          unpaidInvoices.push({
+            id: '',
+            invoiceNo: '',
+            status: InvoiceStatus.UNPAID,
+            totalAmount: Number(order.totalAmount),
+            paidAmount: 0,
+            outstandingAmount: Number(order.totalAmount),
+          });
+        } else if (
+          order.invoice.status === InvoiceStatus.UNPAID ||
+          order.invoice.status === InvoiceStatus.PARTIALLY_PAID
+        ) {
+          const total = Number(order.invoice.totalAmount);
+          const paid = Number(order.invoice.paidAmount);
+          unpaidInvoices.push({
+            id: order.invoice.id,
+            invoiceNo: order.invoice.invoiceNo,
+            status: order.invoice.status,
+            totalAmount: total,
+            paidAmount: paid,
+            outstandingAmount: Math.max(0, total - paid),
+          });
+        }
+      }
+    }
+
+    let unbilledServicesCount = 0;
+    let billingConfigMissing = false;
+
+    if (actor) {
+      try {
+        const calcResult = await this.calculationService.calculateBilling(
+          containerVisitId,
+          new Date().toISOString(),
+          undefined,
+          actor,
+        );
+        unbilledServicesCount = calcResult.items.length;
+      } catch (err: unknown) {
+        const errorResponse = (err as { response?: { code?: string } })?.response;
+        if (
+          errorResponse?.code === BILLING_ERROR_CODES.TARIFF_NOT_FOUND ||
+          errorResponse?.code === BILLING_ERROR_CODES.BILLING_CONFIGURATION_MISSING ||
+          errorResponse?.code === BILLING_ERROR_CODES.CONSIGNEE_REQUIRED
+        ) {
+          billingConfigMissing = true;
+        }
+      }
+    }
+
+    return {
+      hasNoOrders,
+      pendingOrders,
+      unpaidInvoices,
+      unbilledServicesCount,
+      billingConfigMissing,
     };
   }
 }

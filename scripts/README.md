@@ -1,6 +1,7 @@
 # Scripts placeholder
 
 Khi cần sẽ thêm các script như:
+
 - setup local environment
 - generate contract
 - verify formatting

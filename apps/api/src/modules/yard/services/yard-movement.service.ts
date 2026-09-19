@@ -1,13 +1,5 @@
-import {
-  ConflictException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
-import {
-  Prisma,
-  YardLocationSource,
-  YardMovementStatus,
-} from '../../../generated/prisma/client';
+import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
+import { Prisma, YardLocationSource, YardMovementStatus } from '../../../generated/prisma/client';
 import type { AuthenticatedUser } from '../../../common/types/authenticated-user.types';
 import { PrismaService } from '../../../database/prisma.service';
 import { CONTAINER_EVENT_TYPES } from '../../containers/constants/container-event-types.constants';
@@ -28,11 +20,7 @@ export class YardMovementService {
     private readonly containerEventService: ContainerEventService,
   ) {}
 
-  async requestMovement(
-    visitId: string,
-    dto: RequestYardMovementDto,
-    actor: AuthenticatedUser,
-  ) {
+  async requestMovement(visitId: string, dto: RequestYardMovementDto, actor: AuthenticatedUser) {
     const visit = await this.prisma.containerVisit.findFirst({
       where: {
         id: visitId,
@@ -87,8 +75,7 @@ export class YardMovementService {
         status: visit.status,
         containerType: visit.container.type,
         effectiveGrossWeight:
-          visit.reception?.actualWeight !== null &&
-          visit.reception?.actualWeight !== undefined
+          visit.reception?.actualWeight !== null && visit.reception?.actualWeight !== undefined
             ? Number(visit.reception.actualWeight)
             : visit.grossWeight !== null && visit.grossWeight !== undefined
               ? Number(visit.grossWeight)
@@ -238,9 +225,7 @@ export class YardMovementService {
         });
       }
 
-      const validation = this.movementPolicy.validateCanCompleteMovement(
-        movement.status,
-      );
+      const validation = this.movementPolicy.validateCanCompleteMovement(movement.status);
       if (!validation.valid) {
         throw new ConflictException({
           code: validation.errorCode,
@@ -333,11 +318,7 @@ export class YardMovementService {
     });
   }
 
-  async cancelMovement(
-    movementId: string,
-    dto: CancelYardMovementDto,
-    actor: AuthenticatedUser,
-  ) {
+  async cancelMovement(movementId: string, dto: CancelYardMovementDto, actor: AuthenticatedUser) {
     const movement = await this.prisma.yardMovement.findFirst({
       where: {
         id: movementId,

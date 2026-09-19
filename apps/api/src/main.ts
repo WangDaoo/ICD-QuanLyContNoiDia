@@ -1,24 +1,15 @@
 import 'reflect-metadata';
 
-import {
-  ValidationPipe,
-} from '@nestjs/common';
-import {
-  ConfigService,
-} from '@nestjs/config';
-import {
-  NestFactory,
-} from '@nestjs/core';
+import { ValidationPipe } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from './app.module';
 
 async function bootstrap(): Promise<void> {
-  const app = await NestFactory.create(
-    AppModule,
-  );
+  const app = await NestFactory.create(AppModule);
 
-  const configService =
-    app.get(ConfigService);
+  const configService = app.get(ConfigService);
 
   /**
    * Tất cả API nội bộ sau này bắt đầu bằng:
@@ -59,20 +50,11 @@ async function bootstrap(): Promise<void> {
    */
   app.enableShutdownHooks();
 
-  const host =
-    configService.getOrThrow<string>(
-      'API_HOST',
-    );
+  const host = configService.getOrThrow<string>('API_HOST');
 
-  const port =
-    configService.getOrThrow<number>(
-      'API_PORT',
-    );
+  const port = configService.getOrThrow<number>('API_PORT');
 
-  await app.listen(
-    port,
-    host,
-  );
+  await app.listen(port, host);
 }
 
 void bootstrap();

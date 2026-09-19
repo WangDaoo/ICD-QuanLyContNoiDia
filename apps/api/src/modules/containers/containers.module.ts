@@ -22,4 +22,3 @@ import { ContainerVisitTransitionService } from './services/container-visit-tran
   ],
 })
 export class ContainersModule {}
-

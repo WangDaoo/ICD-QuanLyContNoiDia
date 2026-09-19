@@ -1,13 +1,5 @@
-import {
-  ConflictException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
-import {
-  ContainerVisitStatus,
-  Prisma,
-  YardLocationSource,
-} from '../../../generated/prisma/client';
+import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
+import { ContainerVisitStatus, Prisma, YardLocationSource } from '../../../generated/prisma/client';
 import type { AuthenticatedUser } from '../../../common/types/authenticated-user.types';
 import { PrismaService } from '../../../database/prisma.service';
 import { CONTAINER_EVENT_TYPES } from '../../containers/constants/container-event-types.constants';
@@ -39,11 +31,7 @@ export class YardAssignmentService {
    * Thứ tự ổn định: Block → Row → Bay → Tier.
    */
   async getRecommendations(visitId: string, actor: AuthenticatedUser) {
-    const context = await this.getVisitContextOrThrow(
-      this.prisma,
-      visitId,
-      actor.icdId,
-    );
+    const context = await this.getVisitContextOrThrow(this.prisma, visitId, actor.icdId);
 
     if (context.status !== ContainerVisitStatus.IN_YARD) {
       throw new ConflictException({
@@ -167,11 +155,7 @@ export class YardAssignmentService {
    * Không throw khi business rule fail.
    * Trả blockers cho UI.
    */
-  async checkSlot(
-    visitId: string,
-    yardSlotId: string,
-    actor: AuthenticatedUser,
-  ) {
+  async checkSlot(visitId: string, yardSlotId: string, actor: AuthenticatedUser) {
     const [context, slot] = await Promise.all([
       this.getVisitContextOrThrow(this.prisma, visitId, actor.icdId),
       this.getSlotOrThrow(this.prisma, yardSlotId, actor.icdId),
@@ -226,11 +210,7 @@ export class YardAssignmentService {
     };
   }
 
-  async assign(
-    visitId: string,
-    dto: AssignYardSlotDto,
-    actor: AuthenticatedUser,
-  ) {
+  async assign(visitId: string, dto: AssignYardSlotDto, actor: AuthenticatedUser) {
     const locationId = await this.prisma.$transaction(async (tx) => {
       /**
        * Lock Container Visit trước.
@@ -246,11 +226,7 @@ export class YardAssignmentService {
         `,
       );
 
-      const context = await this.getVisitContextOrThrow(
-        tx,
-        visitId,
-        actor.icdId,
-      );
+      const context = await this.getVisitContextOrThrow(tx, visitId, actor.icdId);
 
       /**
        * Lock Yard Slot + Block.
@@ -270,10 +246,7 @@ export class YardAssignmentService {
 
       const slot = await this.getSlotOrThrow(tx, dto.yardSlotId, actor.icdId);
 
-      const activeLocation = await this.locationService.findCurrentForVisit(
-        tx,
-        visitId,
-      );
+      const activeLocation = await this.locationService.findCurrentForVisit(tx, visitId);
 
       const slotOccupancy = await tx.containerLocationLog.findFirst({
         where: {
@@ -314,10 +287,7 @@ export class YardAssignmentService {
           yardSlotId: slot.id,
           startedAt: now,
           assignedById: actor.id,
-          source:
-            dto.source === 'RULE'
-              ? YardLocationSource.RULE
-              : YardLocationSource.MANUAL,
+          source: dto.source === 'RULE' ? YardLocationSource.RULE : YardLocationSource.MANUAL,
         },
       });
 
@@ -383,11 +353,7 @@ export class YardAssignmentService {
     return location ? this.mapLocation(location) : null;
   }
 
-  private async getVisitContextOrThrow(
-    db: YardDatabaseClient,
-    visitId: string,
-    icdId: string,
-  ) {
+  private async getVisitContextOrThrow(db: YardDatabaseClient, visitId: string, icdId: string) {
     const visit = await db.containerVisit.findFirst({
       where: {
         id: visitId,
@@ -418,11 +384,7 @@ export class YardAssignmentService {
     return visit;
   }
 
-  private async getSlotOrThrow(
-    db: YardDatabaseClient,
-    yardSlotId: string,
-    icdId: string,
-  ) {
+  private async getSlotOrThrow(db: YardDatabaseClient, yardSlotId: string, icdId: string) {
     const slot = await db.yardSlot.findFirst({
       where: {
         id: yardSlotId,

@@ -27,10 +27,7 @@ export class ContainersController {
 
   @Get()
   @Permissions(PERMISSION_CODES.CONTAINER_READ)
-  async findAll(
-    @CurrentUser() user: AuthenticatedUser,
-    @Query() query: QueryContainerVisitsDto,
-  ) {
+  async findAll(@CurrentUser() user: AuthenticatedUser, @Query() query: QueryContainerVisitsDto) {
     return this.containersService.findAll(user.icdId, query);
   }
 
@@ -55,10 +52,7 @@ export class ContainersController {
   @Post()
   @HttpCode(HttpStatus.CREATED)
   @Permissions(PERMISSION_CODES.CONTAINER_CREATE)
-  async createVisit(
-    @CurrentUser() user: AuthenticatedUser,
-    @Body() dto: CreateContainerVisitDto,
-  ) {
+  async createVisit(@CurrentUser() user: AuthenticatedUser, @Body() dto: CreateContainerVisitDto) {
     return this.containersService.createVisit(user.icdId, user.id, dto);
   }
 
@@ -69,12 +63,7 @@ export class ContainersController {
     @Param('visitId', ParseUUIDPipe) visitId: string,
     @Body() dto: UpdateContainerVisitDto,
   ) {
-    return this.containersService.updateVisit(
-      user.icdId,
-      visitId,
-      user.id,
-      dto,
-    );
+    return this.containersService.updateVisit(user.icdId, visitId, user.id, dto);
   }
 
   @Post(':visitId/cancel')
@@ -85,11 +74,6 @@ export class ContainersController {
     @Param('visitId', ParseUUIDPipe) visitId: string,
     @Body() dto: CancelContainerVisitDto,
   ) {
-    return this.containersService.cancelVisit(
-      user.icdId,
-      visitId,
-      user.id,
-      dto,
-    );
+    return this.containersService.cancelVisit(user.icdId, visitId, user.id, dto);
   }
 }

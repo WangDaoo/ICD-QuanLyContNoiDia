@@ -1,8 +1,4 @@
-import {
-  Injectable,
-  OnModuleDestroy,
-  OnModuleInit,
-} from '@nestjs/common';
+import { Injectable, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { PrismaMariaDb } from '@prisma/adapter-mariadb';
 
@@ -20,40 +16,20 @@ import { PrismaClient } from '../generated/prisma/client';
  * Không chứa business logic.
  */
 @Injectable()
-export class PrismaService
-  extends PrismaClient
-  implements OnModuleInit, OnModuleDestroy
-{
-  constructor(
-    configService: ConfigService,
-  ) {
+export class PrismaService extends PrismaClient implements OnModuleInit, OnModuleDestroy {
+  constructor(configService: ConfigService) {
     const adapter = new PrismaMariaDb({
-      host: configService.getOrThrow<string>(
-        'MYSQL_HOST',
-      ),
+      host: configService.getOrThrow<string>('MYSQL_HOST'),
 
-      port: configService.getOrThrow<number>(
-        'MYSQL_PORT',
-      ),
+      port: configService.getOrThrow<number>('MYSQL_PORT'),
 
-      user: configService.getOrThrow<string>(
-        'MYSQL_USER',
-      ),
+      user: configService.getOrThrow<string>('MYSQL_USER'),
 
-      password:
-        configService.getOrThrow<string>(
-          'MYSQL_PASSWORD',
-        ),
+      password: configService.getOrThrow<string>('MYSQL_PASSWORD'),
 
-      database:
-        configService.getOrThrow<string>(
-          'MYSQL_DATABASE',
-        ),
+      database: configService.getOrThrow<string>('MYSQL_DATABASE'),
 
-      connectionLimit:
-        configService.getOrThrow<number>(
-          'MYSQL_CONNECTION_LIMIT',
-        ),
+      connectionLimit: configService.getOrThrow<number>('MYSQL_CONNECTION_LIMIT'),
 
       connectTimeout: 5_000,
     });

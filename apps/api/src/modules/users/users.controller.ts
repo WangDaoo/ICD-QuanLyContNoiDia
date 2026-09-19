@@ -1,68 +1,32 @@
-import {
-  Body,
-  Controller,
-  Get,
-  Param,
-  Patch,
-  Post,
-  Put,
-  Query,
-} from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post, Put, Query } from '@nestjs/common';
 
-import {
-  PERMISSION_CODES,
-} from '../../common/constants/permission-codes.constants';
+import { PERMISSION_CODES } from '../../common/constants/permission-codes.constants';
 
-import {
-  CurrentUser,
-} from '../../common/decorators/current-user.decorator';
+import { CurrentUser } from '../../common/decorators/current-user.decorator';
 
-import {
-  Permissions,
-} from '../../common/decorators/permissions.decorator';
+import { Permissions } from '../../common/decorators/permissions.decorator';
 
-import type {
-  AuthenticatedUser,
-} from '../../common/types/authenticated-user.types';
+import type { AuthenticatedUser } from '../../common/types/authenticated-user.types';
 
-import {
-  CreateUserDto,
-} from './dto/create-user.dto';
+import { CreateUserDto } from './dto/create-user.dto';
 
-import {
-  QueryUsersDto,
-} from './dto/query-users.dto';
+import { QueryUsersDto } from './dto/query-users.dto';
 
-import {
-  ReplaceUserRolesDto,
-} from './dto/replace-user-roles.dto';
+import { ReplaceUserRolesDto } from './dto/replace-user-roles.dto';
 
-import {
-  ResetUserPasswordDto,
-} from './dto/reset-user-password.dto';
+import { ResetUserPasswordDto } from './dto/reset-user-password.dto';
 
-import {
-  UpdateUserDto,
-} from './dto/update-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
 
-import {
-  UpdateUserStatusDto,
-} from './dto/update-user-status.dto';
+import { UpdateUserStatusDto } from './dto/update-user-status.dto';
 
-import {
-  UserService,
-} from './user.service';
+import { UserService } from './user.service';
 
 @Controller('users')
 export class UsersController {
-  constructor(
-    private readonly userService:
-      UserService,
-  ) {}
+  constructor(private readonly userService: UserService) {}
 
-  @Permissions(
-    PERMISSION_CODES.USERS_READ,
-  )
+  @Permissions(PERMISSION_CODES.USERS_READ)
   @Get()
   findMany(
     @Query()
@@ -71,16 +35,10 @@ export class UsersController {
     @CurrentUser()
     actor: AuthenticatedUser,
   ) {
-    return this.userService
-      .findMany(
-        query,
-        actor,
-      );
+    return this.userService.findMany(query, actor);
   }
 
-  @Permissions(
-    PERMISSION_CODES.USERS_READ,
-  )
+  @Permissions(PERMISSION_CODES.USERS_READ)
   @Get(':userId')
   async findById(
     @Param('userId')
@@ -89,21 +47,14 @@ export class UsersController {
     @CurrentUser()
     actor: AuthenticatedUser,
   ) {
-    const user =
-      await this.userService
-        .findById(
-          userId,
-          actor,
-        );
+    const user = await this.userService.findById(userId, actor);
 
     return {
       data: user,
     };
   }
 
-  @Permissions(
-    PERMISSION_CODES.USERS_MANAGE,
-  )
+  @Permissions(PERMISSION_CODES.USERS_MANAGE)
   @Post()
   async create(
     @Body()
@@ -112,21 +63,14 @@ export class UsersController {
     @CurrentUser()
     actor: AuthenticatedUser,
   ) {
-    const user =
-      await this.userService
-        .create(
-          dto,
-          actor,
-        );
+    const user = await this.userService.create(dto, actor);
 
     return {
       data: user,
     };
   }
 
-  @Permissions(
-    PERMISSION_CODES.USERS_MANAGE,
-  )
+  @Permissions(PERMISSION_CODES.USERS_MANAGE)
   @Patch(':userId')
   async update(
     @Param('userId')
@@ -138,22 +82,14 @@ export class UsersController {
     @CurrentUser()
     actor: AuthenticatedUser,
   ) {
-    const user =
-      await this.userService
-        .update(
-          userId,
-          dto,
-          actor,
-        );
+    const user = await this.userService.update(userId, dto, actor);
 
     return {
       data: user,
     };
   }
 
-  @Permissions(
-    PERMISSION_CODES.USERS_MANAGE,
-  )
+  @Permissions(PERMISSION_CODES.USERS_MANAGE)
   @Patch(':userId/status')
   async updateStatus(
     @Param('userId')
@@ -165,22 +101,14 @@ export class UsersController {
     @CurrentUser()
     actor: AuthenticatedUser,
   ) {
-    const user =
-      await this.userService
-        .updateStatus(
-          userId,
-          dto,
-          actor,
-        );
+    const user = await this.userService.updateStatus(userId, dto, actor);
 
     return {
       data: user,
     };
   }
 
-  @Permissions(
-    PERMISSION_CODES.USERS_MANAGE,
-  )
+  @Permissions(PERMISSION_CODES.USERS_MANAGE)
   @Put(':userId/roles')
   async replaceRoles(
     @Param('userId')
@@ -192,22 +120,14 @@ export class UsersController {
     @CurrentUser()
     actor: AuthenticatedUser,
   ) {
-    const user =
-      await this.userService
-        .replaceRoles(
-          userId,
-          dto,
-          actor,
-        );
+    const user = await this.userService.replaceRoles(userId, dto, actor);
 
     return {
       data: user,
     };
   }
 
-  @Permissions(
-    PERMISSION_CODES.USERS_MANAGE,
-  )
+  @Permissions(PERMISSION_CODES.USERS_MANAGE)
   @Put(':userId/password')
   resetPassword(
     @Param('userId')
@@ -219,11 +139,6 @@ export class UsersController {
     @CurrentUser()
     actor: AuthenticatedUser,
   ) {
-    return this.userService
-      .resetPassword(
-        userId,
-        dto,
-        actor,
-      );
+    return this.userService.resetPassword(userId, dto, actor);
   }
 }

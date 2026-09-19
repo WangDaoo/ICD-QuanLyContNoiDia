@@ -11,5 +11,4 @@ export const CONTAINER_ERROR_CODES = {
   INVALID_STATE: 'CONTAINER_INVALID_STATE',
 } as const;
 
-export type ContainerErrorCode =
-  (typeof CONTAINER_ERROR_CODES)[keyof typeof CONTAINER_ERROR_CODES];
+export type ContainerErrorCode = (typeof CONTAINER_ERROR_CODES)[keyof typeof CONTAINER_ERROR_CODES];

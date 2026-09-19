@@ -5,49 +5,27 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 
-import {
-  Prisma,
-} from '../../../generated/prisma/client';
+import { Prisma } from '../../../generated/prisma/client';
 
-import {
-  PrismaService,
-} from '../../../database/prisma.service';
+import { PrismaService } from '../../../database/prisma.service';
 
-import {
-  MANIFEST_ERROR_CODES,
-} from '../constants/manifest-error-codes.constants';
+import { MANIFEST_ERROR_CODES } from '../constants/manifest-error-codes.constants';
 
-import {
-  CreateHouseBlDto,
-} from '../dto/house-bl/create-house-bl.dto';
+import { CreateHouseBlDto } from '../dto/house-bl/create-house-bl.dto';
 
-import {
-  QueryHouseBlsDto,
-} from '../dto/house-bl/query-house-bls.dto';
+import { QueryHouseBlsDto } from '../dto/house-bl/query-house-bls.dto';
 
-import {
-  UpdateHouseBlDto,
-} from '../dto/house-bl/update-house-bl.dto';
+import { UpdateHouseBlDto } from '../dto/house-bl/update-house-bl.dto';
 
-import {
-  ManifestMapper,
-} from '../mappers/manifest.mapper';
+import { ManifestMapper } from '../mappers/manifest.mapper';
 
-import {
-  ManifestStatePolicy,
-} from '../policies/manifest-state.policy';
+import { ManifestStatePolicy } from '../policies/manifest-state.policy';
 
 @Injectable()
 export class HouseBlService {
-  constructor(
-    private readonly prisma: PrismaService,
-  ) {}
+  constructor(private readonly prisma: PrismaService) {}
 
-  private async getMblWithManifestOrThrow(
-    icdId: string,
-    manifestId: string,
-    mblId: string,
-  ) {
+  private async getMblWithManifestOrThrow(icdId: string, manifestId: string, mblId: string) {
     const mbl = await this.prisma.masterBl.findFirst({
       where: {
         id: mblId,
@@ -71,21 +49,10 @@ export class HouseBlService {
     return mbl;
   }
 
-  async list(
-    icdId: string,
-    manifestId: string,
-    mblId: string,
-    query: QueryHouseBlsDto,
-  ) {
+  async list(icdId: string, manifestId: string, mblId: string, query: QueryHouseBlsDto) {
     await this.getMblWithManifestOrThrow(icdId, manifestId, mblId);
 
-    const {
-      page,
-      pageSize,
-      search,
-      consigneeId,
-      clearingAgentId,
-    } = query;
+    const { page, pageSize, search, consigneeId, clearingAgentId } = query;
 
     const skip = (page - 1) * pageSize;
 
@@ -138,17 +105,8 @@ export class HouseBlService {
     };
   }
 
-  async create(
-    icdId: string,
-    manifestId: string,
-    mblId: string,
-    dto: CreateHouseBlDto,
-  ) {
-    const mbl = await this.getMblWithManifestOrThrow(
-      icdId,
-      manifestId,
-      mblId,
-    );
+  async create(icdId: string, manifestId: string, mblId: string, dto: CreateHouseBlDto) {
+    const mbl = await this.getMblWithManifestOrThrow(icdId, manifestId, mblId);
 
     ManifestStatePolicy.assertCanModifyBills(mbl.manifest.status);
 
@@ -220,11 +178,7 @@ export class HouseBlService {
     hblId: string,
     dto: UpdateHouseBlDto,
   ) {
-    const mbl = await this.getMblWithManifestOrThrow(
-      icdId,
-      manifestId,
-      mblId,
-    );
+    const mbl = await this.getMblWithManifestOrThrow(icdId, manifestId, mblId);
 
     ManifestStatePolicy.assertCanModifyBills(mbl.manifest.status);
 
@@ -295,18 +249,12 @@ export class HouseBlService {
       data: {
         ...(dto.hblNumber ? { hblNumber: dto.hblNumber } : {}),
         ...(dto.consigneeId ? { consigneeId: dto.consigneeId } : {}),
-        ...(dto.clearingAgentId
-          ? { clearingAgentId: dto.clearingAgentId }
-          : {}),
-        ...(dto.cargoDescription
-          ? { cargoDescription: dto.cargoDescription }
-          : {}),
+        ...(dto.clearingAgentId ? { clearingAgentId: dto.clearingAgentId } : {}),
+        ...(dto.cargoDescription ? { cargoDescription: dto.cargoDescription } : {}),
         ...(dto.grossWeight !== undefined
           ? { grossWeight: new Prisma.Decimal(dto.grossWeight) }
           : {}),
-        ...(dto.packageCount !== undefined
-          ? { packageCount: dto.packageCount }
-          : {}),
+        ...(dto.packageCount !== undefined ? { packageCount: dto.packageCount } : {}),
       },
       include: {
         consignee: true,
@@ -317,17 +265,8 @@ export class HouseBlService {
     return ManifestMapper.toHouseBlResponse(updated);
   }
 
-  async remove(
-    icdId: string,
-    manifestId: string,
-    mblId: string,
-    hblId: string,
-  ) {
-    const mbl = await this.getMblWithManifestOrThrow(
-      icdId,
-      manifestId,
-      mblId,
-    );
+  async remove(icdId: string, manifestId: string, mblId: string, hblId: string) {
+    const mbl = await this.getMblWithManifestOrThrow(icdId, manifestId, mblId);
 
     ManifestStatePolicy.assertCanModifyBills(mbl.manifest.status);
 

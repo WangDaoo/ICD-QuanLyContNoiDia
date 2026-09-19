@@ -1,27 +1,16 @@
-import {
-  Controller,
-  Get,
-} from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 
-import {
-  Public,
-} from '../../common/decorators/public.decorator';
+import { Public } from '../../common/decorators/public.decorator';
 
-import {
-  HealthService,
-} from './health.service';
+import { HealthService } from './health.service';
 
 @Public()
 @Controller('health')
 export class HealthController {
-  constructor(
-    private readonly healthService:
-      HealthService,
-  ) {}
+  constructor(private readonly healthService: HealthService) {}
 
   @Get()
   check() {
-    return this.healthService
-      .check();
+    return this.healthService.check();
   }
 }

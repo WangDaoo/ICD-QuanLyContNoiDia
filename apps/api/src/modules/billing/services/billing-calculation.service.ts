@@ -1,8 +1,4 @@
-import {
-  BadRequestException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../../../database/prisma.service';
 import type { AuthenticatedUser } from '../../../common/types/authenticated-user.types';
 import { BILLING_ERROR_CODES } from '../constants/billing-error-codes.constants';

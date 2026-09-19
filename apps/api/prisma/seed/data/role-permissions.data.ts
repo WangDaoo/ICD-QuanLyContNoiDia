@@ -3,19 +3,10 @@ import {
   type PermissionCode,
 } from '../../../src/common/constants/permission-codes.constants';
 
-import {
-  ROLE_CODES,
-  type RoleCode,
-} from '../../../src/common/constants/role-codes.constants';
+import { ROLE_CODES, type RoleCode } from '../../../src/common/constants/role-codes.constants';
 
-export const rolePermissions: Record<
-  RoleCode,
-  readonly PermissionCode[]
-> = {
-  [ROLE_CODES.ADMIN]:
-    Object.values(
-      PERMISSION_CODES,
-    ),
+export const rolePermissions: Record<RoleCode, readonly PermissionCode[]> = {
+  [ROLE_CODES.ADMIN]: Object.values(PERMISSION_CODES),
 
   [ROLE_CODES.MANAGER]: [
     PERMISSION_CODES.MASTER_DATA_READ,
@@ -33,6 +24,7 @@ export const rolePermissions: Record<
     PERMISSION_CODES.YARD_INSPECT,
     PERMISSION_CODES.YARD_BOOKING,
     PERMISSION_CODES.BILLING_READ,
+    PERMISSION_CODES.OPERATIONAL_HOLD_READ,
     PERMISSION_CODES.REPORTS_READ,
     PERMISSION_CODES.HANDOVER_CREATE,
     PERMISSION_CODES.HANDOVER_READ,
@@ -69,6 +61,8 @@ export const rolePermissions: Record<
     PERMISSION_CODES.YARD_BOOKING,
     PERMISSION_CODES.BILLING_READ,
     PERMISSION_CODES.BILLING_MANAGE,
+    PERMISSION_CODES.OPERATIONAL_HOLD_READ,
+    PERMISSION_CODES.OPERATIONAL_HOLD_MANAGE,
     PERMISSION_CODES.GATE_PASS_CREATE,
     PERMISSION_CODES.GATE_PASS_USE,
     PERMISSION_CODES.HANDOVER_CREATE,
@@ -85,6 +79,7 @@ export const rolePermissions: Record<
     PERMISSION_CODES.TRUCK_VISIT_ARRIVE,
     PERMISSION_CODES.TRUCK_VISIT_CANCEL,
     PERMISSION_CODES.GATE_IN_CREATE,
+    PERMISSION_CODES.OPERATIONAL_HOLD_READ,
     PERMISSION_CODES.GATE_PASS_USE,
     PERMISSION_CODES.HANDOVER_READ,
   ],
@@ -98,6 +93,7 @@ export const rolePermissions: Record<
     PERMISSION_CODES.YARD_MOVE,
     PERMISSION_CODES.YARD_INSPECT,
     PERMISSION_CODES.YARD_BOOKING,
+    PERMISSION_CODES.OPERATIONAL_HOLD_READ,
     PERMISSION_CODES.HANDOVER_READ,
   ],
 
@@ -109,8 +105,5 @@ export const rolePermissions: Record<
     PERMISSION_CODES.HANDOVER_READ,
   ],
 
-  [ROLE_CODES.CONSIGNEE]: [
-    PERMISSION_CODES.CONTAINER_READ,
-    PERMISSION_CODES.HANDOVER_READ,
-  ],
+  [ROLE_CODES.CONSIGNEE]: [PERMISSION_CODES.CONTAINER_READ, PERMISSION_CODES.HANDOVER_READ],
 } as const;

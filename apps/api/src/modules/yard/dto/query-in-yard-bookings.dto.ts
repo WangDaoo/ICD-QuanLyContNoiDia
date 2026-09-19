@@ -1,9 +1,6 @@
 import { IsEnum, IsInt, IsOptional, IsUUID, Max, Min } from 'class-validator';
 import { Type } from 'class-transformer';
-import {
-  InYardBookingStatus,
-  InYardBookingType,
-} from '../../../generated/prisma/client';
+import { InYardBookingStatus, InYardBookingType } from '../../../generated/prisma/client';
 
 export class QueryInYardBookingsDto {
   @IsOptional()

@@ -1,4 +1,5 @@
 # Đặc tả Ứng dụng Web
+
 # ICD Management System — Web Application
 
 **Phiên bản:** 1.7 — Business-focused / Detailed Partner Handover
@@ -25,17 +26,17 @@ Các thành phần kỹ thuật giữ nguyên tiếng Anh để đồng nhất k
 - permission, class/function, request/response field;
 - chuẩn quốc tế: EDI, CODECO, MBL, HBL, ISO 6346.
 
-| Tên hiển thị nghiệp vụ | Thuật ngữ kỹ thuật |
-|---|---|
-| Tiếp nhận vào cổng | Gate-in |
-| Xác nhận ra cổng | Gate-out |
-| Phiếu ra cổng | Gate Pass |
-| Chuyến xe ra/vào | Truck Visit |
-| Vị trí bãi | Yard Slot |
-| Dịch vụ & Thanh toán | Billing |
-| Bàn giao vận chuyển | Transport Handover |
-| Xác nhận của đối tác | Partner Confirmation |
-| Nhật ký API đối tác | Partner API Log |
+| Tên hiển thị nghiệp vụ | Thuật ngữ kỹ thuật   |
+| ---------------------- | -------------------- |
+| Tiếp nhận vào cổng     | Gate-in              |
+| Xác nhận ra cổng       | Gate-out             |
+| Phiếu ra cổng          | Gate Pass            |
+| Chuyến xe ra/vào       | Truck Visit          |
+| Vị trí bãi             | Yard Slot            |
+| Dịch vụ & Thanh toán   | Billing              |
+| Bàn giao vận chuyển    | Transport Handover   |
+| Xác nhận của đối tác   | Partner Confirmation |
+| Nhật ký API đối tác    | Partner API Log      |
 
 ---
 
@@ -47,14 +48,14 @@ Web app phục vụ nghiệp vụ văn phòng — các thao tác yêu cầu màn
 
 ### 1.2 Đối tượng người dùng
 
-| Role | Quyền truy cập | Màn hình chính |
-|------|---------------|----------------|
-| `ADMIN` | Toàn bộ hệ thống | Admin Center, Audit, EDI, Đối tác tích hợp API, Handover |
-| `MANAGER` | Xem, phê duyệt, báo cáo | Dashboard, Reports, Audit, EDI, Handover Review, Nhật ký API đối tác |
-| `OPERATOR` | Nghiệp vụ đầy đủ | Manifest, Container, Billing, Gate Pass |
-| `GATE_STAFF` | Gate workflow | Work Queue, Gate-in, Truck Visits |
-| `YARD_STAFF` | Yard workflow | Work Queue, Yard, Inspections |
-| `AGENT` | Chỉ xem dữ liệu được cấp quyền | Container (hạn chế), Billing |
+| Role         | Quyền truy cập                 | Màn hình chính                                                       |
+| ------------ | ------------------------------ | -------------------------------------------------------------------- |
+| `ADMIN`      | Toàn bộ hệ thống               | Admin Center, Audit, EDI, Đối tác tích hợp API, Handover             |
+| `MANAGER`    | Xem, phê duyệt, báo cáo        | Dashboard, Reports, Audit, EDI, Handover Review, Nhật ký API đối tác |
+| `OPERATOR`   | Nghiệp vụ đầy đủ               | Manifest, Container, Billing, Gate Pass                              |
+| `GATE_STAFF` | Gate workflow                  | Work Queue, Gate-in, Truck Visits                                    |
+| `YARD_STAFF` | Yard workflow                  | Work Queue, Yard, Inspections                                        |
+| `AGENT`      | Chỉ xem dữ liệu được cấp quyền | Container (hạn chế), Billing                                         |
 
 > ICD Web Admin là nơi **cấp API Key cho Partner**. Plaintext key chỉ hiển thị đúng một lần khi tạo/rotate; hệ thống chỉ lưu hash/last4. Partner API Key không dùng cho user Web nội bộ.
 
@@ -178,17 +179,20 @@ React Hook Form   — Form management
 **Mục đích:** Xác thực người dùng, nhận JWT access + refresh token.
 
 **Form fields:**
+
 - Email (text, required, validate format)
 - Password (password, required, minLength 8)
 - Nút "Đăng nhập"
 
 **Logic:**
+
 - POST `/api/auth/login` → nhận `accessToken` (15 phút) + `refreshToken` (7 ngày)
 - Lưu `accessToken` vào memory (không localStorage); `refreshToken` vào httpOnly cookie hoặc localStorage nếu không dùng được cookie
 - Axios interceptor: nếu response 401 → tự động gọi `POST /api/auth/refresh` → retry request
 - Sau login thành công → redirect về `/` hoặc route đã lưu trước đó
 
 **Xử lý lỗi:**
+
 - 401: "Email hoặc mật khẩu không đúng"
 - 403: "Tài khoản đã bị vô hiệu hoá"
 
@@ -200,16 +204,17 @@ React Hook Form   — Form management
 
 **Widgets hiển thị:**
 
-| Widget | Dữ liệu | Refresh |
-|--------|---------|---------|
-| Container trong Yard | Tổng, phân theo trạng thái | 60s |
-| Work Queue urgency | Overdue / HIGH / MEDIUM / NORMAL | 60s |
-| Gate activity hôm nay | Gate-in / Gate-out theo giờ | 60s |
-| Container sắp hết free days | Danh sách ≤ 2 ngày free còn lại | 60s |
-| Doanh thu tháng này | Tổng thu, so với tháng trước | 5 phút |
-| Công nợ chưa thu | Tổng + số lượng Consignee | 5 phút |
+| Widget                      | Dữ liệu                          | Refresh |
+| --------------------------- | -------------------------------- | ------- |
+| Container trong Yard        | Tổng, phân theo trạng thái       | 60s     |
+| Work Queue urgency          | Overdue / HIGH / MEDIUM / NORMAL | 60s     |
+| Gate activity hôm nay       | Gate-in / Gate-out theo giờ      | 60s     |
+| Container sắp hết free days | Danh sách ≤ 2 ngày free còn lại  | 60s     |
+| Doanh thu tháng này         | Tổng thu, so với tháng trước     | 5 phút  |
+| Công nợ chưa thu            | Tổng + số lượng Consignee        | 5 phút  |
 
 **Action nhanh từ Dashboard:**
+
 - Click vào Work Queue widget → `/work-queue`
 - Click vào container sắp hết free day → `/containers/:id`
 - Click vào Công nợ → `/reports` filter công nợ
@@ -223,6 +228,7 @@ React Hook Form   — Form management
 **Mục đích:** Danh sách việc cần làm được sắp xếp theo SLA và urgency, lọc theo role.
 
 **Layout:**
+
 ```
 [Bộ lọc: Task type | Urgency | Trạng thái]     [Refresh]
 ─────────────────────────────────────────────
@@ -239,15 +245,16 @@ React Hook Form   — Form management
 
 **Các task type hiển thị theo role:**
 
-| Task | Role thấy | Action button |
-|------|-----------|---------------|
-| `GATE_IN` | OPERATOR, GATE_STAFF | "Gate-in" → `/gate-in/:visitId` |
-| `YARD_ASSIGN` | OPERATOR, YARD_STAFF | "Assign Yard" → `/yard/:visitId/assign` |
-| `YARD_OPERATIONS` | OPERATOR, YARD_STAFF | "Yard ops" → `/containers/:id` |
-| `BILLING` | OPERATOR | "Tạo billing" → `/billing/:visitId` |
-| `GATE_OUT` | GATE_STAFF | "Gate-out" → `/gate-pass/:visitId` |
+| Task              | Role thấy            | Action button                           |
+| ----------------- | -------------------- | --------------------------------------- |
+| `GATE_IN`         | OPERATOR, GATE_STAFF | "Gate-in" → `/gate-in/:visitId`         |
+| `YARD_ASSIGN`     | OPERATOR, YARD_STAFF | "Assign Yard" → `/yard/:visitId/assign` |
+| `YARD_OPERATIONS` | OPERATOR, YARD_STAFF | "Yard ops" → `/containers/:id`          |
+| `BILLING`         | OPERATOR             | "Tạo billing" → `/billing/:visitId`     |
+| `GATE_OUT`        | GATE_STAFF           | "Gate-out" → `/gate-pass/:visitId`      |
 
 **Urgency badge:**
+
 - `OVERDUE` = đỏ
 - `HIGH` = cam
 - `MEDIUM` = vàng
@@ -265,18 +272,19 @@ React Hook Form   — Form management
 
 **Bảng dữ liệu:**
 
-| Cột | Ghi chú |
-|-----|---------|
-| Mã Manifest | Link đến detail |
-| Ngày tàu đến | |
-| Tàu / Voyage | |
-| Hãng tàu | |
-| Số MBL | |
-| Số container | |
-| Trạng thái | DRAFT / SUBMITTED badge |
-| Thao tác | Xem, Sửa (DRAFT), Submit |
+| Cột          | Ghi chú                  |
+| ------------ | ------------------------ |
+| Mã Manifest  | Link đến detail          |
+| Ngày tàu đến |                          |
+| Tàu / Voyage |                          |
+| Hãng tàu     |                          |
+| Số MBL       |                          |
+| Số container |                          |
+| Trạng thái   | DRAFT / SUBMITTED badge  |
+| Thao tác     | Xem, Sửa (DRAFT), Submit |
 
 **Bộ lọc:**
+
 - Khoảng ngày tàu đến
 - Hãng tàu (dropdown từ master data)
 - Trạng thái
@@ -286,6 +294,7 @@ React Hook Form   — Form management
 #### 3.4.2 Tạo / Sửa Manifest (`/manifests/new`)
 
 **Form:**
+
 ```
 Hãng tàu*          [dropdown — catalog Shipping Line]
 Tàu / Voyage*      [text]
@@ -302,18 +311,21 @@ Ghi chú            [textarea]
 #### 3.4.3 Chi tiết Manifest (`/manifests/:id`)
 
 **Layout tab:**
+
 - Tab "Thông tin chung" — metadata Manifest
 - Tab "Master BL" — danh sách MBL + nút thêm MBL
 - Tab "Containers" — danh sách container liên kết
 - Tab "Lịch sử" — audit trail
 
 **Tạo MBL inline:**
+
 ```
 Số MBL*            [text]
 [Thêm MBL]
 ```
 
 **Tạo HBL inline (từ màn hình MBL detail):**
+
 ```
 Số HBL*            [text]
 Consignee*         [searchable dropdown]
@@ -325,6 +337,7 @@ Số lượng kiện      [number]
 ```
 
 **Import container từ Excel:**
+
 - Upload file `.xlsx`
 - Preview dữ liệu mapping (số container, loại, seal, gross weight, HBL)
 - Validate ISO 6346 realtime trên UI
@@ -338,19 +351,20 @@ Số lượng kiện      [number]
 
 **Bảng dữ liệu:**
 
-| Cột | Ghi chú |
-|-----|---------|
-| Số container | Link đến detail |
-| Loại | 20GP / 40GP / 40HC... |
-| Consignee | |
-| Manifest | |
-| Trạng thái | Badge theo state |
-| Vị trí Yard | Block-Row-Bay-Tier |
-| Ngày gate-in | |
-| Số ngày lưu | Highlight đỏ nếu > free days |
-| Blocker | Icon nếu có readiness blocker |
+| Cột          | Ghi chú                       |
+| ------------ | ----------------------------- |
+| Số container | Link đến detail               |
+| Loại         | 20GP / 40GP / 40HC...         |
+| Consignee    |                               |
+| Manifest     |                               |
+| Trạng thái   | Badge theo state              |
+| Vị trí Yard  | Block-Row-Bay-Tier            |
+| Ngày gate-in |                               |
+| Số ngày lưu  | Highlight đỏ nếu > free days  |
+| Blocker      | Icon nếu có readiness blocker |
 
 **Bộ lọc:**
+
 - Số container (search text)
 - Consignee
 - Trạng thái (multi-select)
@@ -361,6 +375,7 @@ Số lượng kiện      [number]
 #### 3.5.2 Chi tiết Container (`/containers/:id`)
 
 Màn hình trung tâm — trả lời 4 câu hỏi:
+
 1. Container này là của ai?
 2. Đang ở bước nào?
 3. Nằm ở đâu trong Yard?
@@ -381,12 +396,14 @@ Tabs: [Tổng quan] [Tác nghiệp bãi] [Billing] [Phiếu ra cổng] [Timeline
 ```
 
 **Tab Tổng quan:**
+
 - Thông tin container (loại, seal, gross weight)
 - Vị trí Yard hiện tại
 - Readiness checklist (các blocker + trạng thái)
 - Thông tin Manifest / MBL / HBL
 
 **Tab Yard Ops:**
+
 - Vị trí hiện tại
 - Lịch sử vị trí (location log)
 - Internal movements (pending + completed)
@@ -394,23 +411,27 @@ Tabs: [Tổng quan] [Tác nghiệp bãi] [Billing] [Phiếu ra cổng] [Timeline
 - Yard bookings (stripping...)
 
 **Tab Billing:**
+
 - Danh sách Service Orders + trạng thái
 - Danh sách Invoices + số tiền / đã trả
 - Tổng phí dịch vụ
 - Nút "Tạo Service Order" (nếu có quyền)
 
 **Tab Gate Pass:**
+
 - Trạng thái Gate Pass hiện tại
 - Thông tin Gate Pass (nếu đã tạo): code, QR, hạn dùng
 - Nút "Tạo Gate Pass" (nếu readiness pass)
 - Nút "Xem QR" để in / gửi
 
 **Tab Timeline:**
+
 - Danh sách event theo thứ tự thời gian ngược
 - Mỗi event: timestamp, actor, loại event, mô tả
 - Filter theo loại event
 
 **Tab Holds:**
+
 - Danh sách Lệnh giữ nghiệp vụs đang active
 - Loại: Customs / Shipping Line / Damage / Security / Document / Other
 - Nút "Release Hold" (nếu có quyền)
@@ -419,6 +440,7 @@ Tabs: [Tổng quan] [Tác nghiệp bãi] [Billing] [Phiếu ra cổng] [Timeline
 **Bàn giao vận chuyển:** Container Detail có tab/card riêng, không trộn Handover state với Container Visit state.
 
 Nếu chưa có Handover:
+
 ```text
 Bàn giao vận chuyển
 Chưa tạo
@@ -426,6 +448,7 @@ Chưa tạo
 ```
 
 Nếu đã có:
+
 ```text
 Transport code: VC-2026-001
 Partner: ABC Logistics
@@ -437,10 +460,12 @@ Partner accepted: 18/09 09:05
 ```
 
 Quy tắc:
+
 - `EXITED` của Container Visit không bị đổi theo Handover.
 - Nút tạo Handover chỉ hiện khi user có `handover.create` và visit đạt precondition.
 - Khi `PARTNER_CONFIRMED`, card hiển thị “Chờ ICD xác nhận” và link Review.
 - Consignee/Agent không thấy API log hoặc secret Partner.
+
 ---
 
 ### 3.6 CHUYẾN XE RA/VÀO / LỊCH HẸN CỔNG (`/truck-visits`)
@@ -449,18 +474,19 @@ Quy tắc:
 
 **Danh sách:**
 
-| Cột | Ghi chú |
-|-----|---------|
-| Mã chuyến | |
-| Biển số xe | |
-| Tài xế | |
-| Hãng xe | |
-| Giờ hẹn | |
-| Số container | |
-| Trạng thái | SCHEDULED / ARRIVED / IN_PROGRESS / COMPLETED |
-| Thao tác | Xem, Xác nhận ARRIVED, Cancel |
+| Cột          | Ghi chú                                       |
+| ------------ | --------------------------------------------- |
+| Mã chuyến    |                                               |
+| Biển số xe   |                                               |
+| Tài xế       |                                               |
+| Hãng xe      |                                               |
+| Giờ hẹn      |                                               |
+| Số container |                                               |
+| Trạng thái   | SCHEDULED / ARRIVED / IN_PROGRESS / COMPLETED |
+| Thao tác     | Xem, Xác nhận ARRIVED, Cancel                 |
 
 **Tạo Truck Visit:**
+
 ```
 Biển số xe*        [text]
 Tài xế*            [text]
@@ -472,6 +498,7 @@ Gate lane          [text — không bắt buộc]
 ```
 
 **Chi tiết Truck Visit:**
+
 - Thông tin xe + tài xế
 - Danh sách container trong chuyến
 - Timeline: SCHEDULED → ARRIVED → IN_PROGRESS → COMPLETED
@@ -486,6 +513,7 @@ Gate lane          [text — không bắt buộc]
 **Mục đích:** Nhập thông tin tiếp nhận container vào ICD.
 
 **Điều kiện vào màn hình:**
+
 - Container phải ở trạng thái `PENDING` hoặc `AUTHORIZED`
 - User phải có quyền `gate_in.create`
 
@@ -515,10 +543,12 @@ Transporter        [dropdown — tự điền nếu chọn Truck Visit]
 ```
 
 **Validation:**
+
 - Nếu seal thực tế ≠ seal manifest → highlight đỏ, yêu cầu điền ghi chú bắt buộc
 - Nếu container đã `IN_YARD` → block với thông báo rõ ràng
 
 **Sau gate-in thành công:**
+
 - Toast "Gate-in thành công"
 - Redirect về `/containers/:id` tab Tổng quan
 - Container state = `IN_YARD`
@@ -533,16 +563,17 @@ Transporter        [dropdown — tự điền nếu chọn Truck Visit]
 
 **Tab "Danh sách slot":**
 
-| Cột | Ghi chú |
-|-----|---------|
-| Block / Row / Bay / Tier | |
-| Loại | |
-| Trạng thái | Available / Occupied / Maintenance |
-| Container hiện tại | Link nếu đang occupied |
-| Tải trọng tối đa | |
-| Reefer power | Có / Không |
+| Cột                      | Ghi chú                            |
+| ------------------------ | ---------------------------------- |
+| Block / Row / Bay / Tier |                                    |
+| Loại                     |                                    |
+| Trạng thái               | Available / Occupied / Maintenance |
+| Container hiện tại       | Link nếu đang occupied             |
+| Tải trọng tối đa         |                                    |
+| Reefer power             | Có / Không                         |
 
 **Tab "Sơ đồ" (grid view — future):**
+
 - Grid 2D hiển thị block/row/bay
 - Màu: trống (trắng), có container (xanh), bảo trì (xám)
 - Click vào ô → xem thông tin container
@@ -552,6 +583,7 @@ Transporter        [dropdown — tự điền nếu chọn Truck Visit]
 **Mục đích:** Chọn vị trí đặt container trong yard sau gate-in.
 
 **Layout:**
+
 ```
 Container: CSQU3054383 | 40HC | 28,500 kg
 
@@ -571,12 +603,14 @@ Block [A ▼]  Row [01 ▼]  Bay [01 ▼]  Tier [1 ▼]  [Kiểm tra & Chọn]
 ```
 
 **Hard rules hiển thị:**
+
 - Slot đang occupied → không hiển thị trong gợi ý, vô hiệu hoá manual
 - Container 40HC → chỉ hiện slot phù hợp kích thước
 - Container reefer → chỉ hiện slot có reefer power
 - Gross weight > slot max → ẩn slot đó
 
 **API:**
+
 - `GET /api/containers/:visitId/yard/recommendations` → list + score từ backend (ML hoặc rule-based)
 - `POST /api/containers/:visitId/yard/assign`
 
@@ -587,6 +621,7 @@ Block [A ▼]  Row [01 ▼]  Bay [01 ▼]  Tier [1 ▼]  [Kiểm tra & Chọn]
 #### 3.9.1 Tổng quan Dịch vụ & Thanh toán (`/billing/:visitId`)
 
 **Layout:**
+
 ```
 Container CSQU3054383 — Billing Overview
 
@@ -613,6 +648,7 @@ Còn lại:       2,200,000₫
 #### 3.9.2 Tạo Đơn dịch vụ (Service Order)
 
 **Form:**
+
 ```
 Danh sách dịch vụ
 ─────────────────
@@ -629,6 +665,7 @@ Tổng cộng: xxx₫
 ```
 
 **Logic:**
+
 - Khi chọn "Storage" → hệ thống tự điền số ngày lưu kho chưa bill
 - Đơn giá lấy từ tariff active, ưu tiên rule theo `container_type`, fallback generic
 - Không được bill số lượng đã bill trong SO trước
@@ -636,6 +673,7 @@ Tổng cộng: xxx₫
 #### 3.9.3 Hóa đơn & Thanh toán
 
 **Chi tiết Invoice (`/invoices/:id`):**
+
 ```
 INV-001
 Container: CSQU3054383 | Consignee: ABC Trading
@@ -657,6 +695,7 @@ Lịch sử thanh toán:
 ```
 
 **Form thanh toán:**
+
 ```
 Số tiền*         [number]
 Phương thức*     [dropdown: Tiền mặt / Chuyển khoản / Khác]
@@ -672,6 +711,7 @@ Ghi chú          [text]
 **Mục đích:** Tạo và quản lý Gate Pass, kiểm soát xuất container.
 
 **Readiness panel:**
+
 ```
 Điều kiện cấp Phiếu ra cổng Check
 ──────────────────────────
@@ -683,11 +723,13 @@ Ghi chú          [text]
 ```
 
 **Khi readiness = PASS:**
+
 ```
 [Tạo Phiếu ra cổng]
 ```
 
 **Form tạo Gate Pass:**
+
 ```
 Biển số xe lấy hàng   [text]
 Tên người nhận*        [text]
@@ -696,6 +738,7 @@ CMND/CCCD*             [text]
 ```
 
 **Sau khi tạo:**
+
 ```
 Phiếu ra cổng: GP-2026-0342
 Trạng thái: ACTIVE
@@ -707,12 +750,14 @@ Hết hạn: 02/09/2026 08:30 (còn 23:45:00)
 ```
 
 **Trạng thái Gate Pass:**
+
 - `ACTIVE` — xanh lá, countdown timer
 - `EXPIRED` — xám, đã hết hạn
 - `USED` — xanh dương, đã gate-out
 - `CANCELLED` — đỏ, đã huỷ
 
 **API:**
+
 - `GET /api/containers/:visitId/gate-pass`
 - `POST /api/containers/:visitId/gate-pass`
 - `POST /api/gate-pass/scan` (gate-out)
@@ -753,21 +798,22 @@ Dispatcher gửi
 
 **Bảng:**
 
-| Cột | Ghi chú |
-|---|---|
-| Transport code | Link detail |
-| Container | Link Container Detail |
-| Partner | Đối tác tích hợp API |
-| Kho đích | Customer Warehouse |
-| Status | DRAFT / READY / ACCEPTED / IN_TRANSIT / PARTNER_CONFIRMED / COMPLETED / DISPUTED... |
-| Ready at | |
-| Partner confirmed | nếu có |
-| ICD confirmed | nếu có |
-| Action | Xem / Review tùy state |
+| Cột               | Ghi chú                                                                             |
+| ----------------- | ----------------------------------------------------------------------------------- |
+| Transport code    | Link detail                                                                         |
+| Container         | Link Container Detail                                                               |
+| Partner           | Đối tác tích hợp API                                                                |
+| Kho đích          | Customer Warehouse                                                                  |
+| Status            | DRAFT / READY / ACCEPTED / IN_TRANSIT / PARTNER_CONFIRMED / COMPLETED / DISPUTED... |
+| Ready at          |                                                                                     |
+| Partner confirmed | nếu có                                                                              |
+| ICD confirmed     | nếu có                                                                              |
+| Action            | Xem / Review tùy state                                                              |
 
 **Filter:** container, transport code, Partner, warehouse, status, khoảng ngày, `Awaiting ICD confirmation`.
 
 **Quick filters:**
+
 ```text
 [Sẵn sàng] [Đang vận chuyển] [Chờ ICD xác nhận] [Disputed] [Hoàn tất]
 ```
@@ -786,6 +832,7 @@ Ghi chú                [textarea]
 ```
 
 **Validation:**
+
 - Container Visit tồn tại và user có scope.
 - Theo policy mặc định visit phải `EXITED`; có thể cấu hình chuẩn bị DRAFT trước Gate-out nhưng chỉ publish khi đủ điều kiện.
 - Partner ACTIVE.
@@ -794,12 +841,14 @@ Ghi chú                [textarea]
 - Transport code unique theo rule.
 
 **Kết quả:**
+
 - Lưu nháp → `DRAFT`.
 - Sẵn sàng bàn giao → `READY_FOR_HANDOVER`; Partner bắt đầu nhìn thấy qua External API.
 
 #### 3.12.3 Chi tiết bàn giao (`/handovers/:id`)
 
 Header:
+
 ```text
 VC-2026-001                      [PARTNER_CONFIRMED]
 Container: MSCU1234567
@@ -808,6 +857,7 @@ Kho: Kho ABC
 ```
 
 Tabs/sections:
+
 - Tổng quan.
 - Container snapshot.
 - Xác nhận của đối tác/POD.
@@ -816,6 +866,7 @@ Tabs/sections:
 - Dispute/Resolution history.
 
 **Timeline:**
+
 ```text
 09:00 READY_FOR_HANDOVER   Operator A
 09:05 PARTNER_ACCEPTED     API / ABC Logistics
@@ -843,6 +894,7 @@ Note: Container nguyên trạng
 ```
 
 **ICD Confirm:**
+
 - confirm dialog;
 - backend re-check current state;
 - ghi actor/time/note;
@@ -857,6 +909,7 @@ Web phải hiển thị reason, time, partner reference và action nghiệp vụ
 #### 3.12.6 Danh mục kho nhận
 
 Warehouse có:
+
 - code/name/address;
 - consignee optional;
 - contact;
@@ -871,18 +924,17 @@ GPS của confirmation có thể được so sánh với warehouse coordinate đ
 
 **Mục đích:** Tổng hợp tình hình vận hành và lịch sử phục vụ Manager/ADMIN.
 
-| Nhóm | Nội dung |
-|---|---|
-| Gate Activity | Gate-in/Gate-out theo ngày/giờ |
-| Container Turnover | Dwell time, số container hoàn tất |
-| Current Yard Inventory | Tồn hiện tại theo Block/Slot/Type |
-| Historical Yard Inventory EOD | Tái dựng tồn cuối ngày từ location history |
-| Revenue | Doanh thu theo payment |
-| Outstanding Debt | Công nợ hiện tại/quá hạn |
-| Bàn giao vận chuyển | Ready/In Transit/Partner Confirmed/Completed/Disputed |
+| Nhóm                          | Nội dung                                              |
+| ----------------------------- | ----------------------------------------------------- |
+| Gate Activity                 | Gate-in/Gate-out theo ngày/giờ                        |
+| Container Turnover            | Dwell time, số container hoàn tất                     |
+| Current Yard Inventory        | Tồn hiện tại theo Block/Slot/Type                     |
+| Historical Yard Inventory EOD | Tái dựng tồn cuối ngày từ location history            |
+| Revenue                       | Doanh thu theo payment                                |
+| Outstanding Debt              | Công nợ hiện tại/quá hạn                              |
+| Bàn giao vận chuyển           | Ready/In Transit/Partner Confirmed/Completed/Disputed |
 
 **Action:** lọc thời gian, drill-down, CSV/Excel. PDF/scheduled report có thể thuộc roadmap.
-
 
 ### 3.14 TRUNG TÂM QUẢN TRỊ (`/admin`)
 
@@ -890,13 +942,13 @@ GPS của confirmation có thể được so sánh với warehouse coordinate đ
 
 #### 3.14.1 Cấu hình vận hành (`/admin/settings`)
 
-| Setting key | Mô tả | Giá trị mặc định |
-|-------------|-------|-----------------|
-| `FREE_STORAGE_DAYS` | Số ngày lưu kho miễn phí | 5 |
-| `GATE_PASS_TTL_HOURS` | Thời hạn Gate Pass (giờ) | 24 |
-| `GATE_IN_SLA_MINUTES` | SLA Gate-in (phút) | 120 |
-| `YARD_ASSIGN_SLA_MINUTES` | SLA Yard Assign (phút) | 60 |
-| `OVERDUE_DEBT_DAYS` | Ngày cảnh báo công nợ | 30 |
+| Setting key               | Mô tả                    | Giá trị mặc định |
+| ------------------------- | ------------------------ | ---------------- |
+| `FREE_STORAGE_DAYS`       | Số ngày lưu kho miễn phí | 5                |
+| `GATE_PASS_TTL_HOURS`     | Thời hạn Gate Pass (giờ) | 24               |
+| `GATE_IN_SLA_MINUTES`     | SLA Gate-in (phút)       | 120              |
+| `YARD_ASSIGN_SLA_MINUTES` | SLA Yard Assign (phút)   | 60               |
+| `OVERDUE_DEBT_DAYS`       | Ngày cảnh báo công nợ    | 30               |
 
 Form CRUD đơn giản theo key-value.
 
@@ -905,17 +957,20 @@ Form CRUD đơn giản theo key-value.
 **Lifecycle tariff:** `DRAFT → ACTIVE → RETIRED`
 
 Mỗi tariff có:
+
 - Tên tariff
 - Ngày hiệu lực
 - Trạng thái
 
 Mỗi tariff rule:
+
 - Loại dịch vụ: Reception / Storage / Stripping / Inspection / Movement
 - Container type: 20GP / 40GP / 40HC / ALL (generic)
 - Đơn giá
 - Đơn vị: lần / ngày / container
 
 **Rule khi activate:**
+
 - Tariff phải có ≥ 1 rule generic cho mỗi service type bắt buộc (Reception, Storage, Stripping, Inspection, Movement)
 - Activation làm RETIRED tariff ACTIVE trước đó
 
@@ -923,22 +978,24 @@ Mỗi tariff rule:
 
 Quản lý 4 catalog:
 
-| Catalog | Fields |
-|---------|--------|
-| Shipping Line | Tên, SCAC code |
-| Consignee | Tên, MST, SĐT, Email, Địa chỉ |
-| Clearing Agent | Tên, Số phép |
-| Transporter | Tên, MST |
+| Catalog        | Fields                        |
+| -------------- | ----------------------------- |
+| Shipping Line  | Tên, SCAC code                |
+| Consignee      | Tên, MST, SĐT, Email, Địa chỉ |
+| Clearing Agent | Tên, Số phép                  |
+| Transporter    | Tên, MST                      |
 
 Tất cả dùng soft delete (deactivate thay vì xoá cứng).
 
 #### 3.14.4 Người dùng & Vai trò (`/admin/users`)
 
 **Danh sách user:**
+
 - Email, Tên, Role, Trạng thái (Active / Inactive)
 - Thao tác: Sửa, Deactivate
 
 **Tạo / sửa user:**
+
 ```
 Email*         [text, unique]
 Tên*           [text]
@@ -948,6 +1005,7 @@ Role*          [dropdown: ADMIN / MANAGER / OPERATOR / GATE_STAFF / YARD_STAFF /
 ```
 
 **Safeguards:**
+
 - ADMIN không tự deactivate chính mình
 - ADMIN không tự bỏ role ADMIN của mình
 - Role change → revoke refresh token → user phải login lại
@@ -982,6 +1040,7 @@ partner_api_log.read                 [✓]    [✓]       [R]*     [ ]   [ ]   [
 **Danh sách:** Partner code/name, Key last4, scopes, ACTIVE/REVOKED, created, last request, action.
 
 **Tạo Client:**
+
 ```text
 Partner code*   [text]
 Partner name*   [text]
@@ -990,6 +1049,7 @@ Scopes*         [handover.read, handover.accept, handover.transit, handover.conf
 ```
 
 Sau khi tạo:
+
 ```text
 API Key mới
 pk_live_xxxxxxxxxxxxxxxxx
@@ -1023,17 +1083,18 @@ Không có nút “retry” từ ICD cho request do Partner gửi. Partner tự 
 
 **Bảng:**
 
-| Cột | Ghi chú |
-|-----|---------|
-| Thời gian | datetime |
-| Actor | User thực hiện |
-| Hành động | CREATE / UPDATE / DELETE / SUBMIT... |
-| Entity | Loại + ID |
-| ICD | |
-| Request ID | Link trace theo `X-Request-Id` |
-| Chi tiết | Xem diff old/new (sensitive fields redacted) |
+| Cột        | Ghi chú                                      |
+| ---------- | -------------------------------------------- |
+| Thời gian  | datetime                                     |
+| Actor      | User thực hiện                               |
+| Hành động  | CREATE / UPDATE / DELETE / SUBMIT...         |
+| Entity     | Loại + ID                                    |
+| ICD        |                                              |
+| Request ID | Link trace theo `X-Request-Id`               |
+| Chi tiết   | Xem diff old/new (sensitive fields redacted) |
 
 **Bộ lọc:**
+
 - Actor
 - Loại entity
 - Khoảng thời gian
@@ -1057,7 +1118,6 @@ Mọi thao tác tạo/rotate/revoke Đối tác tích hợp API, Publish Handove
 - Partner chỉ state-transition Handover qua External API; ICD Confirm là action nội bộ Web.
 - State-changing Partner request phải idempotent; same key + khác payload trả 409.
 - API Key chỉ hiển thị plaintext một lần khi tạo/rotate và không xuất hiện trong Audit/API Log.
-
 
 ## 5. Các API chính Web sử dụng
 
@@ -1178,12 +1238,14 @@ GET    /api/audit-logs
 ## 6. Yêu cầu phi chức năng — Web
 
 ### 6.1 Hiệu năng
+
 - First Contentful Paint (FCP) < 1.5s trên kết nối 4G
 - Danh sách container với 5.000 record: render < 2s (dùng virtual scroll)
 - Dashboard widget tự refresh mỗi 60s (không reload cả trang)
 - Danh sách Handover và Nhật ký API đối tác dùng phân trang/filter server-side; không tải toàn bộ log cùng lúc
 
 ### 6.2 Trải nghiệm người dùng
+
 - Skeleton loading thay vì spinner toàn trang
 - Optimistic update cho các thao tác đơn giản (thêm ghi chú, cập nhật trạng thái nhỏ)
 - Sticky header trên bảng dữ liệu dài
@@ -1191,6 +1253,7 @@ GET    /api/audit-logs
 - Dialog tạo/rotate Partner API Key plaintext phải cảnh báo rõ đây là lần hiển thị duy nhất
 
 ### 6.3 Bảo mật
+
 - Không lưu access token vào localStorage
 - CORS chỉ accept từ origin được cấu hình
 - CSP header từ backend
@@ -1198,6 +1261,7 @@ GET    /api/audit-logs
 - Partner API Key không bao giờ lưu ở browser/localStorage/URL; Web internal dùng JWT. Partner API Key chỉ được trả một lần từ backend khi create/rotate Client
 
 ### 6.4 Trình duyệt hỗ trợ
+
 - Chrome ≥ 110
 - Edge ≥ 110
 - Firefox ≥ 110
@@ -1205,6 +1269,7 @@ GET    /api/audit-logs
 - Responsive: tablet ≥ 768px
 
 ### 6.5 Khả năng tiếp cận
+
 - Contrast ratio WCAG AA
 - Keyboard navigation cho form chính
 - ARIA labels trên icon-only buttons

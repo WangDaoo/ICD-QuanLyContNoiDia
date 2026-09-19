@@ -24,16 +24,11 @@ import { MovementOrdersService } from './movement-orders.service';
 
 @Controller('movement-orders')
 export class MovementOrdersController {
-  constructor(
-    private readonly movementOrdersService: MovementOrdersService,
-  ) {}
+  constructor(private readonly movementOrdersService: MovementOrdersService) {}
 
   @Get()
   @Permissions(PERMISSION_CODES.MOVEMENT_ORDER_READ)
-  async findAll(
-    @CurrentUser() user: AuthenticatedUser,
-    @Query() query: QueryMovementOrdersDto,
-  ) {
+  async findAll(@CurrentUser() user: AuthenticatedUser, @Query() query: QueryMovementOrdersDto) {
     return this.movementOrdersService.findAll(user.icdId, query);
   }
 
@@ -54,12 +49,7 @@ export class MovementOrdersController {
     @Param('visitId', ParseUUIDPipe) visitId: string,
     @Body() dto: CreateMovementOrderDto,
   ) {
-    return this.movementOrdersService.create(
-      user.icdId,
-      visitId,
-      user.id,
-      dto,
-    );
+    return this.movementOrdersService.create(user.icdId, visitId, user.id, dto);
   }
 
   @Patch(':orderId')
@@ -69,12 +59,7 @@ export class MovementOrdersController {
     @Param('orderId', ParseUUIDPipe) orderId: string,
     @Body() dto: UpdateMovementOrderDto,
   ) {
-    return this.movementOrdersService.update(
-      user.icdId,
-      orderId,
-      user.id,
-      dto,
-    );
+    return this.movementOrdersService.update(user.icdId, orderId, user.id, dto);
   }
 
   @Post(':orderId/authorize')
@@ -85,12 +70,7 @@ export class MovementOrdersController {
     @Param('orderId', ParseUUIDPipe) orderId: string,
     @Body() dto: AuthorizeMovementOrderDto,
   ) {
-    return this.movementOrdersService.authorize(
-      user.icdId,
-      orderId,
-      user.id,
-      dto,
-    );
+    return this.movementOrdersService.authorize(user.icdId, orderId, user.id, dto);
   }
 
   @Post(':orderId/cancel')
@@ -101,11 +81,6 @@ export class MovementOrdersController {
     @Param('orderId', ParseUUIDPipe) orderId: string,
     @Body() dto: CancelMovementOrderDto,
   ) {
-    return this.movementOrdersService.cancel(
-      user.icdId,
-      orderId,
-      user.id,
-      dto,
-    );
+    return this.movementOrdersService.cancel(user.icdId, orderId, user.id, dto);
   }
 }

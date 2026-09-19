@@ -1,42 +1,20 @@
-import {
-  Body,
-  Controller,
-  Get,
-  HttpCode,
-  HttpStatus,
-  Post,
-} from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, HttpStatus, Post } from '@nestjs/common';
 
-import {
-  CurrentUser,
-} from '../../common/decorators/current-user.decorator';
+import { CurrentUser } from '../../common/decorators/current-user.decorator';
 
-import {
-  Public,
-} from '../../common/decorators/public.decorator';
+import { Public } from '../../common/decorators/public.decorator';
 
-import type {
-  AuthenticatedUser,
-} from '../../common/types/authenticated-user.types';
+import type { AuthenticatedUser } from '../../common/types/authenticated-user.types';
 
-import {
-  AuthService,
-} from './auth.service';
+import { AuthService } from './auth.service';
 
-import {
-  LoginDto,
-} from './dto/login.dto';
+import { LoginDto } from './dto/login.dto';
 
-import {
-  RefreshTokenDto,
-} from './dto/refresh-token.dto';
+import { RefreshTokenDto } from './dto/refresh-token.dto';
 
 @Controller('auth')
 export class AuthController {
-  constructor(
-    private readonly authService:
-      AuthService,
-  ) {}
+  constructor(private readonly authService: AuthService) {}
 
   /**
    * POST /api/auth/login
@@ -48,8 +26,7 @@ export class AuthController {
     @Body()
     dto: LoginDto,
   ) {
-    return this.authService
-      .login(dto);
+    return this.authService.login(dto);
   }
 
   /**
@@ -62,8 +39,7 @@ export class AuthController {
     @Body()
     dto: RefreshTokenDto,
   ) {
-    return this.authService
-      .refresh(dto);
+    return this.authService.refresh(dto);
   }
 
   /**
@@ -86,7 +62,6 @@ export class AuthController {
     @CurrentUser()
     user: AuthenticatedUser,
   ) {
-    return this.authService
-      .logout(user);
+    return this.authService.logout(user);
   }
 }

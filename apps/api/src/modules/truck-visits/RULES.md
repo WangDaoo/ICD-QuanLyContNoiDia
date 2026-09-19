@@ -1,12 +1,15 @@
 # RULES — truck-visits
 
 ## Trách nhiệm module
+
 Quản lý chuyến xe/lịch hẹn vật lý tại cổng ICD.
 
 ## Ownership
+
 Truck Visit lifecycle: scheduled/arrived/in-progress/completed/cancelled.
 
 ## Quy tắc
+
 - Public method phải dùng động từ rõ nghĩa.
 - Không expose `updateStatus`.
 - Query không thay đổi dữ liệu.

@@ -1,11 +1,4 @@
-import {
-  Body,
-  Controller,
-  Get,
-  Param,
-  Post,
-  Query,
-} from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { PERMISSION_CODES } from '../../common/constants/permission-codes.constants';
 import { CurrentUser } from '../../common/decorators/current-user.decorator';
 import { Permissions } from '../../common/decorators/permissions.decorator';
@@ -25,30 +18,20 @@ export class InvoicesController {
     @Body() dto: IssueInvoiceDto,
     @CurrentUser() actor: AuthenticatedUser,
   ) {
-    const data = await this.invoiceService.issueInvoice(
-      serviceOrderId,
-      dto,
-      actor,
-    );
+    const data = await this.invoiceService.issueInvoice(serviceOrderId, dto, actor);
     return { data };
   }
 
   @Permissions(PERMISSION_CODES.BILLING_READ)
   @Get()
-  async findMany(
-    @Query() query: QueryInvoicesDto,
-    @CurrentUser() actor: AuthenticatedUser,
-  ) {
+  async findMany(@Query() query: QueryInvoicesDto, @CurrentUser() actor: AuthenticatedUser) {
     const data = await this.invoiceService.findMany(query, actor);
     return { data };
   }
 
   @Permissions(PERMISSION_CODES.BILLING_READ)
   @Get(':id')
-  async findById(
-    @Param('id') id: string,
-    @CurrentUser() actor: AuthenticatedUser,
-  ) {
+  async findById(@Param('id') id: string, @CurrentUser() actor: AuthenticatedUser) {
     const data = await this.invoiceService.findById(id, actor);
     return { data };
   }

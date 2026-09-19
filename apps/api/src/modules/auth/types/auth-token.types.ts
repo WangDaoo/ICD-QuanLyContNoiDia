@@ -1,6 +1,4 @@
-import type {
-  AuthenticatedUser,
-} from '../../../common/types/authenticated-user.types';
+import type { AuthenticatedUser } from '../../../common/types/authenticated-user.types';
 
 export interface AccessTokenPayload {
   sub: string;

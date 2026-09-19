@@ -1,12 +1,15 @@
 # RULES — yard
 
 ## Trách nhiệm module
+
 Quản lý vị trí bãi, xếp vị trí, di chuyển, kiểm định, booking và recommendation.
 
 ## Ownership
+
 Yard slot/location/movement/inspection/booking.
 
 ## Quy tắc
+
 - Public method phải dùng động từ rõ nghĩa.
 - Không expose `updateStatus`.
 - Query không thay đổi dữ liệu.

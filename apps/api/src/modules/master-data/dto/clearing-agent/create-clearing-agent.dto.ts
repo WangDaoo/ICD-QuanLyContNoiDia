@@ -1,31 +1,15 @@
-import {
-  Transform,
-} from 'class-transformer';
+import { Transform } from 'class-transformer';
 
-import {
-  IsString,
-  MaxLength,
-  MinLength,
-} from 'class-validator';
+import { IsString, MaxLength, MinLength } from 'class-validator';
 
 export class CreateClearingAgentDto {
-  @Transform(
-    ({ value }) =>
-      typeof value === 'string'
-        ? value.trim()
-        : value,
-  )
+  @Transform(({ value }) => (typeof value === 'string' ? value.trim() : value))
   @IsString()
   @MinLength(2)
   @MaxLength(150)
   name!: string;
 
-  @Transform(
-    ({ value }) =>
-      typeof value === 'string'
-        ? value.trim()
-        : value,
-  )
+  @Transform(({ value }) => (typeof value === 'string' ? value.trim() : value))
   @IsString()
   @MinLength(1)
   @MaxLength(100)

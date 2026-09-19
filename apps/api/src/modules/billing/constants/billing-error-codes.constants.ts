@@ -29,5 +29,4 @@ export const BILLING_ERROR_CODES = {
   PAYMENT_INVOICE_INVALID_STATE: 'PAYMENT_INVOICE_INVALID_STATE',
 } as const;
 
-export type BillingErrorCode =
-  (typeof BILLING_ERROR_CODES)[keyof typeof BILLING_ERROR_CODES];
+export type BillingErrorCode = (typeof BILLING_ERROR_CODES)[keyof typeof BILLING_ERROR_CODES];

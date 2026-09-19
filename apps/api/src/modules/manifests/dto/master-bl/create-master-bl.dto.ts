@@ -1,22 +1,9 @@
-import {
-  Transform,
-} from 'class-transformer';
+import { Transform } from 'class-transformer';
 
-import {
-  IsOptional,
-  IsString,
-  IsUUID,
-  MaxLength,
-  MinLength,
-} from 'class-validator';
+import { IsOptional, IsString, IsUUID, MaxLength, MinLength } from 'class-validator';
 
 export class CreateMasterBlDto {
-  @Transform(
-    ({ value }) =>
-      typeof value === 'string'
-        ? value.trim().toUpperCase()
-        : value,
-  )
+  @Transform(({ value }) => (typeof value === 'string' ? value.trim().toUpperCase() : value))
   @IsString()
   @MinLength(2)
   @MaxLength(100)

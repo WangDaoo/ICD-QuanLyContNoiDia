@@ -1,23 +1,13 @@
-import {
-  BadRequestException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../../../database/prisma.service';
-import {
-  InvoiceStatus,
-  Prisma,
-} from '../../../generated/prisma/client';
+import { InvoiceStatus, Prisma } from '../../../generated/prisma/client';
 import type { AuthenticatedUser } from '../../../common/types/authenticated-user.types';
 import { CONTAINER_EVENT_TYPES } from '../../containers/constants/container-event-types.constants';
 import { ContainerEventService } from '../../containers/services/container-event.service';
 import { BILLING_ERROR_CODES } from '../constants/billing-error-codes.constants';
 import { CreatePaymentDto } from '../dto/payment/create-payment.dto';
 import { QueryPaymentsDto } from '../dto/payment/query-payments.dto';
-import {
-  mapPayment,
-  PAYMENT_DETAIL_INCLUDE,
-} from '../mappers/payment.mapper';
+import { mapPayment, PAYMENT_DETAIL_INCLUDE } from '../mappers/payment.mapper';
 import { generatePaymentReference } from '../utils/payment-reference.util';
 
 @Injectable()
@@ -40,10 +30,7 @@ export class PaymentService {
         });
       }
 
-      const totalAllocated = dto.allocations.reduce(
-        (sum, a) => sum + Number(a.amount),
-        0,
-      );
+      const totalAllocated = dto.allocations.reduce((sum, a) => sum + Number(a.amount), 0);
 
       if (Math.abs(totalAllocated - Number(dto.amount)) > 0.01) {
         throw new BadRequestException({
@@ -94,10 +81,7 @@ export class PaymentService {
           });
         }
 
-        if (
-          invoice.status === InvoiceStatus.PAID ||
-          invoice.status === InvoiceStatus.VOID
-        ) {
+        if (invoice.status === InvoiceStatus.PAID || invoice.status === InvoiceStatus.VOID) {
           throw new BadRequestException({
             code: BILLING_ERROR_CODES.PAYMENT_INVOICE_INVALID_STATE,
             message: `Invoice ${invoice.invoiceNo} is already ${invoice.status}`,
@@ -117,9 +101,7 @@ export class PaymentService {
 
         const newPaid = currentPaid + alloc.amount;
         const newStatus =
-          newPaid >= totalAmount - 0.01
-            ? InvoiceStatus.PAID
-            : InvoiceStatus.PARTIALLY_PAID;
+          newPaid >= totalAmount - 0.01 ? InvoiceStatus.PAID : InvoiceStatus.PARTIALLY_PAID;
 
         invoiceUpdates.push({
           invoiceId: invoice.id,
@@ -203,7 +185,7 @@ export class PaymentService {
     });
   }
 
-  async findById(id: string, actor: AuthenticatedUser) {
+  async findById(id: string, _actor: AuthenticatedUser) {
     const payment = await this.prisma.payment.findUnique({
       where: { id },
       include: PAYMENT_DETAIL_INCLUDE,
@@ -219,7 +201,7 @@ export class PaymentService {
     return mapPayment(payment);
   }
 
-  async findMany(query: QueryPaymentsDto, actor: AuthenticatedUser) {
+  async findMany(query: QueryPaymentsDto, _actor: AuthenticatedUser) {
     const where: Prisma.PaymentWhereInput = {};
 
     if (query.consigneeId) {

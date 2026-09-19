@@ -16,9 +16,7 @@ export interface AuthenticatedUser {
 
 export interface AuthenticatedRequest {
   headers: {
-    authorization?:
-      | string
-      | string[];
+    authorization?: string | string[];
   };
 
   user?: AuthenticatedUser;

@@ -1,6 +1,4 @@
-import {
-  Transform,
-} from 'class-transformer';
+import { Transform } from 'class-transformer';
 
 import {
   ArrayMinSize,
@@ -13,25 +11,13 @@ import {
 } from 'class-validator';
 
 export class CreateUserDto {
-  @Transform(
-    ({ value }) =>
-      typeof value === 'string'
-        ? value.trim()
-        : value,
-  )
+  @Transform(({ value }) => (typeof value === 'string' ? value.trim() : value))
   @IsString()
   @MinLength(2)
   @MaxLength(150)
   name!: string;
 
-  @Transform(
-    ({ value }) =>
-      typeof value === 'string'
-        ? value
-            .trim()
-            .toLowerCase()
-        : value,
-  )
+  @Transform(({ value }) => (typeof value === 'string' ? value.trim().toLowerCase() : value))
   @IsEmail()
   @MaxLength(191)
   email!: string;

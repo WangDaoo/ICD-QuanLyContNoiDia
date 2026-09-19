@@ -164,6 +164,27 @@ enum PaymentMethod {
   BANK_TRANSFER
 }
 
+enum OperationalHoldType {
+  CUSTOMS
+  SHIPPING_LINE
+  DAMAGE
+  SECURITY
+  DOCUMENT
+  OTHER
+}
+
+enum OperationalHoldStatus {
+  ACTIVE
+  RELEASED
+}
+
+enum GatePassStatus {
+  ACTIVE
+  EXPIRED
+  USED
+  CANCELLED
+}
+
 // ============================================================
 // ICD SITE
 // ============================================================
@@ -231,6 +252,9 @@ model User {
   confirmedServiceOrders      ServiceOrder[]         @relation("ServiceOrderConfirmedBy")
   cancelledServiceOrders      ServiceOrder[]         @relation("ServiceOrderCancelledBy")
   recordedPayments            Payment[]              @relation("PaymentRecordedBy")
+  placedOperationalHolds      OperationalHold[]      @relation("OperationalHoldPlacedBy")
+  releasedOperationalHolds    OperationalHold[]      @relation("OperationalHoldReleasedBy")
+  issuedGatePasses            GatePass[]             @relation("GatePassIssuedBy")
 
   @@index([icdId])
   @@index([active])
@@ -675,15 +699,17 @@ model ContainerVisit {
   container Container @relation(fields: [containerId], references: [id], onDelete: Restrict, onUpdate: Cascade)
   houseBl   HouseBl?  @relation(fields: [houseBlId], references: [id], onDelete: SetNull, onUpdate: Cascade)
 
-  events          ContainerEvent[]
-  movementOrders  MovementOrder[]
-  truckVisitLinks TruckVisitContainer[]
-  reception       ContainerReception?
-  locationLogs    ContainerLocationLog[]
-  yardMovements   YardMovement[]
-  inspections     ContainerInspection[]
-  inYardBookings  InYardBooking[]
-  serviceOrders   ServiceOrder[]
+  events           ContainerEvent[]
+  movementOrders   MovementOrder[]
+  truckVisitLinks  TruckVisitContainer[]
+  reception        ContainerReception?
+  locationLogs     ContainerLocationLog[]
+  yardMovements    YardMovement[]
+  inspections      ContainerInspection[]
+  inYardBookings   InYardBooking[]
+  serviceOrders    ServiceOrder[]
+  operationalHolds OperationalHold[]
+  gatePasses       GatePass[]
 
   @@index([icdId, status])
   @@index([containerId])
@@ -1321,4 +1347,57 @@ model PaymentAllocation {
   @@unique([paymentId, invoiceId])
   @@index([invoiceId])
   @@map("payment_allocation")
+}
+
+// ============================================================
+// OPERATIONAL HOLD
+// ============================================================
+
+model OperationalHold {
+  id String @id @default(uuid()) @db.Char(36)
+
+  containerVisitId String                @map("container_visit_id") @db.Char(36)
+  holdType         OperationalHoldType   @map("hold_type")
+  status           OperationalHoldStatus @default(ACTIVE)
+  reason           String                @db.Text
+  placedById       String?               @map("placed_by") @db.Char(36)
+  placedAt         DateTime              @default(now()) @map("placed_at") @db.DateTime(3)
+  releasedById     String?               @map("released_by") @db.Char(36)
+  releasedAt       DateTime?             @map("released_at") @db.DateTime(3)
+  releaseReason    String?               @map("release_reason") @db.Text
+
+  containerVisit ContainerVisit @relation(fields: [containerVisitId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  placedByUser   User?          @relation("OperationalHoldPlacedBy", fields: [placedById], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  releasedByUser User?          @relation("OperationalHoldReleasedBy", fields: [releasedById], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  @@index([containerVisitId, status])
+  @@index([holdType, status])
+  @@map("operational_hold")
+}
+
+// ============================================================
+// GATE PASS
+// ============================================================
+
+model GatePass {
+  id String @id @default(uuid()) @db.Char(36)
+
+  containerVisitId String         @map("container_visit_id") @db.Char(36)
+  code             String         @unique @db.VarChar(120)
+  qrTokenHash      String         @unique @map("qr_token_hash") @db.Char(64)
+  status           GatePassStatus @default(ACTIVE)
+  issuedById       String         @map("issued_by") @db.Char(36)
+  issuedAt         DateTime       @default(now()) @map("issued_at") @db.DateTime(3)
+  expiresAt        DateTime       @map("expires_at") @db.DateTime(3)
+  usedAt           DateTime?      @map("used_at") @db.DateTime(3)
+  vehiclePlate     String?        @map("vehicle_plate") @db.VarChar(50)
+  receiverName     String?        @map("receiver_name") @db.VarChar(200)
+  receiverIdNumber String?        @map("receiver_id_number") @db.VarChar(100)
+
+  containerVisit ContainerVisit @relation(fields: [containerVisitId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  issuedByUser   User           @relation("GatePassIssuedBy", fields: [issuedById], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  @@index([containerVisitId, status])
+  @@index([expiresAt, status])
+  @@map("gate_pass")
 }

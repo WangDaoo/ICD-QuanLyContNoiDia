@@ -18,17 +18,17 @@ Các thành phần kỹ thuật giữ nguyên tiếng Anh để đồng nhất k
 - permission, class/function, request/response field;
 - chuẩn quốc tế: EDI, CODECO, MBL, HBL, ISO 6346.
 
-| Tên hiển thị nghiệp vụ | Thuật ngữ kỹ thuật |
-|---|---|
-| Tiếp nhận vào cổng | Gate-in |
-| Xác nhận ra cổng | Gate-out |
-| Phiếu ra cổng | Gate Pass |
-| Chuyến xe ra/vào | Truck Visit |
-| Vị trí bãi | Yard Slot |
-| Dịch vụ & Thanh toán | Billing |
-| Bàn giao vận chuyển | Transport Handover |
-| Xác nhận của đối tác | Partner Confirmation |
-| Nhật ký API đối tác | Partner API Log |
+| Tên hiển thị nghiệp vụ | Thuật ngữ kỹ thuật   |
+| ---------------------- | -------------------- |
+| Tiếp nhận vào cổng     | Gate-in              |
+| Xác nhận ra cổng       | Gate-out             |
+| Phiếu ra cổng          | Gate Pass            |
+| Chuyến xe ra/vào       | Truck Visit          |
+| Vị trí bãi             | Yard Slot            |
+| Dịch vụ & Thanh toán   | Billing              |
+| Bàn giao vận chuyển    | Transport Handover   |
+| Xác nhận của đối tác   | Partner Confirmation |
+| Nhật ký API đối tác    | Partner API Log      |
 
 ---
 
@@ -130,24 +130,24 @@ erDiagram
 
 ### 3.1 `icd_site`
 
-| Field | Ý nghĩa |
-|---|---|
-| `id` PK | ICD/site |
-| `code` UNIQUE | Mã ICD |
-| `name` | Tên ICD |
-| `active` | Trạng thái hoạt động |
-| `created_at`, `updated_at` | Audit time |
+| Field                      | Ý nghĩa              |
+| -------------------------- | -------------------- |
+| `id` PK                    | ICD/site             |
+| `code` UNIQUE              | Mã ICD               |
+| `name`                     | Tên ICD              |
+| `active`                   | Trạng thái hoạt động |
+| `created_at`, `updated_at` | Audit time           |
 
 ### 3.2 `user`
 
-| Field | Ý nghĩa |
-|---|---|
-| `id` PK | User |
-| `icd_id` FK | ICD đang thuộc |
-| `name`, `email` | Thông tin tài khoản |
-| `password_hash` | Mật khẩu đã hash |
-| `active` | Có được đăng nhập hay không |
-| `created_at`, `updated_at` | Audit time |
+| Field                      | Ý nghĩa                     |
+| -------------------------- | --------------------------- |
+| `id` PK                    | User                        |
+| `icd_id` FK                | ICD đang thuộc              |
+| `name`, `email`            | Thông tin tài khoản         |
+| `password_hash`            | Mật khẩu đã hash            |
+| `active`                   | Có được đăng nhập hay không |
+| `created_at`, `updated_at` | Audit time                  |
 
 ### 3.3 `role`, `permission`, `user_role`, `role_permission`
 
@@ -181,15 +181,19 @@ Dùng cho các cấu hình runtime như Gate Pass TTL, SLA, free-day defaults, f
 ## 4. Dữ liệu danh mục
 
 ### `shipping_line`
+
 `id, code, name, active, created_at, updated_at`
 
 ### `consignee`
+
 `id, code, name, tax_code, phone, email, address, active`
 
 ### `clearing_agent`
+
 `id, code, name, license_number, active`
 
 ### `transporter`
+
 `id, code, name, tax_code, phone, active`
 
 > Các danh mục này ưu tiên soft-deactivate thay vì hard delete để không phá lịch sử.
@@ -823,7 +827,6 @@ transport_handover
 
 GPS là optional checkpoint, không phải real-time tracking. Nếu warehouse có lat/long, backend có thể tính khoảng cách để warning. Không hard-block nếu product chưa xác định độ chính xác GPS và bán kính phù hợp.
 
-
 ## 14. Gợi ý vị trí bãi bằng ML
 
 Ở mức CSDL nghiệp vụ chỉ cần lưu recommendation snapshot và feedback.
@@ -954,15 +957,15 @@ load Handover PARTNER_CONFIRMED
 
 ## 17. Phân biệt nguồn dữ liệu
 
-| Dữ liệu | Source of truth |
-|---|---|
-| Container physical + ICD lifecycle | ICD `container` / `container_visit` |
-| Gate/Yard/Billing/Gate Pass | ICD |
-| Shipping Line EDI delivery state | ICD Outbox/ACK store |
-| Bàn giao vận chuyển lifecycle | ICD `transport_handover` |
+| Dữ liệu                                  | Source of truth                                              |
+| ---------------------------------------- | ------------------------------------------------------------ |
+| Container physical + ICD lifecycle       | ICD `container` / `container_visit`                          |
+| Gate/Yard/Billing/Gate Pass              | ICD                                                          |
+| Shipping Line EDI delivery state         | ICD Outbox/ACK store                                         |
+| Bàn giao vận chuyển lifecycle            | ICD `transport_handover`                                     |
 | Partner warehouse/transport confirmation | ICD `transport_confirmation` (snapshot/event do Partner gửi) |
-| External request/idempotency | ICD `partner_api_log` |
-| Điều phối route/driver nội bộ Partner | Hệ thống Partner, ICD chỉ lưu snapshot được gửi |
+| External request/idempotency             | ICD `partner_api_log`                                        |
+| Điều phối route/driver nội bộ Partner    | Hệ thống Partner, ICD chỉ lưu snapshot được gửi              |
 
 Đây là ranh giới quan trọng để tránh hai hệ thống cùng ghi đè state của nhau.
 

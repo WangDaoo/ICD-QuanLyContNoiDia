@@ -1,10 +1,6 @@
-import {
-  SetMetadata,
-} from '@nestjs/common';
+import { SetMetadata } from '@nestjs/common';
 
-import {
-  IS_PUBLIC_KEY,
-} from '../constants/auth-metadata.constants';
+import { IS_PUBLIC_KEY } from '../constants/auth-metadata.constants';
 
 /**
  * Đánh dấu endpoint không cần Access Token.
@@ -15,9 +11,4 @@ import {
  * - refresh
  * - health
  */
-export const Public =
-  () =>
-    SetMetadata(
-      IS_PUBLIC_KEY,
-      true,
-    );
+export const Public = () => SetMetadata(IS_PUBLIC_KEY, true);

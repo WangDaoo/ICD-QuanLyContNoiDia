@@ -1,38 +1,20 @@
-import {
-  Module,
-} from '@nestjs/common';
+import { Module } from '@nestjs/common';
 
-import {
-  APP_GUARD,
-} from '@nestjs/core';
+import { APP_GUARD } from '@nestjs/core';
 
-import {
-  JwtModule,
-} from '@nestjs/jwt';
+import { JwtModule } from '@nestjs/jwt';
 
-import {
-  PrismaModule,
-} from '../../database/prisma.module';
+import { PrismaModule } from '../../database/prisma.module';
 
-import {
-  AuthController,
-} from './auth.controller';
+import { AuthController } from './auth.controller';
 
-import {
-  AuthService,
-} from './auth.service';
+import { AuthService } from './auth.service';
 
-import {
-  JwtAuthGuard,
-} from './guards/jwt-auth.guard';
+import { JwtAuthGuard } from './guards/jwt-auth.guard';
 
-import {
-  PermissionsGuard,
-} from './guards/permissions.guard';
+import { PermissionsGuard } from './guards/permissions.guard';
 
-import {
-  TokenService,
-} from './services/token.service';
+import { TokenService } from './services/token.service';
 
 @Module({
   imports: [
@@ -45,9 +27,7 @@ import {
     JwtModule.register({}),
   ],
 
-  controllers: [
-    AuthController,
-  ],
+  controllers: [AuthController],
 
   providers: [
     AuthService,
@@ -61,24 +41,18 @@ import {
      * 2. Authorization
      */
     {
-      provide:
-        APP_GUARD,
+      provide: APP_GUARD,
 
-      useClass:
-        JwtAuthGuard,
+      useClass: JwtAuthGuard,
     },
 
     {
-      provide:
-        APP_GUARD,
+      provide: APP_GUARD,
 
-      useClass:
-        PermissionsGuard,
+      useClass: PermissionsGuard,
     },
   ],
 
-  exports: [
-    AuthService,
-  ],
+  exports: [AuthService],
 })
 export class AuthModule {}

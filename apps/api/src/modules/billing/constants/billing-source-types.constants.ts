@@ -6,5 +6,4 @@ export const BILLING_SOURCE_TYPES = {
   YARD_MOVEMENT: 'YARD_MOVEMENT',
 } as const;
 
-export type BillingSourceType =
-  (typeof BILLING_SOURCE_TYPES)[keyof typeof BILLING_SOURCE_TYPES];
+export type BillingSourceType = (typeof BILLING_SOURCE_TYPES)[keyof typeof BILLING_SOURCE_TYPES];

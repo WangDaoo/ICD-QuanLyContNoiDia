@@ -1,12 +1,15 @@
 # RULES — billing
 
 ## Trách nhiệm module
+
 Quản lý đơn dịch vụ, biểu phí áp dụng, hóa đơn, thanh toán và allocation.
 
 ## Ownership
+
 Billing entities và billing readiness component.
 
 ## Quy tắc
+
 - Public method phải dùng động từ rõ nghĩa.
 - Không expose `updateStatus`.
 - Query không thay đổi dữ liệu.

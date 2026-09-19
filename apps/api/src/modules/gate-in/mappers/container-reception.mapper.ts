@@ -36,21 +36,17 @@ export const CONTAINER_RECEPTION_DETAIL_INCLUDE = {
   },
 } satisfies Prisma.ContainerReceptionInclude;
 
-export type ContainerReceptionDetailRecord =
-  Prisma.ContainerReceptionGetPayload<{
-    include: typeof CONTAINER_RECEPTION_DETAIL_INCLUDE;
-  }>;
+export type ContainerReceptionDetailRecord = Prisma.ContainerReceptionGetPayload<{
+  include: typeof CONTAINER_RECEPTION_DETAIL_INCLUDE;
+}>;
 
-export function mapContainerReception(
-  reception: ContainerReceptionDetailRecord,
-) {
+export function mapContainerReception(reception: ContainerReceptionDetailRecord) {
   return {
     ...reception,
     actualWeight: reception.actualWeight?.toString() ?? null,
     containerVisit: {
       ...reception.containerVisit,
-      grossWeight:
-        reception.containerVisit.grossWeight?.toString() ?? null,
+      grossWeight: reception.containerVisit.grossWeight?.toString() ?? null,
     },
   };
 }

@@ -1,7 +1,4 @@
-import {
-  Transform,
-  Type,
-} from 'class-transformer';
+import { Transform, Type } from 'class-transformer';
 
 import {
   IsInt,
@@ -15,12 +12,7 @@ import {
 } from 'class-validator';
 
 export class CreateHouseBlDto {
-  @Transform(
-    ({ value }) =>
-      typeof value === 'string'
-        ? value.trim().toUpperCase()
-        : value,
-  )
+  @Transform(({ value }) => (typeof value === 'string' ? value.trim().toUpperCase() : value))
   @IsString()
   @MinLength(2)
   @MaxLength(100)
@@ -32,12 +24,7 @@ export class CreateHouseBlDto {
   @IsUUID()
   clearingAgentId!: string;
 
-  @Transform(
-    ({ value }) =>
-      typeof value === 'string'
-        ? value.trim()
-        : value,
-  )
+  @Transform(({ value }) => (typeof value === 'string' ? value.trim() : value))
   @IsString()
   @MinLength(1)
   cargoDescription!: string;

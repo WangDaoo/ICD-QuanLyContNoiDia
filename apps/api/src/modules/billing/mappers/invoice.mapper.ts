@@ -1,4 +1,4 @@
-import { Invoice, InvoiceStatus, Prisma } from '../../../generated/prisma/client';
+import { InvoiceStatus, Prisma } from '../../../generated/prisma/client';
 
 export const INVOICE_DETAIL_INCLUDE = {
   serviceOrder: {
@@ -60,42 +60,44 @@ export function mapInvoice(invoice: InvoiceWithDetails) {
     status: invoice.status,
     isOverdue,
     serviceOrder: invoice.serviceOrder,
-    allocations: invoice.allocations.map((a: {
-      id: string;
-      paymentId: string;
-      amount: Prisma.Decimal | number;
-      createdAt: Date;
-      payment?: unknown;
-    }) => {
-      const p = a.payment as
-        | {
-            id: string;
-            paymentRef: string;
-            amount: Prisma.Decimal | number;
-            method: string;
-            paidAt: Date;
-            consignee: unknown;
-            recordedByUser: unknown;
-          }
-        | null
-        | undefined;
-      return {
-        id: a.id,
-        paymentId: a.paymentId,
-        amount: Number(a.amount),
-        createdAt: a.createdAt,
-        payment: p
-          ? {
-              id: p.id,
-              paymentRef: p.paymentRef,
-              amount: Number(p.amount),
-              method: p.method,
-              paidAt: p.paidAt,
-              consignee: p.consignee,
-              recordedByUser: p.recordedByUser,
+    allocations: invoice.allocations.map(
+      (a: {
+        id: string;
+        paymentId: string;
+        amount: Prisma.Decimal | number;
+        createdAt: Date;
+        payment?: unknown;
+      }) => {
+        const p = a.payment as
+          | {
+              id: string;
+              paymentRef: string;
+              amount: Prisma.Decimal | number;
+              method: string;
+              paidAt: Date;
+              consignee: unknown;
+              recordedByUser: unknown;
             }
-          : null,
-      };
-    }),
+          | null
+          | undefined;
+        return {
+          id: a.id,
+          paymentId: a.paymentId,
+          amount: Number(a.amount),
+          createdAt: a.createdAt,
+          payment: p
+            ? {
+                id: p.id,
+                paymentRef: p.paymentRef,
+                amount: Number(p.amount),
+                method: p.method,
+                paidAt: p.paidAt,
+                consignee: p.consignee,
+                recordedByUser: p.recordedByUser,
+              }
+            : null,
+        };
+      },
+    ),
   };
 }

@@ -12,43 +12,25 @@ import {
   Query,
 } from '@nestjs/common';
 
-import {
-  PERMISSION_CODES,
-} from '../../../common/constants/permission-codes.constants';
+import { PERMISSION_CODES } from '../../../common/constants/permission-codes.constants';
 
-import {
-  CurrentUser,
-} from '../../../common/decorators/current-user.decorator';
+import { CurrentUser } from '../../../common/decorators/current-user.decorator';
 
-import {
-  Permissions,
-} from '../../../common/decorators/permissions.decorator';
+import { Permissions } from '../../../common/decorators/permissions.decorator';
 
-import type {
-  AuthenticatedUser,
-} from '../../../common/types/authenticated-user.types';
+import type { AuthenticatedUser } from '../../../common/types/authenticated-user.types';
 
-import {
-  CreateMasterBlDto,
-} from '../dto/master-bl/create-master-bl.dto';
+import { CreateMasterBlDto } from '../dto/master-bl/create-master-bl.dto';
 
-import {
-  QueryMasterBlsDto,
-} from '../dto/master-bl/query-master-bls.dto';
+import { QueryMasterBlsDto } from '../dto/master-bl/query-master-bls.dto';
 
-import {
-  UpdateMasterBlDto,
-} from '../dto/master-bl/update-master-bl.dto';
+import { UpdateMasterBlDto } from '../dto/master-bl/update-master-bl.dto';
 
-import {
-  MasterBlService,
-} from '../services/master-bl.service';
+import { MasterBlService } from '../services/master-bl.service';
 
 @Controller('manifests/:manifestId/master-bls')
 export class MasterBlsController {
-  constructor(
-    private readonly masterBlService: MasterBlService,
-  ) {}
+  constructor(private readonly masterBlService: MasterBlService) {}
 
   @Get()
   @Permissions(PERMISSION_CODES.MANIFEST_READ)

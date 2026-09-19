@@ -1,12 +1,15 @@
 # RULES — reports
 
 ## Trách nhiệm module
+
 Cung cấp báo cáo tổng hợp và export.
 
 ## Ownership
+
 Read model/report query, không update core business data.
 
 ## Quy tắc
+
 - Public method phải dùng động từ rõ nghĩa.
 - Không expose `updateStatus`.
 - Query không thay đổi dữ liệu.

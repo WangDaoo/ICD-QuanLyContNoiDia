@@ -1,12 +1,15 @@
 # RULES — movement-orders
 
 ## Trách nhiệm module
+
 Quản lý lệnh vận chuyển cho phép container di chuyển về ICD.
 
 ## Ownership
+
 Movement Order lifecycle và authorization.
 
 ## Quy tắc
+
 - Public method phải dùng động từ rõ nghĩa.
 - Không expose `updateStatus`.
 - Query không thay đổi dữ liệu.

@@ -1,7 +1,4 @@
-import {
-  ConflictException,
-  Injectable,
-} from '@nestjs/common';
+import { ConflictException, Injectable } from '@nestjs/common';
 import { ContainerVisitStatus } from '../../../generated/prisma/client';
 import { YARD_ERROR_CODES } from '../constants/yard-error-codes.constants';
 
@@ -75,10 +72,7 @@ export class YardAssignmentPolicy {
       });
     }
 
-    if (
-      input.supportedContainerType &&
-      input.supportedContainerType !== input.containerType
-    ) {
+    if (input.supportedContainerType && input.supportedContainerType !== input.containerType) {
       blockers.push({
         code: YARD_ERROR_CODES.CONTAINER_TYPE_UNSUPPORTED,
         message: `Yard Slot không hỗ trợ container loại ${input.containerType}.`,
@@ -110,8 +104,7 @@ export class YardAssignmentPolicy {
     if (input.maxWeight !== null && input.grossWeight === null) {
       warnings.push({
         code: 'YARD_CONTAINER_WEIGHT_UNKNOWN',
-        message:
-          'Chưa có trọng lượng container để đối chiếu tải trọng tối đa của slot.',
+        message: 'Chưa có trọng lượng container để đối chiếu tải trọng tối đa của slot.',
       });
     }
 

@@ -1,12 +1,15 @@
 # RULES — auth
 
 ## Trách nhiệm module
+
 Đăng nhập, refresh token, logout và lấy thông tin user hiện tại.
 
 ## Ownership
+
 Authentication session/token; không sở hữu role/permission definition.
 
 ## Quy tắc
+
 - Public method phải dùng động từ rõ nghĩa.
 - Không expose `updateStatus`.
 - Query không thay đổi dữ liệu.

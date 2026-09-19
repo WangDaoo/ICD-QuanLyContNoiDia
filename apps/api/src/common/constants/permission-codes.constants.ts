@@ -1,142 +1,99 @@
 export const PERMISSION_CODES = {
-  USERS_READ:
-    'users.read',
+  USERS_READ: 'users.read',
 
-  USERS_MANAGE:
-    'users.manage',
+  USERS_MANAGE: 'users.manage',
 
-  ROLES_READ:
-    'roles.read',
+  ROLES_READ: 'roles.read',
 
-  ROLES_MANAGE:
-    'roles.manage',
+  ROLES_MANAGE: 'roles.manage',
 
-  SETTINGS_READ:
-    'settings.read',
+  SETTINGS_READ: 'settings.read',
 
-  SETTINGS_MANAGE:
-    'settings.manage',
+  SETTINGS_MANAGE: 'settings.manage',
 
-  MASTER_DATA_READ:
-    'master_data.read',
+  MASTER_DATA_READ: 'master_data.read',
 
-  MASTER_DATA_MANAGE:
-    'master_data.manage',
+  MASTER_DATA_MANAGE: 'master_data.manage',
 
-  MANIFEST_READ:
-    'manifest.read',
+  MANIFEST_READ: 'manifest.read',
 
-  MANIFEST_CREATE:
-    'manifest.create',
+  MANIFEST_CREATE: 'manifest.create',
 
-  MANIFEST_UPDATE:
-    'manifest.update',
+  MANIFEST_UPDATE: 'manifest.update',
 
-  MANIFEST_SUBMIT:
-    'manifest.submit',
+  MANIFEST_SUBMIT: 'manifest.submit',
 
-  MANIFEST_CANCEL:
-    'manifest.cancel',
+  MANIFEST_CANCEL: 'manifest.cancel',
 
-  CONTAINER_READ:
-    'container.read',
+  CONTAINER_READ: 'container.read',
 
-  CONTAINER_CREATE:
-    'container.create',
+  CONTAINER_CREATE: 'container.create',
 
-  CONTAINER_UPDATE:
-    'container.update',
+  CONTAINER_UPDATE: 'container.update',
 
-  CONTAINER_CANCEL:
-    'container.cancel',
+  CONTAINER_CANCEL: 'container.cancel',
 
-  MOVEMENT_ORDER_READ:
-    'movement_order.read',
+  MOVEMENT_ORDER_READ: 'movement_order.read',
 
-  MOVEMENT_ORDER_CREATE:
-    'movement_order.create',
+  MOVEMENT_ORDER_CREATE: 'movement_order.create',
 
-  MOVEMENT_ORDER_UPDATE:
-    'movement_order.update',
+  MOVEMENT_ORDER_UPDATE: 'movement_order.update',
 
-  MOVEMENT_ORDER_AUTHORIZE:
-    'movement_order.authorize',
+  MOVEMENT_ORDER_AUTHORIZE: 'movement_order.authorize',
 
-  MOVEMENT_ORDER_CANCEL:
-    'movement_order.cancel',
+  MOVEMENT_ORDER_CANCEL: 'movement_order.cancel',
 
-  TRUCK_VISIT_READ:
-    'truck_visit.read',
+  TRUCK_VISIT_READ: 'truck_visit.read',
 
-  TRUCK_VISIT_CREATE:
-    'truck_visit.create',
+  TRUCK_VISIT_CREATE: 'truck_visit.create',
 
-  TRUCK_VISIT_UPDATE:
-    'truck_visit.update',
+  TRUCK_VISIT_UPDATE: 'truck_visit.update',
 
-  TRUCK_VISIT_ARRIVE:
-    'truck_visit.arrive',
+  TRUCK_VISIT_ARRIVE: 'truck_visit.arrive',
 
-  TRUCK_VISIT_CANCEL:
-    'truck_visit.cancel',
+  TRUCK_VISIT_CANCEL: 'truck_visit.cancel',
 
-  GATE_IN_CREATE:
-    'gate_in.create',
+  GATE_IN_CREATE: 'gate_in.create',
 
-  YARD_READ:
-    'yard.read',
+  YARD_READ: 'yard.read',
 
-  YARD_UPDATE:
-    'yard.update',
+  YARD_UPDATE: 'yard.update',
 
-  YARD_CONFIGURE:
-    'yard.configure',
+  YARD_CONFIGURE: 'yard.configure',
 
-  YARD_MOVE:
-    'yard.move',
+  YARD_MOVE: 'yard.move',
 
-  YARD_INSPECT:
-    'yard.inspect',
+  YARD_INSPECT: 'yard.inspect',
 
-  YARD_BOOKING:
-    'yard.booking',
+  YARD_BOOKING: 'yard.booking',
 
-  BILLING_READ:
-    'billing.read',
+  BILLING_READ: 'billing.read',
 
-  BILLING_MANAGE:
-    'billing.manage',
+  BILLING_MANAGE: 'billing.manage',
 
-  TARIFF_MANAGE:
-    'tariff.manage',
+  TARIFF_MANAGE: 'tariff.manage',
 
-  GATE_PASS_CREATE:
-    'gate_pass.create',
+  OPERATIONAL_HOLD_READ: 'operational_hold.read',
 
-  GATE_PASS_USE:
-    'gate_pass.use',
+  OPERATIONAL_HOLD_MANAGE: 'operational_hold.manage',
 
-  REPORTS_READ:
-    'reports.read',
+  GATE_PASS_CREATE: 'gate_pass.create',
 
-  HANDOVER_CREATE:
-    'handover.create',
+  GATE_PASS_USE: 'gate_pass.use',
 
-  HANDOVER_READ:
-    'handover.read',
+  REPORTS_READ: 'reports.read',
 
-  HANDOVER_CONFIRM:
-    'handover.confirm',
+  HANDOVER_CREATE: 'handover.create',
 
-  HANDOVER_DISPUTE:
-    'handover.dispute',
+  HANDOVER_READ: 'handover.read',
 
-  PARTNER_CLIENT_MANAGE:
-    'partner_client.manage',
+  HANDOVER_CONFIRM: 'handover.confirm',
 
-  PARTNER_API_LOG_READ:
-    'partner_api_log.read',
+  HANDOVER_DISPUTE: 'handover.dispute',
+
+  PARTNER_CLIENT_MANAGE: 'partner_client.manage',
+
+  PARTNER_API_LOG_READ: 'partner_api_log.read',
 } as const;
 
-export type PermissionCode =
-  (typeof PERMISSION_CODES)[keyof typeof PERMISSION_CODES];
+export type PermissionCode = (typeof PERMISSION_CODES)[keyof typeof PERMISSION_CODES];

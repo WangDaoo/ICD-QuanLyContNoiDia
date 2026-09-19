@@ -1,15 +1,78 @@
-/**
- * gate-pass / gate-pass.controller.ts
- *
- * Mục đích:
- * File dự kiến triển khai cho module gate-pass. Kiểm tra readiness và phát hành/quản lý Phiếu ra cổng.
- *
- * Quy tắc khi triển khai:
- * - Ownership module: Gate Pass lifecycle và readiness aggregation.
- * - Tuân thủ pattern chung trong docs/development/OPERATION_PATTERNS.md.
- * - Chưa có logic; chỉ thêm code khi bắt đầu triển khai module này.
- *
- * Lưu ý:
- * - File hiện tại chỉ là khung, chưa có logic thực thi.
- * - Không tự ý mở rộng trách nhiệm của file nếu chưa cập nhật RULES.md của module.
- */
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { PERMISSION_CODES } from '../../common/constants/permission-codes.constants';
+import { CurrentUser } from '../../common/decorators/current-user.decorator';
+import { Permissions } from '../../common/decorators/permissions.decorator';
+import type { AuthenticatedUser } from '../../common/types/authenticated-user.types';
+import { CancelGatePassDto } from './dto/cancel-gate-pass.dto';
+import { IssueGatePassDto } from './dto/issue-gate-pass.dto';
+import { GatePassReadinessService } from './services/gate-pass-readiness.service';
+import { GatePassService } from './services/gate-pass.service';
+
+@Controller()
+export class GatePassController {
+  constructor(
+    private readonly gatePassService: GatePassService,
+    private readonly readinessService: GatePassReadinessService,
+  ) {}
+
+  @Permissions(
+    PERMISSION_CODES.GATE_PASS_CREATE,
+    PERMISSION_CODES.GATE_PASS_USE,
+    PERMISSION_CODES.CONTAINER_READ,
+  )
+  @Get('containers/:visitId/gate-pass/readiness')
+  async checkReadiness(@Param('visitId') visitId: string, @CurrentUser() actor: AuthenticatedUser) {
+    const data = await this.readinessService.evaluateReadiness(visitId, actor, 'ISSUE');
+    return { data };
+  }
+
+  @Permissions(
+    PERMISSION_CODES.GATE_PASS_CREATE,
+    PERMISSION_CODES.GATE_PASS_USE,
+    PERMISSION_CODES.CONTAINER_READ,
+  )
+  @Get('containers/:visitId/gate-pass')
+  async findActiveGatePass(
+    @Param('visitId') visitId: string,
+    @CurrentUser() actor: AuthenticatedUser,
+  ) {
+    const data = await this.gatePassService.findActiveByVisitId(visitId, actor.icdId);
+    return { data };
+  }
+
+  @Permissions(
+    PERMISSION_CODES.GATE_PASS_CREATE,
+    PERMISSION_CODES.GATE_PASS_USE,
+    PERMISSION_CODES.CONTAINER_READ,
+  )
+  @Get('containers/:visitId/gate-passes')
+  async findManyForVisit(
+    @Param('visitId') visitId: string,
+    @CurrentUser() actor: AuthenticatedUser,
+  ) {
+    const data = await this.gatePassService.findManyForVisit(visitId, actor.icdId);
+    return { data };
+  }
+
+  @Permissions(PERMISSION_CODES.GATE_PASS_CREATE)
+  @Post('containers/:visitId/gate-pass')
+  async issue(
+    @Param('visitId') visitId: string,
+    @Body() dto: IssueGatePassDto,
+    @CurrentUser() actor: AuthenticatedUser,
+  ) {
+    const data = await this.gatePassService.issue(visitId, dto, actor);
+    return { data };
+  }
+
+  @Permissions(PERMISSION_CODES.GATE_PASS_CREATE)
+  @Post('gate-passes/:gatePassId/cancel')
+  async cancel(
+    @Param('gatePassId') gatePassId: string,
+    @Body() dto: CancelGatePassDto,
+    @CurrentUser() actor: AuthenticatedUser,
+  ) {
+    const data = await this.gatePassService.cancel(gatePassId, dto, actor);
+    return { data };
+  }
+}

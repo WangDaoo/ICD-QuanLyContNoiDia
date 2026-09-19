@@ -1,65 +1,29 @@
-import {
-  BadRequestException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 
-import {
-  ManifestStatus,
-  Prisma,
-} from '../../../generated/prisma/client';
+import { ManifestStatus, Prisma } from '../../../generated/prisma/client';
 
-import {
-  PrismaService,
-} from '../../../database/prisma.service';
+import { PrismaService } from '../../../database/prisma.service';
 
-import {
-  MANIFEST_ERROR_CODES,
-} from '../constants/manifest-error-codes.constants';
+import { MANIFEST_ERROR_CODES } from '../constants/manifest-error-codes.constants';
 
-import {
-  CreateManifestDto,
-} from '../dto/manifest/create-manifest.dto';
+import { CreateManifestDto } from '../dto/manifest/create-manifest.dto';
 
-import {
-  QueryManifestsDto,
-} from '../dto/manifest/query-manifests.dto';
+import { QueryManifestsDto } from '../dto/manifest/query-manifests.dto';
 
-import {
-  UpdateManifestDto,
-} from '../dto/manifest/update-manifest.dto';
+import { UpdateManifestDto } from '../dto/manifest/update-manifest.dto';
 
-import {
-  ManifestMapper,
-} from '../mappers/manifest.mapper';
+import { ManifestMapper } from '../mappers/manifest.mapper';
 
-import {
-  ManifestStatePolicy,
-} from '../policies/manifest-state.policy';
+import { ManifestStatePolicy } from '../policies/manifest-state.policy';
 
-import {
-  generateManifestNumber,
-} from '../utils/manifest-number.util';
+import { generateManifestNumber } from '../utils/manifest-number.util';
 
 @Injectable()
 export class ManifestService {
-  constructor(
-    private readonly prisma: PrismaService,
-  ) {}
+  constructor(private readonly prisma: PrismaService) {}
 
-  async list(
-    icdId: string,
-    query: QueryManifestsDto,
-  ) {
-    const {
-      page,
-      pageSize,
-      search,
-      status,
-      shippingLineId,
-      etaFrom,
-      etaTo,
-    } = query;
+  async list(icdId: string, query: QueryManifestsDto) {
+    const { page, pageSize, search, status, shippingLineId, etaFrom, etaTo } = query;
 
     const skip = (page - 1) * pageSize;
 
@@ -136,10 +100,7 @@ export class ManifestService {
     };
   }
 
-  async getDetail(
-    icdId: string,
-    manifestId: string,
-  ) {
+  async getDetail(icdId: string, manifestId: string) {
     const manifest = await this.prisma.manifest.findFirst({
       where: {
         id: manifestId,
@@ -172,11 +133,7 @@ export class ManifestService {
     return ManifestMapper.toManifestResponse(manifest);
   }
 
-  async create(
-    icdId: string,
-    userId: string,
-    dto: CreateManifestDto,
-  ) {
+  async create(icdId: string, userId: string, dto: CreateManifestDto) {
     const shippingLine = await this.prisma.shippingLine.findFirst({
       where: {
         id: dto.shippingLineId,
@@ -244,11 +201,7 @@ export class ManifestService {
     return ManifestMapper.toManifestResponse(manifest);
   }
 
-  async update(
-    icdId: string,
-    manifestId: string,
-    dto: UpdateManifestDto,
-  ) {
+  async update(icdId: string, manifestId: string, dto: UpdateManifestDto) {
     const manifest = await this.prisma.manifest.findFirst({
       where: {
         id: manifestId,
@@ -334,10 +287,7 @@ export class ManifestService {
     return ManifestMapper.toManifestResponse(updated);
   }
 
-  async submit(
-    icdId: string,
-    manifestId: string,
-  ) {
+  async submit(icdId: string, manifestId: string) {
     const manifest = await this.prisma.manifest.findFirst({
       where: {
         id: manifestId,
@@ -379,10 +329,7 @@ export class ManifestService {
     return ManifestMapper.toManifestResponse(updated);
   }
 
-  async cancel(
-    icdId: string,
-    manifestId: string,
-  ) {
+  async cancel(icdId: string, manifestId: string) {
     const manifest = await this.prisma.manifest.findFirst({
       where: {
         id: manifestId,

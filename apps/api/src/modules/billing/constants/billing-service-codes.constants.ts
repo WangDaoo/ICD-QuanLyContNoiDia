@@ -6,9 +6,6 @@ export const BILLING_SERVICE_CODES = {
   MOVEMENT: 'MOVEMENT',
 } as const;
 
-export type BillingServiceCode =
-  (typeof BILLING_SERVICE_CODES)[keyof typeof BILLING_SERVICE_CODES];
+export type BillingServiceCode = (typeof BILLING_SERVICE_CODES)[keyof typeof BILLING_SERVICE_CODES];
 
-export const REQUIRED_BILLING_SERVICE_CODES = Object.values(
-  BILLING_SERVICE_CODES,
-);
+export const REQUIRED_BILLING_SERVICE_CODES = Object.values(BILLING_SERVICE_CODES);

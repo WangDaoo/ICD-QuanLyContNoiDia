@@ -1,8 +1,4 @@
-import {
-  BadRequestException,
-  ConflictException,
-  Injectable,
-} from '@nestjs/common';
+import { BadRequestException, ConflictException, Injectable } from '@nestjs/common';
 import {
   ContainerSize,
   ContainerType,
@@ -14,17 +10,11 @@ import { BILLING_ERROR_CODES } from '../constants/billing-error-codes.constants'
 
 @Injectable()
 export class TariffPolicy {
-  canTransition(
-    currentStatus: TariffStatus,
-    targetStatus: TariffStatus,
-  ): boolean {
+  canTransition(currentStatus: TariffStatus, targetStatus: TariffStatus): boolean {
     if (currentStatus === targetStatus) return true;
 
     if (currentStatus === TariffStatus.DRAFT) {
-      return (
-        targetStatus === TariffStatus.ACTIVE ||
-        targetStatus === TariffStatus.RETIRED
-      );
+      return targetStatus === TariffStatus.ACTIVE || targetStatus === TariffStatus.RETIRED;
     }
 
     if (currentStatus === TariffStatus.ACTIVE) {
@@ -34,10 +24,7 @@ export class TariffPolicy {
     return false;
   }
 
-  assertCanTransition(
-    currentStatus: TariffStatus,
-    targetStatus: TariffStatus,
-  ): void {
+  assertCanTransition(currentStatus: TariffStatus, targetStatus: TariffStatus): void {
     if (!this.canTransition(currentStatus, targetStatus)) {
       throw new BadRequestException({
         code: BILLING_ERROR_CODES.TARIFF_INVALID_STATE,
@@ -88,9 +75,7 @@ export class TariffPolicy {
     containerSize?: ContainerSize | null,
     containerType?: ContainerType | null,
   ): TariffRule | null {
-    const serviceRules = rules.filter(
-      (r) => r.serviceTypeId === serviceTypeId,
-    );
+    const serviceRules = rules.filter((r) => r.serviceTypeId === serviceTypeId);
 
     if (serviceRules.length === 0) {
       return null;
@@ -99,9 +84,7 @@ export class TariffPolicy {
     // 1. Exact match (size + type)
     if (containerSize && containerType) {
       const exact = serviceRules.find(
-        (r) =>
-          r.containerSize === containerSize &&
-          r.containerType === containerType,
+        (r) => r.containerSize === containerSize && r.containerType === containerType,
       );
       if (exact) return exact;
     }
@@ -109,18 +92,14 @@ export class TariffPolicy {
     // 2. Size match (type null)
     if (containerSize) {
       const sizeMatch = serviceRules.find(
-        (r) =>
-          r.containerSize === containerSize &&
-          r.containerType === null,
+        (r) => r.containerSize === containerSize && r.containerType === null,
       );
       if (sizeMatch) return sizeMatch;
     }
 
     // 3. Generic fallback
     const genericMatch = serviceRules.find(
-      (r) =>
-        r.containerSize === null &&
-        r.containerType === null,
+      (r) => r.containerSize === null && r.containerType === null,
     );
 
     return genericMatch ?? serviceRules[0] ?? null;

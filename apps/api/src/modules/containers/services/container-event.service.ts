@@ -19,10 +19,7 @@ export interface RecordContainerEventInput {
 export class ContainerEventService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async record(
-    tx: Prisma.TransactionClient,
-    input: RecordContainerEventInput,
-  ) {
+  async record(tx: Prisma.TransactionClient, input: RecordContainerEventInput) {
     const metadata: Record<string, unknown> = {
       ...(input.metadataJson || {}),
       ...(input.referenceType && { referenceType: input.referenceType }),
@@ -36,7 +33,8 @@ export class ContainerEventService {
         fromStatus: input.fromStatus,
         toStatus: input.toStatus,
         actorId: input.actorUserId,
-        metadata: Object.keys(metadata).length > 0 ? (metadata as Prisma.InputJsonValue) : Prisma.JsonNull,
+        metadata:
+          Object.keys(metadata).length > 0 ? (metadata as Prisma.InputJsonValue) : Prisma.JsonNull,
         note: input.note,
       },
     });

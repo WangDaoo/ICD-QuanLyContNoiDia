@@ -1,18 +1,7 @@
 import { Type } from 'class-transformer';
-import {
-  IsEnum,
-  IsInt,
-  IsOptional,
-  IsString,
-  IsUUID,
-  Max,
-  Min,
-} from 'class-validator';
+import { IsEnum, IsInt, IsOptional, IsString, IsUUID, Max, Min } from 'class-validator';
 
-import {
-  TruckVisitStatus,
-  TruckVisitType,
-} from '../../../generated/prisma/client';
+import { TruckVisitStatus, TruckVisitType } from '../../../generated/prisma/client';
 
 export class QueryTruckVisitsDto {
   @IsOptional()

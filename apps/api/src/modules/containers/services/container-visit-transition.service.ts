@@ -1,14 +1,6 @@
-import {
-  ConflictException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
+import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
 
-import {
-  ContainerVisitStatus,
-  ManifestStatus,
-  Prisma,
-} from '../../../generated/prisma/client';
+import { ContainerVisitStatus, ManifestStatus, Prisma } from '../../../generated/prisma/client';
 
 import { CONTAINER_ERROR_CODES } from '../constants/container-error-codes.constants';
 import { CONTAINER_EVENT_TYPES } from '../constants/container-event-types.constants';
@@ -211,8 +203,7 @@ export class ContainerVisitTransitionService {
     if (updateResult.count !== 1) {
       throw new ConflictException({
         code: CONTAINER_ERROR_CODES.INVALID_STATE,
-        message:
-          'Container Visit đã thay đổi trạng thái. Vui lòng tải lại dữ liệu.',
+        message: 'Container Visit đã thay đổi trạng thái. Vui lòng tải lại dữ liệu.',
       });
     }
 
@@ -262,8 +253,7 @@ export class ContainerVisitTransitionService {
     if (result.count !== 1) {
       throw new ConflictException({
         code: CONTAINER_ERROR_CODES.INVALID_STATE,
-        message:
-          'Container Visit đã thay đổi trạng thái. Không thể Gate-in.',
+        message: 'Container Visit đã thay đổi trạng thái. Không thể Gate-in.',
       });
     }
 
@@ -284,5 +274,63 @@ export class ContainerVisitTransitionService {
         sealComparison: input.sealComparison,
       },
     });
+  }
+
+  /**
+   * Chuyển Container Visit sang GATE_PASS_ISSUED.
+   */
+  async issueGatePass(
+    tx: Prisma.TransactionClient,
+    input: {
+      visitId: string;
+      icdId: string;
+    },
+  ): Promise<void> {
+    const result = await tx.containerVisit.updateMany({
+      where: {
+        id: input.visitId,
+        icdId: input.icdId,
+        status: ContainerVisitStatus.IN_YARD,
+      },
+      data: {
+        status: ContainerVisitStatus.GATE_PASS_ISSUED,
+      },
+    });
+
+    if (result.count !== 1) {
+      throw new ConflictException({
+        code: CONTAINER_ERROR_CODES.INVALID_STATE,
+        message: 'Container Visit không còn ở trạng thái IN_YARD.',
+      });
+    }
+  }
+
+  /**
+   * Restore Container Visit trở lại IN_YARD khi Gate Pass bị đóng / hủy / hết hạn.
+   */
+  async restoreInYardAfterGatePassClosed(
+    tx: Prisma.TransactionClient,
+    input: {
+      visitId: string;
+      icdId: string;
+    },
+  ): Promise<void> {
+    const result = await tx.containerVisit.updateMany({
+      where: {
+        id: input.visitId,
+        icdId: input.icdId,
+        status: ContainerVisitStatus.GATE_PASS_ISSUED,
+      },
+      data: {
+        status: ContainerVisitStatus.IN_YARD,
+      },
+    });
+
+    if (result.count !== 1) {
+      throw new ConflictException({
+        code: CONTAINER_ERROR_CODES.INVALID_STATE,
+        message: 'Không thể đưa Container Visit trở lại IN_YARD.',
+      });
+    }
   }
 }

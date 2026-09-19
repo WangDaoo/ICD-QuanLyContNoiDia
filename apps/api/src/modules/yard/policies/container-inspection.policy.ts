@@ -1,8 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import {
-  ContainerInspectionStatus,
-  ContainerVisitStatus,
-} from '../../../generated/prisma/client';
+import { ContainerInspectionStatus, ContainerVisitStatus } from '../../../generated/prisma/client';
 import { YARD_ERROR_CODES } from '../constants/yard-error-codes.constants';
 
 @Injectable()
@@ -67,8 +64,7 @@ export class ContainerInspectionPolicy {
       return {
         valid: false,
         errorCode: YARD_ERROR_CODES.INSPECTION_CANNOT_BE_CANCELLED,
-        message:
-          'Không thể hủy yêu cầu giám định đã ở trạng thái COMPLETED hoặc CANCELLED.',
+        message: 'Không thể hủy yêu cầu giám định đã ở trạng thái COMPLETED hoặc CANCELLED.',
       };
     }
     return { valid: true };

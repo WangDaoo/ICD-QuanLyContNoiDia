@@ -1,13 +1,6 @@
-import {
-  BadRequestException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../../../database/prisma.service';
-import {
-  ServiceOrder,
-  ServiceOrderStatus,
-} from '../../../generated/prisma/client';
+import { ServiceOrder, ServiceOrderStatus } from '../../../generated/prisma/client';
 import type { AuthenticatedUser } from '../../../common/types/authenticated-user.types';
 import { CONTAINER_EVENT_TYPES } from '../../containers/constants/container-event-types.constants';
 import { ContainerEventService } from '../../containers/services/container-event.service';
@@ -28,10 +21,7 @@ export class ServiceOrderService {
     private readonly eventService: ContainerEventService,
   ) {}
 
-  async previewBilling(
-    dto: PreviewBillingDto,
-    actor: AuthenticatedUser,
-  ) {
+  async previewBilling(dto: PreviewBillingDto, actor: AuthenticatedUser) {
     return this.calculationService.calculateBilling(
       dto.containerVisitId,
       dto.asOfDate,
@@ -48,11 +38,7 @@ export class ServiceOrderService {
       where: {
         containerVisitId: dto.containerVisitId,
         status: {
-          in: [
-            ServiceOrderStatus.DRAFT,
-            ServiceOrderStatus.CONFIRMED,
-            ServiceOrderStatus.INVOICED,
-          ],
+          in: [ServiceOrderStatus.DRAFT, ServiceOrderStatus.CONFIRMED, ServiceOrderStatus.INVOICED],
         },
       },
       include: {
@@ -60,14 +46,10 @@ export class ServiceOrderService {
       },
     });
 
-    const draftOrder = existingOrders.find(
-      (o) => o.status === ServiceOrderStatus.DRAFT,
-    );
+    const draftOrder = existingOrders.find((o) => o.status === ServiceOrderStatus.DRAFT);
     this.policy.assertNoExistingDraft(draftOrder ?? null);
 
-    const confirmedOrder = existingOrders.find(
-      (o) => o.status === ServiceOrderStatus.CONFIRMED,
-    );
+    const confirmedOrder = existingOrders.find((o) => o.status === ServiceOrderStatus.CONFIRMED);
     if (confirmedOrder) {
       throw new BadRequestException({
         code: BILLING_ERROR_CODES.PREVIOUS_ORDER_PENDING_INVOICE,
@@ -77,8 +59,7 @@ export class ServiceOrderService {
 
     const unpaidInvoicedOrder = existingOrders.find(
       (o) =>
-        o.status === ServiceOrderStatus.INVOICED &&
-        (!o.invoice || o.invoice.status !== 'PAID'),
+        o.status === ServiceOrderStatus.INVOICED && (!o.invoice || o.invoice.status !== 'PAID'),
     );
     if (unpaidInvoicedOrder) {
       throw new BadRequestException({
@@ -156,10 +137,7 @@ export class ServiceOrderService {
     });
   }
 
-  async recalculateDraftOrder(
-    orderId: string,
-    actor: AuthenticatedUser,
-  ): Promise<ServiceOrder> {
+  async recalculateDraftOrder(orderId: string, actor: AuthenticatedUser): Promise<ServiceOrder> {
     const order = await this.prisma.serviceOrder.findFirst({
       where: {
         id: orderId,
@@ -247,10 +225,7 @@ export class ServiceOrderService {
     });
   }
 
-  async confirmOrder(
-    orderId: string,
-    actor: AuthenticatedUser,
-  ): Promise<ServiceOrder> {
+  async confirmOrder(orderId: string, actor: AuthenticatedUser): Promise<ServiceOrder> {
     const order = await this.prisma.serviceOrder.findFirst({
       where: {
         id: orderId,
@@ -368,17 +343,12 @@ export class ServiceOrderService {
     });
   }
 
-  async findServiceOrders(
-    dto: QueryServiceOrdersDto,
-    actor: AuthenticatedUser,
-  ) {
+  async findServiceOrders(dto: QueryServiceOrdersDto, actor: AuthenticatedUser) {
     return this.prisma.serviceOrder.findMany({
       where: {
         containerVisit: {
           icdId: actor.icdId,
-          ...(dto.containerVisitId
-            ? { id: dto.containerVisitId }
-            : {}),
+          ...(dto.containerVisitId ? { id: dto.containerVisitId } : {}),
         },
         ...(dto.consigneeId ? { consigneeId: dto.consigneeId } : {}),
         ...(dto.status ? { status: dto.status } : {}),
@@ -418,10 +388,7 @@ export class ServiceOrderService {
     });
   }
 
-  async findServiceOrderById(
-    id: string,
-    actor: AuthenticatedUser,
-  ) {
+  async findServiceOrderById(id: string, actor: AuthenticatedUser) {
     const order = await this.prisma.serviceOrder.findFirst({
       where: {
         id,

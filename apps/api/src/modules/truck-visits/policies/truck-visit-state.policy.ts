@@ -15,10 +15,7 @@ export class TruckVisitStatePolicy {
   }
 
   assertCanCancel(status: TruckVisitStatus): void {
-    if (
-      status !== TruckVisitStatus.SCHEDULED &&
-      status !== TruckVisitStatus.ARRIVED
-    ) {
+    if (status !== TruckVisitStatus.SCHEDULED && status !== TruckVisitStatus.ARRIVED) {
       throw new BadRequestException({
         code: TRUCK_VISIT_ERROR_CODES.CANNOT_CANCEL,
         message: `Không thể hủy chuyến xe khi đang ở trạng thái ${status}.`,

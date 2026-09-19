@@ -1,12 +1,15 @@
 # RULES — gate-in
 
 ## Trách nhiệm module
+
 Điều phối nghiệp vụ tiếp nhận container vào ICD.
 
 ## Ownership
+
 Gate-in orchestration; không sở hữu toàn bộ Container Visit model.
 
 ## Quy tắc
+
 - Public method phải dùng động từ rõ nghĩa.
 - Không expose `updateStatus`.
 - Query không thay đổi dữ liệu.

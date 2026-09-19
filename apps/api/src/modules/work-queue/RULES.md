@@ -1,12 +1,15 @@
 # RULES — work-queue
 
 ## Trách nhiệm module
+
 Tổng hợp công việc cần làm theo role, priority và SLA.
 
 ## Ownership
+
 Work item projection/aggregation, không thay thế state của module nguồn.
 
 ## Quy tắc
+
 - Public method phải dùng động từ rõ nghĩa.
 - Không expose `updateStatus`.
 - Query không thay đổi dữ liệu.

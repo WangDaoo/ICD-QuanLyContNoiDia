@@ -1,15 +1,34 @@
-/**
- * gate-pass / issue-gate-pass.dto.ts
- *
- * Mục đích:
- * File dự kiến triển khai cho module gate-pass. Kiểm tra readiness và phát hành/quản lý Phiếu ra cổng.
- *
- * Quy tắc khi triển khai:
- * - Ownership module: Gate Pass lifecycle và readiness aggregation.
- * - Tuân thủ pattern chung trong docs/development/OPERATION_PATTERNS.md.
- * - Chưa có logic; chỉ thêm code khi bắt đầu triển khai module này.
- *
- * Lưu ý:
- * - File hiện tại chỉ là khung, chưa có logic thực thi.
- * - Không tự ý mở rộng trách nhiệm của file nếu chưa cập nhật RULES.md của module.
- */
+import { Transform } from 'class-transformer';
+import { IsInt, IsOptional, IsString, Max, MaxLength, Min } from 'class-validator';
+
+export class IssueGatePassDto {
+  @IsOptional()
+  @IsInt()
+  @Min(1)
+  @Max(168) // Max 7 days
+  ttlHours?: number;
+
+  @IsOptional()
+  @Transform(({ value }) => (typeof value === 'string' ? value.trim() : value))
+  @IsString()
+  @MaxLength(50)
+  vehiclePlate?: string;
+
+  @IsOptional()
+  @Transform(({ value }) => (typeof value === 'string' ? value.trim() : value))
+  @IsString()
+  @MaxLength(100)
+  receiverName?: string;
+
+  @IsOptional()
+  @Transform(({ value }) => (typeof value === 'string' ? value.trim() : value))
+  @IsString()
+  @MaxLength(50)
+  receiverIdNumber?: string;
+
+  @IsOptional()
+  @Transform(({ value }) => (typeof value === 'string' ? value.trim() : value))
+  @IsString()
+  @MaxLength(1000)
+  note?: string;
+}
