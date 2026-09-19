@@ -68,4 +68,47 @@ export class TransportHandoverStatePolicy {
       );
     }
   }
+
+  static assertIcdConfirmable(current: TransportHandoverStatus): void {
+    const allowed: TransportHandoverStatus[] = [
+      TransportHandoverStatus.PARTNER_CONFIRMED,
+      TransportHandoverStatus.DISPUTED,
+    ];
+    if (!allowed.includes(current)) {
+      throw new BadRequestException(
+        `Chỉ có thể ICD Confirm khi bàn giao ở trạng thái PARTNER_CONFIRMED hoặc DISPUTED. Trạng thái hiện tại: ${current}.`,
+      );
+    }
+  }
+
+  static assertDisputable(current: TransportHandoverStatus): void {
+    const allowed: TransportHandoverStatus[] = [
+      TransportHandoverStatus.IN_TRANSIT,
+      TransportHandoverStatus.PARTNER_CONFIRMED,
+      TransportHandoverStatus.DELIVERY_FAILED,
+      TransportHandoverStatus.ICD_CONFIRMED,
+    ];
+    if (!allowed.includes(current)) {
+      throw new BadRequestException(
+        `Chỉ có thể khiếu nại (DISPUTED) khi bàn giao ở trạng thái IN_TRANSIT, PARTNER_CONFIRMED, DELIVERY_FAILED hoặc ICD_CONFIRMED. Trạng thái hiện tại: ${current}.`,
+      );
+    }
+  }
+
+  static assertPartnerRejectable(current: TransportHandoverStatus): void {
+    if (current !== TransportHandoverStatus.READY_FOR_HANDOVER) {
+      throw new BadRequestException(
+        `Đối tác chỉ có thể từ chối (REJECT) khi bàn giao ở trạng thái READY_FOR_HANDOVER. Trạng thái hiện tại: ${current}.`,
+      );
+    }
+  }
+
+  static assertDeliveryFailAllowed(current: TransportHandoverStatus): void {
+    if (current !== TransportHandoverStatus.IN_TRANSIT) {
+      throw new BadRequestException(
+        `Chỉ có thể báo giao hàng thất bại (DELIVERY_FAILED) khi bàn giao đang IN_TRANSIT. Trạng thái hiện tại: ${current}.`,
+      );
+    }
+  }
 }
+

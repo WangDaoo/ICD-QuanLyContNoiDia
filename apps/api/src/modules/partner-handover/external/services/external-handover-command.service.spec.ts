@@ -350,4 +350,166 @@ describe('ExternalHandoverCommandService', () => {
       expect(result.status).toBe(TransportHandoverStatus.PARTNER_CONFIRMED);
     });
   });
+
+  describe('reject', () => {
+    it('throws ConflictException if handover is not READY_FOR_HANDOVER', async () => {
+      mockTx.$queryRawUnsafe.mockResolvedValue([
+        {
+          id: 'handover-1',
+          partner_api_client_id: 'client-1',
+          status: 'PARTNER_ACCEPTED',
+          version: 1,
+        },
+      ]);
+      mockTx.transportHandover.findUnique.mockResolvedValue({
+        id: 'handover-1',
+        partnerApiClientId: 'client-1',
+        status: TransportHandoverStatus.PARTNER_ACCEPTED,
+        warehouse: { code: 'WH-01' },
+      });
+
+      await expect(
+        service.reject(
+          mockTx as unknown as Prisma.TransactionClient,
+          'handover-1',
+          principal,
+          { reason: 'Driver unavailable' },
+          'req-1',
+        ),
+      ).rejects.toThrow(ConflictException);
+    });
+
+    it('transitions status to PARTNER_REJECTED and creates confirmation record', async () => {
+      mockTx.$queryRawUnsafe.mockResolvedValue([
+        {
+          id: 'handover-1',
+          partner_api_client_id: 'client-1',
+          status: 'READY_FOR_HANDOVER',
+          version: 1,
+        },
+      ]);
+      mockTx.transportHandover.findUnique.mockResolvedValue({
+        id: 'handover-1',
+        partnerApiClientId: 'client-1',
+        status: TransportHandoverStatus.READY_FOR_HANDOVER,
+        warehouse: { code: 'WH-01' },
+      });
+      mockTx.transportHandover.update.mockResolvedValue({
+        id: 'handover-1',
+        transportCode: 'TR-100',
+        status: TransportHandoverStatus.PARTNER_REJECTED,
+      });
+
+      const result = await service.reject(
+        mockTx as unknown as Prisma.TransactionClient,
+        'handover-1',
+        principal,
+        { reason: 'Driver unavailable', note: 'No vehicle in area' },
+        'req-1',
+      );
+
+      expect(mockTx.transportHandover.update).toHaveBeenCalledWith({
+        where: { id: 'handover-1' },
+        data: expect.objectContaining({
+          status: TransportHandoverStatus.PARTNER_REJECTED,
+        }),
+        select: expect.any(Object),
+      });
+      expect(mockTx.transportConfirmation.create).toHaveBeenCalledWith({
+        data: expect.objectContaining({
+          transportHandoverId: 'handover-1',
+          confirmationType: TransportConfirmationType.DELIVERY_FAILED,
+          condition: 'Driver unavailable',
+        }),
+      });
+      expect(result.status).toBe(TransportHandoverStatus.PARTNER_REJECTED);
+      expect(result.rejected_reason).toBe('Driver unavailable');
+    });
+  });
+
+  describe('deliveryFailed', () => {
+    it('throws ConflictException if handover is not IN_TRANSIT', async () => {
+      mockTx.$queryRawUnsafe.mockResolvedValue([
+        {
+          id: 'handover-1',
+          partner_api_client_id: 'client-1',
+          status: 'PARTNER_ACCEPTED',
+          version: 1,
+        },
+      ]);
+      mockTx.transportHandover.findUnique.mockResolvedValue({
+        id: 'handover-1',
+        partnerApiClientId: 'client-1',
+        status: TransportHandoverStatus.PARTNER_ACCEPTED,
+        warehouse: { code: 'WH-01' },
+      });
+
+      await expect(
+        service.deliveryFailed(
+          mockTx as unknown as Prisma.TransactionClient,
+          'handover-1',
+          principal,
+          {
+            reason_code: 'ACCIDENT',
+            reason_description: 'Vehicle broken down',
+            failed_at: '2026-09-19T11:00:00Z',
+          },
+          'req-1',
+        ),
+      ).rejects.toThrow(ConflictException);
+    });
+
+    it('transitions status to DELIVERY_FAILED and creates confirmation record', async () => {
+      mockTx.$queryRawUnsafe.mockResolvedValue([
+        {
+          id: 'handover-1',
+          partner_api_client_id: 'client-1',
+          status: 'IN_TRANSIT',
+          version: 1,
+        },
+      ]);
+      mockTx.transportHandover.findUnique.mockResolvedValue({
+        id: 'handover-1',
+        partnerApiClientId: 'client-1',
+        status: TransportHandoverStatus.IN_TRANSIT,
+        warehouse: { code: 'WH-01' },
+      });
+      mockTx.transportHandover.update.mockResolvedValue({
+        id: 'handover-1',
+        transportCode: 'TR-100',
+        status: TransportHandoverStatus.DELIVERY_FAILED,
+      });
+
+      const result = await service.deliveryFailed(
+        mockTx as unknown as Prisma.TransactionClient,
+        'handover-1',
+        principal,
+        {
+          reason_code: 'ROAD_BLOCKED',
+          reason_description: 'Highway flooded',
+          failed_at: '2026-09-19T11:00:00Z',
+          location: { latitude: 10.5, longitude: 106.8, accuracy_m: 10 },
+        },
+        'req-1',
+      );
+
+      expect(mockTx.transportHandover.update).toHaveBeenCalledWith({
+        where: { id: 'handover-1' },
+        data: expect.objectContaining({
+          status: TransportHandoverStatus.DELIVERY_FAILED,
+        }),
+        select: expect.any(Object),
+      });
+      expect(mockTx.transportConfirmation.create).toHaveBeenCalledWith({
+        data: expect.objectContaining({
+          transportHandoverId: 'handover-1',
+          confirmationType: TransportConfirmationType.DELIVERY_FAILED,
+          condition: 'ROAD_BLOCKED',
+          note: 'Highway flooded',
+        }),
+      });
+      expect(result.status).toBe(TransportHandoverStatus.DELIVERY_FAILED);
+    });
+  });
 });
+

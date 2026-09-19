@@ -1,12 +1,16 @@
 import { BadRequestException, ConflictException, NotFoundException } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
+import { AuditService } from '../../audit/audit.service';
+import type { AuthenticatedUser } from '../../../common/types/authenticated-user.types';
 import { PrismaService } from '../../../database/prisma.service';
 import {
   ContainerVisitStatus,
   PartnerApiClientStatus,
+  TransportConfirmationType,
   TransportHandoverStatus,
 } from '../../../generated/prisma/client';
 import { HandoverService } from './handover.service';
+import { TransportHandoverReviewService } from './transport-handover-review.service';
 
 describe('HandoverService', () => {
   let service: HandoverService;
@@ -18,6 +22,21 @@ describe('HandoverService', () => {
       count: jest.Mock;
     };
   };
+  let auditService: {
+    record: jest.Mock;
+  };
+  let reviewService: {
+    assertWithTx: jest.Mock;
+    checkWithTx: jest.Mock;
+  };
+
+  const mockActor: AuthenticatedUser = {
+    id: 'user-1',
+    email: 'test@icd.local',
+    role: 'ADMIN',
+    icdId: 'ICD01',
+    permissions: ['handover.confirm', 'handover.dispute'],
+  };
 
   beforeEach(async () => {
     prisma = {
@@ -28,11 +47,25 @@ describe('HandoverService', () => {
         count: jest.fn(),
       },
     };
+    auditService = {
+      record: jest.fn().mockResolvedValue(undefined),
+    };
+    reviewService = {
+      assertWithTx: jest.fn().mockResolvedValue({
+        passed: true,
+        violations: [],
+        containerVisitStatus: ContainerVisitStatus.EXITED,
+        partnerApiClientStatus: PartnerApiClientStatus.ACTIVE,
+      }),
+      checkWithTx: jest.fn(),
+    };
 
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         HandoverService,
         { provide: PrismaService, useValue: prisma },
+        { provide: AuditService, useValue: auditService },
+        { provide: TransportHandoverReviewService, useValue: reviewService },
       ],
     }).compile();
 
@@ -190,4 +223,136 @@ describe('HandoverService', () => {
       ).rejects.toThrow(NotFoundException);
     });
   });
+
+  describe('icdConfirm', () => {
+    it('successfully confirms handover and transitions to COMPLETED', async () => {
+      const mockTx = {
+        $queryRawUnsafe: jest.fn().mockResolvedValue([{ id: 'handover-1' }]),
+        transportHandover: {
+          findUnique: jest.fn().mockResolvedValue({
+            id: 'handover-1',
+            status: TransportHandoverStatus.PARTNER_CONFIRMED,
+            version: 1,
+            containerVisit: { icdId: 'ICD01' },
+          }),
+          update: jest.fn().mockResolvedValue({
+            id: 'handover-1',
+            status: TransportHandoverStatus.COMPLETED,
+            version: 2,
+            icdConfirmedAt: new Date(),
+            completedAt: new Date(),
+          }),
+        },
+        transportConfirmation: {
+          create: jest.fn().mockResolvedValue({ id: 'conf-1' }),
+        },
+      };
+
+      prisma.$transaction.mockImplementation((cb) => cb(mockTx));
+
+      const result = await service.icdConfirm(
+        'handover-1',
+        { note: 'Goods received intact at warehouse' },
+        mockActor,
+      );
+
+      expect(reviewService.assertWithTx).toHaveBeenCalledWith(
+        mockTx,
+        'handover-1',
+        'ICD01',
+      );
+      expect(mockTx.transportHandover.update).toHaveBeenCalledWith(
+        expect.objectContaining({
+          where: { id: 'handover-1' },
+          data: expect.objectContaining({
+            status: TransportHandoverStatus.COMPLETED,
+          }),
+        }),
+      );
+      expect(mockTx.transportConfirmation.create).toHaveBeenCalledWith(
+        expect.objectContaining({
+          data: expect.objectContaining({
+            confirmationType: TransportConfirmationType.ICD_CONFIRMED,
+          }),
+        }),
+      );
+      expect(auditService.record).toHaveBeenCalled();
+      expect(result.status).toBe(TransportHandoverStatus.COMPLETED);
+    });
+
+    it('rejects confirmation if handover is not PARTNER_CONFIRMED', async () => {
+      const mockTx = {
+        $queryRawUnsafe: jest.fn().mockResolvedValue([{ id: 'handover-1' }]),
+        transportHandover: {
+          findUnique: jest.fn().mockResolvedValue({
+            id: 'handover-1',
+            status: TransportHandoverStatus.IN_TRANSIT,
+            containerVisit: { icdId: 'ICD01' },
+          }),
+        },
+      };
+
+      prisma.$transaction.mockImplementation((cb) => cb(mockTx));
+
+      await expect(
+        service.icdConfirm('handover-1', {}, mockActor),
+      ).rejects.toThrow(ConflictException);
+    });
+  });
+
+  describe('dispute', () => {
+    it('records dispute and transitions status to DISPUTED', async () => {
+      const mockTx = {
+        $queryRawUnsafe: jest.fn().mockResolvedValue([{ id: 'handover-1' }]),
+        transportHandover: {
+          findUnique: jest.fn().mockResolvedValue({
+            id: 'handover-1',
+            status: TransportHandoverStatus.PARTNER_CONFIRMED,
+            version: 1,
+            containerVisit: { icdId: 'ICD01' },
+          }),
+          update: jest.fn().mockResolvedValue({
+            id: 'handover-1',
+            status: TransportHandoverStatus.DISPUTED,
+            version: 2,
+          }),
+        },
+        transportConfirmation: {
+          create: jest.fn().mockResolvedValue({ id: 'conf-1' }),
+        },
+      };
+
+      prisma.$transaction.mockImplementation((cb) => cb(mockTx));
+
+      const result = await service.dispute(
+        'handover-1',
+        {
+          reasonCode: 'SEAL_TAMPERED',
+          note: 'Container seal does not match manifest',
+          attachmentUrl: 'https://storage.local/proofs/seal.jpg',
+        },
+        mockActor,
+      );
+
+      expect(mockTx.transportHandover.update).toHaveBeenCalledWith(
+        expect.objectContaining({
+          where: { id: 'handover-1' },
+          data: expect.objectContaining({
+            status: TransportHandoverStatus.DISPUTED,
+          }),
+        }),
+      );
+      expect(mockTx.transportConfirmation.create).toHaveBeenCalledWith(
+        expect.objectContaining({
+          data: expect.objectContaining({
+            confirmationType: TransportConfirmationType.DISPUTE,
+            condition: 'SEAL_TAMPERED',
+          }),
+        }),
+      );
+      expect(auditService.record).toHaveBeenCalled();
+      expect(result.status).toBe(TransportHandoverStatus.DISPUTED);
+    });
+  });
 });
+

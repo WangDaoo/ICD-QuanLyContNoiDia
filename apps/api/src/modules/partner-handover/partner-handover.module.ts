@@ -16,6 +16,7 @@ import { CustomerWarehouseService } from './services/customer-warehouse.service'
 import { HandoverService } from './services/handover.service';
 import { PartnerApiLogService } from './services/partner-api-log.service';
 import { PartnerClientService } from './services/partner-client.service';
+import { TransportHandoverReviewService } from './services/transport-handover-review.service';
 
 @Module({
   controllers: [
@@ -28,6 +29,7 @@ import { PartnerClientService } from './services/partner-client.service';
     PartnerClientService,
     CustomerWarehouseService,
     HandoverService,
+    TransportHandoverReviewService,
     PartnerApiLogService,
     PartnerApiAuthService,
     PartnerApiKeyGuard,
@@ -43,6 +45,7 @@ import { PartnerClientService } from './services/partner-client.service';
     PartnerClientService,
     CustomerWarehouseService,
     HandoverService,
+    TransportHandoverReviewService,
     PartnerApiLogService,
     PartnerApiAuthService,
     ExternalHandoverQueryService,
@@ -50,4 +53,5 @@ import { PartnerClientService } from './services/partner-client.service';
   ],
 })
 export class PartnerHandoverModule {}
+
 

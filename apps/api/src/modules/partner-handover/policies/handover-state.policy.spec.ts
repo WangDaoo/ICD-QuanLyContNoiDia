@@ -112,4 +112,107 @@ describe('TransportHandoverStatePolicy', () => {
       ),
     ).toThrow(BadRequestException);
   });
+
+  describe('assertIcdConfirmable', () => {
+    it('allows PARTNER_CONFIRMED and DISPUTED', () => {
+      expect(() =>
+        TransportHandoverStatePolicy.assertIcdConfirmable(
+          TransportHandoverStatus.PARTNER_CONFIRMED,
+        ),
+      ).not.toThrow();
+      expect(() =>
+        TransportHandoverStatePolicy.assertIcdConfirmable(
+          TransportHandoverStatus.DISPUTED,
+        ),
+      ).not.toThrow();
+    });
+
+    it('rejects other states', () => {
+      expect(() =>
+        TransportHandoverStatePolicy.assertIcdConfirmable(
+          TransportHandoverStatus.IN_TRANSIT,
+        ),
+      ).toThrow(BadRequestException);
+      expect(() =>
+        TransportHandoverStatePolicy.assertIcdConfirmable(
+          TransportHandoverStatus.READY_FOR_HANDOVER,
+        ),
+      ).toThrow(BadRequestException);
+    });
+  });
+
+  describe('assertDisputable', () => {
+    it('allows IN_TRANSIT, PARTNER_CONFIRMED, DELIVERY_FAILED, ICD_CONFIRMED', () => {
+      expect(() =>
+        TransportHandoverStatePolicy.assertDisputable(
+          TransportHandoverStatus.IN_TRANSIT,
+        ),
+      ).not.toThrow();
+      expect(() =>
+        TransportHandoverStatePolicy.assertDisputable(
+          TransportHandoverStatus.PARTNER_CONFIRMED,
+        ),
+      ).not.toThrow();
+      expect(() =>
+        TransportHandoverStatePolicy.assertDisputable(
+          TransportHandoverStatus.DELIVERY_FAILED,
+        ),
+      ).not.toThrow();
+      expect(() =>
+        TransportHandoverStatePolicy.assertDisputable(
+          TransportHandoverStatus.ICD_CONFIRMED,
+        ),
+      ).not.toThrow();
+    });
+
+    it('rejects terminal or initial states', () => {
+      expect(() =>
+        TransportHandoverStatePolicy.assertDisputable(
+          TransportHandoverStatus.DRAFT,
+        ),
+      ).toThrow(BadRequestException);
+      expect(() =>
+        TransportHandoverStatePolicy.assertDisputable(
+          TransportHandoverStatus.COMPLETED,
+        ),
+      ).toThrow(BadRequestException);
+    });
+  });
+
+  describe('assertPartnerRejectable', () => {
+    it('allows READY_FOR_HANDOVER', () => {
+      expect(() =>
+        TransportHandoverStatePolicy.assertPartnerRejectable(
+          TransportHandoverStatus.READY_FOR_HANDOVER,
+        ),
+      ).not.toThrow();
+    });
+
+    it('rejects non-ready states', () => {
+      expect(() =>
+        TransportHandoverStatePolicy.assertPartnerRejectable(
+          TransportHandoverStatus.PARTNER_ACCEPTED,
+        ),
+      ).toThrow(BadRequestException);
+    });
+  });
+
+  describe('assertDeliveryFailAllowed', () => {
+    it('allows IN_TRANSIT', () => {
+      expect(() =>
+        TransportHandoverStatePolicy.assertDeliveryFailAllowed(
+          TransportHandoverStatus.IN_TRANSIT,
+        ),
+      ).not.toThrow();
+    });
+
+    it('rejects non-transit states', () => {
+      expect(() =>
+        TransportHandoverStatePolicy.assertDeliveryFailAllowed(
+          TransportHandoverStatus.READY_FOR_HANDOVER,
+        ),
+      ).toThrow(BadRequestException);
+    });
+  });
 });
+

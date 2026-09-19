@@ -4,19 +4,30 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
+import { AuditService } from '../../audit/audit.service';
+import type { AuthenticatedUser } from '../../../common/types/authenticated-user.types';
 import { PrismaService } from '../../../database/prisma.service';
 import {
   ContainerVisitStatus,
   PartnerApiClientStatus,
+  TransportConfirmationType,
   TransportHandoverStatus,
 } from '../../../generated/prisma/client';
 import { CreateTransportHandoverDto } from '../dto/create-transport-handover.dto';
+import { DisputeHandoverDto } from '../dto/handover/dispute-handover.dto';
+import { IcdConfirmHandoverDto } from '../dto/handover/icd-confirm-handover.dto';
 import { QueryTransportHandoverDto } from '../dto/query-transport-handover.dto';
 import { TransportHandoverStatePolicy } from '../policies/handover-state.policy';
+import { TransportHandoverReviewService } from './transport-handover-review.service';
 
 @Injectable()
 export class HandoverService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly auditService: AuditService,
+    private readonly reviewService: TransportHandoverReviewService,
+  ) {}
+
 
   async create(
     dto: CreateTransportHandoverDto,
@@ -307,4 +318,195 @@ export class HandoverService {
       },
     };
   }
+
+  async icdConfirm(
+    id: string,
+    dto: IcdConfirmHandoverDto,
+    actor: AuthenticatedUser,
+  ) {
+    return this.prisma.$transaction(async (tx) => {
+      await tx.$queryRawUnsafe(
+        `SELECT id, status, version FROM transport_handover WHERE id = ? FOR UPDATE`,
+        id,
+      );
+
+      const handover = await tx.transportHandover.findUnique({
+        where: { id },
+        include: {
+          containerVisit: true,
+        },
+      });
+
+      if (!handover || handover.containerVisit.icdId !== actor.icdId) {
+        throw new NotFoundException(
+          `Không tìm thấy biên bản bàn giao với ID ${id} thuộc ICD hiện tại.`,
+        );
+      }
+
+      TransportHandoverStatePolicy.assertIcdConfirmable(handover.status);
+      await this.reviewService.assertWithTx(tx, id, actor.icdId);
+
+      const now = new Date();
+
+      const updated = await tx.transportHandover.update({
+        where: { id },
+        data: {
+          status: TransportHandoverStatus.COMPLETED,
+          icdConfirmedAt: now,
+          icdConfirmedById: actor.id,
+          completedAt: now,
+          version: { increment: 1 },
+        },
+        include: {
+          containerVisit: {
+            include: { container: true },
+          },
+          partnerApiClient: {
+            select: {
+              id: true,
+              partnerCode: true,
+              partnerName: true,
+              keyLast4: true,
+              status: true,
+            },
+          },
+          warehouse: true,
+          createdByUser: {
+            select: { id: true, name: true, email: true },
+          },
+          icdConfirmedByUser: {
+            select: { id: true, name: true, email: true },
+          },
+        },
+      });
+
+      await tx.transportConfirmation.create({
+        data: {
+          transportHandoverId: id,
+          confirmationType: TransportConfirmationType.ICD_CONFIRMED,
+          confirmedAt: now,
+          createdByUserId: actor.id,
+          note: dto.note ?? null,
+        },
+      });
+
+      await this.auditService.record(
+        {
+          icdId: actor.icdId,
+          actorUserId: actor.id,
+          action: 'TRANSPORT_HANDOVER_ICD_CONFIRMED',
+          entityType: 'TRANSPORT_HANDOVER',
+          entityId: id,
+          oldData: {
+            status: handover.status,
+            version: handover.version,
+          },
+          newData: {
+            status: updated.status,
+            version: updated.version,
+            icdConfirmedAt: updated.icdConfirmedAt,
+            completedAt: updated.completedAt,
+          },
+          reason: dto.note ?? null,
+        },
+        tx,
+      );
+
+      return updated;
+    });
+  }
+
+  async dispute(
+    id: string,
+    dto: DisputeHandoverDto,
+    actor: AuthenticatedUser,
+  ) {
+    return this.prisma.$transaction(async (tx) => {
+      await tx.$queryRawUnsafe(
+        `SELECT id, status, version FROM transport_handover WHERE id = ? FOR UPDATE`,
+        id,
+      );
+
+      const handover = await tx.transportHandover.findUnique({
+        where: { id },
+        include: {
+          containerVisit: true,
+        },
+      });
+
+      if (!handover || handover.containerVisit.icdId !== actor.icdId) {
+        throw new NotFoundException(
+          `Không tìm thấy biên bản bàn giao với ID ${id} thuộc ICD hiện tại.`,
+        );
+      }
+
+      TransportHandoverStatePolicy.assertDisputable(handover.status);
+
+      const now = new Date();
+
+      const updated = await tx.transportHandover.update({
+        where: { id },
+        data: {
+          status: TransportHandoverStatus.DISPUTED,
+          version: { increment: 1 },
+        },
+        include: {
+          containerVisit: {
+            include: { container: true },
+          },
+          partnerApiClient: {
+            select: {
+              id: true,
+              partnerCode: true,
+              partnerName: true,
+              keyLast4: true,
+              status: true,
+            },
+          },
+          warehouse: true,
+          createdByUser: {
+            select: { id: true, name: true, email: true },
+          },
+          icdConfirmedByUser: {
+            select: { id: true, name: true, email: true },
+          },
+        },
+      });
+
+      await tx.transportConfirmation.create({
+        data: {
+          transportHandoverId: id,
+          confirmationType: TransportConfirmationType.DISPUTE,
+          confirmedAt: now,
+          createdByUserId: actor.id,
+          condition: dto.reasonCode,
+          note: dto.note,
+          proofImageUrl: dto.attachmentUrl ?? null,
+        },
+      });
+
+      await this.auditService.record(
+        {
+          icdId: actor.icdId,
+          actorUserId: actor.id,
+          action: 'TRANSPORT_HANDOVER_DISPUTED',
+          entityType: 'TRANSPORT_HANDOVER',
+          entityId: id,
+          oldData: {
+            status: handover.status,
+            version: handover.version,
+          },
+          newData: {
+            status: updated.status,
+            version: updated.version,
+          },
+          reason: `${dto.reasonCode}: ${dto.note}`,
+        },
+        tx,
+      );
+
+      return updated;
+    });
+  }
 }
+

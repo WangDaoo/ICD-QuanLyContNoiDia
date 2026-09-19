@@ -16,8 +16,10 @@ import { PARTNER_API_SCOPES } from '../constants/partner-api.constants';
 import { PartnerPrincipal } from '../decorators/partner-principal.decorator';
 import { PartnerScopes } from '../decorators/partner-scopes.decorator';
 import { AcceptHandoverDto } from '../dto/accept-handover.dto';
+import { DeliveryFailedDto } from '../dto/delivery-failed.dto';
 import { ExternalHandoverQueryDto } from '../dto/external-handover-query.dto';
 import { MarkInTransitDto } from '../dto/mark-in-transit.dto';
+import { RejectHandoverDto } from '../dto/reject-handover.dto';
 import { WarehouseReceivedDto } from '../dto/warehouse-received.dto';
 import { PartnerExternalExceptionFilter } from '../filters/partner-external-exception.filter';
 import { PartnerApiKeyGuard } from '../guards/partner-api-key.guard';
@@ -88,6 +90,33 @@ export class ExternalHandoversController {
     });
   }
 
+  @Post(':handoverId/reject')
+  @PartnerScopes(PARTNER_API_SCOPES.HANDOVER_ACCEPT)
+  async reject(
+    @Param('handoverId') handoverId: string,
+    @Headers('idempotency-key') idempotencyKey: string | undefined,
+    @Body() dto: RejectHandoverDto,
+    @PartnerPrincipal() principal: Principal,
+    @Req() req: PartnerApiRequest,
+  ) {
+    const requestId =
+      req.requestId ??
+      (typeof req.headers['x-request-id'] === 'string'
+        ? req.headers['x-request-id']
+        : 'unknown');
+
+    return this.commandExecutor.execute({
+      principal,
+      endpoint: req.originalUrl ?? req.url,
+      method: 'POST',
+      idempotencyKey,
+      body: dto,
+      requestId,
+      command: (tx) =>
+        this.commandService.reject(tx, handoverId, principal, dto, requestId),
+    });
+  }
+
   @Post(':handoverId/in-transit')
   @PartnerScopes(PARTNER_API_SCOPES.HANDOVER_TRANSIT)
   async markInTransit(
@@ -112,6 +141,39 @@ export class ExternalHandoversController {
       requestId,
       command: (tx) =>
         this.commandService.markInTransit(
+          tx,
+          handoverId,
+          principal,
+          dto,
+          requestId,
+        ),
+    });
+  }
+
+  @Post(':handoverId/delivery-failed')
+  @PartnerScopes(PARTNER_API_SCOPES.HANDOVER_FAILURE)
+  async deliveryFailed(
+    @Param('handoverId') handoverId: string,
+    @Headers('idempotency-key') idempotencyKey: string | undefined,
+    @Body() dto: DeliveryFailedDto,
+    @PartnerPrincipal() principal: Principal,
+    @Req() req: PartnerApiRequest,
+  ) {
+    const requestId =
+      req.requestId ??
+      (typeof req.headers['x-request-id'] === 'string'
+        ? req.headers['x-request-id']
+        : 'unknown');
+
+    return this.commandExecutor.execute({
+      principal,
+      endpoint: req.originalUrl ?? req.url,
+      method: 'POST',
+      idempotencyKey,
+      body: dto,
+      requestId,
+      command: (tx) =>
+        this.commandService.deliveryFailed(
           tx,
           handoverId,
           principal,
@@ -154,3 +216,4 @@ export class ExternalHandoversController {
     });
   }
 }
+
