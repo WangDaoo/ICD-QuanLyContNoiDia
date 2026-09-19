@@ -106,6 +106,39 @@ enum YardLocationSource {
   MOVEMENT
 }
 
+enum YardMovementStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum ContainerInspectionStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum ContainerInspectionResult {
+  PASS
+  FAIL
+  HOLD
+}
+
+enum InYardBookingType {
+  STRIPPING
+  STUFFING
+  INSPECTION
+}
+
+enum InYardBookingStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
 // ============================================================
 // ICD SITE
 // ============================================================
@@ -160,6 +193,12 @@ model User {
   authorizedMovementOrders    MovementOrder[]        @relation("MovementOrderAuthorizedBy")
   receivedContainerReceptions ContainerReception[]   @relation("ContainerReceptionReceivedBy")
   assignedYardLocations       ContainerLocationLog[] @relation("ContainerLocationAssignedBy")
+  createdYardMovements        YardMovement[]         @relation("YardMovementCreatedBy")
+  completedYardMovements      YardMovement[]         @relation("YardMovementCompletedBy")
+  createdInspections          ContainerInspection[]  @relation("ContainerInspectionCreatedBy")
+  completedInspections        ContainerInspection[]  @relation("ContainerInspectionCompletedBy")
+  createdYardBookings         InYardBooking[]        @relation("InYardBookingCreatedBy")
+  completedYardBookings       InYardBooking[]        @relation("InYardBookingCompletedBy")
 
   @@index([icdId])
   @@index([active])
@@ -607,6 +646,9 @@ model ContainerVisit {
   truckVisitLinks TruckVisitContainer[]
   reception       ContainerReception?
   locationLogs    ContainerLocationLog[]
+  yardMovements   YardMovement[]
+  inspections     ContainerInspection[]
+  inYardBookings  InYardBooking[]
 
   @@index([icdId, status])
   @@index([containerId])
@@ -856,7 +898,9 @@ model YardSlot {
 
   yardBlock YardBlock @relation(fields: [yardBlockId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
-  locationLogs ContainerLocationLog[]
+  locationLogs  ContainerLocationLog[]
+  movementsFrom YardMovement[]         @relation("YardMovementFromSlot")
+  movementsTo   YardMovement[]         @relation("YardMovementToSlot")
 
   @@unique([yardBlockId, rowNo, bayNo, tierNo])
   @@index([yardBlockId, operational])
@@ -902,3 +946,135 @@ model ContainerLocationLog {
   @@index([startedAt])
   @@map("container_location_log")
 }
+
+// ============================================================
+// YARD MOVEMENT
+// ============================================================
+
+model YardMovement {
+  id String @id @default(uuid()) @db.Char(36)
+
+  containerVisitId String @map("container_visit_id") @db.Char(36)
+
+  fromSlotId String @map("from_slot_id") @db.Char(36)
+
+  toSlotId String @map("to_slot_id") @db.Char(36)
+
+  status YardMovementStatus @default(PENDING)
+
+  reason String? @db.VarChar(255)
+
+  startedAt DateTime? @map("started_at") @db.DateTime(3)
+
+  completedAt DateTime? @map("completed_at") @db.DateTime(3)
+
+  createdById String @map("created_by") @db.Char(36)
+
+  completedById String? @map("completed_by") @db.Char(36)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
+
+  containerVisit ContainerVisit @relation(fields: [containerVisitId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  fromSlot YardSlot @relation("YardMovementFromSlot", fields: [fromSlotId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  toSlot YardSlot @relation("YardMovementToSlot", fields: [toSlotId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  createdByUser User @relation("YardMovementCreatedBy", fields: [createdById], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  completedByUser User? @relation("YardMovementCompletedBy", fields: [completedById], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  @@index([containerVisitId, status])
+  @@index([fromSlotId])
+  @@index([toSlotId])
+  @@index([status])
+  @@map("yard_movement")
+}
+
+// ============================================================
+// CONTAINER INSPECTION
+// ============================================================
+
+model ContainerInspection {
+  id String @id @default(uuid()) @db.Char(36)
+
+  containerVisitId String @map("container_visit_id") @db.Char(36)
+
+  inspectionType String @map("inspection_type") @db.VarChar(80)
+
+  status ContainerInspectionStatus @default(PENDING)
+
+  result ContainerInspectionResult?
+
+  notes String? @db.Text
+
+  startedAt DateTime? @map("started_at") @db.DateTime(3)
+
+  completedAt DateTime? @map("completed_at") @db.DateTime(3)
+
+  createdById String @map("created_by") @db.Char(36)
+
+  completedById String? @map("completed_by") @db.Char(36)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
+
+  containerVisit ContainerVisit @relation(fields: [containerVisitId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  createdByUser User @relation("ContainerInspectionCreatedBy", fields: [createdById], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  completedByUser User? @relation("ContainerInspectionCompletedBy", fields: [completedById], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  @@index([containerVisitId, status])
+  @@index([inspectionType])
+  @@index([status])
+  @@index([result])
+  @@map("container_inspection")
+}
+
+// ============================================================
+// IN YARD BOOKING
+// ============================================================
+
+model InYardBooking {
+  id String @id @default(uuid()) @db.Char(36)
+
+  containerVisitId String @map("container_visit_id") @db.Char(36)
+
+  bookingType InYardBookingType @map("booking_type")
+
+  status InYardBookingStatus @default(PENDING)
+
+  scheduledAt DateTime @map("scheduled_at") @db.DateTime(3)
+
+  startedAt DateTime? @map("started_at") @db.DateTime(3)
+
+  completedAt DateTime? @map("completed_at") @db.DateTime(3)
+
+  actualPackageCount Int? @map("actual_package_count")
+
+  actualWeight Decimal? @map("actual_weight") @db.Decimal(14, 3)
+
+  conditionNotes String? @map("condition_notes") @db.Text
+
+  createdById String @map("created_by") @db.Char(36)
+
+  completedById String? @map("completed_by") @db.Char(36)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
+
+  containerVisit ContainerVisit @relation(fields: [containerVisitId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  createdByUser User @relation("InYardBookingCreatedBy", fields: [createdById], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  completedByUser User? @relation("InYardBookingCompletedBy", fields: [completedById], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  @@index([containerVisitId, status])
+  @@index([bookingType])
+  @@index([status])
+  @@index([scheduledAt])
+  @@map("in_yard_booking")
+}
+

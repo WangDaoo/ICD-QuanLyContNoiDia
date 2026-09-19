@@ -260,6 +260,13 @@ export const permissions = [
   },
 
   {
+    code: PERMISSION_CODES.YARD_BOOKING,
+    name: 'Đặt chỗ tác nghiệp bãi',
+    description:
+      'Cho phép đặt lịch rút ruột, đóng hàng, hoặc giám định tại bãi.',
+  },
+
+  {
     code: PERMISSION_CODES.BILLING_MANAGE,
     name: 'Quản lý tính cước',
     description:

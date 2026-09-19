@@ -98,6 +98,9 @@ export const PERMISSION_CODES = {
   YARD_INSPECT:
     'yard.inspect',
 
+  YARD_BOOKING:
+    'yard.booking',
+
   BILLING_MANAGE:
     'billing.manage',
 

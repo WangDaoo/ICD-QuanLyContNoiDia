@@ -42,4 +42,21 @@ export class YardLocationService {
 
     return result.count;
   }
+
+  formatSlotCode(slot: {
+    slotCode?: string | null;
+    yardBlock?: { blockCode: string };
+    rowNo?: string;
+    bayNo?: string;
+    tierNo?: string;
+  }): string {
+    if (slot.slotCode) {
+      return slot.slotCode;
+    }
+    const block = slot.yardBlock?.blockCode ?? 'BLK';
+    const row = slot.rowNo ?? '00';
+    const bay = slot.bayNo ?? '00';
+    const tier = slot.tierNo ?? '0';
+    return `${block}-${row}-${bay}-${tier}`;
+  }
 }
