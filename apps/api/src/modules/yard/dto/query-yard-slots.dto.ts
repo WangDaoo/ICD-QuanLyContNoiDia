@@ -1,15 +1,58 @@
-/**
- * yard / query-yard-slots.dto.ts
- *
- * Mục đích:
- * File dự kiến triển khai cho module yard. Quản lý vị trí bãi, xếp vị trí, di chuyển, kiểm định, booking và recommendation.
- *
- * Quy tắc khi triển khai:
- * - Ownership module: Yard slot/location/movement/inspection/booking.
- * - Tuân thủ pattern chung trong docs/development/OPERATION_PATTERNS.md.
- * - Chưa có logic; chỉ thêm code khi bắt đầu triển khai module này.
- *
- * Lưu ý:
- * - File hiện tại chỉ là khung, chưa có logic thực thi.
- * - Không tự ý mở rộng trách nhiệm của file nếu chưa cập nhật RULES.md của module.
- */
+import { Transform, Type } from 'class-transformer';
+import {
+  IsBoolean,
+  IsIn,
+  IsInt,
+  IsOptional,
+  IsString,
+  IsUUID,
+  Max,
+  MaxLength,
+  Min,
+} from 'class-validator';
+import {
+  CONTAINER_TYPES,
+  type ContainerType,
+} from '../../containers/constants/container-types.constants';
+
+export class QueryYardSlotsDto {
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  page: number = 1;
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  @Max(200)
+  pageSize: number = 50;
+
+  @IsOptional()
+  @IsUUID()
+  yardBlockId?: string;
+
+  @IsOptional()
+  @Transform(({ value }) => (typeof value === 'string' ? value.trim() : value))
+  @IsString()
+  @MaxLength(100)
+  search?: string;
+
+  @IsOptional()
+  @IsIn([...CONTAINER_TYPES])
+  supportedContainerType?: ContainerType;
+
+  @IsOptional()
+  @Transform(({ value }) => {
+    if (value === 'true') {
+      return true;
+    }
+    if (value === 'false') {
+      return false;
+    }
+    return value;
+  })
+  @IsBoolean()
+  operational?: boolean;
+}

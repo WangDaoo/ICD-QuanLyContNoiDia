@@ -1,0 +1,542 @@
+import {
+  ConflictException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
+import {
+  ContainerVisitStatus,
+  Prisma,
+  YardLocationSource,
+} from '../../../generated/prisma/client';
+import type { AuthenticatedUser } from '../../../common/types/authenticated-user.types';
+import { PrismaService } from '../../../database/prisma.service';
+import { CONTAINER_EVENT_TYPES } from '../../containers/constants/container-event-types.constants';
+import { ContainerEventService } from '../../containers/services/container-event.service';
+import { YARD_ERROR_CODES } from '../constants/yard-error-codes.constants';
+import type { AssignYardSlotDto } from '../dto/assign-yard-slot.dto';
+import { YardAssignmentPolicy } from '../policies/yard-assignment.policy';
+import { YardLocationService } from './yard-location.service';
+
+type YardDatabaseClient = Pick<
+  Prisma.TransactionClient,
+  'containerVisit' | 'yardSlot' | 'containerLocationLog'
+>;
+
+@Injectable()
+export class YardAssignmentService {
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly assignmentPolicy: YardAssignmentPolicy,
+    private readonly locationService: YardLocationService,
+    private readonly containerEventService: ContainerEventService,
+  ) {}
+
+  /**
+   * Rule-based candidate baseline.
+   * Batch 12 chỉ hard-filter.
+   * Không tự phát minh heuristic ranking.
+   * Mọi candidate hợp lệ có score 100.
+   * Thứ tự ổn định: Block → Row → Bay → Tier.
+   */
+  async getRecommendations(visitId: string, actor: AuthenticatedUser) {
+    const context = await this.getVisitContextOrThrow(
+      this.prisma,
+      visitId,
+      actor.icdId,
+    );
+
+    if (context.status !== ContainerVisitStatus.IN_YARD) {
+      throw new ConflictException({
+        code: YARD_ERROR_CODES.VISIT_NOT_IN_YARD,
+        message: 'Container phải ở trạng thái IN_YARD trước khi xếp vị trí.',
+      });
+    }
+
+    const currentLocation = await this.prisma.containerLocationLog.findFirst({
+      where: {
+        containerVisitId: visitId,
+        endedAt: null,
+      },
+      select: {
+        id: true,
+      },
+    });
+
+    if (currentLocation) {
+      throw new ConflictException({
+        code: YARD_ERROR_CODES.LOCATION_ALREADY_ASSIGNED,
+        message: 'Container đã có vị trí bãi hiện tại.',
+      });
+    }
+
+    const effectiveWeight = this.getEffectiveWeight(context);
+    const containerTypeStr = String(context.container.type);
+
+    const slots = await this.prisma.yardSlot.findMany({
+      where: {
+        operational: true,
+        yardBlock: {
+          icdId: actor.icdId,
+          operational: true,
+        },
+        OR: [
+          {
+            supportedContainerType: null,
+          },
+          {
+            supportedContainerType: containerTypeStr,
+          },
+        ],
+        ...(this.isReefer(containerTypeStr)
+          ? {
+              reeferPower: true,
+            }
+          : {}),
+        ...(effectiveWeight !== null
+          ? {
+              OR: [
+                {
+                  maxWeight: null,
+                },
+                {
+                  maxWeight: {
+                    gte: effectiveWeight,
+                  },
+                },
+              ],
+            }
+          : {}),
+        locationLogs: {
+          none: {
+            endedAt: null,
+          },
+        },
+      },
+      include: {
+        yardBlock: true,
+      },
+      orderBy: [
+        {
+          yardBlock: {
+            blockCode: 'asc',
+          },
+        },
+        {
+          rowNo: 'asc',
+        },
+        {
+          bayNo: 'asc',
+        },
+        {
+          tierNo: 'asc',
+        },
+      ],
+      take: 50,
+    });
+
+    return {
+      algorithm: 'RULE_BASED_V1',
+      containerVisit: {
+        id: context.id,
+        containerNumber: context.container.containerNumber,
+        containerType: containerTypeStr,
+        grossWeight: effectiveWeight?.toString() ?? null,
+      },
+      data: slots.map((slot, index) => ({
+        rank: index + 1,
+        yardSlotId: slot.id,
+        slotCode: slot.slotCode,
+        blockCode: slot.yardBlock.blockCode,
+        rowNo: slot.rowNo,
+        bayNo: slot.bayNo,
+        tierNo: slot.tierNo,
+        reeferPower: slot.reeferPower,
+        maxWeight: slot.maxWeight?.toString() ?? null,
+        ruleScore: 100,
+        reasons: ['Đạt toàn bộ hard rules.'],
+        warnings:
+          effectiveWeight === null && slot.maxWeight !== null
+            ? ['Chưa có trọng lượng để đối chiếu max weight.']
+            : [],
+      })),
+    };
+  }
+
+  /**
+   * Manual "Kiểm tra" trước khi xác nhận.
+   * Không throw khi business rule fail.
+   * Trả blockers cho UI.
+   */
+  async checkSlot(
+    visitId: string,
+    yardSlotId: string,
+    actor: AuthenticatedUser,
+  ) {
+    const [context, slot] = await Promise.all([
+      this.getVisitContextOrThrow(this.prisma, visitId, actor.icdId),
+      this.getSlotOrThrow(this.prisma, yardSlotId, actor.icdId),
+    ]);
+
+    const activeLocation = await this.prisma.containerLocationLog.findFirst({
+      where: {
+        containerVisitId: visitId,
+        endedAt: null,
+      },
+      select: {
+        id: true,
+      },
+    });
+
+    const slotOccupancy = await this.prisma.containerLocationLog.findFirst({
+      where: {
+        yardSlotId,
+        endedAt: null,
+      },
+      select: {
+        id: true,
+        containerVisitId: true,
+      },
+    });
+
+    const containerTypeStr = String(context.container.type);
+
+    const result = this.assignmentPolicy.checkAssignment({
+      visitState: context.status,
+      containerType: containerTypeStr,
+      grossWeight: this.getEffectiveWeight(context),
+      hasActiveLocation: activeLocation !== null,
+      blockOperational: slot.yardBlock.operational,
+      slotOperational: slot.operational,
+      slotOccupied: slotOccupancy !== null,
+      supportedContainerType: slot.supportedContainerType,
+      reeferPower: slot.reeferPower,
+      maxWeight: slot.maxWeight ? Number(slot.maxWeight) : null,
+    });
+
+    return {
+      yardSlot: {
+        id: slot.id,
+        slotCode: slot.slotCode,
+        blockCode: slot.yardBlock.blockCode,
+        rowNo: slot.rowNo,
+        bayNo: slot.bayNo,
+        tierNo: slot.tierNo,
+      },
+      ...result,
+    };
+  }
+
+  async assign(
+    visitId: string,
+    dto: AssignYardSlotDto,
+    actor: AuthenticatedUser,
+  ) {
+    const locationId = await this.prisma.$transaction(async (tx) => {
+      /**
+       * Lock Container Visit trước.
+       * Chống hai request gán hai slot khác nhau cho cùng container.
+       */
+      await tx.$queryRaw(
+        Prisma.sql`
+          SELECT id
+          FROM container_visit
+          WHERE id = ${visitId}
+            AND icd_id = ${actor.icdId}
+          FOR UPDATE
+        `,
+      );
+
+      const context = await this.getVisitContextOrThrow(
+        tx,
+        visitId,
+        actor.icdId,
+      );
+
+      /**
+       * Lock Yard Slot + Block.
+       * Chống hai container đồng thời chiếm cùng một slot.
+       */
+      await tx.$queryRaw(
+        Prisma.sql`
+          SELECT ys.id
+          FROM yard_slot ys
+          INNER JOIN yard_block yb
+            ON yb.id = ys.yard_block_id
+          WHERE ys.id = ${dto.yardSlotId}
+            AND yb.icd_id = ${actor.icdId}
+          FOR UPDATE
+        `,
+      );
+
+      const slot = await this.getSlotOrThrow(tx, dto.yardSlotId, actor.icdId);
+
+      const activeLocation = await this.locationService.findCurrentForVisit(
+        tx,
+        visitId,
+      );
+
+      const slotOccupancy = await tx.containerLocationLog.findFirst({
+        where: {
+          yardSlotId: slot.id,
+          endedAt: null,
+        },
+        select: {
+          id: true,
+          containerVisitId: true,
+        },
+      });
+
+      const containerTypeStr = String(context.container.type);
+
+      const checkResult = this.assignmentPolicy.checkAssignment({
+        visitState: context.status,
+        containerType: containerTypeStr,
+        grossWeight: this.getEffectiveWeight(context),
+        hasActiveLocation: activeLocation !== null,
+        blockOperational: slot.yardBlock.operational,
+        slotOperational: slot.operational,
+        slotOccupied: slotOccupancy !== null,
+        supportedContainerType: slot.supportedContainerType,
+        reeferPower: slot.reeferPower,
+        maxWeight: slot.maxWeight ? Number(slot.maxWeight) : null,
+      });
+
+      /**
+       * Final business revalidation.
+       */
+      this.assignmentPolicy.assertAssignmentAllowed(checkResult);
+
+      const now = new Date();
+
+      const location = await tx.containerLocationLog.create({
+        data: {
+          containerVisitId: visitId,
+          yardSlotId: slot.id,
+          startedAt: now,
+          assignedById: actor.id,
+          source:
+            dto.source === 'RULE'
+              ? YardLocationSource.RULE
+              : YardLocationSource.MANUAL,
+        },
+      });
+
+      await this.containerEventService.record(tx, {
+        containerVisitId: visitId,
+        eventType: CONTAINER_EVENT_TYPES.YARD_ASSIGNED,
+        actorUserId: actor.id,
+        referenceType: 'container_location_log',
+        referenceId: location.id,
+        metadataJson: {
+          yardSlotId: slot.id,
+          slotCode: slot.slotCode,
+          blockCode: slot.yardBlock.blockCode,
+          rowNo: slot.rowNo,
+          bayNo: slot.bayNo,
+          tierNo: slot.tierNo,
+          source: dto.source,
+        },
+      });
+
+      return location.id;
+    });
+
+    return this.getLocationById(locationId, actor.icdId);
+  }
+
+  async getCurrentLocation(visitId: string, actor: AuthenticatedUser) {
+    const visit = await this.prisma.containerVisit.findFirst({
+      where: {
+        id: visitId,
+        icdId: actor.icdId,
+      },
+      select: {
+        id: true,
+      },
+    });
+
+    if (!visit) {
+      throw this.visitNotFound();
+    }
+
+    const location = await this.prisma.containerLocationLog.findFirst({
+      where: {
+        containerVisitId: visit.id,
+        endedAt: null,
+      },
+      include: {
+        yardSlot: {
+          include: {
+            yardBlock: true,
+          },
+        },
+        assignedByUser: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+          },
+        },
+      },
+    });
+
+    return location ? this.mapLocation(location) : null;
+  }
+
+  private async getVisitContextOrThrow(
+    db: YardDatabaseClient,
+    visitId: string,
+    icdId: string,
+  ) {
+    const visit = await db.containerVisit.findFirst({
+      where: {
+        id: visitId,
+        icdId,
+      },
+      select: {
+        id: true,
+        status: true,
+        grossWeight: true,
+        container: {
+          select: {
+            containerNumber: true,
+            type: true,
+          },
+        },
+        reception: {
+          select: {
+            actualWeight: true,
+          },
+        },
+      },
+    });
+
+    if (!visit) {
+      throw this.visitNotFound();
+    }
+
+    return visit;
+  }
+
+  private async getSlotOrThrow(
+    db: YardDatabaseClient,
+    yardSlotId: string,
+    icdId: string,
+  ) {
+    const slot = await db.yardSlot.findFirst({
+      where: {
+        id: yardSlotId,
+        yardBlock: {
+          icdId,
+        },
+      },
+      include: {
+        yardBlock: true,
+      },
+    });
+
+    if (!slot) {
+      throw new NotFoundException({
+        code: YARD_ERROR_CODES.SLOT_NOT_FOUND,
+        message: 'Không tìm thấy Yard Slot.',
+      });
+    }
+
+    return slot;
+  }
+
+  private getEffectiveWeight(context: {
+    grossWeight: Prisma.Decimal | null;
+    reception: {
+      actualWeight: Prisma.Decimal | null;
+    } | null;
+  }): number | null {
+    const value = context.reception?.actualWeight ?? context.grossWeight;
+    return value ? Number(value) : null;
+  }
+
+  private isReefer(containerType: string): boolean {
+    const upper = containerType.toUpperCase();
+    return upper.endsWith('RF') || upper === 'REEFER';
+  }
+
+  private async getLocationById(locationId: string, icdId: string) {
+    const location = await this.prisma.containerLocationLog.findFirst({
+      where: {
+        id: locationId,
+        containerVisit: {
+          icdId,
+        },
+      },
+      include: {
+        yardSlot: {
+          include: {
+            yardBlock: true,
+          },
+        },
+        assignedByUser: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+          },
+        },
+      },
+    });
+
+    if (!location) {
+      throw new NotFoundException({
+        code: YARD_ERROR_CODES.SLOT_NOT_FOUND,
+        message: 'Không tìm thấy vị trí bãi vừa tạo.',
+      });
+    }
+
+    return this.mapLocation(location);
+  }
+
+  private mapLocation<
+    T extends {
+      id: string;
+      containerVisitId: string;
+      startedAt: Date;
+      endedAt: Date | null;
+      source: YardLocationSource;
+      recommendationId: string | null;
+      yardSlot: {
+        id: string;
+        slotCode: string | null;
+        rowNo: string;
+        bayNo: string;
+        tierNo: string;
+        yardBlock: {
+          id: string;
+          blockCode: string;
+          name: string | null;
+        };
+      };
+      assignedByUser: {
+        id: string;
+        name: string;
+        email: string;
+      } | null;
+    },
+  >(location: T) {
+    return {
+      id: location.id,
+      containerVisitId: location.containerVisitId,
+      startedAt: location.startedAt,
+      endedAt: location.endedAt,
+      source: location.source,
+      recommendationId: location.recommendationId,
+      yardSlot: location.yardSlot,
+      assignedBy: location.assignedByUser,
+    };
+  }
+
+  private visitNotFound(): NotFoundException {
+    return new NotFoundException({
+      code: YARD_ERROR_CODES.VISIT_NOT_FOUND,
+      message: 'Không tìm thấy Container Visit.',
+    });
+  }
+}

@@ -1,15 +1,30 @@
-/**
- * yard / yard.module.ts
- *
- * Mục đích:
- * File dự kiến triển khai cho module yard. Quản lý vị trí bãi, xếp vị trí, di chuyển, kiểm định, booking và recommendation.
- *
- * Quy tắc khi triển khai:
- * - Ownership module: Yard slot/location/movement/inspection/booking.
- * - Tuân thủ pattern chung trong docs/development/OPERATION_PATTERNS.md.
- * - Chưa có logic; chỉ thêm code khi bắt đầu triển khai module này.
- *
- * Lưu ý:
- * - File hiện tại chỉ là khung, chưa có logic thực thi.
- * - Không tự ý mở rộng trách nhiệm của file nếu chưa cập nhật RULES.md của module.
- */
+import { Module } from '@nestjs/common';
+import { PrismaModule } from '../../database/prisma.module';
+import { ContainersModule } from '../containers/containers.module';
+import { YardAssignmentPolicy } from './policies/yard-assignment.policy';
+import { YardAssignmentService } from './services/yard-assignment.service';
+import { YardCatalogService } from './services/yard-catalog.service';
+import { YardLocationService } from './services/yard-location.service';
+import { YardController } from './yard.controller';
+
+@Module({
+  imports: [
+    PrismaModule,
+    ContainersModule,
+  ],
+  controllers: [
+    YardController,
+  ],
+  providers: [
+    YardAssignmentPolicy,
+    YardCatalogService,
+    YardLocationService,
+    YardAssignmentService,
+  ],
+  exports: [
+    YardAssignmentPolicy,
+    YardLocationService,
+    YardAssignmentService,
+  ],
+})
+export class YardModule {}

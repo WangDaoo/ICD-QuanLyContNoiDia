@@ -89,6 +89,9 @@ export const PERMISSION_CODES = {
   YARD_UPDATE:
     'yard.update',
 
+  YARD_CONFIGURE:
+    'yard.configure',
+
   YARD_MOVE:
     'yard.move',
 

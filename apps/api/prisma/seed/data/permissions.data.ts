@@ -239,6 +239,13 @@ export const permissions = [
   },
 
   {
+    code: PERMISSION_CODES.YARD_CONFIGURE,
+    name: 'Cấu hình bãi container',
+    description:
+      'Cho phép tạo và cập nhật Yard Block/Yard Slot.',
+  },
+
+  {
     code: PERMISSION_CODES.YARD_MOVE,
     name: 'Di chuyển container',
     description:

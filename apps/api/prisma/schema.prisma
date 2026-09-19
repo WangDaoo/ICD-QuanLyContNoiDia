@@ -99,6 +99,13 @@ enum TruckVisitStatus {
   CANCELLED
 }
 
+enum YardLocationSource {
+  MANUAL
+  RULE
+  ML
+  MOVEMENT
+}
+
 // ============================================================
 // ICD SITE
 // ============================================================
@@ -118,6 +125,7 @@ model IcdSite {
   manifests       Manifest[]
   containerVisits ContainerVisit[]
   truckVisits     TruckVisit[]
+  yardBlocks      YardBlock[]
 
   @@map("icd_site")
 }
@@ -145,12 +153,13 @@ model User {
 
   roles                       UserRole[]
   sessions                    AuthSession[]
-  updatedSettings             IcdSetting[]         @relation("IcdSettingUpdatedBy")
+  updatedSettings             IcdSetting[]           @relation("IcdSettingUpdatedBy")
   createdManifests            Manifest[]
   containerEvents             ContainerEvent[]
-  createdMovementOrders       MovementOrder[]      @relation("MovementOrderCreatedBy")
-  authorizedMovementOrders    MovementOrder[]      @relation("MovementOrderAuthorizedBy")
-  receivedContainerReceptions ContainerReception[] @relation("ContainerReceptionReceivedBy")
+  createdMovementOrders       MovementOrder[]        @relation("MovementOrderCreatedBy")
+  authorizedMovementOrders    MovementOrder[]        @relation("MovementOrderAuthorizedBy")
+  receivedContainerReceptions ContainerReception[]   @relation("ContainerReceptionReceivedBy")
+  assignedYardLocations       ContainerLocationLog[] @relation("ContainerLocationAssignedBy")
 
   @@index([icdId])
   @@index([active])
@@ -597,6 +606,7 @@ model ContainerVisit {
   movementOrders  MovementOrder[]
   truckVisitLinks TruckVisitContainer[]
   reception       ContainerReception?
+  locationLogs    ContainerLocationLog[]
 
   @@index([icdId, status])
   @@index([containerId])
@@ -793,4 +803,102 @@ model ContainerReception {
   @@index([receivedById])
   @@index([receivedAt])
   @@map("container_reception")
+}
+
+// ============================================================
+// YARD BLOCK
+// ============================================================
+
+model YardBlock {
+  id String @id @default(uuid()) @db.Char(36)
+
+  icdId String @map("icd_id") @db.Char(36)
+
+  blockCode String @map("block_code") @db.VarChar(50)
+
+  name String? @db.VarChar(160)
+
+  operational Boolean @default(true)
+
+  icd IcdSite @relation(fields: [icdId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  slots YardSlot[]
+
+  @@unique([icdId, blockCode])
+  @@index([icdId, operational])
+  @@map("yard_block")
+}
+
+// ============================================================
+// YARD SLOT
+// ============================================================
+
+model YardSlot {
+  id String @id @default(uuid()) @db.Char(36)
+
+  yardBlockId String @map("yard_block_id") @db.Char(36)
+
+  rowNo String @map("row_no") @db.VarChar(20)
+
+  bayNo String @map("bay_no") @db.VarChar(20)
+
+  tierNo String @map("tier_no") @db.VarChar(20)
+
+  slotCode String? @map("slot_code") @db.VarChar(100)
+
+  supportedContainerType String? @map("supported_container_type") @db.VarChar(30)
+
+  reeferPower Boolean @default(false) @map("reefer_power")
+
+  maxWeight Decimal? @map("max_weight") @db.Decimal(14, 3)
+
+  operational Boolean @default(true)
+
+  yardBlock YardBlock @relation(fields: [yardBlockId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  locationLogs ContainerLocationLog[]
+
+  @@unique([yardBlockId, rowNo, bayNo, tierNo])
+  @@index([yardBlockId, operational])
+  @@index([supportedContainerType])
+  @@map("yard_slot")
+}
+
+// ============================================================
+// CONTAINER LOCATION LOG
+// ============================================================
+
+model ContainerLocationLog {
+  id String @id @default(uuid()) @db.Char(36)
+
+  containerVisitId String @map("container_visit_id") @db.Char(36)
+
+  yardSlotId String @map("yard_slot_id") @db.Char(36)
+
+  startedAt DateTime @default(now()) @map("started_at") @db.DateTime(3)
+
+  endedAt DateTime? @map("ended_at") @db.DateTime(3)
+
+  assignedById String? @map("assigned_by") @db.Char(36)
+
+  source YardLocationSource @default(MANUAL)
+
+  /**
+   * Batch ML sau này sẽ thêm FK tới
+   * yard_recommendation.
+   * Hiện giữ nullable technical reference
+   * đúng database design.
+   */
+  recommendationId String? @map("recommendation_id") @db.Char(36)
+
+  containerVisit ContainerVisit @relation(fields: [containerVisitId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  yardSlot YardSlot @relation(fields: [yardSlotId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  assignedByUser User? @relation("ContainerLocationAssignedBy", fields: [assignedById], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  @@index([containerVisitId, endedAt])
+  @@index([yardSlotId, endedAt])
+  @@index([startedAt])
+  @@map("container_location_log")
 }

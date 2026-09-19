@@ -47,6 +47,10 @@ import {
 } from './modules/gate-in/gate-in.module';
 
 import {
+  YardModule,
+} from './modules/yard/yard.module';
+
+import {
   UsersModule,
 } from './modules/users/users.module';
 
@@ -82,6 +86,8 @@ import {
     TruckVisitsModule,
 
     GateInModule,
+
+    YardModule,
   ],
 })
 export class AppModule {}
