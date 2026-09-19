@@ -110,6 +110,25 @@ async function seedRoles(): Promise<void> {
   }
 }
 
+function validateRolePermissionReferences(): void {
+  const permissionCodes = new Set(permissions.map((p) => p.code as string));
+  const missing = new Set<string>();
+
+  for (const permissionCodesForRole of Object.values(rolePermissions)) {
+    for (const code of permissionCodesForRole) {
+      if (!permissionCodes.has(code)) {
+        missing.add(code);
+      }
+    }
+  }
+
+  if (missing.size > 0) {
+    throw new Error(
+      `Seed permissions are missing referenced codes: ${[...missing].sort().join(', ')}`,
+    );
+  }
+}
+
 function getRequiredMapValue(map: Map<string, string>, key: string): string {
   const value = map.get(key);
 
@@ -490,6 +509,8 @@ async function seedEdiSettings(icdId: string): Promise<void> {
 }
 
 async function main(): Promise<void> {
+  validateRolePermissionReferences();
+
   console.log('Starting ICD database seed...');
 
   await seedPermissions();

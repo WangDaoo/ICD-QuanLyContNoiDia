@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 
 import { validateEnvironment } from './config/env.validation';
+import { PrismaModule } from './database/prisma.module';
 
 import { AuthModule } from './modules/auth/auth.module';
 
@@ -67,6 +68,8 @@ import { NotificationsModule } from './modules/notifications/notifications.modul
     ]),
 
     RequestContextModule,
+
+    PrismaModule,
 
     AuditModule,
 

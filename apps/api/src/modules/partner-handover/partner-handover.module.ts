@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { PrismaModule } from '../../database/prisma.module';
 import { CustomerWarehouseController } from './controllers/internal/customer-warehouse.controller';
 import { PartnerClientController } from './controllers/internal/partner-client.controller';
 import { TransportHandoverController } from './controllers/internal/transport-handover.controller';
@@ -19,6 +20,7 @@ import { PartnerClientService } from './services/partner-client.service';
 import { TransportHandoverReviewService } from './services/transport-handover-review.service';
 
 @Module({
+  imports: [PrismaModule],
   controllers: [
     PartnerClientController,
     CustomerWarehouseController,

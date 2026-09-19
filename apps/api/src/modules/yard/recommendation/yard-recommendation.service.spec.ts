@@ -198,7 +198,11 @@ describe('YardRecommendationService', () => {
   });
 
   it('records selection feedback on slot assign', async () => {
-    await service.recordFeedback(mockPrisma as any, 'rec-1', 'slot-1');
+    await service.recordFeedback(
+      mockPrisma as unknown as Prisma.TransactionClient,
+      'rec-1',
+      'slot-1',
+    );
 
     expect(mockPrisma.yardRecommendationCandidate.updateMany).toHaveBeenCalledWith({
       where: {

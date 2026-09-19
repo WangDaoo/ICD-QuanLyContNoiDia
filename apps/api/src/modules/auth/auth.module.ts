@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Global, Module } from '@nestjs/common';
 
 import { APP_GUARD } from '@nestjs/core';
 
@@ -16,6 +16,7 @@ import { PermissionsGuard } from './guards/permissions.guard';
 
 import { TokenService } from './services/token.service';
 
+@Global()
 @Module({
   imports: [
     PrismaModule,
@@ -33,6 +34,10 @@ import { TokenService } from './services/token.service';
     AuthService,
 
     TokenService,
+
+    JwtAuthGuard,
+
+    PermissionsGuard,
 
     /**
      * Thứ tự guard:
@@ -53,6 +58,6 @@ import { TokenService } from './services/token.service';
     },
   ],
 
-  exports: [AuthService],
+  exports: [AuthService, TokenService, JwtAuthGuard, PermissionsGuard, JwtModule],
 })
 export class AuthModule {}

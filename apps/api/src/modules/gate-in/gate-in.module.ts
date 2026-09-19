@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-
+import { PrismaModule } from '../../database/prisma.module';
 import { ContainersModule } from '../containers/containers.module';
 import { MovementOrdersModule } from '../movement-orders/movement-orders.module';
 import { TruckVisitsModule } from '../truck-visits/truck-visits.module';
@@ -10,6 +10,7 @@ import { GateInPolicy } from './policies/gate-in.policy';
 
 @Module({
   imports: [
+    PrismaModule,
     ContainersModule,
     MovementOrdersModule,
     TruckVisitsModule,

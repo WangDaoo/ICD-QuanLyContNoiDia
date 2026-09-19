@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { PrismaModule } from '../../database/prisma.module';
 import { ContainersModule } from '../containers/containers.module';
 import { BillingController } from './billing.controller';
 import { BillingReadinessController } from './billing-readiness.controller';
@@ -16,7 +17,7 @@ import { ServiceOrderService } from './services/service-order.service';
 import { TariffService } from './services/tariff.service';
 
 @Module({
-  imports: [ContainersModule],
+  imports: [PrismaModule, ContainersModule],
   controllers: [
     TariffController,
     BillingController,

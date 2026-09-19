@@ -334,4 +334,16 @@ export const permissions = [
     name: 'Quản lý sự cố EDI (Alerts)',
     description: 'Cho phép xác nhận và xử lý các sự cố vận hành EDI Outbox và ACK.',
   },
+
+  {
+    code: PERMISSION_CODES.NOTIFICATION_READ,
+    name: 'Xem thông báo',
+    description: 'Cho phép xem lịch sử thông báo và danh sách gửi nhận.',
+  },
+
+  {
+    code: PERMISSION_CODES.NOTIFICATION_MANAGE,
+    name: 'Quản lý thông báo',
+    description: 'Cho phép cấu hình thiết bị và gửi/quản lý thông báo.',
+  },
 ] as const;
