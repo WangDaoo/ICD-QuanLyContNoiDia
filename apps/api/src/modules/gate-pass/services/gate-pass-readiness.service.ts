@@ -15,6 +15,7 @@ export type GatePassReadinessMode = 'ISSUE' | 'GATE_OUT';
 
 export interface GatePassReadinessResult {
   containerVisitId: string;
+  ready: boolean;
   isReady: boolean;
   blockers: GatePassBlockerCode[];
   details: {
@@ -62,6 +63,24 @@ export class GatePassReadinessService {
     private readonly operationalHoldReadService: OperationalHoldReadService,
     private readonly billingReadinessService: BillingReadinessService,
   ) {}
+
+  async checkWithDb(
+    tx: Prisma.TransactionClient,
+    visitId: string,
+    icdId: string,
+    mode: GatePassReadinessMode = 'GATE_OUT',
+  ): Promise<GatePassReadinessResult> {
+    const actor: AuthenticatedUser = {
+      id: 'system',
+      sessionId: 'system-session',
+      icdId,
+      name: 'System',
+      email: 'system@icd.local',
+      roleCodes: [],
+      permissionCodes: [],
+    };
+    return this.evaluateReadiness(visitId, actor, mode, tx);
+  }
 
   async evaluateReadiness(
     visitId: string,
@@ -146,10 +165,12 @@ export class GatePassReadinessService {
     }
 
     const uniqueBlockers = Array.from(new Set(blockers));
+    const isReady = uniqueBlockers.length === 0;
 
     return {
       containerVisitId: visit.id,
-      isReady: uniqueBlockers.length === 0,
+      ready: isReady,
+      isReady,
       blockers: uniqueBlockers,
       details: {
         containerStatus: visit.status,

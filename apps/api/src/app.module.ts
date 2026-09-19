@@ -30,6 +30,8 @@ import { OperationalHoldsModule } from './modules/operational-holds/operational-
 
 import { GatePassModule } from './modules/gate-pass/gate-pass.module';
 
+import { GateOutModule } from './modules/gate-out/gate-out.module';
+
 import { UsersModule } from './modules/users/users.module';
 
 @Module({
@@ -69,6 +71,8 @@ import { UsersModule } from './modules/users/users.module';
     OperationalHoldsModule,
 
     GatePassModule,
+
+    GateOutModule,
   ],
 })
 export class AppModule {}

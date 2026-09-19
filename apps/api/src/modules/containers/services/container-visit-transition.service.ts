@@ -333,4 +333,69 @@ export class ContainerVisitTransitionService {
       });
     }
   }
+
+  async lockForGateOut(
+    tx: Prisma.TransactionClient,
+    visitId: string,
+    icdId: string,
+  ) {
+    await tx.$queryRaw(
+      Prisma.sql`
+        SELECT id
+        FROM container_visit
+        WHERE id = ${visitId}
+          AND icd_id = ${icdId}
+        FOR UPDATE
+      `,
+    );
+
+    const visit = await tx.containerVisit.findFirst({
+      where: {
+        id: visitId,
+        icdId,
+      },
+      include: {
+        container: true,
+      },
+    });
+
+    if (!visit) {
+      throw new NotFoundException({
+        code: CONTAINER_ERROR_CODES.VISIT_NOT_FOUND,
+        message: 'Không tìm thấy Container Visit.',
+      });
+    }
+
+    return visit;
+  }
+
+  async exitByGateOut(
+    tx: Prisma.TransactionClient,
+    input: {
+      visitId: string;
+      icdId: string;
+      gateOutAt: Date;
+    },
+  ): Promise<void> {
+    const result = await tx.containerVisit.updateMany({
+      where: {
+        id: input.visitId,
+        icdId: input.icdId,
+        status: ContainerVisitStatus.GATE_PASS_ISSUED,
+        gateOutAt: null,
+      },
+      data: {
+        status: ContainerVisitStatus.EXITED,
+        gateOutAt: input.gateOutAt,
+      },
+    });
+
+    if (result.count !== 1) {
+      throw new ConflictException({
+        code: CONTAINER_ERROR_CODES.INVALID_STATE,
+        message: 'Container Visit không còn ở trạng thái GATE_PASS_ISSUED.',
+      });
+    }
+  }
 }
+

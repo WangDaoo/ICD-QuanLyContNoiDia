@@ -5,7 +5,9 @@ import { Permissions } from '../../common/decorators/permissions.decorator';
 import type { AuthenticatedUser } from '../../common/types/authenticated-user.types';
 import { CancelGatePassDto } from './dto/cancel-gate-pass.dto';
 import { IssueGatePassDto } from './dto/issue-gate-pass.dto';
+import { ScanGatePassDto } from './dto/scan-gate-pass.dto';
 import { GatePassReadinessService } from './services/gate-pass-readiness.service';
+import { GatePassScanService } from './services/gate-pass-scan.service';
 import { GatePassService } from './services/gate-pass.service';
 
 @Controller()
@@ -13,6 +15,7 @@ export class GatePassController {
   constructor(
     private readonly gatePassService: GatePassService,
     private readonly readinessService: GatePassReadinessService,
+    private readonly scanService: GatePassScanService,
   ) {}
 
   @Permissions(
@@ -73,6 +76,13 @@ export class GatePassController {
     @CurrentUser() actor: AuthenticatedUser,
   ) {
     const data = await this.gatePassService.cancel(gatePassId, dto, actor);
+    return { data };
+  }
+
+  @Permissions(PERMISSION_CODES.GATE_PASS_USE)
+  @Post('gate-pass/scan')
+  async scan(@Body() dto: ScanGatePassDto, @CurrentUser() actor: AuthenticatedUser) {
+    const data = await this.scanService.scanGatePass(dto.qrToken, actor);
     return { data };
   }
 }

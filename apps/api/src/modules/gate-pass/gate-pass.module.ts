@@ -5,13 +5,28 @@ import { ContainersModule } from '../containers/containers.module';
 import { OperationalHoldsModule } from '../operational-holds/operational-holds.module';
 import { YardModule } from '../yard/yard.module';
 import { GatePassController } from './gate-pass.controller';
+import { GatePassLookupService } from './services/gate-pass-lookup.service';
 import { GatePassReadinessService } from './services/gate-pass-readiness.service';
+import { GatePassScanService } from './services/gate-pass-scan.service';
+import { GatePassTransitionService } from './services/gate-pass-transition.service';
 import { GatePassService } from './services/gate-pass.service';
 
 @Module({
   imports: [PrismaModule, ContainersModule, YardModule, OperationalHoldsModule, BillingModule],
   controllers: [GatePassController],
-  providers: [GatePassService, GatePassReadinessService],
-  exports: [GatePassService, GatePassReadinessService],
+  providers: [
+    GatePassService,
+    GatePassReadinessService,
+    GatePassLookupService,
+    GatePassTransitionService,
+    GatePassScanService,
+  ],
+  exports: [
+    GatePassService,
+    GatePassReadinessService,
+    GatePassLookupService,
+    GatePassTransitionService,
+    GatePassScanService,
+  ],
 })
 export class GatePassModule {}

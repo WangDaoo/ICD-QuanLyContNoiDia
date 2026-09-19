@@ -1,15 +1,22 @@
-/**
- * gate-out / gate-out.controller.ts
- *
- * Mục đích:
- * File dự kiến triển khai cho module gate-out. Điều phối xác nhận container rời ICD.
- *
- * Quy tắc khi triển khai:
- * - Ownership module: Gate-out orchestration, re-check readiness trước commit.
- * - Tuân thủ pattern chung trong docs/development/OPERATION_PATTERNS.md.
- * - Chưa có logic; chỉ thêm code khi bắt đầu triển khai module này.
- *
- * Lưu ý:
- * - File hiện tại chỉ là khung, chưa có logic thực thi.
- * - Không tự ý mở rộng trách nhiệm của file nếu chưa cập nhật RULES.md của module.
- */
+import { Body, Controller, Post } from '@nestjs/common';
+import { PERMISSION_CODES } from '../../common/constants/permission-codes.constants';
+import { CurrentUser } from '../../common/decorators/current-user.decorator';
+import { Permissions } from '../../common/decorators/permissions.decorator';
+import type { AuthenticatedUser } from '../../common/types/authenticated-user.types';
+import { ConfirmGateOutDto } from './dto/confirm-gate-out.dto';
+import { GateOutService } from './services/gate-out.service';
+
+@Controller('gate-out')
+export class GateOutController {
+  constructor(private readonly gateOutService: GateOutService) {}
+
+  @Permissions(PERMISSION_CODES.GATE_PASS_USE)
+  @Post()
+  async confirmGateOut(
+    @Body() dto: ConfirmGateOutDto,
+    @CurrentUser() actor: AuthenticatedUser,
+  ) {
+    const data = await this.gateOutService.confirmGateOut(dto, actor);
+    return { data };
+  }
+}
