@@ -1,5 +1,5 @@
-import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
-import { ContainerVisitStatus, Prisma, YardLocationSource } from '../../../generated/prisma/client';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { Prisma, YardLocationSource } from '../../../generated/prisma/client';
 import type { AuthenticatedUser } from '../../../common/types/authenticated-user.types';
 import { PrismaService } from '../../../database/prisma.service';
 import { CONTAINER_EVENT_TYPES } from '../../containers/constants/container-event-types.constants';
@@ -8,6 +8,7 @@ import { YARD_ERROR_CODES } from '../constants/yard-error-codes.constants';
 import type { AssignYardSlotDto } from '../dto/assign-yard-slot.dto';
 import { YardAssignmentPolicy } from '../policies/yard-assignment.policy';
 import { YardLocationService } from './yard-location.service';
+import { YardRecommendationService } from '../recommendation/yard-recommendation.service';
 
 type YardDatabaseClient = Pick<
   Prisma.TransactionClient,
@@ -21,133 +22,15 @@ export class YardAssignmentService {
     private readonly assignmentPolicy: YardAssignmentPolicy,
     private readonly locationService: YardLocationService,
     private readonly containerEventService: ContainerEventService,
+    private readonly recommendationService: YardRecommendationService,
   ) {}
 
   /**
-   * Rule-based candidate baseline.
-   * Batch 12 chỉ hard-filter.
-   * Không tự phát minh heuristic ranking.
-   * Mọi candidate hợp lệ có score 100.
-   * Thứ tự ổn định: Block → Row → Bay → Tier.
+   * Yard slot recommendation.
+   * Batch 22: Hard Safety Rules + RULE_BASED_V1 baseline + ML reranking fallback.
    */
   async getRecommendations(visitId: string, actor: AuthenticatedUser) {
-    const context = await this.getVisitContextOrThrow(this.prisma, visitId, actor.icdId);
-
-    if (context.status !== ContainerVisitStatus.IN_YARD) {
-      throw new ConflictException({
-        code: YARD_ERROR_CODES.VISIT_NOT_IN_YARD,
-        message: 'Container phải ở trạng thái IN_YARD trước khi xếp vị trí.',
-      });
-    }
-
-    const currentLocation = await this.prisma.containerLocationLog.findFirst({
-      where: {
-        containerVisitId: visitId,
-        endedAt: null,
-      },
-      select: {
-        id: true,
-      },
-    });
-
-    if (currentLocation) {
-      throw new ConflictException({
-        code: YARD_ERROR_CODES.LOCATION_ALREADY_ASSIGNED,
-        message: 'Container đã có vị trí bãi hiện tại.',
-      });
-    }
-
-    const effectiveWeight = this.getEffectiveWeight(context);
-    const containerTypeStr = String(context.container.type);
-
-    const slots = await this.prisma.yardSlot.findMany({
-      where: {
-        operational: true,
-        yardBlock: {
-          icdId: actor.icdId,
-          operational: true,
-        },
-        OR: [
-          {
-            supportedContainerType: null,
-          },
-          {
-            supportedContainerType: containerTypeStr,
-          },
-        ],
-        ...(this.isReefer(containerTypeStr)
-          ? {
-              reeferPower: true,
-            }
-          : {}),
-        ...(effectiveWeight !== null
-          ? {
-              OR: [
-                {
-                  maxWeight: null,
-                },
-                {
-                  maxWeight: {
-                    gte: effectiveWeight,
-                  },
-                },
-              ],
-            }
-          : {}),
-        locationLogs: {
-          none: {
-            endedAt: null,
-          },
-        },
-      },
-      include: {
-        yardBlock: true,
-      },
-      orderBy: [
-        {
-          yardBlock: {
-            blockCode: 'asc',
-          },
-        },
-        {
-          rowNo: 'asc',
-        },
-        {
-          bayNo: 'asc',
-        },
-        {
-          tierNo: 'asc',
-        },
-      ],
-      take: 50,
-    });
-
-    return {
-      algorithm: 'RULE_BASED_V1',
-      containerVisit: {
-        id: context.id,
-        containerNumber: context.container.containerNumber,
-        containerType: containerTypeStr,
-        grossWeight: effectiveWeight?.toString() ?? null,
-      },
-      data: slots.map((slot, index) => ({
-        rank: index + 1,
-        yardSlotId: slot.id,
-        slotCode: slot.slotCode,
-        blockCode: slot.yardBlock.blockCode,
-        rowNo: slot.rowNo,
-        bayNo: slot.bayNo,
-        tierNo: slot.tierNo,
-        reeferPower: slot.reeferPower,
-        maxWeight: slot.maxWeight?.toString() ?? null,
-        ruleScore: 100,
-        reasons: ['Đạt toàn bộ hard rules.'],
-        warnings:
-          effectiveWeight === null && slot.maxWeight !== null
-            ? ['Chưa có trọng lượng để đối chiếu max weight.']
-            : [],
-      })),
-    };
+    return this.recommendationService.getRecommendations(visitId, actor);
   }
 
   /**
@@ -281,15 +164,27 @@ export class YardAssignmentService {
 
       const now = new Date();
 
+      const locationSource =
+        dto.source === 'RULE'
+          ? YardLocationSource.RULE
+          : dto.source === 'ML'
+            ? YardLocationSource.ML
+            : YardLocationSource.MANUAL;
+
       const location = await tx.containerLocationLog.create({
         data: {
           containerVisitId: visitId,
           yardSlotId: slot.id,
           startedAt: now,
           assignedById: actor.id,
-          source: dto.source === 'RULE' ? YardLocationSource.RULE : YardLocationSource.MANUAL,
+          source: locationSource,
+          recommendationId: dto.recommendationId ?? null,
         },
       });
+
+      if (dto.recommendationId) {
+        await this.recommendationService.recordFeedback(tx, dto.recommendationId, slot.id);
+      }
 
       await this.containerEventService.record(tx, {
         containerVisitId: visitId,
@@ -305,6 +200,7 @@ export class YardAssignmentService {
           bayNo: slot.bayNo,
           tierNo: slot.tierNo,
           source: dto.source,
+          recommendationId: dto.recommendationId ?? null,
         },
       });
 

@@ -14,6 +14,8 @@ import { YardMovementService } from './services/yard-movement.service';
 import { YardOperationReadService } from './services/yard-operation-read.service';
 import { YardReadinessService } from './services/yard-readiness.service';
 import { YardController } from './yard.controller';
+import { MlClient } from './recommendation/ml-client.client';
+import { YardRecommendationService } from './recommendation/yard-recommendation.service';
 
 @Module({
   imports: [PrismaModule, ContainersModule],
@@ -31,6 +33,8 @@ import { YardController } from './yard.controller';
     InYardBookingService,
     YardOperationReadService,
     YardReadinessService,
+    MlClient,
+    YardRecommendationService,
   ],
   exports: [
     YardAssignmentPolicy,
@@ -44,6 +48,8 @@ import { YardController } from './yard.controller';
     InYardBookingService,
     YardOperationReadService,
     YardReadinessService,
+    MlClient,
+    YardRecommendationService,
   ],
 })
 export class YardModule {}

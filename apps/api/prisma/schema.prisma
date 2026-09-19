@@ -245,6 +245,11 @@ enum EdiAlertType {
   ACK_UNMATCHED
 }
 
+enum YardRecommendationAlgorithm {
+  RULE_BASED_V1
+  ML_RERANK
+}
+
 // ============================================================
 // ICD SITE
 // ============================================================
@@ -780,6 +785,7 @@ model ContainerVisit {
   operationalHolds  OperationalHold[]
   gatePasses        GatePass[]
   ediOutboxMessages EdiOutboxMessage[]
+  recommendations   YardRecommendation[]
 
   @@index([icdId, status])
   @@index([icdId, gateInAt])
@@ -1031,9 +1037,10 @@ model YardSlot {
 
   yardBlock YardBlock @relation(fields: [yardBlockId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
-  locationLogs  ContainerLocationLog[]
-  movementsFrom YardMovement[]         @relation("YardMovementFromSlot")
-  movementsTo   YardMovement[]         @relation("YardMovementToSlot")
+  locationLogs             ContainerLocationLog[]
+  movementsFrom            YardMovement[]                @relation("YardMovementFromSlot")
+  movementsTo              YardMovement[]                @relation("YardMovementToSlot")
+  recommendationCandidates YardRecommendationCandidate[]
 
   @@unique([yardBlockId, rowNo, bayNo, tierNo])
   @@index([yardBlockId, operational])
@@ -1060,24 +1067,18 @@ model ContainerLocationLog {
 
   source YardLocationSource @default(MANUAL)
 
-  /**
-   * Batch ML sau này sẽ thêm FK tới
-   * yard_recommendation.
-   * Hiện giữ nullable technical reference
-   * đúng database design.
-   */
   recommendationId String? @map("recommendation_id") @db.Char(36)
 
-  containerVisit ContainerVisit @relation(fields: [containerVisitId], references: [id], onDelete: Restrict, onUpdate: Cascade)
-
-  yardSlot YardSlot @relation(fields: [yardSlotId], references: [id], onDelete: Restrict, onUpdate: Cascade)
-
-  assignedByUser User? @relation("ContainerLocationAssignedBy", fields: [assignedById], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  containerVisit ContainerVisit      @relation(fields: [containerVisitId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  yardSlot       YardSlot            @relation(fields: [yardSlotId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  assignedByUser User?               @relation("ContainerLocationAssignedBy", fields: [assignedById], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  recommendation YardRecommendation? @relation(fields: [recommendationId], references: [id], onDelete: SetNull, onUpdate: Cascade)
 
   @@index([containerVisitId, endedAt])
   @@index([yardSlotId, endedAt])
   @@index([startedAt])
   @@index([endedAt])
+  @@index([recommendationId])
   @@index([yardSlotId, startedAt, endedAt])
   @@map("container_location_log")
 }
@@ -1738,3 +1739,63 @@ model EdiAlert {
   @@index([lastOccurredAt])
   @@map("edi_alert")
 }
+
+// ============================================================
+// YARD RECOMMENDATION
+// ============================================================
+
+model YardRecommendation {
+  id String @id @default(uuid()) @db.Char(36)
+
+  containerVisitId String @map("container_visit_id") @db.Char(36)
+
+  algorithm YardRecommendationAlgorithm @default(RULE_BASED_V1)
+
+  modelVersion String? @map("model_version") @db.VarChar(100)
+
+  contextToken String? @map("context_token") @db.VarChar(500)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+
+  containerVisit ContainerVisit @relation(fields: [containerVisitId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  candidates   YardRecommendationCandidate[]
+  locationLogs ContainerLocationLog[]
+
+  @@index([containerVisitId, createdAt])
+  @@map("yard_recommendation")
+}
+
+// ============================================================
+// YARD RECOMMENDATION CANDIDATE
+// ============================================================
+
+model YardRecommendationCandidate {
+  id String @id @default(uuid()) @db.Char(36)
+
+  recommendationId String @map("recommendation_id") @db.Char(36)
+
+  yardSlotId String @map("yard_slot_id") @db.Char(36)
+
+  ruleScore Decimal @map("rule_score") @db.Decimal(8, 4)
+
+  mlProbability Decimal? @map("ml_probability") @db.Decimal(8, 4)
+
+  ruleRank Int @map("rule_rank")
+
+  mlRank Int? @map("ml_rank")
+
+  selected Boolean @default(false)
+
+  selectedAt DateTime? @map("selected_at") @db.DateTime(3)
+
+  recommendation YardRecommendation @relation(fields: [recommendationId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  yardSlot YardSlot @relation(fields: [yardSlotId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  @@unique([recommendationId, yardSlotId])
+  @@index([yardSlotId])
+  @@index([selected])
+  @@map("yard_recommendation_candidate")
+}
+
