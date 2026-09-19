@@ -13,6 +13,7 @@ import { GatePassLookupService } from '../../gate-pass/services/gate-pass-lookup
 import { GatePassReadinessService } from '../../gate-pass/services/gate-pass-readiness.service';
 import { GatePassTransitionService } from '../../gate-pass/services/gate-pass-transition.service';
 import { YardLocationService } from '../../yard/services/yard-location.service';
+import { EdiOutboxService } from '../../edi/services/edi-outbox.service';
 import { GATE_OUT_ERROR_CODES } from '../constants/gate-out-error-codes.constants';
 import { ConfirmGateOutDto } from '../dto/confirm-gate-out.dto';
 
@@ -28,6 +29,7 @@ export class GateOutService {
     private readonly readinessService: GatePassReadinessService,
     private readonly yardLocationService: YardLocationService,
     private readonly eventService: ContainerEventService,
+    private readonly ediOutboxService: EdiOutboxService,
   ) {}
 
   async confirmGateOut(dto: ConfirmGateOutDto, actor: AuthenticatedUser) {
@@ -154,6 +156,13 @@ export class GateOutService {
         },
         note: `Container ${visit.container.containerNumber} đã Gate-out với phiếu ${gatePass.code}`,
       });
+
+      // 9. Enqueue CODECO Gate-out message in outbox
+      await this.ediOutboxService.enqueueCodecoGateOut(
+        visit.id,
+        actor.icdId,
+        tx,
+      );
 
       return {
         containerVisitId: visit.id,

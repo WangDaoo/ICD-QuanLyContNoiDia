@@ -1,15 +1,30 @@
-/**
- * edi / edi.module.ts
- *
- * Mục đích:
- * File dự kiến triển khai cho module edi. Tạo/dispatch EDI message, theo dõi retry, ACK và failure.
- *
- * Quy tắc khi triển khai:
- * - Ownership module: EDI outbox/message/ack; lỗi EDI không rollback core Gate nếu đặc tả không yêu cầu.
- * - Tuân thủ pattern chung trong docs/development/OPERATION_PATTERNS.md.
- * - Chưa có logic; chỉ thêm code khi bắt đầu triển khai module này.
- *
- * Lưu ý:
- * - File hiện tại chỉ là khung, chưa có logic thực thi.
- * - Không tự ý mở rộng trách nhiệm của file nếu chưa cập nhật RULES.md của module.
- */
+import { Module } from '@nestjs/common';
+import { ScheduleModule } from '@nestjs/schedule';
+import { PrismaModule } from '../../database/prisma.module';
+import { AuditModule } from '../audit/audit.module';
+import { EdiController } from './edi.controller';
+import { EdiConfigService } from './services/edi-config.service';
+import { EdiRouteService } from './services/edi-route.service';
+import { EdiCodecoSnapshotService } from './services/edi-codeco-snapshot.service';
+import { EdiOutboxService } from './services/edi-outbox.service';
+import { EdiDispatcherService } from './services/edi-dispatcher.service';
+import { EdiMockTransport } from './transports/edi-mock.transport';
+import { EdiHttpsTransport } from './transports/edi-https.transport';
+import { EdiSftpTransport } from './transports/edi-sftp.transport';
+
+@Module({
+  imports: [ScheduleModule.forRoot(), PrismaModule, AuditModule],
+  controllers: [EdiController],
+  providers: [
+    EdiConfigService,
+    EdiRouteService,
+    EdiCodecoSnapshotService,
+    EdiOutboxService,
+    EdiDispatcherService,
+    EdiMockTransport,
+    EdiHttpsTransport,
+    EdiSftpTransport,
+  ],
+  exports: [EdiOutboxService, EdiCodecoSnapshotService, EdiDispatcherService],
+})
+export class EdiModule {}

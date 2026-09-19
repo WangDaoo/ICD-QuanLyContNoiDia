@@ -1,15 +1,82 @@
-/**
- * edi / edi.controller.ts
- *
- * Mục đích:
- * File dự kiến triển khai cho module edi. Tạo/dispatch EDI message, theo dõi retry, ACK và failure.
- *
- * Quy tắc khi triển khai:
- * - Ownership module: EDI outbox/message/ack; lỗi EDI không rollback core Gate nếu đặc tả không yêu cầu.
- * - Tuân thủ pattern chung trong docs/development/OPERATION_PATTERNS.md.
- * - Chưa có logic; chỉ thêm code khi bắt đầu triển khai module này.
- *
- * Lưu ý:
- * - File hiện tại chỉ là khung, chưa có logic thực thi.
- * - Không tự ý mở rộng trách nhiệm của file nếu chưa cập nhật RULES.md của module.
- */
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  Put,
+  Query,
+} from '@nestjs/common';
+import { PERMISSION_CODES } from '../../common/constants/permission-codes.constants';
+import { CurrentUser } from '../../common/decorators/current-user.decorator';
+import { Permissions } from '../../common/decorators/permissions.decorator';
+import { AuthenticatedUser } from '../../common/types/authenticated-user.types';
+import { EdiRouteService } from './services/edi-route.service';
+import { EdiOutboxService } from './services/edi-outbox.service';
+import { EdiDispatcherService } from './services/edi-dispatcher.service';
+import { UpdateEdiRouteDto } from './dto/update-edi-route.dto';
+import { QueryEdiOutboxDto } from './dto/query-edi-outbox.dto';
+
+@Controller('edi')
+export class EdiController {
+  constructor(
+    private readonly routeService: EdiRouteService,
+    private readonly outboxService: EdiOutboxService,
+    private readonly dispatcherService: EdiDispatcherService,
+  ) {}
+
+  @Get('routes')
+  @Permissions(PERMISSION_CODES.EDI_READ)
+  async getRoutes(@CurrentUser() actor: AuthenticatedUser) {
+    const data = await this.routeService.getRoutes(actor);
+    return { data };
+  }
+
+  @Put('routes/:shippingLineId')
+  @Permissions(PERMISSION_CODES.EDI_MANAGE)
+  async updateRoute(
+    @Param('shippingLineId') shippingLineId: string,
+    @Body() dto: UpdateEdiRouteDto,
+    @CurrentUser() actor: AuthenticatedUser,
+  ) {
+    const data = await this.routeService.updateRoute(shippingLineId, dto, actor);
+    return { data };
+  }
+
+  @Get('outbox')
+  @Permissions(PERMISSION_CODES.EDI_READ)
+  async listOutbox(
+    @Query() query: QueryEdiOutboxDto,
+    @CurrentUser() actor: AuthenticatedUser,
+  ) {
+    const data = await this.outboxService.listOutbox(actor, query);
+    return { data };
+  }
+
+  @Get('outbox/:id')
+  @Permissions(PERMISSION_CODES.EDI_READ)
+  async getOutboxById(
+    @Param('id') id: string,
+    @CurrentUser() actor: AuthenticatedUser,
+  ) {
+    const data = await this.outboxService.getOutboxById(id, actor);
+    return { data };
+  }
+
+  @Post('outbox/:id/retry')
+  @Permissions(PERMISSION_CODES.EDI_MANAGE)
+  async retryOutbox(
+    @Param('id') id: string,
+    @CurrentUser() actor: AuthenticatedUser,
+  ) {
+    const data = await this.outboxService.retryOutbox(id, actor);
+    return { data };
+  }
+
+  @Post('dispatch')
+  @Permissions(PERMISSION_CODES.EDI_DISPATCH)
+  async triggerDispatch() {
+    const data = await this.dispatcherService.triggerManualDispatch();
+    return { data };
+  }
+}

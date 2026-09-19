@@ -446,6 +446,49 @@ async function seedWorkQueueSettings(icdId: string): Promise<void> {
   }
 }
 
+async function seedEdiSettings(icdId: string): Promise<void> {
+  const ediSettings = [
+    {
+      key: 'EDI_MAX_RETRIES',
+      value: '5',
+    },
+    {
+      key: 'EDI_BASE_BACKOFF_SECONDS',
+      value: '30',
+    },
+    {
+      key: 'EDI_MAX_BACKOFF_SECONDS',
+      value: '1800',
+    },
+    {
+      key: 'EDI_DISPATCH_BATCH_SIZE',
+      value: '20',
+    },
+    {
+      key: 'EDI_PROCESSING_STALE_SECONDS',
+      value: '300',
+    },
+  ];
+
+  for (const setting of ediSettings) {
+    await prisma.icdSetting.upsert({
+      where: {
+        icdId_key: {
+          icdId,
+          key: setting.key,
+        },
+      },
+      update: {},
+      create: {
+        icdId,
+        key: setting.key,
+        value: setting.value,
+        valueType: 'NUMBER',
+      },
+    });
+  }
+}
+
 async function main(): Promise<void> {
   console.log('Starting ICD database seed...');
 
@@ -477,6 +520,9 @@ async function main(): Promise<void> {
 
   await seedWorkQueueSettings(site.id);
   console.log('Seeded Work Queue Settings.');
+
+  await seedEdiSettings(site.id);
+  console.log('Seeded EDI Settings.');
 
   console.log('ICD database seed completed.');
 }

@@ -32,6 +32,7 @@ export const rolePermissions: Record<RoleCode, readonly PermissionCode[]> = {
     PERMISSION_CODES.HANDOVER_DISPUTE,
     PERMISSION_CODES.PARTNER_API_LOG_READ,
     PERMISSION_CODES.AUDIT_READ,
+    PERMISSION_CODES.EDI_READ,
   ],
 
   [ROLE_CODES.OPERATOR]: [
@@ -68,6 +69,7 @@ export const rolePermissions: Record<RoleCode, readonly PermissionCode[]> = {
     PERMISSION_CODES.GATE_PASS_USE,
     PERMISSION_CODES.HANDOVER_CREATE,
     PERMISSION_CODES.HANDOVER_READ,
+    PERMISSION_CODES.EDI_READ,
   ],
 
   [ROLE_CODES.GATE_STAFF]: [

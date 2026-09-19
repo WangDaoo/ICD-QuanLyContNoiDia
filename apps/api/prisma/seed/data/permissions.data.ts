@@ -304,4 +304,22 @@ export const permissions = [
     name: 'Xem nhật ký Audit',
     description: 'Cho phép xem lịch sử thay đổi và truy vết request.',
   },
+
+  {
+    code: PERMISSION_CODES.EDI_READ,
+    name: 'Xem thông điệp EDI',
+    description: 'Cho phép xem danh sách và chi tiết thông điệp EDI Outbox.',
+  },
+
+  {
+    code: PERMISSION_CODES.EDI_MANAGE,
+    name: 'Quản lý cấu hình EDI',
+    description: 'Cho phép cấu hình tuyến EDI Route và retry thông điệp lỗi.',
+  },
+
+  {
+    code: PERMISSION_CODES.EDI_DISPATCH,
+    name: 'Phát lệnh gửi EDI',
+    description: 'Cho phép kích hoạt gửi thủ công các thông điệp EDI đến hãng tàu.',
+  },
 ] as const;

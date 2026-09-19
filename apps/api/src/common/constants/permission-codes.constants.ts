@@ -96,6 +96,12 @@ export const PERMISSION_CODES = {
   PARTNER_API_LOG_READ: 'partner_api_log.read',
 
   AUDIT_READ: 'audit.read',
+
+  EDI_READ: 'edi.read',
+
+  EDI_MANAGE: 'edi.manage',
+
+  EDI_DISPATCH: 'edi.dispatch',
 } as const;
 
 export type PermissionCode = (typeof PERMISSION_CODES)[keyof typeof PERMISSION_CODES];

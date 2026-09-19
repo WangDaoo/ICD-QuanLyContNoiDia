@@ -16,6 +16,7 @@ import {
   mapContainerReception,
 } from './mappers/container-reception.mapper';
 import { GateInPolicy } from './policies/gate-in.policy';
+import { EdiOutboxService } from '../edi/services/edi-outbox.service';
 
 @Injectable()
 export class GateInService {
@@ -26,6 +27,7 @@ export class GateInService {
     private readonly movementOrdersService: MovementOrdersService,
     private readonly gateInPolicy: GateInPolicy,
     private readonly containerEventService: ContainerEventService,
+    private readonly ediOutboxService: EdiOutboxService,
   ) {}
 
   /**
@@ -218,6 +220,12 @@ export class GateInService {
         tx,
         truckCtx.id,
         actor.id,
+      );
+
+      await this.ediOutboxService.enqueueCodecoGateIn(
+        visitId,
+        actor.icdId,
+        tx,
       );
 
       return {

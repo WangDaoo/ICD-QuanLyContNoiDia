@@ -40,6 +40,8 @@ import { AuditModule } from './modules/audit/audit.module';
 
 import { WorkQueueModule } from './modules/work-queue/work-queue.module';
 
+import { EdiModule } from './modules/edi/edi.module';
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -55,6 +57,8 @@ import { WorkQueueModule } from './modules/work-queue/work-queue.module';
     AuditModule,
 
     WorkQueueModule,
+
+    EdiModule,
 
     AuthModule,
 
