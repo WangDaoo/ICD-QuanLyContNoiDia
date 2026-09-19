@@ -1,15 +1,20 @@
-/**
- * partner-handover / handover.constants.ts
- *
- * Mục đích:
- * File dự kiến triển khai cho module partner-handover. Quản lý Bàn giao vận chuyển, API Key đối tác và confirmation hai chiều.
- *
- * Quy tắc khi triển khai:
- * - Ownership module: Transport Handover lifecycle, Partner API Client và Partner API Log; không sửa Gate/Yard/Billing core.
- * - Tuân thủ pattern chung trong docs/development/OPERATION_PATTERNS.md.
- * - Chưa có logic; chỉ thêm code khi bắt đầu triển khai module này.
- *
- * Lưu ý:
- * - File hiện tại chỉ là khung, chưa có logic thực thi.
- * - Không tự ý mở rộng trách nhiệm của file nếu chưa cập nhật RULES.md của module.
- */
+export const PARTNER_CLIENT_SCOPES = {
+  HANDOVERS_READ: 'handovers:read',
+  HANDOVERS_ACCEPT: 'handovers:accept',
+  HANDOVERS_IN_TRANSIT: 'handovers:in_transit',
+  HANDOVERS_CONFIRM: 'handovers:confirm',
+  HANDOVERS_DISPUTE: 'handovers:dispute',
+  CONTAINERS_READ: 'containers:read',
+} as const;
+
+export type PartnerClientScope =
+  (typeof PARTNER_CLIENT_SCOPES)[keyof typeof PARTNER_CLIENT_SCOPES];
+
+export const ALL_PARTNER_SCOPES: PartnerClientScope[] = [
+  PARTNER_CLIENT_SCOPES.HANDOVERS_READ,
+  PARTNER_CLIENT_SCOPES.HANDOVERS_ACCEPT,
+  PARTNER_CLIENT_SCOPES.HANDOVERS_IN_TRANSIT,
+  PARTNER_CLIENT_SCOPES.HANDOVERS_CONFIRM,
+  PARTNER_CLIENT_SCOPES.HANDOVERS_DISPUTE,
+  PARTNER_CLIENT_SCOPES.CONTAINERS_READ,
+];

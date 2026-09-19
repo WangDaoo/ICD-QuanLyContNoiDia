@@ -1,15 +1,29 @@
-/**
- * partner-handover / partner-handover.module.ts
- *
- * Mục đích:
- * File dự kiến triển khai cho module partner-handover. Quản lý Bàn giao vận chuyển, API Key đối tác và confirmation hai chiều.
- *
- * Quy tắc khi triển khai:
- * - Ownership module: Transport Handover lifecycle, Partner API Client và Partner API Log; không sửa Gate/Yard/Billing core.
- * - Tuân thủ pattern chung trong docs/development/OPERATION_PATTERNS.md.
- * - Chưa có logic; chỉ thêm code khi bắt đầu triển khai module này.
- *
- * Lưu ý:
- * - File hiện tại chỉ là khung, chưa có logic thực thi.
- * - Không tự ý mở rộng trách nhiệm của file nếu chưa cập nhật RULES.md của module.
- */
+import { Module } from '@nestjs/common';
+import { CustomerWarehouseController } from './controllers/internal/customer-warehouse.controller';
+import { PartnerClientController } from './controllers/internal/partner-client.controller';
+import { TransportHandoverController } from './controllers/internal/transport-handover.controller';
+import { CustomerWarehouseService } from './services/customer-warehouse.service';
+import { HandoverService } from './services/handover.service';
+import { PartnerApiLogService } from './services/partner-api-log.service';
+import { PartnerClientService } from './services/partner-client.service';
+
+@Module({
+  controllers: [
+    PartnerClientController,
+    CustomerWarehouseController,
+    TransportHandoverController,
+  ],
+  providers: [
+    PartnerClientService,
+    CustomerWarehouseService,
+    HandoverService,
+    PartnerApiLogService,
+  ],
+  exports: [
+    PartnerClientService,
+    CustomerWarehouseService,
+    HandoverService,
+    PartnerApiLogService,
+  ],
+})
+export class PartnerHandoverModule {}

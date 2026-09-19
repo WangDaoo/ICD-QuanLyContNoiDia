@@ -44,6 +44,8 @@ import { EdiModule } from './modules/edi/edi.module';
 
 import { ReportsModule } from './modules/reports/reports.module';
 
+import { PartnerHandoverModule } from './modules/partner-handover/partner-handover.module';
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -93,6 +95,8 @@ import { ReportsModule } from './modules/reports/reports.module';
     GatePassModule,
 
     GateOutModule,
+
+    PartnerHandoverModule,
   ],
 })
 export class AppModule {}

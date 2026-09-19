@@ -250,6 +250,34 @@ enum YardRecommendationAlgorithm {
   ML_RERANK
 }
 
+enum PartnerApiClientStatus {
+  ACTIVE
+  REVOKED
+}
+
+enum TransportHandoverStatus {
+  DRAFT
+  READY_FOR_HANDOVER
+  PARTNER_ACCEPTED
+  IN_TRANSIT
+  PARTNER_CONFIRMED
+  ICD_CONFIRMED
+  COMPLETED
+  PARTNER_REJECTED
+  DELIVERY_FAILED
+  DISPUTED
+  CANCELLED
+}
+
+enum TransportConfirmationType {
+  PARTNER_ACCEPTED
+  IN_TRANSIT
+  WAREHOUSE_RECEIVED
+  DELIVERY_FAILED
+  ICD_CONFIRMED
+  DISPUTE
+}
+
 // ============================================================
 // ICD SITE
 // ============================================================
@@ -264,17 +292,18 @@ model IcdSite {
   createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
   updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
 
-  users           User[]
-  settings        IcdSetting[]
-  manifests       Manifest[]
-  containerVisits ContainerVisit[]
-  truckVisits     TruckVisit[]
-  yardBlocks      YardBlock[]
-  tariffs         Tariff[]
-  serviceOrders   ServiceOrder[]
-  auditLogs       AuditLog[]
-  ediRoutes       EdiRoute[]
-  ediAlerts       EdiAlert[]
+  users              User[]
+  settings           IcdSetting[]
+  manifests          Manifest[]
+  containerVisits    ContainerVisit[]
+  truckVisits        TruckVisit[]
+  yardBlocks         YardBlock[]
+  tariffs            Tariff[]
+  serviceOrders      ServiceOrder[]
+  auditLogs          AuditLog[]
+  ediRoutes          EdiRoute[]
+  ediAlerts          EdiAlert[]
+  customerWarehouses CustomerWarehouse[]
 
   @@map("icd_site")
 }
@@ -300,32 +329,36 @@ model User {
 
   icd IcdSite @relation(fields: [icdId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
-  roles                       UserRole[]
-  sessions                    AuthSession[]
-  updatedSettings             IcdSetting[]           @relation("IcdSettingUpdatedBy")
-  createdManifests            Manifest[]
-  containerEvents             ContainerEvent[]
-  createdMovementOrders       MovementOrder[]        @relation("MovementOrderCreatedBy")
-  authorizedMovementOrders    MovementOrder[]        @relation("MovementOrderAuthorizedBy")
-  receivedContainerReceptions ContainerReception[]   @relation("ContainerReceptionReceivedBy")
-  assignedYardLocations       ContainerLocationLog[] @relation("ContainerLocationAssignedBy")
-  createdYardMovements        YardMovement[]         @relation("YardMovementCreatedBy")
-  completedYardMovements      YardMovement[]         @relation("YardMovementCompletedBy")
-  createdInspections          ContainerInspection[]  @relation("ContainerInspectionCreatedBy")
-  completedInspections        ContainerInspection[]  @relation("ContainerInspectionCompletedBy")
-  createdYardBookings         InYardBooking[]        @relation("InYardBookingCreatedBy")
-  completedYardBookings       InYardBooking[]        @relation("InYardBookingCompletedBy")
-  createdTariffs              Tariff[]               @relation("TariffCreatedBy")
-  createdServiceOrders        ServiceOrder[]         @relation("ServiceOrderCreatedBy")
-  confirmedServiceOrders      ServiceOrder[]         @relation("ServiceOrderConfirmedBy")
-  cancelledServiceOrders      ServiceOrder[]         @relation("ServiceOrderCancelledBy")
-  recordedPayments            Payment[]              @relation("PaymentRecordedBy")
-  placedOperationalHolds      OperationalHold[]      @relation("OperationalHoldPlacedBy")
-  releasedOperationalHolds    OperationalHold[]      @relation("OperationalHoldReleasedBy")
-  issuedGatePasses            GatePass[]             @relation("GatePassIssuedBy")
-  auditLogs                   AuditLog[]             @relation("AuditLogActor")
-  acknowledgedEdiAlerts       EdiAlert[]             @relation("EdiAlertAcknowledgedBy")
-  resolvedEdiAlerts           EdiAlert[]             @relation("EdiAlertResolvedBy")
+  roles                          UserRole[]
+  sessions                       AuthSession[]
+  updatedSettings                IcdSetting[]            @relation("IcdSettingUpdatedBy")
+  createdManifests               Manifest[]
+  containerEvents                ContainerEvent[]
+  createdMovementOrders          MovementOrder[]         @relation("MovementOrderCreatedBy")
+  authorizedMovementOrders       MovementOrder[]         @relation("MovementOrderAuthorizedBy")
+  receivedContainerReceptions    ContainerReception[]    @relation("ContainerReceptionReceivedBy")
+  assignedYardLocations          ContainerLocationLog[]  @relation("ContainerLocationAssignedBy")
+  createdYardMovements           YardMovement[]          @relation("YardMovementCreatedBy")
+  completedYardMovements         YardMovement[]          @relation("YardMovementCompletedBy")
+  createdInspections             ContainerInspection[]   @relation("ContainerInspectionCreatedBy")
+  completedInspections           ContainerInspection[]   @relation("ContainerInspectionCompletedBy")
+  createdYardBookings            InYardBooking[]         @relation("InYardBookingCreatedBy")
+  completedYardBookings          InYardBooking[]         @relation("InYardBookingCompletedBy")
+  createdTariffs                 Tariff[]                @relation("TariffCreatedBy")
+  createdServiceOrders           ServiceOrder[]          @relation("ServiceOrderCreatedBy")
+  confirmedServiceOrders         ServiceOrder[]          @relation("ServiceOrderConfirmedBy")
+  cancelledServiceOrders         ServiceOrder[]          @relation("ServiceOrderCancelledBy")
+  recordedPayments               Payment[]               @relation("PaymentRecordedBy")
+  placedOperationalHolds         OperationalHold[]       @relation("OperationalHoldPlacedBy")
+  releasedOperationalHolds       OperationalHold[]       @relation("OperationalHoldReleasedBy")
+  issuedGatePasses               GatePass[]              @relation("GatePassIssuedBy")
+  auditLogs                      AuditLog[]              @relation("AuditLogActor")
+  acknowledgedEdiAlerts          EdiAlert[]              @relation("EdiAlertAcknowledgedBy")
+  resolvedEdiAlerts              EdiAlert[]              @relation("EdiAlertResolvedBy")
+  createdPartnerApiClients       PartnerApiClient[]      @relation("PartnerApiClientCreatedBy")
+  createdTransportHandovers      TransportHandover[]     @relation("TransportHandoverCreatedBy")
+  icdConfirmedTransportHandovers TransportHandover[]     @relation("TransportHandoverIcdConfirmedBy")
+  transportConfirmations         TransportConfirmation[] @relation("TransportConfirmationCreatedByUser")
 
   @@index([icdId])
   @@index([active])
@@ -535,9 +568,10 @@ model Consignee {
 
   updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
 
-  houseBls      HouseBl[]
-  serviceOrders ServiceOrder[]
-  payments      Payment[]
+  houseBls           HouseBl[]
+  serviceOrders      ServiceOrder[]
+  payments           Payment[]
+  customerWarehouses CustomerWarehouse[]
 
   @@index([active])
   @@index([name])
@@ -773,19 +807,20 @@ model ContainerVisit {
   container Container @relation(fields: [containerId], references: [id], onDelete: Restrict, onUpdate: Cascade)
   houseBl   HouseBl?  @relation(fields: [houseBlId], references: [id], onDelete: SetNull, onUpdate: Cascade)
 
-  events            ContainerEvent[]
-  movementOrders    MovementOrder[]
-  truckVisitLinks   TruckVisitContainer[]
-  reception         ContainerReception?
-  locationLogs      ContainerLocationLog[]
-  yardMovements     YardMovement[]
-  inspections       ContainerInspection[]
-  inYardBookings    InYardBooking[]
-  serviceOrders     ServiceOrder[]
-  operationalHolds  OperationalHold[]
-  gatePasses        GatePass[]
-  ediOutboxMessages EdiOutboxMessage[]
-  recommendations   YardRecommendation[]
+  events             ContainerEvent[]
+  movementOrders     MovementOrder[]
+  truckVisitLinks    TruckVisitContainer[]
+  reception          ContainerReception?
+  locationLogs       ContainerLocationLog[]
+  yardMovements      YardMovement[]
+  inspections        ContainerInspection[]
+  inYardBookings     InYardBooking[]
+  serviceOrders      ServiceOrder[]
+  operationalHolds   OperationalHold[]
+  gatePasses         GatePass[]
+  ediOutboxMessages  EdiOutboxMessage[]
+  recommendations    YardRecommendation[]
+  transportHandovers TransportHandover[]
 
   @@index([icdId, status])
   @@index([icdId, gateInAt])
@@ -1799,3 +1834,248 @@ model YardRecommendationCandidate {
   @@map("yard_recommendation_candidate")
 }
 
+// ============================================================
+// PARTNER API CLIENT
+// ============================================================
+
+model PartnerApiClient {
+  id String @id @default(uuid()) @db.Char(36)
+
+  partnerCode String @unique @map("partner_code") @db.VarChar(80)
+
+  partnerName String @map("partner_name") @db.VarChar(200)
+
+  apiKeyHash String @unique @map("api_key_hash") @db.Char(64)
+
+  keyLast4 String? @map("key_last4") @db.VarChar(8)
+
+  status PartnerApiClientStatus @default(ACTIVE)
+
+  scopes Json
+
+  lastRequestAt DateTime? @map("last_request_at") @db.DateTime(3)
+
+  createdById String @map("created_by") @db.Char(36)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+
+  rotatedAt DateTime? @map("rotated_at") @db.DateTime(3)
+
+  revokedAt DateTime? @map("revoked_at") @db.DateTime(3)
+
+  createdByUser User @relation("PartnerApiClientCreatedBy", fields: [createdById], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  handovers     TransportHandover[]
+  confirmations TransportConfirmation[]
+  apiLogs       PartnerApiLog[]
+
+  @@index([status])
+  @@map("partner_api_client")
+}
+
+// ============================================================
+// CUSTOMER WAREHOUSE
+// ============================================================
+
+model CustomerWarehouse {
+  id String @id @default(uuid()) @db.Char(36)
+
+  icdId String @map("icd_id") @db.Char(36)
+
+  consigneeId String? @map("consignee_id") @db.Char(36)
+
+  code String @db.VarChar(80)
+
+  name String @db.VarChar(200)
+
+  address String? @db.Text
+
+  latitude Decimal? @db.Decimal(10, 7)
+
+  longitude Decimal? @db.Decimal(10, 7)
+
+  contactName String? @map("contact_name") @db.VarChar(160)
+
+  contactPhone String? @map("contact_phone") @db.VarChar(50)
+
+  active Boolean @default(true)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+
+  updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
+
+  icd IcdSite @relation(fields: [icdId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  consignee Consignee? @relation(fields: [consigneeId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  handovers TransportHandover[]
+
+  @@unique([icdId, code])
+  @@index([icdId, active])
+  @@index([consigneeId])
+  @@map("customer_warehouse")
+}
+
+// ============================================================
+// TRANSPORT HANDOVER
+// ============================================================
+
+model TransportHandover {
+  id String @id @default(uuid()) @db.Char(36)
+
+  containerVisitId String @map("container_visit_id") @db.Char(36)
+
+  partnerApiClientId String @map("partner_api_client_id") @db.Char(36)
+
+  warehouseId String @map("warehouse_id") @db.Char(36)
+
+  transportCode String @map("transport_code") @db.VarChar(120)
+
+  status TransportHandoverStatus @default(DRAFT)
+
+  expectedDeliveryAt DateTime? @map("expected_delivery_at") @db.DateTime(3)
+
+  readyAt DateTime? @map("ready_at") @db.DateTime(3)
+
+  partnerAcceptedAt DateTime? @map("partner_accepted_at") @db.DateTime(3)
+
+  departedAt DateTime? @map("departed_at") @db.DateTime(3)
+
+  partnerConfirmedAt DateTime? @map("partner_confirmed_at") @db.DateTime(3)
+
+  icdConfirmedAt DateTime? @map("icd_confirmed_at") @db.DateTime(3)
+
+  completedAt DateTime? @map("completed_at") @db.DateTime(3)
+
+  icdConfirmedById String? @map("icd_confirmed_by") @db.Char(36)
+
+  createdById String @map("created_by") @db.Char(36)
+
+  version Int @default(1)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+
+  updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime(3)
+
+  containerVisit ContainerVisit @relation(fields: [containerVisitId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  partnerApiClient PartnerApiClient @relation(fields: [partnerApiClientId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  warehouse CustomerWarehouse @relation(fields: [warehouseId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  icdConfirmedByUser User? @relation("TransportHandoverIcdConfirmedBy", fields: [icdConfirmedById], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  createdByUser User @relation("TransportHandoverCreatedBy", fields: [createdById], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  confirmations TransportConfirmation[]
+
+  partnerApiLogs PartnerApiLog[]
+
+  @@index([containerVisitId, status])
+  @@index([partnerApiClientId, status])
+  @@index([warehouseId, status])
+  @@index([transportCode])
+  @@index([status, readyAt])
+  @@map("transport_handover")
+}
+
+// ============================================================
+// TRANSPORT CONFIRMATION
+// ============================================================
+
+model TransportConfirmation {
+  id String @id @default(uuid()) @db.Char(36)
+
+  transportHandoverId String @map("transport_handover_id") @db.Char(36)
+
+  confirmationType TransportConfirmationType @map("confirmation_type")
+
+  partnerRequestId String? @map("partner_request_id") @db.VarChar(160)
+
+  confirmedAt DateTime @map("confirmed_at") @db.DateTime(3)
+
+  receiverName String? @map("receiver_name") @db.VarChar(160)
+
+  receiverPhone String? @map("receiver_phone") @db.VarChar(50)
+
+  condition String? @db.VarChar(160)
+
+  note String? @db.Text
+
+  latitude Decimal? @db.Decimal(10, 7)
+
+  longitude Decimal? @db.Decimal(10, 7)
+
+  accuracyM Decimal? @map("accuracy_m") @db.Decimal(10, 2)
+
+  proofImageUrl String? @map("proof_image_url") @db.Text
+
+  signatureUrl String? @map("signature_url") @db.Text
+
+  payloadSnapshot Json?
+
+  createdByUserId String? @map("created_by_user_id") @db.Char(36)
+
+  createdByPartnerClientId String? @map("created_by_partner_client_id") @db.Char(36)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+
+  transportHandover TransportHandover @relation(fields: [transportHandoverId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  createdByUser User? @relation("TransportConfirmationCreatedByUser", fields: [createdByUserId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  createdByPartnerClient PartnerApiClient? @relation(fields: [createdByPartnerClientId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  @@index([transportHandoverId, createdAt])
+  @@index([partnerRequestId])
+  @@map("transport_confirmation")
+}
+
+// ============================================================
+// PARTNER API LOG
+// ============================================================
+
+model PartnerApiLog {
+  id String @id @default(uuid()) @db.Char(36)
+
+  partnerApiClientId String @map("partner_api_client_id") @db.Char(36)
+
+  transportHandoverId String? @map("transport_handover_id") @db.Char(36)
+
+  endpoint String @db.VarChar(255)
+
+  method String @db.VarChar(16)
+
+  idempotencyKey String? @map("idempotency_key") @db.VarChar(200)
+
+  requestHash String? @map("request_hash") @db.Char(64)
+
+  requestBodyRedacted Json? @map("request_body_redacted")
+
+  responseBodyRedacted Json? @map("response_body_redacted")
+
+  httpStatus Int @map("http_status")
+
+  businessStatus String? @map("business_status") @db.VarChar(80)
+
+  errorCode String? @map("error_code") @db.VarChar(120)
+
+  requestId String @map("request_id") @db.VarChar(128)
+
+  latencyMs Int? @map("latency_ms")
+
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+
+  completedAt DateTime? @map("completed_at") @db.DateTime(3)
+
+  partnerApiClient PartnerApiClient @relation(fields: [partnerApiClientId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  transportHandover TransportHandover? @relation(fields: [transportHandoverId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  @@unique([partnerApiClientId, endpoint, idempotencyKey])
+  @@index([partnerApiClientId, createdAt])
+  @@index([transportHandoverId, createdAt])
+  @@index([requestId])
+  @@index([httpStatus, createdAt])
+  @@map("partner_api_log")
+}
