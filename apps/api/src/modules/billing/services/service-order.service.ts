@@ -44,14 +44,48 @@ export class ServiceOrderService {
     dto: CreateServiceOrderDto,
     actor: AuthenticatedUser,
   ): Promise<ServiceOrder> {
-    const existingDraft = await this.prisma.serviceOrder.findFirst({
+    const existingOrders = await this.prisma.serviceOrder.findMany({
       where: {
         containerVisitId: dto.containerVisitId,
-        status: ServiceOrderStatus.DRAFT,
+        status: {
+          in: [
+            ServiceOrderStatus.DRAFT,
+            ServiceOrderStatus.CONFIRMED,
+            ServiceOrderStatus.INVOICED,
+          ],
+        },
+      },
+      include: {
+        invoice: true,
       },
     });
 
-    this.policy.assertNoExistingDraft(existingDraft);
+    const draftOrder = existingOrders.find(
+      (o) => o.status === ServiceOrderStatus.DRAFT,
+    );
+    this.policy.assertNoExistingDraft(draftOrder ?? null);
+
+    const confirmedOrder = existingOrders.find(
+      (o) => o.status === ServiceOrderStatus.CONFIRMED,
+    );
+    if (confirmedOrder) {
+      throw new BadRequestException({
+        code: BILLING_ERROR_CODES.PREVIOUS_ORDER_PENDING_INVOICE,
+        message: `Previous service order ${confirmedOrder.orderNumber} is CONFIRMED and awaiting invoice issuance before a new order can be created.`,
+      });
+    }
+
+    const unpaidInvoicedOrder = existingOrders.find(
+      (o) =>
+        o.status === ServiceOrderStatus.INVOICED &&
+        (!o.invoice || o.invoice.status !== 'PAID'),
+    );
+    if (unpaidInvoicedOrder) {
+      throw new BadRequestException({
+        code: BILLING_ERROR_CODES.PREVIOUS_ORDER_PENDING_INVOICE,
+        message: `Previous service order ${unpaidInvoicedOrder.orderNumber} has an unpaid or partially paid invoice. Full payment is required before supplemental billing.`,
+      });
+    }
 
     const calcResult = await this.calculationService.calculateBilling(
       dto.containerVisitId,

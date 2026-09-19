@@ -152,6 +152,18 @@ enum ServiceOrderStatus {
   CANCELLED
 }
 
+enum InvoiceStatus {
+  UNPAID
+  PARTIALLY_PAID
+  PAID
+  VOID
+}
+
+enum PaymentMethod {
+  CASH
+  BANK_TRANSFER
+}
+
 // ============================================================
 // ICD SITE
 // ============================================================
@@ -218,6 +230,7 @@ model User {
   createdServiceOrders        ServiceOrder[]         @relation("ServiceOrderCreatedBy")
   confirmedServiceOrders      ServiceOrder[]         @relation("ServiceOrderConfirmedBy")
   cancelledServiceOrders      ServiceOrder[]         @relation("ServiceOrderCancelledBy")
+  recordedPayments            Payment[]              @relation("PaymentRecordedBy")
 
   @@index([icdId])
   @@index([active])
@@ -426,6 +439,7 @@ model Consignee {
 
   houseBls      HouseBl[]
   serviceOrders ServiceOrder[]
+  payments      Payment[]
 
   @@index([active])
   @@index([name])
@@ -1160,9 +1174,9 @@ model TariffRule {
   createdAt     DateTime       @default(now()) @map("created_at") @db.DateTime(3)
   updatedAt     DateTime       @updatedAt @map("updated_at") @db.DateTime(3)
 
-  tariff     Tariff             @relation(fields: [tariffId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  serviceType ServiceType       @relation(fields: [serviceTypeId], references: [id], onDelete: Restrict, onUpdate: Cascade)
-  orderItems ServiceOrderItem[]
+  tariff      Tariff             @relation(fields: [tariffId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  serviceType ServiceType        @relation(fields: [serviceTypeId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  orderItems  ServiceOrderItem[]
 
   @@index([tariffId])
   @@index([serviceTypeId])
@@ -1205,6 +1219,7 @@ model ServiceOrder {
   confirmedByUser User?              @relation("ServiceOrderConfirmedBy", fields: [confirmedById], references: [id], onDelete: SetNull, onUpdate: Cascade)
   cancelledByUser User?              @relation("ServiceOrderCancelledBy", fields: [cancelledById], references: [id], onDelete: SetNull, onUpdate: Cascade)
   items           ServiceOrderItem[]
+  invoice         Invoice?
 
   @@index([icdId, status])
   @@index([containerVisitId, status])
@@ -1218,19 +1233,19 @@ model ServiceOrder {
 // ============================================================
 
 model ServiceOrderItem {
-  id             String       @id @default(uuid()) @db.Char(36)
-  serviceOrderId String       @map("service_order_id") @db.Char(36)
-  serviceTypeId  String       @map("service_type_id") @db.Char(36)
-  tariffRuleId   String?      @map("tariff_rule_id") @db.Char(36)
-  sourceType     String       @map("source_type") @db.VarChar(50)
-  sourceId       String?      @map("source_id") @db.Char(36)
-  quantity       Decimal      @db.Decimal(12, 2)
-  unit           String       @db.VarChar(30)
-  unitPrice      Decimal      @map("unit_price") @db.Decimal(14, 2)
-  amount         Decimal      @db.Decimal(14, 2)
-  description    String?      @db.VarChar(255)
-  createdAt      DateTime     @default(now()) @map("created_at") @db.DateTime(3)
-  updatedAt      DateTime     @updatedAt @map("updated_at") @db.DateTime(3)
+  id             String   @id @default(uuid()) @db.Char(36)
+  serviceOrderId String   @map("service_order_id") @db.Char(36)
+  serviceTypeId  String   @map("service_type_id") @db.Char(36)
+  tariffRuleId   String?  @map("tariff_rule_id") @db.Char(36)
+  sourceType     String   @map("source_type") @db.VarChar(50)
+  sourceId       String?  @map("source_id") @db.Char(36)
+  quantity       Decimal  @db.Decimal(12, 2)
+  unit           String   @db.VarChar(30)
+  unitPrice      Decimal  @map("unit_price") @db.Decimal(14, 2)
+  amount         Decimal  @db.Decimal(14, 2)
+  description    String?  @db.VarChar(255)
+  createdAt      DateTime @default(now()) @map("created_at") @db.DateTime(3)
+  updatedAt      DateTime @updatedAt @map("updated_at") @db.DateTime(3)
 
   serviceOrder ServiceOrder @relation(fields: [serviceOrderId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   serviceType  ServiceType  @relation(fields: [serviceTypeId], references: [id], onDelete: Restrict, onUpdate: Cascade)
@@ -1243,4 +1258,67 @@ model ServiceOrderItem {
   @@map("service_order_item")
 }
 
+// ============================================================
+// INVOICE
+// ============================================================
 
+model Invoice {
+  id String @id @default(uuid()) @db.Char(36)
+
+  serviceOrderId String        @unique @map("service_order_id") @db.Char(36)
+  invoiceNo      String        @unique @map("invoice_no") @db.VarChar(120)
+  issuedAt       DateTime      @default(now()) @map("issued_at") @db.DateTime(3)
+  dueAt          DateTime?     @map("due_at") @db.DateTime(3)
+  totalAmount    Decimal       @map("total_amount") @db.Decimal(18, 2)
+  paidAmount     Decimal       @default(0) @map("paid_amount") @db.Decimal(18, 2)
+  status         InvoiceStatus @default(UNPAID)
+
+  serviceOrder ServiceOrder        @relation(fields: [serviceOrderId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  allocations  PaymentAllocation[]
+
+  @@index([status, dueAt])
+  @@map("invoice")
+}
+
+// ============================================================
+// PAYMENT
+// ============================================================
+
+model Payment {
+  id String @id @default(uuid()) @db.Char(36)
+
+  consigneeId  String        @map("consignee_id") @db.Char(36)
+  paymentRef   String        @unique @map("payment_ref") @db.VarChar(120)
+  amount       Decimal       @db.Decimal(18, 2)
+  method       PaymentMethod
+  paidAt       DateTime      @map("paid_at") @db.DateTime(3)
+  recordedById String        @map("recorded_by") @db.Char(36)
+
+  consignee      Consignee           @relation(fields: [consigneeId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  recordedByUser User                @relation("PaymentRecordedBy", fields: [recordedById], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  allocations    PaymentAllocation[]
+
+  @@index([consigneeId, paidAt])
+  @@index([paidAt])
+  @@map("payment")
+}
+
+// ============================================================
+// PAYMENT ALLOCATION
+// ============================================================
+
+model PaymentAllocation {
+  id String @id @default(uuid()) @db.Char(36)
+
+  paymentId String   @map("payment_id") @db.Char(36)
+  invoiceId String   @map("invoice_id") @db.Char(36)
+  amount    Decimal  @db.Decimal(18, 2)
+  createdAt DateTime @default(now()) @map("created_at") @db.DateTime(3)
+
+  payment Payment @relation(fields: [paymentId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  invoice Invoice @relation(fields: [invoiceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  @@unique([paymentId, invoiceId])
+  @@index([invoiceId])
+  @@map("payment_allocation")
+}
