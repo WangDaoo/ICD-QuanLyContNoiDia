@@ -1,15 +1,33 @@
-/**
- * billing / billing.module.ts
- *
- * Mục đích:
- * File dự kiến triển khai cho module billing. Quản lý đơn dịch vụ, biểu phí áp dụng, hóa đơn, thanh toán và allocation.
- *
- * Quy tắc khi triển khai:
- * - Ownership module: Billing entities và billing readiness component.
- * - Tuân thủ pattern chung trong docs/development/OPERATION_PATTERNS.md.
- * - Chưa có logic; chỉ thêm code khi bắt đầu triển khai module này.
- *
- * Lưu ý:
- * - File hiện tại chỉ là khung, chưa có logic thực thi.
- * - Không tự ý mở rộng trách nhiệm của file nếu chưa cập nhật RULES.md của module.
- */
+import { Module } from '@nestjs/common';
+import { ContainersModule } from '../containers/containers.module';
+import { BillingController } from './billing.controller';
+import { TariffController } from './tariff.controller';
+import { BillableQuantityCalculator } from './calculator/billable-quantity.calculator';
+import { ServiceOrderPolicy } from './policies/service-order.policy';
+import { TariffPolicy } from './policies/tariff.policy';
+import { BillingCalculationService } from './services/billing-calculation.service';
+import { ServiceOrderService } from './services/service-order.service';
+import { TariffService } from './services/tariff.service';
+
+@Module({
+  imports: [ContainersModule],
+  controllers: [
+    TariffController,
+    BillingController,
+  ],
+  providers: [
+    TariffPolicy,
+    ServiceOrderPolicy,
+    BillableQuantityCalculator,
+    TariffService,
+    BillingCalculationService,
+    ServiceOrderService,
+  ],
+  exports: [
+    TariffService,
+    BillingCalculationService,
+    ServiceOrderService,
+    BillableQuantityCalculator,
+  ],
+})
+export class BillingModule {}

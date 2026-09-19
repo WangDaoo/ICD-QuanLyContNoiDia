@@ -267,10 +267,24 @@ export const permissions = [
   },
 
   {
+    code: PERMISSION_CODES.BILLING_READ,
+    name: 'Xem tính cước & biểu phí',
+    description:
+      'Cho phép xem biểu phí, danh sách Service Order và phí dự tính.',
+  },
+
+  {
     code: PERMISSION_CODES.BILLING_MANAGE,
     name: 'Quản lý tính cước',
     description:
-      'Cho phép tạo biểu cước, tính phí lưu bãi và cắm điện.',
+      'Cho phép tạo, cập nhật và xác nhận Service Order.',
+  },
+
+  {
+    code: PERMISSION_CODES.TARIFF_MANAGE,
+    name: 'Quản lý biểu phí',
+    description:
+      'Cho phép tạo, chỉnh sửa, thêm rule và kích hoạt biểu cước dịch vụ.',
   },
 
   {

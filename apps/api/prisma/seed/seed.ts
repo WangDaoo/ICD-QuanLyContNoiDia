@@ -34,6 +34,15 @@ import {
   roles,
 } from './data/roles.data';
 
+import {
+  serviceTypes,
+} from './data/service-types.data';
+
+import {
+  TariffStatus,
+  ContainerSize,
+} from '../../src/generated/prisma/client';
+
 config({
   path: resolve(
     process.cwd(),
@@ -365,24 +374,119 @@ async function seedAdminUser(
   await prisma.userRole.upsert({
     where: {
       userId_roleId: {
-        userId:
-          user.id,
-
-        roleId:
-          adminRole.id,
+        userId: user.id,
+        roleId: adminRole.id,
       },
     },
-
     update: {},
-
     create: {
-      userId:
-        user.id,
-
-      roleId:
-        adminRole.id,
+      userId: user.id,
+      roleId: adminRole.id,
     },
   });
+
+  return user;
+}
+
+async function seedServiceTypes(): Promise<void> {
+  for (const st of serviceTypes) {
+    await prisma.serviceType.upsert({
+      where: {
+        code: st.code,
+      },
+      update: {
+        name: st.name,
+        unit: st.unit,
+        description: st.description,
+        active: true,
+      },
+      create: {
+        code: st.code,
+        name: st.name,
+        unit: st.unit,
+        description: st.description,
+        active: true,
+      },
+    });
+  }
+}
+
+async function seedDefaultTariff(
+  icdId: string,
+  adminUserId: string,
+): Promise<void> {
+  const serviceTypeRecords = await prisma.serviceType.findMany();
+  const serviceTypeMap = new Map(
+    serviceTypeRecords.map((st) => [st.code, st.id]),
+  );
+
+  const existingTariff = await prisma.tariff.findFirst({
+    where: {
+      icdId,
+      status: TariffStatus.ACTIVE,
+    },
+  });
+
+  if (!existingTariff) {
+    const tariff = await prisma.tariff.create({
+      data: {
+        icdId,
+        name: 'Biểu phí tiêu chuẩn ICD 2026',
+        status: TariffStatus.ACTIVE,
+        effectiveFrom: new Date('2026-01-01T00:00:00Z'),
+        createdById: adminUserId,
+      },
+    });
+
+    const receptionId = serviceTypeMap.get('RECEPTION');
+    const storageId = serviceTypeMap.get('STORAGE');
+    const strippingId = serviceTypeMap.get('STRIPPING');
+    const inspectionId = serviceTypeMap.get('INSPECTION');
+    const movementId = serviceTypeMap.get('MOVEMENT');
+
+    const rulesData: Array<{
+      tariffId: string;
+      serviceTypeId: string;
+      containerSize?: ContainerSize;
+      unitPrice: number;
+    }> = [];
+
+    if (receptionId) {
+      rulesData.push({ tariffId: tariff.id, serviceTypeId: receptionId, unitPrice: 350000 });
+      rulesData.push({ tariffId: tariff.id, serviceTypeId: receptionId, containerSize: ContainerSize.SIZE_20, unitPrice: 300000 });
+      rulesData.push({ tariffId: tariff.id, serviceTypeId: receptionId, containerSize: ContainerSize.SIZE_40, unitPrice: 450000 });
+      rulesData.push({ tariffId: tariff.id, serviceTypeId: receptionId, containerSize: ContainerSize.SIZE_45, unitPrice: 500000 });
+    }
+
+    if (storageId) {
+      rulesData.push({ tariffId: tariff.id, serviceTypeId: storageId, unitPrice: 50000 });
+      rulesData.push({ tariffId: tariff.id, serviceTypeId: storageId, containerSize: ContainerSize.SIZE_20, unitPrice: 40000 });
+      rulesData.push({ tariffId: tariff.id, serviceTypeId: storageId, containerSize: ContainerSize.SIZE_40, unitPrice: 70000 });
+      rulesData.push({ tariffId: tariff.id, serviceTypeId: storageId, containerSize: ContainerSize.SIZE_45, unitPrice: 80000 });
+    }
+
+    if (strippingId) {
+      rulesData.push({ tariffId: tariff.id, serviceTypeId: strippingId, unitPrice: 800000 });
+      rulesData.push({ tariffId: tariff.id, serviceTypeId: strippingId, containerSize: ContainerSize.SIZE_20, unitPrice: 650000 });
+      rulesData.push({ tariffId: tariff.id, serviceTypeId: strippingId, containerSize: ContainerSize.SIZE_40, unitPrice: 1100000 });
+    }
+
+    if (inspectionId) {
+      rulesData.push({ tariffId: tariff.id, serviceTypeId: inspectionId, unitPrice: 200000 });
+    }
+
+    if (movementId) {
+      rulesData.push({ tariffId: tariff.id, serviceTypeId: movementId, unitPrice: 150000 });
+      rulesData.push({ tariffId: tariff.id, serviceTypeId: movementId, containerSize: ContainerSize.SIZE_20, unitPrice: 120000 });
+      rulesData.push({ tariffId: tariff.id, serviceTypeId: movementId, containerSize: ContainerSize.SIZE_40, unitPrice: 180000 });
+    }
+
+    for (const rule of rulesData) {
+      await prisma.tariffRule.create({
+        data: rule,
+      });
+    }
+  }
 }
 
 async function main(): Promise<void> {
@@ -415,13 +519,19 @@ async function main(): Promise<void> {
     `Seeded ICD Site: ${site.code}.`,
   );
 
-  await seedAdminUser(
+  const admin = await seedAdminUser(
     site.id,
   );
 
   console.log(
     'Seeded bootstrap ADMIN.',
   );
+
+  await seedServiceTypes();
+  console.log('Seeded Service Types.');
+
+  await seedDefaultTariff(site.id, admin.id);
+  console.log('Seeded Default Tariff & Rules.');
 
   console.log(
     'ICD database seed completed.',

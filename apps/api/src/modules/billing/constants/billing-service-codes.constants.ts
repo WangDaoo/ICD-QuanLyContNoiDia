@@ -1,0 +1,14 @@
+export const BILLING_SERVICE_CODES = {
+  RECEPTION: 'RECEPTION',
+  STORAGE: 'STORAGE',
+  STRIPPING: 'STRIPPING',
+  INSPECTION: 'INSPECTION',
+  MOVEMENT: 'MOVEMENT',
+} as const;
+
+export type BillingServiceCode =
+  (typeof BILLING_SERVICE_CODES)[keyof typeof BILLING_SERVICE_CODES];
+
+export const REQUIRED_BILLING_SERVICE_CODES = Object.values(
+  BILLING_SERVICE_CODES,
+);

@@ -51,6 +51,10 @@ import {
 } from './modules/yard/yard.module';
 
 import {
+  BillingModule,
+} from './modules/billing/billing.module';
+
+import {
   UsersModule,
 } from './modules/users/users.module';
 
@@ -88,6 +92,8 @@ import {
     GateInModule,
 
     YardModule,
+
+    BillingModule,
   ],
 })
 export class AppModule {}

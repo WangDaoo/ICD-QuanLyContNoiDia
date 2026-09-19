@@ -101,8 +101,14 @@ export const PERMISSION_CODES = {
   YARD_BOOKING:
     'yard.booking',
 
+  BILLING_READ:
+    'billing.read',
+
   BILLING_MANAGE:
     'billing.manage',
+
+  TARIFF_MANAGE:
+    'tariff.manage',
 
   GATE_PASS_CREATE:
     'gate_pass.create',

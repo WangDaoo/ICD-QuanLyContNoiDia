@@ -5,7 +5,7 @@ import {
   IsString,
 } from 'class-validator';
 
-export class CreateServiceOrderDto {
+export class PreviewBillingDto {
   @IsString()
   @IsNotEmpty()
   containerVisitId!: string;
@@ -17,8 +17,4 @@ export class CreateServiceOrderDto {
   @IsString()
   @IsOptional()
   tariffId?: string;
-
-  @IsString()
-  @IsOptional()
-  notes?: string;
 }
