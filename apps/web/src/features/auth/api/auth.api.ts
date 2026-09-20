@@ -1,14 +1,29 @@
-/**
- * Web feature auth / auth.api.ts
- *
- * Mục đích:
- * Khung file giao diện cho feature `auth`. Chưa có component/hook/API implementation.
- *
- * Quy tắc khi triển khai:
- * - Tuân thủ apps/web/RULES.md.
- * - Không tự chứa business rule cuối cùng.
- *
- * Lưu ý:
- * - File hiện tại chỉ là khung, chưa có logic thực thi.
- * - Không tự ý mở rộng trách nhiệm của file nếu chưa cập nhật RULES.md của module.
- */
+import { apiClient } from '../../../services/api/api-client';
+
+export type User = {
+  id: string;
+  username: string;
+  fullName: string;
+  roleCodes: string[];
+  permissionCodes: string[];
+};
+
+export type LoginResponse = {
+  accessToken: string;
+  refreshToken: string;
+  user: User;
+};
+
+export const authApi = {
+  login(credentials: { username: string; password: string }): Promise<LoginResponse | { data: LoginResponse }> {
+    return apiClient.post('/auth/login', credentials);
+  },
+
+  getCurrentUser(): Promise<{ user: User } | { data: { user: User } }> {
+    return apiClient.get('/auth/me');
+  },
+
+  logout(): Promise<void> {
+    return apiClient.post('/auth/logout');
+  },
+};
