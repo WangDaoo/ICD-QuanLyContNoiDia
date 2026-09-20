@@ -20,6 +20,7 @@ import { ServiceOrderCreatePage } from '../features/billing/pages/ServiceOrderCr
 import { InvoiceDetailPage } from '../features/billing/pages/InvoiceDetailPage';
 import GatePassPage from '../features/gate-pass/pages/GatePassPage';
 import GateOutPage from '../features/gate-pass/pages/GateOutPage';
+import EdiOperationsPage from '../features/edi/pages/EdiOperationsPage';
 import { LoginPage } from '../features/auth/pages/LoginPage';
 import { useAuth } from '../features/auth/hooks/useAuth';
 import { theme } from '../theme/theme';
@@ -110,7 +111,7 @@ export function AppRouter() {
           <Route path="/gate-pass" element={<GatePassPage />} />
           <Route path="/gate-pass/:visitId" element={<GatePassPage />} />
           <Route path="/gate-out" element={<GateOutPage />} />
-          <Route path="/edi" element={<PlaceholderPage title="EDI Integration" description="Xử lý thông điệp EDI (CODECO, COARRI, BAPLIE)." />} />
+          <Route path="/edi" element={<EdiOperationsPage />} />
           <Route path="/handovers" element={<PlaceholderPage title="Transport Handover" description="Biên bản bàn giao và đối soát liên kết đối tác." />} />
           <Route path="/partner-clients" element={<PlaceholderPage title="Partner API Clients" description="Quản lý API Key và phân quyền tích hợp hệ thống bên ngoài." />} />
           <Route path="/reports" element={<PlaceholderPage title="Reports" description="Báo cáo thống kê sản lượng, doanh thu và năng suất." />} />
