@@ -1,80 +1,17 @@
-import 'reflect-metadata';
-
-import { BadRequestException, ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import helmet from 'helmet';
 
 import { AppModule } from './app.module';
-import { HTTP_ERROR_CODES } from './common/constants/http-error-codes.constants';
-import { GlobalExceptionFilter } from './common/filters/global-exception.filter';
-import { RequestContextService } from './common/request-context/request-context.service';
-import { createRequestIdMiddleware } from './common/request-context/request-id.middleware';
-import { flattenValidationErrors } from './common/utils/validation-error.util';
+import { configureApp } from './bootstrap/configure-app';
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
 
   const configService = app.get(ConfigService);
 
-  /**
-   * 1. HTTP Security headers with Helmet
-   */
-  app.use(
-    helmet({
-      contentSecurityPolicy: process.env.NODE_ENV === 'production' ? undefined : false,
-      crossOriginEmbedderPolicy: false,
-    }),
-  );
-
-  /**
-   * 2. CORS configuration
-   */
-  const corsOrigins = configService.get<string>('CORS_ORIGINS') ?? '*';
-  const allowedOrigins = corsOrigins === '*' ? '*' : corsOrigins.split(',').map((o) => o.trim());
-
-  app.enableCors({
-    origin: allowedOrigins,
-    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
-    credentials: true,
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-Request-Id', 'x-icd-id'],
-  });
-
-  /**
-   * 3. Tất cả API nội bộ bắt đầu bằng /api
-   */
-  app.setGlobalPrefix('api');
-
-  /**
-   * 4. Request ID Middleware gắn X-Request-Id và đưa vào RequestContextService
-   */
-  const requestContextService = app.get(RequestContextService);
-  app.use(createRequestIdMiddleware(requestContextService));
-
-  /**
-   * 5. Chuẩn DTO toàn hệ thống và format validation error envelope
-   */
-  app.useGlobalPipes(
-    new ValidationPipe({
-      whitelist: true,
-      forbidNonWhitelisted: true,
-      transform: true,
-      exceptionFactory: (errors) =>
-        new BadRequestException({
-          code: HTTP_ERROR_CODES.VALIDATION_FAILED,
-          message: 'Dữ liệu đầu vào không hợp lệ.',
-          details: {
-            fields: flattenValidationErrors(errors),
-          },
-        }),
-    }),
-  );
-
-  /**
-   * 6. Global Exception Filter chuẩn hóa error envelope kèm requestId
-   */
-  app.useGlobalFilters(new GlobalExceptionFilter());
+  // 1. Configure application middleware, validation, prefix, filters
+  configureApp(app);
 
   /**
    * 7. Swagger / OpenAPI Documentation

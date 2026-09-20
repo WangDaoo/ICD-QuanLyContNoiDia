@@ -12,6 +12,7 @@
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "test:watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch",
     "test:cov": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --coverage",
+    "test:e2e": "cross-env NODE_OPTIONS=--experimental-vm-modules MYSQL_DATABASE=icd_management_e2e DATABASE_URL=mysql://icd_user:icd_password@localhost:3306/icd_management_e2e jest --config ./test/jest-e2e.json --runInBand",
     "prisma:generate": "prisma generate",
     "prisma:validate": "prisma validate",
     "prisma:format": "prisma format",
