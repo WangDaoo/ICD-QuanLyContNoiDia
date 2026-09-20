@@ -21,6 +21,9 @@ import { InvoiceDetailPage } from '../features/billing/pages/InvoiceDetailPage';
 import GatePassPage from '../features/gate-pass/pages/GatePassPage';
 import GateOutPage from '../features/gate-pass/pages/GateOutPage';
 import EdiOperationsPage from '../features/edi/pages/EdiOperationsPage';
+import HandoverListPage from '../features/partner-handover/pages/HandoverListPage';
+import HandoverCreatePage from '../features/partner-handover/pages/HandoverCreatePage';
+import HandoverDetailPage from '../features/partner-handover/pages/HandoverDetailPage';
 import { LoginPage } from '../features/auth/pages/LoginPage';
 import { useAuth } from '../features/auth/hooks/useAuth';
 import { theme } from '../theme/theme';
@@ -112,7 +115,9 @@ export function AppRouter() {
           <Route path="/gate-pass/:visitId" element={<GatePassPage />} />
           <Route path="/gate-out" element={<GateOutPage />} />
           <Route path="/edi" element={<EdiOperationsPage />} />
-          <Route path="/handovers" element={<PlaceholderPage title="Transport Handover" description="Biên bản bàn giao và đối soát liên kết đối tác." />} />
+          <Route path="/handovers" element={<HandoverListPage />} />
+          <Route path="/handovers/new" element={<HandoverCreatePage />} />
+          <Route path="/handovers/:handoverId" element={<HandoverDetailPage />} />
           <Route path="/partner-clients" element={<PlaceholderPage title="Partner API Clients" description="Quản lý API Key và phân quyền tích hợp hệ thống bên ngoài." />} />
           <Route path="/reports" element={<PlaceholderPage title="Reports" description="Báo cáo thống kê sản lượng, doanh thu và năng suất." />} />
           <Route path="/audit" element={<PlaceholderPage title="Audit Logs" description="Nhật ký kiểm toán toàn bộ thao tác hệ thống." />} />
