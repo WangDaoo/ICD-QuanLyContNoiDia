@@ -13,6 +13,13 @@ import { TruckVisitDetailPage } from '../features/truck-visits/pages/TruckVisitD
 import { GateInPage } from '../features/gate-in/pages/GateInPage';
 import YardOverviewPage from '../features/yard/pages/YardOverviewPage';
 import YardAssignmentPage from '../features/yard/pages/YardAssignmentPage';
+import YardOperationsPage from '../features/yard/pages/YardOperationsPage';
+import { BillingListPage } from '../features/billing/pages/BillingListPage';
+import { BillingDetailPage } from '../features/billing/pages/BillingDetailPage';
+import { ServiceOrderCreatePage } from '../features/billing/pages/ServiceOrderCreatePage';
+import { InvoiceDetailPage } from '../features/billing/pages/InvoiceDetailPage';
+import GatePassPage from '../features/gate-pass/pages/GatePassPage';
+import GateOutPage from '../features/gate-pass/pages/GateOutPage';
 import { LoginPage } from '../features/auth/pages/LoginPage';
 import { useAuth } from '../features/auth/hooks/useAuth';
 import { theme } from '../theme/theme';
@@ -94,8 +101,15 @@ export function AppRouter() {
           <Route path="/yard" element={<YardOverviewPage />} />
           <Route path="/yard/:visitId/assign" element={<YardAssignmentPage />} />
           <Route path="/yard/assign" element={<YardAssignmentPage />} />
-          <Route path="/billing" element={<PlaceholderPage title="Billing & Invoicing" description="Tính cước phí nâng hạ, lưu bãi và phát hành hóa đơn." />} />
-          <Route path="/gate-pass" element={<PlaceholderPage title="Gate Pass" description="Kiểm tra Gate Readiness và cấp phát phiếu ra cổng điện tử." />} />
+          <Route path="/yard/:visitId/operations" element={<YardOperationsPage />} />
+          <Route path="/yard/operations" element={<YardOperationsPage />} />
+          <Route path="/billing" element={<BillingListPage />} />
+          <Route path="/billing/:visitId" element={<BillingDetailPage />} />
+          <Route path="/billing/:visitId/service-order/new" element={<ServiceOrderCreatePage />} />
+          <Route path="/invoices/:invoiceId" element={<InvoiceDetailPage />} />
+          <Route path="/gate-pass" element={<GatePassPage />} />
+          <Route path="/gate-pass/:visitId" element={<GatePassPage />} />
+          <Route path="/gate-out" element={<GateOutPage />} />
           <Route path="/edi" element={<PlaceholderPage title="EDI Integration" description="Xử lý thông điệp EDI (CODECO, COARRI, BAPLIE)." />} />
           <Route path="/handovers" element={<PlaceholderPage title="Transport Handover" description="Biên bản bàn giao và đối soát liên kết đối tác." />} />
           <Route path="/partner-clients" element={<PlaceholderPage title="Partner API Clients" description="Quản lý API Key và phân quyền tích hợp hệ thống bên ngoài." />} />

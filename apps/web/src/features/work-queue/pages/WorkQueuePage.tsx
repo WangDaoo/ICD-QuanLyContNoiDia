@@ -215,9 +215,9 @@ function buildTaskPath(
     case 'YARD_OPERATIONS':
     case 'INSPECTION': {
       return visitId
-        ? `/yard?visitId=${encodeURIComponent(
+        ? `/yard/${encodeURIComponent(
             visitId,
-          )}`
+          )}/operations`
         : '/yard';
     }
 
@@ -231,10 +231,10 @@ function buildTaskPath(
 
     case 'GATE_OUT': {
       return visitId
-        ? `/gate-pass?visitId=${encodeURIComponent(
+        ? `/gate-pass/${encodeURIComponent(
             visitId,
           )}`
-        : '/gate-pass';
+        : '/gate-out';
     }
 
     case 'HANDOVER_REVIEW': {

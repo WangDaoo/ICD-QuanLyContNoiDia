@@ -687,18 +687,30 @@ export function ContainerDetailPage() {
             </div>
 
             <div className="container-related-links">
+              {detail.status === 'IN_YARD' && !detail.yardPosition && (
+                <Link
+                  to={`/yard/${encodeURIComponent(
+                    detail.visitId,
+                  )}/assign`}
+                >
+                  <span>▦</span>
+                  Gán vị trí bãi
+                  <b>→</b>
+                </Link>
+              )}
+
               <Link
-                to={`/yard?visitId=${encodeURIComponent(
+                to={`/yard/${encodeURIComponent(
                   detail.visitId,
-                )}`}
+                )}/operations`}
               >
-                <span>▦</span>
+                <span>⇄</span>
                 Yard Operations
                 <b>→</b>
               </Link>
 
               <Link
-                to={`/billing?visitId=${encodeURIComponent(
+                to={`/billing/${encodeURIComponent(
                   detail.visitId,
                 )}`}
               >
@@ -708,7 +720,7 @@ export function ContainerDetailPage() {
               </Link>
 
               <Link
-                to={`/gate-pass?visitId=${encodeURIComponent(
+                to={`/gate-pass/${encodeURIComponent(
                   detail.visitId,
                 )}`}
               >
