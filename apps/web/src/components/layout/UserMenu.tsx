@@ -1,132 +1,192 @@
-import { useState, useRef, useEffect } from 'react';
-import { useAuth } from '../../features/auth/hooks/useAuth';
-import { theme } from '../../theme/theme';
+import {
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
-export function UserMenu() {
-  const { user, logout } = useAuth();
-  const [open, setOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
+export type ShellUser = {
+  id?: string;
+  name?: string;
+  email?: string;
+  icdId?: string;
+  roleCodes?: string[];
+  permissionCodes?: string[];
+};
+
+type UserMenuProps = {
+  user: ShellUser | null;
+  onLogout: () => void | Promise<void>;
+};
+
+function getInitials(
+  name?: string,
+): string {
+  if (!name) {
+    return 'U';
+  }
+
+  const words = name
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean);
+
+  if (words.length === 0) {
+    return 'U';
+  }
+
+  if (words.length === 1) {
+    return (
+      words[0]
+        ?.slice(0, 2)
+        .toUpperCase() ?? 'U'
+    );
+  }
+
+  return [
+    words[0]?.[0],
+    words[words.length - 1]?.[0],
+  ]
+    .filter(Boolean)
+    .join('')
+    .toUpperCase();
+}
+
+export function UserMenu({
+  user,
+  onLogout,
+}: UserMenuProps) {
+  const [open, setOpen] =
+    useState(false);
+
+  const containerRef =
+    useRef<HTMLDivElement | null>(
+      null,
+    );
 
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+    function handleOutsideClick(
+      event: MouseEvent,
+    ) {
+      if (
+        !containerRef.current?.contains(
+          event.target as Node,
+        )
+      ) {
         setOpen(false);
       }
     }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+
+    document.addEventListener(
+      'mousedown',
+      handleOutsideClick,
+    );
+
+    return () => {
+      document.removeEventListener(
+        'mousedown',
+        handleOutsideClick,
+      );
+    };
   }, []);
 
-  const fullName = user?.fullName || user?.username || 'Nhân viên';
-  const roleDisplay = user?.roleCodes?.join(', ') || 'STAFF';
-  const initials = fullName.slice(0, 2).toUpperCase();
+  const mainRole =
+    user?.roleCodes?.[0] ??
+    'USER';
+
+  async function handleLogout() {
+    setOpen(false);
+
+    await onLogout();
+  }
 
   return (
-    <div ref={menuRef} style={{ position: 'relative' }}>
+    <div
+      ref={containerRef}
+      className="icd-user-menu"
+    >
       <button
-        onClick={() => setOpen(!open)}
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '10px',
-          background: 'none',
-          border: 'none',
-          cursor: 'pointer',
-          padding: '4px 8px',
-          borderRadius: theme.borderRadius.md,
-          transition: 'background 0.15s ease',
-        }}
-        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = theme.colors.surfaceSubtle)}
-        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
+        type="button"
+        className="icd-user-menu__trigger"
+        onClick={() =>
+          setOpen((value) => !value)
+        }
       >
-        <div
-          style={{
-            width: '34px',
-            height: '34px',
-            borderRadius: '50%',
-            backgroundColor: theme.colors.primaryLight,
-            color: theme.colors.primary,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontWeight: 700,
-            fontSize: '13px',
-          }}
+        <span className="icd-user-menu__avatar">
+          {getInitials(user?.name)}
+        </span>
+
+        <span className="icd-user-menu__identity">
+          <strong>
+            {user?.name ??
+              'Người dùng'}
+          </strong>
+
+          <span>{mainRole}</span>
+        </span>
+
+        <span
+          className={[
+            'icd-user-menu__chevron',
+            open
+              ? 'icd-user-menu__chevron--open'
+              : '',
+          ]
+            .filter(Boolean)
+            .join(' ')}
         >
-          {initials}
-        </div>
-        <div style={{ textAlign: 'left' }}>
-          <div style={{ fontSize: '13px', fontWeight: 600, color: theme.colors.textPrimary }}>
-            {fullName}
-          </div>
-          <div style={{ fontSize: '11px', color: theme.colors.textMuted, fontWeight: 500 }}>
-            {roleDisplay}
-          </div>
-        </div>
-        <span style={{ fontSize: '10px', color: theme.colors.textMuted }}>▼</span>
+          ▾
+        </span>
       </button>
 
       {open && (
-        <div
-          style={{
-            position: 'absolute',
-            right: 0,
-            top: '46px',
-            width: '220px',
-            backgroundColor: theme.colors.surface,
-            borderRadius: theme.borderRadius.md,
-            boxShadow: theme.shadows.lg,
-            border: `1px solid ${theme.colors.border}`,
-            padding: '8px 0',
-            zIndex: 1000,
-          }}
-        >
-          <div style={{ padding: '8px 16px', borderBottom: `1px solid ${theme.colors.border}` }}>
-            <div style={{ fontSize: '13px', fontWeight: 600, color: theme.colors.textPrimary }}>
-              {fullName}
+        <div className="icd-user-menu__panel">
+          <div className="icd-user-menu__profile">
+            <div className="icd-user-menu__profile-avatar">
+              {getInitials(user?.name)}
             </div>
-            <div style={{ fontSize: '11px', color: theme.colors.textMuted }}>
-              {user?.username || 'user'}
-            </div>
-            <div
-              style={{
-                marginTop: '4px',
-                display: 'inline-block',
-                padding: '2px 6px',
-                borderRadius: '4px',
-                backgroundColor: theme.colors.primaryLight,
-                color: theme.colors.primary,
-                fontSize: '10px',
-                fontWeight: 700,
-              }}
-            >
-              {roleDisplay}
+
+            <div>
+              <strong>
+                {user?.name ??
+                  'Người dùng'}
+              </strong>
+
+              <span>
+                {user?.email ?? ''}
+              </span>
             </div>
           </div>
 
+          <div className="icd-user-menu__separator" />
+
+          <div className="icd-user-menu__meta">
+            <span>ICD Site</span>
+
+            <strong>
+              {user?.icdId ??
+                'ICD01'}
+            </strong>
+          </div>
+
+          <div className="icd-user-menu__meta">
+            <span>Vai trò</span>
+
+            <strong>
+              {mainRole}
+            </strong>
+          </div>
+
+          <div className="icd-user-menu__separator" />
+
           <button
+            type="button"
+            className="icd-user-menu__logout"
             onClick={() => {
-              setOpen(false);
-              void logout();
+              void handleLogout();
             }}
-            style={{
-              width: '100%',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '10px 16px',
-              border: 'none',
-              background: 'none',
-              color: theme.colors.danger,
-              fontSize: '13px',
-              fontWeight: 600,
-              cursor: 'pointer',
-              textAlign: 'left',
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = theme.colors.dangerBackground)}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
           >
-            <span>🚪</span> Đăng xuất
+            <span>⇥</span>
+            Đăng xuất
           </button>
         </div>
       )}

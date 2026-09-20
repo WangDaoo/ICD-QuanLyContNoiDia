@@ -2,163 +2,171 @@ export type NavigationItem = {
   key: string;
   label: string;
   path: string;
-  icon?: string;
+  icon: string;
   permission?: string;
+  end?: boolean;
 };
 
 export type NavigationGroup = {
+  key: string;
   label: string;
   items: NavigationItem[];
 };
 
 export const navigationGroups: NavigationGroup[] = [
   {
-    label: 'Tổng quan',
+    key: 'overview',
+    label: 'TỔNG QUAN',
     items: [
       {
         key: 'dashboard',
         label: 'Dashboard',
         path: '/',
-        icon: '📊',
+        icon: '◫',
+        end: true,
       },
       {
         key: 'work-queue',
         label: 'Work Queue',
         path: '/work-queue',
-        icon: '📋',
+        icon: '☷',
       },
     ],
   },
+
   {
-    label: 'Vận hành',
+    key: 'operations',
+    label: 'VẬN HÀNH',
     items: [
       {
         key: 'manifests',
         label: 'Manifest',
         path: '/manifests',
-        icon: '📄',
+        icon: '▤',
       },
       {
         key: 'movement-orders',
         label: 'Movement Orders',
         path: '/movement-orders',
-        icon: '🚛',
+        icon: '⇄',
       },
       {
         key: 'truck-visits',
         label: 'Truck Visits',
         path: '/truck-visits',
-        icon: '🚚',
+        icon: '▰',
       },
       {
         key: 'containers',
         label: 'Containers',
         path: '/containers',
-        icon: '📦',
+        icon: '▣',
       },
       {
         key: 'gate-in',
         label: 'Gate-in',
         path: '/gate-in',
-        icon: '🚪',
+        icon: '⇥',
       },
       {
         key: 'yard',
         label: 'Yard',
         path: '/yard',
-        icon: '🏗️',
+        icon: '▦',
       },
     ],
   },
+
   {
-    label: 'Tài chính',
+    key: 'finance',
+    label: 'TÀI CHÍNH',
     items: [
       {
         key: 'billing',
         label: 'Billing',
         path: '/billing',
-        icon: '💳',
+        icon: '₫',
       },
       {
         key: 'gate-pass',
         label: 'Gate Pass',
         path: '/gate-pass',
-        icon: '🎫',
+        icon: '⌁',
       },
     ],
   },
+
   {
-    label: 'Tích hợp',
+    key: 'integration',
+    label: 'TÍCH HỢP',
     items: [
       {
         key: 'edi',
         label: 'EDI',
         path: '/edi',
-        icon: '🔄',
+        icon: '⇆',
       },
       {
-        key: 'handover',
+        key: 'handovers',
         label: 'Transport Handover',
         path: '/handovers',
-        icon: '🤝',
+        icon: '◇',
       },
       {
         key: 'partner-api',
         label: 'Partner API',
         path: '/partner-clients',
-        icon: '🔌',
+        icon: '⌘',
       },
     ],
   },
+
   {
-    label: 'Phân tích',
+    key: 'analytics',
+    label: 'PHÂN TÍCH',
     items: [
       {
         key: 'reports',
         label: 'Reports',
         path: '/reports',
-        icon: '📈',
+        icon: '▥',
       },
       {
         key: 'audit',
         label: 'Audit Logs',
         path: '/audit',
-        icon: '📜',
+        icon: '◎',
       },
     ],
   },
+
   {
-    label: 'Quản trị',
+    key: 'administration',
+    label: 'QUẢN TRỊ',
     items: [
       {
         key: 'users',
         label: 'Users',
         path: '/admin/users',
-        icon: '👥',
+        icon: '♙',
       },
       {
         key: 'roles',
         label: 'Roles & Permissions',
         path: '/admin/roles',
-        icon: '🛡️',
+        icon: '♢',
       },
       {
         key: 'master-data',
         label: 'Master Data',
         path: '/admin/master-data',
-        icon: '🗄️',
+        icon: '⊞',
       },
       {
         key: 'tariffs',
         label: 'Tariffs',
         path: '/admin/tariffs',
-        icon: '💰',
-      },
-      {
-        key: 'settings',
-        label: 'Settings',
-        path: '/admin/settings',
-        icon: '⚙️',
+        icon: '₫',
       },
     ],
   },

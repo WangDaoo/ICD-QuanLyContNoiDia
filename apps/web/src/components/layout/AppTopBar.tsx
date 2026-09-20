@@ -1,46 +1,80 @@
-import { Breadcrumbs } from './Breadcrumbs';
-import { UserMenu } from './UserMenu';
-import { theme } from '../../theme/theme';
+import type {
+  ShellUser,
+} from './UserMenu';
 
-export function AppTopBar() {
+import {
+  UserMenu,
+} from './UserMenu';
+
+type AppTopBarProps = {
+  user: ShellUser | null;
+  sidebarCollapsed: boolean;
+
+  onToggleSidebar: () => void;
+
+  onLogout: () =>
+    | void
+    | Promise<void>;
+};
+
+export function AppTopBar({
+  user,
+  sidebarCollapsed,
+  onToggleSidebar,
+  onLogout,
+}: AppTopBarProps) {
   return (
-    <header
-      style={{
-        height: '60px',
-        backgroundColor: theme.colors.surface,
-        borderBottom: `1px solid ${theme.colors.border}`,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '0 24px',
-        position: 'sticky',
-        top: 0,
-        zIndex: 50,
-      }}
-    >
-      <Breadcrumbs />
-
-      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+    <header className="icd-topbar">
+      <div className="icd-topbar__left">
         <button
-          style={{
-            background: 'none',
-            border: `1px solid ${theme.colors.border}`,
-            borderRadius: theme.borderRadius.md,
-            width: '36px',
-            height: '36px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            cursor: 'pointer',
-            fontSize: '16px',
-            color: theme.colors.textSecondary,
-          }}
-          title="Thông báo"
+          type="button"
+          className="icd-topbar__menu-button"
+          onClick={onToggleSidebar}
+          aria-label={
+            sidebarCollapsed
+              ? 'Mở sidebar'
+              : 'Thu gọn sidebar'
+          }
         >
-          🔔
+          ☰
         </button>
 
-        <UserMenu />
+        <div className="icd-topbar__site">
+          <span className="icd-topbar__site-label">
+            ICD SITE
+          </span>
+
+          <strong>
+            {user?.icdId ??
+              'ICD01'}
+          </strong>
+        </div>
+      </div>
+
+      <div className="icd-topbar__right">
+        <div className="icd-topbar__status">
+          <span className="icd-topbar__status-dot" />
+
+          <span>
+            Hệ thống hoạt động
+          </span>
+        </div>
+
+        <button
+          type="button"
+          className="icd-topbar__notification"
+          aria-label="Thông báo"
+          title="Thông báo"
+        >
+          ♢
+
+          <span className="icd-topbar__notification-dot" />
+        </button>
+
+        <UserMenu
+          user={user}
+          onLogout={onLogout}
+        />
       </div>
     </header>
   );

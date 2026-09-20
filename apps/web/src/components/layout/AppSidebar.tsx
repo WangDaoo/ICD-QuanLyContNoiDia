@@ -1,133 +1,159 @@
 import { NavLink } from 'react-router-dom';
-import { navigationGroups } from '../../navigation/navigation.config';
-import { theme } from '../../theme/theme';
 
-export function AppSidebar() {
+import {
+  navigationGroups,
+  type NavigationItem,
+} from '../../navigation/navigation.config';
+
+type AppSidebarProps = {
+  collapsed: boolean;
+  permissionCodes?: string[];
+  onNavigate?: () => void;
+};
+
+function canDisplayItem(
+  item: NavigationItem,
+  permissionCodes: string[],
+): boolean {
+  if (!item.permission) {
+    return true;
+  }
+
+  return permissionCodes.includes(
+    item.permission,
+  );
+}
+
+export function AppSidebar({
+  collapsed,
+  permissionCodes = [],
+  onNavigate,
+}: AppSidebarProps) {
   return (
     <aside
-      style={{
-        width: '260px',
-        backgroundColor: theme.colors.sidebarBg,
-        color: theme.colors.sidebarText,
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100vh',
-        position: 'sticky',
-        top: 0,
-        overflowY: 'auto',
-        borderRight: `1px solid ${theme.colors.sidebarHover}`,
-        userSelect: 'none',
-      }}
+      className={[
+        'icd-sidebar',
+        collapsed
+          ? 'icd-sidebar--collapsed'
+          : '',
+      ]
+        .filter(Boolean)
+        .join(' ')}
     >
-      {/* Brand Header */}
-      <div
-        style={{
-          padding: '20px 24px',
-          borderBottom: `1px solid rgba(255, 255, 255, 0.1)`,
-          display: 'flex',
-          alignItems: 'center',
-          gap: '12px',
-        }}
-      >
-        <div
-          style={{
-            width: '36px',
-            height: '36px',
-            borderRadius: '8px',
-            backgroundColor: theme.colors.primary,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '18px',
-            fontWeight: 'bold',
-            color: '#fff',
-            boxShadow: theme.shadows.md,
-          }}
-        >
-          ⚓
+      <div className="icd-sidebar__brand">
+        <div className="icd-sidebar__brand-mark">
+          ICD
         </div>
-        <div>
-          <div style={{ fontWeight: 800, fontSize: '15px', letterSpacing: '0.5px', color: '#fff' }}>
-            ICD HƯNG YÊN
+
+        {!collapsed && (
+          <div className="icd-sidebar__brand-copy">
+            <strong>
+              ICD Management
+            </strong>
+
+            <span>
+              Inland Container Depot
+            </span>
           </div>
-          <div style={{ fontSize: '11px', color: theme.colors.sidebarTextMuted, fontWeight: 500 }}>
-            Hệ thống Quản lý Cảng Cạn
+        )}
+      </div>
+
+      <nav className="icd-sidebar__navigation">
+        {navigationGroups.map(
+          (group) => {
+            const visibleItems =
+              group.items.filter((item) =>
+                canDisplayItem(
+                  item,
+                  permissionCodes,
+                ),
+              );
+
+            if (
+              visibleItems.length === 0
+            ) {
+              return null;
+            }
+
+            return (
+              <section
+                key={group.key}
+                className="icd-sidebar__group"
+              >
+                {!collapsed && (
+                  <div className="icd-sidebar__group-title">
+                    {group.label}
+                  </div>
+                )}
+
+                <div className="icd-sidebar__items">
+                  {visibleItems.map(
+                    (item) => (
+                      <NavLink
+                        key={item.key}
+                        to={item.path}
+                        end={item.end}
+                        onClick={
+                          onNavigate
+                        }
+                        title={
+                          collapsed
+                            ? item.label
+                            : undefined
+                        }
+                        className={({
+                          isActive,
+                        }) =>
+                          [
+                            'icd-sidebar__item',
+                            isActive
+                              ? 'icd-sidebar__item--active'
+                              : '',
+                          ]
+                            .filter(
+                              Boolean,
+                            )
+                            .join(' ')
+                        }
+                      >
+                        <span className="icd-sidebar__icon">
+                          {
+                            item.icon
+                          }
+                        </span>
+
+                        {!collapsed && (
+                          <span className="icd-sidebar__label">
+                            {
+                              item.label
+                            }
+                          </span>
+                        )}
+                      </NavLink>
+                    ),
+                  )}
+                </div>
+              </section>
+            );
+          },
+        )}
+      </nav>
+
+      {!collapsed && (
+        <div className="icd-sidebar__footer">
+          <div className="icd-sidebar__footer-dot" />
+
+          <div>
+            <strong>
+              ICD Management
+            </strong>
+
+            <span>
+              Backend RC1
+            </span>
           </div>
         </div>
-      </div>
-
-      {/* Navigation Groups */}
-      <div style={{ flex: 1, padding: '16px 12px' }}>
-        {navigationGroups.map((group) => (
-          <div key={group.label} style={{ marginBottom: '20px' }}>
-            <div
-              style={{
-                fontSize: '11px',
-                fontWeight: 700,
-                textTransform: 'uppercase',
-                letterSpacing: '0.8px',
-                color: theme.colors.sidebarTextMuted,
-                padding: '0 12px 8px 12px',
-              }}
-            >
-              {group.label}
-            </div>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-              {group.items.map((item) => (
-                <NavLink
-                  key={item.key}
-                  to={item.path}
-                  end={item.path === '/'}
-                  style={({ isActive }) => ({
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '10px',
-                    padding: '8px 12px',
-                    borderRadius: theme.borderRadius.md,
-                    fontSize: '13px',
-                    fontWeight: isActive ? 600 : 500,
-                    color: isActive ? '#FFFFFF' : theme.colors.sidebarText,
-                    backgroundColor: isActive ? theme.colors.sidebarActive : 'transparent',
-                    textDecoration: 'none',
-                    transition: 'all 0.15s ease',
-                  })}
-                >
-                  <span style={{ fontSize: '16px' }}>{item.icon || '•'}</span>
-                  <span>{item.label}</span>
-                </NavLink>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Footer / System Status */}
-      <div
-        style={{
-          padding: '16px 20px',
-          borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          fontSize: '11px',
-          color: theme.colors.sidebarTextMuted,
-        }}
-      >
-        <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <span
-            style={{
-              width: '8px',
-              height: '8px',
-              borderRadius: '50%',
-              backgroundColor: theme.colors.success,
-              display: 'inline-block',
-            }}
-          />
-          Hệ thống Online
-        </span>
-        <span style={{ fontWeight: 600 }}>v1.0.0</span>
-      </div>
+      )}
     </aside>
   );
 }
