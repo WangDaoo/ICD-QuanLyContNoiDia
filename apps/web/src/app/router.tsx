@@ -4,6 +4,8 @@ import { DashboardPage } from '../features/dashboard/pages/DashboardPage';
 import { WorkQueuePage } from '../features/work-queue/pages/WorkQueuePage';
 import { ContainerListPage } from '../features/containers/pages/ContainerListPage';
 import { ContainerDetailPage } from '../features/containers/pages/ContainerDetailPage';
+import { ManifestListPage } from '../features/manifests/pages/ManifestListPage';
+import { ManifestDetailPage } from '../features/manifests/pages/ManifestDetailPage';
 import { LoginPage } from '../features/auth/pages/LoginPage';
 import { useAuth } from '../features/auth/hooks/useAuth';
 import { theme } from '../theme/theme';
@@ -72,7 +74,8 @@ export function AppRouter() {
         <Route element={<ProtectedLayout />}>
           <Route path="/" element={<DashboardPage />} />
           <Route path="/work-queue" element={<WorkQueuePage />} />
-          <Route path="/manifests" element={<PlaceholderPage title="Manifest Management" description="Quản lý bản lược khai hàng hóa và vận đơn HBL." />} />
+          <Route path="/manifests" element={<ManifestListPage />} />
+          <Route path="/manifests/:manifestId" element={<ManifestDetailPage />} />
           <Route path="/movement-orders" element={<PlaceholderPage title="Movement Orders" description="Quản lý lệnh vận chuyển container ra/vào cảng." />} />
           <Route path="/truck-visits" element={<PlaceholderPage title="Truck Visits" description="Đăng ký và giám sát lượt xe vận tải ra vào cảng." />} />
           <Route path="/containers" element={<ContainerListPage />} />
