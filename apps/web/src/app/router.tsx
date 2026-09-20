@@ -31,6 +31,7 @@ import { PartnerApiLogDetailPage } from '../features/admin/partner-api-logs/page
 import { ReportsPage } from '../features/reports/pages/ReportsPage';
 import AdminUsersPage from '../features/admin/access/pages/AdminUsersPage';
 import AccessMatrixPage from '../features/admin/access/pages/AccessMatrixPage';
+import OperationalSettingsPage from '../features/admin/settings/pages/OperationalSettingsPage';
 import { LoginPage } from '../features/auth/pages/LoginPage';
 import { useAuth } from '../features/auth/hooks/useAuth';
 import { theme } from '../theme/theme';
@@ -136,7 +137,7 @@ export function AppRouter() {
           <Route path="/admin/roles" element={<AccessMatrixPage />} />
           <Route path="/admin/master-data" element={<PlaceholderPage title="Master Data" description="Danh mục hãng tàu, khách hàng, biểu cước, mã ISO." />} />
           <Route path="/admin/tariffs" element={<PlaceholderPage title="Tariff Management" description="Cấu hình bảng giá dịch vụ cảng cạn." />} />
-          <Route path="/admin/settings" element={<PlaceholderPage title="System Settings" description="Cấu hình tham số hệ thống." />} />
+          <Route path="/admin/settings" element={<OperationalSettingsPage />} />
         </Route>
 
         <Route path="*" element={<Navigate to="/" replace />} />

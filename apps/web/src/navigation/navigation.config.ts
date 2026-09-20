@@ -168,6 +168,12 @@ export const navigationGroups: NavigationGroup[] = [
         path: '/admin/tariffs',
         icon: '₫',
       },
+      {
+        key: 'settings',
+        label: 'Operational Settings',
+        path: '/admin/settings',
+        icon: '⚙',
+      },
     ],
   },
 ];

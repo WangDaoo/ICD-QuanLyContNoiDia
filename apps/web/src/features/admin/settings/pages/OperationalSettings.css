@@ -1,0 +1,352 @@
+.operational-settings-page {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.operational-settings-toolbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.operational-settings-toolbar > div > span {
+  color: #2875c7;
+  font-size: 7px;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+}
+
+.operational-settings-toolbar h2 {
+  margin: 4px 0 0;
+  font-size: 18px;
+}
+
+.operational-settings-toolbar p {
+  margin: 6px 0 0;
+  color: #77838e;
+  font-size: 9px;
+}
+
+.operational-settings-toolbar button {
+  min-height: 35px;
+  padding: 0 12px;
+  border: 1px solid #dce3e8;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #485763;
+  font-size: 8px;
+  font-weight: 750;
+}
+
+/* message */
+
+.operational-settings-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 7px;
+  font-size: 9px;
+}
+
+.operational-settings-message--error {
+  border: 1px solid #efcccc;
+  background: #fff3f3;
+  color: #b63e3e;
+}
+
+.operational-settings-message--success {
+  border: 1px solid #cae6d7;
+  background: #eff9f4;
+  color: #267b57;
+}
+
+/* summary */
+
+.operational-settings-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 11px;
+}
+
+.operational-settings-summary article {
+  padding: 14px 15px;
+  border: 1px solid #e0e6ea;
+  border-radius: 9px;
+  background: #ffffff;
+}
+
+.operational-settings-summary span {
+  color: #7d8992;
+  font-size: 7px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+}
+
+.operational-settings-summary strong {
+  display: block;
+  margin-top: 7px;
+  font-size: 21px;
+}
+
+.operational-settings-summary small {
+  display: block;
+  margin-top: 4px;
+  color: #89939b;
+  font-size: 7px;
+}
+
+.operational-settings-source {
+  color: #267d58;
+  font-size: 14px !important;
+}
+
+/* cards */
+
+.operational-settings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.operational-setting-card {
+  padding: 16px;
+  border: 1px solid #e0e6ea;
+  border-radius: 10px;
+  background: #ffffff;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.operational-setting-card--changed {
+  border-color: #9fc3e6;
+  box-shadow: 0 0 0 3px rgba(40, 117, 199, 0.05);
+}
+
+.operational-setting-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.operational-setting-card__header span {
+  color: #2875c7;
+  font-family:
+    "Roboto Mono",
+    Consolas,
+    monospace;
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.operational-setting-card__header h3 {
+  margin: 5px 0 0;
+  font-size: 12px;
+}
+
+.operational-setting-unsaved {
+  padding: 4px 6px;
+  border-radius: 4px;
+  background: #fff3e3;
+  color: #98631b;
+  font-size: 6px;
+  font-weight: 850;
+}
+
+.operational-setting-description {
+  min-height: 34px;
+  margin: 10px 0 0;
+  color: #73808b;
+  font-size: 8px;
+  line-height: 1.55;
+}
+
+/* value */
+
+.operational-setting-value {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 15px;
+}
+
+.operational-setting-value > span {
+  color: #596773;
+  font-size: 8px;
+  font-weight: 750;
+}
+
+.operational-setting-value > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 75px;
+  align-items: center;
+}
+
+.operational-setting-value input {
+  min-height: 43px;
+  padding: 0 11px;
+  border: 1px solid #dce3e8;
+  border-radius: 7px 0 0 7px;
+  outline: 0;
+  font-family:
+    "Roboto Mono",
+    Consolas,
+    monospace;
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.operational-setting-value input:focus {
+  border-color: #79a9dc;
+  box-shadow: 0 0 0 3px rgba(40, 117, 199, 0.08);
+}
+
+.operational-setting-value > div > strong {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 43px;
+  border: 1px solid #dce3e8;
+  border-left: 0;
+  border-radius: 0 7px 7px 0;
+  background: #f6f8fa;
+  color: #6e7b86;
+  font-size: 8px;
+}
+
+/* meta */
+
+.operational-setting-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
+  margin-top: 14px;
+}
+
+.operational-setting-meta > div {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  border: 1px solid #edf0f2;
+  border-radius: 6px;
+  background: #fafbfc;
+}
+
+.operational-setting-meta span {
+  color: #84909a;
+  font-size: 6px;
+}
+
+.operational-setting-meta strong {
+  margin-top: 4px;
+  font-size: 7px;
+}
+
+/* actions */
+
+.operational-setting-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 7px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #edf0f2;
+}
+
+.operational-setting-actions button {
+  min-height: 33px;
+  padding: 0 10px;
+  border: 1px solid #dce3e8;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #52616d;
+  font-size: 7px;
+  font-weight: 750;
+}
+
+.operational-setting-save {
+  border-color: #2875c7 !important;
+  background: #2875c7 !important;
+  color: #ffffff !important;
+}
+
+.operational-setting-actions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+
+/* warning */
+
+.operational-settings-warning {
+  padding: 12px 14px;
+  border: 1px solid #e7d9bc;
+  border-radius: 8px;
+  background: #fff9ef;
+}
+
+.operational-settings-warning strong {
+  color: #845f21;
+  font-size: 8px;
+}
+
+.operational-settings-warning p {
+  margin: 5px 0 0;
+  color: #78684e;
+  font-size: 8px;
+  line-height: 1.55;
+}
+
+/* state */
+
+.operational-settings-state {
+  display: flex;
+  min-height: 350px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e0e6ea;
+  border-radius: 10px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.operational-settings-spinner {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 12px;
+  border: 3px solid #dae6f2;
+  border-top-color: #2875c7;
+  border-radius: 50%;
+  animation: operational-settings-spin 0.7s linear infinite;
+}
+
+@keyframes operational-settings-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 900px) {
+  .operational-settings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .operational-settings-toolbar {
+    flex-direction: column;
+  }
+
+  .operational-settings-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .operational-setting-meta {
+    grid-template-columns: 1fr;
+  }
+}

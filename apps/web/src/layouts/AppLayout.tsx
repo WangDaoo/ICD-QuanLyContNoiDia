@@ -104,6 +104,10 @@ function getPageTitle(
       prefix: '/admin/tariffs',
       title: 'Tariffs',
     },
+    {
+      prefix: '/admin/settings',
+      title: 'Operational Settings',
+    },
   ];
 
   if (pathname === '/') {
