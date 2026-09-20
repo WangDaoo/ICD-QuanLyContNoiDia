@@ -10,6 +10,7 @@ import { MovementOrderPage } from '../features/movement-orders/pages/MovementOrd
 import { TruckVisitListPage } from '../features/truck-visits/pages/TruckVisitListPage';
 import { TruckVisitCreatePage } from '../features/truck-visits/pages/TruckVisitCreatePage';
 import { TruckVisitDetailPage } from '../features/truck-visits/pages/TruckVisitDetailPage';
+import { GateInPage } from '../features/gate-in/pages/GateInPage';
 import { LoginPage } from '../features/auth/pages/LoginPage';
 import { useAuth } from '../features/auth/hooks/useAuth';
 import { theme } from '../theme/theme';
@@ -86,7 +87,8 @@ export function AppRouter() {
           <Route path="/truck-visits/:truckVisitId" element={<TruckVisitDetailPage />} />
           <Route path="/containers" element={<ContainerListPage />} />
           <Route path="/containers/:visitId" element={<ContainerDetailPage />} />
-          <Route path="/gate-in" element={<PlaceholderPage title="Gate-in" description="Kiểm tra tiếp nhận xe và container vào cổng." />} />
+          <Route path="/gate-in" element={<GateInPage />} />
+          <Route path="/gate-in/:visitId" element={<GateInPage />} />
           <Route path="/yard" element={<PlaceholderPage title="Yard Operations" description="Sơ đồ bãi, vị trí xếp dỡ và gợi ý vị trí hạ cont." />} />
           <Route path="/billing" element={<PlaceholderPage title="Billing & Invoicing" description="Tính cước phí nâng hạ, lưu bãi và phát hành hóa đơn." />} />
           <Route path="/gate-pass" element={<PlaceholderPage title="Gate Pass" description="Kiểm tra Gate Readiness và cấp phát phiếu ra cổng điện tử." />} />
