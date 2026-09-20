@@ -29,6 +29,8 @@ import { PartnerClientDetailPage } from '../features/admin/partner-clients/pages
 import { PartnerApiLogListPage } from '../features/admin/partner-api-logs/pages/PartnerApiLogListPage';
 import { PartnerApiLogDetailPage } from '../features/admin/partner-api-logs/pages/PartnerApiLogDetailPage';
 import { ReportsPage } from '../features/reports/pages/ReportsPage';
+import AdminUsersPage from '../features/admin/access/pages/AdminUsersPage';
+import AccessMatrixPage from '../features/admin/access/pages/AccessMatrixPage';
 import { LoginPage } from '../features/auth/pages/LoginPage';
 import { useAuth } from '../features/auth/hooks/useAuth';
 import { theme } from '../theme/theme';
@@ -130,8 +132,8 @@ export function AppRouter() {
           <Route path="/admin/partner-api-logs/:id" element={<PartnerApiLogDetailPage />} />
           <Route path="/partner-clients" element={<Navigate to="/admin/partner-clients" replace />} />
           <Route path="/audit" element={<PlaceholderPage title="Audit Logs" description="Nhật ký kiểm toán toàn bộ thao tác hệ thống." />} />
-          <Route path="/admin/users" element={<PlaceholderPage title="User Management" description="Quản lý tài khoản người dùng nội bộ." />} />
-          <Route path="/admin/roles" element={<PlaceholderPage title="Roles & Permissions" description="Phân quyền vai trò và ma trận quyền hạn." />} />
+          <Route path="/admin/users" element={<AdminUsersPage />} />
+          <Route path="/admin/roles" element={<AccessMatrixPage />} />
           <Route path="/admin/master-data" element={<PlaceholderPage title="Master Data" description="Danh mục hãng tàu, khách hàng, biểu cước, mã ISO." />} />
           <Route path="/admin/tariffs" element={<PlaceholderPage title="Tariff Management" description="Cấu hình bảng giá dịch vụ cảng cạn." />} />
           <Route path="/admin/settings" element={<PlaceholderPage title="System Settings" description="Cấu hình tham số hệ thống." />} />
