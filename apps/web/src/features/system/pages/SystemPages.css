@@ -1,0 +1,67 @@
+.system-state-page {
+  display: flex;
+  min-height: calc(100vh - 120px);
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.system-state-card {
+  width: min(520px, 100%);
+  padding: 30px;
+  border: 1px solid #e0e6ea;
+  border-radius: 12px;
+  background: #fff;
+  text-align: center;
+}
+
+.system-state-code {
+  color: #2875c7;
+  font-size: 34px;
+  font-weight: 900;
+}
+
+.system-state-card h1 {
+  margin: 8px 0 0;
+  font-size: 20px;
+}
+
+.system-state-card p {
+  margin: 10px 0 0;
+  color: #77838e;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.system-state-card code {
+  font-family: "Roboto Mono", Consolas, monospace;
+}
+
+.system-state-actions {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.system-state-actions a,
+.system-state-actions button {
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid #dce3e8;
+  border-radius: 7px;
+  background: #fff;
+  color: #52616d;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.system-state-actions a {
+  display: inline-flex;
+  align-items: center;
+  border-color: #2875c7;
+  background: #2875c7;
+  color: #fff;
+}

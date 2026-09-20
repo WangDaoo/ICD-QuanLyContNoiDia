@@ -32,6 +32,10 @@ import { ReportsPage } from '../features/reports/pages/ReportsPage';
 import AdminUsersPage from '../features/admin/access/pages/AdminUsersPage';
 import AccessMatrixPage from '../features/admin/access/pages/AccessMatrixPage';
 import OperationalSettingsPage from '../features/admin/settings/pages/OperationalSettingsPage';
+import MasterDataPage from '../features/admin/master-data/pages/MasterDataPage';
+import { TariffPage } from '../features/admin/tariffs/pages/TariffPage';
+import AuditLogPage from '../features/audit/pages/AuditLogPage';
+import NotFoundPage from '../features/system/pages/NotFoundPage';
 import { LoginPage } from '../features/auth/pages/LoginPage';
 import { useAuth } from '../features/auth/hooks/useAuth';
 import { theme } from '../theme/theme';
@@ -64,32 +68,6 @@ function ProtectedLayout() {
   return <AppLayout />;
 }
 
-function PlaceholderPage({ title, description }: { title: string; description: string }) {
-  return (
-    <div>
-      <h1 style={{ fontSize: '24px', fontWeight: 700, color: theme.colors.textPrimary, margin: 0 }}>
-        {title}
-      </h1>
-      <p style={{ color: theme.colors.textSecondary, fontSize: '14px', marginTop: '4px' }}>
-        {description}
-      </p>
-      <div
-        style={{
-          marginTop: theme.spacing.lg,
-          padding: theme.spacing.xl,
-          backgroundColor: theme.colors.surface,
-          borderRadius: theme.borderRadius.lg,
-          border: `1px dashed ${theme.colors.border}`,
-          textAlign: 'center',
-          color: theme.colors.textMuted,
-        }}
-      >
-        Module đang được kết nối theo blueprint mới...
-      </div>
-    </div>
-  );
-}
-
 export function AppRouter() {
   return (
     <BrowserRouter>
@@ -99,6 +77,7 @@ export function AppRouter() {
         {/* Protected app routes inside AppLayout */}
         <Route element={<ProtectedLayout />}>
           <Route path="/" element={<DashboardPage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/work-queue" element={<WorkQueuePage />} />
           <Route path="/manifests" element={<ManifestListPage />} />
           <Route path="/manifests/:manifestId" element={<ManifestDetailPage />} />
@@ -111,13 +90,16 @@ export function AppRouter() {
           <Route path="/gate-in" element={<GateInPage />} />
           <Route path="/gate-in/:visitId" element={<GateInPage />} />
           <Route path="/yard" element={<YardOverviewPage />} />
+          <Route path="/yard/:visitId" element={<YardOperationsPage />} />
           <Route path="/yard/:visitId/assign" element={<YardAssignmentPage />} />
           <Route path="/yard/assign" element={<YardAssignmentPage />} />
           <Route path="/yard/:visitId/operations" element={<YardOperationsPage />} />
           <Route path="/yard/operations" element={<YardOperationsPage />} />
+          <Route path="/yard-operations/:visitId" element={<YardOperationsPage />} />
           <Route path="/billing" element={<BillingListPage />} />
           <Route path="/billing/:visitId" element={<BillingDetailPage />} />
           <Route path="/billing/:visitId/service-order/new" element={<ServiceOrderCreatePage />} />
+          <Route path="/service-orders/new" element={<BillingListPage />} />
           <Route path="/invoices/:invoiceId" element={<InvoiceDetailPage />} />
           <Route path="/gate-pass" element={<GatePassPage />} />
           <Route path="/gate-pass/:visitId" element={<GatePassPage />} />
@@ -132,15 +114,18 @@ export function AppRouter() {
           <Route path="/admin/partner-api-logs" element={<PartnerApiLogListPage />} />
           <Route path="/admin/partner-api-logs/:id" element={<PartnerApiLogDetailPage />} />
           <Route path="/partner-clients" element={<Navigate to="/admin/partner-clients" replace />} />
-          <Route path="/audit" element={<PlaceholderPage title="Audit Logs" description="Nhật ký kiểm toán toàn bộ thao tác hệ thống." />} />
+          <Route path="/partner-clients/:id" element={<PartnerClientDetailPage />} />
+          <Route path="/activity" element={<AuditLogPage />} />
+          <Route path="/audit" element={<AuditLogPage />} />
           <Route path="/admin/users" element={<AdminUsersPage />} />
           <Route path="/admin/roles" element={<AccessMatrixPage />} />
-          <Route path="/admin/master-data" element={<PlaceholderPage title="Master Data" description="Danh mục hãng tàu, khách hàng, biểu cước, mã ISO." />} />
-          <Route path="/admin/tariffs" element={<PlaceholderPage title="Tariff Management" description="Cấu hình bảng giá dịch vụ cảng cạn." />} />
+          <Route path="/admin/master-data" element={<MasterDataPage />} />
+          <Route path="/admin/tariffs" element={<TariffPage />} />
           <Route path="/admin/settings" element={<OperationalSettingsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
 
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );

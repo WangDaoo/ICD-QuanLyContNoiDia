@@ -933,7 +933,7 @@ export const yardOperationsApi = {
     await postWithValidationFallback(
       `/containers/${encodeURIComponent(
         visitId,
-      )}/yard-bookings`,
+      )}/yard/bookings`,
       [
         {
           bookingType:

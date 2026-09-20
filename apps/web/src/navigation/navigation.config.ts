@@ -134,7 +134,7 @@ export const navigationGroups: NavigationGroup[] = [
       {
         key: 'audit',
         label: 'Audit Logs',
-        path: '/audit',
+        path: '/activity',
         icon: '◎',
       },
     ],
