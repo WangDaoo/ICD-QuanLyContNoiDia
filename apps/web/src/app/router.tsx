@@ -6,6 +6,7 @@ import { ContainerListPage } from '../features/containers/pages/ContainerListPag
 import { ContainerDetailPage } from '../features/containers/pages/ContainerDetailPage';
 import { ManifestListPage } from '../features/manifests/pages/ManifestListPage';
 import { ManifestDetailPage } from '../features/manifests/pages/ManifestDetailPage';
+import { MovementOrderPage } from '../features/movement-orders/pages/MovementOrderPage';
 import { LoginPage } from '../features/auth/pages/LoginPage';
 import { useAuth } from '../features/auth/hooks/useAuth';
 import { theme } from '../theme/theme';
@@ -76,7 +77,7 @@ export function AppRouter() {
           <Route path="/work-queue" element={<WorkQueuePage />} />
           <Route path="/manifests" element={<ManifestListPage />} />
           <Route path="/manifests/:manifestId" element={<ManifestDetailPage />} />
-          <Route path="/movement-orders" element={<PlaceholderPage title="Movement Orders" description="Quản lý lệnh vận chuyển container ra/vào cảng." />} />
+          <Route path="/movement-orders" element={<MovementOrderPage />} />
           <Route path="/truck-visits" element={<PlaceholderPage title="Truck Visits" description="Đăng ký và giám sát lượt xe vận tải ra vào cảng." />} />
           <Route path="/containers" element={<ContainerListPage />} />
           <Route path="/containers/:visitId" element={<ContainerDetailPage />} />
