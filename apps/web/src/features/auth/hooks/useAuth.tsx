@@ -5,7 +5,7 @@ export type AuthContextType = {
   user: User | null;
   loading: boolean;
   isAuthenticated: boolean;
-  login: (credentials: { username: string; password: string }) => Promise<void>;
+  login: (input: { email: string; password: string }) => Promise<void>;
   logout: () => Promise<void>;
 };
 
@@ -32,8 +32,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     try {
       const res = await authApi.getCurrentUser();
-      const data = unwrap(res);
-      setUser(data.user);
+      const data = unwrap(res) as { user?: User } & User;
+      const currentUser = data?.user ?? (data?.id ? (data as User) : null);
+      setUser(currentUser);
     } catch {
       localStorage.removeItem('access_token');
       localStorage.removeItem('refresh_token');
@@ -47,8 +48,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     void fetchCurrentUser();
   }, [fetchCurrentUser]);
 
-  const login = async (credentials: { username: string; password: string }) => {
-    const res = await authApi.login(credentials);
+  const login = async (input: { email: string; password: string }) => {
+    const res = await authApi.login(input);
     const data = unwrap(res) as LoginResponse;
     localStorage.setItem('access_token', data.accessToken);
     localStorage.setItem('refresh_token', data.refreshToken);

@@ -1,180 +1,528 @@
-import React, { useState } from 'react';
+import {
+  FormEvent,
+  useState,
+} from 'react';
+
+import {
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
+
 import { useAuth } from '../hooks/useAuth';
-import { theme } from '../../../theme/theme';
+
+import './LoginPage.css';
+
+type AuthContextShape = {
+  login: (input: {
+    email: string;
+    password: string;
+  }) => Promise<void>;
+};
+
+type RouterState = {
+  from?: {
+    pathname?: string;
+  };
+};
+
+type ApiErrorBody = {
+  error?: {
+    code?: string;
+    message?: string;
+  };
+  message?: string | string[];
+};
+
+function getErrorStatus(
+  error: unknown,
+): number | undefined {
+  if (
+    typeof error === 'object' &&
+    error !== null &&
+    'status' in error &&
+    typeof error.status === 'number'
+  ) {
+    return error.status;
+  }
+
+  return undefined;
+}
+
+function getErrorBody(
+  error: unknown,
+): ApiErrorBody | undefined {
+  if (
+    typeof error !== 'object' ||
+    error === null
+  ) {
+    return undefined;
+  }
+
+  if (
+    'body' in error &&
+    typeof error.body === 'object' &&
+    error.body !== null
+  ) {
+    return error.body as ApiErrorBody;
+  }
+
+  if (
+    'response' in error &&
+    typeof error.response === 'object' &&
+    error.response !== null &&
+    'data' in error.response
+  ) {
+    return (
+      error.response as {
+        data?: ApiErrorBody;
+      }
+    ).data;
+  }
+
+  return undefined;
+}
+
+function getLoginErrorMessage(
+  error: unknown,
+): string {
+  const status =
+    getErrorStatus(error);
+
+  const body =
+    getErrorBody(error);
+
+  if (body?.error?.message) {
+    return body.error.message;
+  }
+
+  if (
+    typeof body?.message === 'string'
+  ) {
+    return body.message;
+  }
+
+  if (
+    Array.isArray(body?.message) &&
+    body.message.length > 0
+  ) {
+    return body.message.join(', ');
+  }
+
+  if (status === 401) {
+    return 'Email hoặc mật khẩu không chính xác.';
+  }
+
+  if (status === 403) {
+    return 'Tài khoản không có quyền truy cập hệ thống.';
+  }
+
+  if (
+    error instanceof TypeError
+  ) {
+    return 'Không thể kết nối tới máy chủ. Vui lòng kiểm tra kết nối mạng.';
+  }
+
+  if (
+    error instanceof Error &&
+    error.message
+  ) {
+    return error.message;
+  }
+
+  return 'Đăng nhập không thành công. Vui lòng thử lại.';
+}
 
 export function LoginPage() {
-  const { login } = useAuth();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const navigate =
+    useNavigate();
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!username.trim() || !password) {
-      setError('Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu.');
+  const location =
+    useLocation();
+
+  const auth =
+    useAuth() as AuthContextShape;
+
+  const [email, setEmail] =
+    useState('');
+
+  const [password, setPassword] =
+    useState('');
+
+  const [
+    showPassword,
+    setShowPassword,
+  ] = useState(false);
+
+  const [
+    submitting,
+    setSubmitting,
+  ] = useState(false);
+
+  const [
+    errorMessage,
+    setErrorMessage,
+  ] = useState<string | null>(
+    null,
+  );
+
+  async function handleSubmit(
+    event: FormEvent<HTMLFormElement>,
+  ) {
+    event.preventDefault();
+
+    const normalizedEmail =
+      email.trim().toLowerCase();
+
+    if (!normalizedEmail) {
+      setErrorMessage(
+        'Vui lòng nhập email.',
+      );
+
+      return;
+    }
+
+    if (!password) {
+      setErrorMessage(
+        'Vui lòng nhập mật khẩu.',
+      );
+
       return;
     }
 
     try {
-      setLoading(true);
-      setError(null);
-      await login({ username: username.trim(), password });
-      window.location.href = '/';
-    } catch (err: unknown) {
-      if (err instanceof Error) {
-        setError(err.message);
-      } else {
-        setError('Đăng nhập không thành công. Vui lòng kiểm tra lại tài khoản.');
-      }
+      setSubmitting(true);
+      setErrorMessage(null);
+
+      await auth.login({
+        email: normalizedEmail,
+        password,
+      });
+
+      const state =
+        location.state as
+          | RouterState
+          | null;
+
+      const returnPath =
+        state?.from?.pathname;
+
+      navigate(
+        returnPath &&
+          returnPath !== '/login'
+          ? returnPath
+          : '/',
+        {
+          replace: true,
+        },
+      );
+    } catch (error) {
+      setErrorMessage(
+        getLoginErrorMessage(
+          error,
+        ),
+      );
     } finally {
-      setLoading(false);
+      setSubmitting(false);
     }
-  };
+  }
 
   return (
-    <div
-      style={{
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: theme.colors.background,
-        padding: theme.spacing.lg,
-      }}
-    >
-      <div
-        style={{
-          width: '100%',
-          maxWidth: '420px',
-          backgroundColor: theme.colors.surface,
-          borderRadius: theme.borderRadius.xl,
-          padding: '36px',
-          boxShadow: theme.shadows.lg,
-          border: `1px solid ${theme.colors.border}`,
-        }}
-      >
-        <div style={{ textAlign: 'center', marginBottom: '28px' }}>
-          <div
-            style={{
-              width: '52px',
-              height: '52px',
-              borderRadius: '12px',
-              backgroundColor: theme.colors.primary,
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '24px',
-              color: '#fff',
-              marginBottom: '12px',
-            }}
-          >
-            ⚓
+    <div className="icd-login">
+      <section className="icd-login__brand-panel">
+        <div className="icd-login__brand-content">
+          <div className="icd-login__brand">
+            <div className="icd-login__brand-mark">
+              ICD
+            </div>
+
+            <div className="icd-login__brand-copy">
+              <strong>
+                ICD Management
+              </strong>
+
+              <span>
+                Inland Container Depot
+              </span>
+            </div>
           </div>
-          <h1 style={{ fontSize: '22px', fontWeight: 800, color: theme.colors.textPrimary, margin: 0 }}>
-            ICD HƯNG YÊN
-          </h1>
-          <p style={{ fontSize: '13px', color: theme.colors.textSecondary, marginTop: '4px' }}>
-            Hệ thống Quản lý Điều hành Cảng Cạn
-          </p>
+
+          <div className="icd-login__hero">
+            <span className="icd-login__eyebrow">
+              ICD OPERATIONS PLATFORM
+            </span>
+
+            <h1>
+              Quản lý vận hành
+              <br />
+              container nội địa
+            </h1>
+
+            <p>
+              Điều phối xuyên suốt từ
+              Manifest, Gate-in, Yard,
+              Billing đến Gate-out và
+              bàn giao đối tác.
+            </p>
+          </div>
+
+          <div className="icd-login__flow">
+            <div className="icd-login__flow-item">
+              <span>01</span>
+
+              <div>
+                <strong>
+                  Tiếp nhận
+                </strong>
+
+                <small>
+                  Manifest · Truck
+                  Visit · Gate-in
+                </small>
+              </div>
+            </div>
+
+            <div className="icd-login__flow-line" />
+
+            <div className="icd-login__flow-item">
+              <span>02</span>
+
+              <div>
+                <strong>
+                  Vận hành bãi
+                </strong>
+
+                <small>
+                  Yard · Inspection ·
+                  Movement
+                </small>
+              </div>
+            </div>
+
+            <div className="icd-login__flow-line" />
+
+            <div className="icd-login__flow-item">
+              <span>03</span>
+
+              <div>
+                <strong>
+                  Hoàn tất
+                </strong>
+
+                <small>
+                  Billing · Gate Pass ·
+                  Gate-out
+                </small>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {error && (
-          <div
-            style={{
-              padding: '12px',
-              backgroundColor: theme.colors.dangerBackground,
-              borderRadius: theme.borderRadius.md,
-              color: theme.colors.danger,
-              fontSize: '13px',
-              fontWeight: 600,
-              marginBottom: '20px',
-              textAlign: 'center',
+        <div className="icd-login__brand-footer">
+          <span>
+            ICD Management System
+          </span>
+
+          <span>
+            v1.7
+          </span>
+        </div>
+      </section>
+
+      <main className="icd-login__main">
+        <div className="icd-login__mobile-brand">
+          <div className="icd-login__brand-mark">
+            ICD
+          </div>
+
+          <div>
+            <strong>
+              ICD Management
+            </strong>
+
+            <span>
+              Inland Container Depot
+            </span>
+          </div>
+        </div>
+
+        <div className="icd-login-card">
+          <div className="icd-login-card__heading">
+            <span className="icd-login-card__eyebrow">
+              ĐĂNG NHẬP HỆ THỐNG
+            </span>
+
+            <h2>
+              Chào mừng trở lại
+            </h2>
+
+            <p>
+              Sử dụng tài khoản ICD
+              được cấp để tiếp tục.
+            </p>
+          </div>
+
+          <form
+            className="icd-login-form"
+            onSubmit={(event) => {
+              void handleSubmit(event);
             }}
           >
-            {error}
-          </div>
-        )}
+            {errorMessage && (
+              <div
+                className="icd-login-form__error"
+                role="alert"
+              >
+                <div className="icd-login-form__error-icon">
+                  !
+                </div>
 
-        <form onSubmit={handleSubmit}>
-          <div style={{ marginBottom: '16px' }}>
-            <label
-              style={{
-                display: 'block',
-                fontSize: '13px',
-                fontWeight: 600,
-                color: theme.colors.textSecondary,
-                marginBottom: '6px',
-              }}
-            >
-              Tài khoản
+                <span>
+                  {errorMessage}
+                </span>
+              </div>
+            )}
+
+            <label className="icd-login-field">
+              <span className="icd-login-field__label">
+                Email
+              </span>
+
+              <div className="icd-login-field__control">
+                <span className="icd-login-field__icon">
+                  @
+                </span>
+
+                <input
+                  type="email"
+                  autoComplete="username"
+                  inputMode="email"
+                  placeholder="name@icd.local"
+                  value={email}
+                  disabled={submitting}
+                  onChange={(event) => {
+                    setEmail(
+                      event.target.value,
+                    );
+
+                    if (
+                      errorMessage
+                    ) {
+                      setErrorMessage(
+                        null,
+                      );
+                    }
+                  }}
+                />
+              </div>
             </label>
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="VD: admin, gate_operator..."
-              style={{
-                width: '100%',
-                padding: '10px 14px',
-                borderRadius: theme.borderRadius.md,
-                border: `1px solid ${theme.colors.border}`,
-                fontSize: '14px',
-                boxSizing: 'border-box',
-                outline: 'none',
-              }}
-            />
-          </div>
 
-          <div style={{ marginBottom: '24px' }}>
-            <label
-              style={{
-                display: 'block',
-                fontSize: '13px',
-                fontWeight: 600,
-                color: theme.colors.textSecondary,
-                marginBottom: '6px',
-              }}
-            >
-              Mật khẩu
+            <label className="icd-login-field">
+              <span className="icd-login-field__label">
+                Mật khẩu
+              </span>
+
+              <div className="icd-login-field__control">
+                <span className="icd-login-field__icon">
+                  ●
+                </span>
+
+                <input
+                  type={
+                    showPassword
+                      ? 'text'
+                      : 'password'
+                  }
+                  autoComplete="current-password"
+                  placeholder="Nhập mật khẩu"
+                  value={password}
+                  disabled={submitting}
+                  onChange={(event) => {
+                    setPassword(
+                      event.target.value,
+                    );
+
+                    if (
+                      errorMessage
+                    ) {
+                      setErrorMessage(
+                        null,
+                      );
+                    }
+                  }}
+                />
+
+                <button
+                  type="button"
+                  className="icd-login-field__toggle"
+                  disabled={submitting}
+                  aria-label={
+                    showPassword
+                      ? 'Ẩn mật khẩu'
+                      : 'Hiện mật khẩu'
+                  }
+                  onClick={() =>
+                    setShowPassword(
+                      (value) =>
+                        !value,
+                    )
+                  }
+                >
+                  {showPassword
+                    ? 'Ẩn'
+                    : 'Hiện'}
+                </button>
+              </div>
             </label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
-              style={{
-                width: '100%',
-                padding: '10px 14px',
-                borderRadius: theme.borderRadius.md,
-                border: `1px solid ${theme.colors.border}`,
-                fontSize: '14px',
-                boxSizing: 'border-box',
-                outline: 'none',
-              }}
-            />
-          </div>
 
-          <button
-            type="submit"
-            disabled={loading}
-            style={{
-              width: '100%',
-              padding: '12px',
-              backgroundColor: theme.colors.primary,
-              color: '#fff',
-              border: 'none',
-              borderRadius: theme.borderRadius.md,
-              fontSize: '14px',
-              fontWeight: 700,
-              cursor: loading ? 'not-allowed' : 'pointer',
-              opacity: loading ? 0.7 : 1,
-            }}
-          >
-            {loading ? 'Đang xác thực...' : 'ĐĂNG NHẬP'}
-          </button>
-        </form>
-      </div>
+            <button
+              type="submit"
+              className="icd-login-form__submit"
+              disabled={submitting}
+            >
+              {submitting && (
+                <span
+                  className="icd-login-form__spinner"
+                  aria-hidden="true"
+                />
+              )}
+
+              <span>
+                {submitting
+                  ? 'Đang đăng nhập...'
+                  : 'Đăng nhập'}
+              </span>
+
+              {!submitting && (
+                <span
+                  className="icd-login-form__arrow"
+                  aria-hidden="true"
+                >
+                  →
+                </span>
+              )}
+            </button>
+          </form>
+
+          <div className="icd-login-card__security">
+            <span className="icd-login-card__security-icon">
+              ✓
+            </span>
+
+            <span>
+              Phiên đăng nhập được xác
+              thực và phân quyền bởi hệ
+              thống ICD.
+            </span>
+          </div>
+        </div>
+
+        <footer className="icd-login__main-footer">
+          ICD Management · Internal
+          Operations
+        </footer>
+      </main>
     </div>
   );
 }
+
+export default LoginPage;

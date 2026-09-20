@@ -2,8 +2,9 @@ import { apiClient } from '../../../services/api/api-client';
 
 export type User = {
   id: string;
-  username: string;
-  fullName: string;
+  name: string;
+  email: string;
+  icdId: string;
   roleCodes: string[];
   permissionCodes: string[];
 };
@@ -11,15 +12,18 @@ export type User = {
 export type LoginResponse = {
   accessToken: string;
   refreshToken: string;
+  tokenType: string;
+  expiresIn: number;
+  refreshExpiresIn: number;
   user: User;
 };
 
 export const authApi = {
-  login(credentials: { username: string; password: string }): Promise<LoginResponse | { data: LoginResponse }> {
+  login(credentials: { email: string; password: string }): Promise<LoginResponse | { data: LoginResponse }> {
     return apiClient.post('/auth/login', credentials);
   },
 
-  getCurrentUser(): Promise<{ user: User } | { data: { user: User } }> {
+  getCurrentUser(): Promise<{ user: User } | { data: { user: User } } | User | { data: User }> {
     return apiClient.get('/auth/me');
   },
 
