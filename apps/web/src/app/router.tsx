@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AppLayout } from '../layouts/AppLayout';
 import { DashboardPage } from '../features/dashboard/pages/DashboardPage';
+import { WorkQueuePage } from '../features/work-queue/pages/WorkQueuePage';
 import { LoginPage } from '../features/auth/pages/LoginPage';
 import { useAuth } from '../features/auth/hooks/useAuth';
 import { theme } from '../theme/theme';
@@ -68,7 +69,7 @@ export function AppRouter() {
         {/* Protected app routes inside AppLayout */}
         <Route element={<ProtectedLayout />}>
           <Route path="/" element={<DashboardPage />} />
-          <Route path="/work-queue" element={<PlaceholderPage title="Work Queue" description="Hàng đợi công việc và điều phối tác vụ tác nghiệp." />} />
+          <Route path="/work-queue" element={<WorkQueuePage />} />
           <Route path="/manifests" element={<PlaceholderPage title="Manifest Management" description="Quản lý bản lược khai hàng hóa và vận đơn HBL." />} />
           <Route path="/movement-orders" element={<PlaceholderPage title="Movement Orders" description="Quản lý lệnh vận chuyển container ra/vào cảng." />} />
           <Route path="/truck-visits" element={<PlaceholderPage title="Truck Visits" description="Đăng ký và giám sát lượt xe vận tải ra vào cảng." />} />
