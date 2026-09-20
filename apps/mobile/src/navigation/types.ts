@@ -6,7 +6,7 @@ export type RootStackParamList = {
 };
 
 export type MainTabParamList = {
-  WorkQueueTab: NavigatorScreenParams<WorkQueueStackParamList> | undefined;
+  WorkQueueTab: undefined;
   GateTab: NavigatorScreenParams<GateStackParamList> | undefined;
   YardTab: NavigatorScreenParams<YardStackParamList> | undefined;
   NotificationsTab: undefined;
@@ -20,18 +20,17 @@ export type WorkQueueStackParamList = {
 export type GateStackParamList = {
   GateInScan: undefined;
   GateInForm: {
-    visitId?: string;
-    containerNo?: string;
+    visitId: string;
   };
   GateInSuccess: {
-    visitId?: string;
-    containerNo?: string;
-    yardLocation?: string;
+    visitId: string;
+    containerNumber: string;
   };
   GatePassScan: undefined;
   GateOutConfirm: {
+    visitId: string;
+    qrToken?: string;
     gatePassId?: string;
-    visitId?: string;
     containerNo?: string;
   };
 };
@@ -61,7 +60,7 @@ export type WorkQueueTask = {
     | 'GATE_OUT'
     | 'HANDOVER_REVIEW';
   entityId: string;
-  visitId?: string;
+  visitId: string;
   containerNo?: string;
   urgency: 'OVERDUE' | 'HIGH' | 'MEDIUM' | 'NORMAL';
   title?: string;

@@ -193,7 +193,6 @@ export function WorkQueueScreen() {
           screen: 'GateInForm',
           params: {
             visitId: task.visitId,
-            containerNo: task.containerNo,
           },
         });
         break;

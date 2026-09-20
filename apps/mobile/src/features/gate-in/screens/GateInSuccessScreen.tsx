@@ -1,43 +1,62 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 
 import { AppHeader } from '../../../components/AppHeader';
 import { PrimaryButton } from '../../../components/PrimaryButton';
 import { theme } from '../../../theme/theme';
-import type { GateStackParamList } from '../../../navigation/types';
+import type { MainTabParamList, GateStackParamList } from '../../../navigation/types';
 
 export function GateInSuccessScreen() {
-  const navigation = useNavigation<NativeStackNavigationProp<GateStackParamList>>();
+  const tabNavigation = useNavigation<BottomTabNavigationProp<MainTabParamList>>();
   const route = useRoute<RouteProp<GateStackParamList, 'GateInSuccess'>>();
-  const { containerNo, yardLocation } = route.params || {};
+  const { visitId, containerNumber } = route.params;
 
   return (
     <View style={styles.container}>
-      <AppHeader title="Tiếp nhận thành công" />
-      <View style={styles.content}>
-        <View style={styles.card}>
-          <Text style={styles.icon}>✅</Text>
-          <Text style={styles.title}>Container đã vào cổng thành công</Text>
+      <AppHeader title="Kết quả tiếp nhận" />
 
-          <View style={styles.infoRow}>
-            <Text style={styles.infoLabel}>Container:</Text>
-            <Text style={styles.infoValue}>{containerNo || 'N/A'}</Text>
+      <View style={styles.content}>
+        <View style={styles.successCard}>
+          <View style={styles.iconCircle}>
+            <Text style={styles.checkIcon}>✓</Text>
           </View>
 
-          <View style={styles.infoRow}>
-            <Text style={styles.infoLabel}>Vị trí bãi chỉ định:</Text>
-            <Text style={[styles.infoValue, { color: theme.colors.primary }]}>
-              {yardLocation || 'Chưa gán'}
+          <Text style={styles.title}>TIẾP NHẬN THÀNH CÔNG</Text>
+          <Text style={styles.containerNo}>{containerNumber}</Text>
+
+          <Text style={styles.description}>
+            Container đã được tiếp nhận vào ICD qua cổng thành công.
+          </Text>
+
+          <View style={styles.nextStepBox}>
+            <Text style={styles.nextStepLabel}>Bước tiếp theo:</Text>
+            <Text style={styles.nextStepText}>
+              Chỉ định và xếp vị trí container vào Block bãi phù hợp.
             </Text>
           </View>
         </View>
 
-        <View style={styles.buttonGroup}>
+        <View style={styles.actionButtons}>
           <PrimaryButton
-            title="Quay về Quét Cổng"
-            onPress={() => navigation.navigate('GateInScan')}
+            title="XẾP VỊ TRÍ BÃI"
+            onPress={() =>
+              tabNavigation.navigate('YardTab', {
+                screen: 'YardAssignment',
+                params: {
+                  visitId,
+                  containerNo: containerNumber,
+                },
+              })
+            }
+            style={styles.primaryBtn}
+          />
+
+          <PrimaryButton
+            title="VỀ DANH SÁCH CÔNG VIỆC"
+            variant="secondary"
+            onPress={() => tabNavigation.navigate('WorkQueueTab')}
           />
         </View>
       </View>
@@ -55,41 +74,75 @@ const styles = StyleSheet.create({
     padding: theme.spacing.lg,
     justifyContent: 'space-between',
   },
-  card: {
+  successCard: {
     backgroundColor: theme.colors.surface,
-    borderRadius: theme.borderRadius.lg,
+    borderRadius: theme.borderRadius.xl,
     padding: theme.spacing.xl,
     alignItems: 'center',
     borderWidth: 1,
     borderColor: theme.colors.border,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 2,
+    marginTop: theme.spacing.xl,
   },
-  icon: {
-    fontSize: 50,
-    marginBottom: theme.spacing.md,
+  iconCircle: {
+    width: 64,
+    height: 64,
+    borderRadius: 32,
+    backgroundColor: theme.colors.successBackground,
+    borderWidth: 2,
+    borderColor: '#A6F4C5',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: theme.spacing.lg,
+  },
+  checkIcon: {
+    fontSize: 32,
+    color: theme.colors.success,
+    fontWeight: 'bold',
   },
   title: {
-    ...theme.typography.h3,
+    ...theme.typography.h2,
     color: theme.colors.textPrimary,
+    marginBottom: theme.spacing.xs,
+  },
+  containerNo: {
+    ...theme.typography.mono,
+    fontSize: 22,
+    color: theme.colors.primary,
+    marginBottom: theme.spacing.md,
+  },
+  description: {
+    ...theme.typography.body,
+    color: theme.colors.textSecondary,
     textAlign: 'center',
     marginBottom: theme.spacing.lg,
   },
-  infoRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+  nextStepBox: {
     width: '100%',
-    paddingVertical: theme.spacing.sm,
-    borderBottomWidth: 1,
-    borderBottomColor: theme.colors.border,
+    backgroundColor: theme.colors.surfaceSubtle,
+    borderRadius: theme.borderRadius.md,
+    padding: theme.spacing.md,
+    borderLeftWidth: 4,
+    borderLeftColor: theme.colors.primary,
   },
-  infoLabel: {
-    ...theme.typography.body,
+  nextStepLabel: {
+    ...theme.typography.captionBold,
     color: theme.colors.textSecondary,
   },
-  infoValue: {
-    ...theme.typography.bodyBold,
+  nextStepText: {
+    ...theme.typography.caption,
     color: theme.colors.textPrimary,
+    marginTop: 2,
   },
-  buttonGroup: {
+  actionButtons: {
     gap: theme.spacing.md,
+    paddingBottom: theme.spacing.lg,
+  },
+  primaryBtn: {
+    marginBottom: theme.spacing.xs,
   },
 });
