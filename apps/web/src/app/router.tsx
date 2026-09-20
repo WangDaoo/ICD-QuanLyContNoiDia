@@ -24,6 +24,11 @@ import EdiOperationsPage from '../features/edi/pages/EdiOperationsPage';
 import HandoverListPage from '../features/partner-handover/pages/HandoverListPage';
 import HandoverCreatePage from '../features/partner-handover/pages/HandoverCreatePage';
 import HandoverDetailPage from '../features/partner-handover/pages/HandoverDetailPage';
+import { PartnerClientListPage } from '../features/admin/partner-clients/pages/PartnerClientListPage';
+import { PartnerClientDetailPage } from '../features/admin/partner-clients/pages/PartnerClientDetailPage';
+import { PartnerApiLogListPage } from '../features/admin/partner-api-logs/pages/PartnerApiLogListPage';
+import { PartnerApiLogDetailPage } from '../features/admin/partner-api-logs/pages/PartnerApiLogDetailPage';
+import { ReportsPage } from '../features/reports/pages/ReportsPage';
 import { LoginPage } from '../features/auth/pages/LoginPage';
 import { useAuth } from '../features/auth/hooks/useAuth';
 import { theme } from '../theme/theme';
@@ -118,8 +123,12 @@ export function AppRouter() {
           <Route path="/handovers" element={<HandoverListPage />} />
           <Route path="/handovers/new" element={<HandoverCreatePage />} />
           <Route path="/handovers/:handoverId" element={<HandoverDetailPage />} />
-          <Route path="/partner-clients" element={<PlaceholderPage title="Partner API Clients" description="Quản lý API Key và phân quyền tích hợp hệ thống bên ngoài." />} />
-          <Route path="/reports" element={<PlaceholderPage title="Reports" description="Báo cáo thống kê sản lượng, doanh thu và năng suất." />} />
+          <Route path="/reports" element={<ReportsPage />} />
+          <Route path="/admin/partner-clients" element={<PartnerClientListPage />} />
+          <Route path="/admin/partner-clients/:id" element={<PartnerClientDetailPage />} />
+          <Route path="/admin/partner-api-logs" element={<PartnerApiLogListPage />} />
+          <Route path="/admin/partner-api-logs/:id" element={<PartnerApiLogDetailPage />} />
+          <Route path="/partner-clients" element={<Navigate to="/admin/partner-clients" replace />} />
           <Route path="/audit" element={<PlaceholderPage title="Audit Logs" description="Nhật ký kiểm toán toàn bộ thao tác hệ thống." />} />
           <Route path="/admin/users" element={<PlaceholderPage title="User Management" description="Quản lý tài khoản người dùng nội bộ." />} />
           <Route path="/admin/roles" element={<PlaceholderPage title="Roles & Permissions" description="Phân quyền vai trò và ma trận quyền hạn." />} />
