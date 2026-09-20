@@ -7,6 +7,9 @@ import { ContainerDetailPage } from '../features/containers/pages/ContainerDetai
 import { ManifestListPage } from '../features/manifests/pages/ManifestListPage';
 import { ManifestDetailPage } from '../features/manifests/pages/ManifestDetailPage';
 import { MovementOrderPage } from '../features/movement-orders/pages/MovementOrderPage';
+import { TruckVisitListPage } from '../features/truck-visits/pages/TruckVisitListPage';
+import { TruckVisitCreatePage } from '../features/truck-visits/pages/TruckVisitCreatePage';
+import { TruckVisitDetailPage } from '../features/truck-visits/pages/TruckVisitDetailPage';
 import { LoginPage } from '../features/auth/pages/LoginPage';
 import { useAuth } from '../features/auth/hooks/useAuth';
 import { theme } from '../theme/theme';
@@ -78,7 +81,9 @@ export function AppRouter() {
           <Route path="/manifests" element={<ManifestListPage />} />
           <Route path="/manifests/:manifestId" element={<ManifestDetailPage />} />
           <Route path="/movement-orders" element={<MovementOrderPage />} />
-          <Route path="/truck-visits" element={<PlaceholderPage title="Truck Visits" description="Đăng ký và giám sát lượt xe vận tải ra vào cảng." />} />
+          <Route path="/truck-visits" element={<TruckVisitListPage />} />
+          <Route path="/truck-visits/new" element={<TruckVisitCreatePage />} />
+          <Route path="/truck-visits/:truckVisitId" element={<TruckVisitDetailPage />} />
           <Route path="/containers" element={<ContainerListPage />} />
           <Route path="/containers/:visitId" element={<ContainerDetailPage />} />
           <Route path="/gate-in" element={<PlaceholderPage title="Gate-in" description="Kiểm tra tiếp nhận xe và container vào cổng." />} />
