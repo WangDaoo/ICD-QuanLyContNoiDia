@@ -5,8 +5,8 @@ export const PAYMENT_DETAIL_INCLUDE = {
   recordedByUser: {
     select: {
       id: true,
-      username: true,
-      fullName: true,
+      name: true,
+      email: true,
     },
   },
   allocations: {

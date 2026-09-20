@@ -1,3 +1,4 @@
+import { randomUUID } from 'node:crypto';
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../../../database/prisma.service';
 import { ServiceOrder, ServiceOrderStatus } from '../../../generated/prisma/client';
@@ -441,7 +442,10 @@ export class ServiceOrderService {
 
   private async generateOrderNumber(): Promise<string> {
     const datePrefix = new Date().toISOString().slice(0, 10).replace(/-/g, '');
-    const randomSuffix = Math.floor(1000 + Math.random() * 9000);
+    const randomSuffix = randomUUID().replace(/-/g, '').slice(0, 12).toUpperCase();
     return `SO-${datePrefix}-${randomSuffix}`;
   }
 }
+
+
+
