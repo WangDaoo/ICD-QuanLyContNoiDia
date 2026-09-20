@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AppLayout } from '../layouts/AppLayout';
 import { DashboardPage } from '../features/dashboard/pages/DashboardPage';
 import { WorkQueuePage } from '../features/work-queue/pages/WorkQueuePage';
+import { ContainerListPage } from '../features/containers/pages/ContainerListPage';
+import { ContainerDetailPage } from '../features/containers/pages/ContainerDetailPage';
 import { LoginPage } from '../features/auth/pages/LoginPage';
 import { useAuth } from '../features/auth/hooks/useAuth';
 import { theme } from '../theme/theme';
@@ -73,7 +75,8 @@ export function AppRouter() {
           <Route path="/manifests" element={<PlaceholderPage title="Manifest Management" description="Quản lý bản lược khai hàng hóa và vận đơn HBL." />} />
           <Route path="/movement-orders" element={<PlaceholderPage title="Movement Orders" description="Quản lý lệnh vận chuyển container ra/vào cảng." />} />
           <Route path="/truck-visits" element={<PlaceholderPage title="Truck Visits" description="Đăng ký và giám sát lượt xe vận tải ra vào cảng." />} />
-          <Route path="/containers" element={<PlaceholderPage title="Containers" description="Danh mục container, vòng đời và tra cứu lịch sử." />} />
+          <Route path="/containers" element={<ContainerListPage />} />
+          <Route path="/containers/:visitId" element={<ContainerDetailPage />} />
           <Route path="/gate-in" element={<PlaceholderPage title="Gate-in" description="Kiểm tra tiếp nhận xe và container vào cổng." />} />
           <Route path="/yard" element={<PlaceholderPage title="Yard Operations" description="Sơ đồ bãi, vị trí xếp dỡ và gợi ý vị trí hạ cont." />} />
           <Route path="/billing" element={<PlaceholderPage title="Billing & Invoicing" description="Tính cước phí nâng hạ, lưu bãi và phát hành hóa đơn." />} />
