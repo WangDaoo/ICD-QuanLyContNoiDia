@@ -1,13 +1,45 @@
-/**
- * auth.storage.ts
- *
- * Mục đích:
- * Lưu token/cache auth theo quy tắc bảo mật Mobile.
- *
- * Quy tắc khi triển khai:
- * - Không chứa business logic nghiệp vụ.
- *
- * Lưu ý:
- * - File hiện tại chỉ là khung, chưa có logic thực thi.
- * - Không tự ý mở rộng trách nhiệm của file nếu chưa cập nhật RULES.md của module.
- */
+import * as SecureStore from 'expo-secure-store';
+
+const ACCESS_TOKEN_KEY = 'icd.accessToken';
+const REFRESH_TOKEN_KEY = 'icd.refreshToken';
+
+export const authStorage = {
+  async getAccessToken(): Promise<string | null> {
+    return SecureStore.getItemAsync(
+      ACCESS_TOKEN_KEY,
+    );
+  },
+
+  async getRefreshToken(): Promise<string | null> {
+    return SecureStore.getItemAsync(
+      REFRESH_TOKEN_KEY,
+    );
+  },
+
+  async setTokens(
+    accessToken: string,
+    refreshToken: string,
+  ): Promise<void> {
+    await Promise.all([
+      SecureStore.setItemAsync(
+        ACCESS_TOKEN_KEY,
+        accessToken,
+      ),
+      SecureStore.setItemAsync(
+        REFRESH_TOKEN_KEY,
+        refreshToken,
+      ),
+    ]);
+  },
+
+  async clear(): Promise<void> {
+    await Promise.all([
+      SecureStore.deleteItemAsync(
+        ACCESS_TOKEN_KEY,
+      ),
+      SecureStore.deleteItemAsync(
+        REFRESH_TOKEN_KEY,
+      ),
+    ]);
+  },
+};

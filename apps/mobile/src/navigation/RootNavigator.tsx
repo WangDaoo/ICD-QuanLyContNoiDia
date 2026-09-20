@@ -1,13 +1,71 @@
-/**
- * RootNavigator.tsx
- *
- * Mục đích:
- * Điều hướng root Auth/Main.
- *
- * Quy tắc khi triển khai:
- * - Không chứa business logic nghiệp vụ.
- *
- * Lưu ý:
- * - File hiện tại chỉ là khung, chưa có logic thực thi.
- * - Không tự ý mở rộng trách nhiệm của file nếu chưa cập nhật RULES.md của module.
- */
+import {
+  ActivityIndicator,
+  StyleSheet,
+  View,
+} from 'react-native';
+
+import {
+  createNativeStackNavigator,
+} from '@react-navigation/native-stack';
+
+import { useAuth } from '../features/auth/hooks/useAuth';
+import { LoginScreen } from '../features/auth/screens/LoginScreen';
+
+import { MainTabNavigator } from './MainTabNavigator';
+
+import type {
+  RootStackParamList,
+} from './types';
+
+const Stack =
+  createNativeStackNavigator<
+    RootStackParamList
+  >();
+
+export function RootNavigator() {
+  const { status } = useAuth();
+
+  if (status === 'loading') {
+    return (
+      <View style={styles.loading}>
+        <ActivityIndicator
+          size="large"
+        />
+      </View>
+    );
+  }
+
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      {status ===
+      'authenticated' ? (
+        <Stack.Screen
+          name="Main"
+          component={
+            MainTabNavigator
+          }
+        />
+      ) : (
+        <Stack.Screen
+          name="Login"
+          component={
+            LoginScreen
+          }
+        />
+      )}
+    </Stack.Navigator>
+  );
+}
+
+const styles =
+  StyleSheet.create({
+    loading: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+  });
