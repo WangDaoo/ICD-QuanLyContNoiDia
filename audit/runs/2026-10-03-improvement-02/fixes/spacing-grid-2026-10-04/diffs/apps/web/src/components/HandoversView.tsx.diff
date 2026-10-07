@@ -1,0 +1,190 @@
+--- before/apps/web/src/components/HandoversView.tsx
++++ after/apps/web/src/components/HandoversView.tsx
+@@ -134,44 +134,44 @@
+     switch (status) {
+       case 'DRAFT':
+         return (
+-          <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 text-slate-700">
++          <span className="px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-700">
+             DRAFT
+           </span>
+         );
+       case 'READY_FOR_HANDOVER':
+         return (
+-          <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-100 text-blue-800">
++          <span className="px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-800">
+             READY_FOR_HANDOVER
+           </span>
+         );
+       case 'PARTNER_ACCEPTED':
+         return (
+-          <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-indigo-100 text-indigo-800">
++          <span className="px-3 py-1 rounded-full text-xs font-bold bg-indigo-100 text-indigo-800">
+             PARTNER_ACCEPTED
+           </span>
+         );
+       case 'IN_TRANSIT':
+         return (
+-          <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800 animate-pulse">
++          <span className="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 animate-pulse">
+             IN_TRANSIT
+           </span>
+         );
+       case 'PARTNER_CONFIRMED':
+         return (
+-          <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-purple-100 text-purple-800">
++          <span className="px-3 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-800">
+             CONFIRMED (CHỜ DUYỆT)
+           </span>
+         );
+       case 'ICD_CONFIRMED':
+       case 'COMPLETED':
+         return (
+-          <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">
++          <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">
+             COMPLETED
+           </span>
+         );
+       default:
+         return (
+-          <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 text-slate-600">
++          <span className="px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600">
+             {status}
+           </span>
+         );
+@@ -205,7 +205,7 @@
+       <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+         <div>
+           <div className="flex items-center space-x-2">
+-            <span className="px-2.5 py-0.5 bg-indigo-600 text-white font-mono font-bold text-xs rounded">
++            <span className="px-3 py-1 bg-indigo-600 text-white font-mono font-bold text-xs rounded">
+               BÀN GIAO ĐỐI TÁC
+             </span>
+             <h2 className="text-lg font-bold text-slate-900">
+@@ -230,7 +230,7 @@
+           <button
+             hidden={!can('handover.create')}
+             onClick={() => setShowCreateModal(true)}
+-            className="px-3.5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-lg transition shadow-xs flex items-center space-x-1.5"
++            className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-lg transition shadow-xs flex items-center space-x-2"
+           >
+             <Plus className="w-4 h-4" />
+             <span>Tạo Lệnh Bàn giao mới</span>
+@@ -241,7 +241,7 @@
+       {/* Filter Bar */}
+       <ReadOnlyNotice writePermissions={['handover.create', 'handover.publish', 'handover.icd_confirm', 'handover.complete', 'handover.dispute']} />
+       <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs flex flex-wrap items-center justify-between gap-3 text-xs">
+-        <div className="flex flex-wrap items-center gap-2.5">
++        <div className="flex flex-wrap items-center gap-3">
+           <div className="relative w-64">
+             <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
+             <input
+@@ -258,7 +258,7 @@
+             aria-label="Lọc trạng thái bàn giao"
+             value={statusFilter}
+             onChange={(e) => setStatusFilter(e.target.value)}
+-            className="border border-slate-200 rounded-lg px-2.5 py-2 bg-slate-50 text-slate-700 font-medium"
++            className="border border-slate-200 rounded-lg px-3 py-2 bg-slate-50 text-slate-700 font-medium"
+           >
+             <option value="ALL">Tất cả trạng thái</option>
+             <option value="DRAFT">DRAFT (Nháp)</option>
+@@ -312,11 +312,11 @@
+                   </span>
+                   {getStatusBadge(h.status)}
+                 </span>
+-                <span className="block font-mono font-bold text-slate-900 text-xs mt-1.5 flex items-center space-x-2">
++                <span className="block font-mono font-bold text-slate-900 text-xs mt-2 flex items-center space-x-2">
+                   <span>{h.containerNumber}</span>
+                   <span className="font-sans font-normal text-slate-400">({h.containerType})</span>
+                 </span>
+-                <span className="block text-caption text-slate-600 mt-2 space-y-0.5">
++                <span className="block text-caption text-slate-600 mt-2 space-y-1">
+                   <span className="block">
+                     Đối tác: <strong>{h.partnerName}</strong>
+                   </span>
+@@ -343,7 +343,7 @@
+                     </h3>
+                     {getStatusBadge(selectedHandover.status)}
+                   </div>
+-                  <p className="text-slate-500 mt-0.5">
++                  <p className="text-slate-500 mt-1">
+                     Hồ sơ Container:{' '}
+                     <strong className="font-mono text-slate-800">
+                       {selectedHandover.containerNumber}
+@@ -355,7 +355,7 @@
+                 <div className="flex items-center space-x-2">
+                   <button
+                     onClick={() => onNavigate('containers', selectedHandover.containerVisitId)}
+-                    className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-lg flex items-center space-x-1"
++                    className="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-lg flex items-center space-x-1"
+                   >
+                     <span>Xem Hồ sơ Container</span>
+                     <ExternalLink className="w-3.5 h-3.5" />
+@@ -368,7 +368,7 @@
+                 <div className="font-bold text-slate-700 uppercase tracking-wider text-caption mb-3">
+                   Tiến trình Vòng đời Bàn giao (State Machine Lifecycle)
+                 </div>
+-                <div className="grid grid-cols-6 gap-1.5 text-center">
++                <div className="grid grid-cols-6 gap-2 text-center">
+                   {[
+                     { key: 'DRAFT', label: '1. Bản nháp' },
+                     { key: 'READY_FOR_HANDOVER', label: '2. Sẵn sàng' },
+@@ -402,7 +402,7 @@
+               {/* Handover Details Cards */}
+               <div className="grid grid-cols-2 gap-4">
+                 <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+-                  <div className="font-bold text-slate-800 flex items-center space-x-1.5">
++                  <div className="font-bold text-slate-800 flex items-center space-x-2">
+                     <Building2 className="w-4 h-4 text-indigo-600" />
+                     <span>Đối tác Vận tải ngoài</span>
+                   </div>
+@@ -422,7 +422,7 @@
+                 </div>
+ 
+                 <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+-                  <div className="font-bold text-slate-800 flex items-center space-x-1.5">
++                  <div className="font-bold text-slate-800 flex items-center space-x-2">
+                     <Warehouse className="w-4 h-4 text-blue-600" />
+                     <span>Kho nhận hàng đích</span>
+                   </div>
+@@ -491,7 +491,7 @@
+                       hidden={!can('handover.confirm')}
+                       disabled={action.pending}
+                       onClick={handleIcdConfirm}
+-                      className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow-xs flex items-center space-x-1.5"
++                      className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow-xs flex items-center space-x-2"
+                     >
+                       <CheckCircle2 className="w-3.5 h-3.5" />
+                       <span>Duyệt Nghiệm thu POD (COMPLETED)</span>
+@@ -500,7 +500,7 @@
+ 
+                   {(selectedHandover.status === 'ICD_CONFIRMED' ||
+                     selectedHandover.status === 'COMPLETED') && (
+-                    <span className="px-3 py-1.5 bg-emerald-100 text-emerald-800 font-bold rounded-lg flex items-center space-x-1">
++                    <span className="px-3 py-2 bg-emerald-100 text-emerald-800 font-bold rounded-lg flex items-center space-x-1">
+                       <CheckCircle2 className="w-4 h-4" />
+                       <span>Đã hoàn tất</span>
+                     </span>
+@@ -510,7 +510,7 @@
+ 
+               {/* Confirmations & Milestones History */}
+               <div className="space-y-3">
+-                <div className="font-bold text-slate-800 flex items-center space-x-1.5 border-b border-slate-200 pb-1">
++                <div className="font-bold text-slate-800 flex items-center space-x-2 border-b border-slate-200 pb-1">
+                   <FileCheck className="w-4 h-4 text-indigo-600" />
+                   <span>Biên bản & Lịch sử Xác nhận Bàn giao (Confirmations Timeline)</span>
+                 </div>
+@@ -526,11 +526,11 @@
+                     {selectedHandover.confirmations.map((conf) => (
+                       <div
+                         key={conf.id}
+-                        className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 space-y-1.5"
++                        className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2"
+                       >
+                         <div className="flex items-center justify-between">
+                           <div className="flex items-center space-x-2">
+-                            <span className="px-2 py-0.5 bg-indigo-100 text-indigo-800 font-mono font-bold text-caption rounded">
++                            <span className="px-2 py-1 bg-indigo-100 text-indigo-800 font-mono font-bold text-caption rounded">
+                               {conf.confirmationType}
+                             </span>
+                             <span className="font-bold text-slate-800">{conf.actor}</span>

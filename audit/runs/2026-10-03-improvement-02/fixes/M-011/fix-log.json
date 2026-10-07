@@ -1,0 +1,22 @@
+{
+  "status": "FIXED",
+  "change": "Persist theme preference, initial system default and bootstrap before app content.",
+  "source_evidence": [
+    {
+      "file": "apps/mobile/src/theme/ThemeProvider.tsx",
+      "line": 12,
+      "detail": "export function",
+      "snippet": "export function ThemeProvider({ children }: PropsWithChildren) {\n  const system = useColorScheme();\n  const [preference, setPreference] = useState<AppearancePreference>('SYSTEM');\n  const [ready, setReady] = useState(false);"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+  ],
+  "limitations": "Storage/bootstrap fixtures; native cold-launch light/dark screenshots pending.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/theme/ThemeProvider.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

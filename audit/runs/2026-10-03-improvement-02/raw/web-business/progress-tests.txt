@@ -1,0 +1,88 @@
+✖ Master Data retains the draft and blocks a second submission while pending and after rejection (398.2839ms)
+✖ Users blank submit associates errors and focuses the first invalid field (33.2992ms)
+✖ read-only users never receive master-data or user write controls (36.6905ms)
+✖ truck shortcut opens a create dialog with its linked container (29.5099ms)
+✔ expired and cancelled passes never offer exit or handover and explain their status (124.8239ms)
+✔ EDI inspector renders canonical payload snapshot without synthesized ISO type (43.7147ms)
+✖ failed and forbidden collections do not claim a settled empty result (33.9309ms)
+✔ movement order default means now plus 24 hours in Vietnam UTC+7 (35.0862ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 3
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6682.2155
+
+✖ failing tests:
+
+test at audit\tools\improvement-web-business.test.mjs:40:1
+✖ Master Data retains the draft and blocks a second submission while pending and after rejection (398.2839ms)
+  ReferenceError: React is not defined
+      at CollectionState (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\CollectionState.tsx:8:3)
+      at Object.react_stack_bottom_frame (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:25904:20)
+      at renderWithHooks (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:7662:22)
+      at updateFunctionComponent (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:10166:19)
+      at beginWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:11778:18)
+      at runWithFiberInDEV (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:871:30)
+      at performUnitOfWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17641:22)
+      at workLoopSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17469:41)
+      at renderRootSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17450:11)
+      at performWorkOnRoot (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:16583:35)
+
+test at audit\tools\improvement-web-business.test.mjs:53:1
+✖ Users blank submit associates errors and focuses the first invalid field (33.2992ms)
+  ReferenceError: React is not defined
+      at CollectionState (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\CollectionState.tsx:8:3)
+      at Object.react_stack_bottom_frame (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:25904:20)
+      at renderWithHooks (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:7662:22)
+      at updateFunctionComponent (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:10166:19)
+      at beginWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:11778:18)
+      at runWithFiberInDEV (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:871:30)
+      at performUnitOfWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17641:22)
+      at workLoopSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17469:41)
+      at renderRootSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17450:11)
+      at performWorkOnRoot (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:16583:35)
+
+test at audit\tools\improvement-web-business.test.mjs:63:1
+✖ read-only users never receive master-data or user write controls (36.6905ms)
+  ReferenceError: React is not defined
+      at CollectionState (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\CollectionState.tsx:8:3)
+      at Object.react_stack_bottom_frame (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:25904:20)
+      at renderWithHooks (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:7662:22)
+      at updateFunctionComponent (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:10166:19)
+      at beginWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:11778:18)
+      at runWithFiberInDEV (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:871:30)
+      at performUnitOfWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17641:22)
+      at workLoopSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17469:41)
+      at renderRootSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17450:11)
+      at performWorkOnRoot (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:16583:35)
+
+test at audit\tools\improvement-web-business.test.mjs:68:1
+✖ truck shortcut opens a create dialog with its linked container (29.5099ms)
+  ReferenceError: React is not defined
+      at CollectionState (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\CollectionState.tsx:8:3)
+      at Object.react_stack_bottom_frame (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:25904:20)
+      at renderWithHooks (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:7662:22)
+      at updateFunctionComponent (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:10166:19)
+      at beginWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:11778:18)
+      at runWithFiberInDEV (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:871:30)
+      at performUnitOfWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17641:22)
+      at workLoopSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17469:41)
+      at renderRootSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17450:11)
+      at performWorkOnRoot (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:16583:35)
+
+test at audit\tools\improvement-web-business.test.mjs:90:1
+✖ failed and forbidden collections do not claim a settled empty result (33.9309ms)
+  ReferenceError: React is not defined
+      at CollectionState (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\CollectionState.tsx:8:3)
+      at Object.react_stack_bottom_frame (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:25904:20)
+      at renderWithHooks (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:7662:22)
+      at updateFunctionComponent (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:10166:19)
+      at beginWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:11778:18)
+      at runWithFiberInDEV (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:871:30)
+      at performUnitOfWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17641:22)
+      at workLoopSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17469:41)
+      at renderRootSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17450:11)
+      at performWorkOnRoot (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:16583:35)

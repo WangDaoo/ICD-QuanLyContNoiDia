@@ -1,0 +1,38 @@
+✔ redacted log renders JSON value {"note":"fixture","condition":"OK","secret":"[REDACTED]"} (43.9262ms)
+✔ redacted log renders JSON value [{"status":"received"}] (2.5924ms)
+✔ redacted log renders JSON value "already redacted text" (2.9461ms)
+✔ redacted log renders JSON value null (2.3002ms)
+✔ redacted log renders JSON value false (4.0175ms)
+✔ redacted log renders JSON value 0 (3.6144ms)
+✔ view failure preserves shell and recovery navigation remounts a working view (226.8889ms)
+✔ ManifestsView: operational overlays use a named modal with a close route (57.9409ms)
+✔ ManifestsView: visible field labels identify their adjacent native control (24.1295ms)
+✔ ContainersView: operational overlays use a named modal with a close route (30.6597ms)
+✔ ContainersView: visible field labels identify their adjacent native control (25.4979ms)
+✔ TruckVisitsView: operational overlays use a named modal with a close route (7.8854ms)
+✔ TruckVisitsView: visible field labels identify their adjacent native control (9.8565ms)
+✔ BillingView: operational overlays use a named modal with a close route (15.8419ms)
+✔ BillingView: visible field labels identify their adjacent native control (15.2153ms)
+✔ GatePassView: operational overlays use a named modal with a close route (9.8237ms)
+✔ GatePassView: visible field labels identify their adjacent native control (7.0747ms)
+✔ HandoversView: operational overlays use a named modal with a close route (17.9273ms)
+✔ HandoversView: visible field labels identify their adjacent native control (9.9816ms)
+✔ MasterDataView: operational overlays use a named modal with a close route (5.4135ms)
+✔ MasterDataView: visible field labels identify their adjacent native control (5.7667ms)
+✔ UsersRolesView: operational overlays use a named modal with a close route (11.0147ms)
+✔ UsersRolesView: visible field labels identify their adjacent native control (7.3622ms)
+✔ PartnerManagementView: operational overlays use a named modal with a close route (3.6571ms)
+✔ PartnerManagementView: visible field labels identify their adjacent native control (4.025ms)
+✔ ManifestsView: record selectors support native keyboard selection and selected state (9.8726ms)
+✔ HandoversView: record selectors support native keyboard selection and selected state (7.5879ms)
+✔ GatePassView: record selectors support native keyboard selection and selected state (7.0498ms)
+✔ EDIView: record selectors support native keyboard selection and selected state (4.5393ms)
+✔ PartnerManagementView: record selectors support native keyboard selection and selected state (4.9364ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5783.0303

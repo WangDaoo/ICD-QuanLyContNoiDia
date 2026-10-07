@@ -1,0 +1,45 @@
+✔ nearest-rank p95 keeps the nineteenth sample of twenty, not the mean (1.3728ms)
+✔ empty, nonfinite and negative timing values cannot become valid measurements (0.4021ms)
+✔ untrusted input, hidden document and unrelated event clocks are rejected (0.2519ms)
+✔ twenty verified samples produce p50/p95 for each measured group (0.5576ms)
+✔ nineteen samples cannot close the twenty-sample criterion (0.2652ms)
+✔ timeouts, untrusted or unpainted acknowledgements remain in the denominator (0.3841ms)
+✔ slow valid feedback is a failure instead of being excluded as an outlier (0.3539ms)
+✔ duplicate IDs and unknown groups cannot silently pad the sample count (0.3409ms)
+✔ navigation feedback rejects blank markup: blank (308.2852ms)
+✔ navigation feedback rejects blank markup: yard:Đang mở màn nghiệp vụ… (40.1134ms)
+✔ navigation feedback rejects blank markup: yard:Bãi (33.9537ms)
+✖ frame calibration reports idle cadence without subtracting it from interaction samples (2.6652ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 11
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4540.2571
+
+✖ failing tests:
+
+test at audit\tools\runtime\interaction-metrics.test.mjs:80:1
+✖ frame calibration reports idle cadence without subtracting it from interaction samples (2.6652ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/interaction-metrics.test.mjs:81:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

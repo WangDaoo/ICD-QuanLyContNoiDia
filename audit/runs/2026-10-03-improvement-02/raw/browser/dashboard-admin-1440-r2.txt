@@ -1,0 +1,109 @@
+- link "Đến nội dung nghiệp vụ":
+  - /url: "#main-content"
+- banner:
+  - generic: ICD
+  - heading "ICD Management System" [level=1]
+  - paragraph: Cảng cạn & kho bãi container nội địa
+  - text: Đã kết nối
+  - button "Tải lại dữ liệu":
+  - button "Thông báo (0 chưa đọc)":
+  - generic: UI Audit ADMIN
+  - generic: ADMIN
+  - button "Đăng xuất":
+- complementary "Điều hướng nghiệp vụ":
+  - generic: Tổng quan & Điều phối
+  - button "Tổng quan vận hành" [active]:
+    - generic: Tổng quan vận hành
+  - button "Danh sách công việc":
+    - generic: Danh sách công việc
+  - generic: Quản lý Hàng hóa & Cổng
+  - button "Bản lược khai (Manifest)":
+    - generic: Bản lược khai (Manifest)
+  - button "Quản lý Container":
+    - generic: Quản lý Container
+  - button "Movement Order":
+    - generic: Movement Order
+  - button "Chuyến xe ra/vào":
+    - generic: Chuyến xe ra/vào
+  - button "Tiếp nhận vào cổng (Gate-in)":
+    - generic: Tiếp nhận vào cổng (Gate-in)
+  - button "Vận hành Bãi (Yard)":
+    - generic: Vận hành Bãi (Yard)
+  - generic: Tài chính & Ra cổng
+  - button "Dịch vụ & Thanh toán":
+    - generic: Dịch vụ & Thanh toán
+  - button "Phiếu ra cổng & Gate-out":
+    - generic: Phiếu ra cổng & Gate-out
+  - button "Vận hành EDI (CODECO)":
+    - generic: Vận hành EDI (CODECO)
+  - generic: Tích hợp đối tác
+  - button "Bàn giao vận chuyển":
+    - generic: Bàn giao vận chuyển
+  - button "Đối tác tích hợp API":
+    - generic: Đối tác tích hợp API
+  - button "Nhật ký API đối tác":
+    - generic: Nhật ký API đối tác
+  - generic: Hệ thống & Quản trị
+  - button "Danh mục dùng chung":
+    - generic: Danh mục dùng chung
+  - button "Người dùng & Phân quyền":
+    - generic: Người dùng & Phân quyền
+  - button "Báo cáo vận hành":
+    - generic: Báo cáo vận hành
+  - button "Nhật ký kiểm toán":
+    - generic: Nhật ký kiểm toán
+  - generic: UI Audit ADMIN
+  - generic: ui-admin@audit.icd.test
+  - generic: ADMIN
+- main:
+  - generic: Container trong Bãi
+  - generic: "9"
+  - generic: / 48 vị trí
+  - generic: "Sức chứa bãi:"
+  - generic: 19%
+  - generic: Cần xử lý (Work Queue)
+  - generic: "0"
+  - generic: 0 Quá hạn SLA
+  - generic: "Độ ưu tiên cao:"
+  - generic: 0 tác vụ
+  - button "Xem danh sách công việc →"
+  - generic: Doanh thu & Công nợ
+  - generic: 0.0 tr₫
+  - generic: đã thu
+  - generic: "Công nợ chưa thu:"
+  - generic: 0.0 tr₫
+  - generic: Phiếu Ra Cổng & Xuất Bãi
+  - generic: "0"
+  - generic: 0 đã xuất cổng
+  - generic: "Sẵn sàng ra cổng:"
+  - generic: Kiểm tra phiếu & điều kiện
+  - button "Quản lý Phiếu ra cổng & Gate-out →"
+  - heading "Hoạt động Cổng & Chuyến xe (Truck Visits)" [level=2]
+  - paragraph: Lịch hẹn Gate Appointment và tình trạng tiếp nhận
+  - button "Xem tất cả":
+    - generic: Xem tất cả
+  - heading "Cảnh báo thời gian lưu bãi 0 container" [level=2]:
+    - generic: Cảnh báo thời gian lưu bãi
+    - generic: 0 container
+  - paragraph: Container gần hoặc vượt ngưỡng cảnh báo từ backend. Phí thực tế xem tại Dịch vụ & Thanh toán.
+  - button "Tính phí lưu kho":
+    - generic: Tính phí lưu kho
+  - table:
+    - rowgroup:
+      - row "Số Container Chủ hàng (Consignee) Vị trí Ngày vào cổng Tình trạng":
+        - columnheader "Số Container"
+        - columnheader "Chủ hàng (Consignee)"
+        - columnheader "Vị trí"
+        - columnheader "Ngày vào cổng"
+        - columnheader "Tình trạng"
+    - rowgroup
+  - heading "Kiểm soát Lệnh Giữ (Operational Holds)" [level=2]:
+    - generic: Kiểm soát Lệnh Giữ (Operational Holds)
+  - generic: 0 đang khóa
+  - paragraph: Các chốt chặn kiểm soát pháp lý, hải quan, cước hãng tàu và hư hỏng trước khi cho phép ra cổng.
+  - button "Kiểm tra điều kiện xuất cổng (Readiness) →"
+  - heading "Vận hành EDI (CODECO)" [level=2]:
+    - generic: Vận hành EDI (CODECO)
+  - generic: Shipping Lines
+  - paragraph: Thông điệp gửi tự động cho hãng tàu khi Gate-in và Gate-out thành công.
+  - button "Xem toàn bộ Outbox EDI →"

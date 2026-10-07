@@ -1,0 +1,18 @@
+{
+  "checkedAt": "2026-10-02",
+  "command": "pnpm --filter @icd/api test --runInBand permissions.guard gate-pass gate-out yard-movement yard-assignment work-queue yard-operation-serialization container-inspection.service truck-visit-notifications inspection-notifications notification-trigger.service payment.service",
+  "exitCode": 0,
+  "suites": {
+    "passed": 16,
+    "total": 16
+  },
+  "tests": {
+    "passed": 78,
+    "total": 78
+  },
+  "durationSeconds": 32.914,
+  "paymentDuplicateCases": 7,
+  "typecheck": { "command": "pnpm --filter @icd/api typecheck", "exitCode": 0 },
+  "targetedLint": { "files": ["apps/api/src/modules/billing/services/payment.service.ts", "apps/api/src/modules/billing/services/payment.service.spec.ts", "apps/api/src/modules/billing/constants/billing-error-codes.constants.ts"], "exitCode": 0 },
+  "note": "Counts from one final aggregate run. Payment 7/7 and earlier notification/queue/yard runs overlap; do not add them to 78. Final build/runtime is recorded by the root restart run."
+}

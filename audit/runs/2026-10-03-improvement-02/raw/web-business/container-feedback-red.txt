@@ -1,0 +1,30 @@
+✖ Container inline Gate Pass rejection stays visible inside the retained detail dialog (510.6255ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5378.5346
+
+✖ failing tests:
+
+test at audit\tools\improvement-web-business-independent.test.mjs:94:1
+✖ Container inline Gate Pass rejection stays visible inside the retained detail dialog (510.6255ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Inline save rejected fixture/. Input:
+  
+  'TEST0000001IN_YARD20GPChủ hàng: Fixture · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianPhát hành Phiếu ra cổng (Gate Pass)✓ Container đã vượt qua 100% điều kiện kiểm tra sẵn sàng ra cổng (Readiness Pass).Biển số xe nhậnTên người nhậnSố CMND / CCCDXác nhận Tạo Phiếu Ra Cổng & Sinh mã QRĐóng'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:104:12)
+      at async withFixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:57:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:95:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'TEST0000001IN_YARD20GPChủ hàng: Fixture · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianPhát hành Phiếu ra cổng (Gate Pass)✓ Container đã vượt qua 100% điều kiện kiểm tra sẵn sàng ra cổng (Readiness Pass).Biển số xe nhậnTên người nhậnSố CMND / CCCDXác nhận Tạo Phiếu Ra Cổng & Sinh mã QRĐóng',
+    expected: /Inline save rejected fixture/,
+    operator: 'match',
+    diff: 'simple'
+  }

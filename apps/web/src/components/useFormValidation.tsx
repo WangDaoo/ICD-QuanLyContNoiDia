@@ -1,0 +1,58 @@
+import React, { useState } from 'react';
+
+export function useFormValidation() {
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const validate = (form: HTMLFormElement) => {
+    const next: Record<string, string> = {};
+    let first: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | undefined;
+    for (const element of Array.from(form.elements)) {
+      if (
+        !(
+          element instanceof HTMLInputElement ||
+          element instanceof HTMLSelectElement ||
+          element instanceof HTMLTextAreaElement
+        ) ||
+        element.disabled
+      )
+        continue;
+      const label = element.labels?.[0]?.textContent?.trim().replace(/\*$/, '') || 'Trường này';
+      if (element.required && !element.value.trim()) next[element.id] = `Nhập hoặc chọn ${label}.`;
+      else if (element.value && !element.validity.valid)
+        next[element.id] =
+          element.type === 'email' ? 'Nhập địa chỉ email hợp lệ.' : `Kiểm tra ${label}.`;
+      if (next[element.id] && !first) first = element;
+    }
+    setErrors(next);
+    first?.focus();
+    return Object.keys(next).length === 0;
+  };
+  return {
+    errors,
+    validate,
+    props: (id: string) => ({
+      'aria-invalid': !!errors[id],
+      'aria-describedby': errors[id] ? `${id}-error` : undefined,
+    }),
+  };
+}
+
+export function FormErrors({ errors }: { errors: Record<string, string> }) {
+  if (!Object.keys(errors).length) return null;
+  return (
+    <div role="alert" className="rounded-lg border border-rose-200 bg-rose-50 p-3 text-rose-800">
+      {Object.entries(errors).map(([id, message]) => (
+        <p key={id} id={`${id}-error`}>
+          <a
+            href={`#${id}`}
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById(id)?.focus();
+            }}
+          >
+            {message}
+          </a>
+        </p>
+      ))}
+    </div>
+  );
+}

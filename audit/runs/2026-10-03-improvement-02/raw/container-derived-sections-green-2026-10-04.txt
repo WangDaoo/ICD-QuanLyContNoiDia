@@ -1,0 +1,39 @@
+✔ unknown yard location is never a real unassigned position when yardSlots is loading (478.2592ms)
+✔ unknown yard location is never a real unassigned position when yardSlots is error (71.8733ms)
+✔ unknown yard location is never a real unassigned position when yardSlots is forbidden (81.5398ms)
+✔ unknown yard location is never a real unassigned position when yardSlots is stale (79.7775ms)
+✔ previously known location stays explicitly cached across row and details when yardSlots is loading (101.7502ms)
+✔ previously known location stays explicitly cached across row and details when yardSlots is error (94.793ms)
+✔ previously known location stays explicitly cached across row and details when yardSlots is stale (104.8543ms)
+✔ forbidden yard catalog cannot reveal a previously cached location in row, details or timeline (79.1703ms)
+✔ ready unassigned container retains truthful missing-position labels and blocker (73.8201ms)
+✔ ready assigned container remains authoritative while an unrelated catalog loads (72.2518ms)
+✔ container collection stale cannot convert cached missing location into a confirmed unassigned position (58.6408ms)
+✔ late yard result replaces unknown copy with remapped assigned location in an already open detail (216.8222ms)
+✔ undefined initial resource status during global load remains an unconfirmed location (53.9959ms)
+✔ unconfirmed invoice detail does not claim no invoices when loading (66.5081ms)
+✔ unconfirmed handover does not imply a new draft when loading (64.9913ms)
+✔ unconfirmed Movement Order does not imply a missing order when loading (55.9577ms)
+✔ unconfirmed invoice detail does not claim no invoices when error (72.6107ms)
+✔ unconfirmed handover does not imply a new draft when error (59.0718ms)
+✔ unconfirmed Movement Order does not imply a missing order when error (82.4148ms)
+✔ unconfirmed invoice detail does not claim no invoices when forbidden (71.1953ms)
+✔ unconfirmed handover does not imply a new draft when forbidden (69.4073ms)
+✔ unconfirmed Movement Order does not imply a missing order when forbidden (52.4721ms)
+✔ unconfirmed invoice detail does not claim no invoices when stale (79.3509ms)
+✔ unconfirmed handover does not imply a new draft when stale (60.2779ms)
+✔ unconfirmed Movement Order does not imply a missing order when stale (58.3801ms)
+✔ confirmed empty invoice detail retains the original empty copy (64.4431ms)
+✔ forbidden invoice reads hide cached amounts and their unpaid indicator (62.1306ms)
+✔ unknown billing does not filter a safely located container out as blocker-free (156.7416ms)
+✔ pending Movement Order read does not offer a duplicate order for a pending container (77.2924ms)
+✔ read-only container reader is not offered handover creation (52.5535ms)
+✔ a handover whose detail is pending never claims zero confirmation milestones (62.3041ms)
+ℹ tests 31
+ℹ suites 0
+ℹ pass 31
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7814.1881

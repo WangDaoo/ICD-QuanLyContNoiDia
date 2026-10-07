@@ -14,25 +14,35 @@ export const typography: Record<string, TextStyle> = {
   h3: {
     fontSize: 16,
     fontWeight: '600',
-    lineHeight: 22,
+    lineHeight: 20,
+  },
+  sectionHeading: {
+    fontSize: 13,
+    fontWeight: '600',
+    lineHeight: 16,
+  },
+  compactHeading: {
+    fontSize: 11,
+    fontWeight: '600',
+    lineHeight: 14,
   },
   body: {
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '400',
-    lineHeight: 20,
+    lineHeight: 19,
   },
   bodyBold: {
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '600',
-    lineHeight: 20,
+    lineHeight: 19,
   },
   caption: {
-    fontSize: 12,
+    fontSize: 11,
     fontWeight: '400',
     lineHeight: 16,
   },
   captionBold: {
-    fontSize: 12,
+    fontSize: 11,
     fontWeight: '600',
     lineHeight: 16,
   },

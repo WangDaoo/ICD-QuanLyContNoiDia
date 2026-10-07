@@ -1,0 +1,21 @@
+{
+  "status": "FIXED",
+  "change": "Partition mutation queue and generation fences; meaningful stale-write race RED/GREEN. Native offline matrix pending.",
+  "source_evidence": [
+    {
+      "file": "apps/mobile/src/storage/read-cache.ts",
+      "line": 9,
+      "detail": "generation",
+      "snippet": "  const generations = new Map<string, number>();\n  const mutations = new Map<string, Promise<void>>();\n  const mutate = (scopeKey: string, action: () => Promise<void>): Promise<void> => {\n    const next = (mutations.get(scopeKey) ?? Promise.resolve()).then(action, action);"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/mobile-cache-checkpoint-green.txt"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Meaningful RED/GREEN source regression; real API only if explicitly linked.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/storage/read-cache.ts.diff"
+  ],
+  "isolated_review_diffs": []
+}

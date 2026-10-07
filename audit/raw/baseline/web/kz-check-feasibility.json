@@ -1,0 +1,484 @@
+{
+  "generated_at_utc": "2026-10-02T20:06:39.802352+00:00",
+  "method": "Source inspection only; no browser/DOM checks executed",
+  "source_repository": "https://github.com/kz-95/kz-skills",
+  "source_commit": "ca77ea4be13dc1405d18d0671e4696ecd91c3e62",
+  "compatible_originals": [
+    "table-check.js",
+    "layout-audit.js"
+  ],
+  "read_only_prerequisites": [
+    "CUA must expose required native DOM/CSSOM/geometry reads and Number parser methods.",
+    "Visible painted nonzero viewport; parent verifies actual rendering.",
+    "No page focus required by table/layout; focus-check requires focus but is still incompatible due writes.",
+    "Execute checks separately on a settled page; unsupported API is UNKNOWN, never an empty clean result."
+  ],
+  "checks": [
+    {
+      "filename": "table-check.js",
+      "source_path": "C:\\Users\\quang\\.codex\\skills\\kz-uicheck\\checks\\table-check.js",
+      "source_sha256": "a495b3bf3008d23531df76c86dc99beeea5f982fa49370c09d2e1967fc5635da",
+      "source_commit": "ca77ea4be13dc1405d18d0671e4696ecd91c3e62",
+      "static_review": "complete source read",
+      "original_dom_read_only": true,
+      "execution_status": "NOT_RUN_PREPARED_FOR_PARENT",
+      "flags": {
+        "dom_tree_writes": false,
+        "style_writes": false,
+        "attribute_writes": false,
+        "input_value_writes": false,
+        "focus_changes": false,
+        "scroll_changes": false,
+        "synthetic_events": false,
+        "global_listeners": false,
+        "timers_or_channels": false,
+        "global_property_writes": false
+      },
+      "reason": "Only DOM/CSS/geometry reads and console logging; local arrays/objects are mutated, not the page.",
+      "evidence": [
+        {
+          "line": 98,
+          "anchor": "parseFloat(cs["
+        },
+        {
+          "line": 175,
+          "anchor": "return { tables:"
+        }
+      ],
+      "limitations": [
+        "Only visible HTML data tables with at least two columns and a body row are examined.",
+        "Zero tables means not applicable, not all UI passed.",
+        "Search/count/explainer heuristics contain English text matching and can miss Vietnamese labels.",
+        "NOSEARCH, NOCOUNT, and NOHELP are upstream advisories, not failures."
+      ],
+      "wrapper": {
+        "path": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\kz-readonly-table-check.js",
+        "sha256": "64f11be2ec48f263fcb43251e14898bdc6cb55ef95262c23f5c59ee9bbf0a198",
+        "upstream_bytes_preserved": true,
+        "syntax_check": "node --check: exit0",
+        "runtime_tested": false,
+        "adaptations": [
+          "Lexical console object captures log/warn output; never replaces global console",
+          "Local parseFloat/parseInt aliases use native Number.parseFloat/Number.parseInt",
+          "Layout only: local innerWidth/innerHeight/matchMedia refer to original Window values, not document client-size approximations"
+        ],
+        "unsupported_policy": "Return UNKNOWN, no fallback or invented passing result"
+      }
+    },
+    {
+      "filename": "layout-audit.js",
+      "source_path": "C:\\Users\\quang\\.codex\\skills\\kz-uicheck\\checks\\layout-audit.js",
+      "source_sha256": "68ebba1d6076cf3228287130babc1fd38a55e96f62bef2edfd8916dc9d1a7776",
+      "source_commit": "ca77ea4be13dc1405d18d0671e4696ecd91c3e62",
+      "static_review": "complete source read",
+      "original_dom_read_only": true,
+      "execution_status": "NOT_RUN_PREPARED_FOR_PARENT",
+      "flags": {
+        "dom_tree_writes": false,
+        "style_writes": false,
+        "attribute_writes": false,
+        "input_value_writes": false,
+        "focus_changes": false,
+        "scroll_changes": false,
+        "synthetic_events": false,
+        "global_listeners": false,
+        "timers_or_channels": false,
+        "global_property_writes": false
+      },
+      "reason": "Only DOM/CSS/geometry reads. createRange/selectNodeContents change a detached Range, not document content or selection.",
+      "evidence": [
+        {
+          "line": 40,
+          "anchor": "document.createRange()"
+        },
+        {
+          "line": 41,
+          "anchor": "r.selectNodeContents(el)"
+        },
+        {
+          "line": 144,
+          "anchor": "matchMedia('(hover: none)')"
+        },
+        {
+          "line": 281,
+          "anchor": "try { walk(sh.cssRules)"
+        }
+      ],
+      "limitations": [
+        "The sandbox may reject createRange or CSSOM access despite these being read-only; record UNKNOWN for unsupported capability.",
+        "Many layout/chart checks use source-project class selectors and may match no application nodes.",
+        "Cross-origin stylesheet reads are silently skipped upstream, limiting static focus/token coverage.",
+        "The touch target branch requires actual hover:none; a narrow viewport alone does not enable it.",
+        "The upstream touch floor is height44/width24, so it does not establish a 44x44 target guarantee.",
+        "The returned clean sentinel covers only executed heuristics, not a complete layout pass."
+      ],
+      "wrapper": {
+        "path": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\kz-readonly-layout-audit.js",
+        "sha256": "96cf1e37f2e1821513adf240df0885a9f7753674c035b4930254248a68bbc239",
+        "upstream_bytes_preserved": true,
+        "syntax_check": "node --check: exit0",
+        "runtime_tested": false,
+        "adaptations": [
+          "Lexical console object captures log/warn output; never replaces global console",
+          "Local parseFloat/parseInt aliases use native Number.parseFloat/Number.parseInt",
+          "Layout only: local innerWidth/innerHeight/matchMedia refer to original Window values, not document client-size approximations"
+        ],
+        "unsupported_policy": "Return UNKNOWN, no fallback or invented passing result"
+      }
+    },
+    {
+      "filename": "contrast-check.js",
+      "source_path": "C:\\Users\\quang\\.codex\\skills\\kz-uicheck\\checks\\contrast-check.js",
+      "source_sha256": "bf10068f39952c2dc7d3b924a2bf3005844f7329debe03573b1919caeff85ed7",
+      "source_commit": "ca77ea4be13dc1405d18d0671e4696ecd91c3e62",
+      "static_review": "complete source read",
+      "original_dom_read_only": false,
+      "execution_status": "NOT_RUN_INCOMPATIBLE_READ_ONLY",
+      "flags": {
+        "dom_tree_writes": true,
+        "style_writes": true,
+        "attribute_writes": true,
+        "input_value_writes": false,
+        "focus_changes": false,
+        "scroll_changes": false,
+        "synthetic_events": false,
+        "global_listeners": false,
+        "timers_or_channels": false,
+        "global_property_writes": false
+      },
+      "reason": "Injects a style element to disable transitions/animations, changes data-theme, then restores/removes them. Restoration does not make execution read-only.",
+      "evidence": [
+        {
+          "line": 141,
+          "anchor": "document.head.appendChild(freeze)"
+        },
+        {
+          "line": 143,
+          "anchor": "root.setAttribute('data-theme', t)"
+        },
+        {
+          "line": 158,
+          "anchor": "freeze.remove()"
+        },
+        {
+          "line": 90,
+          "anchor": "if (!fg) { continue; }"
+        },
+        {
+          "line": 51,
+          "anchor": "var base = [255, 255, 255, 1]"
+        }
+      ],
+      "limitations": [
+        "Parser accepts rgb()/rgba() only: unsupported OKLCH foreground is silently skipped.",
+        "Unresolved backdrop colors can become a white canvas fallback.",
+        "Group opacity is multiplied into text alpha, which is not a general compositing proof.",
+        "Uses a -0.005 threshold tolerance; do not replace full-precision WCAG comparison with this result.",
+        "Use separate captured DOM evidence and offline Color4 calculation; never label it as the original kz run."
+      ]
+    },
+    {
+      "filename": "focus-check.js",
+      "source_path": "C:\\Users\\quang\\.codex\\skills\\kz-uicheck\\checks\\focus-check.js",
+      "source_sha256": "3bc0acbcac80937fca82e8634738233a71cfb4210b68a35634a143dc89b078b7",
+      "source_commit": "ca77ea4be13dc1405d18d0671e4696ecd91c3e62",
+      "static_review": "complete source read",
+      "original_dom_read_only": false,
+      "execution_status": "NOT_RUN_INCOMPATIBLE_READ_ONLY",
+      "flags": {
+        "dom_tree_writes": true,
+        "style_writes": true,
+        "attribute_writes": true,
+        "input_value_writes": false,
+        "focus_changes": true,
+        "scroll_changes": true,
+        "synthetic_events": false,
+        "global_listeners": false,
+        "timers_or_channels": false,
+        "global_property_writes": false
+      },
+      "reason": "Requires foreground page focus, injects freeze CSS, switches theme, focuses/blurs controls, and restores focus/scroll.",
+      "evidence": [
+        {
+          "line": 20,
+          "anchor": "if (!document.hasFocus())"
+        },
+        {
+          "line": 81,
+          "anchor": "document.head.appendChild(freeze)"
+        },
+        {
+          "line": 92,
+          "anchor": "root.setAttribute('data-theme', t)"
+        },
+        {
+          "line": 107,
+          "anchor": "el.focus({ preventScroll: true })"
+        },
+        {
+          "line": 113,
+          "anchor": "el.blur()"
+        },
+        {
+          "line": 121,
+          "anchor": "window.scrollTo(sx, sy)"
+        }
+      ],
+      "limitations": [
+        "Background/unfocused execution returns not-run, not a focus pass.",
+        "Programmatic focus may not exercise :focus-visible.",
+        "RGB-only indicator parsing can replace unknown indicator colors with sentinel99; no valid OKLCH contrast guarantee."
+      ]
+    },
+    {
+      "filename": "typing-check.js",
+      "source_path": "C:\\Users\\quang\\.codex\\skills\\kz-uicheck\\checks\\typing-check.js",
+      "source_sha256": "6c32c8af350f9c682da712d19f7cb333876d42f3fe929aa8b8c7724732da1c59",
+      "source_commit": "ca77ea4be13dc1405d18d0671e4696ecd91c3e62",
+      "static_review": "complete source read",
+      "original_dom_read_only": false,
+      "execution_status": "NOT_RUN_INCOMPATIBLE_READ_ONLY",
+      "flags": {
+        "dom_tree_writes": false,
+        "style_writes": false,
+        "attribute_writes": false,
+        "input_value_writes": true,
+        "focus_changes": true,
+        "scroll_changes": true,
+        "synthetic_events": true,
+        "global_listeners": false,
+        "timers_or_channels": true,
+        "global_property_writes": false
+      },
+      "reason": "Scrolls/focuses fields, writes values using native setters, changes caret selection, dispatches input and Enter events, and restores some values. App handlers can fire.",
+      "evidence": [
+        {
+          "line": 58,
+          "anchor": "el.scrollIntoView"
+        },
+        {
+          "line": 59,
+          "anchor": "el.focus()"
+        },
+        {
+          "line": 70,
+          "anchor": "setValue.call(el, v.slice"
+        },
+        {
+          "line": 72,
+          "anchor": "new InputEvent('input'"
+        },
+        {
+          "line": 117,
+          "anchor": "new KeyboardEvent('keydown'"
+        },
+        {
+          "line": 129,
+          "anchor": "window.scrollTo(0, 0)"
+        }
+      ],
+      "limitations": [
+        "Input or Enter handlers can trigger business writes even when values are restored.",
+        "Synthetic Enter does not reproduce native implicit submission."
+      ]
+    },
+    {
+      "filename": "popover-check.js",
+      "source_path": "C:\\Users\\quang\\.codex\\skills\\kz-uicheck\\checks\\popover-check.js",
+      "source_sha256": "c0f0fae621a91f51da2e343124b1dbb8c741241b0d981433c18675cb59063461",
+      "source_commit": "ca77ea4be13dc1405d18d0671e4696ecd91c3e62",
+      "static_review": "complete source read",
+      "original_dom_read_only": false,
+      "execution_status": "NOT_RUN_INCOMPATIBLE_READ_ONLY",
+      "flags": {
+        "dom_tree_writes": false,
+        "style_writes": false,
+        "attribute_writes": false,
+        "input_value_writes": false,
+        "focus_changes": false,
+        "scroll_changes": true,
+        "synthetic_events": true,
+        "global_listeners": false,
+        "timers_or_channels": true,
+        "global_property_writes": false
+      },
+      "reason": "Scrolls triggers and dispatches pointer/mouse/click and Escape events to open/close panels; app handlers mutate state.",
+      "evidence": [
+        {
+          "line": 34,
+          "anchor": "el.dispatchEvent(new Ctor"
+        },
+        {
+          "line": 60,
+          "anchor": "t.scrollIntoView"
+        },
+        {
+          "line": 48,
+          "anchor": "tap(document.body)"
+        },
+        {
+          "line": 47,
+          "anchor": "new KeyboardEvent('keydown'"
+        }
+      ],
+      "limitations": [
+        "Click handlers can invoke business mutations or navigation.",
+        "Synthetic events do not reproduce native user input in every widget."
+      ]
+    },
+    {
+      "filename": "modal-check.js",
+      "source_path": "C:\\Users\\quang\\.codex\\skills\\kz-uicheck\\checks\\modal-check.js",
+      "source_sha256": "d031a92f897b9a015bc183c25236456308b6f9487fcad3dad48dbbd044e5d19f",
+      "source_commit": "ca77ea4be13dc1405d18d0671e4696ecd91c3e62",
+      "static_review": "complete source read",
+      "original_dom_read_only": false,
+      "execution_status": "NOT_RUN_INCOMPATIBLE_READ_ONLY",
+      "flags": {
+        "dom_tree_writes": false,
+        "style_writes": false,
+        "attribute_writes": true,
+        "input_value_writes": false,
+        "focus_changes": true,
+        "scroll_changes": true,
+        "synthetic_events": true,
+        "global_listeners": false,
+        "timers_or_channels": true,
+        "global_property_writes": false
+      },
+      "reason": "Scrolls/focuses openers, dispatches pointer/click/keyboard/cancel events, and calls native dialog.close(); app handlers mutate state.",
+      "evidence": [
+        {
+          "line": 87,
+          "anchor": "op.scrollIntoView"
+        },
+        {
+          "line": 90,
+          "anchor": "op.focus({ preventScroll: true })"
+        },
+        {
+          "line": 41,
+          "anchor": "el.dispatchEvent(new C"
+        },
+        {
+          "line": 119,
+          "anchor": "dlg.dispatchEvent(ev)"
+        },
+        {
+          "line": 122,
+          "anchor": "dlg.close()"
+        }
+      ],
+      "limitations": [
+        "dialog.close() mutates open state even when cleanup is intended.",
+        "Fallback closure may tap the first button in a dialog, which can be a business action.",
+        "Synthetic cancel is not a real Escape keypress."
+      ]
+    },
+    {
+      "filename": "form-check.js",
+      "source_path": "C:\\Users\\quang\\.codex\\skills\\kz-uicheck\\checks\\form-check.js",
+      "source_sha256": "55fa75b365d8620e91f827aaec0b2ae882530335effb664850008e02407c4425",
+      "source_commit": "ca77ea4be13dc1405d18d0671e4696ecd91c3e62",
+      "static_review": "complete source read",
+      "original_dom_read_only": false,
+      "execution_status": "NOT_RUN_INCOMPATIBLE_READ_ONLY",
+      "flags": {
+        "dom_tree_writes": true,
+        "style_writes": true,
+        "attribute_writes": false,
+        "input_value_writes": true,
+        "focus_changes": true,
+        "scroll_changes": false,
+        "synthetic_events": true,
+        "global_listeners": true,
+        "timers_or_channels": true,
+        "global_property_writes": false
+      },
+      "reason": "Injects freeze CSS, writes values, focuses/blurs inputs, installs a window submit listener, and calls requestSubmit(); the page's submit handler still runs.",
+      "evidence": [
+        {
+          "line": 60,
+          "anchor": "document.head.appendChild(freeze)"
+        },
+        {
+          "line": 38,
+          "anchor": "Object.getOwnPropertyDescriptor(proto, 'value').set.call"
+        },
+        {
+          "line": 105,
+          "anchor": "e.focus({ preventScroll: true })"
+        },
+        {
+          "line": 130,
+          "anchor": "window.addEventListener('submit'"
+        },
+        {
+          "line": 133,
+          "anchor": "form.requestSubmit()"
+        },
+        {
+          "line": 135,
+          "anchor": "window.removeEventListener('submit'"
+        }
+      ],
+      "limitations": [
+        "preventDefault only cancels browser default submission; it does not prevent application fetch/mutation handlers.",
+        "Leaves induced validation errors visible, per upstream comments.",
+        "Read-only label/type fragments would be a distinct reduced method, not an execution of the original form check."
+      ]
+    }
+  ],
+  "axe": {
+    "version": "4.13.0",
+    "source_path": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\runtime\\node_modules\\axe-core\\axe.js",
+    "source_sha256": "138a93a4ce7b7c6c08ed84144e45dcd8cc36d2d4ff8ed673619faf0406906d88",
+    "execution_status": "NOT_RUN_INCOMPATIBLE_READ_ONLY",
+    "reason": "Standard axe bootstrap writes window.axe and document.elementsFromPoint; iframe messaging uses global listeners. Native DOM constructors, real rendering APIs and conditional polyfills/preload helpers exceed read-only sandbox assumptions.",
+    "evidence": [
+      {
+        "line": 36,
+        "anchor": "window.axe = axe"
+      },
+      {
+        "line": 20171,
+        "anchor": "document.elementsFromPoint = _pollyfillElementsFromPoint()"
+      },
+      {
+        "line": 12138,
+        "anchor": "window.addEventListener('message'"
+      },
+      {
+        "line": 20150,
+        "anchor": "document.head.appendChild(style)"
+      },
+      {
+        "line": 20157,
+        "anchor": "current.style.setProperty(cssProp"
+      },
+      {
+        "line": 17088,
+        "anchor": "document.createElement('canvas')"
+      },
+      {
+        "line": 29973,
+        "anchor": "function setupGlobals(context)"
+      },
+      {
+        "line": 19754,
+        "anchor": "function injectStyle(style)"
+      }
+    ],
+    "conditional_paths": [
+      "Modern native elementsFromPoint avoids its style-mutating polyfill body, but the bootstrap property assignment remains.",
+      "Style injection helper and CSSOM/media preloading are conditional; source presence alone is not evidence every axe.run injects CSS.",
+      "Iframe messaging installs listeners when that messenger is opened; no claim every top-level scan opens one.",
+      "color-contrast needs rendered geometry/canvas; an offline HTML snapshot does not reproduce it."
+    ],
+    "primary_sources": [
+      "https://github.com/dequelabs/axe-core/blob/v4.13.0/doc/API.md",
+      "https://github.com/dequelabs/axe-core/blob/v4.13.0/README.md"
+    ],
+    "reporting": "Record not run with these prerequisites; never report zero axe violations or substitute static label checks as an axe scan."
+  }
+}

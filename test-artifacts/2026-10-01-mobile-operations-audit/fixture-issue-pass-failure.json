@@ -1,0 +1,20 @@
+{
+  "phase": "issue-pass",
+  "alias": "followup",
+  "checkedAt": "2026-10-02T01:31:24.407Z",
+  "checks": [
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947/gate-pass",
+      "status": 400,
+      "expectedStatus": "2xx"
+    }
+  ],
+  "error": "POST /containers/f6482365-ae79-4ae3-9dec-efecd8f04947/gate-pass: 400 GATE_PASS_NOT_READY Container chưa đủ điều kiện phát hành Gate Pass."
+}

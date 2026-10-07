@@ -1,0 +1,12 @@
+
+> @icd/web@0.1.0 typecheck D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web
+> tsc --noEmit
+
+src/components/BillingView.tsx(63,80): error TS2345: Argument of type 'ServiceOrderItem_Preview' is not assignable to parameter of type 'SetStateAction<{ items: ServiceOrderItem[]; totalAmountVnd: number; } | null>'.
+  Type 'ServiceOrderItem_Preview' is not assignable to type '{ items: ServiceOrderItem[]; totalAmountVnd: number; }'.
+    Types of property 'items' are incompatible.
+      Type '{ serviceType: string; serviceName: string; quantity: number; unit: string; unitPriceVnd: number; amountVnd: number; }[]' is not assignable to type 'ServiceOrderItem[]'.
+        Property 'id' is missing in type '{ serviceType: string; serviceName: string; quantity: number; unit: string; unitPriceVnd: number; amountVnd: number; }' but required in type 'ServiceOrderItem'.
+D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @icd/web@0.1.0 typecheck: `tsc --noEmit`
+Exit status 2

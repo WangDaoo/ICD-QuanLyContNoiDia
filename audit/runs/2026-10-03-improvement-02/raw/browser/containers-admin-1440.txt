@@ -1,0 +1,169 @@
+- link "Đến nội dung nghiệp vụ":
+  - /url: "#main-content"
+- banner:
+  - generic: ICD
+  - heading "ICD Management System" [level=1]
+  - paragraph: Cảng cạn & kho bãi container nội địa
+  - text: Đã kết nối
+  - button "Tải lại dữ liệu":
+  - button "Thông báo (0 chưa đọc)":
+  - generic: UI Audit ADMIN
+  - generic: ADMIN
+  - button "Đăng xuất":
+- complementary "Điều hướng nghiệp vụ":
+  - generic: Tổng quan & Điều phối
+  - button "Tổng quan vận hành":
+    - generic: Tổng quan vận hành
+  - button "Danh sách công việc":
+    - generic: Danh sách công việc
+  - generic: Quản lý Hàng hóa & Cổng
+  - button "Bản lược khai (Manifest)":
+    - generic: Bản lược khai (Manifest)
+  - button "Quản lý Container" [active]:
+    - generic: Quản lý Container
+  - button "Movement Order":
+    - generic: Movement Order
+  - button "Chuyến xe ra/vào":
+    - generic: Chuyến xe ra/vào
+  - button "Tiếp nhận vào cổng (Gate-in)":
+    - generic: Tiếp nhận vào cổng (Gate-in)
+  - button "Vận hành Bãi (Yard)":
+    - generic: Vận hành Bãi (Yard)
+  - generic: Tài chính & Ra cổng
+  - button "Dịch vụ & Thanh toán":
+    - generic: Dịch vụ & Thanh toán
+  - button "Phiếu ra cổng & Gate-out":
+    - generic: Phiếu ra cổng & Gate-out
+  - button "Vận hành EDI (CODECO)":
+    - generic: Vận hành EDI (CODECO)
+  - generic: Tích hợp đối tác
+  - button "Bàn giao vận chuyển":
+    - generic: Bàn giao vận chuyển
+  - button "Đối tác tích hợp API":
+    - generic: Đối tác tích hợp API
+  - button "Nhật ký API đối tác":
+    - generic: Nhật ký API đối tác
+  - generic: Hệ thống & Quản trị
+  - button "Danh mục dùng chung":
+    - generic: Danh mục dùng chung
+  - button "Người dùng & Phân quyền":
+    - generic: Người dùng & Phân quyền
+  - button "Báo cáo vận hành":
+    - generic: Báo cáo vận hành
+  - button "Nhật ký kiểm toán":
+    - generic: Nhật ký kiểm toán
+  - generic: UI Audit ADMIN
+  - generic: ui-admin@audit.icd.test
+  - generic: ADMIN
+- main:
+  - heading "Bản lược khai hàng hóa (Manifest) & Vận đơn" [level=2]:
+    - generic: Bản lược khai hàng hóa (Manifest) & Vận đơn
+  - paragraph: Quản lý danh sách tàu cập, Master Bill (MBL), House Bill (HBL) và đối soát chuẩn container ISO 6346
+  - button "Tạo Manifest mới":
+    - generic: Tạo Manifest mới
+  - generic: Công cụ đối soát nhanh chuẩn Container ISO 6346
+  - generic: Kiểm tra trọng số check-digit thời gian thực cho mã container 11 ký tự
+  - 'textbox "Ví dụ: CSQU3054383"': CSQU3054383
+  - generic: Chuẩn ISO 6346 hợp lệ
+  - textbox "Tìm Manifest":
+    - /placeholder: Tìm mã Manifest, tên tàu, voyage...
+  - 'button "MNF-VN-VSCU-010 SUBMITTED VOSCO VANGUARD 012W (012W) Hãng: Công ty Cổ phần Vận tải biển Việt Nam (VOSCO) ETA: 1/10/2026" [pressed]':
+    - generic: MNF-VN-VSCU-010
+    - generic: SUBMITTED
+    - generic: VOSCO VANGUARD 012W
+    - generic: (012W)
+    - text: "Hãng:"
+    - strong: Công ty Cổ phần Vận tải biển Việt Nam (VOSCO)
+    - generic: "ETA: 1/10/2026"
+  - 'button "MNF-VN-TCSU-009 SUBMITTED TAN CANG OCEAN 021E (021E) Hãng: Công ty CP Vận tải Thủy Tân Cảng (Tan Cang Shipping) ETA: 1/10/2026"':
+    - generic: MNF-VN-TCSU-009
+    - generic: SUBMITTED
+    - generic: TAN CANG OCEAN 021E
+    - generic: (021E)
+    - text: "Hãng:"
+    - strong: Công ty CP Vận tải Thủy Tân Cảng (Tan Cang Shipping)
+    - generic: "ETA: 1/10/2026"
+  - 'button "MNF-VN-HACU-008 SUBMITTED HAIAN LINK 044S (044S) Hãng: Công ty CP Vận tải và Xếp dỡ Hải An (HATS / HAH) ETA: 1/10/2026"':
+    - generic: MNF-VN-HACU-008
+    - generic: SUBMITTED
+    - generic: HAIAN LINK 044S
+    - generic: (044S)
+    - text: "Hãng:"
+    - strong: Công ty CP Vận tải và Xếp dỡ Hải An (HATS / HAH)
+    - generic: "ETA: 1/10/2026"
+  - 'button "MNF-VN-VFCU-007 SUBMITTED VINAFCO FORTUNE 018N (018N) Hãng: Công ty Cổ phần Vinafco (Vinafco Shipping) ETA: 1/10/2026"':
+    - generic: MNF-VN-VFCU-007
+    - generic: SUBMITTED
+    - generic: VINAFCO FORTUNE 018N
+    - generic: (018N)
+    - text: "Hãng:"
+    - strong: Công ty Cổ phần Vinafco (Vinafco Shipping)
+    - generic: "ETA: 1/10/2026"
+  - 'button "MNF-VN-BDCU-006 SUBMITTED BIEN DONG STAR 033E (033E) Hãng: Công ty Vận tải Biển Đông (Bien Dong Shipping) ETA: 1/10/2026"':
+    - generic: MNF-VN-BDCU-006
+    - generic: SUBMITTED
+    - generic: BIEN DONG STAR 033E
+    - generic: (033E)
+    - text: "Hãng:"
+    - strong: Công ty Vận tải Biển Đông (Bien Dong Shipping)
+    - generic: "ETA: 1/10/2026"
+  - 'button "MNF-VN-VMCU-005 SUBMITTED VIMC PIONEER 005W (005W) Hãng: Tổng công ty Hàng hải Việt Nam (VIMC / Vinalines) ETA: 1/10/2026"':
+    - generic: MNF-VN-VMCU-005
+    - generic: SUBMITTED
+    - generic: VIMC PIONEER 005W
+    - generic: (005W)
+    - text: "Hãng:"
+    - strong: Tổng công ty Hàng hải Việt Nam (VIMC / Vinalines)
+    - generic: "ETA: 1/10/2026"
+  - 'button "MNF-VN-GLDU-004 SUBMITTED GEMADEPT PROGRESS 092S (092S) Hãng: Công ty Cổ phần Gemadept (GMD Shipping) ETA: 1/10/2026"':
+    - generic: MNF-VN-GLDU-004
+    - generic: SUBMITTED
+    - generic: GEMADEPT PROGRESS 092S
+    - generic: (092S)
+    - text: "Hãng:"
+    - strong: Công ty Cổ phần Gemadept (GMD Shipping)
+    - generic: "ETA: 1/10/2026"
+  - 'button "MNF-VN-TCSU-003 SUBMITTED TAN CANG GLORY 108E (108E) Hãng: Công ty CP Vận tải Thủy Tân Cảng (Tan Cang Shipping) ETA: 1/10/2026"':
+    - generic: MNF-VN-TCSU-003
+    - generic: SUBMITTED
+    - generic: TAN CANG GLORY 108E
+    - generic: (108E)
+    - text: "Hãng:"
+    - strong: Công ty CP Vận tải Thủy Tân Cảng (Tan Cang Shipping)
+    - generic: "ETA: 1/10/2026"
+  - 'button "MNF-VN-VSCU-002 SUBMITTED VOSCO SUNRISE 2026N (2026N) Hãng: Công ty Cổ phần Vận tải biển Việt Nam (VOSCO) ETA: 1/10/2026"':
+    - generic: MNF-VN-VSCU-002
+    - generic: SUBMITTED
+    - generic: VOSCO SUNRISE 2026N
+    - generic: (2026N)
+    - text: "Hãng:"
+    - strong: Công ty Cổ phần Vận tải biển Việt Nam (VOSCO)
+    - generic: "ETA: 1/10/2026"
+  - 'button "MNF-VN-HACU-001 SUBMITTED HAIAN BELL 014W (014W) Hãng: Công ty CP Vận tải và Xếp dỡ Hải An (HATS / HAH) ETA: 1/10/2026"':
+    - generic: MNF-VN-HACU-001
+    - generic: SUBMITTED
+    - generic: HAIAN BELL 014W
+    - generic: (014W)
+    - text: "Hãng:"
+    - strong: Công ty CP Vận tải và Xếp dỡ Hải An (HATS / HAH)
+    - generic: "ETA: 1/10/2026"
+  - heading "MNF-VN-VSCU-010" [level=3]
+  - generic: "Hãng tàu: Công ty Cổ phần Vận tải biển Việt Nam (VOSCO)"
+  - paragraph:
+    - text: "Tàu:"
+    - strong: VOSCO VANGUARD 012W
+    - text: "· Voyage:"
+    - strong: 012W
+  - generic: "ETA Ngày đến:"
+  - generic: 1/10/2026
+  - heading "Danh sách Master BL & House BL liên kết" [level=4]:
+    - generic: Danh sách Master BL & House BL liên kết
+  - generic: Master BL
+  - generic: MBL-VSCU-2026-010
+  - generic: "Hãng: Công ty Cổ phần Vận tải biển Việt Nam (VOSCO)"
+  - generic: HBL-VSCU-VN10
+  - generic: 158 kiện · 29,500 kg
+  - text: "Chủ hàng (Consignee):"
+  - strong: Công ty TNHH Gang Thép Hưng Nghiệp Formosa Hà Tĩnh
+  - generic: "Mô tả hàng: Phôi thép đúc đặc chủng & Thép xây dựng kết cấu"
+  - generic: "Đại lý thông quan: Đại lý Hải quan TransLog Toàn Cầu"

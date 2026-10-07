@@ -1,0 +1,30 @@
+✔ Master Data retains the draft and blocks a second submission while pending and after rejection (580.9713ms)
+✔ Users blank submit associates errors and focuses the first invalid field (117.4768ms)
+✔ read-only users never receive master-data or user write controls (68.9981ms)
+✔ truck shortcut opens a create dialog with its linked container (49.461ms)
+✔ expired and cancelled passes never offer exit or handover and explain their status (113.6153ms)
+✔ EDI inspector renders canonical payload snapshot without synthesized ISO type (45.5493ms)
+✔ failed and forbidden collections do not claim a settled empty result (53.0929ms)
+✔ movement order default means now plus 24 hours in Vietnam UTC+7 (42.3359ms)
+✔ manifest MBL blank save identifies the required number and keeps its form (77.5414ms)
+✔ Container Gate Pass failed readiness exposes retry without saying business conditions failed (122.4254ms)
+✔ Container Gate Pass renders a token-bearing QR only while the pass is valid (128.1192ms)
+✔ dirty create dialog prevents cancelled navigation and blocks navigation while pending (61.1104ms)
+✔ Billing read-only page keeps invoice balances without offering billing or tariff writes (47.834ms)
+✔ successful save followed by refresh failure reports saved without inviting another save (68.9117ms)
+✔ active pass changes to expired at its deadline without a user interaction (768.4622ms)
+✔ late readiness result for the previous container cannot enable issue for the new target (105.1138ms)
+✔ a readiness response with no confirmed checks cannot enable Gate Pass issue (56.3219ms)
+✔ User creation keeps the entered identity until a rejected save settles and sends once (76.4349ms)
+✔ Partner creation sends once and retains its draft after rejection (73.8864ms)
+✔ Handover creation sends once and retains transport code after rejection (61.9471ms)
+✔ EDI dispatch sends once while pending and reports the backend result (38.4169ms)
+✔ Container inline Gate Pass blank submission focuses its first required receiver field (212.2618ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9430.0551

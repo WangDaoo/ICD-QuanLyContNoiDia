@@ -1,0 +1,221 @@
+Browser tab: 20, Title: "ICD Management System — Quản lý Kho bãi Container Nội địa", URL: "http://127.0.0.1:5173/".
+0 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/
+	1 container root
+		2 container
+			3 text ICD
+			4 heading ICD Management System, Value: 1
+				5 text ICD Management System
+			6 text Cảng cạn & kho bãi container nội địa
+			7 button Tải lại dữ liệu
+			8 button (collapsed) Description: Thông báo (0 chưa đọc), Secondary Actions: Expand
+			10 button Đăng xuất
+		11 container Điều hướng nghiệp vụ
+			226 text TỔNG QUAN & ĐIỀU PHỐI
+			227 button Tổng quan vận hành
+			228 button Danh sách công việc
+			229 text QUẢN LÝ HÀNG HÓA & CỔNG
+			230 button Bản lược khai (Manifest)
+			231 button Quản lý Container
+			232 button Movement Order
+			233 button Chuyến xe ra/vào
+			234 button Tiếp nhận vào cổng (Gate-in)
+			235 button Vận hành Bãi (Yard)
+			236 text TÀI CHÍNH & RA CỔNG
+			237 button Dịch vụ & Thanh toán
+			238 button Phiếu ra cổng & Gate-out
+			239 button Vận hành EDI (CODECO)
+			240 text TÍCH HỢP ĐỐI TÁC
+			241 button Bàn giao vận chuyển
+			242 button Đối tác tích hợp API
+			243 button Nhật ký API đối tác
+			244 text HỆ THỐNG & QUẢN TRỊ
+			245 button Danh mục dùng chung
+			246 button Người dùng & Phân quyền
+			247 button Báo cáo vận hành
+			248 button Nhật ký kiểm toán
+			36 text System Administrator
+			37 text admin@icd.local
+			38 text ADMIN
+		39 container
+			249 heading Danh mục dùng chung (Master Data), Value: 2
+				250 text Danh mục dùng chung (Master Data)
+			251 text Catalog dùng chung cho Manifest/HBL/Truck Visit. Không hard-delete — chỉ khóa (active=false) để giữ lịch sử.
+			252 button Thêm mới
+			253 button Hãng tàu (Shipping Line)
+			254 button Chủ hàng (Consignee)
+			255 button Đại lý Hải quan
+			256 button Đơn vị Vận tải
+			257 table
+				258 row
+					259 cell
+						260 text TÊN
+					261 cell
+						262 text MÃ SỐ
+					263 cell
+						264 text TRẠNG THÁI
+					265 cell
+						266 text HÀNH ĐỘNG
+				267 row
+					268 cell
+						269 text CMA CGM Group
+					270 cell
+						271 text CMDU
+					272 cell
+						273 text ACTIVE
+					274 cell
+						275 button Khóa
+				276 row
+					277 cell
+						278 text Công ty Cổ phần Gemadept (GMD Shipping)
+					279 cell
+						280 text GLDU
+					281 cell
+						282 text ACTIVE
+					283 cell
+						284 button Khóa
+				285 row
+					286 cell
+						287 text Công ty Cổ phần Vận tải biển Việt Nam (VOSCO)
+					288 cell
+						289 text VSCU
+					290 cell
+						291 text ACTIVE
+					292 cell
+						293 button Khóa
+				294 row
+					295 cell
+						296 text Công ty Cổ phần Vinafco (Vinafco Shipping)
+					297 cell
+						298 text VFCU
+					299 cell
+						300 text ACTIVE
+					301 cell
+						302 button Khóa
+				303 row
+					304 cell
+						305 text Công ty CP Vận tải Thủy Tân Cảng (Tan Cang Shipping)
+					306 cell
+						307 text TCSU
+					308 cell
+						309 text ACTIVE
+					310 cell
+						311 button Khóa
+				312 row
+					313 cell
+						314 text Công ty CP Vận tải và Xếp dỡ Hải An (HATS / HAH)
+					315 cell
+						316 text HACU
+					317 cell
+						318 text ACTIVE
+					319 cell
+						320 button Khóa
+				321 row
+					322 cell
+						323 text Công ty Vận tải Biển Đông (Bien Dong Shipping)
+					324 cell
+						325 text BDCU
+					326 cell
+						327 text ACTIVE
+					328 cell
+						329 button Khóa
+				330 row
+					331 cell
+						332 text Công ty Vận tải biển Nhật Việt (Glory Marine)
+					333 cell
+						334 text GLRU
+					335 cell
+						336 text ACTIVE
+					337 cell
+						338 button Khóa
+				339 row
+					340 cell
+						341 text COSCO Shipping Lines
+					342 cell
+						343 text COSU
+					344 cell
+						345 text ACTIVE
+					346 cell
+						347 button Khóa
+				348 row
+					349 cell
+						350 text Evergreen Marine Corp.
+					351 cell
+						352 text EGLV
+					353 cell
+						354 text ACTIVE
+					355 cell
+						356 button Khóa
+				357 row
+					358 cell
+						359 text Hapag-Lloyd AG
+					360 cell
+						361 text HLCU
+					362 cell
+						363 text ACTIVE
+					364 cell
+						365 button Khóa
+				366 row
+					367 cell
+						368 text HMM Co., Ltd. (Hyundai)
+					369 cell
+						370 text HDMU
+					371 cell
+						372 text ACTIVE
+					373 cell
+						374 button Khóa
+				375 row
+					376 cell
+						377 text Maersk Line (A.P. Moller)
+					378 cell
+						379 text MAEU
+					380 cell
+						381 text ACTIVE
+					382 cell
+						383 button Khóa
+				384 row
+					385 cell
+						386 text MSC (Mediterranean Shipping Company)
+					387 cell
+						388 text MSCU
+					389 cell
+						390 text ACTIVE
+					391 cell
+						392 button Khóa
+				393 row
+					394 cell
+						395 text ONE (Ocean Network Express)
+					396 cell
+						397 text ONEY
+					398 cell
+						399 text ACTIVE
+					400 cell
+						401 button Khóa
+				402 row
+					403 cell
+						404 text Tổng công ty Hàng hải Việt Nam (VIMC / Vinalines)
+					405 cell
+						406 text VMCU
+					407 cell
+						408 text ACTIVE
+					409 cell
+						410 button Khóa
+				411 row
+					412 cell
+						413 text Wan Hai Lines
+					414 cell
+						415 text WHLC
+					416 cell
+						417 text ACTIVE
+					418 cell
+						419 button Khóa
+				420 row
+					421 cell
+						422 text Yang Ming Marine Transport
+					423 cell
+						424 text YMLU
+					425 cell
+						426 text ACTIVE
+					427 cell
+						428 button Khóa
+
+The focused UI element is 245 button Danh mục dùng chung

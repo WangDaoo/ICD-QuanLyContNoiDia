@@ -1,0 +1,18 @@
+✔ transient restore failure offers retry without exposing protected UI or requesting the password again (262.7655ms)
+✔ unverified restore in progress shows loading and disables retry (30.2853ms)
+✔ recovery lets the user explicitly end the preserved session and choose another account (23.7471ms)
+✔ definitively unauthenticated session still presents the existing login form (40.0079ms)
+✔ deferred account switch disables both actions and announces pending logout (23.2861ms)
+✔ failed account switch handles rejection and offers a truthful server recovery message (21.8818ms)
+✔ same-event-batch account switch sends only one logout (21.9928ms)
+✔ independent review: end-session controls give pending feedback during a deferred server logout (20.8677ms)
+✔ independent review: rejected server logout must not emit an unhandled event rejection (49.8393ms)
+✔ independent review: same-batch account switch sends only one logout (23.8499ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4950.2271

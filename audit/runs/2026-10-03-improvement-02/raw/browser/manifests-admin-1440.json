@@ -1,0 +1,7641 @@
+{
+  "controls": [
+    {
+      "disabled": false,
+      "label": "Đến nội dung nghiệp vụ",
+      "outline": "none",
+      "rect": {
+        "height": 1,
+        "width": 1
+      },
+      "tag": "A"
+    },
+    {
+      "disabled": false,
+      "label": "Tải lại dữ liệu",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 32
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Thông báo (0 chưa đọc)",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 32
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Đăng xuất",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 32
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Tổng quan vận hành",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 216
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Danh sách công việc",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 216
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Bản lược khai (Manifest)",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 216
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Quản lý Container",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 216
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Movement Order",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 216
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Chuyến xe ra/vào",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 216
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Tiếp nhận vào cổng (Gate-in)",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 216
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Vận hành Bãi (Yard)",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 216
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Dịch vụ & Thanh toán",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 216
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Phiếu ra cổng & Gate-out",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 216
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Vận hành EDI (CODECO)",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 216
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Bàn giao vận chuyển",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 216
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Đối tác tích hợp API",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 216
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Nhật ký API đối tác",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 216
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Danh mục dùng chung",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 216
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Người dùng & Phân quyền",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 216
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Báo cáo vận hành",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 216
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Nhật ký kiểm toán",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 216
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Tạo Manifest mới",
+      "outline": "none",
+      "rect": {
+        "height": 40,
+        "width": 172.90625
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "",
+      "outline": "none",
+      "rect": {
+        "height": 29.33333396911621,
+        "width": 176
+      },
+      "tag": "INPUT"
+    },
+    {
+      "disabled": false,
+      "label": "Tìm Manifest",
+      "outline": "none",
+      "rect": {
+        "height": 41.33333587646485,
+        "width": 352.21875
+      },
+      "tag": "INPUT"
+    },
+    {
+      "disabled": false,
+      "label": "MNF-VN-VSCU-010SUBMITTEDVOSCO VANGUARD 012W(012W)Hãng: Công ",
+      "outline": "none",
+      "rect": {
+        "height": 113.33333587646484,
+        "width": 352.21875
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "MNF-VN-TCSU-009SUBMITTEDTAN CANG OCEAN 021E(021E)Hãng: Công ",
+      "outline": "none",
+      "rect": {
+        "height": 113.33333587646484,
+        "width": 352.21875
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "MNF-VN-HACU-008SUBMITTEDHAIAN LINK 044S(044S)Hãng: Công ty C",
+      "outline": "none",
+      "rect": {
+        "height": 113.33333587646484,
+        "width": 352.21875
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "MNF-VN-VFCU-007SUBMITTEDVINAFCO FORTUNE 018N(018N)Hãng: Công",
+      "outline": "none",
+      "rect": {
+        "height": 113.33333587646484,
+        "width": 352.21875
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "MNF-VN-BDCU-006SUBMITTEDBIEN DONG STAR 033E(033E)Hãng: Công ",
+      "outline": "none",
+      "rect": {
+        "height": 113.33333587646484,
+        "width": 352.21875
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "MNF-VN-VMCU-005SUBMITTEDVIMC PIONEER 005W(005W)Hãng: Tổng cô",
+      "outline": "none",
+      "rect": {
+        "height": 113.33333587646484,
+        "width": 352.21875
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "MNF-VN-GLDU-004SUBMITTEDGEMADEPT PROGRESS 092S(092S)Hãng: Cô",
+      "outline": "none",
+      "rect": {
+        "height": 113.33333587646484,
+        "width": 352.21875
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "MNF-VN-TCSU-003SUBMITTEDTAN CANG GLORY 108E(108E)Hãng: Công ",
+      "outline": "none",
+      "rect": {
+        "height": 113.33333587646484,
+        "width": 352.21875
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "MNF-VN-VSCU-002SUBMITTEDVOSCO SUNRISE 2026N(2026N)Hãng: Công",
+      "outline": "none",
+      "rect": {
+        "height": 113.33333587646484,
+        "width": 352.21875
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "MNF-VN-HACU-001SUBMITTEDHAIAN BELL 014W(014W)Hãng: Công ty C",
+      "outline": "none",
+      "rect": {
+        "height": 113.33333587646484,
+        "width": 352.21875
+      },
+      "tag": "BUTTON"
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "text": "ICD Management System"
+    },
+    {
+      "level": 2,
+      "text": "Bản lược khai hàng hóa (Manifest) & Vận đơn"
+    },
+    {
+      "level": 3,
+      "text": "MNF-VN-VSCU-010"
+    },
+    {
+      "level": 4,
+      "text": "Danh sách Master BL & House BL liên kết"
+    }
+  ],
+  "overflow": {
+    "document": false,
+    "main": false
+  },
+  "rows": [
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "sr-only focus:not-sr-only focus:absolute focus:z-50 focus:rounded focus:bg-white focus:p-3",
+      "color": "oklch(0.208 0.042 265.755)",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "24px",
+      "rect": {
+        "height": 1,
+        "width": 1,
+        "x": -1,
+        "y": -1
+      },
+      "tag": "A",
+      "text": "Đến nội dung nghiệp vụ"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.546 0.245 262.881)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "h-9 w-9 shrink-0 rounded-xl bg-blue-600 text-white flex items-center justify-center font-black text-xs shadow-sm",
+      "color": "rgb(255, 255, 255)",
+      "fontSize": "12px",
+      "fontWeight": "900",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 36,
+        "width": 36,
+        "x": 24,
+        "y": 13.666666984558104
+      },
+      "tag": "DIV",
+      "text": "ICD"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+      "color": "oklch(0.279 0.041 260.031)",
+      "fontSize": "16px",
+      "fontWeight": "700",
+      "letterSpacing": "-0.4px",
+      "lineHeight": "20px",
+      "rect": {
+        "height": 20,
+        "width": 196.7916717529297,
+        "x": 72,
+        "y": 13.666666984558104
+      },
+      "tag": "H1",
+      "text": "ICD Management System"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "hidden sm:block text-xs text-slate-500",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 196.7916717529297,
+        "x": 72,
+        "y": 33.66666793823242
+      },
+      "tag": "P",
+      "text": "Cảng cạn & kho bãi container nội địa"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.979 0.021 166.113)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "flex items-center gap-1.5 rounded-full border px-2.5 py-1 border-emerald-200 bg-emerald-50 text-emerald-700",
+      "color": "oklch(0.508 0.118 165.612)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 25.33333396911621,
+        "width": 95.46875,
+        "x": 1043.104248046875,
+        "y": 19
+      },
+      "tag": "SPAN",
+      "text": "Đã kết nối"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs font-semibold text-slate-800",
+      "color": "oklch(0.279 0.041 260.031)",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 88.76042175292969,
+        "x": 1287.2396240234375,
+        "y": 15.666666984558104
+      },
+      "tag": "DIV",
+      "text": "UI Audit ADMIN"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-caption text-slate-500",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 88.76042175292969,
+        "x": 1287.2396240234375,
+        "y": 31.666667938232425
+      },
+      "tag": "DIV",
+      "text": "ADMIN"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.208 0.042 265.755)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+      "color": "rgb(203, 213, 225)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "0.6px",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 216,
+        "x": 12,
+        "y": 80
+      },
+      "tag": "DIV",
+      "text": "Tổng quan & Điều phối"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.208 0.042 265.755)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "truncate",
+      "color": "oklch(0.869 0.022 252.894)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 108.91667175292967,
+        "x": 50,
+        "y": 108
+      },
+      "tag": "SPAN",
+      "text": "Tổng quan vận hành"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.208 0.042 265.755)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "truncate",
+      "color": "oklch(0.869 0.022 252.894)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 108.40625,
+        "x": 50,
+        "y": 144
+      },
+      "tag": "SPAN",
+      "text": "Danh sách công việc"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.208 0.042 265.755)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+      "color": "rgb(203, 213, 225)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "0.6px",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 216,
+        "x": 12,
+        "y": 192
+      },
+      "tag": "DIV",
+      "text": "Quản lý Hàng hóa & Cổng"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.546 0.245 262.881)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.208 0.042 265.755)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "truncate",
+      "color": "rgb(255, 255, 255)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 127.09375,
+        "x": 50,
+        "y": 220
+      },
+      "tag": "SPAN",
+      "text": "Bản lược khai (Manifest)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.208 0.042 265.755)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "truncate",
+      "color": "oklch(0.869 0.022 252.894)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 95.59375,
+        "x": 50,
+        "y": 256
+      },
+      "tag": "SPAN",
+      "text": "Quản lý Container"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.208 0.042 265.755)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "truncate",
+      "color": "oklch(0.869 0.022 252.894)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 91.32292175292967,
+        "x": 50,
+        "y": 292
+      },
+      "tag": "SPAN",
+      "text": "Movement Order"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.208 0.042 265.755)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "truncate",
+      "color": "oklch(0.869 0.022 252.894)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 92.08333587646484,
+        "x": 50,
+        "y": 328
+      },
+      "tag": "SPAN",
+      "text": "Chuyến xe ra/vào"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.208 0.042 265.755)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "truncate",
+      "color": "oklch(0.869 0.022 252.894)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 153.8854217529297,
+        "x": 50,
+        "y": 364
+      },
+      "tag": "SPAN",
+      "text": "Tiếp nhận vào cổng (Gate-in)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.208 0.042 265.755)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "truncate",
+      "color": "oklch(0.869 0.022 252.894)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 102.75,
+        "x": 50,
+        "y": 400
+      },
+      "tag": "SPAN",
+      "text": "Vận hành Bãi (Yard)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.208 0.042 265.755)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+      "color": "rgb(203, 213, 225)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "0.6px",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 216,
+        "x": 12,
+        "y": 448
+      },
+      "tag": "DIV",
+      "text": "Tài chính & Ra cổng"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.208 0.042 265.755)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "truncate",
+      "color": "oklch(0.869 0.022 252.894)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 115.70833587646484,
+        "x": 50,
+        "y": 476
+      },
+      "tag": "SPAN",
+      "text": "Dịch vụ & Thanh toán"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.208 0.042 265.755)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "truncate",
+      "color": "oklch(0.869 0.022 252.894)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 136.3125,
+        "x": 50,
+        "y": 512
+      },
+      "tag": "SPAN",
+      "text": "Phiếu ra cổng & Gate-out"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.208 0.042 265.755)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "truncate",
+      "color": "oklch(0.869 0.022 252.894)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 128.40625,
+        "x": 50,
+        "y": 548
+      },
+      "tag": "SPAN",
+      "text": "Vận hành EDI (CODECO)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.208 0.042 265.755)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+      "color": "rgb(203, 213, 225)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "0.6px",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 216,
+        "x": 12,
+        "y": 596
+      },
+      "tag": "DIV",
+      "text": "Tích hợp đối tác"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.208 0.042 265.755)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "truncate",
+      "color": "oklch(0.869 0.022 252.894)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 109.39583587646484,
+        "x": 50,
+        "y": 624
+      },
+      "tag": "SPAN",
+      "text": "Bàn giao vận chuyển"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.208 0.042 265.755)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "truncate",
+      "color": "oklch(0.869 0.022 252.894)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 105.1875,
+        "x": 50,
+        "y": 660
+      },
+      "tag": "SPAN",
+      "text": "Đối tác tích hợp API"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.208 0.042 265.755)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "truncate",
+      "color": "oklch(0.869 0.022 252.894)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 101.23958587646484,
+        "x": 50,
+        "y": 696
+      },
+      "tag": "SPAN",
+      "text": "Nhật ký API đối tác"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.208 0.042 265.755)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+      "color": "rgb(203, 213, 225)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "0.6px",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 216,
+        "x": 12,
+        "y": 744
+      },
+      "tag": "DIV",
+      "text": "Hệ thống & Quản trị"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.208 0.042 265.755)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "truncate",
+      "color": "oklch(0.869 0.022 252.894)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 121.33333587646484,
+        "x": 50,
+        "y": 772
+      },
+      "tag": "SPAN",
+      "text": "Danh mục dùng chung"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.208 0.042 265.755)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "truncate",
+      "color": "oklch(0.869 0.022 252.894)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 142.78125,
+        "x": 50,
+        "y": 808
+      },
+      "tag": "SPAN",
+      "text": "Người dùng & Phân quyền"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.208 0.042 265.755)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "truncate",
+      "color": "oklch(0.869 0.022 252.894)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 93.6875,
+        "x": 50,
+        "y": 844
+      },
+      "tag": "SPAN",
+      "text": "Báo cáo vận hành"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.208 0.042 265.755)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "truncate",
+      "color": "oklch(0.869 0.022 252.894)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 97.05208587646484,
+        "x": 50,
+        "y": 880
+      },
+      "tag": "SPAN",
+      "text": "Nhật ký kiểm toán"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklab(0.129 -0.0038832 -0.0418201 / 0.6)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.208 0.042 265.755)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "font-semibold text-slate-200 truncate",
+      "color": "oklch(0.929 0.013 255.508)",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 231.33334350585935,
+        "x": 12,
+        "y": 832
+      },
+      "tag": "DIV",
+      "text": "UI Audit ADMIN"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklab(0.129 -0.0038832 -0.0418201 / 0.6)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.208 0.042 265.755)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "truncate",
+      "color": "rgb(203, 213, 225)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 231.33334350585935,
+        "x": 12,
+        "y": 852
+      },
+      "tag": "DIV",
+      "text": "ui-admin@audit.icd.test"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklab(0.129 -0.0038832 -0.0418201 / 0.6)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.208 0.042 265.755)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-blue-300",
+      "color": "oklch(0.809 0.105 251.813)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 231.33334350585935,
+        "x": 12,
+        "y": 872
+      },
+      "tag": "DIV",
+      "text": "ADMIN"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "oklch(0.208 0.042 265.755)",
+      "fontSize": "18px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "22.5px",
+      "rect": {
+        "height": 22.5,
+        "width": 387.8125,
+        "x": 336.66668701171875,
+        "y": 116.66667175292967
+      },
+      "tag": "SPAN",
+      "text": "Bản lược khai hàng hóa (Manifest) & Vận đơn"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs text-slate-500 mt-1",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 525.34375,
+        "x": 308.66668701171875,
+        "y": 143.1666717529297
+      },
+      "tag": "P",
+      "text": "Quản lý danh sách tàu cập, Master Bill (MBL), House Bill (HBL) và đối soát chuẩn container ISO 6346"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.546 0.245 262.881)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "rgb(255, 255, 255)",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "24px",
+      "rect": {
+        "height": 24,
+        "width": 122.90625,
+        "x": 1235.09375,
+        "y": 125.91667175292967
+      },
+      "tag": "SPAN",
+      "text": "Tạo Manifest mới"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklab(0.97 -0.00371685 -0.0134976 / 0.7)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "font-bold text-blue-950",
+      "color": "oklch(0.282 0.091 267.935)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 372.3125,
+        "x": 346.66668701171875,
+        "y": 220.5
+      },
+      "tag": "DIV",
+      "text": "Công cụ đối soát nhanh chuẩn Container ISO 6346"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklab(0.97 -0.00371685 -0.0134976 / 0.7)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-blue-800",
+      "color": "oklch(0.424 0.199 265.638)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 372.3125,
+        "x": 346.66668701171875,
+        "y": 236.5
+      },
+      "tag": "DIV",
+      "text": "Kiểm tra trọng số check-digit thời gian thực cho mã container 11 ký tự"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.95 0.052 163.051)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklab(0.97 -0.00371685 -0.0134976 / 0.7)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "oklch(0.432 0.095 166.913)",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 125.04167175292967,
+        "x": 1238.9583740234375,
+        "y": 228.5
+      },
+      "tag": "SPAN",
+      "text": "Chuẩn ISO 6346 hợp lệ"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklab(0.97 -0.00371685 -0.0134976 / 0.5)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs font-mono font-bold text-blue-700",
+      "color": "oklch(0.488 0.243 264.376)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 98.96875,
+        "x": 304.66668701171875,
+        "y": 365.1666870117187
+      },
+      "tag": "SPAN",
+      "text": "MNF-VN-VSCU-010"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.95 0.052 163.051)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklab(0.97 -0.00371685 -0.0134976 / 0.5)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-2 py-0.5 text-caption font-bold rounded-full bg-emerald-100 text-emerald-800",
+      "color": "oklch(0.432 0.095 166.913)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 20,
+        "width": 83.92708587646484,
+        "x": 539.625,
+        "y": 363.1666870117187
+      },
+      "tag": "SPAN",
+      "text": "SUBMITTED"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklab(0.97 -0.00371685 -0.0134976 / 0.5)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "oklch(0.279 0.041 260.031)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 147,
+        "x": 324.66668701171875,
+        "y": 387.1666870117187
+      },
+      "tag": "SPAN",
+      "text": "VOSCO VANGUARD 012W"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklab(0.97 -0.00371685 -0.0134976 / 0.5)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-400 font-normal",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 37.875,
+        "x": 477.6666870117187,
+        "y": 387.1666870117187
+      },
+      "tag": "SPAN",
+      "text": "(012W)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklab(0.97 -0.00371685 -0.0134976 / 0.5)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 253.17709350585935,
+        "x": 304.66668701171875,
+        "y": 411.1666870117187
+      },
+      "tag": "SPAN",
+      "text": "Hãng: Công ty Cổ phần Vận tải biển Việt Nam (VOSCO)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklab(0.97 -0.00371685 -0.0134976 / 0.5)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-700",
+      "color": "oklch(0.372 0.044 257.287)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 224.83334350585935,
+        "x": 304.66668701171875,
+        "y": 411.1666870117187
+      },
+      "tag": "STRONG",
+      "text": "Công ty Cổ phần Vận tải biển Việt Nam (VOSCO)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklab(0.97 -0.00371685 -0.0134976 / 0.5)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 65.70833587646484,
+        "x": 557.84375,
+        "y": 411.1666870117187
+      },
+      "tag": "SPAN",
+      "text": "ETA: 1/10/2026"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs font-mono font-bold text-blue-700",
+      "color": "oklch(0.488 0.243 264.376)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 98.96875,
+        "x": 304.66668701171875,
+        "y": 486.5
+      },
+      "tag": "SPAN",
+      "text": "MNF-VN-TCSU-009"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.95 0.052 163.051)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-2 py-0.5 text-caption font-bold rounded-full bg-emerald-100 text-emerald-800",
+      "color": "oklch(0.432 0.095 166.913)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 20,
+        "width": 83.92708587646484,
+        "x": 539.625,
+        "y": 484.5
+      },
+      "tag": "SPAN",
+      "text": "SUBMITTED"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "oklch(0.279 0.041 260.031)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 136.14584350585938,
+        "x": 324.66668701171875,
+        "y": 508.5
+      },
+      "tag": "SPAN",
+      "text": "TAN CANG OCEAN 021E"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-400 font-normal",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 32.72916793823242,
+        "x": 466.8125,
+        "y": 508.5
+      },
+      "tag": "SPAN",
+      "text": "(021E)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 258.71875,
+        "x": 304.66668701171875,
+        "y": 532.5
+      },
+      "tag": "SPAN",
+      "text": "Hãng: Công ty CP Vận tải Thủy Tân Cảng (Tan Cang Shipping)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-700",
+      "color": "oklch(0.372 0.044 257.287)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 253.11459350585935,
+        "x": 304.66668701171875,
+        "y": 532.5
+      },
+      "tag": "STRONG",
+      "text": "Công ty CP Vận tải Thủy Tân Cảng (Tan Cang Shipping)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 60.16666793823242,
+        "x": 563.3854370117188,
+        "y": 532.5
+      },
+      "tag": "SPAN",
+      "text": "ETA: 1/10/2026"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs font-mono font-bold text-blue-700",
+      "color": "oklch(0.488 0.243 264.376)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 98.96875,
+        "x": 304.66668701171875,
+        "y": 607.8333740234375
+      },
+      "tag": "SPAN",
+      "text": "MNF-VN-HACU-008"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.95 0.052 163.051)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-2 py-0.5 text-caption font-bold rounded-full bg-emerald-100 text-emerald-800",
+      "color": "oklch(0.432 0.095 166.913)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 20,
+        "width": 83.92708587646484,
+        "x": 539.625,
+        "y": 605.8333740234375
+      },
+      "tag": "SPAN",
+      "text": "SUBMITTED"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "oklch(0.279 0.041 260.031)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 100.61458587646484,
+        "x": 324.66668701171875,
+        "y": 629.8333740234375
+      },
+      "tag": "SPAN",
+      "text": "HAIAN LINK 044S"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-400 font-normal",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 33.03125,
+        "x": 431.28125,
+        "y": 629.8333740234375
+      },
+      "tag": "SPAN",
+      "text": "(044S)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 255.5104217529297,
+        "x": 304.66668701171875,
+        "y": 653.8333740234375
+      },
+      "tag": "SPAN",
+      "text": "Hãng: Công ty CP Vận tải và Xếp dỡ Hải An (HATS / HAH)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-700",
+      "color": "oklch(0.372 0.044 257.287)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 240.25,
+        "x": 304.66668701171875,
+        "y": 653.8333740234375
+      },
+      "tag": "STRONG",
+      "text": "Công ty CP Vận tải và Xếp dỡ Hải An (HATS / HAH)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 63.375,
+        "x": 560.1771240234375,
+        "y": 653.8333740234375
+      },
+      "tag": "SPAN",
+      "text": "ETA: 1/10/2026"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs font-mono font-bold text-blue-700",
+      "color": "oklch(0.488 0.243 264.376)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 98.96875,
+        "x": 304.66668701171875,
+        "y": 729.1666870117188
+      },
+      "tag": "SPAN",
+      "text": "MNF-VN-VFCU-007"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.95 0.052 163.051)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-2 py-0.5 text-caption font-bold rounded-full bg-emerald-100 text-emerald-800",
+      "color": "oklch(0.432 0.095 166.913)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 20,
+        "width": 83.92708587646484,
+        "x": 539.625,
+        "y": 727.1666870117188
+      },
+      "tag": "SPAN",
+      "text": "SUBMITTED"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "oklch(0.279 0.041 260.031)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 143.7291717529297,
+        "x": 324.66668701171875,
+        "y": 751.1666870117188
+      },
+      "tag": "SPAN",
+      "text": "VINAFCO FORTUNE 018N"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-400 font-normal",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 35.63541793823242,
+        "x": 474.3958435058594,
+        "y": 751.1666870117188
+      },
+      "tag": "SPAN",
+      "text": "(018N)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 248.7291717529297,
+        "x": 304.66668701171875,
+        "y": 775.1666870117188
+      },
+      "tag": "SPAN",
+      "text": "Hãng: Công ty Cổ phần Vinafco (Vinafco Shipping)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-700",
+      "color": "oklch(0.372 0.044 257.287)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 224.8541717529297,
+        "x": 304.66668701171875,
+        "y": 775.1666870117188
+      },
+      "tag": "STRONG",
+      "text": "Công ty Cổ phần Vinafco (Vinafco Shipping)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 70.15625,
+        "x": 553.3958740234375,
+        "y": 775.1666870117188
+      },
+      "tag": "SPAN",
+      "text": "ETA: 1/10/2026"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs font-mono font-bold text-blue-700",
+      "color": "oklch(0.488 0.243 264.376)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 98.96875,
+        "x": 304.66668701171875,
+        "y": 850.5
+      },
+      "tag": "SPAN",
+      "text": "MNF-VN-BDCU-006"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.95 0.052 163.051)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-2 py-0.5 text-caption font-bold rounded-full bg-emerald-100 text-emerald-800",
+      "color": "oklch(0.432 0.095 166.913)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 20,
+        "width": 83.92708587646484,
+        "x": 539.625,
+        "y": 848.5
+      },
+      "tag": "SPAN",
+      "text": "SUBMITTED"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "oklch(0.279 0.041 260.031)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 129.5416717529297,
+        "x": 324.66668701171875,
+        "y": 872.5
+      },
+      "tag": "SPAN",
+      "text": "BIEN DONG STAR 033E"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-400 font-normal",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 32.72916793823242,
+        "x": 460.2083435058594,
+        "y": 872.5
+      },
+      "tag": "SPAN",
+      "text": "(033E)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 253.33334350585935,
+        "x": 304.66668701171875,
+        "y": 896.5
+      },
+      "tag": "SPAN",
+      "text": "Hãng: Công ty Vận tải Biển Đông (Bien Dong Shipping)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-700",
+      "color": "oklch(0.372 0.044 257.287)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 250.3229217529297,
+        "x": 304.66668701171875,
+        "y": 896.5
+      },
+      "tag": "STRONG",
+      "text": "Công ty Vận tải Biển Đông (Bien Dong Shipping)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 65.55208587646484,
+        "x": 558,
+        "y": 896.5
+      },
+      "tag": "SPAN",
+      "text": "ETA: 1/10/2026"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs font-mono font-bold text-blue-700",
+      "color": "oklch(0.488 0.243 264.376)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 98.96875,
+        "x": 304.66668701171875,
+        "y": 971.8333740234376
+      },
+      "tag": "SPAN",
+      "text": "MNF-VN-VMCU-005"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.95 0.052 163.051)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-2 py-0.5 text-caption font-bold rounded-full bg-emerald-100 text-emerald-800",
+      "color": "oklch(0.432 0.095 166.913)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 20,
+        "width": 83.92708587646484,
+        "x": 539.625,
+        "y": 969.8333740234376
+      },
+      "tag": "SPAN",
+      "text": "SUBMITTED"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "oklch(0.279 0.041 260.031)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 120.53125,
+        "x": 324.66668701171875,
+        "y": 993.8333740234376
+      },
+      "tag": "SPAN",
+      "text": "VIMC PIONEER 005W"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-400 font-normal",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 37.875,
+        "x": 451.1979370117187,
+        "y": 993.8333740234376
+      },
+      "tag": "SPAN",
+      "text": "(005W)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 256.0208435058594,
+        "x": 304.66668701171875,
+        "y": 1017.8333740234376
+      },
+      "tag": "SPAN",
+      "text": "Hãng: Tổng công ty Hàng hải Việt Nam (VIMC / Vinalines)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-700",
+      "color": "oklch(0.372 0.044 257.287)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 219.14584350585935,
+        "x": 304.66668701171875,
+        "y": 1017.8333740234376
+      },
+      "tag": "STRONG",
+      "text": "Tổng công ty Hàng hải Việt Nam (VIMC / Vinalines)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 62.86458587646485,
+        "x": 560.6875,
+        "y": 1017.8333740234376
+      },
+      "tag": "SPAN",
+      "text": "ETA: 1/10/2026"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs font-mono font-bold text-blue-700",
+      "color": "oklch(0.488 0.243 264.376)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 98.96875,
+        "x": 304.66668701171875,
+        "y": 1093.166748046875
+      },
+      "tag": "SPAN",
+      "text": "MNF-VN-GLDU-004"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.95 0.052 163.051)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-2 py-0.5 text-caption font-bold rounded-full bg-emerald-100 text-emerald-800",
+      "color": "oklch(0.432 0.095 166.913)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 20,
+        "width": 83.92708587646484,
+        "x": 539.625,
+        "y": 1091.166748046875
+      },
+      "tag": "SPAN",
+      "text": "SUBMITTED"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "oklch(0.279 0.041 260.031)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 158.92709350585938,
+        "x": 324.66668701171875,
+        "y": 1115.166748046875
+      },
+      "tag": "SPAN",
+      "text": "GEMADEPT PROGRESS 092S"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-400 font-normal",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 33.03125,
+        "x": 489.59375,
+        "y": 1115.166748046875
+      },
+      "tag": "SPAN",
+      "text": "(092S)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 249.0625,
+        "x": 304.66668701171875,
+        "y": 1139.166748046875
+      },
+      "tag": "SPAN",
+      "text": "Hãng: Công ty Cổ phần Gemadept (GMD Shipping)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-700",
+      "color": "oklch(0.372 0.044 257.287)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 226.5729217529297,
+        "x": 304.66668701171875,
+        "y": 1139.166748046875
+      },
+      "tag": "STRONG",
+      "text": "Công ty Cổ phần Gemadept (GMD Shipping)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 69.82292175292969,
+        "x": 553.7291870117188,
+        "y": 1139.166748046875
+      },
+      "tag": "SPAN",
+      "text": "ETA: 1/10/2026"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs font-mono font-bold text-blue-700",
+      "color": "oklch(0.488 0.243 264.376)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 98.96875,
+        "x": 304.66668701171875,
+        "y": 1214.5
+      },
+      "tag": "SPAN",
+      "text": "MNF-VN-TCSU-003"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.95 0.052 163.051)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-2 py-0.5 text-caption font-bold rounded-full bg-emerald-100 text-emerald-800",
+      "color": "oklch(0.432 0.095 166.913)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 20,
+        "width": 83.92708587646484,
+        "x": 539.625,
+        "y": 1212.5
+      },
+      "tag": "SPAN",
+      "text": "SUBMITTED"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "oklch(0.279 0.041 260.031)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 133.5416717529297,
+        "x": 324.66668701171875,
+        "y": 1236.5
+      },
+      "tag": "SPAN",
+      "text": "TAN CANG GLORY 108E"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-400 font-normal",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 32.72916793823242,
+        "x": 464.2083435058594,
+        "y": 1236.5
+      },
+      "tag": "SPAN",
+      "text": "(108E)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 258.71875,
+        "x": 304.66668701171875,
+        "y": 1260.5
+      },
+      "tag": "SPAN",
+      "text": "Hãng: Công ty CP Vận tải Thủy Tân Cảng (Tan Cang Shipping)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-700",
+      "color": "oklch(0.372 0.044 257.287)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 253.11459350585935,
+        "x": 304.66668701171875,
+        "y": 1260.5
+      },
+      "tag": "STRONG",
+      "text": "Công ty CP Vận tải Thủy Tân Cảng (Tan Cang Shipping)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 60.16666793823242,
+        "x": 563.3854370117188,
+        "y": 1260.5
+      },
+      "tag": "SPAN",
+      "text": "ETA: 1/10/2026"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs font-mono font-bold text-blue-700",
+      "color": "oklch(0.488 0.243 264.376)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 98.96875,
+        "x": 304.66668701171875,
+        "y": 1335.8333740234375
+      },
+      "tag": "SPAN",
+      "text": "MNF-VN-VSCU-002"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.95 0.052 163.051)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-2 py-0.5 text-caption font-bold rounded-full bg-emerald-100 text-emerald-800",
+      "color": "oklch(0.432 0.095 166.913)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 20,
+        "width": 83.92708587646484,
+        "x": 539.625,
+        "y": 1333.8333740234375
+      },
+      "tag": "SPAN",
+      "text": "SUBMITTED"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "oklch(0.279 0.041 260.031)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 133.59375,
+        "x": 324.66668701171875,
+        "y": 1357.8333740234375
+      },
+      "tag": "SPAN",
+      "text": "VOSCO SUNRISE 2026N"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-400 font-normal",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 42.10416793823242,
+        "x": 464.2604370117187,
+        "y": 1357.8333740234375
+      },
+      "tag": "SPAN",
+      "text": "(2026N)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 253.17709350585935,
+        "x": 304.66668701171875,
+        "y": 1381.8333740234375
+      },
+      "tag": "SPAN",
+      "text": "Hãng: Công ty Cổ phần Vận tải biển Việt Nam (VOSCO)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-700",
+      "color": "oklch(0.372 0.044 257.287)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 224.83334350585935,
+        "x": 304.66668701171875,
+        "y": 1381.8333740234375
+      },
+      "tag": "STRONG",
+      "text": "Công ty Cổ phần Vận tải biển Việt Nam (VOSCO)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 65.70833587646484,
+        "x": 557.84375,
+        "y": 1381.8333740234375
+      },
+      "tag": "SPAN",
+      "text": "ETA: 1/10/2026"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs font-mono font-bold text-blue-700",
+      "color": "oklch(0.488 0.243 264.376)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 98.96875,
+        "x": 304.66668701171875,
+        "y": 1457.166748046875
+      },
+      "tag": "SPAN",
+      "text": "MNF-VN-HACU-001"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.95 0.052 163.051)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-2 py-0.5 text-caption font-bold rounded-full bg-emerald-100 text-emerald-800",
+      "color": "oklch(0.432 0.095 166.913)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 20,
+        "width": 83.92708587646484,
+        "x": 539.625,
+        "y": 1455.166748046875
+      },
+      "tag": "SPAN",
+      "text": "SUBMITTED"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "oklch(0.279 0.041 260.031)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 105.09375,
+        "x": 324.66668701171875,
+        "y": 1479.166748046875
+      },
+      "tag": "SPAN",
+      "text": "HAIAN BELL 014W"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-400 font-normal",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 37.875,
+        "x": 435.7604370117187,
+        "y": 1479.166748046875
+      },
+      "tag": "SPAN",
+      "text": "(014W)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 255.5104217529297,
+        "x": 304.66668701171875,
+        "y": 1503.166748046875
+      },
+      "tag": "SPAN",
+      "text": "Hãng: Công ty CP Vận tải và Xếp dỡ Hải An (HATS / HAH)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-700",
+      "color": "oklch(0.372 0.044 257.287)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 240.25,
+        "x": 304.66668701171875,
+        "y": 1503.166748046875
+      },
+      "tag": "STRONG",
+      "text": "Công ty CP Vận tải và Xếp dỡ Hải An (HATS / HAH)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 63.375,
+        "x": 560.1771240234375,
+        "y": 1503.166748046875
+      },
+      "tag": "SPAN",
+      "text": "ETA: 1/10/2026"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-base font-bold text-slate-900",
+      "color": "oklch(0.208 0.042 265.755)",
+      "fontSize": "16px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "20px",
+      "rect": {
+        "height": 20,
+        "width": 147.64584350585938,
+        "x": 684.8854370117188,
+        "y": 313.8333435058594
+      },
+      "tag": "H3",
+      "text": "MNF-VN-VSCU-010"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.932 0.032 255.585)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-2.5 py-0.5 text-xs font-bold bg-blue-100 text-blue-800 rounded-full",
+      "color": "oklch(0.424 0.199 265.638)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 20,
+        "width": 351.71875,
+        "x": 840.53125,
+        "y": 313.8333435058594
+      },
+      "tag": "SPAN",
+      "text": "Hãng tàu: Công ty Cổ phần Vận tải biển Việt Nam (VOSCO)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs text-slate-500 mt-0.5",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 507.3645935058594,
+        "x": 684.8854370117188,
+        "y": 335.8333435058594
+      },
+      "tag": "P",
+      "text": "Tàu: VOSCO VANGUARD 012W · Voyage: 012W"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 147,
+        "x": 708.6146240234375,
+        "y": 335.8333435058594
+      },
+      "tag": "STRONG",
+      "text": "VOSCO VANGUARD 012W"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 32.770835876464844,
+        "x": 909.65625,
+        "y": 335.8333435058594
+      },
+      "tag": "STRONG",
+      "text": "012W"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-500",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 76.54167175292969,
+        "x": 1295.4583740234375,
+        "y": 316.8333435058594
+      },
+      "tag": "DIV",
+      "text": "ETA Ngày đến:"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "font-bold text-slate-800",
+      "color": "oklch(0.279 0.041 260.031)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 76.54167175292969,
+        "x": 1295.4583740234375,
+        "y": 332.8333435058594
+      },
+      "tag": "DIV",
+      "text": "1/10/2026"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "0.6px",
+      "lineHeight": "15px",
+      "rect": {
+        "height": 15,
+        "width": 290.35418701171875,
+        "x": 706.8854370117188,
+        "y": 393
+      },
+      "tag": "SPAN",
+      "text": "Danh sách Master BL & House BL liên kết"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.929 0.013 255.508)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklab(0.984 -0.00113071 -0.00277876 / 0.5)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-2 py-0.5 bg-slate-200 text-slate-800 font-mono text-xs font-bold rounded",
+      "color": "oklch(0.279 0.041 260.031)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 20,
+        "width": 75.38542175292969,
+        "x": 699.5521240234375,
+        "y": 435.1666870117187
+      },
+      "tag": "SPAN",
+      "text": "Master BL"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklab(0.984 -0.00113071 -0.00277876 / 0.5)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "font-mono font-bold text-sm text-slate-900",
+      "color": "oklch(0.208 0.042 265.755)",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "20px",
+      "rect": {
+        "height": 20,
+        "width": 130.8541717529297,
+        "x": 782.9375,
+        "y": 435.1666870117187
+      },
+      "tag": "SPAN",
+      "text": "MBL-VSCU-2026-010"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklab(0.984 -0.00113071 -0.00277876 / 0.5)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs text-slate-500 font-medium",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 300.28125,
+        "x": 1057.0521240234375,
+        "y": 437.1666870117187
+      },
+      "tag": "SPAN",
+      "text": "Hãng: Công ty Cổ phần Vận tải biển Việt Nam (VOSCO)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklab(0.984 -0.00113071 -0.00277876 / 0.5)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "font-mono font-bold text-blue-700",
+      "color": "oklch(0.488 0.243 264.376)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 85.77083587646484,
+        "x": 730.21875,
+        "y": 479.8333435058594
+      },
+      "tag": "SPAN",
+      "text": "HBL-VSCU-VN10"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklab(0.984 -0.00113071 -0.00277876 / 0.5)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-500 font-semibold",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 106.63542175292967,
+        "x": 1238.03125,
+        "y": 479.8333435058594
+      },
+      "tag": "SPAN",
+      "text": "158 kiện · 29,500 kg"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklab(0.984 -0.00113071 -0.00277876 / 0.5)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-800",
+      "color": "oklch(0.279 0.041 260.031)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 614.4479370117188,
+        "x": 730.21875,
+        "y": 501.8333435058594
+      },
+      "tag": "DIV",
+      "text": "Chủ hàng (Consignee): Công ty TNHH Gang Thép Hưng Nghiệp Formosa Hà Tĩnh"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklab(0.984 -0.00113071 -0.00277876 / 0.5)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "oklch(0.279 0.041 260.031)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 326.125,
+        "x": 853.3541870117188,
+        "y": 501.8333435058594
+      },
+      "tag": "STRONG",
+      "text": "Công ty TNHH Gang Thép Hưng Nghiệp Formosa Hà Tĩnh"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklab(0.984 -0.00113071 -0.00277876 / 0.5)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-500",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 614.4479370117188,
+        "x": 730.21875,
+        "y": 523.8333740234375
+      },
+      "tag": "DIV",
+      "text": "Mô tả hàng: Phôi thép đúc đặc chủng & Thép xây dựng kết cấu"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklab(0.984 -0.00113071 -0.00277876 / 0.5)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 267.7708435058594,
+        "x": 797.4166870117188,
+        "y": 523.8333740234375
+      },
+      "tag": "SPAN",
+      "text": "Phôi thép đúc đặc chủng & Thép xây dựng kết cấu"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklab(0.984 -0.00113071 -0.00277876 / 0.5)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-caption text-slate-400",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 614.4479370117188,
+        "x": 730.21875,
+        "y": 545.8333740234375
+      },
+      "tag": "DIV",
+      "text": "Đại lý thông quan: Đại lý Hải quan TransLog Toàn Cầu"
+    }
+  ],
+  "url": "http://127.0.0.1:5174/app/manifests",
+  "viewport": {
+    "height": 900,
+    "width": 1440
+  }
+}

@@ -1,0 +1,843 @@
+{
+  "runCode": "OPS-QA-1790901500518",
+  "createdAt": "2026-10-02T00:38:20.518Z",
+  "visits": [
+    {
+      "alias": "first",
+      "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+      "containerNumber": "QAOU5007550",
+      "sealNo": "OPS-QA-SEAL-1",
+      "grossWeight": 20000,
+      "entryOrderId": "01ffe8f7-1f8c-408d-94eb-b998adafb3d3",
+      "entryAuthorized": true,
+      "serviceOrderId": "29a3eb58-59ad-498d-9d6d-3e5b02448601",
+      "orderConfirmed": true,
+      "invoiceId": "dcdc6ac9-f18b-44b5-b8f3-5290d879e6ef",
+      "invoiceTotalAmount": 990000,
+      "paymentRecorded": true,
+      "readiness": {
+        "containerVisitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+        "ready": true,
+        "isReady": true,
+        "blockers": [],
+        "details": {
+          "containerStatus": "IN_YARD",
+          "yardLocation": {
+            "id": "6d58e997-bc47-472a-9fa8-10bec34df6e0",
+            "yardSlotId": "1b97d235-1b5b-461a-b202-77115df3abe2"
+          },
+          "activeOperations": {
+            "movementCount": 0,
+            "inspectionCount": 0,
+            "bookingCount": 0,
+            "hasActiveOperations": false
+          },
+          "inspectionHoldCount": 0,
+          "activeHolds": [],
+          "billing": {
+            "hasNoOrders": false,
+            "pendingOrders": [],
+            "unpaidInvoices": [],
+            "unbilledServicesCount": 0,
+            "billingConfigMissing": false
+          }
+        }
+      },
+      "gatePassId": "ceb98909-33fa-4388-a829-dc5154f910fd",
+      "qrTokenFile": "qa-gate-pass-token.json",
+      "exitVerifiedAt": "2026-10-02T01:08:07.431Z"
+    },
+    {
+      "alias": "second",
+      "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+      "containerNumber": "QAOU5007565",
+      "sealNo": "OPS-QA-SEAL-2",
+      "grossWeight": 20000,
+      "entryOrderId": "d72a073b-09c9-4b17-8c25-38a76665eb31",
+      "entryAuthorized": true
+    },
+    {
+      "alias": "yard",
+      "visitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+      "containerNumber": "QAOU5007570",
+      "sealNo": "OPS-QA-SEAL-3",
+      "grossWeight": 20000,
+      "entryOrderId": "ff19e585-de9a-4d5d-bb20-83b2a56b683d",
+      "entryAuthorized": true,
+      "initialLocation": {
+        "id": "03504285-b7e7-492c-8cb0-aac747096cc5",
+        "containerVisitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+        "startedAt": "2026-10-02T00:39:22.616Z",
+        "endedAt": null,
+        "source": "RULE",
+        "recommendationId": "e86977f0-a637-4290-a724-2b21a07d2e99",
+        "yardSlot": {
+          "id": "94ab8cfb-345f-407a-bc4f-e8e4ed8ed29f",
+          "yardBlockId": "a1509670-52af-4556-a1ac-7f2276086dc3",
+          "rowNo": "1",
+          "bayNo": "1",
+          "tierNo": "2",
+          "slotCode": "A-01-01-2",
+          "supportedContainerType": null,
+          "reeferPower": false,
+          "maxWeight": "32000",
+          "operational": true,
+          "yardBlock": {
+            "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+            "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+            "blockCode": "A",
+            "name": "Khu A — Hàng khô Dry Cargo",
+            "operational": true
+          }
+        },
+        "assignedBy": {
+          "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "name": "System Administrator",
+          "email": "admin@icd.local"
+        }
+      },
+      "qaHoldId": "db00e863-7a3c-4a9f-820b-8892e3713b5c",
+      "qaHoldInspectionId": "cd79419f-3f37-49b3-9e49-b0b53a445b86"
+    },
+    {
+      "alias": "followup",
+      "visitId": "f6482365-ae79-4ae3-9dec-efecd8f04947",
+      "containerNumber": "QAOU1882075",
+      "sealNo": "OPS-QA-FOLLOWUP",
+      "grossWeight": 20000,
+      "entryOrderId": "93819660-6b7c-4f5a-86c9-455122959cfd",
+      "entryAuthorized": true,
+      "serviceOrderId": "07d2fb91-013c-44c5-932a-d4fb6224b345",
+      "orderConfirmed": true,
+      "invoiceId": "b14c74b7-0275-41fc-be2e-94db54fc734d",
+      "invoiceTotalAmount": 572000,
+      "paymentRecorded": true,
+      "readiness": {
+        "containerVisitId": "f6482365-ae79-4ae3-9dec-efecd8f04947",
+        "ready": true,
+        "isReady": true,
+        "blockers": [],
+        "details": {
+          "containerStatus": "IN_YARD",
+          "yardLocation": {
+            "id": "4409abe0-032e-46e8-8186-74b99ec5d10a",
+            "yardSlotId": "1b97d235-1b5b-461a-b202-77115df3abe2"
+          },
+          "activeOperations": {
+            "movementCount": 0,
+            "inspectionCount": 0,
+            "bookingCount": 0,
+            "hasActiveOperations": false
+          },
+          "inspectionHoldCount": 0,
+          "activeHolds": [],
+          "billing": {
+            "hasNoOrders": false,
+            "pendingOrders": [],
+            "unpaidInvoices": [],
+            "unbilledServicesCount": 0,
+            "billingConfigMissing": false
+          }
+        }
+      },
+      "gatePassId": "ebda4085-a524-403f-a949-932d7656cfdb",
+      "gatePassNo": "GP-MUQAHDPX-0237BC",
+      "qrTokenFile": "qa-gate-pass-token.json",
+      "exitVerifiedAt": "2026-10-02T01:37:48.424Z"
+    }
+  ],
+  "shippingLineId": "25b6ca9e-d2f0-4141-be78-b25c1c6337b2",
+  "consigneeId": "1a668d3c-21d8-42a3-babc-4ee211acf0d3",
+  "clearingAgentId": "c746d993-433d-4f4c-945d-927694e5c33a",
+  "manifestId": "80e9a478-e035-41e8-ae86-17546175c7cd",
+  "manifestNo": "MF-20261002-A8140919",
+  "mblId": "90c386aa-b536-4477-8e97-e7322b14955b",
+  "hblId": "5076b86f-3eb2-47c6-b3e6-6a033c00a8e4",
+  "firstSerial": 500755,
+  "manifestSubmitted": true,
+  "scheduledTruckId": "fc525ccc-ba8e-49f2-8831-62eadd0ae0e3",
+  "scheduledVehiclePlate": "51C-QA0755",
+  "yardTruckId": "4d582342-e97e-4a32-aaee-406690b2d6b6",
+  "yardVehiclePlate": "51C-YQA755",
+  "preparedAt": "2026-10-02T00:38:21.364Z",
+  "observation": {
+    "visits": [
+      {
+        "alias": "first",
+        "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+        "containerNumber": "QAOU5007550",
+        "sealNo": "OPS-QA-SEAL-1",
+        "grossWeight": 20000,
+        "entryOrderId": "01ffe8f7-1f8c-408d-94eb-b998adafb3d3",
+        "entryAuthorized": true,
+        "serviceOrderId": "29a3eb58-59ad-498d-9d6d-3e5b02448601",
+        "orderConfirmed": true,
+        "invoiceId": "dcdc6ac9-f18b-44b5-b8f3-5290d879e6ef",
+        "invoiceTotalAmount": 990000,
+        "paymentRecorded": true,
+        "readiness": {
+          "containerVisitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "ready": false,
+          "isReady": false,
+          "blockers": [
+            "CONTAINER_NOT_IN_YARD",
+            "NO_YARD_POSITION"
+          ],
+          "details": {
+            "containerStatus": "EXITED",
+            "yardLocation": null,
+            "activeOperations": {
+              "movementCount": 0,
+              "inspectionCount": 0,
+              "bookingCount": 0,
+              "hasActiveOperations": false
+            },
+            "inspectionHoldCount": 0,
+            "activeHolds": [],
+            "billing": {
+              "hasNoOrders": false,
+              "pendingOrders": [],
+              "unpaidInvoices": [],
+              "unbilledServicesCount": 0,
+              "billingConfigMissing": false
+            }
+          }
+        },
+        "gatePassId": "ceb98909-33fa-4388-a829-dc5154f910fd",
+        "qrTokenFile": "qa-gate-pass-token.json",
+        "exitVerifiedAt": "2026-10-02T01:08:07.431Z",
+        "state": "EXITED",
+        "location": null,
+        "reception": {
+          "id": "e5c295b7-2729-48b1-99e6-91059bde5366",
+          "containerVisitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "truckVisitId": "fc525ccc-ba8e-49f2-8831-62eadd0ae0e3",
+          "actualSeal": "OPS-QA-SEAL-1",
+          "actualWeight": "20000",
+          "conditionCode": "GOOD",
+          "conditionNotes": null,
+          "photoRef": null,
+          "receivedById": "64b73e99-bf75-4736-b5ea-5263cbe3bf2c",
+          "receivedAt": "2026-10-02T00:41:41.892Z",
+          "createdAt": "2026-10-02T00:41:41.893Z",
+          "receivedByUser": {
+            "id": "64b73e99-bf75-4736-b5ea-5263cbe3bf2c",
+            "name": "Lê Văn Cổng (Gate Staff)",
+            "email": "gate@icd.local"
+          },
+          "truckVisit": {
+            "id": "fc525ccc-ba8e-49f2-8831-62eadd0ae0e3",
+            "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+            "visitCode": "TV-20261002-9AC7FC",
+            "visitType": "GATE_IN",
+            "status": "COMPLETED",
+            "appointmentAt": "2026-10-02T00:38:21.239Z",
+            "arrivedAt": "2026-10-02T00:40:43.256Z",
+            "completedAt": "2026-10-02T00:46:07.209Z",
+            "vehiclePlate": "51C-QA0755",
+            "trailerPlate": null,
+            "driverName": "Local mobile QA driver",
+            "driverPhone": null,
+            "transporterId": null,
+            "gateLane": "QA-LANE-01",
+            "createdAt": "2026-10-02T00:38:21.292Z",
+            "updatedAt": "2026-10-02T00:46:07.217Z",
+            "transporter": null
+          }
+        }
+      },
+      {
+        "alias": "second",
+        "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+        "containerNumber": "QAOU5007565",
+        "sealNo": "OPS-QA-SEAL-2",
+        "grossWeight": 20000,
+        "entryOrderId": "d72a073b-09c9-4b17-8c25-38a76665eb31",
+        "entryAuthorized": true,
+        "state": "IN_YARD",
+        "location": {
+          "id": "7299dbac-d180-4a4d-be79-d704c5f8efc1",
+          "containerVisitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "startedAt": "2026-10-02T00:54:01.669Z",
+          "endedAt": null,
+          "source": "RULE",
+          "recommendationId": "4ce72b17-728e-41fb-a870-1b75be22a2c1",
+          "yardSlot": {
+            "id": "0aa21460-e2cf-4b4d-9426-0216a24cba4f",
+            "yardBlockId": "a1509670-52af-4556-a1ac-7f2276086dc3",
+            "rowNo": "1",
+            "bayNo": "3",
+            "tierNo": "2",
+            "slotCode": "A-01-03-2",
+            "supportedContainerType": null,
+            "reeferPower": false,
+            "maxWeight": "32000",
+            "operational": true,
+            "yardBlock": {
+              "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+              "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+              "blockCode": "A",
+              "name": "Khu A — Hàng khô Dry Cargo",
+              "operational": true
+            }
+          },
+          "assignedBy": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          }
+        },
+        "reception": {
+          "id": "49b6ed9d-157d-407f-94a3-824d57f78343",
+          "containerVisitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "truckVisitId": "fc525ccc-ba8e-49f2-8831-62eadd0ae0e3",
+          "actualSeal": "OPS-QA-SEAL-2",
+          "actualWeight": "20000",
+          "conditionCode": "GOOD",
+          "conditionNotes": null,
+          "photoRef": null,
+          "receivedById": "64b73e99-bf75-4736-b5ea-5263cbe3bf2c",
+          "receivedAt": "2026-10-02T00:46:07.174Z",
+          "createdAt": "2026-10-02T00:46:07.184Z",
+          "receivedByUser": {
+            "id": "64b73e99-bf75-4736-b5ea-5263cbe3bf2c",
+            "name": "Lê Văn Cổng (Gate Staff)",
+            "email": "gate@icd.local"
+          },
+          "truckVisit": {
+            "id": "fc525ccc-ba8e-49f2-8831-62eadd0ae0e3",
+            "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+            "visitCode": "TV-20261002-9AC7FC",
+            "visitType": "GATE_IN",
+            "status": "COMPLETED",
+            "appointmentAt": "2026-10-02T00:38:21.239Z",
+            "arrivedAt": "2026-10-02T00:40:43.256Z",
+            "completedAt": "2026-10-02T00:46:07.209Z",
+            "vehiclePlate": "51C-QA0755",
+            "trailerPlate": null,
+            "driverName": "Local mobile QA driver",
+            "driverPhone": null,
+            "transporterId": null,
+            "gateLane": "QA-LANE-01",
+            "createdAt": "2026-10-02T00:38:21.292Z",
+            "updatedAt": "2026-10-02T00:46:07.217Z",
+            "transporter": null
+          }
+        },
+        "readiness": {
+          "containerVisitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "ready": false,
+          "isReady": false,
+          "blockers": [
+            "NO_BILLING",
+            "UNBILLED_SERVICES"
+          ],
+          "details": {
+            "containerStatus": "IN_YARD",
+            "yardLocation": {
+              "id": "7299dbac-d180-4a4d-be79-d704c5f8efc1",
+              "yardSlotId": "0aa21460-e2cf-4b4d-9426-0216a24cba4f"
+            },
+            "activeOperations": {
+              "movementCount": 0,
+              "inspectionCount": 0,
+              "bookingCount": 0,
+              "hasActiveOperations": false
+            },
+            "inspectionHoldCount": 0,
+            "activeHolds": [],
+            "billing": {
+              "hasNoOrders": true,
+              "pendingOrders": [],
+              "unpaidInvoices": [],
+              "unbilledServicesCount": 2,
+              "billingConfigMissing": false
+            }
+          }
+        }
+      },
+      {
+        "alias": "yard",
+        "visitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+        "containerNumber": "QAOU5007570",
+        "sealNo": "OPS-QA-SEAL-3",
+        "grossWeight": 20000,
+        "entryOrderId": "ff19e585-de9a-4d5d-bb20-83b2a56b683d",
+        "entryAuthorized": true,
+        "initialLocation": {
+          "id": "03504285-b7e7-492c-8cb0-aac747096cc5",
+          "containerVisitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+          "startedAt": "2026-10-02T00:39:22.616Z",
+          "endedAt": null,
+          "source": "RULE",
+          "recommendationId": "e86977f0-a637-4290-a724-2b21a07d2e99",
+          "yardSlot": {
+            "id": "94ab8cfb-345f-407a-bc4f-e8e4ed8ed29f",
+            "yardBlockId": "a1509670-52af-4556-a1ac-7f2276086dc3",
+            "rowNo": "1",
+            "bayNo": "1",
+            "tierNo": "2",
+            "slotCode": "A-01-01-2",
+            "supportedContainerType": null,
+            "reeferPower": false,
+            "maxWeight": "32000",
+            "operational": true,
+            "yardBlock": {
+              "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+              "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+              "blockCode": "A",
+              "name": "Khu A — Hàng khô Dry Cargo",
+              "operational": true
+            }
+          },
+          "assignedBy": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        "qaHoldId": "db00e863-7a3c-4a9f-820b-8892e3713b5c",
+        "qaHoldInspectionId": "cd79419f-3f37-49b3-9e49-b0b53a445b86",
+        "state": "IN_YARD",
+        "location": {
+          "id": "03504285-b7e7-492c-8cb0-aac747096cc5",
+          "containerVisitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+          "startedAt": "2026-10-02T00:39:22.616Z",
+          "endedAt": null,
+          "source": "RULE",
+          "recommendationId": "e86977f0-a637-4290-a724-2b21a07d2e99",
+          "yardSlot": {
+            "id": "94ab8cfb-345f-407a-bc4f-e8e4ed8ed29f",
+            "yardBlockId": "a1509670-52af-4556-a1ac-7f2276086dc3",
+            "rowNo": "1",
+            "bayNo": "1",
+            "tierNo": "2",
+            "slotCode": "A-01-01-2",
+            "supportedContainerType": null,
+            "reeferPower": false,
+            "maxWeight": "32000",
+            "operational": true,
+            "yardBlock": {
+              "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+              "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+              "blockCode": "A",
+              "name": "Khu A — Hàng khô Dry Cargo",
+              "operational": true
+            }
+          },
+          "assignedBy": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        "reception": {
+          "id": "c2b6592f-3525-44a1-ad36-4d0a45e1fdc4",
+          "containerVisitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+          "truckVisitId": "4d582342-e97e-4a32-aaee-406690b2d6b6",
+          "actualSeal": "OPS-QA-SEAL-3",
+          "actualWeight": "20000",
+          "conditionCode": "GOOD",
+          "conditionNotes": "Dedicated local QA reception",
+          "photoRef": null,
+          "receivedById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "receivedAt": "2026-10-02T00:38:39.154Z",
+          "createdAt": "2026-10-02T00:38:39.156Z",
+          "receivedByUser": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          },
+          "truckVisit": {
+            "id": "4d582342-e97e-4a32-aaee-406690b2d6b6",
+            "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+            "visitCode": "TV-20261002-40CC4F",
+            "visitType": "GATE_IN",
+            "status": "COMPLETED",
+            "appointmentAt": "2026-10-02T00:38:21.321Z",
+            "arrivedAt": "2026-10-02T00:38:39.040Z",
+            "completedAt": "2026-10-02T00:38:39.187Z",
+            "vehiclePlate": "51C-YQA755",
+            "trailerPlate": null,
+            "driverName": "Local yard QA driver",
+            "driverPhone": null,
+            "transporterId": null,
+            "gateLane": "QA-02",
+            "createdAt": "2026-10-02T00:38:21.345Z",
+            "updatedAt": "2026-10-02T00:38:39.191Z",
+            "transporter": null
+          }
+        },
+        "readiness": {
+          "containerVisitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+          "ready": false,
+          "isReady": false,
+          "blockers": [
+            "INSPECTION_HOLD",
+            "OPERATIONAL_HOLD",
+            "NO_BILLING",
+            "UNBILLED_SERVICES"
+          ],
+          "details": {
+            "containerStatus": "IN_YARD",
+            "yardLocation": {
+              "id": "03504285-b7e7-492c-8cb0-aac747096cc5",
+              "yardSlotId": "94ab8cfb-345f-407a-bc4f-e8e4ed8ed29f"
+            },
+            "activeOperations": {
+              "movementCount": 0,
+              "inspectionCount": 0,
+              "bookingCount": 0,
+              "hasActiveOperations": false
+            },
+            "inspectionHoldCount": 1,
+            "activeHolds": [
+              {
+                "id": "db00e863-7a3c-4a9f-820b-8892e3713b5c",
+                "holdType": "CUSTOMS",
+                "reason": "OPS-QA-1790901500518 – Giữ kiểm tra hải quan, dữ liệu QA cục bộ",
+                "placedAt": "2026-10-02T00:43:42.148Z"
+              }
+            ],
+            "billing": {
+              "hasNoOrders": true,
+              "pendingOrders": [],
+              "unpaidInvoices": [],
+              "unbilledServicesCount": 3,
+              "billingConfigMissing": false
+            }
+          }
+        }
+      },
+      {
+        "alias": "followup",
+        "visitId": "f6482365-ae79-4ae3-9dec-efecd8f04947",
+        "containerNumber": "QAOU1882075",
+        "sealNo": "OPS-QA-FOLLOWUP",
+        "grossWeight": 20000,
+        "entryOrderId": "93819660-6b7c-4f5a-86c9-455122959cfd",
+        "entryAuthorized": true,
+        "serviceOrderId": "07d2fb91-013c-44c5-932a-d4fb6224b345",
+        "orderConfirmed": true,
+        "invoiceId": "b14c74b7-0275-41fc-be2e-94db54fc734d",
+        "invoiceTotalAmount": 572000,
+        "paymentRecorded": true,
+        "readiness": {
+          "containerVisitId": "f6482365-ae79-4ae3-9dec-efecd8f04947",
+          "ready": false,
+          "isReady": false,
+          "blockers": [
+            "CONTAINER_NOT_IN_YARD",
+            "NO_YARD_POSITION"
+          ],
+          "details": {
+            "containerStatus": "EXITED",
+            "yardLocation": null,
+            "activeOperations": {
+              "movementCount": 0,
+              "inspectionCount": 0,
+              "bookingCount": 0,
+              "hasActiveOperations": false
+            },
+            "inspectionHoldCount": 0,
+            "activeHolds": [],
+            "billing": {
+              "hasNoOrders": false,
+              "pendingOrders": [],
+              "unpaidInvoices": [],
+              "unbilledServicesCount": 0,
+              "billingConfigMissing": false
+            }
+          }
+        },
+        "gatePassId": "ebda4085-a524-403f-a949-932d7656cfdb",
+        "gatePassNo": "GP-MUQAHDPX-0237BC",
+        "qrTokenFile": "qa-gate-pass-token.json",
+        "exitVerifiedAt": "2026-10-02T01:37:48.424Z",
+        "state": "EXITED",
+        "location": null,
+        "reception": {
+          "id": "8ca60c82-6171-4042-9ae5-c349d563af1b",
+          "containerVisitId": "f6482365-ae79-4ae3-9dec-efecd8f04947",
+          "truckVisitId": "950be735-d6ca-455d-9e2c-072023a053d7",
+          "actualSeal": "OPS-QA-FOLLOWUP",
+          "actualWeight": "20000",
+          "conditionCode": "GOOD",
+          "conditionNotes": null,
+          "photoRef": null,
+          "receivedById": "64b73e99-bf75-4736-b5ea-5263cbe3bf2c",
+          "receivedAt": "2026-10-02T01:12:18.551Z",
+          "createdAt": "2026-10-02T01:12:18.553Z",
+          "receivedByUser": {
+            "id": "64b73e99-bf75-4736-b5ea-5263cbe3bf2c",
+            "name": "Lê Văn Cổng (Gate Staff)",
+            "email": "gate@icd.local"
+          },
+          "truckVisit": {
+            "id": "950be735-d6ca-455d-9e2c-072023a053d7",
+            "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+            "visitCode": "TV-20261002-7020C9",
+            "visitType": "GATE_IN",
+            "status": "COMPLETED",
+            "appointmentAt": "2026-10-02T01:06:28.440Z",
+            "arrivedAt": "2026-10-02T01:06:28.564Z",
+            "completedAt": "2026-10-02T01:12:18.578Z",
+            "vehiclePlate": "51C-FQA2075",
+            "trailerPlate": null,
+            "driverName": "Local followup mobile QA driver",
+            "driverPhone": null,
+            "transporterId": null,
+            "gateLane": "QA-FOLLOWUP",
+            "createdAt": "2026-10-02T01:06:28.486Z",
+            "updatedAt": "2026-10-02T01:12:18.581Z",
+            "transporter": null
+          }
+        }
+      }
+    ],
+    "scheduledTruck": {
+      "id": "fc525ccc-ba8e-49f2-8831-62eadd0ae0e3",
+      "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+      "visitCode": "TV-20261002-9AC7FC",
+      "visitType": "GATE_IN",
+      "status": "COMPLETED",
+      "appointmentAt": "2026-10-02T00:38:21.239Z",
+      "arrivedAt": "2026-10-02T00:40:43.256Z",
+      "completedAt": "2026-10-02T00:46:07.209Z",
+      "vehiclePlate": "51C-QA0755",
+      "trailerPlate": null,
+      "driverName": "Local mobile QA driver",
+      "driverPhone": null,
+      "transporterId": null,
+      "gateLane": "QA-LANE-01",
+      "createdAt": "2026-10-02T00:38:21.292Z",
+      "updatedAt": "2026-10-02T00:46:07.217Z",
+      "transporter": null,
+      "containers": [
+        {
+          "id": "fddfd72a-6a68-46aa-bf14-dec268963345",
+          "truckVisitId": "fc525ccc-ba8e-49f2-8831-62eadd0ae0e3",
+          "containerVisitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "sequenceNo": 1,
+          "containerVisit": {
+            "id": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+            "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+            "containerId": "cd238d7b-af9c-4092-ab3b-94950d7bf311",
+            "manifestId": "80e9a478-e035-41e8-ae86-17546175c7cd",
+            "masterBlId": "90c386aa-b536-4477-8e97-e7322b14955b",
+            "houseBlId": "5076b86f-3eb2-47c6-b3e6-6a033c00a8e4",
+            "consigneeId": "1a668d3c-21d8-42a3-babc-4ee211acf0d3",
+            "state": "EXITED",
+            "fullEmptyStatus": "FULL",
+            "sealNo": "OPS-QA-SEAL-1",
+            "cargoDescription": null,
+            "grossWeight": "20000",
+            "category": "IMPORT",
+            "isOverstay": false,
+            "dwellDays": 0,
+            "gateInAt": "2026-10-02T00:41:41.892Z",
+            "gateOutAt": "2026-10-02T01:07:57.801Z",
+            "createdAt": "2026-10-02T00:38:20.809Z",
+            "updatedAt": "2026-10-02T01:07:57.890Z",
+            "container": {
+              "id": "cd238d7b-af9c-4092-ab3b-94950d7bf311",
+              "containerNumber": "QAOU5007550",
+              "isoCode": "45G1",
+              "size": "SIZE_40",
+              "type": "DRY",
+              "height": null,
+              "tareWeight": null,
+              "maxPayload": null,
+              "createdAt": "2026-10-02T00:38:20.790Z",
+              "updatedAt": "2026-10-02T00:38:20.790Z"
+            },
+            "houseBl": {
+              "id": "5076b86f-3eb2-47c6-b3e6-6a033c00a8e4",
+              "masterBlId": "90c386aa-b536-4477-8e97-e7322b14955b",
+              "hblNumber": "OPS-QA-1790901500518-HBL",
+              "consigneeId": "1a668d3c-21d8-42a3-babc-4ee211acf0d3",
+              "clearingAgentId": "c746d993-433d-4f4c-945d-927694e5c33a",
+              "cargoDescription": "Dedicated local mobile operations QA goods",
+              "grossWeight": "60000",
+              "packageCount": 300,
+              "createdAt": "2026-10-02T00:38:20.744Z",
+              "updatedAt": "2026-10-02T00:38:20.744Z",
+              "masterBl": {
+                "id": "90c386aa-b536-4477-8e97-e7322b14955b",
+                "manifestId": "80e9a478-e035-41e8-ae86-17546175c7cd",
+                "mblNumber": "OPS-QA-1790901500518-MBL",
+                "shippingLineId": "25b6ca9e-d2f0-4141-be78-b25c1c6337b2",
+                "createdAt": "2026-10-02T00:38:20.698Z",
+                "updatedAt": "2026-10-02T00:38:20.698Z",
+                "manifest": {
+                  "id": "80e9a478-e035-41e8-ae86-17546175c7cd",
+                  "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+                  "manifestNo": "MF-20261002-A8140919",
+                  "shippingLineId": "25b6ca9e-d2f0-4141-be78-b25c1c6337b2",
+                  "vesselName": "ICD MOBILE OPS-QA-1790901500518",
+                  "voyageNo": "OPS-QA-1790901500518",
+                  "eta": "2026-10-02T00:38:20.621Z",
+                  "portOfLoading": "LOCAL QA PORT",
+                  "portOfDischarge": "LOCAL QA ICD",
+                  "status": "SUBMITTED",
+                  "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+                  "createdAt": "2026-10-02T00:38:20.654Z",
+                  "updatedAt": "2026-10-02T00:38:20.936Z"
+                }
+              },
+              "consignee": {
+                "id": "1a668d3c-21d8-42a3-babc-4ee211acf0d3",
+                "name": "Công ty Cổ phần Sản xuất & Kinh doanh VinFast",
+                "taxCode": "0801234567",
+                "phone": "02253999888",
+                "email": "inbound@vinfast.vn",
+                "address": "Khu kinh tế Đình Vũ - Cát Hải, Hải Phòng",
+                "active": true,
+                "createdAt": "2026-10-01T03:18:19.964Z",
+                "updatedAt": "2026-10-01T03:18:19.964Z"
+              },
+              "clearingAgent": {
+                "id": "c746d993-433d-4f4c-945d-927694e5c33a",
+                "name": "Đại lý Hải quan Quốc tế Việt Thịnh",
+                "licenseNo": "0388776655",
+                "active": true,
+                "createdAt": "2026-10-01T03:18:19.997Z",
+                "updatedAt": "2026-10-01T03:18:19.997Z"
+              }
+            },
+            "movementOrders": [
+              {
+                "id": "01ffe8f7-1f8c-408d-94eb-b998adafb3d3",
+                "containerVisitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+                "status": "AUTHORIZED",
+                "authorizedById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+                "authorizedAt": "2026-10-02T00:38:21.057Z",
+                "expiresAt": "2026-10-09T00:38:21.010Z",
+                "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+                "createdAt": "2026-10-02T00:38:20.988Z",
+                "updatedAt": "2026-10-02T00:38:21.063Z"
+              }
+            ]
+          }
+        },
+        {
+          "id": "864db4d0-7123-41f4-a9c7-bcaee77e501a",
+          "truckVisitId": "fc525ccc-ba8e-49f2-8831-62eadd0ae0e3",
+          "containerVisitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "sequenceNo": 2,
+          "containerVisit": {
+            "id": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+            "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+            "containerId": "18fc5961-ff49-4fde-a998-6562e50311f3",
+            "manifestId": "80e9a478-e035-41e8-ae86-17546175c7cd",
+            "masterBlId": "90c386aa-b536-4477-8e97-e7322b14955b",
+            "houseBlId": "5076b86f-3eb2-47c6-b3e6-6a033c00a8e4",
+            "consigneeId": "1a668d3c-21d8-42a3-babc-4ee211acf0d3",
+            "state": "IN_YARD",
+            "fullEmptyStatus": "FULL",
+            "sealNo": "OPS-QA-SEAL-2",
+            "cargoDescription": null,
+            "grossWeight": "20000",
+            "category": "IMPORT",
+            "isOverstay": false,
+            "dwellDays": 0,
+            "gateInAt": "2026-10-02T00:46:07.174Z",
+            "gateOutAt": null,
+            "createdAt": "2026-10-02T00:38:20.859Z",
+            "updatedAt": "2026-10-02T00:46:07.190Z",
+            "container": {
+              "id": "18fc5961-ff49-4fde-a998-6562e50311f3",
+              "containerNumber": "QAOU5007565",
+              "isoCode": "45G1",
+              "size": "SIZE_40",
+              "type": "DRY",
+              "height": null,
+              "tareWeight": null,
+              "maxPayload": null,
+              "createdAt": "2026-10-02T00:38:20.850Z",
+              "updatedAt": "2026-10-02T00:38:20.850Z"
+            },
+            "houseBl": {
+              "id": "5076b86f-3eb2-47c6-b3e6-6a033c00a8e4",
+              "masterBlId": "90c386aa-b536-4477-8e97-e7322b14955b",
+              "hblNumber": "OPS-QA-1790901500518-HBL",
+              "consigneeId": "1a668d3c-21d8-42a3-babc-4ee211acf0d3",
+              "clearingAgentId": "c746d993-433d-4f4c-945d-927694e5c33a",
+              "cargoDescription": "Dedicated local mobile operations QA goods",
+              "grossWeight": "60000",
+              "packageCount": 300,
+              "createdAt": "2026-10-02T00:38:20.744Z",
+              "updatedAt": "2026-10-02T00:38:20.744Z",
+              "masterBl": {
+                "id": "90c386aa-b536-4477-8e97-e7322b14955b",
+                "manifestId": "80e9a478-e035-41e8-ae86-17546175c7cd",
+                "mblNumber": "OPS-QA-1790901500518-MBL",
+                "shippingLineId": "25b6ca9e-d2f0-4141-be78-b25c1c6337b2",
+                "createdAt": "2026-10-02T00:38:20.698Z",
+                "updatedAt": "2026-10-02T00:38:20.698Z",
+                "manifest": {
+                  "id": "80e9a478-e035-41e8-ae86-17546175c7cd",
+                  "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+                  "manifestNo": "MF-20261002-A8140919",
+                  "shippingLineId": "25b6ca9e-d2f0-4141-be78-b25c1c6337b2",
+                  "vesselName": "ICD MOBILE OPS-QA-1790901500518",
+                  "voyageNo": "OPS-QA-1790901500518",
+                  "eta": "2026-10-02T00:38:20.621Z",
+                  "portOfLoading": "LOCAL QA PORT",
+                  "portOfDischarge": "LOCAL QA ICD",
+                  "status": "SUBMITTED",
+                  "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+                  "createdAt": "2026-10-02T00:38:20.654Z",
+                  "updatedAt": "2026-10-02T00:38:20.936Z"
+                }
+              },
+              "consignee": {
+                "id": "1a668d3c-21d8-42a3-babc-4ee211acf0d3",
+                "name": "Công ty Cổ phần Sản xuất & Kinh doanh VinFast",
+                "taxCode": "0801234567",
+                "phone": "02253999888",
+                "email": "inbound@vinfast.vn",
+                "address": "Khu kinh tế Đình Vũ - Cát Hải, Hải Phòng",
+                "active": true,
+                "createdAt": "2026-10-01T03:18:19.964Z",
+                "updatedAt": "2026-10-01T03:18:19.964Z"
+              },
+              "clearingAgent": {
+                "id": "c746d993-433d-4f4c-945d-927694e5c33a",
+                "name": "Đại lý Hải quan Quốc tế Việt Thịnh",
+                "licenseNo": "0388776655",
+                "active": true,
+                "createdAt": "2026-10-01T03:18:19.997Z",
+                "updatedAt": "2026-10-01T03:18:19.997Z"
+              }
+            },
+            "movementOrders": [
+              {
+                "id": "d72a073b-09c9-4b17-8c25-38a76665eb31",
+                "containerVisitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+                "status": "AUTHORIZED",
+                "authorizedById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+                "authorizedAt": "2026-10-02T00:38:21.144Z",
+                "expiresAt": "2026-10-09T00:38:21.115Z",
+                "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+                "createdAt": "2026-10-02T00:38:21.099Z",
+                "updatedAt": "2026-10-02T00:38:21.145Z"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "gateVerifiedAt": "2026-10-02T00:46:47.399Z",
+  "followup": {
+    "runCode": "OPS-QA-1790901500518-FOLLOWUP-1790903187940",
+    "manifestId": "f76e890a-e02f-4044-b54e-4518d3e794ad",
+    "manifestNo": "MF-20261002-7FAEDD4E",
+    "mblId": "fd5c920c-c5f5-4939-89d9-716eb180f156",
+    "hblId": "0a3a70de-6732-4194-9bd2-9fa8ee5f805c",
+    "manifestSubmitted": true,
+    "truckId": "950be735-d6ca-455d-9e2c-072023a053d7",
+    "vehiclePlate": "51C-FQA2075"
+  }
+}

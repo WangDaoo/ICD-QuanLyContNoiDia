@@ -1,0 +1,487 @@
+✖ ManifestsView: operational overlays use a named modal with a close route (65.017ms)
+✖ ManifestsView: visible field labels identify their adjacent native control (19.6323ms)
+✖ ContainersView: operational overlays use a named modal with a close route (28.1874ms)
+✖ ContainersView: visible field labels identify their adjacent native control (19.849ms)
+✖ TruckVisitsView: operational overlays use a named modal with a close route (5.4838ms)
+✖ TruckVisitsView: visible field labels identify their adjacent native control (6.3674ms)
+✖ BillingView: operational overlays use a named modal with a close route (14.9818ms)
+✖ BillingView: visible field labels identify their adjacent native control (10.5229ms)
+✖ GatePassView: operational overlays use a named modal with a close route (9.5387ms)
+✖ GatePassView: visible field labels identify their adjacent native control (7.7459ms)
+✖ HandoversView: operational overlays use a named modal with a close route (9.5618ms)
+✖ HandoversView: visible field labels identify their adjacent native control (6.4697ms)
+✖ MasterDataView: operational overlays use a named modal with a close route (6.1937ms)
+✖ MasterDataView: visible field labels identify their adjacent native control (6.007ms)
+✖ UsersRolesView: operational overlays use a named modal with a close route (7.0287ms)
+✖ UsersRolesView: visible field labels identify their adjacent native control (6.5923ms)
+✖ PartnerManagementView: operational overlays use a named modal with a close route (5.8114ms)
+✖ PartnerManagementView: visible field labels identify their adjacent native control (4.3135ms)
+✖ ManifestsView: record selectors support native keyboard selection and selected state (9.2215ms)
+✖ HandoversView: record selectors support native keyboard selection and selected state (5.973ms)
+✖ GatePassView: record selectors support native keyboard selection and selected state (6.0543ms)
+✖ EDIView: record selectors support native keyboard selection and selected state (5.7326ms)
+✖ PartnerManagementView: record selectors support native keyboard selection and selected state (5.5021ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 0
+ℹ fail 23
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1310.3115
+
+✖ failing tests:
+
+test at audit\tools\runtime\web-semantics.test.mjs:46:3
+✖ ManifestsView: operational overlays use a named modal with a close route (65.017ms)
+  AssertionError [ERR_ASSERTION]: ManifestsView still has plain overlays
+  
+  3 !== 0
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/web-semantics.test.mjs:49:12)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 3,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\web-semantics.test.mjs:58:3
+✖ ManifestsView: visible field labels identify their adjacent native control (19.6323ms)
+  AssertionError [ERR_ASSERTION]: ManifestsView: <label className="block font-semibold text-slate-700 mb-1">Tên Tàu (Vessel)*</label> has no native association
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/web-semantics.test.mjs:75:16)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\web-semantics.test.mjs:46:3
+✖ ContainersView: operational overlays use a named modal with a close route (28.1874ms)
+  AssertionError [ERR_ASSERTION]: ContainersView still has plain overlays
+  
+  2 !== 0
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/web-semantics.test.mjs:49:12)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\web-semantics.test.mjs:58:3
+✖ ContainersView: visible field labels identify their adjacent native control (19.849ms)
+  AssertionError [ERR_ASSERTION]: ContainersView: <label className="block text-slate-600 mb-1">Biển số xe nhận</label> has no native association
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/web-semantics.test.mjs:75:16)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\web-semantics.test.mjs:46:3
+✖ TruckVisitsView: operational overlays use a named modal with a close route (5.4838ms)
+  AssertionError [ERR_ASSERTION]: TruckVisitsView still has plain overlays
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/web-semantics.test.mjs:49:12)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\web-semantics.test.mjs:58:3
+✖ TruckVisitsView: visible field labels identify their adjacent native control (6.3674ms)
+  AssertionError [ERR_ASSERTION]: TruckVisitsView: <label className="block font-semibold text-slate-700 mb-1">Biển số đầu kéo*</label> has no native association
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/web-semantics.test.mjs:75:16)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\web-semantics.test.mjs:46:3
+✖ BillingView: operational overlays use a named modal with a close route (14.9818ms)
+  AssertionError [ERR_ASSERTION]: BillingView still has plain overlays
+  
+  4 !== 0
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/web-semantics.test.mjs:49:12)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 4,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\web-semantics.test.mjs:58:3
+✖ BillingView: visible field labels identify their adjacent native control (10.5229ms)
+  AssertionError [ERR_ASSERTION]: BillingView: <label className="block font-semibold text-slate-700 mb-1">Tên bảng giá*</label> has no native association
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/web-semantics.test.mjs:75:16)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\web-semantics.test.mjs:46:3
+✖ GatePassView: operational overlays use a named modal with a close route (9.5387ms)
+  AssertionError [ERR_ASSERTION]: GatePassView still has plain overlays
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/web-semantics.test.mjs:49:12)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\web-semantics.test.mjs:58:3
+✖ GatePassView: visible field labels identify their adjacent native control (7.7459ms)
+  AssertionError [ERR_ASSERTION]: GatePassView: <label className="block font-semibold text-slate-700 mb-1">Chọn container trong bãi*</label> has no native association
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/web-semantics.test.mjs:75:16)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\web-semantics.test.mjs:46:3
+✖ HandoversView: operational overlays use a named modal with a close route (9.5618ms)
+  AssertionError [ERR_ASSERTION]: HandoversView still has plain overlays
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/web-semantics.test.mjs:49:12)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\web-semantics.test.mjs:58:3
+✖ HandoversView: visible field labels identify their adjacent native control (6.4697ms)
+  AssertionError [ERR_ASSERTION]: HandoversView: <label className="block font-semibold text-slate-700 mb-1">Mã chuyến vận chuyển*</label> has no native association
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/web-semantics.test.mjs:75:16)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\web-semantics.test.mjs:46:3
+✖ MasterDataView: operational overlays use a named modal with a close route (6.1937ms)
+  AssertionError [ERR_ASSERTION]: MasterDataView still has plain overlays
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/web-semantics.test.mjs:49:12)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\web-semantics.test.mjs:58:3
+✖ MasterDataView: visible field labels identify their adjacent native control (6.007ms)
+  AssertionError [ERR_ASSERTION]: MasterDataView: <label className="block font-semibold text-slate-700 mb-1">Tên*</label> has no native association
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/web-semantics.test.mjs:75:16)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\web-semantics.test.mjs:46:3
+✖ UsersRolesView: operational overlays use a named modal with a close route (7.0287ms)
+  AssertionError [ERR_ASSERTION]: UsersRolesView still has plain overlays
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/web-semantics.test.mjs:49:12)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\web-semantics.test.mjs:58:3
+✖ UsersRolesView: visible field labels identify their adjacent native control (6.5923ms)
+  AssertionError [ERR_ASSERTION]: UsersRolesView: <label className="block font-semibold text-slate-700 mb-1">Họ tên*</label> has no native association
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/web-semantics.test.mjs:75:16)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\web-semantics.test.mjs:46:3
+✖ PartnerManagementView: operational overlays use a named modal with a close route (5.8114ms)
+  AssertionError [ERR_ASSERTION]: PartnerManagementView still has plain overlays
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/web-semantics.test.mjs:49:12)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\web-semantics.test.mjs:58:3
+✖ PartnerManagementView: visible field labels identify their adjacent native control (4.3135ms)
+  AssertionError [ERR_ASSERTION]: PartnerManagementView: <label className="block font-semibold text-slate-700 mb-1">Mã đối tác (Partner Code)*</label> has no native association
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/web-semantics.test.mjs:75:16)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\web-semantics.test.mjs:84:3
+✖ ManifestsView: record selectors support native keyboard selection and selected state (9.2215ms)
+  AssertionError [ERR_ASSERTION]: ManifestsView selection is pointer only
+  
+  'div' !== 'button'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/web-semantics.test.mjs:88:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'div',
+    expected: 'button',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\web-semantics.test.mjs:84:3
+✖ HandoversView: record selectors support native keyboard selection and selected state (5.973ms)
+  AssertionError [ERR_ASSERTION]: HandoversView selection is pointer only
+  
+  'div' !== 'button'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/web-semantics.test.mjs:88:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'div',
+    expected: 'button',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\web-semantics.test.mjs:84:3
+✖ GatePassView: record selectors support native keyboard selection and selected state (6.0543ms)
+  AssertionError [ERR_ASSERTION]: GatePassView selection is pointer only
+  
+  'div' !== 'button'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/web-semantics.test.mjs:88:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'div',
+    expected: 'button',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\web-semantics.test.mjs:84:3
+✖ EDIView: record selectors support native keyboard selection and selected state (5.7326ms)
+  AssertionError [ERR_ASSERTION]: EDIView selection is pointer only
+  
+  'div' !== 'button'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/web-semantics.test.mjs:88:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'div',
+    expected: 'button',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\web-semantics.test.mjs:84:3
+✖ PartnerManagementView: record selectors support native keyboard selection and selected state (5.5021ms)
+  AssertionError [ERR_ASSERTION]: PartnerManagementView selection is pointer only
+  
+  'div' !== 'button'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/web-semantics.test.mjs:88:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'div',
+    expected: 'button',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

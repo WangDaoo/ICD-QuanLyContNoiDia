@@ -1,0 +1,21 @@
+--- before/apps/mobile/src/theme/typography.ts
++++ after/apps/mobile/src/theme/typography.ts
+@@ -14,7 +14,17 @@
+   h3: {
+     fontSize: 16,
+     fontWeight: '600',
+-    lineHeight: 22,
++    lineHeight: 20,
++  },
++  sectionHeading: {
++    fontSize: 13,
++    fontWeight: '600',
++    lineHeight: 16,
++  },
++  compactHeading: {
++    fontSize: 11,
++    fontWeight: '600',
++    lineHeight: 14,
+   },
+   body: {
+     fontSize: 13,

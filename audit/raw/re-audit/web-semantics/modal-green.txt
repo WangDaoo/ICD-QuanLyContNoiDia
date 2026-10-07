@@ -1,0 +1,12 @@
+✔ dialog enters native modal mode, locks page scroll, and restores opener and original scroll on unmount (525.7054ms)
+✔ native cancel closes an idle dialog and is blocked while its write is pending (46.3117ms)
+✔ Tab and Shift+Tab wrap between enabled visible controls instead of leaving the modal (317.4559ms)
+✔ Tab stays on the named dialog when it contains no enabled focusable control (45.3149ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5719.4961

@@ -1,0 +1,262 @@
+INFO         | Android emulator version 36.5.10.0 (build_id 15081367) (CL:N/A)
+INFO         | Graphics backend: gfxstream
+INFO         | Found systemPath C:\Users\quang\AppData\Local\Android\Sdk\system-images\android-37.0\google_apis_playstore_ps16k\x86_64\
+WARNING      | Please update the emulator to one that supports the feature(s): VulkanVirtualQueue
+INFO         | IPv4 server found: 116.97.90.124
+INFO         | Ignore IPv6 address: 1042:5a8f:b501:0:1042:5a8f:b501:0
+INFO         | Ignore IPv6 address: 1042:5a8f:b501:0:1042:5a8f:b501:0
+INFO         | Ignore IPv6 address: 1042:5a8f:b501:0:1042:5a8f:b501:0
+INFO         | Ignore IPv6 address: f847:5a8f:b501:0:1042:5a8f:b501:0
+INFO         | Ignore IPv6 address: f847:5a8f:b501:0:1042:5a8f:b501:0
+INFO         | Ignore IPv6 address: f847:5a8f:b501:0:1042:5a8f:b501:0
+INFO         | Ignore IPv6 address: 6051:5a8f:b501:0:1042:5a8f:b501:0
+INFO         | Ignore IPv6 address: 6051:5a8f:b501:0:1042:5a8f:b501:0
+INFO         | Ignore IPv6 address: 6051:5a8f:b501:0:1042:5a8f:b501:0
+INFO         | Ignore IPv6 address: 905f:5a8f:b501:0:1042:5a8f:b501:0
+INFO         | Ignore IPv6 address: 905f:5a8f:b501:0:1042:5a8f:b501:0
+INFO         | Ignore IPv6 address: 905f:5a8f:b501:0:1042:5a8f:b501:0
+INFO         | Ignore IPv6 address: a865:5a8f:b501:0:1042:5a8f:b501:0
+INFO         | Ignore IPv6 address: a865:5a8f:b501:0:1042:5a8f:b501:0
+INFO         | Ignore IPv6 address: a865:5a8f:b501:0:1042:5a8f:b501:0
+INFO         | Ignore IPv6 address: e871:5a8f:b501:0:1042:5a8f:b501:0
+INFO         | Ignore IPv6 address: e871:5a8f:b501:0:1042:5a8f:b501:0
+INFO         | Ignore IPv6 address: e871:5a8f:b501:0:1042:5a8f:b501:0
+INFO         | Ignore IPv6 address: 8878:5a8f:b501:0:1042:5a8f:b501:0
+INFO         | Ignore IPv6 address: 8878:5a8f:b501:0:1042:5a8f:b501:0
+INFO         | Ignore IPv6 address: 8878:5a8f:b501:0:1042:5a8f:b501:0
+INFO         | Guest GLES Driver: Auto (ext controls)
+INFO         | emuglConfig_get_vulkan_hardware_gpu_support_info: Found physical GPU 'AMD Radeon 780M Graphics', type: VK_PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU, apiVersion: 1.3.302, driverVersion: 2.0.331
+
+INFO         | emuglConfig_init: vulkan_mode_selected:host gles_mode_selected:host
+INFO         | Enabled VulkanAllocateDeviceMemoryOnly feature for gpu vendor AMD Radeon 780M Graphics on Linux
+
+INFO         | Checking system compatibility:
+INFO         |   Checking: hasCompatibleHypervisor
+INFO         |      Ok: Hypervisor compatibility to run avd: `Pixel` are met
+INFO         |   Checking: hasSufficientSystem
+INFO         |      Ok: System requirements to run avd: `Pixel` are met
+INFO         |   Checking: hasSufficientHwGpu
+INFO         |      Ok: Hardware GPU requirements to run avd: `Pixel` are passed
+INFO         |   Checking: hasSufficientDiskSpace
+INFO         |      Ok: Disk space requirements to run avd: `Pixel` are met
+INFO         | Critical: Failed to load opengl32sw (The specified module could not be found.) (:0, )
+INFO         | Warning: Software OpenGL failed. Falling back to system OpenGL. (:0, )
+INFO         | Storing crashdata in: C:\Users\quang\AppData\Local\Temp\\AndroidEmulator\emu-crash-36.5.10.db, detection is enabled for process: 52420
+INFO         | Initializing gfxstream backend
+INFO         | android_startOpenglesRenderer: gpu info
+INFO         | GPU #1
+  Make: 1002
+  Model: AMD Radeon 780M Graphics
+  Device ID: 1900
+
+INFO         | SharedLibrary::open for [C:\Users\quang\AppData\Local\Android\Sdk\emulator\qemu\windows-x86_64\lib64\vulkan\vulkan-1.dll]
+INFO         | SharedLibrary::open for [C:\Users\quang\AppData\Local\Android\Sdk\emulator\lib64\vulkan\vulkan-1.dll]
+INFO         | Added library: C:\Users\quang\AppData\Local\Android\Sdk\emulator\lib64\vulkan\vulkan-1.dll
+INFO         | Selecting Vulkan device: AMD Radeon 780M Graphics, Version: 1.3.302
+INFO         | Initializing VkEmulation features:
+INFO         |     glInteropSupported: true
+INFO         |     useDeferredCommands: true
+INFO         |     createResourceWithRequirements: true
+INFO         |     useVulkanComposition: false
+INFO         |     useVulkanNativeSwapchain: false
+INFO         |     enable guestRenderDoc: false
+INFO         |     ASTC LDR emulation mode: Gpu
+INFO         |     enable ETC2 emulation: true
+INFO         |     enable Ycbcr emulation: false
+INFO         |     guestVulkanOnly: false
+INFO         |     useDedicatedAllocations: false
+INFO         |     guestVulkanMaxApiVersion: 1.4.344
+INFO         | Graphics Adapter Vendor Google (ATI Technologies Inc.)
+INFO         | Graphics Adapter Android Emulator OpenGL ES Translator (AMD Radeon 780M Graphics)
+INFO         | Graphics API Version OpenGL ES 3.0 (4.5.0 Core Profile Context 24.30.32.250213)
+INFO         | Graphics API Extensions GL_OES_EGL_sync GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_depth24 GL_OES_depth32 GL_OES_element_index_uint GL_OES_texture_float GL_OES_texture_float_linear GL_OES_compressed_paletted_texture GL_OES_compressed_ETC1_RGB8_texture GL_OES_depth_texture GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_packed_depth_stencil GL_OES_vertex_half_float GL_OES_texture_npot GL_OES_rgb8_rgba8 GL_OVR_multiview2 GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_texture_format_BGRA8888 GL_APPLE_texture_format_BGRA8888 GL_EXT_texture_buffer 
+INFO         | Graphics Device Extensions N/A
+INFO         | Disabling sparse binding feature support
+INFO         | Sending adb public key [QAAAAAPBkSVVTkTzAMk0myLLpOO7n8JW+65lJPmEbniRpsfyIabniM41m3h3epJTJIi3VAfgw6vu3kF5PkjfD7pykfa7BZn0qOnG7mhg4QltuCdFYyYEkgtF7WxfGxDn/hGx5AS/+TQYI82zWux6X/f6uvItL1e95VAYmCylT8OcUlbb+9T+RrTDOav+/F2sVkBQTAywG1MJae+IFeXw2xxwoeYLWR2GTG8tkg2BSlBc1T4vquQCrOh9lMNYyGS3g/H87U/ryLtOi6Udn91pnd/SNehZQI7EJHvWeu4XZn5CZLBGv8CTxwbVR78+cI1rQ6f2JAheOU+jz0G2Kx68iLkdppBQS0DUO3CdW33pbjSH2frUOXlLd2iAedAVz0ZKdKxB9hcdR9W45U+PLxqRJmTDsC6ZXbvjcydFt/hVsatX4JCysDlJX/w6vt/DMgHGd38up80ZMKE04ay1ce6lX7OrHnsite3kROtzYu93zVzyCy3SWZUGzoHkPyO1uf1cUBsH/HCu+8gFfaT1IWp7MAJxwhtyw89Apfoj5lPZOl0TaPZUXO3CyOCem4Jv0AMn985tPf3YmH9njnzflDcqLIF01QjbPRaUU4Y7scxK7HQuchOKFGIpQT/nzRemSd55H/JsFT+X2xWkN1+7rPT/uj2swvUAXOWRLJbCak78IrNOIMsQv8YSMQEAAQA= @unknown]
+INFO         | Userspace boot properties:
+INFO         |   androidboot.boot_devices=pci0000:00/0000:00:03.0 pci0000:00/0000:00:06.0
+INFO         |   androidboot.dalvik.vm.heapsize=576m
+INFO         |   androidboot.debug.hwui.renderer=skiagl
+INFO         |   androidboot.hardware=ranchu
+INFO         |   androidboot.hardware.gltransport=pipe
+INFO         |   androidboot.hardware.vulkan=ranchu
+INFO         |   androidboot.logcat=*:V
+INFO         |   androidboot.opengles.version=196609
+INFO         |   androidboot.qemu=1
+INFO         |   androidboot.qemu.adb.pubkey=QAAAAAPBkSVVTkTzAMk0myLLpOO7n8JW+65lJPmEbniRpsfyIabniM41m3h3epJTJIi3VAfgw6vu3kF5PkjfD7pykfa7BZn0qOnG7mhg4QltuCdFYyYEkgtF7WxfGxDn/hGx5AS/+TQYI82zWux6X/f6uvItL1e95VAYmCylT8OcUlbb+9T+RrTDOav+/F2sVkBQTAywG1MJae+IFeXw2xxwoeYLWR2GTG8tkg2BSlBc1T4vquQCrOh9lMNYyGS3g/H87U/ryLtOi6Udn91pnd/SNehZQI7EJHvWeu4XZn5CZLBGv8CTxwbVR78+cI1rQ6f2JAheOU+jz0G2Kx68iLkdppBQS0DUO3CdW33pbjSH2frUOXlLd2iAedAVz0ZKdKxB9hcdR9W45U+PLxqRJmTDsC6ZXbvjcydFt/hVsatX4JCysDlJX/w6vt/DMgHGd38up80ZMKE04ay1ce6lX7OrHnsite3kROtzYu93zVzyCy3SWZUGzoHkPyO1uf1cUBsH/HCu+8gFfaT1IWp7MAJxwhtyw89Apfoj5lPZOl0TaPZUXO3CyOCem4Jv0AMn985tPf3YmH9njnzflDcqLIF01QjbPRaUU4Y7scxK7HQuchOKFGIpQT/nzRemSd55H/JsFT+X2xWkN1+7rPT/uj2swvUAXOWRLJbCak78IrNOIMsQv8YSMQEAAQA= @unknown
+INFO         |   androidboot.qemu.avd_name=Pixel
+INFO         |   androidboot.qemu.camera_hq_edge_processing=0
+INFO         |   androidboot.qemu.camera_protocol_ver=1
+INFO         |   androidboot.qemu.cpuvulkan.version=4202496
+INFO         |   androidboot.qemu.gltransport.drawFlushInterval=800
+INFO         |   androidboot.qemu.gltransport.name=pipe
+INFO         |   androidboot.qemu.hwcodec.avcdec=2
+INFO         |   androidboot.qemu.hwcodec.hevcdec=2
+INFO         |   androidboot.qemu.hwcodec.vpxdec=2
+INFO         |   androidboot.qemu.settings.system.screen_off_timeout=2147483647
+INFO         |   androidboot.qemu.skin=pixel_silver
+INFO         |   androidboot.qemu.virtiowifi=1
+INFO         |   androidboot.qemu.vsync=60
+INFO         |   androidboot.serialno=EMULATOR36X5X10X0
+INFO         |   androidboot.vbmeta.digest=be156995b6c1bed8ce039fe0ece0114dd2d8ab33815f5a1a7cb8882b88035f99
+INFO         |   androidboot.vbmeta.hash_alg=sha256
+INFO         |   androidboot.vbmeta.size=6720
+INFO         |   androidboot.veritymode=enforcing
+WHPX on Windows 10.0.26200 detected.
+Windows Hypervisor Platform accelerator is operational
+INFO         | Monitoring duration of emulator setup.
+WARNING      | The emulator now requires a signed jwt token for gRPC access! Use the -grpc flag if you really want an open unprotected grpc port
+INFO         | Using security allow list from: C:\Users\quang\AppData\Local\Android\Sdk\emulator\lib\emulator_access.json
+WARNING      | *** Basic token auth should only be used by android-studio ***
+INFO         | The active JSON Web Key Sets can be found here: C:\Users\quang\AppData\Local\Temp\avd\running\52420\jwks\b0b0c370-0ac9-42a2-a890-f891c8d8bdf7\active.jwk
+INFO         | Scanning C:\Users\quang\AppData\Local\Temp\avd\running\52420\jwks\b0b0c370-0ac9-42a2-a890-f891c8d8bdf7 for jwk keys.
+INFO         | Started GRPC server at 127.0.0.1:8554, security: Local, auth: +token
+INFO         | Advertising in: C:\Users\quang\AppData\Local\Temp\avd\running\pid_52420.ini
+INFO         | Activated packet streamer for uwb emulation
+INFO         | Activated packet streamer for bluetooth emulation
+INFO         | Successfully initialized netsim WiFi
+INFO         | Setting display: 0 configuration to: 1080x1920, dpi: 420x420 
+INFO         | setDisplayActiveConfig: id:0, 1080x1920
+INFO         | emulatorSetupEnvironment: Setting up screen background view and display layout at env:1080x1920, lcd:1080x1920
+WARNING      | getEnvironmentConfig: No environment config is provided
+INFO         | getEnvironmentConfig: Using default virtual scene contents for the environment.
+INFO         | Checking system compatibility:
+INFO         |   Checking: hasCompatibleHypervisor
+INFO         |      Ok: Hypervisor compatibility to run avd: `Pixel` are met
+INFO         |   Checking: hasSufficientSystem
+INFO         |      Ok: System requirements to run avd: `Pixel` are met
+INFO         |   Checking: hasSufficientHwGpu
+INFO         |      Ok: Hardware GPU requirements to run avd: `Pixel` are passed
+INFO         |   Checking: hasSufficientDiskSpace
+INFO         |      Ok: Disk space requirements to run avd: `Pixel` are met
+INFO         | Loading snapshot 'default_boot'...
+WARNING      | Error -1 from the snapshot callback
+
+WARNING      | Failed to load snapshot 'default_boot'
+INFO         | Warning: QMetaObject::connectSlotsByName: No matching signal for on_rgbcSensorValueWidget_valueChanged() (:0, )
+INFO         | Warning: QMetaObject::connectSlotsByName: No matching signal for on_posture_valueChanged(int) (:0, )
+INFO         | Warning: QObject::connect: Cannot queue arguments of type 'std::vector<android::emulation::control::SnapshotInfo>'
+(Make sure 'std::vector<android::emulation::control::SnapshotInfo>' is registered using qRegisterMetaType().) (:0, )
+INFO         | AVD supportsNativeGLES=1, supportsGuestAngle=1
+INFO         | Guest Angle is still unstable for API > 35.
+INFO         | Warning: QObject::connect: No such signal ToolWindow::microphoneEnabledChanged() in C:/buildbot/src/googleplex-android/emu-36-5-release/external/qemu/android/android-ui/modules/aemu-ui-qt/src/android/skin/qt/extended-window.cpp:160 (:0, )
+INFO         | Warning: QObject::connect:  (sender name:   'ToolControls') (:0, )
+INFO         | Warning: QObject::connect:  (receiver name: 'microphonePage') (:0, )
+INFO         | Warning: QObject::connect: No such signal MicrophonePage::microphoneEnabledChanged() in C:/buildbot/src/googleplex-android/emu-36-5-release/external/qemu/android/android-ui/modules/aemu-ui-qt/src/android/skin/qt/extended-window.cpp:162 (:0, )
+INFO         | Warning: QObject::connect:  (sender name:   'microphonePage') (:0, )
+INFO         | Warning: QObject::connect:  (receiver name: 'ToolControls') (:0, )
+INFO         | Created extended window in 1.833892s
+WARNING      | adb command 'C:\Users\quang\AppData\Local\Android\Sdk\platform-tools\adb.exe -s emulator-5554 shell getprop sys.boot_completed ' failed: 'adb.exe: device offline'
+WARNING      | adb command 'D:\LDPlayer\LDPlayer9\adb.exe -s emulator-5554 shell getprop sys.boot_completed ' failed: 'adb.exe: device offline'
+WARNING      | adb command 'C:\Users\quang\AppData\Local\Android\Sdk\platform-tools\adb.exe -s emulator-5554 shell getprop sys.boot_completed ' failed: 'adb.exe: device offline'
+INFO         | Boot completed in 68347 ms
+INFO         | Increasing screen off timeout, logcat buffer size to 2M.
+INFO         | IPv4 server found: 116.97.90.124
+INFO         | Ignore IPv6 address: 1030:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: 1030:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: 1030:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: f835:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: f835:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: f835:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: 603f:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: 603f:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: 603f:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: 904d:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: 904d:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: 904d:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: a853:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: a853:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: a853:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: e85f:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: e85f:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: e85f:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: 8866:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: 8866:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: 8866:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | IPv4 server found: 116.97.90.124
+INFO         | Ignore IPv6 address: 1030:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: 1030:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: 1030:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: f835:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: f835:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: f835:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: 603f:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: 603f:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: 603f:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: 904d:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: 904d:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: 904d:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: a853:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: a853:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: a853:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: e85f:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: e85f:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: e85f:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: 8866:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: 8866:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | Ignore IPv6 address: 8866:bcf1:b601:0:1030:bcf1:b601:0
+INFO         | IPv4 server found: 116.97.90.124
+INFO         | Ignore IPv6 address: e073:1d5:b601:0:e073:1d5:b601:0
+INFO         | Ignore IPv6 address: e073:1d5:b601:0:e073:1d5:b601:0
+INFO         | Ignore IPv6 address: e073:1d5:b601:0:e073:1d5:b601:0
+INFO         | Ignore IPv6 address: c879:1d5:b601:0:e073:1d5:b601:0
+INFO         | Ignore IPv6 address: c879:1d5:b601:0:e073:1d5:b601:0
+INFO         | Ignore IPv6 address: c879:1d5:b601:0:e073:1d5:b601:0
+INFO         | Ignore IPv6 address: 3083:1d5:b601:0:e073:1d5:b601:0
+INFO         | Ignore IPv6 address: 3083:1d5:b601:0:e073:1d5:b601:0
+INFO         | Ignore IPv6 address: 3083:1d5:b601:0:e073:1d5:b601:0
+INFO         | Ignore IPv6 address: 6091:1d5:b601:0:e073:1d5:b601:0
+INFO         | Ignore IPv6 address: 6091:1d5:b601:0:e073:1d5:b601:0
+INFO         | Ignore IPv6 address: 6091:1d5:b601:0:e073:1d5:b601:0
+INFO         | Ignore IPv6 address: 7897:1d5:b601:0:e073:1d5:b601:0
+INFO         | Ignore IPv6 address: 7897:1d5:b601:0:e073:1d5:b601:0
+INFO         | Ignore IPv6 address: 7897:1d5:b601:0:e073:1d5:b601:0
+INFO         | Ignore IPv6 address: b8a3:1d5:b601:0:e073:1d5:b601:0
+INFO         | Ignore IPv6 address: b8a3:1d5:b601:0:e073:1d5:b601:0
+INFO         | Ignore IPv6 address: b8a3:1d5:b601:0:e073:1d5:b601:0
+INFO         | Ignore IPv6 address: 58aa:1d5:b601:0:e073:1d5:b601:0
+INFO         | Ignore IPv6 address: 58aa:1d5:b601:0:e073:1d5:b601:0
+INFO         | Ignore IPv6 address: 58aa:1d5:b601:0:e073:1d5:b601:0
+INFO         | Initialized camera with name: environment
+arg1 wall
+arg2 D:\Project\Đồ Án 4 +Mobile\icd-management\test-artifacts\2026-10-02-mobile-qr-scanner\container-qr.pngINFO         | Initialized camera with name: environment
+ERROR        | static android::virtualscene::TextureUtils::loadPNG: Failed to open file D:\Project\Đồ Án 4 +Mobile\icd-management\test-artifacts\2026-10-02-mobile-qr-scanner\container-qr.png
+ERROR        | android::virtualscene::RendererImpl::onLoaderLoadTexture: Failed to load texture 39 from file 'D:\Project\Đồ Án 4 +Mobile\icd-management\test-artifacts\2026-10-02-mobile-qr-scanner\container-qr.png'
+arg1 wall
+arg2 D:\Project\Đồ Án 4 +Mobile\icd-management\test-artifacts\2026-10-02-mobile-qr-scanner\container-qr.pngarg1 wall
+arg2 C:\Users\quang\AppData\Local\Temp\icd-container-qr.pngarg1 table
+arg2 C:\Users\quang\AppData\Local\Temp\icd-container-qr.pngINFO         | Initialized camera with name: environment
+arg1 wall
+arg2 C:\Users\quang\AppData\Local\Temp\icd-container-rgba.pngarg1 table
+arg2 C:\Users\quang\AppData\Local\Temp\icd-container-rgba.pngINFO         | Initialized camera with name: environment
+arg1 wall
+arg2 C:\Users\quang\AppData\Local\Temp\icd-container-padded.pngINFO         | Initialized camera with name: environment
+INFO         | Initialized camera with name: environment
+arg1 wall
+arg2 C:\Users\quang\AppData\Local\Temp\icd-gate-pass-invalid-padded.pngINFO         | Initialized camera with name: environment
+ERROR        | bad color buffer handle 712
+INFO         | Initialized camera with name: environment
+INFO         | Initialized camera with name: environment
+INFO         | Initialized camera with name: environment
+INFO         | Initialized camera with name: environment
+INFO         | Initialized camera with name: environment
+INFO         | Initialized camera with name: environment
+INFO         | Initialized camera with name: environment
+INFO         | Initialized camera with name: environment
+INFO         | Initialized camera with name: environment
+INFO         | Initialized camera with name: environment
+INFO         | Initialized camera with name: environment
+arg1 wall
+arg2 C:\Users\quang\AppData\Local\Temp\icd-container-padded.pngINFO         | Initialized camera with name: environment
+arg1 wall
+arg2 C:\Users\quang\AppData\Local\Temp\icd-gate-pass-invalid-padded.pngINFO         | Initialized camera with name: environment
+arg1 wall
+arg1 table
+INFO         | Initialized camera with name: environment
+INFO         | Initialized camera with name: environment
+INFO         | Initialized camera with name: environment
+INFO         | Initialized camera with name: environment
+INFO         | Initialized camera with name: environment
+INFO         | Initialized camera with name: environment
+WARNING      | ClipboardPipe: the clipboard is too large (56697), ignoring.
+ERROR        | adb protocol fault (couldn't read status length)

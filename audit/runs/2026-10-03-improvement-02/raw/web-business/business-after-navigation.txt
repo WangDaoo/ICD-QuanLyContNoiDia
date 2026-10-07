@@ -1,0 +1,30 @@
+✔ Master Data retains the draft and blocks a second submission while pending and after rejection (400.2781ms)
+✔ Users blank submit associates errors and focuses the first invalid field (49.7905ms)
+✔ read-only users never receive master-data or user write controls (35.636ms)
+✔ truck shortcut opens a create dialog with its linked container (41.0073ms)
+✔ expired and cancelled passes never offer exit or handover and explain their status (105.1835ms)
+✔ EDI inspector renders canonical payload snapshot without synthesized ISO type (41.8289ms)
+✔ failed and forbidden collections do not claim a settled empty result (59.2424ms)
+✔ movement order default means now plus 24 hours in Vietnam UTC+7 (31.5507ms)
+✔ manifest MBL blank save identifies the required number and keeps its form (60.2648ms)
+✔ Container Gate Pass failed readiness exposes retry without saying business conditions failed (86.2487ms)
+✔ Container Gate Pass renders a token-bearing QR only while the pass is valid (80.3931ms)
+✔ dirty create dialog prevents cancelled navigation and blocks navigation while pending (50.765ms)
+✔ Billing read-only page keeps invoice balances without offering billing or tariff writes (48.3039ms)
+✔ successful save followed by refresh failure reports saved without inviting another save (55.5627ms)
+✔ active pass changes to expired at its deadline without a user interaction (726.4383ms)
+✔ late readiness result for the previous container cannot enable issue for the new target (68.3827ms)
+✔ a readiness response with no confirmed checks cannot enable Gate Pass issue (54.1171ms)
+✔ User creation keeps the entered identity until a rejected save settles and sends once (45.7515ms)
+✔ Partner creation sends once and retains its draft after rejection (39.1149ms)
+✔ Handover creation sends once and retains transport code after rejection (53.3971ms)
+✔ EDI dispatch sends once while pending and reports the backend result (28.613ms)
+✔ Container inline Gate Pass blank submission focuses its first required receiver field (103.8857ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8206.9937

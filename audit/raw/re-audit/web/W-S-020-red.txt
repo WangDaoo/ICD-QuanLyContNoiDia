@@ -1,0 +1,98 @@
+✖ redacted log renders JSON value {"note":"fixture","condition":"OK","secret":"[REDACTED]"} (96.3717ms)
+✖ redacted log renders JSON value [{"status":"received"}] (2.2743ms)
+✔ redacted log renders JSON value "already redacted text" (4.7981ms)
+✔ redacted log renders JSON value null (2.3832ms)
+✖ redacted log renders JSON value false (6.5983ms)
+✖ redacted log renders JSON value 0 (2.408ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 2
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7102.3583
+
+✖ failing tests:
+
+test at audit\tools\partner-log-regression.test.mjs:13:3
+✖ redacted log renders JSON value {"note":"fixture","condition":"OK","secret":"[REDACTED]"} (96.3717ms)
+  Error: Objects are not valid as a React child (found: object with keys {note, condition, secret}). If you meant to render a collection of children, use an array instead.
+      at retryNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6474:17)
+      at renderNodeDestructive (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6367:11)
+      at renderNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6905:18)
+      at renderElement (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:5619:18)
+      at retryNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6417:31)
+      at renderNodeDestructive (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6367:11)
+      at renderNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6905:18)
+      at renderChildrenArray (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6674:11)
+      at retryNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6441:13)
+      at renderNodeDestructive (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6367:11)
+
+test at audit\tools\partner-log-regression.test.mjs:13:3
+✖ redacted log renders JSON value [{"status":"received"}] (2.2743ms)
+  Error: Objects are not valid as a React child (found: object with keys {status}). If you meant to render a collection of children, use an array instead.
+      at retryNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6474:17)
+      at renderNodeDestructive (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6367:11)
+      at renderNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6905:18)
+      at renderChildrenArray (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6674:11)
+      at retryNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6441:13)
+      at renderNodeDestructive (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6367:11)
+      at renderNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6905:18)
+      at renderElement (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:5619:18)
+      at retryNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6417:31)
+      at renderNodeDestructive (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6367:11)
+
+test at audit\tools\partner-log-regression.test.mjs:13:3
+✖ redacted log renders JSON value false (6.5983ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   '// Empty or Redacted',
+  +   '// Empty or Redacted'
+  -   'false',
+  -   'false'
+    ]
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/partner-log-regression.test.mjs:26:46)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ '// Empty or Redacted', '// Empty or Redacted' ],
+    expected: [ 'false', 'false' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\partner-log-regression.test.mjs:13:3
+✖ redacted log renders JSON value 0 (2.408ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   '// Empty or Redacted',
+  +   '// Empty or Redacted'
+  -   '0',
+  -   '0'
+    ]
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/partner-log-regression.test.mjs:26:46)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ '// Empty or Redacted', '// Empty or Redacted' ],
+    expected: [ '0', '0' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

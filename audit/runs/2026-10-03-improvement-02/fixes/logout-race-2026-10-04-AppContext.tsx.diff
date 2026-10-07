@@ -1,0 +1,20 @@
+--- before/apps/web/src/context/AppContext.tsx
++++ after/apps/web/src/context/AppContext.tsx
+@@ -549,9 +549,15 @@
+     } catch (error: unknown) { return { success: false, message: errorMessage(error) || 'Đăng nhập thất bại.' }; }
+   };
+   const logout = async () => {
+-    sessionVersion.current++; pendingRefresh.current = null;
++    const version = ++sessionVersion.current; pendingRefresh.current = null;
++    const credentialsVersion = tokenStorage.getSessionVersion();
+     try { await authService.logout(); } finally {
+-      tokenStorage.clear(); latestActor.current = DEFAULT_USER; setIsAuthenticated(false); setData(emptyData()); setResourceStatus({}); setDetailStatus({ manifests: {}, roles: {}, handovers: {} }); setApiReady(false); setApiError(''); setSessionRestoreError(''); setIsLoading(false);
++      // Login commits credentials before its awaited continuation commits the new actor.
++      const sameCredentials = credentialsVersion === tokenStorage.getSessionVersion() ||
++        (!tokenStorage.getAccessToken() && !tokenStorage.getRefreshToken());
++      if (version === sessionVersion.current && sameCredentials) {
++        tokenStorage.clear(); latestActor.current = DEFAULT_USER; setIsAuthenticated(false); setData(emptyData()); setResourceStatus({}); setDetailStatus({ manifests: {}, roles: {}, handovers: {} }); setApiReady(false); setApiError(''); setSessionRestoreError(''); setIsLoading(false);
++      }
+     }
+   };
+   const write = async (path: string, payload?: unknown, method: 'POST' | 'PATCH' | 'PUT' = 'POST') =>

@@ -1,0 +1,2717 @@
+{
+  "controls": [
+    {
+      "disabled": false,
+      "label": "Đến nội dung nghiệp vụ",
+      "outline": "none",
+      "rect": {
+        "height": 1,
+        "width": 1
+      },
+      "tag": "A"
+    },
+    {
+      "disabled": false,
+      "label": "Mở menu điều hướng",
+      "outline": "none",
+      "rect": {
+        "height": 36,
+        "width": 36
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Tải lại dữ liệu",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 32
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Thông báo (0 chưa đọc)",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 32
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Đăng xuất",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 32
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Xem danh sách công việc →",
+      "outline": "none",
+      "rect": {
+        "height": 24,
+        "width": 286.66668701171875
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Quản lý Phiếu ra cổng & Gate-out →",
+      "outline": "none",
+      "rect": {
+        "height": 24,
+        "width": 286.66668701171875
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Xem tất cả",
+      "outline": "none",
+      "rect": {
+        "height": 48,
+        "width": 69.1875
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Tính phí lưu kho",
+      "outline": "none",
+      "rect": {
+        "height": 72,
+        "width": 57.83333587646485
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Kiểm tra điều kiện xuất cổng (Readiness) →",
+      "outline": "none",
+      "rect": {
+        "height": 60,
+        "width": 286.66668701171875
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Xem toàn bộ Outbox EDI →",
+      "outline": "none",
+      "rect": {
+        "height": 36,
+        "width": 286.66668701171875
+      },
+      "tag": "BUTTON"
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "text": "ICD Management System"
+    },
+    {
+      "level": 2,
+      "text": "Hoạt động Cổng & Chuyến xe (Truck Visits)"
+    },
+    {
+      "level": 2,
+      "text": "Cảnh báo thời gian lưu bãi0 container"
+    },
+    {
+      "level": 2,
+      "text": "Kiểm soát Lệnh Giữ (Operational Holds)"
+    },
+    {
+      "level": 2,
+      "text": "Vận hành EDI (CODECO)"
+    }
+  ],
+  "overflow": {
+    "document": false,
+    "main": false
+  },
+  "rows": [
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "sr-only focus:not-sr-only focus:absolute focus:z-50 focus:rounded focus:bg-white focus:p-3",
+      "color": "oklch(0.208 0.042 265.755)",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "24px",
+      "rect": {
+        "height": 1,
+        "width": 1,
+        "x": -1,
+        "y": -1
+      },
+      "tag": "A",
+      "text": "Đến nội dung nghiệp vụ"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.546 0.245 262.881)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "h-9 w-9 shrink-0 rounded-xl bg-blue-600 text-white flex items-center justify-center font-black text-xs shadow-sm",
+      "color": "rgb(255, 255, 255)",
+      "fontSize": "12px",
+      "fontWeight": "900",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 36,
+        "width": 36,
+        "x": 60,
+        "y": 13.666666984558104
+      },
+      "tag": "DIV",
+      "text": "ICD"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+      "color": "oklch(0.279 0.041 260.031)",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "letterSpacing": "-0.35px",
+      "lineHeight": "17.5px",
+      "rect": {
+        "height": 17.5,
+        "width": 126.66667175292967,
+        "x": 108,
+        "y": 22.916667938232425
+      },
+      "tag": "H1",
+      "text": "ICD Management System"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs font-semibold text-slate-500 uppercase tracking-wider",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "letterSpacing": "0.6px",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 143.1875,
+        "x": 36.66666793823242,
+        "y": 108.66667175292967
+      },
+      "tag": "SPAN",
+      "text": "Container trong Bãi"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-2xl font-bold text-slate-900",
+      "color": "oklch(0.208 0.042 265.755)",
+      "fontSize": "24px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "32px",
+      "rect": {
+        "height": 32,
+        "width": 13.8125,
+        "x": 36.66666793823242,
+        "y": 140.6666717529297
+      },
+      "tag": "SPAN",
+      "text": "9"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs text-slate-500",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 47.28125,
+        "x": 58.47916793823242,
+        "y": 154
+      },
+      "tag": "SPAN",
+      "text": "/ 48 vị trí"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "oklch(0.446 0.043 257.281)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 69.71875,
+        "x": 36.66666793823242,
+        "y": 184.6666717529297
+      },
+      "tag": "SPAN",
+      "text": "Sức chứa bãi:"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "font-semibold text-blue-700",
+      "color": "oklch(0.488 0.243 264.376)",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 21.625,
+        "x": 301.7083435058594,
+        "y": 184.6666717529297
+      },
+      "tag": "SPAN",
+      "text": "19%"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs font-semibold text-slate-500 uppercase tracking-wider",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "letterSpacing": "0.6px",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 161.34375,
+        "x": 36.66666793823242,
+        "y": 276
+      },
+      "tag": "SPAN",
+      "text": "Cần xử lý (Work Queue)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-2xl font-bold text-slate-900",
+      "color": "oklch(0.208 0.042 265.755)",
+      "fontSize": "24px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "32px",
+      "rect": {
+        "height": 32,
+        "width": 13.8125,
+        "x": 36.66666793823242,
+        "y": 308
+      },
+      "tag": "SPAN",
+      "text": "0"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs text-rose-600 font-semibold",
+      "color": "oklch(0.586 0.253 17.585)",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 79.91667175292969,
+        "x": 58.47916793823242,
+        "y": 321.3333435058594
+      },
+      "tag": "SPAN",
+      "text": "0 Quá hạn SLA"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "oklch(0.446 0.043 257.281)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 80.47917175292969,
+        "x": 36.66666793823242,
+        "y": 352
+      },
+      "tag": "SPAN",
+      "text": "Độ ưu tiên cao:"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "font-semibold text-amber-700",
+      "color": "oklch(0.555 0.163 48.998)",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 42.60416793823242,
+        "x": 280.72918701171875,
+        "y": 352
+      },
+      "tag": "SPAN",
+      "text": "0 tác vụ"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "w-full mt-2 text-center text-xs font-semibold text-blue-600 hover:text-blue-800 transition",
+      "color": "oklch(0.546 0.245 262.881)",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "24px",
+      "rect": {
+        "height": 24,
+        "width": 286.66668701171875,
+        "x": 36.66666793823242,
+        "y": 376
+      },
+      "tag": "BUTTON",
+      "text": "Xem danh sách công việc →"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs font-semibold text-slate-500 uppercase tracking-wider",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "letterSpacing": "0.6px",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 152.89584350585938,
+        "x": 36.66666793823242,
+        "y": 465.3333435058594
+      },
+      "tag": "SPAN",
+      "text": "Doanh thu & Công nợ"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xl font-bold text-slate-900",
+      "color": "oklch(0.208 0.042 265.755)",
+      "fontSize": "20px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "28px",
+      "rect": {
+        "height": 28,
+        "width": 62.65625,
+        "x": 36.66666793823242,
+        "y": 497.3333435058594
+      },
+      "tag": "SPAN",
+      "text": "0.0 tr₫"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs text-slate-400",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 34.114585876464844,
+        "x": 107.32292175292967,
+        "y": 506.6666870117187
+      },
+      "tag": "SPAN",
+      "text": "đã thu"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "oklch(0.446 0.043 257.281)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 97.88542175292967,
+        "x": 36.66666793823242,
+        "y": 537.3333740234375
+      },
+      "tag": "SPAN",
+      "text": "Công nợ chưa thu:"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "font-semibold text-rose-600",
+      "color": "oklch(0.586 0.253 17.585)",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 35.6875,
+        "x": 287.6458435058594,
+        "y": 537.3333740234375
+      },
+      "tag": "SPAN",
+      "text": "0.0 tr₫"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs font-semibold text-slate-500 uppercase tracking-wider",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "letterSpacing": "0.6px",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 172.4375,
+        "x": 36.66666793823242,
+        "y": 628.6666870117188
+      },
+      "tag": "SPAN",
+      "text": "Phiếu Ra Cổng & Xuất Bãi"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-2xl font-bold text-slate-900",
+      "color": "oklch(0.208 0.042 265.755)",
+      "fontSize": "24px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "32px",
+      "rect": {
+        "height": 32,
+        "width": 13.8125,
+        "x": 36.66666793823242,
+        "y": 660.6666870117188
+      },
+      "tag": "SPAN",
+      "text": "0"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs text-emerald-700 font-semibold",
+      "color": "oklch(0.508 0.118 165.612)",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 80.79167175292969,
+        "x": 58.47916793823242,
+        "y": 674
+      },
+      "tag": "SPAN",
+      "text": "0 đã xuất cổng"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "oklch(0.446 0.043 257.281)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 93.5,
+        "x": 36.66666793823242,
+        "y": 704.6666870117188
+      },
+      "tag": "SPAN",
+      "text": "Sẵn sàng ra cổng:"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "font-semibold text-slate-800",
+      "color": "oklch(0.279 0.041 260.031)",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 144.9375,
+        "x": 178.39584350585938,
+        "y": 704.6666870117188
+      },
+      "tag": "SPAN",
+      "text": "Kiểm tra phiếu & điều kiện"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "w-full mt-2 text-center text-xs font-semibold text-indigo-600 hover:text-indigo-800 transition",
+      "color": "oklch(0.511 0.262 276.966)",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "24px",
+      "rect": {
+        "height": 24,
+        "width": 286.66668701171875,
+        "x": 36.66666793823242,
+        "y": 728.6666870117188
+      },
+      "tag": "BUTTON",
+      "text": "Quản lý Phiếu ra cổng & Gate-out →"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-sm font-bold text-slate-800",
+      "color": "oklch(0.279 0.041 260.031)",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "17.5px",
+      "rect": {
+        "height": 35,
+        "width": 217.4791717529297,
+        "x": 36.66666793823242,
+        "y": 818
+      },
+      "tag": "H2",
+      "text": "Hoạt động Cổng & Chuyến xe (Truck Visits)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs text-slate-500",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 217.4791717529297,
+        "x": 36.66666793823242,
+        "y": 853
+      },
+      "tag": "P",
+      "text": "Lịch hẹn Gate Appointment và tình trạng tiếp nhận"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "oklch(0.546 0.245 262.881)",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "24px",
+      "rect": {
+        "height": 48,
+        "width": 56.60416793823242,
+        "x": 254.14584350585935,
+        "y": 827.5
+      },
+      "tag": "SPAN",
+      "text": "Xem tất cả"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "oklch(0.279 0.041 260.031)",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "17.5px",
+      "rect": {
+        "height": 35,
+        "width": 150.0416717529297,
+        "x": 36.66666793823242,
+        "y": 966.8333740234376
+      },
+      "tag": "SPAN",
+      "text": "Cảnh báo thời gian lưu bãi"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.962 0.059 95.617)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-2 py-0.5 bg-amber-100 text-amber-800 text-caption font-bold rounded-full",
+      "color": "oklch(0.473 0.137 46.201)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 36,
+        "width": 70.79167175292969,
+        "x": 194.70834350585935,
+        "y": 966.3333740234376
+      },
+      "tag": "SPAN",
+      "text": "0 container"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs text-slate-500",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 48,
+        "width": 228.83334350585935,
+        "x": 36.66666793823242,
+        "y": 1002.3333740234376
+      },
+      "tag": "P",
+      "text": "Container gần hoặc vượt ngưỡng cảnh báo từ backend. Phí thực tế xem tại Dịch vụ & Thanh toán."
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "oklch(0.546 0.245 262.881)",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "24px",
+      "rect": {
+        "height": 72,
+        "width": 49.75,
+        "x": 265.5,
+        "y": 972.3333740234376
+      },
+      "tag": "SPAN",
+      "text": "Tính phí lưu kho"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "pb-2 font-medium",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 24.33333396911621,
+        "width": 70.17708587646484,
+        "x": 36.66666793823242,
+        "y": 1066.3333740234375
+      },
+      "tag": "TH",
+      "text": "Số Container"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "pb-2 font-medium",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 24.33333396911621,
+        "width": 120.40625,
+        "x": 106.84375,
+        "y": 1066.3333740234375
+      },
+      "tag": "TH",
+      "text": "Chủ hàng (Consignee)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "pb-2 font-medium",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 24.33333396911621,
+        "width": 26.05208396911621,
+        "x": 227.25,
+        "y": 1066.3333740234375
+      },
+      "tag": "TH",
+      "text": "Vị trí"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "pb-2 font-medium",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 24.33333396911621,
+        "width": 81.76042175292969,
+        "x": 253.30209350585935,
+        "y": 1066.3333740234375
+      },
+      "tag": "TH",
+      "text": "Ngày vào cổng"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "pb-2 font-medium text-right",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 24.33333396911621,
+        "width": 56.32291793823242,
+        "x": 335.0625,
+        "y": 1066.3333740234375
+      },
+      "tag": "TH",
+      "text": "Tình trạng"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "oklch(0.279 0.041 260.031)",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "17.5px",
+      "rect": {
+        "height": 35,
+        "width": 199,
+        "x": 54.83333587646485,
+        "y": 1172.166748046875
+      },
+      "tag": "SPAN",
+      "text": "Kiểm soát Lệnh Giữ (Operational Holds)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.95 0.052 163.051)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-2 py-0.5 text-caption font-bold rounded-full bg-emerald-100 text-emerald-800",
+      "color": "oklch(0.432 0.095 166.913)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 36,
+        "width": 69.5,
+        "x": 253.83334350585935,
+        "y": 1171.666748046875
+      },
+      "tag": "SPAN",
+      "text": "0 đang khóa"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs text-slate-500 mb-3",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 286.66668701171875,
+        "x": 36.66666793823242,
+        "y": 1219.666748046875
+      },
+      "tag": "P",
+      "text": "Các chốt chặn kiểm soát pháp lý, hải quan, cước hãng tàu và hư hỏng trước khi cho phép ra cổng."
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "w-full mt-3 py-1.5 text-center text-xs font-semibold text-blue-600 hover:text-blue-800 transition",
+      "color": "oklch(0.546 0.245 262.881)",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "24px",
+      "rect": {
+        "height": 60,
+        "width": 286.66668701171875,
+        "x": 36.66666793823242,
+        "y": 1275.666748046875
+      },
+      "tag": "BUTTON",
+      "text": "Kiểm tra điều kiện xuất cổng (Readiness) →"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "oklch(0.279 0.041 260.031)",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "17.5px",
+      "rect": {
+        "height": 17.5,
+        "width": 158.4791717529297,
+        "x": 58.66666793823242,
+        "y": 1401
+      },
+      "tag": "SPAN",
+      "text": "Vận hành EDI (CODECO)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-caption text-slate-400",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 76.94792175292969,
+        "x": 246.3854217529297,
+        "y": 1401.75
+      },
+      "tag": "SPAN",
+      "text": "Shipping Lines"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs text-slate-500 mb-3",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 286.66668701171875,
+        "x": 36.66666793823242,
+        "y": 1430.5
+      },
+      "tag": "P",
+      "text": "Thông điệp gửi tự động cho hãng tàu khi Gate-in và Gate-out thành công."
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "w-full mt-3 py-1.5 text-center text-xs font-semibold text-blue-600 hover:text-blue-800 transition",
+      "color": "oklch(0.546 0.245 262.881)",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "24px",
+      "rect": {
+        "height": 36,
+        "width": 286.66668701171875,
+        "x": 36.66666793823242,
+        "y": 1486.5
+      },
+      "tag": "BUTTON",
+      "text": "Xem toàn bộ Outbox EDI →"
+    }
+  ],
+  "url": "http://127.0.0.1:5174/app/dashboard",
+  "viewport": {
+    "height": 900,
+    "width": 375
+  }
+}

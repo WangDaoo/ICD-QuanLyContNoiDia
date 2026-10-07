@@ -1,0 +1,82 @@
+[
+  {
+    "file": "apps/web/src/components/ContainersView.tsx",
+    "id": "containers-create-shipping-line",
+    "visibleLabel": "Hãng tàu",
+    "type": "input",
+    "binding": "{formManifest?.shippingLine || ''}",
+    "preserved_aria_label": "Hãng tàu theo Manifest",
+    "readonly": true,
+    "supplement": "audit/fixes/W-S-002/supplement"
+  },
+  {
+    "file": "apps/web/src/components/ContainersView.tsx",
+    "id": "containers-create-consignee",
+    "visibleLabel": "Chủ hàng (Consignee)*",
+    "type": "select",
+    "binding": "{cvForm.consigneeName}",
+    "preserved_aria_label": "Chủ hàng",
+    "readonly": false,
+    "supplement": "audit/fixes/W-S-002/supplement"
+  },
+  {
+    "file": "apps/web/src/components/ContainersView.tsx",
+    "id": "containers-create-manifest",
+    "visibleLabel": "Manifest No.",
+    "type": "select",
+    "binding": "{cvForm.manifestNo}",
+    "preserved_aria_label": "Manifest",
+    "readonly": false,
+    "supplement": "audit/fixes/W-S-002/supplement"
+  },
+  {
+    "file": "apps/web/src/components/ContainersView.tsx",
+    "id": "containers-create-mbl",
+    "visibleLabel": "MBL No.",
+    "type": "select",
+    "binding": "{cvForm.mblNumber}",
+    "preserved_aria_label": "Master BL",
+    "readonly": false,
+    "supplement": "audit/fixes/W-S-002/supplement"
+  },
+  {
+    "file": "apps/web/src/components/ContainersView.tsx",
+    "id": "containers-create-hbl",
+    "visibleLabel": "HBL No.",
+    "type": "select",
+    "binding": "{cvForm.hblNumber}",
+    "preserved_aria_label": "House BL",
+    "readonly": false,
+    "supplement": "audit/fixes/W-S-002/supplement"
+  },
+  {
+    "file": "apps/web/src/components/GatePassView.tsx",
+    "id": "gate-pass-receiver-vehicle-plate",
+    "visibleLabel": "Biển số xe nhận hàng*",
+    "type": "input",
+    "binding": "{vehiclePlate}",
+    "preserved_aria_label": "Biển số xe nhận hàng",
+    "readonly": false,
+    "supplement": "audit/fixes/W-S-002/supplement"
+  },
+  {
+    "file": "apps/web/src/components/GatePassView.tsx",
+    "id": "gate-pass-receiver-name",
+    "visibleLabel": "Tên tài xế / Người nhận*",
+    "type": "input",
+    "binding": "{receiverName}",
+    "preserved_aria_label": "Tên tài xế / Người nhận",
+    "readonly": false,
+    "supplement": "audit/fixes/W-S-002/supplement"
+  },
+  {
+    "file": "apps/web/src/components/GatePassView.tsx",
+    "id": "gate-pass-receiver-cccd",
+    "visibleLabel": "Số CMND / CCCD*",
+    "type": "input",
+    "binding": "{receiverCccd}",
+    "preserved_aria_label": "Số CMND / CCCD",
+    "readonly": false,
+    "supplement": "audit/fixes/W-S-002/supplement"
+  }
+]

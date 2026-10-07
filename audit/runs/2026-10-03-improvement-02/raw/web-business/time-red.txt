@@ -1,0 +1,27 @@
+✖ movement order default means now plus 24 hours in Vietnam UTC+7 (387.0368ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6878.6644
+
+✖ failing tests:
+
+test at audit\tools\improvement-web-business.test.mjs:97:1
+✖ movement order default means now plus 24 hours in Vietnam UTC+7 (387.0368ms)
+  AssertionError [ERR_ASSERTION]: default must preserve a 24 hour expiry
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:101:12)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:36:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:98:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

@@ -1,0 +1,98 @@
+diff --git "a/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\before\\apps\\web\\src\\components\\ContainersView.tsx" "b/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\after\\apps\\web\\src\\components\\ContainersView.tsx"
+index 1215227..d54331a 100644
+--- "a/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\before\\apps\\web\\src\\components\\ContainersView.tsx"	
++++ "b/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\after\\apps\\web\\src\\components\\ContainersView.tsx"	
+@@ -684,8 +684,8 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
+                           </p>
+                           <div className="grid grid-cols-3 gap-2">
+                             <div>
+-                              <label className="block text-slate-600 mb-1">Biển số xe nhận</label>
+-                              <input
++                              <label htmlFor="containers-gp-plate" className="block text-slate-600 mb-1">Biển số xe nhận</label>
++                              <input id="containers-gp-plate"
+                                 type="text"
+                                 value={gpPlate}
+                                 onChange={(e) => setGpPlate(e.target.value)}
+@@ -693,8 +693,8 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
+                               />
+                             </div>
+                             <div>
+-                              <label className="block text-slate-600 mb-1">Tên người nhận</label>
+-                              <input
++                              <label htmlFor="containers-gp-receiver" className="block text-slate-600 mb-1">Tên người nhận</label>
++                              <input id="containers-gp-receiver"
+                                 type="text"
+                                 value={gpReceiver}
+                                 onChange={(e) => setGpReceiver(e.target.value)}
+@@ -702,8 +702,8 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
+                               />
+                             </div>
+                             <div>
+-                              <label className="block text-slate-600 mb-1">Số CMND / CCCD</label>
+-                              <input
++                              <label htmlFor="containers-gp-cccd" className="block text-slate-600 mb-1">Số CMND / CCCD</label>
++                              <input id="containers-gp-cccd"
+                                 type="text"
+                                 value={gpCccd}
+                                 onChange={(e) => setGpCccd(e.target.value)}
+@@ -755,8 +755,8 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
+                       <div className="font-bold text-rose-900">Thiết lập Lệnh giữ mới</div>
+                       <div className="grid grid-cols-2 gap-2">
+                         <div>
+-                          <label className="block text-slate-600 mb-1">Loại lệnh giữ</label>
+-                          <select
++                          <label htmlFor="containers-new-hold-type" className="block text-slate-600 mb-1">Loại lệnh giữ</label>
++                          <select id="containers-new-hold-type"
+                             value={newHoldType}
+                             onChange={(e) => setNewHoldType(e.target.value)}
+                             className="w-full px-2.5 py-1.5 border border-slate-300 rounded bg-white"
+@@ -770,8 +770,8 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
+                           </select>
+                         </div>
+                         <div>
+-                          <label className="block text-slate-600 mb-1">Lý do chi tiết*</label>
+-                          <input
++                          <label htmlFor="containers-new-hold-reason" className="block text-slate-600 mb-1">Lý do chi tiết*</label>
++                          <input id="containers-new-hold-reason"
+                             type="text"
+                             placeholder="Nhập lý do giữ..."
+                             value={newHoldReason}
+@@ -900,8 +900,8 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
+             <h3 id="containers-dialog-2-title" className="text-base font-bold text-slate-900 mb-4">Tạo Container Visit thủ công</h3>
+             <div className="space-y-3">
+               <div>
+-                <label className="block font-semibold text-slate-700 mb-1">Số container* (ISO 6346)</label>
+-                <input
++                <label htmlFor="containers-cv-form-container-number" className="block font-semibold text-slate-700 mb-1">Số container* (ISO 6346)</label>
++                <input id="containers-cv-form-container-number"
+                   type="text"
+                   value={cvForm.containerNumber}
+                   onChange={(e) => setCvForm({ ...cvForm, containerNumber: e.target.value.toUpperCase() })}
+@@ -911,8 +911,8 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
+               </div>
+               <div className="grid grid-cols-2 gap-3">
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">Loại container</label>
+-                  <select
++                  <label htmlFor="containers-cv-form-container-type" className="block font-semibold text-slate-700 mb-1">Loại container</label>
++                  <select id="containers-cv-form-container-type"
+                     value={cvForm.containerType}
+                     onChange={(e) => setCvForm({ ...cvForm, containerType: e.target.value as ContainerVisit['containerType'] })}
+                     className="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white"
+@@ -949,12 +949,12 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
+               </div>
+               <div className="grid grid-cols-2 gap-3">
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">Seal Manifest*</label>
+-                  <input type="text" value={cvForm.manifestSeal} onChange={(e) => setCvForm({ ...cvForm, manifestSeal: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
++                  <label htmlFor="containers-cv-form-manifest-seal" className="block font-semibold text-slate-700 mb-1">Seal Manifest*</label>
++                  <input id="containers-cv-form-manifest-seal" type="text" value={cvForm.manifestSeal} onChange={(e) => setCvForm({ ...cvForm, manifestSeal: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
+                 </div>
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">Trọng lượng (kg)</label>
+-                  <input type="number" value={cvForm.grossWeightKg} onChange={(e) => setCvForm({ ...cvForm, grossWeightKg: Number(e.target.value) })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
++                  <label htmlFor="containers-cv-form-gross-weight-kg" className="block font-semibold text-slate-700 mb-1">Trọng lượng (kg)</label>
++                  <input id="containers-cv-form-gross-weight-kg" type="number" value={cvForm.grossWeightKg} onChange={(e) => setCvForm({ ...cvForm, grossWeightKg: Number(e.target.value) })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
+                 </div>
+               </div>
+             </div>

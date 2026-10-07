@@ -1,0 +1,1600 @@
+[
+  {
+    "method": "GET",
+    "route": "/audit-logs",
+    "permissions": [
+      "AUDIT_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\audit\\audit.controller.ts:16"
+  },
+  {
+    "method": "GET",
+    "route": "/audit-logs/request/:requestId",
+    "permissions": [
+      "AUDIT_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\audit\\audit.controller.ts:25"
+  },
+  {
+    "method": "GET",
+    "route": "/audit-logs/entity/:entityType/:entityId",
+    "permissions": [
+      "AUDIT_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\audit\\audit.controller.ts:34"
+  },
+  {
+    "method": "POST",
+    "route": "/auth/login",
+    "permissions": [],
+    "evidence": "apps\\api\\src\\modules\\auth\\auth.controller.ts:23"
+  },
+  {
+    "method": "POST",
+    "route": "/auth/refresh",
+    "permissions": [],
+    "evidence": "apps\\api\\src\\modules\\auth\\auth.controller.ts:36"
+  },
+  {
+    "method": "GET",
+    "route": "/auth/me",
+    "permissions": [],
+    "evidence": "apps\\api\\src\\modules\\auth\\auth.controller.ts:48"
+  },
+  {
+    "method": "POST",
+    "route": "/auth/logout",
+    "permissions": [],
+    "evidence": "apps\\api\\src\\modules\\auth\\auth.controller.ts:59"
+  },
+  {
+    "method": "GET",
+    "route": "/containers/:containerVisitId/billing",
+    "permissions": [
+      "BILLING_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\billing\\billing-readiness.controller.ts:13"
+  },
+  {
+    "method": "POST",
+    "route": "/service-orders/preview",
+    "permissions": [
+      "BILLING_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\billing\\billing.controller.ts:17"
+  },
+  {
+    "method": "POST",
+    "route": "/containers/:visitId/service-orders",
+    "permissions": [
+      "BILLING_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\billing\\billing.controller.ts:24"
+  },
+  {
+    "method": "GET",
+    "route": "/service-orders",
+    "permissions": [
+      "BILLING_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\billing\\billing.controller.ts:38"
+  },
+  {
+    "method": "GET",
+    "route": "/service-orders/:id",
+    "permissions": [
+      "BILLING_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\billing\\billing.controller.ts:47"
+  },
+  {
+    "method": "POST",
+    "route": "/service-orders/:id/recalculate",
+    "permissions": [
+      "BILLING_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\billing\\billing.controller.ts:54"
+  },
+  {
+    "method": "POST",
+    "route": "/service-orders/:id/confirm",
+    "permissions": [
+      "BILLING_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\billing\\billing.controller.ts:61"
+  },
+  {
+    "method": "POST",
+    "route": "/service-orders/:id/cancel",
+    "permissions": [
+      "BILLING_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\billing\\billing.controller.ts:68"
+  },
+  {
+    "method": "POST",
+    "route": "/service-orders/:serviceOrderId/invoice",
+    "permissions": [
+      "BILLING_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\billing\\invoices.controller.ts:15"
+  },
+  {
+    "method": "GET",
+    "route": "/invoices",
+    "permissions": [
+      "BILLING_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\billing\\invoices.controller.ts:26"
+  },
+  {
+    "method": "GET",
+    "route": "/invoices/:id",
+    "permissions": [
+      "BILLING_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\billing\\invoices.controller.ts:32"
+  },
+  {
+    "method": "POST",
+    "route": "/invoices/:invoiceId/payments",
+    "permissions": [
+      "BILLING_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\billing\\payments.controller.ts:15"
+  },
+  {
+    "method": "GET",
+    "route": "/payments",
+    "permissions": [
+      "BILLING_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\billing\\payments.controller.ts:30"
+  },
+  {
+    "method": "GET",
+    "route": "/payments/:id",
+    "permissions": [
+      "BILLING_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\billing\\payments.controller.ts:36"
+  },
+  {
+    "method": "GET",
+    "route": "/admin/service-types",
+    "permissions": [
+      "BILLING_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\billing\\tariff.controller.ts:17"
+  },
+  {
+    "method": "POST",
+    "route": "/admin/tariffs",
+    "permissions": [
+      "TARIFF_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\billing\\tariff.controller.ts:24"
+  },
+  {
+    "method": "GET",
+    "route": "/admin/tariffs",
+    "permissions": [
+      "BILLING_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\billing\\tariff.controller.ts:31"
+  },
+  {
+    "method": "GET",
+    "route": "/admin/tariffs/:id",
+    "permissions": [
+      "BILLING_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\billing\\tariff.controller.ts:37"
+  },
+  {
+    "method": "PATCH",
+    "route": "/admin/tariffs/:id",
+    "permissions": [
+      "TARIFF_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\billing\\tariff.controller.ts:44"
+  },
+  {
+    "method": "POST",
+    "route": "/admin/tariffs/:id/rules",
+    "permissions": [
+      "TARIFF_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\billing\\tariff.controller.ts:55"
+  },
+  {
+    "method": "DELETE",
+    "route": "/admin/tariffs/:id/rules/:ruleId",
+    "permissions": [
+      "TARIFF_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\billing\\tariff.controller.ts:66"
+  },
+  {
+    "method": "POST",
+    "route": "/admin/tariffs/:id/activate",
+    "permissions": [
+      "TARIFF_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\billing\\tariff.controller.ts:77"
+  },
+  {
+    "method": "POST",
+    "route": "/admin/tariffs/:id/retire",
+    "permissions": [
+      "TARIFF_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\billing\\tariff.controller.ts:84"
+  },
+  {
+    "method": "GET",
+    "route": "/containers",
+    "permissions": [
+      "CONTAINER_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\containers\\containers.controller.ts:28"
+  },
+  {
+    "method": "GET",
+    "route": "/containers/:visitId",
+    "permissions": [
+      "CONTAINER_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\containers\\containers.controller.ts:34"
+  },
+  {
+    "method": "GET",
+    "route": "/containers/:visitId/events",
+    "permissions": [
+      "CONTAINER_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\containers\\containers.controller.ts:43"
+  },
+  {
+    "method": "POST",
+    "route": "/containers",
+    "permissions": [
+      "CONTAINER_CREATE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\containers\\containers.controller.ts:52"
+  },
+  {
+    "method": "PATCH",
+    "route": "/containers/:visitId",
+    "permissions": [
+      "CONTAINER_UPDATE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\containers\\containers.controller.ts:59"
+  },
+  {
+    "method": "POST",
+    "route": "/containers/:visitId/cancel",
+    "permissions": [
+      "CONTAINER_CANCEL"
+    ],
+    "evidence": "apps\\api\\src\\modules\\containers\\containers.controller.ts:69"
+  },
+  {
+    "method": "GET",
+    "route": "/integrations/edi/routes",
+    "permissions": [
+      "EDI_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\edi\\edi.controller.ts:40"
+  },
+  {
+    "method": "PUT",
+    "route": "/integrations/edi/routes/:shippingLineId",
+    "permissions": [
+      "EDI_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\edi\\edi.controller.ts:47"
+  },
+  {
+    "method": "GET",
+    "route": "/integrations/edi/outbox",
+    "permissions": [
+      "EDI_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\edi\\edi.controller.ts:62"
+  },
+  {
+    "method": "GET",
+    "route": "/integrations/edi/outbox/:id",
+    "permissions": [
+      "EDI_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\edi\\edi.controller.ts:71"
+  },
+  {
+    "method": "POST",
+    "route": "/integrations/edi/outbox/:id/retry",
+    "permissions": [
+      "EDI_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\edi\\edi.controller.ts:81"
+  },
+  {
+    "method": "POST",
+    "route": "/integrations/edi/dispatch",
+    "permissions": [
+      "EDI_DISPATCH"
+    ],
+    "evidence": "apps\\api\\src\\modules\\edi\\edi.controller.ts:91"
+  },
+  {
+    "method": "POST",
+    "route": "/integrations/edi/acks/ingest",
+    "permissions": [
+      "EDI_ACK_INGEST"
+    ],
+    "evidence": "apps\\api\\src\\modules\\edi\\edi.controller.ts:102"
+  },
+  {
+    "method": "GET",
+    "route": "/integrations/edi/acks",
+    "permissions": [
+      "EDI_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\edi\\edi.controller.ts:112"
+  },
+  {
+    "method": "GET",
+    "route": "/integrations/edi/acks/:id",
+    "permissions": [
+      "EDI_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\edi\\edi.controller.ts:121"
+  },
+  {
+    "method": "GET",
+    "route": "/integrations/edi/alerts",
+    "permissions": [
+      "EDI_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\edi\\edi.controller.ts:135"
+  },
+  {
+    "method": "GET",
+    "route": "/integrations/edi/alerts/:id",
+    "permissions": [
+      "EDI_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\edi\\edi.controller.ts:144"
+  },
+  {
+    "method": "POST",
+    "route": "/integrations/edi/alerts/:id/acknowledge",
+    "permissions": [
+      "EDI_ALERT_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\edi\\edi.controller.ts:154"
+  },
+  {
+    "method": "POST",
+    "route": "/integrations/edi/alerts/:id/resolve",
+    "permissions": [
+      "EDI_ALERT_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\edi\\edi.controller.ts:164"
+  },
+  {
+    "method": "POST",
+    "route": "/integrations/edi/alerts/sync",
+    "permissions": [
+      "EDI_ALERT_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\edi\\edi.controller.ts:175"
+  },
+  {
+    "method": "GET",
+    "route": "/containers/:visitId/gate-in-context",
+    "permissions": [
+      "GATE_IN_CREATE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\gate-in\\gate-in.controller.ts:23"
+  },
+  {
+    "method": "POST",
+    "route": "/containers/:visitId/gate-in",
+    "permissions": [
+      "GATE_IN_CREATE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\gate-in\\gate-in.controller.ts:32"
+  },
+  {
+    "method": "GET",
+    "route": "/containers/:visitId/reception",
+    "permissions": [
+      "CONTAINER_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\gate-in\\gate-in.controller.ts:43"
+  },
+  {
+    "method": "POST",
+    "route": "/gate-out",
+    "permissions": [
+      "GATE_PASS_USE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\gate-out\\gate-out.controller.ts:14"
+  },
+  {
+    "method": "GET",
+    "route": "/containers/:visitId/gate-pass/readiness",
+    "permissions": [
+      "CONTAINER_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\gate-pass\\gate-pass.controller.ts:22"
+  },
+  {
+    "method": "GET",
+    "route": "/containers/:visitId/gate-pass",
+    "permissions": [
+      "CONTAINER_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\gate-pass\\gate-pass.controller.ts:29"
+  },
+  {
+    "method": "GET",
+    "route": "/containers/:visitId/gate-passes",
+    "permissions": [
+      "CONTAINER_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\gate-pass\\gate-pass.controller.ts:39"
+  },
+  {
+    "method": "POST",
+    "route": "/containers/:visitId/gate-pass",
+    "permissions": [
+      "GATE_PASS_CREATE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\gate-pass\\gate-pass.controller.ts:49"
+  },
+  {
+    "method": "GET",
+    "route": "/gate-passes/:gatePassId/qr",
+    "permissions": [
+      "GATE_PASS_CREATE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\gate-pass\\gate-pass.controller.ts:60"
+  },
+  {
+    "method": "POST",
+    "route": "/gate-passes/:gatePassId/cancel",
+    "permissions": [
+      "GATE_PASS_CREATE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\gate-pass\\gate-pass.controller.ts:67"
+  },
+  {
+    "method": "POST",
+    "route": "/gate-pass/scan",
+    "permissions": [
+      "GATE_PASS_USE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\gate-pass\\gate-pass.controller.ts:78"
+  },
+  {
+    "method": "GET",
+    "route": "/health",
+    "permissions": [],
+    "evidence": "apps\\api\\src\\modules\\health\\health.controller.ts:14"
+  },
+  {
+    "method": "GET",
+    "route": "/health/live",
+    "permissions": [],
+    "evidence": "apps\\api\\src\\modules\\health\\health.controller.ts:22"
+  },
+  {
+    "method": "GET",
+    "route": "/health/ready",
+    "permissions": [],
+    "evidence": "apps\\api\\src\\modules\\health\\health.controller.ts:29"
+  },
+  {
+    "method": "GET",
+    "route": "/manifests/:manifestId/master-bls/:mblId/house-bls",
+    "permissions": [
+      "MANIFEST_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\manifests\\controllers\\house-bls.controller.ts:35"
+  },
+  {
+    "method": "POST",
+    "route": "/manifests/:manifestId/master-bls/:mblId/house-bls",
+    "permissions": [
+      "MANIFEST_UPDATE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\manifests\\controllers\\house-bls.controller.ts:46"
+  },
+  {
+    "method": "PATCH",
+    "route": "/manifests/:manifestId/master-bls/:mblId/house-bls/:hblId",
+    "permissions": [
+      "MANIFEST_UPDATE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\manifests\\controllers\\house-bls.controller.ts:58"
+  },
+  {
+    "method": "DELETE",
+    "route": "/manifests/:manifestId/master-bls/:mblId/house-bls/:hblId",
+    "permissions": [
+      "MANIFEST_UPDATE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\manifests\\controllers\\house-bls.controller.ts:70"
+  },
+  {
+    "method": "GET",
+    "route": "/manifests",
+    "permissions": [
+      "MANIFEST_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\manifests\\controllers\\manifests.controller.ts:34"
+  },
+  {
+    "method": "GET",
+    "route": "/manifests/:manifestId",
+    "permissions": [
+      "MANIFEST_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\manifests\\controllers\\manifests.controller.ts:40"
+  },
+  {
+    "method": "POST",
+    "route": "/manifests",
+    "permissions": [
+      "MANIFEST_CREATE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\manifests\\controllers\\manifests.controller.ts:49"
+  },
+  {
+    "method": "PATCH",
+    "route": "/manifests/:manifestId",
+    "permissions": [
+      "MANIFEST_UPDATE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\manifests\\controllers\\manifests.controller.ts:56"
+  },
+  {
+    "method": "POST",
+    "route": "/manifests/:manifestId/submit",
+    "permissions": [
+      "MANIFEST_SUBMIT"
+    ],
+    "evidence": "apps\\api\\src\\modules\\manifests\\controllers\\manifests.controller.ts:66"
+  },
+  {
+    "method": "POST",
+    "route": "/manifests/:manifestId/cancel",
+    "permissions": [
+      "MANIFEST_CANCEL"
+    ],
+    "evidence": "apps\\api\\src\\modules\\manifests\\controllers\\manifests.controller.ts:76"
+  },
+  {
+    "method": "GET",
+    "route": "/manifests/:manifestId/master-bls",
+    "permissions": [
+      "MANIFEST_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\manifests\\controllers\\master-bls.controller.ts:35"
+  },
+  {
+    "method": "POST",
+    "route": "/manifests/:manifestId/master-bls",
+    "permissions": [
+      "MANIFEST_UPDATE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\manifests\\controllers\\master-bls.controller.ts:45"
+  },
+  {
+    "method": "PATCH",
+    "route": "/manifests/:manifestId/master-bls/:mblId",
+    "permissions": [
+      "MANIFEST_UPDATE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\manifests\\controllers\\master-bls.controller.ts:56"
+  },
+  {
+    "method": "DELETE",
+    "route": "/manifests/:manifestId/master-bls/:mblId",
+    "permissions": [
+      "MANIFEST_UPDATE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\manifests\\controllers\\master-bls.controller.ts:67"
+  },
+  {
+    "method": "GET",
+    "route": "/admin/master-data/clearing-agents",
+    "permissions": [
+      "MASTER_DATA_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\clearing-agents.controller.ts:20"
+  },
+  {
+    "method": "GET",
+    "route": "/admin/master-data/clearing-agents/:id",
+    "permissions": [
+      "MASTER_DATA_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\clearing-agents.controller.ts:29"
+  },
+  {
+    "method": "POST",
+    "route": "/admin/master-data/clearing-agents",
+    "permissions": [
+      "MASTER_DATA_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\clearing-agents.controller.ts:40"
+  },
+  {
+    "method": "PATCH",
+    "route": "/admin/master-data/clearing-agents/:id",
+    "permissions": [
+      "MASTER_DATA_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\clearing-agents.controller.ts:51"
+  },
+  {
+    "method": "POST",
+    "route": "/admin/master-data/clearing-agents/:id/activate",
+    "permissions": [
+      "MASTER_DATA_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\clearing-agents.controller.ts:65"
+  },
+  {
+    "method": "POST",
+    "route": "/admin/master-data/clearing-agents/:id/deactivate",
+    "permissions": [
+      "MASTER_DATA_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\clearing-agents.controller.ts:73"
+  },
+  {
+    "method": "GET",
+    "route": "/admin/master-data/consignees",
+    "permissions": [
+      "MASTER_DATA_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\consignees.controller.ts:20"
+  },
+  {
+    "method": "GET",
+    "route": "/admin/master-data/consignees/:id",
+    "permissions": [
+      "MASTER_DATA_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\consignees.controller.ts:29"
+  },
+  {
+    "method": "POST",
+    "route": "/admin/master-data/consignees",
+    "permissions": [
+      "MASTER_DATA_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\consignees.controller.ts:40"
+  },
+  {
+    "method": "PATCH",
+    "route": "/admin/master-data/consignees/:id",
+    "permissions": [
+      "MASTER_DATA_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\consignees.controller.ts:51"
+  },
+  {
+    "method": "POST",
+    "route": "/admin/master-data/consignees/:id/activate",
+    "permissions": [
+      "MASTER_DATA_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\consignees.controller.ts:65"
+  },
+  {
+    "method": "POST",
+    "route": "/admin/master-data/consignees/:id/deactivate",
+    "permissions": [
+      "MASTER_DATA_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\consignees.controller.ts:73"
+  },
+  {
+    "method": "GET",
+    "route": "/admin/master-data",
+    "permissions": [
+      "MASTER_DATA_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\master-data.controller.ts:16"
+  },
+  {
+    "method": "POST",
+    "route": "/admin/master-data/:type",
+    "permissions": [
+      "MASTER_DATA_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\master-data.controller.ts:34"
+  },
+  {
+    "method": "PATCH",
+    "route": "/admin/master-data/:type/:id",
+    "permissions": [
+      "MASTER_DATA_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\master-data.controller.ts:82"
+  },
+  {
+    "method": "GET",
+    "route": "/admin/master-data/shipping-lines",
+    "permissions": [
+      "MASTER_DATA_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\shipping-lines.controller.ts:20"
+  },
+  {
+    "method": "GET",
+    "route": "/admin/master-data/shipping-lines/:id",
+    "permissions": [
+      "MASTER_DATA_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\shipping-lines.controller.ts:29"
+  },
+  {
+    "method": "POST",
+    "route": "/admin/master-data/shipping-lines",
+    "permissions": [
+      "MASTER_DATA_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\shipping-lines.controller.ts:40"
+  },
+  {
+    "method": "PATCH",
+    "route": "/admin/master-data/shipping-lines/:id",
+    "permissions": [
+      "MASTER_DATA_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\shipping-lines.controller.ts:51"
+  },
+  {
+    "method": "POST",
+    "route": "/admin/master-data/shipping-lines/:id/activate",
+    "permissions": [
+      "MASTER_DATA_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\shipping-lines.controller.ts:65"
+  },
+  {
+    "method": "POST",
+    "route": "/admin/master-data/shipping-lines/:id/deactivate",
+    "permissions": [
+      "MASTER_DATA_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\shipping-lines.controller.ts:73"
+  },
+  {
+    "method": "GET",
+    "route": "/admin/master-data/transporters",
+    "permissions": [
+      "MASTER_DATA_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\transporters.controller.ts:20"
+  },
+  {
+    "method": "GET",
+    "route": "/admin/master-data/transporters/:id",
+    "permissions": [
+      "MASTER_DATA_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\transporters.controller.ts:29"
+  },
+  {
+    "method": "POST",
+    "route": "/admin/master-data/transporters",
+    "permissions": [
+      "MASTER_DATA_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\transporters.controller.ts:40"
+  },
+  {
+    "method": "PATCH",
+    "route": "/admin/master-data/transporters/:id",
+    "permissions": [
+      "MASTER_DATA_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\transporters.controller.ts:51"
+  },
+  {
+    "method": "POST",
+    "route": "/admin/master-data/transporters/:id/activate",
+    "permissions": [
+      "MASTER_DATA_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\transporters.controller.ts:65"
+  },
+  {
+    "method": "POST",
+    "route": "/admin/master-data/transporters/:id/deactivate",
+    "permissions": [
+      "MASTER_DATA_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\master-data\\controllers\\transporters.controller.ts:73"
+  },
+  {
+    "method": "GET",
+    "route": "/movement-orders",
+    "permissions": [
+      "MOVEMENT_ORDER_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\movement-orders\\movement-orders.controller.ts:29"
+  },
+  {
+    "method": "GET",
+    "route": "/movement-orders/:orderId",
+    "permissions": [
+      "MOVEMENT_ORDER_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\movement-orders\\movement-orders.controller.ts:35"
+  },
+  {
+    "method": "POST",
+    "route": "/containers/:visitId/movement-orders",
+    "permissions": [
+      "MOVEMENT_ORDER_CREATE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\movement-orders\\movement-orders.controller.ts:44"
+  },
+  {
+    "method": "PATCH",
+    "route": "/movement-orders/:orderId",
+    "permissions": [
+      "MOVEMENT_ORDER_UPDATE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\movement-orders\\movement-orders.controller.ts:55"
+  },
+  {
+    "method": "POST",
+    "route": "/movement-orders/:orderId/authorize",
+    "permissions": [
+      "MOVEMENT_ORDER_AUTHORIZE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\movement-orders\\movement-orders.controller.ts:65"
+  },
+  {
+    "method": "POST",
+    "route": "/movement-orders/:orderId/cancel",
+    "permissions": [
+      "MOVEMENT_ORDER_CANCEL"
+    ],
+    "evidence": "apps\\api\\src\\modules\\movement-orders\\movement-orders.controller.ts:76"
+  },
+  {
+    "method": "POST",
+    "route": "/notifications/register-device",
+    "permissions": [],
+    "evidence": "apps\\api\\src\\modules\\notifications\\controllers\\notifications.controller.ts:27"
+  },
+  {
+    "method": "DELETE",
+    "route": "/notifications/unregister-device",
+    "permissions": [],
+    "evidence": "apps\\api\\src\\modules\\notifications\\controllers\\notifications.controller.ts:36"
+  },
+  {
+    "method": "GET",
+    "route": "/notifications/history",
+    "permissions": [],
+    "evidence": "apps\\api\\src\\modules\\notifications\\controllers\\notifications.controller.ts:45"
+  },
+  {
+    "method": "PATCH",
+    "route": "/notifications/:id/read",
+    "permissions": [],
+    "evidence": "apps\\api\\src\\modules\\notifications\\controllers\\notifications.controller.ts:53"
+  },
+  {
+    "method": "POST",
+    "route": "/notifications/read-all",
+    "permissions": [],
+    "evidence": "apps\\api\\src\\modules\\notifications\\controllers\\notifications.controller.ts:61"
+  },
+  {
+    "method": "GET",
+    "route": "/containers/:visitId/holds",
+    "permissions": [
+      "OPERATIONAL_HOLD_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\operational-holds\\operational-holds.controller.ts:15"
+  },
+  {
+    "method": "GET",
+    "route": "/operational-holds/:holdId",
+    "permissions": [
+      "OPERATIONAL_HOLD_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\operational-holds\\operational-holds.controller.ts:25"
+  },
+  {
+    "method": "POST",
+    "route": "/containers/:visitId/holds",
+    "permissions": [
+      "OPERATIONAL_HOLD_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\operational-holds\\operational-holds.controller.ts:32"
+  },
+  {
+    "method": "POST",
+    "route": "/containers/:visitId/holds/:holdId/release",
+    "permissions": [
+      "OPERATIONAL_HOLD_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\operational-holds\\operational-holds.controller.ts:43"
+  },
+  {
+    "method": "POST",
+    "route": "/customer-warehouses",
+    "permissions": [
+      "MASTER_DATA_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\partner-handover\\controllers\\internal\\customer-warehouse.controller.ts:26"
+  },
+  {
+    "method": "GET",
+    "route": "/customer-warehouses",
+    "permissions": [
+      "MASTER_DATA_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\partner-handover\\controllers\\internal\\customer-warehouse.controller.ts:39"
+  },
+  {
+    "method": "GET",
+    "route": "/customer-warehouses/:id",
+    "permissions": [
+      "MASTER_DATA_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\partner-handover\\controllers\\internal\\customer-warehouse.controller.ts:48"
+  },
+  {
+    "method": "PATCH",
+    "route": "/customer-warehouses/:id",
+    "permissions": [
+      "MASTER_DATA_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\partner-handover\\controllers\\internal\\customer-warehouse.controller.ts:58"
+  },
+  {
+    "method": "GET",
+    "route": "/admin/partner-api-logs",
+    "permissions": [
+      "PARTNER_CLIENT_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\partner-handover\\controllers\\internal\\partner-api-log.controller.ts:11"
+  },
+  {
+    "method": "GET",
+    "route": "/admin/partner-api-logs/:id",
+    "permissions": [
+      "PARTNER_CLIENT_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\partner-handover\\controllers\\internal\\partner-api-log.controller.ts:17"
+  },
+  {
+    "method": "POST",
+    "route": "/admin/partner-clients",
+    "permissions": [
+      "PARTNER_CLIENT_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\partner-handover\\controllers\\internal\\partner-client.controller.ts:22"
+  },
+  {
+    "method": "GET",
+    "route": "/admin/partner-clients",
+    "permissions": [
+      "PARTNER_CLIENT_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\partner-handover\\controllers\\internal\\partner-client.controller.ts:36"
+  },
+  {
+    "method": "GET",
+    "route": "/admin/partner-clients/:id",
+    "permissions": [
+      "PARTNER_CLIENT_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\partner-handover\\controllers\\internal\\partner-client.controller.ts:42"
+  },
+  {
+    "method": "POST",
+    "route": "/admin/partner-clients/:id/rotate",
+    "permissions": [
+      "PARTNER_CLIENT_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\partner-handover\\controllers\\internal\\partner-client.controller.ts:49"
+  },
+  {
+    "method": "POST",
+    "route": "/admin/partner-clients/:id/revoke",
+    "permissions": [
+      "PARTNER_CLIENT_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\partner-handover\\controllers\\internal\\partner-client.controller.ts:63"
+  },
+  {
+    "method": "POST",
+    "route": "/handovers",
+    "permissions": [
+      "HANDOVER_CREATE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\partner-handover\\controllers\\internal\\transport-handover.controller.ts:28"
+  },
+  {
+    "method": "GET",
+    "route": "/handovers",
+    "permissions": [
+      "HANDOVER_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\partner-handover\\controllers\\internal\\transport-handover.controller.ts:45"
+  },
+  {
+    "method": "GET",
+    "route": "/handovers/:id",
+    "permissions": [
+      "HANDOVER_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\partner-handover\\controllers\\internal\\transport-handover.controller.ts:54"
+  },
+  {
+    "method": "POST",
+    "route": "/handovers/:id/publish",
+    "permissions": [
+      "HANDOVER_CREATE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\partner-handover\\controllers\\internal\\transport-handover.controller.ts:64"
+  },
+  {
+    "method": "POST",
+    "route": "/handovers/:id/icd-confirm",
+    "permissions": [
+      "HANDOVER_CONFIRM"
+    ],
+    "evidence": "apps\\api\\src\\modules\\partner-handover\\controllers\\internal\\transport-handover.controller.ts:81"
+  },
+  {
+    "method": "POST",
+    "route": "/handovers/:id/dispute",
+    "permissions": [
+      "HANDOVER_DISPUTE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\partner-handover\\controllers\\internal\\transport-handover.controller.ts:95"
+  },
+  {
+    "method": "GET",
+    "route": "/containers/:visitId/handover-summary",
+    "permissions": [
+      "HANDOVER_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\partner-handover\\controllers\\internal\\transport-handover.controller.ts:116"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/external/handovers",
+    "permissions": [],
+    "evidence": "apps\\api\\src\\modules\\partner-handover\\external\\controllers\\external-handovers.controller.ts:48"
+  },
+  {
+    "method": "GET",
+    "route": "/v1/external/handovers/:handoverId",
+    "permissions": [],
+    "evidence": "apps\\api\\src\\modules\\partner-handover\\external\\controllers\\external-handovers.controller.ts:57"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/external/handovers/:handoverId/accept",
+    "permissions": [],
+    "evidence": "apps\\api\\src\\modules\\partner-handover\\external\\controllers\\external-handovers.controller.ts:66"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/external/handovers/:handoverId/reject",
+    "permissions": [],
+    "evidence": "apps\\api\\src\\modules\\partner-handover\\external\\controllers\\external-handovers.controller.ts:93"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/external/handovers/:handoverId/in-transit",
+    "permissions": [],
+    "evidence": "apps\\api\\src\\modules\\partner-handover\\external\\controllers\\external-handovers.controller.ts:120"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/external/handovers/:handoverId/delivery-failed",
+    "permissions": [],
+    "evidence": "apps\\api\\src\\modules\\partner-handover\\external\\controllers\\external-handovers.controller.ts:153"
+  },
+  {
+    "method": "POST",
+    "route": "/v1/external/handovers/:handoverId/warehouse-received",
+    "permissions": [],
+    "evidence": "apps\\api\\src\\modules\\partner-handover\\external\\controllers\\external-handovers.controller.ts:186"
+  },
+  {
+    "method": "GET",
+    "route": "/reports/summary",
+    "permissions": [
+      "REPORTS_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\reports\\reports.controller.ts:36"
+  },
+  {
+    "method": "GET",
+    "route": "/reports/gate-activity",
+    "permissions": [
+      "REPORTS_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\reports\\reports.controller.ts:46"
+  },
+  {
+    "method": "GET",
+    "route": "/reports/container-turnover",
+    "permissions": [
+      "REPORTS_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\reports\\reports.controller.ts:56"
+  },
+  {
+    "method": "GET",
+    "route": "/reports/yard-inventory/current",
+    "permissions": [
+      "REPORTS_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\reports\\reports.controller.ts:66"
+  },
+  {
+    "method": "GET",
+    "route": "/reports/yard-inventory/eod",
+    "permissions": [
+      "REPORTS_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\reports\\reports.controller.ts:73"
+  },
+  {
+    "method": "GET",
+    "route": "/reports/revenue",
+    "permissions": [
+      "REPORTS_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\reports\\reports.controller.ts:83"
+  },
+  {
+    "method": "GET",
+    "route": "/reports/outstanding-debt",
+    "permissions": [
+      "REPORTS_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\reports\\reports.controller.ts:93"
+  },
+  {
+    "method": "GET",
+    "route": "/reports/export.xlsx",
+    "permissions": [
+      "REPORTS_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\reports\\reports.controller.ts:100"
+  },
+  {
+    "method": "GET",
+    "route": "/admin/permissions",
+    "permissions": [
+      "ROLES_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\roles\\permissions.controller.ts:14"
+  },
+  {
+    "method": "GET",
+    "route": "/admin/roles",
+    "permissions": [
+      "ROLES_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\roles\\roles.controller.ts:20"
+  },
+  {
+    "method": "GET",
+    "route": "/admin/roles/:roleId",
+    "permissions": [
+      "ROLES_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\roles\\roles.controller.ts:30"
+  },
+  {
+    "method": "POST",
+    "route": "/admin/roles",
+    "permissions": [
+      "ROLES_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\roles\\roles.controller.ts:43"
+  },
+  {
+    "method": "PATCH",
+    "route": "/admin/roles/:roleId",
+    "permissions": [
+      "ROLES_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\roles\\roles.controller.ts:56"
+  },
+  {
+    "method": "PUT",
+    "route": "/admin/roles/:roleId/permissions",
+    "permissions": [
+      "ROLES_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\roles\\roles.controller.ts:72"
+  },
+  {
+    "method": "GET",
+    "route": "/admin/settings",
+    "permissions": [
+      "SETTINGS_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\settings\\settings.controller.ts:13"
+  },
+  {
+    "method": "PATCH",
+    "route": "/admin/settings/:key",
+    "permissions": [
+      "SETTINGS_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\settings\\settings.controller.ts:19"
+  },
+  {
+    "method": "GET",
+    "route": "/gate/truck-visits",
+    "permissions": [
+      "TRUCK_VISIT_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\truck-visits\\truck-visits.controller.ts:27"
+  },
+  {
+    "method": "GET",
+    "route": "/gate/truck-visits/:visitId",
+    "permissions": [
+      "TRUCK_VISIT_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\truck-visits\\truck-visits.controller.ts:33"
+  },
+  {
+    "method": "POST",
+    "route": "/gate/truck-visits",
+    "permissions": [
+      "TRUCK_VISIT_CREATE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\truck-visits\\truck-visits.controller.ts:42"
+  },
+  {
+    "method": "POST",
+    "route": "/gate/truck-visits/:visitId/arrive",
+    "permissions": [
+      "TRUCK_VISIT_ARRIVE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\truck-visits\\truck-visits.controller.ts:49"
+  },
+  {
+    "method": "POST",
+    "route": "/gate/truck-visits/:visitId/cancel",
+    "permissions": [
+      "TRUCK_VISIT_CANCEL"
+    ],
+    "evidence": "apps\\api\\src\\modules\\truck-visits\\truck-visits.controller.ts:60"
+  },
+  {
+    "method": "GET",
+    "route": "/admin/users",
+    "permissions": [
+      "USERS_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\users\\users.controller.ts:28"
+  },
+  {
+    "method": "GET",
+    "route": "/admin/users/:userId",
+    "permissions": [
+      "USERS_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\users\\users.controller.ts:40"
+  },
+  {
+    "method": "POST",
+    "route": "/admin/users",
+    "permissions": [
+      "USERS_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\users\\users.controller.ts:56"
+  },
+  {
+    "method": "PATCH",
+    "route": "/admin/users/:userId",
+    "permissions": [
+      "USERS_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\users\\users.controller.ts:72"
+  },
+  {
+    "method": "POST",
+    "route": "/admin/users/:userId/activate",
+    "permissions": [
+      "USERS_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\users\\users.controller.ts:91"
+  },
+  {
+    "method": "POST",
+    "route": "/admin/users/:userId/deactivate",
+    "permissions": [
+      "USERS_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\users\\users.controller.ts:104"
+  },
+  {
+    "method": "PUT",
+    "route": "/admin/users/:userId/roles",
+    "permissions": [
+      "USERS_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\users\\users.controller.ts:117"
+  },
+  {
+    "method": "PUT",
+    "route": "/admin/users/:userId/password",
+    "permissions": [
+      "USERS_MANAGE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\users\\users.controller.ts:136"
+  },
+  {
+    "method": "GET",
+    "route": "/containers/work-queue",
+    "permissions": [],
+    "evidence": "apps\\api\\src\\modules\\work-queue\\work-queue.controller.ts:13"
+  },
+  {
+    "method": "GET",
+    "route": "/containers/work-queue/stats",
+    "permissions": [],
+    "evidence": "apps\\api\\src\\modules\\work-queue\\work-queue.controller.ts:21"
+  },
+  {
+    "method": "GET",
+    "route": "/yard/blocks",
+    "permissions": [
+      "YARD_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:47"
+  },
+  {
+    "method": "POST",
+    "route": "/yard/blocks",
+    "permissions": [
+      "YARD_CONFIGURE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:55"
+  },
+  {
+    "method": "PATCH",
+    "route": "/yard/blocks/:blockId",
+    "permissions": [
+      "YARD_CONFIGURE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:63"
+  },
+  {
+    "method": "GET",
+    "route": "/yard/slots",
+    "permissions": [
+      "YARD_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:75"
+  },
+  {
+    "method": "POST",
+    "route": "/yard/blocks/:blockId/slots",
+    "permissions": [
+      "YARD_CONFIGURE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:81"
+  },
+  {
+    "method": "PATCH",
+    "route": "/yard/slots/:slotId",
+    "permissions": [
+      "YARD_CONFIGURE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:93"
+  },
+  {
+    "method": "GET",
+    "route": "/containers/:visitId/yard/recommendations",
+    "permissions": [
+      "YARD_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:109"
+  },
+  {
+    "method": "POST",
+    "route": "/containers/:visitId/yard/check",
+    "permissions": [
+      "YARD_UPDATE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:120"
+  },
+  {
+    "method": "POST",
+    "route": "/containers/:visitId/yard/assign",
+    "permissions": [
+      "YARD_UPDATE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:132"
+  },
+  {
+    "method": "GET",
+    "route": "/containers/:visitId/yard/location",
+    "permissions": [
+      "YARD_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:144"
+  },
+  {
+    "method": "GET",
+    "route": "/yard/movements",
+    "permissions": [
+      "YARD_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:159"
+  },
+  {
+    "method": "GET",
+    "route": "/yard/movements/:id",
+    "permissions": [
+      "YARD_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:165"
+  },
+  {
+    "method": "POST",
+    "route": "/containers/:visitId/yard/movements",
+    "permissions": [
+      "YARD_MOVE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:173"
+  },
+  {
+    "method": "POST",
+    "route": "/yard/movements/:id/start",
+    "permissions": [
+      "YARD_MOVE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:185"
+  },
+  {
+    "method": "POST",
+    "route": "/yard/movements/:id/complete",
+    "permissions": [
+      "YARD_MOVE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:193"
+  },
+  {
+    "method": "POST",
+    "route": "/yard/movements/:id/cancel",
+    "permissions": [
+      "YARD_MOVE"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:201"
+  },
+  {
+    "method": "GET",
+    "route": "/yard/inspections",
+    "permissions": [
+      "YARD_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:217"
+  },
+  {
+    "method": "GET",
+    "route": "/yard/inspections/:id",
+    "permissions": [
+      "YARD_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:226"
+  },
+  {
+    "method": "POST",
+    "route": "/containers/:visitId/inspections",
+    "permissions": [
+      "YARD_INSPECT"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:234"
+  },
+  {
+    "method": "POST",
+    "route": "/inspections/:id/start",
+    "permissions": [
+      "YARD_INSPECT"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:246"
+  },
+  {
+    "method": "POST",
+    "route": "/inspections/:id/complete",
+    "permissions": [
+      "YARD_INSPECT"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:254"
+  },
+  {
+    "method": "POST",
+    "route": "/inspections/:id/cancel",
+    "permissions": [
+      "YARD_INSPECT"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:266"
+  },
+  {
+    "method": "GET",
+    "route": "/yard/bookings",
+    "permissions": [
+      "YARD_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:282"
+  },
+  {
+    "method": "GET",
+    "route": "/yard/bookings/:id",
+    "permissions": [
+      "YARD_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:288"
+  },
+  {
+    "method": "POST",
+    "route": "/containers/:visitId/yard-bookings",
+    "permissions": [
+      "YARD_BOOKING"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:296"
+  },
+  {
+    "method": "POST",
+    "route": "/yard/bookings/:id/start",
+    "permissions": [
+      "YARD_BOOKING"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:308"
+  },
+  {
+    "method": "POST",
+    "route": "/yard/bookings/:id/complete",
+    "permissions": [
+      "YARD_BOOKING"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:316"
+  },
+  {
+    "method": "POST",
+    "route": "/yard/bookings/:id/cancel",
+    "permissions": [
+      "YARD_BOOKING"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:328"
+  },
+  {
+    "method": "GET",
+    "route": "/containers/:visitId/yard/operations/active-summary",
+    "permissions": [
+      "YARD_READ"
+    ],
+    "evidence": "apps\\api\\src\\modules\\yard\\yard.controller.ts:344"
+  }
+]

@@ -1,0 +1,43 @@
+--- before/apps/web/src/services/api/auth-boundary.test.ts
++++ after/apps/web/src/services/api/auth-boundary.test.ts
+@@ -0,0 +1,40 @@
++import assert from 'node:assert/strict';
++import test from 'node:test';
++import { authService } from './auth.service';
++import { apiClient } from './client';
++
++test('login rejects malformed token responses before storing a session', async () => {
++  const stored = new Map<string, string>();
++  const previousStorage = Object.getOwnPropertyDescriptor(globalThis, 'localStorage');
++  Object.defineProperty(globalThis, 'localStorage', {
++    configurable: true,
++    value: {
++      getItem: (key: string) => stored.get(key) ?? null,
++      setItem: (key: string, value: string) => {
++        stored.set(key, value);
++      },
++      removeItem: (key: string) => {
++        stored.delete(key);
++      },
++    },
++  });
++  const originalAdapter = apiClient.raw.defaults.adapter;
++  apiClient.raw.defaults.adapter = async (config) => ({
++    data: { data: { accessToken: 17, refreshToken: {}, user: {} } },
++    status: 200,
++    statusText: 'OK',
++    headers: {},
++    config,
++  });
++  try {
++    await assert.rejects(
++      authService.login({ email: 'user@example.test', password: 'password' }),
++      /Invalid authentication response/,
++    );
++    assert.equal(stored.size, 0);
++  } finally {
++    apiClient.raw.defaults.adapter = originalAdapter;
++    if (previousStorage) Object.defineProperty(globalThis, 'localStorage', previousStorage);
++    else Reflect.deleteProperty(globalThis, 'localStorage');
++  }
++});

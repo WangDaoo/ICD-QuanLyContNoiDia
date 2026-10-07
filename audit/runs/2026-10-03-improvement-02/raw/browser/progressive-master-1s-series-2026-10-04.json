@@ -1,0 +1,33 @@
+{
+  "role": "ADMIN",
+  "configId": "progressive-containers-1s-oct04",
+  "slowResource": "GET /api/containers",
+  "delayMs": 1000,
+  "series": [
+    {
+      "stage": "start",
+      "at": "2026-10-03T21:54:34.745Z"
+    },
+    {
+      "stage": "initial",
+      "at": "2026-10-03T21:54:34.947Z",
+      "snapshot": "- main:\n  - heading \"Khôi phục phiên làm việc\" [level=1]\n  - status:\n    - text: Đang kiểm tra phiên làm việc…"
+    },
+    {
+      "stage": "partial",
+      "at": "2026-10-03T21:54:35.485Z",
+      "proof": {
+        "globalPending": "true",
+        "knownRow": "Maersk Line (A.P. Moller)\tMAEU\tACTIVE\tKhóa"
+      }
+    },
+    {
+      "stage": "complete",
+      "at": "2026-10-03T21:54:37.226Z",
+      "proof": {
+        "globalPending": "false"
+      }
+    }
+  ],
+  "timingMethod": "Host CUA observation timestamps, not input-to-paint latency"
+}

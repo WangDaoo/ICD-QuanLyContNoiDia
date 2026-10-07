@@ -1,0 +1,14 @@
+✔ dirty modal blocks browser Back when the leave choice is cancelled (541.411ms)
+✔ accepted Back suspends the native dialog and Forward restores the same draft and focus (389.1779ms)
+✔ pending save blocks browser Back without issuing a second command (367.8428ms)
+✔ filter-only query replacement leaves the dirty dialog open without a leave prompt (214.9452ms)
+✔ internal navigation has exactly one dirty leave prompt and can be cancelled (232.9411ms)
+✔ hidden dialogs do not block active-page navigation or reload (144.3015ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7612.2689

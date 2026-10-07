@@ -1,0 +1,27 @@
+{
+  "status": "VERIFIED",
+  "change": "Router URL state, user-scoped query state, retained draft and dirty/pending navigation guards.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/App.tsx",
+      "line": 5,
+      "detail": "useBlocker",
+      "snippet": "  useBlocker,\n  useLocation,\n  useNavigate,\n} from 'react-router-dom';"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/browser/navigation-draft-runtime.json",
+    "audit/runs/2026-10-03-improvement-02/raw/web-fixtures-final.txt"
+  ],
+  "limitations": "Real browser Back/Forward/cancel/accept, Tab/Shift+Tab/Escape; late logout clears user-scoped views.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [
+    "Navigate A>B, use browser Back: A and its record/filter/scroll selection restore.",
+    "A copied URL or reload opens the requested authorized destination and record.",
+    "Leaving a dirty multi-field form preserves a draft or gives an explicit discard choice."
+  ],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/App.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

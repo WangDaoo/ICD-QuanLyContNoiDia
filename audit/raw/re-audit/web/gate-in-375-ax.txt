@@ -1,0 +1,39 @@
+Browser tab: 22, Title: "ICD Management System — Quản lý Kho bãi Container Nội địa", URL: "http://127.0.0.1:5173/".
+1 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/
+	2 container root
+		41 container
+			102 button Mở menu điều hướng
+			42 text ICD
+			43 heading ICD Management System, Value: 1
+				44 text ICD Management System
+			46 button Tải lại dữ liệu
+			47 button (collapsed) Description: Thông báo (0 chưa đọc), Secondary Actions: Expand
+			49 button Đăng xuất
+		40 container
+			103 heading Tiếp nhận container vào cổng, Value: 2
+				104 text Tiếp nhận container vào cổng
+			105 text Đối chiếu xe đã đến, seal và trọng lượng thực tế trước khi tiếp nhận.
+			106 container
+				107 text Container chờ tiếp nhận
+				108 pop up button (collapsed, settable) Container chờ tiếp nhận, Value: Chọn container, Secondary Actions: Expand
+					109 menu
+						110 (selected) Chọn container
+						111 HACU2938475 · AUTHORIZED
+			112 container
+				113 text Chuyến xe đã đến cổng
+				114 pop up button (collapsed, settable) Chuyến xe đã đến cổng, Value: Chọn xe ARRIVED, Secondary Actions: Expand
+					115 menu
+						116 (selected) Chọn xe ARRIVED
+			117 container
+				118 text Seal thực tế
+				119 text field (settable) Seal thực tế
+			120 container
+				121 text Trọng lượng thực tế (kg)
+				122 stepper (settable) Trọng lượng thực tế (kg)
+			123 container
+				124 text Ghi chú tình trạng container
+				125 text entry area (settable) Ghi chú tình trạng container
+			126 button (disabled) Xác nhận gate-in
+			127 button Xem chuyến xe
+
+The focused UI element is 1 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/

@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED",
+  "change": "Heading line-height set to1.25 within the agreed1.1–1.3 range.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/index.css",
+      "line": 32,
+      "detail": "h1, h2, h3",
+      "snippet": "h1, h2, h3, h4, h5, h6 { line-height: 1.25; overflow-wrap: anywhere; }\n.text-slate-400, .text-slate-500 { color: var(--icd-text-secondary); }\naside .text-slate-400, aside .text-slate-500 { color: var(--icd-text-on-dark-secondary); }\n.bg-slate-900 .text-slate-400, .bg-slate-900 .text-slate-500,"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/browser/axe-dashboard-final.json"
+  ],
+  "limitations": "CSS and sampled computed headings; no claim all content role exceptions are audited.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/index.css.diff"
+  ],
+  "isolated_review_diffs": []
+}

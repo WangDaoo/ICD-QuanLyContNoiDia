@@ -1,0 +1,38 @@
+{
+  "reviewed_at": "2026-10-03T23:25:40.171826+07:00",
+  "metrics": {
+    "web": {
+      "ux_min": 70.4090909090909,
+      "ux_max": 100.0,
+      "nielsen_observed": 100.0,
+      "nielsen_range": [
+        0.0,
+        100.0
+      ],
+      "coverage": 0.8
+    },
+    "mobile": {
+      "ux_min": 60.55303030303031,
+      "ux_max": 100.0,
+      "nielsen_observed": 45.0,
+      "nielsen_range": [
+        0.0,
+        45.0
+      ],
+      "coverage": 0.68
+    }
+  },
+  "passed_checks": [
+    "Rubric observation IDs and dimensions/criterion/weights are identical to baseline (104 observations).",
+    "All criterion counts, applicability, denominators, weighted dimension/total UX scores, coverage fractions and ten-heuristic Nielsen totals recompute exactly.",
+    "All 51 current source anchors and snippets match current source; all finding-linked evidence/diffs and 51 fix logs exist. Ledger statuses agree.",
+    "All seven protected historical files match checkpoint-manifest SHA256. Root scores/findings match baseline copied artifacts: [{'file': 'audit/scores.json', 'matches_snapshot': False}, {'file': 'audit/findings.json', 'matches_snapshot': False}].",
+    "All 137 unique report local links resolve to existing files.",
+    "No configured secret value, test UI password, JWT-shaped credential or Bearer token found in report and 87 directly linked text artifacts. Binary screenshot contents not text-scanned.",
+    "QR runtime decode result PASS, matching backend token SHA256; actual token excluded from JSON, synthetic test pass CANCELLED.",
+    "Fresh raw test logs explicitly report web123+source80+billing4 and mobile175 PASS, zero failed."
+  ],
+  "report_links": 137,
+  "source_anchors": 51,
+  "scope": "Independent artifact review; no source edits, no runtime/native claim."
+}

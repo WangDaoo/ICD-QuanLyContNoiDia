@@ -1,0 +1,134 @@
+diff --git "a/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\before\\apps\\web\\src\\components\\ManifestsView.tsx" "b/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\after\\apps\\web\\src\\components\\ManifestsView.tsx"
+index 138601e..4f5e8f9 100644
+--- "a/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\before\\apps\\web\\src\\components\\ManifestsView.tsx"	
++++ "b/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\after\\apps\\web\\src\\components\\ManifestsView.tsx"	
+@@ -378,8 +378,8 @@ export const ManifestsView: React.FC = () => {
+               <p className="text-slate-500">Mã Manifest được backend cấp sau khi lưu.</p>
+               <div className="grid grid-cols-2 gap-3">
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">Tên Tàu (Vessel)*</label>
+-                  <input
++                  <label htmlFor="manifests-new-vessel" className="block font-semibold text-slate-700 mb-1">Tên Tàu (Vessel)*</label>
++                  <input id="manifests-new-vessel"
+                     type="text"
+                     required
+                     placeholder="Ví dụ: WAN HAI 502"
+@@ -389,8 +389,8 @@ export const ManifestsView: React.FC = () => {
+                   />
+                 </div>
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">Số Chuyến (Voyage)*</label>
+-                  <input
++                  <label htmlFor="manifests-new-voyage" className="block font-semibold text-slate-700 mb-1">Số Chuyến (Voyage)*</label>
++                  <input id="manifests-new-voyage"
+                     type="text"
+                     required
+                     placeholder="Ví dụ: V.245N"
+@@ -403,8 +403,8 @@ export const ManifestsView: React.FC = () => {
+ 
+               <div className="grid grid-cols-2 gap-3">
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">Hãng tàu (Shipping Line)*</label>
+-                  <select
++                  <label htmlFor="manifests-new-shipping-line" className="block font-semibold text-slate-700 mb-1">Hãng tàu (Shipping Line)*</label>
++                  <select id="manifests-new-shipping-line"
+                     value={newShippingLine}
+                     onChange={(e) => setNewShippingLine(e.target.value)}
+                     className="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white"
+@@ -414,8 +414,8 @@ export const ManifestsView: React.FC = () => {
+                   </select>
+                 </div>
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">Ngày tàu đến (ETA)*</label>
+-                  <input
++                  <label htmlFor="manifests-new-eta" className="block font-semibold text-slate-700 mb-1">Ngày tàu đến (ETA)*</label>
++                  <input id="manifests-new-eta"
+                     type="date"
+                     required
+                     value={newEta}
+@@ -427,8 +427,8 @@ export const ManifestsView: React.FC = () => {
+ 
+               <div className="grid grid-cols-2 gap-3">
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">Cảng xếp hàng (POL)</label>
+-                  <input
++                  <label htmlFor="manifests-new-pol" className="block font-semibold text-slate-700 mb-1">Cảng xếp hàng (POL)</label>
++                  <input id="manifests-new-pol"
+                     type="text"
+                     value={newPol}
+                     onChange={(e) => setNewPol(e.target.value)}
+@@ -436,8 +436,8 @@ export const ManifestsView: React.FC = () => {
+                   />
+                 </div>
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">Cảng dỡ / Cảng đích (POD)</label>
+-                  <input
++                  <label htmlFor="manifests-new-pod" className="block font-semibold text-slate-700 mb-1">Cảng dỡ / Cảng đích (POD)</label>
++                  <input id="manifests-new-pod"
+                     type="text"
+                     value={newPod}
+                     onChange={(e) => setNewPod(e.target.value)}
+@@ -473,8 +473,8 @@ export const ManifestsView: React.FC = () => {
+             <h3 id="manifests-dialog-2-title" className="text-base font-bold text-slate-900 mb-4">Thêm Master BL vào {selectedManifest.manifestNo}</h3>
+             <div className="space-y-3">
+               <div>
+-                <label className="block font-semibold text-slate-700 mb-1">Số MBL*</label>
+-                <input
++                <label htmlFor="manifests-mbl-number" className="block font-semibold text-slate-700 mb-1">Số MBL*</label>
++                <input id="manifests-mbl-number"
+                   type="text"
+                   value={mblNumber}
+                   onChange={(e) => setMblNumber(e.target.value)}
+@@ -483,8 +483,8 @@ export const ManifestsView: React.FC = () => {
+                 />
+               </div>
+               <div>
+-                <label className="block font-semibold text-slate-700 mb-1">Hãng tàu*</label>
+-                <select value={mblLine} onChange={(e) => setMblLine(e.target.value)} className="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white">
++                <label htmlFor="manifests-mbl-line" className="block font-semibold text-slate-700 mb-1">Hãng tàu*</label>
++                <select id="manifests-mbl-line" value={mblLine} onChange={(e) => setMblLine(e.target.value)} className="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white">
+                   <option value="">Chọn hãng tàu</option>
+                   {shippingLines.filter(line => line.active).map(line => <option key={line.id} value={line.id}>{line.name}</option>)}
+                 </select>
+@@ -517,29 +517,29 @@ export const ManifestsView: React.FC = () => {
+             <h3 id="manifests-dialog-3-title" className="text-base font-bold text-slate-900 mb-4">Thêm House BL</h3>
+             <div className="space-y-3">
+               <div>
+-                <label className="block font-semibold text-slate-700 mb-1">Số HBL*</label>
+-                <input type="text" value={hblForm.hblNumber} onChange={(e) => setHblForm({ ...hblForm, hblNumber: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
++                <label htmlFor="manifests-hbl-form-hbl-number" className="block font-semibold text-slate-700 mb-1">Số HBL*</label>
++                <input id="manifests-hbl-form-hbl-number" type="text" value={hblForm.hblNumber} onChange={(e) => setHblForm({ ...hblForm, hblNumber: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
+               </div>
+               <div>
+-                <label className="block font-semibold text-slate-700 mb-1">Chủ hàng (Consignee)*</label>
+-                <select value={hblForm.consigneeName} onChange={(e) => setHblForm({ ...hblForm, consigneeName: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg"><option value="">Chọn từ danh mục</option>{consignees.filter(item => item.active).map(item => <option key={item.id} value={item.id}>{item.name}</option>)}</select>
++                <label htmlFor="manifests-hbl-form-consignee-name" className="block font-semibold text-slate-700 mb-1">Chủ hàng (Consignee)*</label>
++                <select id="manifests-hbl-form-consignee-name" value={hblForm.consigneeName} onChange={(e) => setHblForm({ ...hblForm, consigneeName: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg"><option value="">Chọn từ danh mục</option>{consignees.filter(item => item.active).map(item => <option key={item.id} value={item.id}>{item.name}</option>)}</select>
+               </div>
+               <div>
+-                <label className="block font-semibold text-slate-700 mb-1">Đại lý thông quan</label>
+-                <select value={hblForm.clearingAgentName} onChange={(e) => setHblForm({ ...hblForm, clearingAgentName: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg"><option value="">Chọn từ danh mục</option>{clearingAgents.filter(item => item.active).map(item => <option key={item.id} value={item.id}>{item.name}</option>)}</select>
++                <label htmlFor="manifests-hbl-form-clearing-agent-name" className="block font-semibold text-slate-700 mb-1">Đại lý thông quan</label>
++                <select id="manifests-hbl-form-clearing-agent-name" value={hblForm.clearingAgentName} onChange={(e) => setHblForm({ ...hblForm, clearingAgentName: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg"><option value="">Chọn từ danh mục</option>{clearingAgents.filter(item => item.active).map(item => <option key={item.id} value={item.id}>{item.name}</option>)}</select>
+               </div>
+               <div>
+-                <label className="block font-semibold text-slate-700 mb-1">Mô tả hàng hóa</label>
+-                <input type="text" value={hblForm.cargoDescription} onChange={(e) => setHblForm({ ...hblForm, cargoDescription: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
++                <label htmlFor="manifests-hbl-form-cargo-description" className="block font-semibold text-slate-700 mb-1">Mô tả hàng hóa</label>
++                <input id="manifests-hbl-form-cargo-description" type="text" value={hblForm.cargoDescription} onChange={(e) => setHblForm({ ...hblForm, cargoDescription: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
+               </div>
+               <div className="grid grid-cols-2 gap-3">
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">Trọng lượng (kg)</label>
+-                  <input type="number" value={hblForm.grossWeightKg} onChange={(e) => setHblForm({ ...hblForm, grossWeightKg: Number(e.target.value) })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
++                  <label htmlFor="manifests-hbl-form-gross-weight-kg" className="block font-semibold text-slate-700 mb-1">Trọng lượng (kg)</label>
++                  <input id="manifests-hbl-form-gross-weight-kg" type="number" value={hblForm.grossWeightKg} onChange={(e) => setHblForm({ ...hblForm, grossWeightKg: Number(e.target.value) })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
+                 </div>
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">Số kiện</label>
+-                  <input type="number" value={hblForm.packageCount} onChange={(e) => setHblForm({ ...hblForm, packageCount: Number(e.target.value) })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
++                  <label htmlFor="manifests-hbl-form-package-count" className="block font-semibold text-slate-700 mb-1">Số kiện</label>
++                  <input id="manifests-hbl-form-package-count" type="number" value={hblForm.packageCount} onChange={(e) => setHblForm({ ...hblForm, packageCount: Number(e.target.value) })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
+                 </div>
+               </div>
+             </div>

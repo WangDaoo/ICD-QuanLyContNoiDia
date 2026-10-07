@@ -1,0 +1,179 @@
+✖ viewfinder exposes corner guide, close, torch and manual fallback controls (1.6532ms)
+✖ gate pass camera reads only QR and preserves complete case-sensitive token once (0.5056ms)
+✖ wrong-kind QR stays open without forwarding a Gate Pass code to the backend (0.4131ms)
+✖ container mode supports label barcodes and extracts the actual container number (0.3717ms)
+✖ hidden, unfocused and background scanner remove camera and reject old callbacks (1.0578ms)
+✖ torch only works after readiness and resets when app goes to background (0.6683ms)
+✖ permission is requested explicitly and denied camera has a manual fallback (0.683ms)
+✖ camera mount failure shows retry and old failed-camera callback cannot scan (0.5853ms)
+✖ browser shows honest unavailable-camera state and never requests camera (0.6034ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 0
+ℹ fail 9
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 495.0864
+
+✖ failing tests:
+
+test at apps\mobile\tests\code-scanner.test.cjs:73:1
+✖ viewfinder exposes corner guide, close, torch and manual fallback controls (1.6532ms)
+  Error: ENOENT: no such file or directory, open 'D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\src\components\CodeScanner.tsx'
+      at Object.readFileSync (node:fs:439:20)
+      at createScanner (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\code-scanner.test.cjs:59:41)
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\code-scanner.test.cjs:74:18)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: 'D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\apps\\mobile\\src\\components\\CodeScanner.tsx'
+  }
+
+test at apps\mobile\tests\code-scanner.test.cjs:82:1
+✖ gate pass camera reads only QR and preserves complete case-sensitive token once (0.5056ms)
+  Error: ENOENT: no such file or directory, open 'D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\src\components\CodeScanner.tsx'
+      at Object.readFileSync (node:fs:439:20)
+      at createScanner (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\code-scanner.test.cjs:59:41)
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\code-scanner.test.cjs:83:18)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: 'D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\apps\\mobile\\src\\components\\CodeScanner.tsx'
+  }
+
+test at apps\mobile\tests\code-scanner.test.cjs:91:1
+✖ wrong-kind QR stays open without forwarding a Gate Pass code to the backend (0.4131ms)
+  Error: ENOENT: no such file or directory, open 'D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\src\components\CodeScanner.tsx'
+      at Object.readFileSync (node:fs:439:20)
+      at createScanner (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\code-scanner.test.cjs:59:41)
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\code-scanner.test.cjs:92:18)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: 'D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\apps\\mobile\\src\\components\\CodeScanner.tsx'
+  }
+
+test at apps\mobile\tests\code-scanner.test.cjs:101:1
+✖ container mode supports label barcodes and extracts the actual container number (0.3717ms)
+  Error: ENOENT: no such file or directory, open 'D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\src\components\CodeScanner.tsx'
+      at Object.readFileSync (node:fs:439:20)
+      at createScanner (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\code-scanner.test.cjs:59:41)
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\code-scanner.test.cjs:102:18)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: 'D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\apps\\mobile\\src\\components\\CodeScanner.tsx'
+  }
+
+test at apps\mobile\tests\code-scanner.test.cjs:110:1
+✖ hidden, unfocused and background scanner remove camera and reject old callbacks (1.0578ms)
+  Error: ENOENT: no such file or directory, open 'D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\src\components\CodeScanner.tsx'
+      at Object.readFileSync (node:fs:439:20)
+      at createScanner (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\code-scanner.test.cjs:59:41)
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\code-scanner.test.cjs:112:20)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: 'D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\apps\\mobile\\src\\components\\CodeScanner.tsx'
+  }
+
+test at apps\mobile\tests\code-scanner.test.cjs:124:1
+✖ torch only works after readiness and resets when app goes to background (0.6683ms)
+  Error: ENOENT: no such file or directory, open 'D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\src\components\CodeScanner.tsx'
+      at Object.readFileSync (node:fs:439:20)
+      at createScanner (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\code-scanner.test.cjs:59:41)
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\code-scanner.test.cjs:125:18)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: 'D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\apps\\mobile\\src\\components\\CodeScanner.tsx'
+  }
+
+test at apps\mobile\tests\code-scanner.test.cjs:134:1
+✖ permission is requested explicitly and denied camera has a manual fallback (0.683ms)
+  Error: ENOENT: no such file or directory, open 'D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\src\components\CodeScanner.tsx'
+      at Object.readFileSync (node:fs:439:20)
+      at createScanner (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\code-scanner.test.cjs:59:41)
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\code-scanner.test.cjs:135:18)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: 'D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\apps\\mobile\\src\\components\\CodeScanner.tsx'
+  }
+
+test at apps\mobile\tests\code-scanner.test.cjs:143:1
+✖ camera mount failure shows retry and old failed-camera callback cannot scan (0.5853ms)
+  Error: ENOENT: no such file or directory, open 'D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\src\components\CodeScanner.tsx'
+      at Object.readFileSync (node:fs:439:20)
+      at createScanner (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\code-scanner.test.cjs:59:41)
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\code-scanner.test.cjs:144:18)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: 'D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\apps\\mobile\\src\\components\\CodeScanner.tsx'
+  }
+
+test at apps\mobile\tests\code-scanner.test.cjs:155:1
+✖ browser shows honest unavailable-camera state and never requests camera (0.6034ms)
+  Error: ENOENT: no such file or directory, open 'D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\src\components\CodeScanner.tsx'
+      at Object.readFileSync (node:fs:439:20)
+      at createScanner (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\code-scanner.test.cjs:59:41)
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\code-scanner.test.cjs:156:18)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: 'D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\apps\\mobile\\src\\components\\CodeScanner.tsx'
+  }

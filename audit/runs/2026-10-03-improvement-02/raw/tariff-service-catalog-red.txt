@@ -1,0 +1,30 @@
+✖ Tariff rule picker uses the canonical service catalog including custom codes and units (439.715ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7160.8772
+
+✖ failing tests:
+
+test at audit\tools\improvement-web-business.test.mjs:235:1
+✖ Tariff rule picker uses the canonical service catalog including custom codes and units (439.715ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok([...select.options].some(option=>option.value==='CUSTOM_LIFT' && option.textContent.includes('Nâng hạ tổng hợp')))
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:240:12)
+      at async withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:42:5)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:237:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

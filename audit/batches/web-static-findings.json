@@ -1,0 +1,1701 @@
+{
+  "schema_version": 1,
+  "scope": "Current web app source only; report-only; no app code/config/test changes or business writes",
+  "generated_at": "2026-10-02T19:59:40.423Z",
+  "theme": {
+    "main": "Existing light application surfaces and dark navigation",
+    "login": "Existing fixed dark branding surface",
+    "alternate_web_dark_mode": "N/A; no alternate web theme selector/state found"
+  },
+  "methods": [
+    "Read using-superpowers and rtk (rtk 0.37.1 available).",
+    "Applied frontend-law-auditor and kz-uicheck as evidence/criteria, with explicit missing metrics; no intrusive scripts run by this agent.",
+    "TypeScript AST extraction of every web source/test/CSS file (no app imports/execution).",
+    "Targeted manual review of screen handlers, JSX semantics, navigation/state contracts, shared CSS, context/mappers/API helpers and test sources.",
+    "No browser operations, tests, business writes or application edits were performed by the static agent."
+  ],
+  "evidence_artifact": "audit/raw/baseline/web/static-source-inventory.json",
+  "coverage": {
+    "source_files": 65,
+    "active_tsx_component_files": 26,
+    "active_view_component_files": 21,
+    "sidebar_destinations": 18,
+    "source_control_elements": 282,
+    "screens": [
+      {
+        "component": "WebLoginView",
+        "file": "apps/web/src/components/WebLoginView.tsx",
+        "states_reviewed": "Signed-out login; password visibility; submitting; auth failure",
+        "role": "public",
+        "method": "AST all-source extraction plus targeted manual handler/control/state inspection",
+        "runtime": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT"
+      },
+      {
+        "component": "DashboardView",
+        "file": "apps/web/src/components/DashboardView.tsx",
+        "states_reviewed": "KPI/gate activity/free-days/holds/EDI overview; conditional overdue and empty subpanels",
+        "role": "all authenticated",
+        "method": "AST all-source extraction plus targeted manual handler/control/state inspection",
+        "runtime": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT"
+      },
+      {
+        "component": "WorkQueueView",
+        "file": "apps/web/src/components/WorkQueueView.tsx",
+        "states_reviewed": "Urgency/type/own-role filters; task cards; no-matches; contextual task actions",
+        "role": "permitted work-queue read paths",
+        "method": "AST all-source extraction plus targeted manual handler/control/state inspection",
+        "runtime": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT"
+      },
+      {
+        "component": "ManifestsView",
+        "file": "apps/web/src/components/ManifestsView.tsx",
+        "states_reviewed": "Search/list/detail; ISO tool; create; MBL/HBL add; submit/cancel",
+        "role": "manifest.read; write actions presently not gated",
+        "method": "AST all-source extraction plus targeted manual handler/control/state inspection",
+        "runtime": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT"
+      },
+      {
+        "component": "ContainersView",
+        "file": "apps/web/src/components/ContainersView.tsx",
+        "states_reviewed": "Search/state/blocker filters; create; 360 Overview/Yard Ops/Billing/Gate Pass/Timeline/Holds; local readiness; hold add/release",
+        "role": "container.read; write actions presently not gated",
+        "method": "AST all-source extraction plus targeted manual handler/control/state inspection",
+        "runtime": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT"
+      },
+      {
+        "component": "MovementOrdersView",
+        "file": "apps/web/src/components/MovementOrdersView.tsx",
+        "states_reviewed": "Search/list/status; create for eligible PENDING; expiry field; authorize/cancel; Truck shortcut",
+        "role": "movement_order.read",
+        "method": "AST all-source extraction plus targeted manual handler/control/state inspection",
+        "runtime": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT"
+      },
+      {
+        "component": "TruckVisitsView",
+        "file": "apps/web/src/components/TruckVisitsView.tsx",
+        "states_reviewed": "Search/cards; scheduled/arrived/completed; create Gate-in/Gate-out; arrival/Gate-in shortcut",
+        "role": "truck_visit.read",
+        "method": "AST all-source extraction plus targeted manual handler/control/state inspection",
+        "runtime": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT"
+      },
+      {
+        "component": "GateInView",
+        "file": "apps/web/src/components/GateInView.tsx",
+        "states_reviewed": "Eligible visit/matching arrived truck; seal/weight mismatch validation; pending; success next-step",
+        "role": "gate_in.create",
+        "method": "AST all-source extraction plus targeted manual handler/control/state inspection",
+        "runtime": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT"
+      },
+      {
+        "component": "YardView",
+        "file": "apps/web/src/components/YardView.tsx",
+        "states_reviewed": "Map/List/Assignment/Operations; list filters; Block/Slot config; permission/pending/notices",
+        "role": "yard.read with specific writes",
+        "method": "AST all-source extraction plus targeted manual handler/control/state inspection",
+        "runtime": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT"
+      },
+      {
+        "component": "YardSiteMap",
+        "file": "apps/web/src/components/yard/YardSiteMap.tsx",
+        "states_reviewed": "Slot/state colors; legend; block/tier/search; sparse geometry; slot dialog and actions",
+        "role": "yard.read with specific writes",
+        "method": "AST all-source extraction plus targeted manual handler/control/state inspection",
+        "runtime": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT"
+      },
+      {
+        "component": "YardAssignment",
+        "file": "apps/web/src/components/yard/YardAssignment.tsx",
+        "states_reviewed": "Manual coordinates; local blockers; backend check; stale-check guard; assign pending/feedback",
+        "role": "yard.read; yard.update",
+        "method": "AST all-source extraction plus targeted manual handler/control/state inspection",
+        "runtime": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT"
+      },
+      {
+        "component": "YardOperations",
+        "file": "apps/web/src/components/yard/YardOperations.tsx",
+        "states_reviewed": "Movement/Booking/Inspection histories; search/status/container filters; create/start/complete/cancel dialogs; guarded writes",
+        "role": "yard.read with exact yard.move/booking/inspect",
+        "method": "AST all-source extraction plus targeted manual handler/control/state inspection",
+        "runtime": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT"
+      },
+      {
+        "component": "BillingView",
+        "file": "apps/web/src/components/BillingView.tsx",
+        "states_reviewed": "Invoice/Order/Tariff views; tariff/rule/order/payment overlays; billing preview; status actions",
+        "role": "billing.read; write actions presently not gated",
+        "method": "AST all-source extraction plus targeted manual handler/control/state inspection",
+        "runtime": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT"
+      },
+      {
+        "component": "GatePassView",
+        "file": "apps/web/src/components/GatePassView.tsx",
+        "states_reviewed": "Search/cards/detail; QR/code lookup; issue with backend readiness; Gate-out/cancel",
+        "role": "gate_pass.create or gate_pass.use",
+        "method": "AST all-source extraction plus targeted manual handler/control/state inspection",
+        "runtime": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT"
+      },
+      {
+        "component": "HandoversView",
+        "file": "apps/web/src/components/HandoversView.tsx",
+        "states_reviewed": "Search/status cards/detail/timeline; create/publish/ICD confirm; partner proof view",
+        "role": "handover.read",
+        "method": "AST all-source extraction plus targeted manual handler/control/state inspection",
+        "runtime": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT"
+      },
+      {
+        "component": "PartnerManagementView",
+        "file": "apps/web/src/components/PartnerManagementView.tsx",
+        "states_reviewed": "CLIENTS cards/create/one-time key/rotate; LOGS cards/request-response inspector",
+        "role": "partner_client.manage or partner_api_log.read",
+        "method": "AST all-source extraction plus targeted manual handler/control/state inspection",
+        "runtime": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT"
+      },
+      {
+        "component": "EDIView",
+        "file": "apps/web/src/components/EDIView.tsx",
+        "states_reviewed": "Outbox/filter/selection/preview/copy/retry/dispatch; Routes/edit; Alerts acknowledge/resolve",
+        "role": "edi.read",
+        "method": "AST all-source extraction plus targeted manual handler/control/state inspection",
+        "runtime": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT"
+      },
+      {
+        "component": "MasterDataView",
+        "file": "apps/web/src/components/MasterDataView.tsx",
+        "states_reviewed": "Shipping Line/Consignee/Clearing Agent/Transporter; status toggles and conditional create fields",
+        "role": "master_data.read",
+        "method": "AST all-source extraction plus targeted manual handler/control/state inspection",
+        "runtime": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT"
+      },
+      {
+        "component": "UsersRolesView",
+        "file": "apps/web/src/components/UsersRolesView.tsx",
+        "states_reviewed": "Users/roles; role chips/status changes; permission edits; create user",
+        "role": "users.read or roles.read",
+        "method": "AST all-source extraction plus targeted manual handler/control/state inspection",
+        "runtime": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT"
+      },
+      {
+        "component": "ReportsView",
+        "file": "apps/web/src/components/ReportsView.tsx",
+        "states_reviewed": "TEU/shipping-line/dwell/occupancy/revenue/handover metrics",
+        "role": "reports.read",
+        "method": "AST all-source extraction plus targeted manual handler/control/state inspection",
+        "runtime": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT"
+      },
+      {
+        "component": "AuditsView",
+        "file": "apps/web/src/components/AuditsView.tsx",
+        "states_reviewed": "Search across action/entity/actor/details; six-column read-only table",
+        "role": "audit.read",
+        "method": "AST all-source extraction plus targeted manual handler/control/state inspection",
+        "runtime": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT"
+      }
+    ],
+    "shared": [
+      "App.tsx",
+      "Header.tsx",
+      "Sidebar.tsx",
+      "main.tsx",
+      "index.css",
+      "AppContext.tsx",
+      "app-context.shared.ts",
+      "useBackendReadiness.ts",
+      "useYardDialogFocus.ts",
+      "types.ts",
+      "permissions.ts",
+      "readiness-labels.ts",
+      "report-metrics.ts",
+      "API/mappers/test source inventory"
+    ],
+    "test_source_files": [
+      "apps/web/src/components/yard/YardOperations.render.test.tsx",
+      "apps/web/src/components/yard/YardView.render.test.tsx",
+      "apps/web/src/components/yard/yard-model.test.ts",
+      "apps/web/src/components/yard/yard-operation-form.test.ts",
+      "apps/web/src/services/api/load-list.test.ts",
+      "apps/web/src/services/api/operation.test.ts",
+      "apps/web/src/services/mappers/live-contract.test.ts",
+      "apps/web/src/services/mappers/mappers.smoke.test.ts",
+      "apps/web/src/services/mappers/yard-contract.test.ts",
+      "apps/web/src/services/permissions.test.ts",
+      "apps/web/src/services/report-metrics.test.ts"
+    ]
+  },
+  "categories": {
+    "accessibility": "Verified findings 001,002,003,007; native semantics and implemented Yard behavior explicitly respected.",
+    "states": "Verified findings 004,005,009,010,015,016,018.",
+    "layout": "Runtime UNKNOWN: target sizes, narrow reflow, overlap/clipping, keyboard/zoom layouts require rendered measurements.",
+    "forms": "Verified findings 006,011; label/errors and pending behavior also covered.",
+    "tokens": "No finding merely for defining Tailwind or yard-model color literals. Undefined CSS tokens/computed contrast are runtime UNKNOWN.",
+    "navigation": "Verified findings 012,013,014,019.",
+    "microcopy": "Verified findings 008,017; technical implementation prose in Users/Roles and Master Data is an advisory, not a confirmed usability failure.",
+    "performance": "Verified static request structure documented below; thresholds/timings remain UNKNOWN."
+  },
+  "positives": [
+    {
+      "evidence": {
+        "file": "apps/web/src/index.css",
+        "line": 19,
+        "detail": "prefers-reduced-motion reduces animation/transition duration."
+      },
+      "observation": "Reduced-motion support exists; do not claim missing."
+    },
+    {
+      "evidence": {
+        "file": "apps/web/src/components/WebLoginView.tsx",
+        "line": 51,
+        "detail": "htmlFor/id, email/password input types and username/current-password autocomplete."
+      },
+      "observation": "Login native labels/types/autofill are implemented."
+    },
+    {
+      "evidence": {
+        "file": "apps/web/src/components/yard/useYardDialogFocus.ts",
+        "line": 22,
+        "detail": "Focus transfer/restore, visible-enabled control filtering and Tab/Escape handling."
+      },
+      "observation": "Yard Slot/Config dialogs implement a keyboard focus mechanism; runtime validation still needed."
+    },
+    {
+      "evidence": {
+        "file": "apps/web/src/components/yard/YardOperations.tsx",
+        "line": 99,
+        "detail": "Named modal with focus transfer/restore, Tab/Escape, pending and backdrop route."
+      },
+      "observation": "Yard Operations intentionally covers many dialog/pending/permission states."
+    },
+    {
+      "evidence": {
+        "file": "apps/web/src/components/yard/YardOperations.tsx",
+        "line": 267,
+        "detail": "pendingRef + exact permission/data-readiness checks; preserved error feedback."
+      },
+      "observation": "Yard writes are guarded and give clear local feedback."
+    },
+    {
+      "evidence": {
+        "file": "apps/web/src/App.tsx",
+        "line": 72,
+        "detail": "Global role=alert with retry and loading role=status; main aria-busy."
+      },
+      "observation": "Global loading and API failure indicators exist."
+    },
+    {
+      "evidence": {
+        "file": "apps/web/src/components/AuditsView.tsx",
+        "line": 49,
+        "detail": "Native table/thead/th/tbody/td structure."
+      },
+      "observation": "Native table headers are present. Missing scope/caption alone was not treated as a failure."
+    },
+    {
+      "evidence": {
+        "file": "apps/web/src/components/Header.tsx",
+        "line": 22,
+        "detail": "Header icon controls have accessible names; notification trigger has aria-expanded."
+      },
+      "observation": "Icon-only shared controls and Container/Yard close buttons are explicitly named."
+    },
+    {
+      "evidence": {
+        "file": "apps/web/src/context/AppContext.tsx",
+        "line": 428,
+        "detail": "Login/logout clears data and protects refresh by sessionVersion."
+      },
+      "observation": "Session data reset is present; no claim of retained cross-user business data."
+    }
+  ],
+  "findings": [
+    {
+      "id": "W-S-001",
+      "severity": "P1",
+      "category": "accessibility",
+      "criterion": "WCAG 2.1.1 / 2.4.3; kz N1",
+      "title": "Most operational dialogs do not establish modal keyboard behavior",
+      "issue": "Create/edit overlays are fixed divs without a named dialog role, focus transfer, Tab containment, Escape handling or focus restoration. Container 360 has role/aria-modal/name but still has no focus mechanism. The modal panel can therefore open while keyboard focus remains on its opener outside the panel; aria-modal alone does not move or contain focus. Background scroll/click leakage must be measured separately. Yard dialogs are excluded because their source implements these behaviors.",
+      "evidence": [
+        {
+          "file": "apps/web/src/components/TruckVisitsView.tsx",
+          "line": 159,
+          "detail": "Create overlay and panel are divs; component imports useState only and contains no focus/key handlers."
+        },
+        {
+          "file": "apps/web/src/components/BillingView.tsx",
+          "line": 398,
+          "detail": "Tariff overlay; same structure at 436,477,522."
+        },
+        {
+          "file": "apps/web/src/components/ManifestsView.tsx",
+          "line": 373,
+          "detail": "Create overlay; MBL 470 and HBL 514 are also plain div overlays."
+        },
+        {
+          "file": "apps/web/src/components/ContainersView.tsx",
+          "line": 321,
+          "detail": "Container 360 role/name exist; no focus/keydown implementation in file."
+        },
+        {
+          "file": "apps/web/src/components/ContainersView.tsx",
+          "line": 897,
+          "detail": "Create Visit plain div overlay."
+        },
+        {
+          "file": "apps/web/src/components/GatePassView.tsx",
+          "line": 347,
+          "detail": "Issue overlay."
+        },
+        {
+          "file": "apps/web/src/components/HandoversView.tsx",
+          "line": 424,
+          "detail": "Create overlay."
+        },
+        {
+          "file": "apps/web/src/components/MasterDataView.tsx",
+          "line": 152,
+          "detail": "Create overlay."
+        },
+        {
+          "file": "apps/web/src/components/UsersRolesView.tsx",
+          "line": 146,
+          "detail": "Create overlay."
+        },
+        {
+          "file": "apps/web/src/components/PartnerManagementView.tsx",
+          "line": 151,
+          "detail": "Create partner overlay."
+        }
+      ],
+      "affected_surfaces": [
+        "Manifest create/MBL/HBL",
+        "Container create/360",
+        "Truck Visit create",
+        "Billing tariff/rule/order/payment",
+        "Gate Pass issue",
+        "Handover create",
+        "Master Data create",
+        "Users create",
+        "Partner create"
+      ],
+      "measurements": null,
+      "confidence": "verified_static",
+      "status": "FAIL_STATIC",
+      "runtime_status": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT",
+      "fix": {
+        "scope": "Illustrative local change only; report recommendation, not implemented",
+        "snippet": "const dialogRef = useRef<HTMLDialogElement>(null);\nuseEffect(() => {\n  if (!showCreateModal) return;\n  const opener = document.activeElement as HTMLElement | null;\n  const main = document.querySelector<HTMLElement>('.app-content');\n  const overflow = main?.style.overflow ?? '';\n  if (main) main.style.overflow = 'hidden';\n  dialogRef.current?.showModal();\n  return () => {\n    if (main) main.style.overflow = overflow;\n    if (opener?.isConnected) opener.focus();\n  };\n}, [showCreateModal]);\n<dialog ref={dialogRef} aria-labelledby=\"truck-create-title\"\n  onCancel={() => setShowCreateModal(false)}\n  className=\"m-auto w-full max-w-md rounded-xl bg-white p-6 backdrop:bg-slate-900/40\">\n  <h3 id=\"truck-create-title\">Tạo Lịch hẹn Chuyến xe</h3>\n  {/* Existing form and explicitly named Cancel button */}\n</dialog>"
+      },
+      "acceptance_verification": [
+        "Open each overlay with keyboard; focus enters a meaningful enabled control.",
+        "Tab and Shift+Tab remain in the modal; Escape closes when no write is pending.",
+        "On close, focus returns to the opener; background neither scrolls nor receives clicks."
+      ],
+      "nielsen": [
+        "H3",
+        "H4"
+      ],
+      "law_diagnosis": {
+        "principle": "Jakob",
+        "friction": "The overlay looks modal but does not follow expected modal keyboard conventions.",
+        "change": "Use native showModal behavior or the existing project focus pattern, with scroll lock."
+      }
+    },
+    {
+      "id": "W-S-002",
+      "severity": "P1",
+      "category": "accessibility",
+      "criterion": "WCAG 1.3.1 / 3.3.2 / 4.1.2; kz form check",
+      "title": "Visible sibling labels are not associated with operational fields",
+      "issue": "Several form fields render label and input/select as siblings with no htmlFor/id relationship, no wrapping label and no aria-label/labelledby. Their nearby visible labels do not programmatically name those controls. The unambiguous examples below have no placeholder fallback either. Login, Gate-in and Yard wrapping labels are correct; Gate Pass receiver fields and Container master selectors already have aria-label and are not claimed unnamed.",
+      "evidence": [
+        {
+          "file": "apps/web/src/components/TruckVisitsView.tsx",
+          "line": 188,
+          "detail": "Plate visible label followed by unnamed input at 189; driver 200/201, phone 210/211, transporter 222/223 and container 232/233 also lack associations."
+        },
+        {
+          "file": "apps/web/src/components/MasterDataView.tsx",
+          "line": 157,
+          "detail": "Name label and input at 158; additional code/tax/phone/address/email follow same structure."
+        },
+        {
+          "file": "apps/web/src/components/UsersRolesView.tsx",
+          "line": 151,
+          "detail": "Name label/input at 152 and email 155/156."
+        },
+        {
+          "file": "apps/web/src/components/BillingView.tsx",
+          "line": 532,
+          "detail": "Payment amount label/input 533; payment method 543/544; tariff/rule/order fields likewise."
+        },
+        {
+          "file": "apps/web/src/components/HandoversView.tsx",
+          "line": 433,
+          "detail": "Transport code label/input 434 and three selects 444/445,460/461,475/476."
+        },
+        {
+          "file": "apps/web/src/components/ManifestsView.tsx",
+          "line": 519,
+          "detail": "HBL label/input 520, consignee 523/524, agent 527/528, description 531/532, numeric 536/537,540/541."
+        },
+        {
+          "file": "apps/web/src/components/ContainersView.tsx",
+          "line": 686,
+          "detail": "Inline Gate Pass labels/input 687,695/696,704/705; Seal 951/952 and weight 955/956."
+        }
+      ],
+      "affected_surfaces": [
+        "Truck Visit form",
+        "Master Data forms",
+        "User form",
+        "Billing forms",
+        "Handover form",
+        "Manifest/MBL/HBL forms",
+        "Container create/inline Gate Pass/Hold forms"
+      ],
+      "measurements": null,
+      "confidence": "verified_static",
+      "status": "FAIL_STATIC",
+      "runtime_status": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT",
+      "fix": {
+        "scope": "Illustrative local change only; report recommendation, not implemented",
+        "snippet": "<label className=\"block font-semibold text-slate-700\">\n  <span className=\"mb-1 block\">Biển số đầu kéo *</span>\n  <input type=\"text\" required value={plate}\n    onChange={(event) => setPlate(event.target.value)}\n    className=\"w-full rounded-lg border border-slate-300 px-3 py-2 uppercase\" />\n</label>\n{/* Apply the same wrapping label or htmlFor/id pair to each field. */}"
+      },
+      "acceptance_verification": [
+        "Inspect accessible names for every visible input/select/textarea; each must match its visible label.",
+        "Click/tap a visible label and confirm the corresponding control receives focus.",
+        "Do not add redundant ARIA to already correctly labelled native fields."
+      ],
+      "nielsen": [
+        "H4",
+        "H6"
+      ],
+      "law_diagnosis": {
+        "principle": "Gestalt proximity / Jakob",
+        "friction": "Visual proximity implies a label relationship that assistive technology cannot use.",
+        "change": "Make the native label relationship explicit."
+      }
+    },
+    {
+      "id": "W-S-003",
+      "severity": "P1",
+      "category": "accessibility",
+      "criterion": "WCAG 2.1.1 / 4.1.2; kz focus check",
+      "title": "Five master/detail lists use pointer-only clickable div cards",
+      "issue": "The record selectors are divs with onClick and cursor-pointer but no native interactive element, tabIndex or keyboard handler. They cannot receive sequential keyboard focus, so keyboard users cannot choose the record whose detail and subsequent actions are displayed. This is a concrete non-native interaction failure, not a missing-ARIA guess.",
+      "evidence": [
+        {
+          "file": "apps/web/src/components/ManifestsView.tsx",
+          "line": 209,
+          "detail": "Manifest card onClick at 211."
+        },
+        {
+          "file": "apps/web/src/components/HandoversView.tsx",
+          "line": 214,
+          "detail": "Handover card onClick at 216."
+        },
+        {
+          "file": "apps/web/src/components/GatePassView.tsx",
+          "line": 204,
+          "detail": "Gate Pass card onClick at 206."
+        },
+        {
+          "file": "apps/web/src/components/EDIView.tsx",
+          "line": 208,
+          "detail": "Outbox card onClick at 210."
+        },
+        {
+          "file": "apps/web/src/components/PartnerManagementView.tsx",
+          "line": 246,
+          "detail": "Partner log card onClick at 248."
+        }
+      ],
+      "affected_surfaces": [
+        "Manifest list",
+        "Handover list",
+        "Gate Pass list",
+        "EDI Outbox list",
+        "Partner API log list"
+      ],
+      "measurements": {
+        "verified_selector_patterns": 5
+      },
+      "confidence": "verified_static",
+      "status": "FAIL_STATIC",
+      "runtime_status": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT",
+      "fix": {
+        "scope": "Illustrative local change only; report recommendation, not implemented",
+        "snippet": "<button type=\"button\" key={edi.id}\n  onClick={() => setSelectedEdiId(edi.id)}\n  aria-pressed={selectedEdi?.id === edi.id}\n  className=\"block w-full rounded-xl border border-slate-200 bg-white p-4 text-left\">\n  <span className=\"block font-mono text-xs font-bold text-blue-700\">{edi.messageType}</span>\n  <span className=\"mt-1 block font-mono text-xs text-slate-800\">{edi.containerNumber}</span>\n  <span className=\"mt-2 block text-xs text-slate-500\">{edi.shippingLine}</span>\n</button>"
+      },
+      "acceptance_verification": [
+        "Every record selector appears in sequential keyboard order.",
+        "Enter and Space select the same record as a pointer click and expose selected state.",
+        "Focus is visible and selected detail identifies the chosen record."
+      ],
+      "nielsen": [
+        "H3",
+        "H4",
+        "H7"
+      ],
+      "law_diagnosis": {
+        "principle": "Jakob",
+        "friction": "Cards visually promise a selection control but lack standard button keyboard operation.",
+        "change": "Use a native button with preserved card styles."
+      }
+    },
+    {
+      "id": "W-S-004",
+      "severity": "P1",
+      "category": "states",
+      "criterion": "kz F3 / A1; form recovery",
+      "title": "Two create dialogs discard input before the save result arrives",
+      "issue": "Master Data dispatches a Promise and immediately resets all fields and closes the panel. Users create similarly calls createManagedUser without awaiting and clears/closes. A delayed or failed request therefore loses the entered data and removes the local recovery surface. AppContext.command does show the global apiError banner on failure, so this finding does not claim errors are absent everywhere.",
+      "evidence": [
+        {
+          "file": "apps/web/src/components/MasterDataView.tsx",
+          "line": 36,
+          "detail": "Four create Promises at 38-41; unconditional reset/close at 42-43."
+        },
+        {
+          "file": "apps/web/src/components/UsersRolesView.tsx",
+          "line": 176,
+          "detail": "createManagedUser at 178, reset/close at 179-180."
+        },
+        {
+          "file": "apps/web/src/context/AppContext.tsx",
+          "line": 445,
+          "detail": "command awaits executeOperation; failed writes set global apiError at 448."
+        }
+      ],
+      "affected_surfaces": [
+        "All four Master Data create types",
+        "Add User"
+      ],
+      "measurements": null,
+      "confidence": "verified_static",
+      "status": "FAIL_STATIC",
+      "runtime_status": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT",
+      "fix": {
+        "scope": "Illustrative local change only; report recommendation, not implemented",
+        "snippet": "const [pending, setPending] = useState(false);\nconst [formError, setFormError] = useState('');\nconst handleCreateUser = async () => {\n  if (pending) return;\n  setPending(true); setFormError('');\n  try {\n    const result = await createManagedUser(userForm.name.trim(), userForm.email.trim(), userForm.roleCodes);\n    if (!result.success) { setFormError(result.message); return; }\n    setUserForm({ name: '', email: '', roleCodes: [] });\n    setShowUserForm(false);\n  } finally { setPending(false); }\n};\n{formError && <p role=\"alert\" className=\"text-rose-700\">{formError}</p>}\n<button disabled={pending} onClick={() => void handleCreateUser()}>\n  {pending ? 'Đang lưu…' : 'Tạo'}\n</button>"
+      },
+      "acceptance_verification": [
+        "Delay a save in a disposable fixture: keep panel and values until outcome.",
+        "Reject save: show actionable local error, preserve all input, allow retry.",
+        "Resolve save: reset/close only after success and show confirmation."
+      ],
+      "nielsen": [
+        "H1",
+        "H3",
+        "H9"
+      ],
+      "law_diagnosis": {
+        "principle": "Peak-End / Zeigarnik",
+        "friction": "The apparent ending precedes the server outcome and erases unfinished work.",
+        "change": "Await outcome and preserve the form on failure."
+      }
+    },
+    {
+      "id": "W-S-005",
+      "severity": "P1",
+      "category": "states",
+      "criterion": "kz A1; duplicate-submit prevention",
+      "title": "Payment and other asynchronous actions stay enabled while saving",
+      "issue": "Billing payment submission awaits recordPayment but never sets a pending state or guards re-entry, and its submit remains enabled. Repeated clicks/Enter can start multiple calls before the first settles. Context recordPayment creates a new referenceNo with crypto.randomUUID on every call. This proves distinct outgoing command attempts, not that the backend necessarily accepts or duplicates them. Truck/Partner/Handover create and multiple EDI actions also omit pending protection; Yard and Gate-in already protect writes.",
+      "evidence": [
+        {
+          "file": "apps/web/src/components/BillingView.tsx",
+          "line": 88,
+          "detail": "Payment handler lacks re-entry/pending guard."
+        },
+        {
+          "file": "apps/web/src/components/BillingView.tsx",
+          "line": 562,
+          "detail": "Payment submit has no disabled/pending label."
+        },
+        {
+          "file": "apps/web/src/context/AppContext.tsx",
+          "line": 489,
+          "detail": "recordPayment sends a newly generated WEB reference per call."
+        },
+        {
+          "file": "apps/web/src/components/TruckVisitsView.tsx",
+          "line": 42,
+          "detail": "Create handler and submit at 250 have no pending guard."
+        },
+        {
+          "file": "apps/web/src/components/PartnerManagementView.tsx",
+          "line": 47,
+          "detail": "Create and key rotation have no pending guard."
+        },
+        {
+          "file": "apps/web/src/components/HandoversView.tsx",
+          "line": 78,
+          "detail": "Create/publish/confirm await without operation pending state."
+        }
+      ],
+      "affected_surfaces": [
+        "Record Payment",
+        "Truck Visit create",
+        "Partner create/key rotation",
+        "Handover create/publish/confirm",
+        "EDI retry/dispatch"
+      ],
+      "measurements": null,
+      "confidence": "verified_static",
+      "status": "FAIL_STATIC",
+      "runtime_status": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT",
+      "fix": {
+        "scope": "Illustrative local change only; report recommendation, not implemented",
+        "snippet": "const paymentPending = useRef(false);\nconst [isPaying, setIsPaying] = useState(false);\nconst handleRecordPayment = async (event: React.FormEvent) => {\n  event.preventDefault();\n  if (!selectedInvoice || paymentPending.current) return;\n  paymentPending.current = true; setIsPaying(true);\n  try {\n    const result = await recordPayment(selectedInvoice.id, payAmount, payMethod);\n    if (!result.success) { setPaymentError(result.message); return; }\n    setShowPayModal(false); setSelectedInvoice(null);\n  } finally { paymentPending.current = false; setIsPaying(false); }\n};\n<button type=\"submit\" disabled={isPaying}>\n  {isPaying ? 'Đang ghi nhận…' : 'Xác nhận Thu tiền'}\n</button>"
+      },
+      "acceptance_verification": [
+        "Use a delayed fixture, activate submit repeatedly, and observe exactly one command attempt.",
+        "The control acknowledges pending immediately and prevents edits/closure that would misidentify the request.",
+        "Failure restores enabled retry with preserved values; backend idempotency remains a separate contract."
+      ],
+      "nielsen": [
+        "H1",
+        "H5"
+      ],
+      "law_diagnosis": {
+        "principle": "Doherty / Peak-End",
+        "friction": "No operation-specific acknowledgment encourages a repeated action before completion.",
+        "change": "Expose pending feedback and guard re-entry; p95 latency is still UNKNOWN."
+      }
+    },
+    {
+      "id": "W-S-006",
+      "severity": "P2",
+      "category": "forms",
+      "criterion": "WCAG 3.3.1 / 3.3.3; kz F1 / F2",
+      "title": "Several required-field failures silently return and cannot identify the field",
+      "issue": "Master Data blank name, Users blank name/email, MBL blank number and HBL blank number/consignee silently return. These panels use div + onClick rather than a native required form, so the visible asterisk does not provide browser validation. Users/Master Data email inputs also default to text. No invalid/error association or first-invalid focus is provided in these paths. This is verified from the handlers and control markup; no submit was exercised.",
+      "evidence": [
+        {
+          "file": "apps/web/src/components/MasterDataView.tsx",
+          "line": 37,
+          "detail": "Blank name returns without message; input 158 has no required."
+        },
+        {
+          "file": "apps/web/src/components/UsersRolesView.tsx",
+          "line": 177,
+          "detail": "Blank required fields return silently; email input at 156 has no type=email."
+        },
+        {
+          "file": "apps/web/src/components/ManifestsView.tsx",
+          "line": 496,
+          "detail": "Blank MBL number returns silently."
+        },
+        {
+          "file": "apps/web/src/components/ManifestsView.tsx",
+          "line": 549,
+          "detail": "Blank HBL/consignee returns silently."
+        },
+        {
+          "file": "apps/web/src/components/ContainersView.tsx",
+          "line": 793,
+          "detail": "Blank hold reason returns silently."
+        }
+      ],
+      "affected_surfaces": [
+        "Master Data create",
+        "Users create",
+        "Manifest MBL/HBL add",
+        "Container add Hold"
+      ],
+      "measurements": null,
+      "confidence": "verified_static",
+      "status": "FAIL_STATIC",
+      "runtime_status": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT",
+      "fix": {
+        "scope": "Illustrative local change only; report recommendation, not implemented",
+        "snippet": "const nameRef = useRef<HTMLInputElement>(null);\nconst [nameError, setNameError] = useState('');\nconst save = async () => {\n  if (!form.name.trim()) {\n    setNameError('Nhập tên trước khi lưu.');\n    nameRef.current?.focus(); return;\n  }\n  await handleCreate();\n};\n<label htmlFor=\"master-name\">Tên *</label>\n<input id=\"master-name\" ref={nameRef} required value={form.name}\n  aria-invalid={!!nameError} aria-describedby={nameError ? 'master-name-error' : undefined}\n  onChange={e => { setForm({ ...form, name: e.target.value }); setNameError(''); }} />\n{nameError && <p id=\"master-name-error\" role=\"alert\">{nameError}</p>}\n<button type=\"button\" onClick={() => void save()}>Lưu</button>"
+      },
+      "acceptance_verification": [
+        "Submit blank required values: visible error names each missing field and focus lands on first invalid field.",
+        "Invalid email uses type=email or equivalent accessible validation; phone uses type=tel where applicable.",
+        "Correcting input clears its stale error; error text is linked with aria-describedby and invalid state."
+      ],
+      "nielsen": [
+        "H5",
+        "H9"
+      ],
+      "law_diagnosis": {
+        "principle": "Postel / Peak-End",
+        "friction": "A refused save offers no explanation or local recovery path.",
+        "change": "Add explicit field-specific validation with preserved input and focus."
+      }
+    },
+    {
+      "id": "W-S-007",
+      "severity": "P2",
+      "category": "accessibility",
+      "criterion": "WCAG 4.1.2; selection state",
+      "title": "Role/permission buttons expose selection only through color",
+      "issue": "Permission codes in the role editor and role chips in Add User are native named buttons, but their selected state is rendered only through CSS color/border. No aria-pressed/checked state is attached. Similar top-level local view toggles in Billing, Master Data, EDI and Users/Roles use color-only active state. Native buttons are correct for actions; a tablist is not required if these controls remain a button group with explicit pressed state.",
+      "evidence": [
+        {
+          "file": "apps/web/src/components/UsersRolesView.tsx",
+          "line": 129,
+          "detail": "Permission button selection active at 127/132 has no aria-pressed."
+        },
+        {
+          "file": "apps/web/src/components/UsersRolesView.tsx",
+          "line": 162,
+          "detail": "User role chips have no selected state despite includes(...) style at 165."
+        },
+        {
+          "file": "apps/web/src/components/BillingView.tsx",
+          "line": 142,
+          "detail": "Invoices/Orders/Tariffs local view buttons."
+        },
+        {
+          "file": "apps/web/src/components/MasterDataView.tsx",
+          "line": 123,
+          "detail": "Category view button active only in classes."
+        },
+        {
+          "file": "apps/web/src/components/EDIView.tsx",
+          "line": 74,
+          "detail": "Outbox/Routes/Alerts active only in classes."
+        }
+      ],
+      "affected_surfaces": [
+        "Role permissions",
+        "Add User roles",
+        "Billing local views",
+        "Master Data categories",
+        "EDI local views",
+        "Users/Roles views"
+      ],
+      "measurements": null,
+      "confidence": "verified_static",
+      "status": "FAIL_STATIC",
+      "runtime_status": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT",
+      "fix": {
+        "scope": "Illustrative local change only; report recommendation, not implemented",
+        "snippet": "<button type=\"button\" key={code}\n  aria-pressed={active}\n  onClick={() => setRolePermissions(r.id, active\n    ? r.permissionCodes.filter(item => item !== code)\n    : [...r.permissionCodes, code])}\n  className={active ? 'bg-blue-600 text-white' : 'bg-white text-slate-500'}>\n  {code}\n</button>"
+      },
+      "acceptance_verification": [
+        "Accessibility tree exposes true/false selected state for every toggle.",
+        "Keyboard selection updates the state and visible styling together.",
+        "If a full tablist is adopted, implement its complete roles and keyboard behavior rather than roles alone."
+      ],
+      "nielsen": [
+        "H1",
+        "H4"
+      ],
+      "law_diagnosis": {
+        "principle": "Gestalt similarity",
+        "friction": "Only sighted users receive the repeated selected-state pattern.",
+        "change": "Pair selected styles with programmatic state."
+      }
+    },
+    {
+      "id": "W-S-008",
+      "severity": "P1",
+      "category": "microcopy",
+      "criterion": "kz A4; honest operational status",
+      "title": "Gate Pass detail contradicts expiration and cancellation status",
+      "issue": "The list derives EXPIRED when an ACTIVE pass expires, but detail badge/actions use only status === ACTIVE and still invite Gate-out. For every non-ACTIVE status, detail copy says the pass was used and offers the Handover next action, including CANCELLED or EXPIRED. Container 360 also locates any ACTIVE pass without expiry and labels it currently valid. Backend rechecks Gate-out; the finding is contradictory UI guidance, not bypassed enforcement.",
+      "evidence": [
+        {
+          "file": "apps/web/src/components/GatePassView.tsx",
+          "line": 202,
+          "detail": "List computes isExpired and displays EXPIRED at 224."
+        },
+        {
+          "file": "apps/web/src/components/GatePassView.tsx",
+          "line": 247,
+          "detail": "Detail badge renders raw status."
+        },
+        {
+          "file": "apps/web/src/components/GatePassView.tsx",
+          "line": 300,
+          "detail": "All non-ACTIVE statuses get used copy; ACTIVE always receives Gate-out buttons."
+        },
+        {
+          "file": "apps/web/src/components/ContainersView.tsx",
+          "line": 117,
+          "detail": "Active pass lookup omits expiry."
+        },
+        {
+          "file": "apps/web/src/components/ContainersView.tsx",
+          "line": 662,
+          "detail": "Unconditionally calls found ACTIVE pass currently valid."
+        }
+      ],
+      "affected_surfaces": [
+        "Gate Pass list/detail",
+        "Container 360 Gate Pass"
+      ],
+      "measurements": null,
+      "confidence": "verified_static",
+      "status": "FAIL_STATIC",
+      "runtime_status": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT",
+      "fix": {
+        "scope": "Illustrative local change only; report recommendation, not implemented",
+        "snippet": "const expired = !!selectedGatePass && new Date(selectedGatePass.expiresAt).getTime() <= Date.now();\nconst usable = selectedGatePass?.status === 'ACTIVE' && !expired;\nconst displayedStatus = expired && selectedGatePass?.status === 'ACTIVE'\n  ? 'EXPIRED' : selectedGatePass?.status;\nconst statusCopy = displayedStatus === 'USED'\n  ? 'Phiếu đã được sử dụng để ra cổng.'\n  : displayedStatus === 'CANCELLED' ? 'Phiếu đã bị hủy.'\n  : displayedStatus === 'EXPIRED' ? 'Phiếu đã hết hạn; cần phát hành lại nếu đủ điều kiện.'\n  : 'Đối chiếu thông tin trước khi xác nhận ra cổng.';\n<p>{statusCopy}</p>\n{usable && <button onClick={() => handleConfirmExit(selectedGatePass!)}>Xác nhận Ra cổng</button>}"
+      },
+      "acceptance_verification": [
+        "Fixture ACTIVE fresh/ACTIVE expired/USED/CANCELLED/EXPIRED cases: list and detail status agree.",
+        "Expired/cancelled passes have appropriate recovery text and no active Gate-out invitation.",
+        "Container 360 validity claim also considers expiry; backend remains authoritative."
+      ],
+      "nielsen": [
+        "H1",
+        "H2",
+        "H5"
+      ],
+      "law_diagnosis": {
+        "principle": "Peak-End / Jakob",
+        "friction": "A terminal/restricted record is described as a successful or usable one.",
+        "change": "Derive one display status and render distinct status copy/actions."
+      }
+    },
+    {
+      "id": "W-S-009",
+      "severity": "P1",
+      "category": "states",
+      "criterion": "Functional affordance / truthful output",
+      "title": "Container 360 displays an icon where it promises a Gate Pass QR code",
+      "issue": "The inline Gate Pass display uses Lucide QrCode, which draws a fixed icon unrelated to qrToken. It cannot encode the issued token. The dedicated Gate Pass view already uses react-qr-code with the token, so the same business artifact appears scannable in one screen and as a decorative symbol in another.",
+      "evidence": [
+        {
+          "file": "apps/web/src/components/ContainersView.tsx",
+          "line": 668,
+          "detail": "QrCode icon at 669 with token text below."
+        },
+        {
+          "file": "apps/web/src/components/GatePassView.tsx",
+          "line": 2,
+          "detail": "react-qr-code import."
+        },
+        {
+          "file": "apps/web/src/components/GatePassView.tsx",
+          "line": 274,
+          "detail": "QRCode value=selectedGatePass.qrToken in dedicated view."
+        }
+      ],
+      "affected_surfaces": [
+        "Container 360 > Gate Pass"
+      ],
+      "measurements": null,
+      "confidence": "verified_static",
+      "status": "FAIL_STATIC",
+      "runtime_status": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT",
+      "fix": {
+        "scope": "Illustrative local change only; report recommendation, not implemented",
+        "snippet": "import QRCode from 'react-qr-code';\n<div className=\"inline-block rounded-xl border border-slate-200 bg-white p-4\">\n  {activeVisitGatePass.qrToken ? (\n    <QRCode value={activeVisitGatePass.qrToken} size={160}\n      title={`QR phiếu ra cổng ${activeVisitGatePass.code}`} />\n  ) : <p>QR chưa khả dụng. Mở Phiếu ra cổng để kiểm tra.</p>}\n</div>"
+      },
+      "acceptance_verification": [
+        "Decode QR in both screens in a disposable fixture; decoded value equals the same qrToken.",
+        "No token/permission: display honest unavailable text and a route to dedicated Gate Pass.",
+        "Keep a readable code alternative and expiration guidance."
+      ],
+      "nielsen": [
+        "H1",
+        "H4",
+        "H5"
+      ],
+      "law_diagnosis": {
+        "principle": "Jakob",
+        "friction": "A familiar scannable code affordance produces no encoded business value.",
+        "change": "Render the existing QR component or label an icon as decorative."
+      }
+    },
+    {
+      "id": "W-S-010",
+      "severity": "P2",
+      "category": "states",
+      "criterion": "kz A4; explicit readiness status",
+      "title": "Container Gate Pass tab calls unknown readiness a failed condition",
+      "issue": "Overview distinguishes checking, result and no result. The Gate Pass tab branches only on readiness?.blockers.length === 0; both null/pending and failed network check fall into copy saying unmet conditions are blocking issue. No checking/error branch is rendered in that tab. Unknown evaluation is therefore stated as a business blocker.",
+      "evidence": [
+        {
+          "file": "apps/web/src/components/ContainersView.tsx",
+          "line": 409,
+          "detail": "Overview correctly distinguishes checking/no result."
+        },
+        {
+          "file": "apps/web/src/components/ContainersView.tsx",
+          "line": 679,
+          "detail": "Gate Pass branch tests only blockers length."
+        },
+        {
+          "file": "apps/web/src/components/ContainersView.tsx",
+          "line": 729,
+          "detail": "Fallback claims unmet conditions for all non-pass states."
+        },
+        {
+          "file": "apps/web/src/components/useBackendReadiness.ts",
+          "line": 13,
+          "detail": "Hook clears readiness on each visit/reload and reports readinessError."
+        }
+      ],
+      "affected_surfaces": [
+        "Container 360 > Gate Pass during check/error"
+      ],
+      "measurements": null,
+      "confidence": "verified_static",
+      "status": "FAIL_STATIC",
+      "runtime_status": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT",
+      "fix": {
+        "scope": "Illustrative local change only; report recommendation, not implemented",
+        "snippet": "{isCheckingReadiness ? (\n  <p role=\"status\">Đang kiểm tra điều kiện ra cổng…</p>\n) : readinessError ? (\n  <p role=\"alert\" className=\"text-rose-700\">{readinessError}</p>\n) : !readiness ? (\n  <p>Chưa có kết quả kiểm tra. Vui lòng thử lại.</p>\n) : readiness.blockers.length > 0 ? (\n  <ul>{readiness.blockers.map(code => <li key={code}>{readinessLabel(code)}</li>)}</ul>\n) : <>{/* Existing issue form */}</>}"
+      },
+      "acceptance_verification": [
+        "Pending/read failure/no result/blockers/pass each produce distinct truthful content.",
+        "A network error never becomes a claimed failed business condition.",
+        "Issue remains unavailable until an explicit backend pass."
+      ],
+      "nielsen": [
+        "H1",
+        "H9"
+      ],
+      "law_diagnosis": {
+        "principle": "Peak-End",
+        "friction": "Users are sent to fix business conditions before any result exists.",
+        "change": "Give pending and unknown their own states."
+      }
+    },
+    {
+      "id": "W-S-011",
+      "severity": "P2",
+      "category": "forms",
+      "criterion": "Local datetime semantics; kz F2",
+      "title": "Movement Order default expiry shifts the local clock by seven hours",
+      "issue": "The datetime-local default is built using toISOString().slice(0,16), which removes the UTC zone but presents the UTC clock as a local value. Submission then parses that value as local and converts it back to UTC. On the workspace Asia/Saigon UTC+07 zone, the default intended now+24h becomes now+17h. Source proves this timezone transformation; real-browser displayed date was not measured by this agent.",
+      "evidence": [
+        {
+          "file": "apps/web/src/components/MovementOrdersView.tsx",
+          "line": 14,
+          "detail": "UTC ISO string stripped for datetime-local."
+        },
+        {
+          "file": "apps/web/src/components/MovementOrdersView.tsx",
+          "line": 61,
+          "detail": "datetime-local uses this value."
+        },
+        {
+          "file": "apps/web/src/components/MovementOrdersView.tsx",
+          "line": 111,
+          "detail": "Selected local value is parsed then converted to ISO."
+        }
+      ],
+      "affected_surfaces": [
+        "Movement Order > default authorization expiry"
+      ],
+      "measurements": {
+        "workspace_offset_hours": 7,
+        "default_intended_hours": 24,
+        "default_serialized_hours": 17
+      },
+      "confidence": "verified_static",
+      "status": "FAIL_STATIC",
+      "runtime_status": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT",
+      "fix": {
+        "scope": "Illustrative local change only; report recommendation, not implemented",
+        "snippet": "function localDateTimeValue(date: Date) {\n  const pad = (value: number) => String(value).padStart(2, '0');\n  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`;\n}\nconst [expiresAt, setExpiresAt] = useState(() =>\n  localDateTimeValue(new Date(Date.now() + 86400000)));\n<label>Thời hạn khi duyệt lệnh (giờ thiết bị)\n  <input type=\"datetime-local\" value={expiresAt}\n    onChange={event => setExpiresAt(event.target.value)} />\n</label>"
+      },
+      "acceptance_verification": [
+        "Freeze a clock in UTC+07 and inspect the default: exactly 24h later, not 17h.",
+        "Edit local datetime and verify serialized ISO denotes that local clock time.",
+        "Blank/invalid/past dates show a recoverable error and do not submit."
+      ],
+      "nielsen": [
+        "H2",
+        "H5"
+      ],
+      "law_diagnosis": {
+        "principle": "Postel / Tesler",
+        "friction": "The system converts a default time into a different operational deadline.",
+        "change": "Format local datetime correctly and state the timezone."
+      }
+    },
+    {
+      "id": "W-S-012",
+      "severity": "P2",
+      "category": "navigation",
+      "criterion": "kz N4; contextual navigation",
+      "title": "Work Queue handover review passes the wrong identifier kind",
+      "issue": "HANDOVER_REVIEW fallback navigation sends task.containerVisitId. App forwards the generic context as targetHandoverId. Handovers resolves this exclusively by handover.id, then falls back to the first handover. A task can therefore open an unrelated first handover instead of its review record. This is a source contract mismatch; whether fixture IDs happen to match remains runtime UNKNOWN.",
+      "evidence": [
+        {
+          "file": "apps/web/src/components/WorkQueueView.tsx",
+          "line": 81,
+          "detail": "HANDOVER_REVIEW sends containerVisitId at 83."
+        },
+        {
+          "file": "apps/web/src/App.tsx",
+          "line": 53,
+          "detail": "Generic activeContextId is targetHandoverId."
+        },
+        {
+          "file": "apps/web/src/components/HandoversView.tsx",
+          "line": 49,
+          "detail": "Lookup compares h.id to targetHandoverId; fallback handovers[0]."
+        },
+        {
+          "file": "apps/web/src/components/HandoversView.tsx",
+          "line": 53,
+          "detail": "Effect repeats handover-id-only lookup."
+        }
+      ],
+      "affected_surfaces": [
+        "Work Queue > Handover review"
+      ],
+      "measurements": null,
+      "confidence": "verified_static",
+      "status": "FAIL_STATIC",
+      "runtime_status": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT",
+      "fix": {
+        "scope": "Illustrative local change only; report recommendation, not implemented",
+        "snippet": "const { workQueue, currentUser, handovers } = useApp();\ncase 'HANDOVER_REVIEW': {\n  const handover = handovers.find(item =>\n    item.containerVisitId === task.containerVisitId && item.status === 'PARTNER_CONFIRMED');\n  if (!handover) { setNavigationError('Không tìm thấy bàn giao cần duyệt.'); break; }\n  onNavigate('handovers', handover.id);\n  break;\n}"
+      },
+      "acceptance_verification": [
+        "With two distinct handovers, opening the second review task selects the second correct handover.",
+        "No matching target displays a missing/unavailable-target state rather than silently selecting the first record.",
+        "Prefer retaining canonical entityId in work-queue mapping if a visit can have multiple handovers."
+      ],
+      "nielsen": [
+        "H2",
+        "H3",
+        "H5"
+      ],
+      "law_diagnosis": {
+        "principle": "Tesler / Jakob",
+        "friction": "The navigation makes users rediscover the intended record and can select the wrong one.",
+        "change": "Pass/resolve a canonical handover identifier."
+      }
+    },
+    {
+      "id": "W-S-013",
+      "severity": "P2",
+      "category": "navigation",
+      "criterion": "kz N4; promise/action alignment",
+      "title": "Create Truck Visit shortcut drops its container context and opens no form",
+      "issue": "Movement Order action says Tạo Truck Visit and sends containerVisitId, but App renders TruckVisitsView with only onNavigate; TruckVisitsView supports no context prop and initializes showCreateModal=false, selectedConts empty. Users arrive at a generic list and must reopen the form and retype the intended container. Truck Visit Gate-in shortcut also omits its linked visit, sending users to a blank selection.",
+      "evidence": [
+        {
+          "file": "apps/web/src/components/MovementOrdersView.tsx",
+          "line": 129,
+          "detail": "Tạo Truck Visit navigation passes containerVisitId."
+        },
+        {
+          "file": "apps/web/src/App.tsx",
+          "line": 48,
+          "detail": "TruckVisitsView receives no activeContextId."
+        },
+        {
+          "file": "apps/web/src/components/TruckVisitsView.tsx",
+          "line": 17,
+          "detail": "Props contain onNavigate only."
+        },
+        {
+          "file": "apps/web/src/components/TruckVisitsView.tsx",
+          "line": 25,
+          "detail": "Create modal initially false; selectedConts empty at 33."
+        },
+        {
+          "file": "apps/web/src/components/TruckVisitsView.tsx",
+          "line": 146,
+          "detail": "Gate-in shortcut omits the container visit id."
+        }
+      ],
+      "affected_surfaces": [
+        "Movement Order > Tạo Truck Visit",
+        "Truck Visit > Tiến hành Tiếp nhận"
+      ],
+      "measurements": null,
+      "confidence": "verified_static",
+      "status": "FAIL_STATIC",
+      "runtime_status": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT",
+      "fix": {
+        "scope": "Illustrative local change only; report recommendation, not implemented",
+        "snippet": "<TruckVisitsView onNavigate={handleNavigate} targetVisitId={activeContextId} />\n// In TruckVisitsView, add the optional targetVisitId prop.\nuseEffect(() => {\n  if (!targetVisitId) return;\n  const visit = containerVisits.find(item => item.id === targetVisitId);\n  if (!visit) return;\n  setSelectedConts(visit.containerNumber);\n  setType('GATE_IN'); setShowCreateModal(true);\n}, [targetVisitId, containerVisits]);"
+      },
+      "acceptance_verification": [
+        "Authorized Movement Order shortcut opens create with the correct container prefilled.",
+        "Gate-in shortcut selects the relevant visit and matching arrived truck when unambiguous.",
+        "Missing or multiple matching targets have explicit selection/recovery; no write occurs on navigation."
+      ],
+      "nielsen": [
+        "H2",
+        "H6",
+        "H7"
+      ],
+      "law_diagnosis": {
+        "principle": "Tesler",
+        "friction": "Users must carry and re-enter data the application already knows.",
+        "change": "Propagate the context to the destination and perform the advertised opening action."
+      }
+    },
+    {
+      "id": "W-S-014",
+      "severity": "P2",
+      "category": "navigation",
+      "criterion": "kz N4 / F3; browser history and return state",
+      "title": "Screen/context selections are memory-only and view changes discard work",
+      "issue": "App navigation changes local activeTab/activeContextId without router, URL or history. A reload starts at dashboard; browser Back cannot restore in-app selections. Conditional renderContent also unmounts most views, so their local filters, selections and form drafts disappear when navigating away and back. Partner CLIENTS/LOGS is the same component type and can retain state, so this is not claimed for that pair. Session state/data security resets are separate.",
+      "evidence": [
+        {
+          "file": "apps/web/src/App.tsx",
+          "line": 28,
+          "detail": "activeTab default dashboard; context stored only in useState."
+        },
+        {
+          "file": "apps/web/src/App.tsx",
+          "line": 32,
+          "detail": "handleNavigate only sets component state."
+        },
+        {
+          "file": "apps/web/src/App.tsx",
+          "line": 43,
+          "detail": "Conditional view switch replaces most screen components."
+        },
+        {
+          "file": "apps/web/src/components/ManifestsView.tsx",
+          "line": 84,
+          "detail": "Search and draft fields live in view useState."
+        }
+      ],
+      "affected_surfaces": [
+        "All 18 sidebar destinations",
+        "Multi-field Manifest/Container/Truck/Handover drafts"
+      ],
+      "measurements": null,
+      "confidence": "verified_static",
+      "status": "FAIL_STATIC",
+      "runtime_status": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT",
+      "fix": {
+        "scope": "Illustrative local change only; report recommendation, not implemented",
+        "snippet": "const [params, setParams] = useSearchParams();\nconst activeTab = (params.get('view') || 'dashboard') as NavTabId;\nconst activeContextId = params.get('record') || undefined;\nconst handleNavigate = (tab: NavTabId, contextId?: string) => {\n  setParams({ view: tab, ...(contextId ? { record: contextId } : {}) });\n  setIsSidebarOpen(false);\n};\n// Wrap the app in the existing react-router-dom BrowserRouter.\n// Store per-view filters/drafts in parent state; restore them on return."
+      },
+      "acceptance_verification": [
+        "Navigate A>B, use browser Back: A and its record/filter/scroll selection restore.",
+        "A copied URL or reload opens the requested authorized destination and record.",
+        "Leaving a dirty multi-field form preserves a draft or gives an explicit discard choice."
+      ],
+      "nielsen": [
+        "H3",
+        "H6",
+        "H7"
+      ],
+      "law_diagnosis": {
+        "principle": "Zeigarnik / Jakob",
+        "friction": "Interrupted work restarts and standard browser return behavior cannot recover it.",
+        "change": "Address screens/context and retain view state using the installed router and local draft state."
+      }
+    },
+    {
+      "id": "W-S-015",
+      "severity": "P2",
+      "category": "states",
+      "criterion": "kz A4; empty and no-results feedback",
+      "title": "Several lists render a blank region for zero rows",
+      "issue": "Audits and Master Data table bodies contain only mapped rows. Truck Visit cards, Partner clients/logs, Manifest list, Handover list, Gate Pass list and EDI outbox/routes similarly have no explicit collection/no-match branch at the list location. Existing detail placeholders ask users to choose a record even when no records exist. Global loading/error indicators do exist; this finding is specifically settled zero/no-match state.",
+      "evidence": [
+        {
+          "file": "apps/web/src/components/AuditsView.tsx",
+          "line": 61,
+          "detail": "Only filteredLogs.map until tbody end 81."
+        },
+        {
+          "file": "apps/web/src/components/MasterDataView.tsx",
+          "line": 147,
+          "detail": "tbody only renderList()."
+        },
+        {
+          "file": "apps/web/src/components/TruckVisitsView.tsx",
+          "line": 95,
+          "detail": "Only filteredVisits.map until list close 155."
+        },
+        {
+          "file": "apps/web/src/components/PartnerManagementView.tsx",
+          "line": 84,
+          "detail": "Only partnerClients.map until 148; logs at 243."
+        },
+        {
+          "file": "apps/web/src/components/ManifestsView.tsx",
+          "line": 200,
+          "detail": "Only filtered map in list."
+        },
+        {
+          "file": "apps/web/src/components/HandoversView.tsx",
+          "line": 211,
+          "detail": "Only filtered map in list."
+        },
+        {
+          "file": "apps/web/src/components/GatePassView.tsx",
+          "line": 200,
+          "detail": "Only filtered map in list."
+        },
+        {
+          "file": "apps/web/src/components/EDIView.tsx",
+          "line": 205,
+          "detail": "Only filteredEdi.map; routes map at 121."
+        }
+      ],
+      "affected_surfaces": [
+        "Audit list",
+        "Master Data list",
+        "Truck Visit list",
+        "Partner clients/logs",
+        "Manifest list",
+        "Handover list",
+        "Gate Pass list",
+        "EDI outbox/routes"
+      ],
+      "measurements": null,
+      "confidence": "verified_static",
+      "status": "FAIL_STATIC",
+      "runtime_status": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT",
+      "fix": {
+        "scope": "Illustrative local change only; report recommendation, not implemented",
+        "snippet": "{filteredLogs.length === 0 && (\n  <tr><td colSpan={6} className=\"px-4 py-10 text-center text-slate-500\">\n    {searchTerm ? 'Không có bản ghi khớp tìm kiếm.' : 'Chưa có nhật ký kiểm toán.'}\n    {searchTerm && <button type=\"button\" onClick={() => setSearchTerm('')}\n      className=\"ml-2 font-semibold text-blue-700 underline\">Xóa tìm kiếm</button>}\n  </td></tr>\n)}"
+      },
+      "acceptance_verification": [
+        "Fixture 0 records and a nonempty collection filtered to 0 each render distinct messages.",
+        "No-results recovery clears the actual filters without initiating a write.",
+        "Loading/error/forbidden states are not described as an empty collection."
+      ],
+      "nielsen": [
+        "H1",
+        "H9"
+      ],
+      "law_diagnosis": {
+        "principle": "Peak-End / Gestalt closure",
+        "friction": "A blank region gives no outcome or recovery for search/list loading completion.",
+        "change": "Explain settled empty and no-match states with context-appropriate next steps."
+      }
+    },
+    {
+      "id": "W-S-016",
+      "severity": "P1",
+      "category": "states",
+      "criterion": "kz A4; partial data integrity",
+      "title": "Nested load failures silently become empty holds, passes or incomplete details",
+      "issue": "The top-level loader records failures, but later per-visit holds/gate-pass requests use allSettled and substitute [] without adding to failures. Manifest bills, role detail and handover detail also catch and return the less-complete row with no local availability marker. After such a rejected GET, UI can show no holds or no pass rather than unavailable data while apiError remains empty if other requests succeeded. Backend readiness/Gate-out rechecks still enforce business rules.",
+      "evidence": [
+        {
+          "file": "apps/web/src/context/AppContext.tsx",
+          "line": 365,
+          "detail": "Manifest detail catch returns m at 370 with no marker."
+        },
+        {
+          "file": "apps/web/src/context/AppContext.tsx",
+          "line": 373,
+          "detail": "Role detail catch returns r at 375."
+        },
+        {
+          "file": "apps/web/src/context/AppContext.tsx",
+          "line": 377,
+          "detail": "Handover detail catch returns h at 379."
+        },
+        {
+          "file": "apps/web/src/context/AppContext.tsx",
+          "line": 391,
+          "detail": "Rejected holds/passes become [] at 393; no failures.push."
+        },
+        {
+          "file": "apps/web/src/context/AppContext.tsx",
+          "line": 409,
+          "detail": "Banner depends on failures and health only."
+        }
+      ],
+      "affected_surfaces": [
+        "Container Holds/Gate Pass",
+        "Yard HOLD appearance",
+        "Manifest MBL/HBL detail",
+        "Role permission detail",
+        "Handover review detail"
+      ],
+      "measurements": null,
+      "confidence": "verified_static",
+      "status": "FAIL_STATIC",
+      "runtime_status": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT",
+      "fix": {
+        "scope": "Illustrative local change only; report recommendation, not implemented",
+        "snippet": "const perVisit = await Promise.all(visits.map(async visit => {\n  const paths = [`/containers/${visit.id}/holds`, `/containers/${visit.id}/gate-passes`];\n  const results = await Promise.allSettled(paths.map(loadList));\n  results.forEach((result, index) => {\n    if (result.status === 'rejected' && ![401, 403].includes(result.reason?.status))\n      failures.push(`${paths[index]}: ${result.reason?.message ?? 'Không tải được dữ liệu'}`);\n  });\n  return {\n    holds: results[0].status === 'fulfilled' ? results[0].value : [],\n    passes: results[1].status === 'fulfilled' ? results[1].value : [],\n    holdsLoaded: results[0].status === 'fulfilled', passesLoaded: results[1].status === 'fulfilled',\n  };\n}));\n// Preserve these per-record availability flags so empty is distinct from unavailable."
+      },
+      "acceptance_verification": [
+        "Reject one nested GET in a fixture while top-level/health succeed: show partial/unavailable state and retry.",
+        "A failed holds request must not claim no holds or derive a reassuring no-HOLD appearance.",
+        "Distinguish permission restriction from transient failure without exposing unauthorized details."
+      ],
+      "nielsen": [
+        "H1",
+        "H5",
+        "H9"
+      ],
+      "law_diagnosis": {
+        "principle": "Peak-End",
+        "friction": "Incomplete operational data is presented with the visual confidence of an empty complete result.",
+        "change": "Retain per-record readiness/availability markers and report partial failures."
+      }
+    },
+    {
+      "id": "W-S-017",
+      "severity": "P1",
+      "category": "microcopy",
+      "criterion": "Truthful source attribution; kz A4",
+      "title": "EDI inspector calls generated example segments the raw transmitted payload",
+      "issue": "getSimulatedEdifact constructs segments from UI fields and hardcodes EQD ISO type 45G1 and other envelope values. Both Copy and the panel labelled raw UN/EDIFACT payload use that function rather than the actual outbound message. An operator inspecting a 20-foot/reefer message can therefore copy a generated 40HC example presented as source-of-truth transmission data.",
+      "evidence": [
+        {
+          "file": "apps/web/src/components/EDIView.tsx",
+          "line": 30,
+          "detail": "getSimulatedEdifact constructs payload, hardcodes 45G1 at 36."
+        },
+        {
+          "file": "apps/web/src/components/EDIView.tsx",
+          "line": 262,
+          "detail": "Copy copies simulated output."
+        },
+        {
+          "file": "apps/web/src/components/EDIView.tsx",
+          "line": 303,
+          "detail": "Panel says raw segment payload; render at 306 uses generator."
+        }
+      ],
+      "affected_surfaces": [
+        "EDI Outbox > payload inspector/Copy"
+      ],
+      "measurements": null,
+      "confidence": "verified_static",
+      "status": "FAIL_STATIC",
+      "runtime_status": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT",
+      "fix": {
+        "scope": "Illustrative local change only; report recommendation, not implemented",
+        "snippet": "<div className=\"mb-2 text-xs font-bold text-slate-700\">\n  Bản minh họa EDIFACT — không phải payload đã truyền\n</div>\n<p className=\"mb-2 text-xs text-amber-800\">\n  Dữ liệu dưới đây được tạo để minh họa. Xem payload gốc từ backend khi khả dụng.\n</p>\n<button type=\"button\" onClick={() => handleCopy(getSimulatedEdifact(selectedEdi))}>\n  Sao chép bản minh họa\n</button>\n<pre>{getSimulatedEdifact(selectedEdi)}</pre>"
+      },
+      "acceptance_verification": [
+        "A generated preview is visibly and accessibly identified as illustrative before copying.",
+        "If raw payload becomes available, display exactly that payload and clearly identify its version/source.",
+        "A 20-foot/reefer fixture never labels a hardcoded 45G1 example as its transmitted raw data."
+      ],
+      "nielsen": [
+        "H1",
+        "H2",
+        "H5"
+      ],
+      "law_diagnosis": {
+        "principle": "Jakob / Peak-End",
+        "friction": "An inspection tool labels reconstructed illustrative data as authoritative output.",
+        "change": "Show the real backend payload or clearly name the illustrative preview."
+      }
+    },
+    {
+      "id": "W-S-018",
+      "severity": "P2",
+      "category": "states",
+      "criterion": "kz A4; permission-aware actions",
+      "title": "Read-only page access still exposes write actions",
+      "issue": "Sidebar page permission checks distinguish read from write, but Users/Roles, Master Data and Billing show creation/toggle/edit controls without checking the corresponding write permissions. Read-only users may enter these pages and are invited to actions the API will reject. This is an interaction/permission-state issue, not a claim that the backend is insecure. Yard already demonstrates exact permission gating.",
+      "evidence": [
+        {
+          "file": "apps/web/src/services/permissions.ts",
+          "line": 4,
+          "detail": "Billing page requires billing.read."
+        },
+        {
+          "file": "apps/web/src/services/permissions.ts",
+          "line": 7,
+          "detail": "Master Data read; Users/Roles read permits page."
+        },
+        {
+          "file": "apps/web/src/components/UsersRolesView.tsx",
+          "line": 43,
+          "detail": "Add User unconditional once USERS tab."
+        },
+        {
+          "file": "apps/web/src/components/UsersRolesView.tsx",
+          "line": 80,
+          "detail": "User role/status write controls unconditional; permissions editor at 114/129."
+        },
+        {
+          "file": "apps/web/src/components/MasterDataView.tsx",
+          "line": 110,
+          "detail": "Add new and per-row toggle unconditional."
+        },
+        {
+          "file": "apps/web/src/components/BillingView.tsx",
+          "line": 212,
+          "detail": "Payment action depends on invoice status, not billing.manage."
+        }
+      ],
+      "affected_surfaces": [
+        "Users/Roles read-only",
+        "Master Data read-only",
+        "Billing read-only"
+      ],
+      "measurements": null,
+      "confidence": "verified_static",
+      "status": "FAIL_STATIC",
+      "runtime_status": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT",
+      "fix": {
+        "scope": "Illustrative local change only; report recommendation, not implemented",
+        "snippet": "const { currentUser, ...data } = useApp();\nconst canManageUsers = currentUser.permissionCodes?.some(code =>\n  code === '*' || code === 'users.manage') ?? false;\n{canManageUsers && (\n  <button type=\"button\" onClick={() => setShowUserForm(true)}\n    className=\"rounded-lg bg-blue-600 px-3.5 py-2 text-xs font-bold text-white\">\n    Thêm người dùng\n  </button>\n)}\n{/* Gate role writes with roles.manage, master data with master_data.manage. */}"
+      },
+      "acceptance_verification": [
+        "Read-only fixture users see viewing controls and clear permission context, no unusable write invitation.",
+        "Users/manage, roles/manage, billing/manage and tariff/manage controls follow exact separate permissions.",
+        "Backend authorization remains enforced on every command."
+      ],
+      "nielsen": [
+        "H1",
+        "H5"
+      ],
+      "law_diagnosis": {
+        "principle": "Hick / Tesler",
+        "friction": "Unusable choices increase effort and end in predictable permission errors.",
+        "change": "Expose only authorized actions or explain unavailable actions before use."
+      }
+    },
+    {
+      "id": "W-S-019",
+      "severity": "P2",
+      "category": "navigation",
+      "criterion": "kz N2; dismissible popover",
+      "title": "Notifications panel lacks Escape and outside-click dismissal",
+      "issue": "Header provides a correctly named trigger and aria-expanded, and the trigger can toggle the panel closed. However, its panel contains no Escape handler, outside-click listener or visible Done/close control. It can remain open over changed content until users rediscover the same trigger. A nonmodal panel does not require dialog/menu roles or focus trapping, so those are not claimed missing.",
+      "evidence": [
+        {
+          "file": "apps/web/src/components/Header.tsx",
+          "line": 9,
+          "detail": "Only local showNotifs state."
+        },
+        {
+          "file": "apps/web/src/components/Header.tsx",
+          "line": 33,
+          "detail": "Trigger toggles and exposes aria-expanded."
+        },
+        {
+          "file": "apps/web/src/components/Header.tsx",
+          "line": 34,
+          "detail": "Panel has no dismissal routes beyond trigger; full component has no effect/keydown listener."
+        }
+      ],
+      "affected_surfaces": [
+        "Header > Notifications"
+      ],
+      "measurements": null,
+      "confidence": "verified_static",
+      "status": "FAIL_STATIC",
+      "runtime_status": "UNKNOWN_NOT_EXERCISED_BY_STATIC_AGENT",
+      "fix": {
+        "scope": "Illustrative local change only; report recommendation, not implemented",
+        "snippet": "const notificationRef = useRef<HTMLDivElement>(null);\nuseEffect(() => {\n  if (!showNotifs) return;\n  const closeOnPointer = (event: PointerEvent) => {\n    if (!notificationRef.current?.contains(event.target as Node)) setShowNotifs(false);\n  };\n  const closeOnKey = (event: KeyboardEvent) => {\n    if (event.key === 'Escape') { setShowNotifs(false); notificationTrigger.current?.focus(); }\n  };\n  document.addEventListener('pointerdown', closeOnPointer);\n  document.addEventListener('keydown', closeOnKey);\n  return () => { document.removeEventListener('pointerdown', closeOnPointer); document.removeEventListener('keydown', closeOnKey); };\n}, [showNotifs]);\n<button type=\"button\" onClick={() => setShowNotifs(false)}>Đóng thông báo</button>"
+      },
+      "acceptance_verification": [
+        "Open panel: trigger again, real Escape and outside pointer each close.",
+        "Escape returns focus to trigger; a visible touch close route stays reachable.",
+        "Click inside keeps appropriate content interactions working and does not lock the main page."
+      ],
+      "nielsen": [
+        "H3",
+        "H4"
+      ],
+      "law_diagnosis": {
+        "principle": "Jakob",
+        "friction": "A familiar popup does not follow standard dismissal routes.",
+        "change": "Add dismissal and a reachable explicit close control without modal behavior."
+      }
+    },
+    {
+      "id": "W-S-020",
+      "severity": "P0",
+      "category": "states",
+      "criterion": "kz A4; runtime crash containment",
+      "title": "Partner API log JSON bodies crash the whole web app",
+      "issue": "Root runtime audit confirmed that opening Nhật ký API đối tác produced a blank application and React console error: Objects are not valid as a React child, with structured request-body keys. The detail panel renders requestBodyRedacted and responseBodyRedacted as React children inside pre. The live mapper spreads backend fields unchanged, while API logs store JSON objects and the web type declares string. There is no web ErrorBoundary around the view; the unexpected object therefore removes the entire React root. Runtime confirmation is from the parent audit, not an interaction by the static agent.",
+      "evidence": [
+        {
+          "file": "apps/web/src/components/PartnerManagementView.tsx",
+          "line": 297,
+          "detail": "Request body rendered directly as child."
+        },
+        {
+          "file": "apps/web/src/components/PartnerManagementView.tsx",
+          "line": 306,
+          "detail": "Response body rendered directly as child."
+        },
+        {
+          "file": "apps/web/src/services/mappers/live-view.mapper.ts",
+          "line": 40,
+          "detail": "Partner logs spread backend values without body serialization."
+        },
+        {
+          "file": "apps/web/src/types.ts",
+          "line": 424,
+          "detail": "Both body fields are inaccurately typed string."
+        },
+        {
+          "file": "apps/web/src/App.tsx",
+          "line": 77,
+          "detail": "renderContent is not wrapped in an error boundary."
+        }
+      ],
+      "affected_surfaces": [
+        "Partner API logs inspector",
+        "Entire web application when the failing record is selected"
+      ],
+      "measurements": null,
+      "confidence": "verified_source_and_parent_runtime",
+      "status": "FAIL_RUNTIME_CONFIRMED_BY_PARENT",
+      "runtime_status": "Parent confirmed blank app and React object-child console error at partner-api-logs, 1440px; parent owns screenshot/console/AX evidence links",
+      "fix": {
+        "scope": "Illustrative local change only; report recommendation, not implemented",
+        "snippet": "function logBodyText(value: unknown): string {\n  if (value == null) return '// Empty or Redacted';\n  if (typeof value === 'string') return value;\n  return JSON.stringify(value, null, 2);\n}\n<pre className=\"overflow-x-auto whitespace-pre-wrap\">\n  {logBodyText(selectedLog.requestBodyRedacted)}\n</pre>\n<pre className=\"overflow-x-auto whitespace-pre-wrap\">\n  {logBodyText(selectedLog.responseBodyRedacted)}\n</pre>\n// Model these fields as unknown or a JSON-value type at the view boundary.",
+        "additional_snippet": "class ViewBoundary extends React.Component<{ children: React.ReactNode; onRecover: () => void }, { failed: boolean }> {\n  state = { failed: false };\n  static getDerivedStateFromError() { return { failed: true }; }\n  render() {\n    if (this.state.failed) return <div role=\"alert\" className=\"rounded-xl bg-rose-50 p-4\">\n      Không mở được màn hình này.\n      <button onClick={this.props.onRecover}>Về Tổng quan</button>\n    </div>;\n    return this.props.children;\n  }\n}\n<ViewBoundary key={activeTab} onRecover={() => handleNavigate('dashboard')}>\n  {renderContent()}\n</ViewBoundary>"
+      },
+      "acceptance_verification": [
+        "Render a log whose request/response bodies are objects, arrays, strings, null, false and zero: no crash, JSON text is readable.",
+        "The real affected runtime route and record open successfully with sidebar/header still present.",
+        "A forced view render exception shows local recovery while the application shell and navigation remain usable.",
+        "Confirm display still uses already-redacted fields and never exposes the unredacted request."
+      ],
+      "nielsen": [
+        "H1",
+        "H3",
+        "H9"
+      ],
+      "law_diagnosis": {
+        "principle": "Peak-End / Tesler",
+        "friction": "Opening an inspection record removes every recovery/navigation control.",
+        "change": "Normalize JSON to text and contain per-view render errors."
+      },
+      "supplemental_evidence": [
+        {
+          "file": "apps/api/src/modules/partner-handover/services/partner-api-log.service.ts",
+          "line": 32,
+          "detail": "Redacted request stored as Prisma.InputJsonValue; response at 38."
+        }
+      ]
+    }
+  ],
+  "runtime_unknowns": [
+    {
+      "id": "W-S-U01",
+      "category": "layout",
+      "checks": [
+        "desktop/narrow/375px touch overflow",
+        "overlap/clipping",
+        "long localized strings",
+        "zoom 200%/400%",
+        "drawer focus and scroll"
+      ],
+      "reason": "Needs rendered browser geometry; root owns runtime."
+    },
+    {
+      "id": "W-S-U02",
+      "category": "accessibility",
+      "checks": [
+        "computed contrast with alpha/ancestors",
+        "target hitboxes including mobile 44px advisory",
+        "focus ring visibility/3:1",
+        "screen-reader announcements"
+      ],
+      "reason": "Source classes do not prove the final composed pixels. 44px skill target is distinct from WCAG 2.2 24px target/minimum exceptions."
+    },
+    {
+      "id": "W-S-U03",
+      "category": "forms",
+      "checks": [
+        "caret stability/rebuild",
+        "real Enter/IME behavior",
+        "touch/iOS input zoom",
+        "blur nudge timing",
+        "screen reader invalid errors"
+      ],
+      "reason": "No typing or submit exercised; native browser and device behavior cannot be asserted from JSX alone."
+    },
+    {
+      "id": "W-S-U04",
+      "category": "performance",
+      "evidence": [
+        {
+          "file": "apps/web/src/context/AppContext.tsx",
+          "line": 357,
+          "detail": "Loads all DATA_ROUTES on every refresh."
+        },
+        {
+          "file": "apps/web/src/context/AppContext.tsx",
+          "line": 365,
+          "detail": "Nested manifest/master/house bills; roles 373; handovers 377; holds+passes per visit 391; QR per active eligible pass 398."
+        },
+        {
+          "file": "apps/web/src/services/api/load-list.ts",
+          "line": 21,
+          "detail": "Fetches sequential pages until totalPages is exhausted."
+        },
+        {
+          "file": "apps/web/src/context/AppContext.tsx",
+          "line": 447,
+          "detail": "Every successful command refreshes the full collection set."
+        }
+      ],
+      "observation": "Global full-collection refresh and per-entity fan-out are verified structures. Approximate request floor = one health + each top-level route page + manifest/MBL pages + role details + handover details + report summary + two visit collection pages + eligible QR detail requests.",
+      "checks": [
+        "p95 interaction acknowledgment",
+        "initial/refresh readiness time",
+        "request count and bytes on realistic data",
+        "React render duration/list scaling",
+        "bundle/page resource budgets"
+      ],
+      "reason": "No measured runtime latency/payload/profile; do not invent a 400ms or bundle failure."
+    },
+    {
+      "id": "W-S-U05",
+      "category": "tokens",
+      "checks": [
+        "undefined var(--token)",
+        "theme-specific states",
+        "font loading/metrics"
+      ],
+      "reason": "Existing Tailwind theme and yard-model palette definitions are legitimate definitions; no alternate web dark-mode audit claimed."
+    },
+    {
+      "id": "W-S-U06",
+      "category": "accessibility",
+      "evidence": [
+        {
+          "file": "apps/web/src/components/yard/YardSiteMap.tsx",
+          "line": 109,
+          "detail": "Search input uses outline-none with no own ring; surrounding label has no focus-within rule in this file."
+        },
+        {
+          "file": "apps/web/src/index.css",
+          "line": 7,
+          "detail": "Global explicit focus outline applies to buttons/anchors, not inputs."
+        }
+      ],
+      "checks": [
+        "Inspect actual focus pixels on yard map search"
+      ],
+      "reason": "Source suggests a visibility gap, but browser/CSS default compositing must be measured before recording confirmed NOFOCUS."
+    }
+  ],
+  "frontend_law_evidence": {
+    "metrics": {},
+    "missing_keys": [
+      "min_target_size_px",
+      "primary_action_reach",
+      "primary_cta_count",
+      "screen_choice_count",
+      "group_spacing_ratio",
+      "focal_points",
+      "feedback_ms_p95",
+      "simplicity_score",
+      "completion conversion measurements"
+    ],
+    "reason": "This source-only batch cannot honestly populate rendered/timing/conversion measurements. Structural causes are attached per finding; numeric law results are UNKNOWN, not fabricated."
+  },
+  "caveats": [
+    "Fix snippets are illustrative 5-20-line local recommendations; they were not applied or executed.",
+    "Screen/runtime claims are limited to source-guaranteed structure and stated conditional examples; unknown browser/fixture outcomes remain separate.",
+    "Screens use native table headers; the skill preference for a filter on every column is not automatically imposed over consistent project table patterns.",
+    "No new visual design, component library migration or speculative theme was proposed."
+  ]
+}

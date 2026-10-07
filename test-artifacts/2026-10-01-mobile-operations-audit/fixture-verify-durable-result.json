@@ -1,0 +1,292 @@
+{
+  "phase": "verify-durable",
+  "checkedAt": "2026-10-02T01:54:06.068Z",
+  "invariantCount": 57,
+  "invariants": [
+    "Exactly four dedicated QA visits are compared",
+    "first: exact container identity",
+    "first: gate-in reception persisted",
+    "first: movements belong to the exact visit",
+    "first: inspections belong to the exact visit",
+    "first: bookings belong to the exact visit",
+    "first: holds belong to the exact visit",
+    "first: passes belong to the exact visit",
+    "first: no pending operation after UI completion",
+    "first: gate-in and yard assignment history persisted",
+    "first: exited and yard slot released",
+    "first: exact gate pass used",
+    "first: issue and exit history persisted",
+    "second: exact container identity",
+    "second: gate-in reception persisted",
+    "second: movements belong to the exact visit",
+    "second: inspections belong to the exact visit",
+    "second: bookings belong to the exact visit",
+    "second: holds belong to the exact visit",
+    "second: passes belong to the exact visit",
+    "second: no pending operation after UI completion",
+    "second: gate-in and yard assignment history persisted",
+    "second: cancelled movement preserves source A-01-03-2",
+    "second: exact movement cancellation persisted",
+    "second: cancellation reason persisted",
+    "second: cancellation history references exact movement",
+    "yard: exact container identity",
+    "yard: gate-in reception persisted",
+    "yard: movements belong to the exact visit",
+    "yard: inspections belong to the exact visit",
+    "yard: bookings belong to the exact visit",
+    "yard: holds belong to the exact visit",
+    "yard: passes belong to the exact visit",
+    "yard: no pending operation after UI completion",
+    "yard: gate-in and yard assignment history persisted",
+    "yard: held container remains in yard",
+    "yard: completed HOLD inspection persisted",
+    "yard: original CUSTOMS operational hold remains active",
+    "yard: both holds prevent gate-pass issuance",
+    "yard: HOLD is reflected in operations summary",
+    "followup: exact container identity",
+    "followup: gate-in reception persisted",
+    "followup: movements belong to the exact visit",
+    "followup: inspections belong to the exact visit",
+    "followup: bookings belong to the exact visit",
+    "followup: holds belong to the exact visit",
+    "followup: passes belong to the exact visit",
+    "followup: no pending operation after UI completion",
+    "followup: gate-in and yard assignment history persisted",
+    "followup: exited and yard slot released",
+    "followup: exact gate pass used",
+    "followup: issue and exit history persisted",
+    "second: source occupied by exact container after cancellation",
+    "second: cancellation destination A-02-01-2 remains available",
+    "51C-QA0755: gate-in truck completed",
+    "51C-YQA755: gate-in truck completed",
+    "51C-FQA2075: gate-in truck completed"
+  ],
+  "visits": [
+    {
+      "alias": "first",
+      "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+      "containerNumber": "QAOU5007550",
+      "state": "EXITED",
+      "slotCode": null,
+      "hasActiveOperations": false,
+      "blockers": [
+        "CONTAINER_NOT_IN_YARD",
+        "NO_YARD_POSITION"
+      ],
+      "movements": [
+        {
+          "id": "880dfcda-a98b-4483-ad32-0c0bd86b53b4",
+          "status": "COMPLETED",
+          "from": "A-01-03-2",
+          "to": "A-02-01-1",
+          "reason": null
+        }
+      ],
+      "inspections": [
+        {
+          "id": "a8852c1b-fdb9-42e9-ab38-e66701e3c11a",
+          "status": "COMPLETED",
+          "inspectionType": "DAMAGE_SURVEY",
+          "result": "PASS"
+        }
+      ],
+      "bookings": [
+        {
+          "id": "c16238aa-a5e9-40e2-bdeb-ad11763ca36d",
+          "status": "COMPLETED",
+          "bookingType": "INSPECTION"
+        }
+      ],
+      "holds": [],
+      "passes": [
+        {
+          "id": "ceb98909-33fa-4388-a829-dc5154f910fd",
+          "status": "USED",
+          "code": "GP-MUQ99LSU-EC4D56"
+        }
+      ],
+      "eventTypes": [
+        "GATE_OUT",
+        "GATE_PASS_ISSUED",
+        "INVOICE_PAID",
+        "PAYMENT_RECORDED",
+        "INVOICE_ISSUED",
+        "SERVICE_ORDER_CONFIRMED",
+        "SERVICE_ORDER_CREATED",
+        "IN_YARD_BOOKING_COMPLETED",
+        "IN_YARD_BOOKING_STARTED",
+        "IN_YARD_BOOKING_CREATED",
+        "INSPECTION_COMPLETED",
+        "INSPECTION_STARTED",
+        "INSPECTION_REQUESTED",
+        "YARD_MOVED",
+        "YARD_MOVEMENT_STARTED",
+        "YARD_MOVEMENT_REQUESTED",
+        "YARD_ASSIGNED",
+        "GATE_IN",
+        "TRUCK_VISIT_ARRIVED",
+        "TRUCK_VISIT_SCHEDULED",
+        "MOVEMENT_AUTHORIZED",
+        "MOVEMENT_ORDER_CREATED",
+        "VISIT_CREATED"
+      ]
+    },
+    {
+      "alias": "second",
+      "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+      "containerNumber": "QAOU5007565",
+      "state": "IN_YARD",
+      "slotCode": "A-01-03-2",
+      "hasActiveOperations": false,
+      "blockers": [
+        "NO_BILLING",
+        "UNBILLED_SERVICES"
+      ],
+      "movements": [
+        {
+          "id": "b412f65d-bc7f-473d-bbe8-498bc176acfd",
+          "status": "CANCELLED",
+          "from": "A-01-03-2",
+          "to": "A-02-01-2",
+          "reason": "QA hủy đảo chuyển: giữ container tại vị trí cũ, không thực hiện di dời."
+        }
+      ],
+      "inspections": [],
+      "bookings": [
+        {
+          "id": "1b02ff00-4994-443c-95a6-04059ceb5341",
+          "status": "CANCELLED",
+          "bookingType": "INSPECTION"
+        }
+      ],
+      "holds": [],
+      "passes": [],
+      "eventTypes": [
+        "YARD_MOVEMENT_CANCELLED",
+        "YARD_MOVEMENT_REQUESTED",
+        "IN_YARD_BOOKING_CANCELLED",
+        "IN_YARD_BOOKING_CREATED",
+        "YARD_ASSIGNED",
+        "GATE_IN",
+        "TRUCK_VISIT_ARRIVED",
+        "TRUCK_VISIT_SCHEDULED",
+        "MOVEMENT_AUTHORIZED",
+        "MOVEMENT_ORDER_CREATED",
+        "VISIT_CREATED"
+      ]
+    },
+    {
+      "alias": "yard",
+      "visitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+      "containerNumber": "QAOU5007570",
+      "state": "IN_YARD",
+      "slotCode": "A-01-01-2",
+      "hasActiveOperations": false,
+      "blockers": [
+        "INSPECTION_HOLD",
+        "OPERATIONAL_HOLD",
+        "NO_BILLING",
+        "UNBILLED_SERVICES"
+      ],
+      "movements": [],
+      "inspections": [
+        {
+          "id": "cd79419f-3f37-49b3-9e49-b0b53a445b86",
+          "status": "COMPLETED",
+          "inspectionType": "CUSTOMS",
+          "result": "HOLD"
+        }
+      ],
+      "bookings": [],
+      "holds": [
+        {
+          "id": "db00e863-7a3c-4a9f-820b-8892e3713b5c",
+          "status": "ACTIVE",
+          "holdType": "CUSTOMS"
+        }
+      ],
+      "passes": [],
+      "eventTypes": [
+        "INSPECTION_COMPLETED",
+        "INSPECTION_STARTED",
+        "INSPECTION_REQUESTED",
+        "OPERATIONAL_HOLD_PLACED",
+        "YARD_ASSIGNED",
+        "GATE_IN",
+        "TRUCK_VISIT_ARRIVED",
+        "TRUCK_VISIT_SCHEDULED",
+        "MOVEMENT_AUTHORIZED",
+        "MOVEMENT_ORDER_CREATED",
+        "VISIT_CREATED"
+      ]
+    },
+    {
+      "alias": "followup",
+      "visitId": "f6482365-ae79-4ae3-9dec-efecd8f04947",
+      "containerNumber": "QAOU1882075",
+      "state": "EXITED",
+      "slotCode": null,
+      "hasActiveOperations": false,
+      "blockers": [
+        "CONTAINER_NOT_IN_YARD",
+        "NO_YARD_POSITION"
+      ],
+      "movements": [],
+      "inspections": [],
+      "bookings": [],
+      "holds": [],
+      "passes": [
+        {
+          "id": "ebda4085-a524-403f-a949-932d7656cfdb",
+          "status": "USED",
+          "code": "GP-MUQAHDPX-0237BC"
+        }
+      ],
+      "eventTypes": [
+        "GATE_OUT",
+        "GATE_PASS_ISSUED",
+        "INVOICE_PAID",
+        "PAYMENT_RECORDED",
+        "INVOICE_ISSUED",
+        "SERVICE_ORDER_CONFIRMED",
+        "SERVICE_ORDER_CREATED",
+        "YARD_ASSIGNED",
+        "GATE_IN",
+        "TRUCK_VISIT_ARRIVED",
+        "TRUCK_VISIT_SCHEDULED",
+        "MOVEMENT_AUTHORIZED",
+        "MOVEMENT_ORDER_CREATED",
+        "VISIT_CREATED"
+      ]
+    }
+  ],
+  "trucks": [
+    {
+      "id": "fc525ccc-ba8e-49f2-8831-62eadd0ae0e3",
+      "vehiclePlate": "51C-QA0755",
+      "status": "COMPLETED"
+    },
+    {
+      "id": "4d582342-e97e-4a32-aaee-406690b2d6b6",
+      "vehiclePlate": "51C-YQA755",
+      "status": "COMPLETED"
+    },
+    {
+      "id": "950be735-d6ca-455d-9e2c-072023a053d7",
+      "vehiclePlate": "51C-FQA2075",
+      "status": "COMPLETED"
+    }
+  ],
+  "cancellationSlots": {
+    "source": {
+      "slotCode": "A-01-03-2",
+      "status": "OCCUPIED",
+      "containerVisitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f"
+    },
+    "destination": {
+      "slotCode": "A-02-01-2",
+      "status": "AVAILABLE",
+      "currentContainer": null
+    }
+  }
+}

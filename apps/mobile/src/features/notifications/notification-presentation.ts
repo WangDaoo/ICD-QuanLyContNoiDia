@@ -1,0 +1,28 @@
+import type { NotificationRecord } from './api/notification.api';
+
+// Translate only the canonical server templates. Custom text and unknown types
+// remain verbatim; identifiers, amounts, and operational reasons are preserved.
+export function presentNotification(row: Pick<NotificationRecord, 'type' | 'title' | 'body'>): { title: string; body: string } {
+  let { title, body } = row;
+  if (row.type === 'GATE_OUT_COMPLETED') {
+    title = title.replace(/^Container (\S+) Gate-Out Completed$/, 'Container $1 đã ra cổng');
+    body = body.replace(/^Container (\S+) has successfully gated out of ICD\.$/, 'Container $1 đã ra khỏi cổng ICD.');
+  } else if (row.type === 'GATE_PASS_EXPIRING') {
+    title = title.replace(/^Gate Pass Expiring Soon: (.+)$/, 'Phiếu ra cổng sắp hết hạn: $1');
+    const template = /^Gate Pass (.+) for container (\S+) will expire at (.+)\.$/.exec(body);
+    if (template) {
+      const expiry = new Date(template[3]);
+      if (Number.isFinite(expiry.getTime())) body = `Phiếu ra cổng ${template[1]} của container ${template[2]} sẽ hết hạn lúc ${expiry.toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })} (UTC+7).`;
+    }
+  } else if (row.type === 'FREE_STORAGE_EXPIRING') {
+    title = title.replace(/^Free Storage Expiring Warning: (\S+)$/, 'Sắp hết thời gian miễn lưu bãi: $1');
+    body = body.replace(/^Container (\S+) has been in yard since (\d{4}-\d{2}-\d{2})\. Free storage period is nearing expiry\.$/, 'Container $1 đã vào bãi từ ngày $2. Thời gian miễn lưu bãi sắp hết.');
+  } else if (row.type === 'INVOICE_EMAIL') {
+    title = title.replace(/^ICD Invoice #(.+)$/, 'Hóa đơn ICD #$1');
+    body = body.replace(/^Dear ([\s\S]+),\n\nPlease find attached your tax invoice #(.+) for the amount of (.+)\.\n\nThank you for choosing ICD services\.$/, 'Kính gửi $1,\n\nHóa đơn thuế #$2 với số tiền $3 được đính kèm.\n\nCảm ơn quý khách đã sử dụng dịch vụ ICD.');
+  } else if (row.type === 'INSPECTION_HOLD') {
+    title = title.replace(/^Giám định HOLD: Container (\S+)$/, 'Giám định giữ hàng: Container $1');
+    body = body.replace(/^Container (\S+) có kết quả giám định HOLD\.( Lý do: [\s\S]+)?$/, 'Container $1 có kết quả giám định giữ hàng.$2');
+  }
+  return { title, body };
+}

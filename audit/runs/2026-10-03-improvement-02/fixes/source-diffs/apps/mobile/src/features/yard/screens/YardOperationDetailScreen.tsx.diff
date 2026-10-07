@@ -1,0 +1,26 @@
+--- before/apps/mobile/src/features/yard/screens/YardOperationDetailScreen.tsx
++++ after/apps/mobile/src/features/yard/screens/YardOperationDetailScreen.tsx
+@@ -1,3 +1,4 @@
++import { displayCode } from '../../../presentation/labels';
+ import { useCallback, useEffect, useState } from 'react';
+ import { Text, TouchableOpacity, View } from 'react-native';
+ import { useNavigation, useRoute } from '@react-navigation/native';
+@@ -55,15 +56,15 @@
+         } else await yardApi.complete(params.operationId,params.operationType);
+       } else await yardApi.start(params.operationId,params.operationType);
+       const completedAction = action;setAction(null);setReason('');
+-      await load();setSuccess(completedAction === 'cancel' ? 'Đã hủy tác nghiệp.' : completedAction === 'complete' ? 'Backend đã xác nhận hoàn tất tác nghiệp.' : 'Đã bắt đầu tác nghiệp.');
++      await load();setSuccess(completedAction === 'cancel' ? 'Đã hủy tác nghiệp.' : completedAction === 'complete' ? 'Hệ thống đã xác nhận hoàn tất tác nghiệp.' : 'Đã bắt đầu tác nghiệp.');
+     } catch(err) {setDialogError(err instanceof Error ? err.message : 'Không thực hiện được tác nghiệp.');} finally {setBusy(false);}
+   };
+   return <ScreenLayout title={params?.operationType === 'INSPECTION' ? 'Giám định hiện trường' : 'Tác nghiệp bãi'} subtitle={record?.containerVisit?.container?.containerNumber} onBack={() => navigation.goBack()}>
+     {loading ? <LoadingState /> : !record ? <ErrorState message={error} onRetry={() => void load()} /> : <>
+-      <Card title={record.containerVisit?.container?.containerNumber}><StatusBadge label={record.status} variant="info" /><DetailRow label="Loại lệnh" value={record.inspectionType === 'DAMAGE_SURVEY' ? 'Giám định hư hỏng' : record.inspectionType || record.bookingType || 'Đảo chuyển'} />{params?.operationType === 'MOVEMENT' ? <><DetailRow label="Vị trí đi" value={record.fromSlot?.slotCode} /><DetailRow label="Vị trí đến" value={record.toSlot?.slotCode} /></> : null}<DetailRow label="Ghi chú" value={record.notes || record.conditionNotes || record.reason} /></Card>
++      <Card title={record.containerVisit?.container?.containerNumber}><StatusBadge label={displayCode(record.status)} variant="info" /><DetailRow label="Loại lệnh" value={displayCode(record.inspectionType || record.bookingType || 'MOVEMENT')} />{params?.operationType === 'MOVEMENT' ? <><DetailRow label="Vị trí đi" value={record.fromSlot?.slotCode} /><DetailRow label="Vị trí đến" value={record.toSlot?.slotCode} /></> : null}<DetailRow label="Ghi chú" value={record.notes || record.conditionNotes || record.reason} /></Card>
+       {error ? <Notice message={error} /> : null}{success ? <Notice message={success} success /> : null}
+       {record.result ? <Card title="Kết quả đã ghi nhận"><DetailRow label="Kết luận" value={record.result === 'PASS' ? 'Đạt' : record.result === 'FAIL' ? 'Không đạt' : 'Giữ (HOLD)'} />{record.result === 'HOLD' ? <Notice message="Container đang bị chặn cấp phiếu ra cổng do kết quả HOLD. Liên hệ điều hành để xử lý." /> : null}</Card> : null}
+-      {params.operationType === 'BOOKING' ? <Card title="Thông tin lịch tác nghiệp"><DetailRow label="Lịch thực hiện" value={record.scheduledAt ? new Date(record.scheduledAt).toLocaleString('vi-VN') : undefined} /><DetailRow label="Số kiện thực tế" value={record.actualPackageCount} /><DetailRow label="Trọng lượng thực tế (kg)" value={record.actualWeight} /></Card> : null}
++      {params.operationType === 'BOOKING' ? <Card title="Thông tin lịch tác nghiệp"><DetailRow label="Lịch thực hiện" value={record.scheduledAt ? new Date(record.scheduledAt).toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' }) + ' (UTC+7)' : undefined} /><DetailRow label="Số kiện thực tế" value={record.actualPackageCount} /><DetailRow label="Trọng lượng thực tế (kg)" value={record.actualWeight} /></Card> : null}
+       {allowed && record.status === 'PENDING' ? <PrimaryButton requiresOnline title="Bắt đầu tác nghiệp" onPress={() => review('start')} loading={busy} /> : null}
+       {allowed && record.status === 'IN_PROGRESS' ? <>
+         {params?.operationType === 'INSPECTION' ? <Card title="Kết quả kiểm định"><View style={{flexDirection:'row',gap:8}}>{[['PASS','Đạt'],['FAIL','Không đạt'],['HOLD','Giữ']] .map(([code,label]) => <TouchableOpacity key={code} accessibilityRole="button" onPress={() => setResult(code)} style={[fieldStyles.chip,{flex:1}]}><Text style={fieldStyles.value}>{result === code ? '✓ ' : ''}{label}</Text></TouchableOpacity>)}</View><Field label="Ghi chú kiểm định" value={notes} onChangeText={setNotes} multiline /></Card> : null}

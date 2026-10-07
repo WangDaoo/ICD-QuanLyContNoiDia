@@ -1,0 +1,33 @@
+- link "Đến nội dung nghiệp vụ":
+  - /url: "#main-content"
+- banner:
+  - button "Mở menu điều hướng":
+  - generic: ICD
+  - heading "ICD Management System" [level=1]
+  - button "Tải lại dữ liệu":
+  - button "Thông báo (0 chưa đọc)":
+  - button "Đăng xuất":
+- main:
+  - heading "Quản lý Chuyến xe ra/vào (Truck Visits)" [level=2]:
+    - generic: Quản lý Chuyến xe ra/vào (Truck Visits)
+  - paragraph: Đặt lịch hẹn trước tại cổng (Gate Appointment) nhằm rút ngắn thời gian xếp dỡ và tránh ùn tắc luồng xe
+  - button "Tạo Chuyến xe mới":
+    - generic: Tạo Chuyến xe mới
+  - textbox "Tìm chuyến xe":
+    - /placeholder: Tìm biển số xe, tên tài xế, mã chuyến...
+    - text: E2E-0410
+  - generic: Hiển thị 1 chuyến xe
+  - status: Đã lưu trên hệ thống.
+  - generic: TV-20261004-458B98
+  - generic: ARRIVED
+  - text: "Biển số xe:"
+  - strong: E2E-0410
+  - text: "Tài xế:"
+  - strong: Tài xế tổng hợp E2E-20261004-2147
+  - text: (0900000000)
+  - text: "Đơn vị vận tải:"
+  - strong: "-"
+  - text: "Làn cổng:"
+  - strong: Chưa ghi nhận làn
+  - generic: "Container mang theo: QAOU6100040"
+  - button "Tiến hành Tiếp nhận (Gate-in) →"

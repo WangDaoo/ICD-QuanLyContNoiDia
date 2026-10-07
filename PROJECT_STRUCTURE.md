@@ -1,7 +1,7 @@
-# Cấu trúc triển khai dự kiến
+# Cấu trúc triển khai
 
 ```text
-icd-management-skeleton-v0.2/
+icd-management/
 ├── RULES.md
 ├── docs/
 │   └── development/
@@ -45,10 +45,8 @@ icd-management-skeleton-v0.2/
 
 ## Trạng thái hiện tại
 
-- Đã dựng folder.
-- Đã dựng tên file dự kiến.
-- Đã ghi trách nhiệm tiếng Việt trong file.
-- Đã thêm rules theo từng nhánh.
-- Chưa scaffold dependency/package.
-- Chưa có code thực thi.
-- Chưa có Prisma model/migration.
+- Monorepo đã có API NestJS, Web React/Vite, Mobile React Native/Expo và ML service FastAPI.
+- Backend đã triển khai module nghiệp vụ, DTO validation, policy, guard, mapper, Prisma schema và migration.
+- API dùng MySQL 8.x/InnoDB, response envelope chuẩn `{ data }` hoặc `{ data, meta }`.
+- Danh sách dùng `page`, `pageSize`, `sortBy`, `sortOrder`.
+- Các module phải tuân thủ `RULES.md` gần nhất và rule cấp cao hơn.

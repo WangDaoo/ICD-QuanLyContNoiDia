@@ -1,0 +1,44 @@
+diff --git "a/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-003\\before\\apps\\web\\src\\components\\HandoversView.tsx" "b/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-003\\after\\apps\\web\\src\\components\\HandoversView.tsx"
+index e3777d1..6c61d0c 100644
+--- "a/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-003\\before\\apps\\web\\src\\components\\HandoversView.tsx"	
++++ "b/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-003\\after\\apps\\web\\src\\components\\HandoversView.tsx"	
+@@ -212,28 +212,28 @@ export const HandoversView: React.FC<HandoversViewProps> = ({ onNavigate, target
+           {filteredHandovers.map((h) => {
+             const isSelected = selectedHandover?.id === h.id;
+             return (
+-              <div
++              <button type="button" aria-pressed={isSelected}
+                 key={h.id}
+                 onClick={() => setSelectedHandover(h)}
+-                className={`p-4 rounded-xl border cursor-pointer transition ${
++                className={`block w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 p-4 rounded-xl border cursor-pointer transition ${
+                   isSelected
+                     ? 'bg-indigo-50/50 border-indigo-500 shadow-xs'
+                     : 'bg-white border-slate-200 hover:border-slate-300'
+                 }`}
+               >
+-                <div className="flex items-center justify-between">
++                <span className="block flex items-center justify-between">
+                   <span className="text-xs font-mono font-bold text-indigo-700">{h.transportCode}</span>
+                   {getStatusBadge(h.status)}
+-                </div>
+-                <div className="font-mono font-bold text-slate-900 text-xs mt-1.5 flex items-center space-x-2">
++                </span>
++                <span className="block font-mono font-bold text-slate-900 text-xs mt-1.5 flex items-center space-x-2">
+                   <span>{h.containerNumber}</span>
+                   <span className="font-sans font-normal text-slate-400">({h.containerType})</span>
+-                </div>
+-                <div className="text-[11px] text-slate-600 mt-2 space-y-0.5">
+-                  <div>Đối tác: <strong>{h.partnerName}</strong></div>
+-                  <div>Đích đến: <strong>{h.warehouseName}</strong></div>
+-                </div>
+-              </div>
++                </span>
++                <span className="block text-[11px] text-slate-600 mt-2 space-y-0.5">
++                  <span className="block">Đối tác: <strong>{h.partnerName}</strong></span>
++                  <span className="block">Đích đến: <strong>{h.warehouseName}</strong></span>
++                </span>
++              </button>
+             );
+           })}
+         </div>

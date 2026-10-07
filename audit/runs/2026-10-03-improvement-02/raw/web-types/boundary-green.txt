@@ -1,0 +1,14 @@
+✔ gate-out tasks resolve their canonical gate-pass entity to a visit (2.2422ms)
+✔ unsupported payment methods are never displayed as bank transfer (0.3692ms)
+✔ malformed nested API collections cannot crash view mapping (1.7285ms)
+✔ non-boolean readiness flags cannot grant financial readiness (0.3765ms)
+✔ a saved command whose refresh fails reports an explicit refresh outcome (0.6199ms)
+✔ non-string thrown messages do not escape the command result boundary (0.3114ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 499.2954

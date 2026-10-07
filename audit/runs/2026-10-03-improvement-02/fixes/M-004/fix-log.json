@@ -1,0 +1,22 @@
+{
+  "status": "FIXED",
+  "change": "Shared touch targets/gaps use48dp/8dp and narrow reflow instead of overlapping hitboxes.",
+  "source_evidence": [
+    {
+      "file": "apps/mobile/src/theme/layout.ts",
+      "line": 3,
+      "detail": "touchTarget",
+      "snippet": "  touchTarget: 48,\n  contentMaxWidth: 600,\n  dialogMaxWidth: 480,\n  multilineInputMinHeight: 74,"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+  ],
+  "limitations": "FIXED; requires current Android XML/bounds at320/360/412/768dp before VERIFIED.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/theme/layout.ts.diff"
+  ],
+  "isolated_review_diffs": []
+}

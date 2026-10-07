@@ -1,0 +1,23 @@
+{
+  "status": "VERIFIED",
+  "change": "Body dùng CollectionState, phân biệt loading/error/forbidden/stale/ready-empty/filter-empty; có retry hoặc xóa bộ lọc đúng trạng thái. Fixture actual2views đã kiểm, runtime các consumer này được ghi riêng.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/MovementOrdersView.tsx",
+      "line": 196,
+      "detail": "<CollectionState",
+      "snippet": "                  <CollectionState\n                    resource=\"movementOrders\"\n                    count={filtered.length}\n                    total={movementOrders.length}"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/empty-body-green.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/empty-body-consumers-green.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/empty-body-review.md"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Meaningful RED/GREEN source regression; real API only if explicitly linked.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/MovementOrdersView.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

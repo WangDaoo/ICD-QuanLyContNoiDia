@@ -1,0 +1,18 @@
+{
+  "at": "2026-10-04T10:51:09.835421+07:00",
+  "status": "PASS",
+  "report": "audit/2026-10-04-report.md",
+  "report_sha256": "66AAF81F482F670637EF4B9B182173528C8B8466D6A2739BFD1CA3284C3D5A61",
+  "findings": 66,
+  "status_counts": {
+    "VERIFIED": 53,
+    "FIXED": 13
+  },
+  "locked_observations": 104,
+  "file_links_checked": 366,
+  "raw_files_secret_checked": 545,
+  "historical_files_preserved": 8,
+  "source_hashes_match_final_checks": 220,
+  "review_scope": "Root integrity review, not independent human or spoken screen-reader acceptance.",
+  "report_generator_note": "Report writes and historical-hash assertions completed; Windows cp1252 stdout serialization failed afterward. UTF-safe stdout fixed; no report regeneration/overwrite required."
+}

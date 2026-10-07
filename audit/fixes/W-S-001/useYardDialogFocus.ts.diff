@@ -1,0 +1,13 @@
+diff --git "a/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-001\\before\\apps\\web\\src\\components\\yard\\useYardDialogFocus.ts" "b/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-001\\after\\apps\\web\\src\\components\\yard\\useYardDialogFocus.ts"
+index d1ecac0..c38dbe9 100644
+--- "a/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-001\\before\\apps\\web\\src\\components\\yard\\useYardDialogFocus.ts"	
++++ "b/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-001\\after\\apps\\web\\src\\components\\yard\\useYardDialogFocus.ts"	
+@@ -3,7 +3,7 @@ import { useEffect, useRef, type KeyboardEvent } from 'react';
+ const focusableSelector =
+   'a[href], button, input:not([type="hidden"]), select, textarea, [tabindex]:not([tabindex="-1"])';
+ 
+-function focusableControls(dialog: HTMLElement): HTMLElement[] {
++export function focusableControls(dialog: HTMLElement): HTMLElement[] {
+   return Array.from(dialog.querySelectorAll<HTMLElement>(focusableSelector)).filter(
+     control => !control.matches(':disabled')
+       && control.tabIndex >= 0

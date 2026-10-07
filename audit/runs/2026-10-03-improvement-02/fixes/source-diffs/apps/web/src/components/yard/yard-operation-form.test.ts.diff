@@ -1,0 +1,30 @@
+--- before/apps/web/src/components/yard/yard-operation-form.test.ts
++++ after/apps/web/src/components/yard/yard-operation-form.test.ts
+@@ -16,6 +16,18 @@
+ test('schedule defaults and payload preserve the local Vietnam clock', () => {
+   assert.equal(formatLocalDateTime(new Date('2026-10-02T02:15:00.000Z')), '2026-10-02T09:15');
+   assert.deepEqual(parseLocalDateTime('2026-10-02T09:15'), { iso: '2026-10-02T02:15:00.000Z' });
++});
++
++test('Vietnam schedule defaults and payload are independent of browser timezone', () => {
++  const previousTimezone = process.env.TZ;
++  try {
++    process.env.TZ = 'UTC';
++    assert.equal(formatLocalDateTime(new Date('2026-10-02T02:15:00.000Z')), '2026-10-02T09:15');
++    assert.deepEqual(parseLocalDateTime('2026-10-02T09:15'), { iso: '2026-10-02T02:15:00.000Z' });
++    assert.deepEqual(parseLocalDateTime('2026-10-02T00:15'), { iso: '2026-10-01T17:15:00.000Z' });
++  } finally {
++    process.env.TZ = previousTimezone;
++  }
+ });
+ 
+ test('blank, malformed and impossible schedules produce visible validation errors', () => {
+@@ -113,7 +125,7 @@
+       maxWeightKg: 30000,
+       reeferPower: false,
+     },
+-  ] as unknown as YardSlot[];
++  ] as YardSlot[];
+   assert.deepEqual(
+     findMovementDestinations(slots, blocks, visit).map((slot) => slot.id),
+     ['dry'],

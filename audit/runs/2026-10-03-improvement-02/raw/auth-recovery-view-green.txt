@@ -1,0 +1,12 @@
+✔ transient restore failure offers retry without exposing protected UI or requesting the password again (297.731ms)
+✔ unverified restore in progress shows loading and disables retry (58.6574ms)
+✔ recovery lets the user explicitly end the preserved session and choose another account (60.791ms)
+✔ definitively unauthenticated session still presents the existing login form (86.631ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5940.6742

@@ -1,0 +1,128 @@
+{
+  "cases": [
+    {
+      "finding_id": "M-004",
+      "status": "PENDING",
+      "acceptance": [
+        "Measured external gaps are≥8dp in native screenshots/hierarchy.",
+        "320dp layout reflows without reducing target sizes or spacing."
+      ],
+      "source_fix_status": "FIXED",
+      "required_evidence": "Current-source native screenshot/hierarchy and behavior; source tests alone do not close acceptance"
+    },
+    {
+      "finding_id": "M-005",
+      "status": "PENDING",
+      "acceptance": [
+        "At320dp width and150% type, full role is readable and no icon/text crosses its target.",
+        "All tab labels remain distinguishable; inspect at200% separately."
+      ],
+      "source_fix_status": "FIXED",
+      "required_evidence": "Current-source native screenshot/hierarchy and behavior; source tests alone do not close acceptance"
+    },
+    {
+      "finding_id": "M-006",
+      "status": "PENDING",
+      "acceptance": [
+        "Each currently observed enum renders a Vietnamese business label on list/detail/confirmation screens.",
+        "Known backend English notification templates are localized or clearly marked language-specific."
+      ],
+      "source_fix_status": "FIXED",
+      "required_evidence": "Current-source native screenshot/hierarchy and behavior; source tests alone do not close acceptance"
+    },
+    {
+      "finding_id": "M-007",
+      "status": "PENDING",
+      "acceptance": [
+        "Seal and condition checks show relevant fields/copy only.",
+        "Damage surveys retain their current severity choices and submitted notes."
+      ],
+      "source_fix_status": "FIXED",
+      "required_evidence": "Current-source native screenshot/hierarchy and behavior; source tests alone do not close acceptance"
+    },
+    {
+      "finding_id": "M-008",
+      "status": "PENDING",
+      "acceptance": [
+        "Under a delayed GET, history shows loading rather than empty.",
+        "Under a failed GET, history shows a local retry; successful empty/populated results are distinct."
+      ],
+      "source_fix_status": "FIXED",
+      "required_evidence": "Current-source native screenshot/hierarchy and behavior; source tests alone do not close acceptance"
+    },
+    {
+      "finding_id": "M-009",
+      "status": "PENDING",
+      "acceptance": [
+        "Native header/content shows the server unread count for zero and nonzero states.",
+        "Mark-read actions update the displayed count; verify with authorized fixture state."
+      ],
+      "source_fix_status": "FIXED",
+      "required_evidence": "Current-source native screenshot/hierarchy and behavior; source tests alone do not close acceptance"
+    },
+    {
+      "finding_id": "M-010",
+      "status": "PENDING",
+      "acceptance": [
+        "User can enter a valid date/time without recalling separators.",
+        "Helper/timezone remains visible after entry and validation points to this field."
+      ],
+      "source_fix_status": "FIXED",
+      "required_evidence": "Current-source native screenshot/hierarchy and behavior; source tests alone do not close acceptance"
+    },
+    {
+      "finding_id": "M-011",
+      "status": "PENDING",
+      "acceptance": [
+        "Choose dark, close/reopen the app and retain dark with the existing auth session.",
+        "Initial unconfigured appearance follows the selected documented default/system preference."
+      ],
+      "source_fix_status": "FIXED",
+      "required_evidence": "Current-source native screenshot/hierarchy and behavior; source tests alone do not close acceptance"
+    },
+    {
+      "finding_id": "M-012",
+      "status": "PENDING",
+      "acceptance": [
+        "Blank review produces clear field-specific messages.",
+        "Filling each required field removes its missing-field error before another submit; server failures remain visible."
+      ],
+      "source_fix_status": "FIXED",
+      "required_evidence": "Current-source native screenshot/hierarchy and behavior; source tests alone do not close acceptance"
+    },
+    {
+      "finding_id": "M-014",
+      "status": "PENDING",
+      "acceptance": [
+        "TalkBack heading navigation reaches each meaningful card/title once in logical order.",
+        "Ordinary content and controls remain individually reachable."
+      ],
+      "source_fix_status": "FIXED",
+      "required_evidence": "Current-source native screenshot/hierarchy and behavior; source tests alone do not close acceptance"
+    },
+    {
+      "finding_id": "M-013",
+      "status": "PENDING",
+      "acceptance": [
+        "Affected consumers reference named tokens; literals are limited to token definitions and documented geometry.",
+        "Preserve existing layout and test both themes plus320dp/font scale1.5."
+      ],
+      "source_fix_status": "FIXED",
+      "required_evidence": "Current-source native screenshot/hierarchy and behavior; source tests alone do not close acceptance"
+    },
+    {
+      "finding_id": "M-N-001",
+      "status": "PENDING",
+      "acceptance": [],
+      "source_fix_status": "FIXED",
+      "required_evidence": "Current-source native screenshot/hierarchy and behavior; source tests alone do not close acceptance"
+    },
+    {
+      "finding_id": "M-N-002",
+      "status": "PENDING",
+      "acceptance": [],
+      "source_fix_status": "FIXED",
+      "required_evidence": "Current-source native screenshot/hierarchy and behavior; source tests alone do not close acceptance"
+    }
+  ]
+}

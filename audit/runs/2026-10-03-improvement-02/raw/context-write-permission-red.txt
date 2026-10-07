@@ -1,0 +1,28 @@
+✖ context refuses a write after account switch and preserves the canonical custom role (268.547ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5405.7874
+
+✖ failing tests:
+
+test at audit\tools\context-write-permission-regression.test.mjs:9:1
+✖ context refuses a write after account switch and preserves the canonical custom role (268.547ms)
+  AssertionError [ERR_ASSERTION]: stale open-dialog callback must use current account permissions
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/context-write-permission-regression.test.mjs:29:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

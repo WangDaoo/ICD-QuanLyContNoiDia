@@ -1,0 +1,11 @@
+--- before/apps/mobile/src/components/ForbiddenScreen.tsx
++++ after/apps/mobile/src/components/ForbiddenScreen.tsx
+@@ -21,7 +21,7 @@
+     <View style={styles.container}>
+       <View style={styles.card}>
+         <Text style={styles.icon}>🔒</Text>
+-        <Text style={styles.title}>{title}</Text>
++        <Text accessibilityRole="header" style={styles.title}>{title}</Text>
+         <Text style={styles.message}>{message}</Text>
+         {onOpenAccount ? <PrimaryButton title="Mở tài khoản" onPress={onOpenAccount} style={{ alignSelf: 'stretch', marginTop: theme.spacing.lg }} /> : null}
+       </View>

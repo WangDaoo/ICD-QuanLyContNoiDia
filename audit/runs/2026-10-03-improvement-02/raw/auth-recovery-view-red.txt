@@ -1,0 +1,71 @@
+✖ transient restore failure offers retry without exposing protected UI or requesting the password again (283.2262ms)
+✖ unverified restore in progress shows loading and disables retry (40.502ms)
+✖ recovery lets the user explicitly end the preserved session and choose another account (41.5945ms)
+✔ definitively unauthenticated session still presents the existing login form (34.1485ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 1
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5973.5033
+
+✖ failing tests:
+
+test at audit\tools\tests\auth-recovery-view.test.mjs:33:1
+✖ transient restore failure offers retry without exposing protected UI or requesting the password again (283.2262ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Kiểm tra kết nối/. Input:
+  
+  ''
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\auth-recovery-view.test.mjs:36:12)
+      at withRecovery (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\auth-recovery-view.test.mjs:29:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\auth-recovery-view.test.mjs:35:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: /Kiểm tra kết nối/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\auth-recovery-view.test.mjs:42:1
+✖ unverified restore in progress shows loading and disables retry (40.502ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Đang kiểm tra phiên/. Input:
+  
+  ''
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\auth-recovery-view.test.mjs:44:12)
+      at withRecovery (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\auth-recovery-view.test.mjs:29:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\auth-recovery-view.test.mjs:43:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: /Đang kiểm tra phiên/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\auth-recovery-view.test.mjs:49:1
+✖ recovery lets the user explicitly end the preserved session and choose another account (41.5945ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(choose)
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\auth-recovery-view.test.mjs:53:12)
+      at withRecovery (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\auth-recovery-view.test.mjs:29:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\auth-recovery-view.test.mjs:51:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

@@ -1,0 +1,2095 @@
+{
+  "controls": [
+    {
+      "disabled": false,
+      "label": "Đến nội dung nghiệp vụ",
+      "outline": "none",
+      "rect": {
+        "height": 1,
+        "width": 1
+      },
+      "tag": "A"
+    },
+    {
+      "disabled": false,
+      "label": "Mở menu điều hướng",
+      "outline": "none",
+      "rect": {
+        "height": 36,
+        "width": 36
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Tải lại dữ liệu",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 32
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Thông báo (0 chưa đọc)",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 32
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Đăng xuất",
+      "outline": "none",
+      "rect": {
+        "height": 32,
+        "width": 32
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Thêm Đối tác API mới",
+      "outline": "none",
+      "rect": {
+        "height": 40,
+        "width": 231.33334350585935
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Xoay vòng Khóa (Rotate Key)",
+      "outline": "none",
+      "rect": {
+        "height": 28,
+        "width": 201.1979217529297
+      },
+      "tag": "BUTTON"
+    },
+    {
+      "disabled": false,
+      "label": "Xoay vòng Khóa (Rotate Key)",
+      "outline": "none",
+      "rect": {
+        "height": 28,
+        "width": 201.1979217529297
+      },
+      "tag": "BUTTON"
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "text": "ICD Management System"
+    },
+    {
+      "level": 2,
+      "text": "Đối tác Tích hợp API Vận chuyển (Mô đun 13)"
+    }
+  ],
+  "overflow": {
+    "document": false,
+    "main": false
+  },
+  "rows": [
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "sr-only focus:not-sr-only focus:absolute focus:z-50 focus:rounded focus:bg-white focus:p-3",
+      "color": "oklch(0.208 0.042 265.755)",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "24px",
+      "rect": {
+        "height": 1,
+        "width": 1,
+        "x": -1,
+        "y": -1
+      },
+      "tag": "A",
+      "text": "Đến nội dung nghiệp vụ"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.546 0.245 262.881)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "h-9 w-9 shrink-0 rounded-xl bg-blue-600 text-white flex items-center justify-center font-black text-xs shadow-sm",
+      "color": "rgb(255, 255, 255)",
+      "fontSize": "12px",
+      "fontWeight": "900",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 36,
+        "width": 36,
+        "x": 60,
+        "y": 13.666666984558104
+      },
+      "tag": "DIV",
+      "text": "ICD"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+      "color": "oklch(0.279 0.041 260.031)",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "letterSpacing": "-0.35px",
+      "lineHeight": "17.5px",
+      "rect": {
+        "height": 17.5,
+        "width": 71.33333587646484,
+        "x": 108,
+        "y": 22.916667938232425
+      },
+      "tag": "H1",
+      "text": "ICD Management System"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "oklch(0.208 0.042 265.755)",
+      "fontSize": "18px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "22.5px",
+      "rect": {
+        "height": 45,
+        "width": 212.3229217529297,
+        "x": 55.67708587646485,
+        "y": 100.66667175292967
+      },
+      "tag": "SPAN",
+      "text": "Đối tác Tích hợp API Vận chuyển (Mô đun 13)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-xs text-slate-500 mt-1",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 48,
+        "width": 231.33334350585935,
+        "x": 36.66666793823242,
+        "y": 149.6666717529297
+      },
+      "tag": "P",
+      "text": "Quản lý API Key, phân quyền phạm vi (Scopes), cơ chế xoay vòng khóa bí mật (Rotation) và mã băm SHA-"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.511 0.262 276.966)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "rgb(255, 255, 255)",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "24px",
+      "rect": {
+        "height": 24,
+        "width": 153.2916717529297,
+        "x": 72.66667175292969,
+        "y": 221.6666717529297
+      },
+      "tag": "SPAN",
+      "text": "Thêm Đối tác API mới"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-sm font-bold text-slate-900",
+      "color": "oklch(0.208 0.042 265.755)",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "20px",
+      "rect": {
+        "height": 40,
+        "width": 170.36459350585938,
+        "x": 36.66666793823242,
+        "y": 319
+      },
+      "tag": "DIV",
+      "text": "Tổng Công ty Giao nhận Kho vận VinaTrans"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "font-mono text-indigo-700 font-semibold",
+      "color": "oklch(0.457 0.24 277.023)",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 14.666666984558104,
+        "width": 112.16667175292967,
+        "x": 36.66666793823242,
+        "y": 360.3333435058594
+      },
+      "tag": "SPAN",
+      "text": "VINATRANS_EXPRESS"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.95 0.052 163.051)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-2.5 py-0.5 rounded-full font-bold text-caption bg-emerald-100 text-emerald-800",
+      "color": "oklch(0.432 0.095 166.913)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 20,
+        "width": 60.96875,
+        "x": 207.03125,
+        "y": 337.3333435058594
+      },
+      "tag": "SPAN",
+      "text": "ACTIVE"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.984 0.003 247.858)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-400 font-semibold",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 48,
+        "width": 42.22916793823242,
+        "x": 49.33333587646485,
+        "y": 404.3333435058594
+      },
+      "tag": "SPAN",
+      "text": "Masked API Key:"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.984 0.003 247.858)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "font-mono text-slate-700 font-bold",
+      "color": "oklch(0.372 0.044 257.287)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 164.9479217529297,
+        "x": 91.5625,
+        "y": 420.3333435058594
+      },
+      "tag": "SPAN",
+      "text": "icd_live_••••••••••••3F88"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.984 0.003 247.858)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-400 font-semibold",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 78.59375,
+        "x": 49.33333587646485,
+        "y": 460.3333435058594
+      },
+      "tag": "SPAN",
+      "text": "Băm SHA-256:"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.984 0.003 247.858)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-400 font-semibold",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 48.97916793823242,
+        "x": 49.33333587646485,
+        "y": 526.3333740234375
+      },
+      "tag": "SPAN",
+      "text": "Quyền (Scopes):"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.962 0.018 272.314)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.984 0.003 247.858)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-1.5 py-0.5 bg-indigo-50 text-indigo-700 rounded text-caption font-mono",
+      "color": "oklch(0.457 0.24 277.023)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 20,
+        "width": 97.77083587646484,
+        "x": 98.3125,
+        "y": 484.3333435058594
+      },
+      "tag": "SPAN",
+      "text": "handover.read"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.962 0.018 272.314)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.984 0.003 247.858)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-1.5 py-0.5 bg-indigo-50 text-indigo-700 rounded text-caption font-mono",
+      "color": "oklch(0.457 0.24 277.023)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 20,
+        "width": 110.96875,
+        "x": 98.3125,
+        "y": 508.3333435058594
+      },
+      "tag": "SPAN",
+      "text": "handover.accept"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.962 0.018 272.314)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.984 0.003 247.858)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-1.5 py-0.5 bg-indigo-50 text-indigo-700 rounded text-caption font-mono",
+      "color": "oklch(0.457 0.24 277.023)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 20,
+        "width": 117.5625,
+        "x": 98.3125,
+        "y": 532.3333740234375
+      },
+      "tag": "SPAN",
+      "text": "handover.transit"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.962 0.018 272.314)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.984 0.003 247.858)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-1.5 py-0.5 bg-indigo-50 text-indigo-700 rounded text-caption font-mono",
+      "color": "oklch(0.457 0.24 277.023)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 20,
+        "width": 183.5416717529297,
+        "x": 98.3125,
+        "y": 556.3333740234375
+      },
+      "tag": "SPAN",
+      "text": "handover.confirm_warehouse"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.962 0.018 272.314)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.984 0.003 247.858)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-1.5 py-0.5 bg-indigo-50 text-indigo-700 rounded text-caption font-mono",
+      "color": "oklch(0.457 0.24 277.023)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 20,
+        "width": 117.5625,
+        "x": 98.3125,
+        "y": 580.3333740234375
+      },
+      "tag": "SPAN",
+      "text": "handover.failure"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.984 0.003 247.858)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-400 font-semibold",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 92.59375,
+        "x": 49.33333587646485,
+        "y": 608.3333740234375
+      },
+      "tag": "SPAN",
+      "text": "Yêu cầu gần nhất:"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.984 0.003 247.858)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-700 font-medium",
+      "color": "oklch(0.372 0.044 257.287)",
+      "fontSize": "12px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 113.40625,
+        "x": 141.92709350585938,
+        "y": 608.3333740234375
+      },
+      "tag": "SPAN",
+      "text": "Chưa có cuộc gọi nào"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "oklch(0.372 0.044 257.287)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 153.1979217529297,
+        "x": 100.80208587646484,
+        "y": 679
+      },
+      "tag": "SPAN",
+      "text": "Xoay vòng Khóa (Rotate Key)"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-sm font-bold text-slate-900",
+      "color": "oklch(0.208 0.042 265.755)",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "20px",
+      "rect": {
+        "height": 40,
+        "width": 170.36459350585938,
+        "x": 36.66666793823242,
+        "y": 758.3333740234375
+      },
+      "tag": "DIV",
+      "text": "Công ty Cổ phần Vận tải & Tiếp vận ABC"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "font-mono text-indigo-700 font-semibold",
+      "color": "oklch(0.457 0.24 277.023)",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 14.666666984558104,
+        "width": 85.77083587646484,
+        "x": 36.66666793823242,
+        "y": 799.6666870117188
+      },
+      "tag": "SPAN",
+      "text": "ABC_LOGISTICS"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.95 0.052 163.051)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-2.5 py-0.5 rounded-full font-bold text-caption bg-emerald-100 text-emerald-800",
+      "color": "oklch(0.432 0.095 166.913)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 20,
+        "width": 60.96875,
+        "x": 207.03125,
+        "y": 776.6666870117188
+      },
+      "tag": "SPAN",
+      "text": "ACTIVE"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.984 0.003 247.858)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-400 font-semibold",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 48,
+        "width": 42.22916793823242,
+        "x": 49.33333587646485,
+        "y": 843.6666870117188
+      },
+      "tag": "SPAN",
+      "text": "Masked API Key:"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.984 0.003 247.858)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "font-mono text-slate-700 font-bold",
+      "color": "oklch(0.372 0.044 257.287)",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 164.9479217529297,
+        "x": 91.5625,
+        "y": 859.6666870117188
+      },
+      "tag": "SPAN",
+      "text": "icd_live_••••••••••••9A4F"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.984 0.003 247.858)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-400 font-semibold",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 78.59375,
+        "x": 49.33333587646485,
+        "y": 899.6666870117188
+      },
+      "tag": "SPAN",
+      "text": "Băm SHA-256:"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.984 0.003 247.858)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-400 font-semibold",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 48.97916793823242,
+        "x": 49.33333587646485,
+        "y": 953.6666870117188
+      },
+      "tag": "SPAN",
+      "text": "Quyền (Scopes):"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.962 0.018 272.314)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.984 0.003 247.858)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-1.5 py-0.5 bg-indigo-50 text-indigo-700 rounded text-caption font-mono",
+      "color": "oklch(0.457 0.24 277.023)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 20,
+        "width": 97.77083587646484,
+        "x": 98.3125,
+        "y": 923.6666870117188
+      },
+      "tag": "SPAN",
+      "text": "handover.read"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.962 0.018 272.314)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.984 0.003 247.858)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-1.5 py-0.5 bg-indigo-50 text-indigo-700 rounded text-caption font-mono",
+      "color": "oklch(0.457 0.24 277.023)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 20,
+        "width": 110.96875,
+        "x": 98.3125,
+        "y": 947.6666870117188
+      },
+      "tag": "SPAN",
+      "text": "handover.accept"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.962 0.018 272.314)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.984 0.003 247.858)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-1.5 py-0.5 bg-indigo-50 text-indigo-700 rounded text-caption font-mono",
+      "color": "oklch(0.457 0.24 277.023)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 20,
+        "width": 117.5625,
+        "x": 98.3125,
+        "y": 971.6666870117188
+      },
+      "tag": "SPAN",
+      "text": "handover.transit"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "oklch(0.962 0.018 272.314)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.984 0.003 247.858)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "px-1.5 py-0.5 bg-indigo-50 text-indigo-700 rounded text-caption font-mono",
+      "color": "oklch(0.457 0.24 277.023)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 20,
+        "width": 183.5416717529297,
+        "x": 98.3125,
+        "y": 995.6666870117188
+      },
+      "tag": "SPAN",
+      "text": "handover.confirm_warehouse"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.984 0.003 247.858)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-400 font-semibold",
+      "color": "rgb(71, 85, 105)",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 92.59375,
+        "x": 49.33333587646485,
+        "y": 1023.6666870117188
+      },
+      "tag": "SPAN",
+      "text": "Yêu cầu gần nhất:"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.984 0.003 247.858)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "text-slate-700 font-medium",
+      "color": "oklch(0.372 0.044 257.287)",
+      "fontSize": "12px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 32,
+        "width": 113.40625,
+        "x": 141.92709350585938,
+        "y": 1023.6666870117188
+      },
+      "tag": "SPAN",
+      "text": "Chưa có cuộc gọi nào"
+    },
+    {
+      "backgrounds": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "oklch(0.968 0.007 247.896)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "opacity": "1"
+        }
+      ],
+      "className": "",
+      "color": "oklch(0.372 0.044 257.287)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "lineHeight": "16px",
+      "rect": {
+        "height": 16,
+        "width": 153.1979217529297,
+        "x": 100.80208587646484,
+        "y": 1094.3333740234375
+      },
+      "tag": "SPAN",
+      "text": "Xoay vòng Khóa (Rotate Key)"
+    }
+  ],
+  "url": "http://127.0.0.1:5174/app/partner-clients",
+  "viewport": {
+    "height": 900,
+    "width": 320
+  }
+}

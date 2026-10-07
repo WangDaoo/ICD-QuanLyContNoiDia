@@ -1,0 +1,171 @@
+--- before/apps/mobile/src/features/auth/context/AuthProvider.tsx
++++ after/apps/mobile/src/features/auth/context/AuthProvider.tsx
+@@ -1,12 +1,15 @@
+-import { createContext, PropsWithChildren, useCallback, useEffect, useMemo, useState } from 'react';
++import { createContext, PropsWithChildren, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+ 
+ import { authStorage } from '../../../storage/auth.storage';
+ import {
+   ApiError,
+   setUnauthorizedHandler,
+   setRefreshedUserHandler,
++  invalidateApiSession,
+ } from '../../../services/api/api-client';
+ import { authApi } from '../api/auth.api';
++import { connectionGate } from '../../../services/api/connection-gate';
++import { rememberProfile, restoreCachedProfile, clearCachedSession } from '../../../storage/read-cache-store';
+ 
+ import type { AuthUser, LoginInput } from '../auth.types';
+ 
+@@ -41,6 +44,12 @@
+   const [user, setUser] = useState<AuthUser | null>(null);
+   const [restoreError, setRestoreError] = useState<string | null>(null);
+   const [restoreAttempt, setRestoreAttempt] = useState(0);
++  const currentUser = useRef<AuthUser | null>(null);
++  const sessionVersion = useRef(0);
++  const acceptUser = useCallback((next: AuthUser) => {
++    currentUser.current = next; setUser(next);
++    void rememberProfile(next).catch(() => {});
++  }, []);
+ 
+   const retryRestore = useCallback(() => {
+     setRestoreError(null);
+@@ -50,15 +59,21 @@
+   }, []);
+ 
+   const clearSession = useCallback(async () => {
+-    await authStorage.clear();
+-
++    const version = ++sessionVersion.current;
++    invalidateApiSession();
++    connectionGate.setRevalidator(null);
++    // Reserve both cleanups before awaiting either, so a newer login is saved
++    // after the old session's token/cache deletion in their mutation queues.
++    await Promise.all([clearCachedSession(currentUser.current).catch(() => {}), authStorage.clear()]);
++    if (version !== sessionVersion.current) return;
++    currentUser.current = null;
+     setUser(null);
+     setRestoreError(null);
+     setStatus('anonymous');
+   }, []);
+ 
+   useEffect(() => {
+-    setRefreshedUserHandler(setUser);
++    setRefreshedUserHandler(acceptUser);
+     setUnauthorizedHandler(() => {
+       void clearSession();
+     });
+@@ -67,19 +82,39 @@
+       setRefreshedUserHandler(null);
+       setUnauthorizedHandler(null);
+     };
+-  }, [clearSession]);
++  }, [clearSession, acceptUser]);
++
++  useEffect(() => {
++    if (status !== 'authenticated') return;
++    connectionGate.setRevalidator(async () => {
++      const version = sessionVersion.current;
++      let me: AuthUser;
++      try { me = unwrapUser(await authApi.me()); }
++      catch (error) {
++        if (version === sessionVersion.current && error instanceof ApiError && (error.status === 401 || error.status === 403)) await clearSession();
++        throw error;
++      }
++      if (version !== sessionVersion.current) throw new Error('Phiên đăng nhập đã kết thúc.');
++      if (currentUser.current && (me.id !== currentUser.current.id || me.icdId !== currentUser.current.icdId)) {
++        await clearSession(); throw new Error('Phạm vi tài khoản đã thay đổi. Đăng nhập lại để tiếp tục.');
++      }
++      acceptUser(me);
++    });
++    return () => connectionGate.setRevalidator(null);
++  }, [status, user?.id, user?.icdId, user?.sessionId, acceptUser, clearSession]);
+ 
+   useEffect(() => {
+     let mounted = true;
+ 
+     async function restore(): Promise<void> {
++      const version = sessionVersion.current;
+       try {
+         const accessToken = await authStorage.getAccessToken();
+ 
+         const refreshToken = await authStorage.getRefreshToken();
+ 
+         if (!accessToken && !refreshToken) {
+-          if (mounted) {
++          if (mounted && version === sessionVersion.current) {
+             setStatus('anonymous');
+           }
+ 
+@@ -88,24 +123,30 @@
+ 
+         const me = await authApi.me();
+ 
+-        if (!mounted) {
++        if (!mounted || version !== sessionVersion.current) {
+           return;
+         }
+ 
+-        setUser(unwrapUser(me));
++        acceptUser(unwrapUser(me));
+ 
+         setStatus('authenticated');
+         setRestoreError(null);
+       } catch (error) {
+-        if (mounted) {
++        if (mounted && version === sessionVersion.current) {
+           setUser(null);
+-          if (error instanceof ApiError && error.status === 401) {
+-            await authStorage.clear();
+-            if (mounted) {
++          if (error instanceof ApiError && (error.status === 401 || error.status === 403)) {
++            await Promise.all([clearCachedSession(currentUser.current).catch(() => {}), authStorage.clear()]);
++            if (mounted && version === sessionVersion.current) {
+               setRestoreError(null);
+               setStatus('anonymous');
+             }
+           } else {
++            const cached = error instanceof TypeError ? await restoreCachedProfile() : null;
++            if (!mounted || version !== sessionVersion.current) return;
++            if (cached) {
++              currentUser.current = cached; setUser(cached); setRestoreError(null); setStatus('authenticated');
++              return;
++            }
+             setRestoreError(
+               'Chưa thể xác minh phiên đăng nhập. Vui lòng kiểm tra kết nối và thử lại.',
+             );
+@@ -120,24 +161,29 @@
+     return () => {
+       mounted = false;
+     };
+-  }, [restoreAttempt]);
++  }, [restoreAttempt, acceptUser]);
+ 
+   const login = useCallback(async (input: LoginInput): Promise<void> => {
++    const version = ++sessionVersion.current;
++    invalidateApiSession();
+     const result = await authApi.login(input);
++    if (version !== sessionVersion.current) throw new Error('Phiên đăng nhập đã thay đổi. Thử đăng nhập lại.');
+ 
+     await authStorage.setTokens(result.accessToken, result.refreshToken);
+-
+-    setUser(result.user);
++    if (version !== sessionVersion.current) throw new Error('Phiên đăng nhập đã thay đổi. Thử đăng nhập lại.');
++
++    acceptUser(result.user);
+     setRestoreError(null);
+ 
+     setStatus('authenticated');
+-  }, []);
++  }, [acceptUser]);
+ 
+   const logout = useCallback(async (): Promise<void> => {
++    const version = sessionVersion.current;
+     try {
+       await authApi.logout();
+     } finally {
+-      await clearSession();
++      if (version === sessionVersion.current) await clearSession();
+     }
+   }, [clearSession]);
+ 

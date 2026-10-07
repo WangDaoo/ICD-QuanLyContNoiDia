@@ -1,0 +1,31 @@
+import { useCallback, useEffect, useRef } from 'react';
+import { Linking } from 'react-native';
+import type { NavigationContainerRefWithCurrent } from '@react-navigation/native';
+import { useAuth } from '../features/auth/hooks/useAuth';
+import { resolveMobileLink } from './deep-links';
+import type { RootStackParamList } from './types';
+
+export function useGuardedDeepLinks(navigation: NavigationContainerRefWithCurrent<RootStackParamList>) {
+  const { user, status } = useAuth();
+  const latest = useRef({ user, status }); latest.current = { user, status };
+  const pending = useRef<string | null>(null);
+  const openPending = useCallback(() => {
+    if (latest.current.status !== 'authenticated' || !navigation.isReady() || !pending.current) return;
+    const destination = resolveMobileLink(pending.current, latest.current.user);
+    pending.current = null;
+    if (destination) navigation.navigate('Main', destination);
+  }, [navigation]);
+  useEffect(() => {
+    let current = true;
+    const receive = (url: string | null) => {
+      // Preflight rejects credentials, unrelated schemes and unknown routes before storing a link.
+      if (!current || !url || !resolveMobileLink(url, { permissionCodes: ['*'], roleCodes: [] })) return;
+      pending.current = url; openPending();
+    };
+    void Linking.getInitialURL().then(receive).catch(() => {});
+    const listener = Linking.addEventListener('url', event => receive(event.url));
+    return () => { current = false; pending.current = null; listener.remove(); };
+  }, [openPending]);
+  useEffect(() => { openPending(); }, [user, status, openPending]);
+  return openPending;
+}

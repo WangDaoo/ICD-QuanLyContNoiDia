@@ -1,0 +1,116 @@
+- link "Đến nội dung nghiệp vụ":
+  - /url: "#main-content"
+- banner:
+  - button "Mở menu điều hướng":
+  - generic: ICD
+  - heading "ICD Management System" [level=1]
+  - button "Tải lại dữ liệu":
+  - button "Thông báo (0 chưa đọc)":
+  - button "Đăng xuất":
+- main:
+  - heading "Container 360 · Danh sách & vòng đời" [level=2]:
+    - generic: Container 360 · Danh sách & vòng đời
+  - paragraph: Theo dõi trạng thái vòng đời, vị trí bãi Yard, thời gian lưu bãi (Dwell days), Holds và kiểm tra điều kiện ra cổng (Readiness)
+  - generic: "Tổng cộng: 19 containers"
+  - button "Tạo Container Visit":
+    - generic: Tạo Container Visit
+  - textbox "Tìm container":
+    - /placeholder: Tìm theo số cont, chủ hàng, manifest...
+    - text: QAOU6100040
+  - combobox "Lọc trạng thái container":
+    - option "Tất cả trạng thái" [selected]
+    - option "Pending"
+    - option "Authorized (Chờ cổng)"
+    - option "In Yard (Trong bãi)"
+    - option "Under Inspection"
+    - option "Gate Pass Issued"
+    - option "Exited (Đã ra cổng)"
+  - checkbox "Chỉ container có Blocker (Lệnh giữ / Chưa thanh toán / Chưa vị trí)"
+  - generic: Chỉ container có Blocker (Lệnh giữ / Chưa thanh toán / Chưa vị trí)
+  - generic: Hiển thị 1 containers
+  - table:
+    - rowgroup:
+      - row "Số Container Loại Chủ hàng (Consignee) Vị trí Bãi Trạng thái Vào cổng Ngày lưu Blockers Thao tác":
+        - columnheader "Số Container"
+        - columnheader "Loại"
+        - columnheader "Chủ hàng (Consignee)"
+        - columnheader "Vị trí Bãi"
+        - columnheader "Trạng thái"
+        - columnheader "Vào cổng"
+        - columnheader "Ngày lưu"
+        - columnheader "Blockers"
+        - columnheader "Thao tác"
+    - rowgroup:
+      - row "QAOU6100040 40HC Công ty Cổ phần Sản xuất & Kinh doanh VinFast B-02-01-1 IN_YARD 4/10/2026 0 ngày Chi tiết →":
+        - cell "QAOU6100040"
+        - cell "40HC"
+        - cell "Công ty Cổ phần Sản xuất & Kinh doanh VinFast"
+        - cell "B-02-01-1"
+        - cell "IN_YARD"
+        - cell "4/10/2026"
+        - cell "0 ngày":
+          - generic: 0 ngày
+        - cell:
+        - cell "Chi tiết →":
+          - button "Chi tiết →"
+  - dialog "Container 360 QAOU6100040":
+    - heading "QAOU6100040" [level=3]
+    - generic: IN_YARD
+    - generic: 40HC
+    - paragraph:
+      - text: "Chủ hàng:"
+      - strong: Công ty Cổ phần Sản xuất & Kinh doanh VinFast
+      - text: "· Hãng tàu:"
+      - strong: CMA CGM Group
+      - text: "· Manifest:"
+      - strong: MF-20261004-1D16A185
+    - button "Đóng chi tiết container" [active]: ✕
+    - button "Tổng quan & Readiness" [pressed]
+    - button "Tác nghiệp bãi"
+    - button "Dịch vụ & Thanh toán (0)"
+    - button "Phiếu ra cổng"
+    - button "Lệnh giữ Holds (0)"
+    - button "Dòng thời gian"
+    - status: Đã lưu trên hệ thống.
+    - heading "Kiểm tra Điều kiện Sẵn sàng Cấp Phiếu Ra Cổng (Readiness Checklist) 2 ĐIỀU KIỆN CHƯA ĐẠT" [level=4]:
+      - generic: Kiểm tra Điều kiện Sẵn sàng Cấp Phiếu Ra Cổng (Readiness Checklist)
+      - generic: 2 ĐIỀU KIỆN CHƯA ĐẠT
+    - generic: Trong bãi (IN_YARD)
+    - generic: Đã có vị trí bãi
+    - generic: Thanh toán đủ 100%
+    - generic: Không vướng tác nghiệp
+    - generic: Không giữ kiểm định
+    - generic: Không lệnh giữ (Hold)
+    - strong: "Các nguyên nhân chưa thể cấp Phiếu ra cổng:"
+    - list:
+      - listitem: Chưa có hồ sơ tính phí.
+      - listitem: Còn dịch vụ chưa được tính phí.
+    - heading "Movement Order (Lệnh cho phép di chuyển về ICD) a8a7c455-b2d8-4a8c-87fe-20ecd0190ec0 · AUTHORIZED" [level=4]:
+      - generic: Movement Order (Lệnh cho phép di chuyển về ICD)
+      - generic: a8a7c455-b2d8-4a8c-87fe-20ecd0190ec0 · AUTHORIZED
+    - button "Xem tất cả Movement Order →"
+    - generic: Bàn giao vận chuyển ngoài ICD
+    - generic: Chưa tạo Handover
+    - generic: Container chưa hoàn tất Gate-out. Có thể lập trước bản nháp DRAFT.
+    - button "+ Tạo Handover"
+    - generic: Hồ sơ hàng hóa
+    - text: "MBL:"
+    - strong: E2E-20261004-2147-MBL
+    - text: "HBL:"
+    - strong: E2E-20261004-2147-HBL
+    - text: "Seal Manifest:"
+    - strong: E2E-20261004-2147-SEAL
+    - text: "Seal Tiếp nhận:"
+    - strong: E2E-20261004-2147-SEAL
+    - text: "Trọng lượng tổng:"
+    - strong: 20,000 kg
+    - generic: Vị trí & Thời gian
+    - text: "Vị trí Bãi:"
+    - strong: B-02-01-1
+    - text: "Ngày vào cổng:"
+    - strong: 21:50:30 4/10/2026
+    - text: "Ngày ra cổng:"
+    - strong: —
+    - text: "Ngưỡng cảnh báo lưu bãi:"
+    - strong: 5 ngày
+    - button "Đóng"

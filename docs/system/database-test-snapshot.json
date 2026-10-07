@@ -1,0 +1,419 @@
+{
+  "capturedAt": "2026-10-04T13:53:13.570Z",
+  "scope": "Isolated test database only; exact row counts in read-only consistent snapshot; no business record or credential exported",
+  "database": "icd_ux_audit_20261003_e2e",
+  "host": "127.0.0.1",
+  "port": 3308,
+  "version": "8.0.46",
+  "tables": [
+    {
+      "name": "audit_log",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 10,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "auth_session",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 43,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "clearing_agent",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 7,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "consignee",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 12,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "container",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 21,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "container_event",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 128,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "container_inspection",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 6,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "container_location_log",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 16,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "container_reception",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 5,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "container_visit",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 21,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "customer_warehouse",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 5,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "edi_acknowledgement",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 2,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "edi_alert",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 2,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "edi_outbox_message",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 7,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "edi_route",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 21,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "gate_pass",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 5,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "house_bl",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 13,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "icd_setting",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 9,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "icd_site",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 1,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "in_yard_booking",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 8,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "invoice",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 3,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "manifest",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 13,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "master_bl",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 13,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "movement_order",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 7,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "notification",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 23,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "notification_delivery",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 0,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "notification_device",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 0,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "operational_hold",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 4,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "partner_api_client",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 4,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "partner_api_log",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 4,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "payment",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 5,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "payment_allocation",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 5,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "permission",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 56,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "role",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 9,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "role_permission",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 168,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "service_order",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 5,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "service_order_item",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 16,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "service_type",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 5,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "shipping_line",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 102,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "tariff",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 5,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "tariff_rule",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 25,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "transport_confirmation",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 4,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "transport_handover",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 2,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "transporter",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 8,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "truck_visit",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 3,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "truck_visit_container",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 7,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "user",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 22,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "user_role",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 22,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "yard_block",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 6,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "yard_movement",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 6,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "yard_recommendation",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 0,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "yard_recommendation_candidate",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 0,
+      "inPrismaSchema": true
+    },
+    {
+      "name": "yard_slot",
+      "engine": "InnoDB",
+      "collation": "utf8mb4_unicode_ci",
+      "rows": 56,
+      "inPrismaSchema": true
+    }
+  ],
+  "roles": [
+    {
+      "code": "ADMIN",
+      "permissionCount": 56
+    },
+    {
+      "code": "AGENT",
+      "permissionCount": 5
+    },
+    {
+      "code": "AUDIT_NONE",
+      "permissionCount": 0
+    },
+    {
+      "code": "AUDIT_READ_ONLY",
+      "permissionCount": 17
+    },
+    {
+      "code": "CONSIGNEE",
+      "permissionCount": 2
+    },
+    {
+      "code": "GATE_STAFF",
+      "permissionCount": 12
+    },
+    {
+      "code": "MANAGER",
+      "permissionCount": 25
+    },
+    {
+      "code": "OPERATOR",
+      "permissionCount": 41
+    },
+    {
+      "code": "YARD_STAFF",
+      "permissionCount": 10
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED",
+  "change": "Keyboard-visible search focus outline restored on yard map.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/yard/YardSiteMap.tsx",
+      "line": 381,
+      "detail": "Tìm vị trí hoặc container",
+      "snippet": "                aria-label=\"Tìm vị trí hoặc container trên bản đồ\"\n                value={search}\n                onChange={(e) => setSearch(e.target.value)}\n                placeholder=\"Mã vị trí / container\""
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/browser/yard-search-focus-final.json"
+  ],
+  "limitations": "Actual native browser Tab: solid2px outline, focus-visible true; see screenshot.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/yard/YardSiteMap.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

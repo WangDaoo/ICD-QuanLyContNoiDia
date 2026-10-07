@@ -1,0 +1,72 @@
+- link "Đến nội dung nghiệp vụ":
+  - /url: "#main-content"
+- banner:
+  - button "Mở menu điều hướng":
+  - generic: ICD
+  - heading "ICD Management System" [level=1]
+  - button "Tải lại dữ liệu" [disabled]:
+  - button "Thông báo (0 chưa đọc)":
+  - button "Đăng xuất":
+- main:
+  - status:
+    - text: Đang tải dữ liệu vận hành…
+  - heading "Vận hành Bãi Container" [level=2]:
+    - text: Vận hành Bãi Container
+  - paragraph: Sơ đồ cảng demo, quản lý vị trí và công việc trong bãi
+  - navigation "Chế độ vận hành bãi":
+    - button "Sơ đồ 2D Bãi":
+      - text: Sơ đồ 2D Bãi
+    - button "Danh sách Vị trí":
+      - text: Danh sách Vị trí
+    - button "Xếp vị trí thủ công" [pressed]:
+      - text: Xếp vị trí thủ công
+    - button "Công việc trong bãi":
+      - text: Công việc trong bãi
+  - heading "Thuật toán đề xuất vị trí" [level=3]
+  - paragraph: Đang trong quá trình phát triển
+  - paragraph: Chọn vị trí thủ công theo nghiệp vụ; backend kiểm tra điều kiện trước khi ghi nhận.
+  - heading "Xếp vị trí thủ công" [level=3]
+  - text: Container cần xếp vị trí
+  - combobox "Container cần xếp vị trí" [disabled]:
+    - option "— Chọn container —"
+    - option "QAOU6100040 · 40HC · Đã có vị trí A-02-01-1" [selected]
+    - option "QAOU4835930 · 40HC · Đã có vị trí A-02-03-1"
+    - option "QAOU6004067 · 40HC · Đã có vị trí A-02-02-1"
+    - option "QAOU5007570 · 40HC · Đã có vị trí A-01-01-2"
+    - option "QAOU5007565 · 40HC · Đã có vị trí A-01-03-2"
+    - option "QAMU6102765 · 40HC · Đã có vị trí A-01-02-2"
+    - option "VSCU6748392 · 40GP · Đã có vị trí C-01-02-1"
+    - option "TCSU9283741 · 45HC · Đã có vị trí D-01-02-1"
+    - option "VFCU7482910 · 40GP · Đã có vị trí A-01-03-1"
+    - option "BDCU3849102 · 20GP · Đã có vị trí B-01-02-1"
+    - option "VMCU9284012 · 20GP · Đã có vị trí B-01-01-1"
+    - option "GLDU5739201 · 40HC · Đã có vị trí A-01-02-1"
+    - option "TCSU8849201 · 40GP · Đã có vị trí A-01-01-1"
+    - option "VSCU1049281 · 20GP · Đã có vị trí C-01-01-1"
+    - option "HACU4829103 · 45HC · Đã có vị trí D-01-01-1"
+  - generic: QAOU6100040 · 40HC · 20.000 kg · IN_YARD
+  - text: Block
+  - combobox "Block xếp vị trí" [disabled]:
+    - option "A" [selected]
+    - option "B"
+    - option "C"
+    - option "D"
+  - text: Row
+  - combobox "Row xếp vị trí" [disabled]:
+    - option "1"
+    - option "2" [selected]
+  - text: Bay
+  - combobox "Bay xếp vị trí" [disabled]:
+    - option "1" [selected]
+    - option "2"
+    - option "3"
+  - text: Tier
+  - combobox "Tier xếp vị trí" [disabled]:
+    - option "1" [selected]
+    - option "2"
+  - paragraph: A-02-01-1 · Tải tối đa 32.000 kg · Không điện lạnh
+  - status: Container đã có vị trí A-02-01-1. Dùng lệnh đảo chuyển để di dời.
+  - status:
+    - strong: Backend xác nhận vị trí phù hợp.
+  - button "Đang xử lý…" [disabled]
+  - button "Xác nhận xếp vị trí" [disabled]

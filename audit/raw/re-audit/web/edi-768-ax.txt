@@ -1,0 +1,146 @@
+Browser tab: 22, Title: "ICD Management System — Quản lý Kho bãi Container Nội địa", URL: "http://127.0.0.1:5173/".
+1 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/
+	2 container root
+		41 container
+			42 text ICD
+			43 heading ICD Management System, Value: 1
+				44 text ICD Management System
+			45 text Cảng cạn & kho bãi container nội địa
+			46 button Tải lại dữ liệu
+			47 button (collapsed) Description: Thông báo (0 chưa đọc), Secondary Actions: Expand
+			49 button Đăng xuất
+		12 container Điều hướng nghiệp vụ
+			50 text TỔNG QUAN & ĐIỀU PHỐI
+			51 button Tổng quan vận hành
+			52 button Danh sách công việc
+			53 text QUẢN LÝ HÀNG HÓA & CỔNG
+			54 button Bản lược khai (Manifest)
+			55 button Quản lý Container
+			56 button Movement Order
+			57 button Chuyến xe ra/vào
+			58 button Tiếp nhận vào cổng (Gate-in)
+			59 button Vận hành Bãi (Yard)
+			60 text TÀI CHÍNH & RA CỔNG
+			61 button Dịch vụ & Thanh toán
+			62 button Phiếu ra cổng & Gate-out
+			63 button Vận hành EDI (CODECO)
+			64 text TÍCH HỢP ĐỐI TÁC
+			65 button Bàn giao vận chuyển
+			66 button Đối tác tích hợp API
+			67 button Nhật ký API đối tác
+			68 text HỆ THỐNG & QUẢN TRỊ
+			69 button Danh mục dùng chung
+			70 button Người dùng & Phân quyền
+			71 button Báo cáo vận hành
+			72 button Nhật ký kiểm toán
+			37 text System Administrator
+			38 text admin@icd.local
+			39 text ADMIN
+		40 container
+			73 heading Trung tâm Trao đổi Dữ liệu Điện tử (EDI Center), Value: 2
+				74 text Trung tâm Trao đổi Dữ liệu Điện tử (EDI Center)
+			75 text Giao tiếp tự động chuẩn UN/EDIFACT (CODECO_GATE_IN, CODECO_GATE_OUT, COREOR) với các Hãng tàu quốc tế và Cục Hải quan
+			76 button Outbox
+			77 button Routes
+			78 button Alerts
+			79 pop up button (collapsed, settable) Value: Tất cả loại điện tín, Secondary Actions: Expand
+				80 menu
+					81 (selected) Tất cả loại điện tín
+					82 CODECO Gate In
+					83 CODECO Gate Out
+					84 COREOR Release Order
+			85 button Chạy Dispatcher
+			86 checkbox CODECO_GATE_IN SENT QAOU4835930 Hãng tàu: CMA CGM Group 22:04:43, Value: 1
+				87 text CODECO_GATE_IN
+				88 text SENT
+				89 text QAOU4835930
+				90 text Hãng tàu: 
+				91 text CMA CGM Group
+				92 text 22:04:43
+			93 checkbox CODECO_GATE_IN SENT QAOU6004067 Hãng tàu: CMA CGM Group 16:00:00, Value: 0
+				94 text CODECO_GATE_IN
+				95 text SENT
+				96 text QAOU6004067
+				97 text Hãng tàu: 
+				98 text CMA CGM Group
+				99 text 16:00:00
+			100 checkbox CODECO_GATE_OUT SENT QAOU1882075 Hãng tàu: CMA CGM Group 08:35:55, Value: 0
+				101 text CODECO_GATE_OUT
+				102 text SENT
+				103 text QAOU1882075
+				104 text Hãng tàu: 
+				105 text CMA CGM Group
+				106 text 08:35:55
+			107 checkbox CODECO_GATE_IN SENT QAOU1882075 Hãng tàu: CMA CGM Group 08:12:18, Value: 0
+				108 text CODECO_GATE_IN
+				109 text SENT
+				110 text QAOU1882075
+				111 text Hãng tàu: 
+				112 text CMA CGM Group
+				113 text 08:12:18
+			114 checkbox CODECO_GATE_OUT SENT QAOU5007550 Hãng tàu: CMA CGM Group 08:07:57, Value: 0
+				115 text CODECO_GATE_OUT
+				116 text SENT
+				117 text QAOU5007550
+				118 text Hãng tàu: 
+				119 text CMA CGM Group
+				120 text 08:07:57
+			121 checkbox CODECO_GATE_IN SENT QAOU5007565 Hãng tàu: CMA CGM Group 07:46:07, Value: 0
+				122 text CODECO_GATE_IN
+				123 text SENT
+				124 text QAOU5007565
+				125 text Hãng tàu: 
+				126 text CMA CGM Group
+				127 text 07:46:07
+			128 checkbox CODECO_GATE_IN SENT QAOU5007550 Hãng tàu: CMA CGM Group 07:41:41, Value: 0
+				129 text CODECO_GATE_IN
+				130 text SENT
+				131 text QAOU5007550
+				132 text Hãng tàu: 
+				133 text CMA CGM Group
+				134 text 07:41:41
+			135 checkbox CODECO_GATE_IN SENT QAOU5007570 Hãng tàu: CMA CGM Group 07:38:39, Value: 0
+				136 text CODECO_GATE_IN
+				137 text SENT
+				138 text QAOU5007570
+				139 text Hãng tàu: 
+				140 text CMA CGM Group
+				141 text 07:38:39
+			142 checkbox CODECO_GATE_IN SENT QAMU6102765 Hãng tàu: CMA CGM Group 15:51:24, Value: 0
+				143 text CODECO_GATE_IN
+				144 text SENT
+				145 text QAMU6102765
+				146 text Hãng tàu: 
+				147 text CMA CGM Group
+				148 text 15:51:24
+			149 checkbox CODECO_GATE_OUT SENT QATU2282957 Hãng tàu: MSC (Mediterranean Shipping Company) 13:50:14, Value: 0
+				150 text CODECO_GATE_OUT
+				151 text SENT
+				152 text QATU2282957
+				153 text Hãng tàu: 
+				154 text MSC (Mediterranean Shipping Company)
+				155 text 13:50:14
+			156 checkbox CODECO_GATE_IN SENT QATU2282957 Hãng tàu: MSC (Mediterranean Shipping Company) 13:32:55, Value: 0
+				157 text CODECO_GATE_IN
+				158 text SENT
+				159 text QATU2282957
+				160 text Hãng tàu: 
+				161 text MSC (Mediterranean Shipping Company)
+				162 text 13:32:55
+			163 text Điện tín  CODECO_GATE_IN Hãng nhận:  CMA CGM Group Container liên quan: 
+			164 text QAOU4835930
+			165 text  · Idempotency Key:  CODECO_GATE_IN:8296f2ae-da88-4f0e-bb0d-2835d2d7dc7c
+			166 button Copy
+			167 text Trạng thái truyền: SENT Thời gian tạo: 22:04:43 2/10/2026 Số lần thử lại: 0  lần DỮ LIỆU ĐIỆN TÍN THÔ (UN/EDIFACT D.00B SEGMENT PAYLOAD): UNB+UNOA:2+VNICD+CMA CGM Group+20261002:1504+7e9e93'
+UNH+7e9e93+CODECO_GATE_IN:D:00B:UN:SMDG20'
+BGM+34+6f4a78d9-c2ce-4ec2-8e00-97f9027e9e93+9'
+NAD+MS+VNICD:160:ZZZ'
+NAD+MR+CMA CGM Group:160:ZZZ'
+EQD+CN+QAOU4835930+45G1:102:5++2+5'
+LOC+11+VNICD:139:6'
+DTM+132:20261002:102'
+CNT+16:1'
+UNT+9+7e9e93'
+UNZ+1+7e9e93'
+
+The focused UI element is 63 button Vận hành EDI (CODECO)

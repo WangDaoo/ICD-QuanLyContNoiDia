@@ -1,0 +1,148 @@
+Browser tab: 20, Title: "ICD Management System — Quản lý Kho bãi Container Nội địa", URL: "http://127.0.0.1:5173/".
+0 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/
+	1 container root
+		2 container
+			278 button Mở menu điều hướng
+			3 text ICD
+			4 heading ICD Management System, Value: 1
+				5 text ICD Management System
+			7 button Tải lại dữ liệu
+			8 button (collapsed) Description: Thông báo (0 chưa đọc), Secondary Actions: Expand
+			10 button Đăng xuất
+		39 container
+			279 heading Movement Order — Lệnh cho phép container di chuyển về ICD, Value: 2
+				280 text Movement Order — Lệnh cho phép container di chuyển về ICD
+			281 text Mắt xích bắt buộc giữa Container Visit (PENDING) và Truck Visit/Gate-in. Chỉ khi Authorize thành công, container mới đủ điều kiện vào cổng.
+			282 text field (settable)
+			283 text Thời hạn khi duyệt lệnh
+			284 date field (settable) Description: Thời hạn khi duyệt lệnh, Value: 2026-10-03T20:00
+				285 container
+					286 stepper
+					287 stepper
+					288 stepper
+					289 stepper
+					290 stepper
+					291 stepper
+				292 pop up button Show local date and time picker Show local date and time picker
+			293 table
+				294 row
+					295 cell
+						296 text MÃ LỆNH
+					297 cell
+						298 text CONTAINER
+					299 cell
+						300 text TRẠNG THÁI
+					301 cell
+						302 text TẠO LÚC
+					303 cell
+						304 text HẾT HẠN
+					305 cell
+						306 text DUYỆT BỞI
+					307 cell
+						308 text HÀNH ĐỘNG
+				309 row
+					310 cell
+						311 text QAOU4835930
+					312 cell
+						313 text AUTHORIZED
+					314 cell
+						315 text 22:04:43 2/10/2026
+					316 cell
+						317 text 22:04:43 3/10/2026
+					318 cell
+						319 text System Administrator
+					320 cell
+						321 button Tạo Truck Visit
+				322 row
+					323 cell
+						324 text QAOU6004067
+					325 cell
+						326 text AUTHORIZED
+					327 cell
+						328 text 16:00:00 2/10/2026
+					329 cell
+						330 text 16:00:00 3/10/2026
+					331 cell
+						332 text System Administrator
+					333 cell
+						334 button Tạo Truck Visit
+				335 row
+					336 cell
+						337 text QAOU1882075
+					338 cell
+						339 text AUTHORIZED
+					340 cell
+						341 text 08:06:28 2/10/2026
+					342 cell
+						343 text 08:06:28 3/10/2026
+					344 cell
+						345 text System Administrator
+					346 cell
+						347 button Tạo Truck Visit
+				348 row
+					349 cell
+						350 text QAOU5007570
+					351 cell
+						352 text AUTHORIZED
+					353 cell
+						354 text 07:38:21 2/10/2026
+					355 cell
+						356 text 07:38:21 9/10/2026
+					357 cell
+						358 text System Administrator
+					359 cell
+						360 button Tạo Truck Visit
+				361 row
+					362 cell
+						363 text QAOU5007565
+					364 cell
+						365 text AUTHORIZED
+					366 cell
+						367 text 07:38:21 2/10/2026
+					368 cell
+						369 text 07:38:21 9/10/2026
+					370 cell
+						371 text System Administrator
+					372 cell
+						373 button Tạo Truck Visit
+				374 row
+					375 cell
+						376 text QAOU5007550
+					377 cell
+						378 text AUTHORIZED
+					379 cell
+						380 text 07:38:20 2/10/2026
+					381 cell
+						382 text 07:38:21 9/10/2026
+					383 cell
+						384 text System Administrator
+					385 cell
+						386 button Tạo Truck Visit
+				387 row
+					388 cell
+						389 text QAMU6102765
+					390 cell
+						391 text AUTHORIZED
+					392 cell
+						393 text 15:50:10 1/10/2026
+					394 cell
+						395 text 15:50:10 2/10/2026
+					396 cell
+						397 text System Administrator
+					398 cell
+						399 button Tạo Truck Visit
+				400 row
+					401 cell
+						402 text QATU2282957
+					403 cell
+						404 text AUTHORIZED
+					405 cell
+						406 text 13:30:28 1/10/2026
+					407 cell
+						408 text 13:30:55 2/10/2026
+					409 cell
+						410 text System Administrator
+					411 cell
+						412 button Tạo Truck Visit
+
+The focused UI element is 0 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/

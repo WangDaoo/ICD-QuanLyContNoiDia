@@ -1,0 +1,168 @@
+✖ nearest-rank p95 keeps the nineteenth sample of twenty, not the mean (2.4736ms)
+✖ empty, nonfinite and negative timing values cannot become valid measurements (0.4682ms)
+✖ untrusted input, hidden document and unrelated event clocks are rejected (0.9997ms)
+✖ twenty verified samples produce p50/p95 for each measured group (0.2289ms)
+✖ nineteen samples cannot close the twenty-sample criterion (0.6369ms)
+✖ timeouts, untrusted or unpainted acknowledgements remain in the denominator (0.3585ms)
+✖ slow valid feedback is a failure instead of being excluded as an outlier (0.2856ms)
+✖ duplicate IDs and unknown groups cannot silently pad the sample count (0.6727ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 0
+ℹ fail 8
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 188.3461
+
+✖ failing tests:
+
+test at audit\tools\runtime\interaction-metrics.test.mjs:9:1
+✖ nearest-rank p95 keeps the nineteenth sample of twenty, not the mean (2.4736ms)
+  AssertionError [ERR_ASSERTION]: interaction metric implementation exists
+      at implementation (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/interaction-metrics.test.mjs:7:39)
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/interaction-metrics.test.mjs:10:26)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\interaction-metrics.test.mjs:14:1
+✖ empty, nonfinite and negative timing values cannot become valid measurements (0.4682ms)
+  AssertionError [ERR_ASSERTION]: interaction metric implementation exists
+      at implementation (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/interaction-metrics.test.mjs:7:39)
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/interaction-metrics.test.mjs:15:26)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\interaction-metrics.test.mjs:18:1
+✖ untrusted input, hidden document and unrelated event clocks are rejected (0.9997ms)
+  AssertionError [ERR_ASSERTION]: interaction metric implementation exists
+      at implementation (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/interaction-metrics.test.mjs:7:39)
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/interaction-metrics.test.mjs:19:29)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\interaction-metrics.test.mjs:29:1
+✖ twenty verified samples produce p50/p95 for each measured group (0.2289ms)
+  AssertionError [ERR_ASSERTION]: interaction metric implementation exists
+      at implementation (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/interaction-metrics.test.mjs:7:39)
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/interaction-metrics.test.mjs:30:25)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\interaction-metrics.test.mjs:37:1
+✖ nineteen samples cannot close the twenty-sample criterion (0.6369ms)
+  AssertionError [ERR_ASSERTION]: interaction metric implementation exists
+      at implementation (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/interaction-metrics.test.mjs:7:39)
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/interaction-metrics.test.mjs:38:25)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\interaction-metrics.test.mjs:43:1
+✖ timeouts, untrusted or unpainted acknowledgements remain in the denominator (0.3585ms)
+  AssertionError [ERR_ASSERTION]: interaction metric implementation exists
+      at implementation (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/interaction-metrics.test.mjs:7:39)
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/interaction-metrics.test.mjs:44:25)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\interaction-metrics.test.mjs:54:1
+✖ slow valid feedback is a failure instead of being excluded as an outlier (0.2856ms)
+  AssertionError [ERR_ASSERTION]: interaction metric implementation exists
+      at implementation (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/interaction-metrics.test.mjs:7:39)
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/interaction-metrics.test.mjs:55:25)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\interaction-metrics.test.mjs:61:1
+✖ duplicate IDs and unknown groups cannot silently pad the sample count (0.6727ms)
+  AssertionError [ERR_ASSERTION]: interaction metric implementation exists
+      at implementation (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/interaction-metrics.test.mjs:7:39)
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/interaction-metrics.test.mjs:62:25)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

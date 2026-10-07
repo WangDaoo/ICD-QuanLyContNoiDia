@@ -1,0 +1,66 @@
+Browser tab: 22, Title: "ICD Management System — Quản lý Kho bãi Container Nội địa", URL: "http://127.0.0.1:5173/".
+1 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/
+	2 container root
+		41 container
+			42 text ICD
+			43 heading ICD Management System, Value: 1
+				44 text ICD Management System
+			45 text Cảng cạn & kho bãi container nội địa 1 lệnh giữ Đã kết nối
+			46 button Tải lại dữ liệu
+			47 button (collapsed) Description: Thông báo (0 chưa đọc), Secondary Actions: Expand
+			48 text System Administrator ADMIN
+			49 button Đăng xuất
+		12 container Điều hướng nghiệp vụ
+			13 container
+				14 text TỔNG QUAN & ĐIỀU PHỐI
+				15 button Tổng quan vận hành
+				16 button Danh sách công việc
+				17 text QUẢN LÝ HÀNG HÓA & CỔNG
+				18 button Bản lược khai (Manifest)
+				19 button Quản lý Container
+				20 button Movement Order
+				21 button Chuyến xe ra/vào
+				22 button Tiếp nhận vào cổng (Gate-in)
+				23 button Vận hành Bãi (Yard)
+				24 text TÀI CHÍNH & RA CỔNG
+				25 button Dịch vụ & Thanh toán
+				26 button Phiếu ra cổng & Gate-out
+				27 button Vận hành EDI (CODECO)
+				28 text TÍCH HỢP ĐỐI TÁC
+				29 button Bàn giao vận chuyển
+				30 button Đối tác tích hợp API
+				31 button Nhật ký API đối tác
+				32 text HỆ THỐNG & QUẢN TRỊ
+				33 button Danh mục dùng chung
+				34 button Người dùng & Phân quyền
+				35 button Báo cáo vận hành
+				36 button Nhật ký kiểm toán
+			37 text System Administrator
+			38 text admin@icd.local
+			39 text ADMIN
+		40 container
+			50 heading Danh sách công việc thông minh (Work Queue), Value: 2
+				51 text Danh sách công việc thông minh (Work Queue)
+			52 text Tự động sắp xếp các tác vụ theo mức độ khẩn cấp (Urgency) và cam kết thời gian hoàn thành (SLA) 0  Overdue 0  High 0  Tổng việc Bộ lọc:
+			53 pop up button (collapsed, settable) Value: Tất cả mức độ khẩn cấp, Secondary Actions: Expand
+				54 menu
+					55 (selected) Tất cả mức độ khẩn cấp
+					56 Quá hạn (OVERDUE)
+					57 Ưu tiên cao (HIGH)
+					58 Trung bình (MEDIUM)
+					59 Bình thường (NORMAL)
+			60 pop up button (collapsed, settable) Value: Tất cả loại nghiệp vụ, Secondary Actions: Expand
+				61 menu
+					62 (selected) Tất cả loại nghiệp vụ
+					63 Tiếp nhận vào cổng (Gate-in)
+					64 Xếp vị trí bãi (Yard Assign)
+					65 Thu phí dịch vụ (Billing)
+					66 Xác nhận ra cổng (Gate-out)
+					67 Duyệt bàn giao đối tác (Review POD)
+			68 checkbox (settable, integer) Description: Chỉ việc thuộc vai trò của tôi (ADMIN), Value: 0
+			69 text Chỉ việc thuộc vai trò của tôi ( ADMIN ) Hiển thị  0  /  0  tác vụ
+			70 heading Không có công việc nào cần xử lý, Value: 3
+				71 text Không có công việc nào cần xử lý
+			72 text Toàn bộ các tác vụ theo tiêu chí lọc hiện tại đã được giải quyết hoặc chưa phát sinh.
+
+The focused UI element is 16 button Danh sách công việc

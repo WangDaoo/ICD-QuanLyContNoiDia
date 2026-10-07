@@ -1,0 +1,28 @@
+✖ Container creation saved with failed refresh keeps the truthful outcome visible after its modal closes (423.0143ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4524.1329
+
+✖ failing tests:
+
+test at audit\tools\improvement-web-business-independent.test.mjs:111:1
+✖ Container creation saved with failed refresh keeps the truthful outcome visible after its modal closes (423.0143ms)
+  AssertionError [ERR_ASSERTION]: button /^Tạo$/
+      at click (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:51:12)
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:123:11)
+      at async withFixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:59:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:112:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

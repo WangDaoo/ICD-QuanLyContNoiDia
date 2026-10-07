@@ -1,0 +1,88 @@
+Browser tab: 22, Title: "ICD Management System — Quản lý Kho bãi Container Nội địa", URL: "http://127.0.0.1:5173/".
+1 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/
+	2 container root
+		41 container
+			42 text ICD
+			43 heading ICD Management System, Value: 1
+				44 text ICD Management System
+			45 text Cảng cạn & kho bãi container nội địa
+			46 button Tải lại dữ liệu
+			47 button (collapsed) Description: Thông báo (0 chưa đọc), Secondary Actions: Expand
+			49 button Đăng xuất
+		12 container Điều hướng nghiệp vụ
+			50 text TỔNG QUAN & ĐIỀU PHỐI
+			51 button Tổng quan vận hành
+			52 button Danh sách công việc
+			53 text QUẢN LÝ HÀNG HÓA & CỔNG
+			54 button Bản lược khai (Manifest)
+			55 button Quản lý Container
+			56 button Movement Order
+			57 button Chuyến xe ra/vào
+			58 button Tiếp nhận vào cổng (Gate-in)
+			59 button Vận hành Bãi (Yard)
+			60 text TÀI CHÍNH & RA CỔNG
+			61 button Dịch vụ & Thanh toán
+			62 button Phiếu ra cổng & Gate-out
+			63 button Vận hành EDI (CODECO)
+			64 text TÍCH HỢP ĐỐI TÁC
+			65 button Bàn giao vận chuyển
+			66 button Đối tác tích hợp API
+			67 button Nhật ký API đối tác
+			68 text HỆ THỐNG & QUẢN TRỊ
+			69 button Danh mục dùng chung
+			70 button Người dùng & Phân quyền
+			71 button Báo cáo vận hành
+			72 button Nhật ký kiểm toán
+			37 text System Administrator
+			38 text admin@icd.local
+			39 text ADMIN
+		40 container
+			73 heading Phiếu ra cổng (Gate Pass) & Kiểm soát Xuất kho, Value: 2
+				74 text Phiếu ra cổng (Gate Pass) & Kiểm soát Xuất kho
+			75 text Phát hành mã QR Code ra cổng có thời hạn 24 giờ, đối soát cổng Outbound và xác nhận Gate-out
+			76 button Cấp Phiếu ra cổng mới
+			77 text Tra cứu phiếu ra cổng Quét mã QR từ app tài xế hoặc nhập mã GP-XXXX để xác thực
+			78 text field (settable)
+			79 button Quét mã
+			80 text field (settable)
+			81 checkbox GP-MUQAHDPX-0237BC USED QAOU1882075 Xe: 51C-OUTQA Tài xế: Local QA receiver, Value: 1
+				82 text GP-MUQAHDPX-0237BC
+				83 text USED
+				84 text QAOU1882075
+				85 text Xe: 
+				86 text 51C-OUTQA
+				87 text Tài xế: 
+				88 text Local QA receiver
+			89 checkbox GP-MUQ99LSU-EC4D56 USED QAOU5007550 Xe: 51C-OUTQA Tài xế: Local QA receiver, Value: 0
+				90 text GP-MUQ99LSU-EC4D56
+				91 text USED
+				92 text QAOU5007550
+				93 text Xe: 
+				94 text 51C-OUTQA
+				95 text Tài xế: 
+				96 text Local QA receiver
+			97 checkbox GP-MUP67M77-8C9CDC USED QATU2282957 Xe: 51C-QA1001 Tài xế: Local QA Receiver, Value: 0
+				98 text GP-MUP67M77-8C9CDC
+				99 text USED
+				100 text QATU2282957
+				101 text Xe: 
+				102 text 51C-QA1001
+				103 text Tài xế: 
+				104 text Local QA Receiver
+			105 heading GP-MUQAHDPX-0237BC, Value: 3
+				106 text GP-MUQAHDPX-0237BC
+			107 text USED Phát hành lúc:  08:33:27 2/10/2026 Hiệu lực đến: 08:33:27 3/10/2026
+			108 text QR chỉ hiển thị với phiếu còn hiệu lực và tài khoản có quyền phát hành.
+			109 text Trình mã này tại cổng Outbound để nhân viên đối soát biển số xe và mở barie. Thông tin Phương tiện Biển số đăng ký: 
+			110 text 51C-OUTQA
+			111 text Người nhận hàng: 
+			112 text Local QA receiver
+			113 text Số CMND/CCCD:
+			114 text Hồ sơ Container Số container: 
+			115 text QAOU1882075
+			116 text Mã chuyến tiếp nhận: 
+			117 text f6482365-ae79-4ae3-9dec-efecd8f04947
+			118 text Điều kiện được backend kiểm tra lại khi xác nhận ra cổng. Phiếu này đã được sử dụng để xuất cổng.
+			119 button Tiến hành bàn giao vận chuyển
+
+The focused UI element is 62 button Phiếu ra cổng & Gate-out

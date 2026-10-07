@@ -1,0 +1,91 @@
+--- audit/runs/2026-10-03-improvement-02/raw/progressive-dependencies-AppContext-before-2026-10-04.tsx
++++ apps/web/src/context/AppContext.tsx
+@@ -319,6 +319,20 @@
+   ediMessages: '/integrations/edi/outbox', ediAlerts: '/integrations/edi/alerts', notifications: '/notifications/history',
+ };
+ 
++// Only these presentation fields depend on another collection in mapLiveCollections.
++// A pending/failed source is not an authoritative empty source; a forbidden source cannot reuse its cache.
++const DEPENDENT_FIELDS: Array<{
++  resource: keyof LiveCollections; field: string; sources: Array<keyof LiveCollections>; missing: string | undefined;
++}> = [
++  { resource: 'containerVisits', field: 'currentLocation', sources: ['yardSlots'], missing: undefined },
++  ...(['movementOrders', 'yardMovements', 'inspections', 'bookings', 'serviceOrders', 'handovers', 'ediMessages'] as const)
++    .map(resource => ({ resource, field: 'containerNumber', sources: ['containerVisits'] as Array<keyof LiveCollections>, missing: '-' })),
++  { resource: 'invoices', field: 'containerVisitId', sources: ['serviceOrders'], missing: '' },
++  { resource: 'invoices', field: 'containerNumber', sources: ['serviceOrders', 'containerVisits'], missing: '-' },
++  { resource: 'invoices', field: 'consigneeName', sources: ['serviceOrders'], missing: '-' },
++  { resource: 'workQueue', field: 'containerVisitId', sources: ['serviceOrders', 'gatePasses'], missing: '' },
++];
++
+ async function loadList(path: string): Promise<Record<string, unknown>[]> {
+   return asRecords(await loadAllPages(params => apiClient.get<unknown>(path, { params })));
+ }
+@@ -367,16 +381,46 @@
+         handovers: Object.fromEntries(previous.handovers.map(row => [row.id, 'loading'])),
+       };
+       const failures: string[] = [];
+-      setResourceStatus(old => Object.fromEntries(Object.keys(DATA_ROUTES).map(key => [key, old[key] === 'ready' || old[key] === 'stale' ? old[key] : 'loading'])));
++      setResourceStatus(old => Object.fromEntries(Object.keys(DATA_ROUTES).map(key => [key, key !== 'yardSlots' && (old[key] === 'ready' || old[key] === 'stale') ? old[key] : 'loading'])));
+       setDetailStatus(old => activeSession() ? {
+         manifests: { ...details.manifests }, roles: { ...details.roles }, handovers: { ...details.handovers },
+       } : old);
++      const reconcileDependentFields = (key: keyof LiveCollections, mapped: LiveCollections, fresh: LiveCollections = mapped) => {
++        const rules = DEPENDENT_FIELDS.filter(rule => rule.resource === key);
++        const rows = statuses[key] === 'stale' ? previous[key] : mapped[key];
++        if (!rules.length) return rows;
++        const oldById = new Map(previous[key].map(row => [asString(asRecord(row).id), asRecord(row)]));
++        const freshById = new Map(fresh[key].map(row => [asString(asRecord(row).id), asRecord(row)]));
++        return rows.map(row => {
++          const result = { ...row };
++          const id = asString(asRecord(row).id);
++          for (const rule of rules) {
++            const sourceForbidden = rule.sources.some(source => statuses[source] === 'forbidden');
++            const sourceUnavailable = rule.sources.some(source =>
++              statuses[source] !== 'ready' && !(source === 'gatePasses' && raw.gatePasses !== undefined));
++            if (sourceForbidden && statuses[key] === 'stale') {
++              Object.assign(result, { [rule.field]: freshById.get(id)?.[rule.field] ?? rule.missing });
++            } else if (!sourceForbidden && sourceUnavailable) {
++              const value = asRecord(result)[rule.field];
++              const oldValue = oldById.get(id)?.[rule.field];
++              if ((value === undefined || value === '' || value === '-') && oldValue !== undefined)
++                Object.assign(result, { [rule.field]: oldValue });
++            }
++          }
++          return result;
++        });
++      };
+       const publishResource = (key: keyof LiveCollections) => {
+         if (!activeSession()) return;
+         const mapped = mapLiveCollections(raw, latestActor.current.role);
++        const affected = new Set([key, ...DEPENDENT_FIELDS.filter(rule => rule.sources.includes(key)).map(rule => rule.resource)]);
+         setData(old => {
+           if (!activeSession()) return old;
+-          const next = { ...old, [key]: statuses[key] === 'stale' ? previous[key] : mapped[key] };
++          const next = { ...old };
++          for (const resource of affected) {
++            // Do not publish an empty primary list just because one of its dependencies arrived first.
++            if (statuses[resource]) Object.assign(next, { [resource]: reconcileDependentFields(resource, mapped) });
++          }
+           if (key === 'tariffs') next.tariffRules = statuses[key] === 'stale' ? previous.tariffRules : mapped.tariffRules;
+           return next;
+         });
+@@ -461,7 +505,8 @@
+         try { mapLiveCollections({ [key]: raw[key] ?? [] }, latestActor.current.role); }
+         catch (error: unknown) { statuses[key] = readFailureState(error, previous[key as keyof LiveCollections].length > 0); raw[key] = []; failures.push(key + ': ' + errorMessage(error)); }
+       }
+-      const next = mapLiveCollections(raw, latestActor.current.role);
++      const mapped = mapLiveCollections(raw, latestActor.current.role);
++      const next = { ...mapped };
+       for (const key of Object.keys(DATA_ROUTES) as Array<keyof LiveCollections>) {
+         if (statuses[key] === 'stale') Object.assign(next, { [key]: previous[key] });
+       }
+@@ -469,6 +514,8 @@
+       next.manifests = next.manifests.map(row => details.manifests[row.id] === 'stale' ? previous.manifests.find(old => old.id === row.id) ?? row : details.manifests[row.id] === 'forbidden' ? { ...row, masterBills: [] } : row);
+       next.roles = next.roles.map(row => details.roles[row.id] === 'stale' ? previous.roles.find(old => old.id === row.id) ?? row : details.roles[row.id] === 'forbidden' ? { ...row, permissionCodes: [] } : row);
+       next.handovers = next.handovers.map(row => details.handovers[row.id] === 'stale' ? previous.handovers.find(old => old.id === row.id) ?? row : row);
++      for (const key of new Set(DEPENDENT_FIELDS.map(rule => rule.resource)))
++        Object.assign(next, { [key]: reconcileDependentFields(key, next, mapped) });
+       setResourceStatus(statuses); setDetailStatus(details);
+       refreshFailed.current = failures.length > 0 || !health;
+       setData((previous: ReturnType<typeof emptyData>) => ({ ...next, visitSafetyStatus,

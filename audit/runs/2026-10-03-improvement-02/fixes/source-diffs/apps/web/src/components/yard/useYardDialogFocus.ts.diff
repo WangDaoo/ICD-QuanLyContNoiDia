@@ -1,0 +1,41 @@
+--- before/apps/web/src/components/yard/useYardDialogFocus.ts
++++ after/apps/web/src/components/yard/useYardDialogFocus.ts
+@@ -5,11 +5,12 @@
+ 
+ export function focusableControls(dialog: HTMLElement): HTMLElement[] {
+   return Array.from(dialog.querySelectorAll<HTMLElement>(focusableSelector)).filter(
+-    control => !control.matches(':disabled')
+-      && control.tabIndex >= 0
+-      && !control.closest('[hidden], [inert]')
+-      && control.getClientRects().length > 0
+-      && getComputedStyle(control).visibility !== 'hidden',
++    (control) =>
++      !control.matches(':disabled') &&
++      control.tabIndex >= 0 &&
++      !control.closest('[hidden], [inert]') &&
++      control.getClientRects().length > 0 &&
++      getComputedStyle(control).visibility !== 'hidden',
+   );
+ }
+ 
+@@ -20,9 +21,8 @@
+ 
+   useEffect(() => {
+     if (!open || !ref.current) return;
+-    const previousFocus = document.activeElement instanceof HTMLElement
+-      ? document.activeElement
+-      : null;
++    const previousFocus =
++      document.activeElement instanceof HTMLElement ? document.activeElement : null;
+     const dialog = ref.current;
+     (focusableControls(dialog)[0] ?? dialog).focus();
+     return () => {
+@@ -46,7 +46,7 @@
+     if (!first) {
+       event.preventDefault();
+       ref.current.focus();
+-    } else if (!controls.some(control => control === active)) {
++    } else if (!controls.some((control) => control === active)) {
+       event.preventDefault();
+       (event.shiftKey ? last : first).focus();
+     } else if (event.shiftKey && active === first) {

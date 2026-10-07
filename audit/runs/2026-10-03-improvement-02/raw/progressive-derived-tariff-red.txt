@@ -1,0 +1,37 @@
+✔ a completed resource is published while an unrelated read remains pending (170.5394ms)
+✔ publication waits for complete and valid pagination without waiting on unrelated reads (18.7927ms)
+✔ a malformed financial response becomes unavailable before any false zero is published (16.8208ms)
+✖ a malformed tariff refresh retains its previously validated derived rules through final reconciliation (31.7236ms)
+✔ a late previous-session resource cannot replace a progressively published new-session resource (31.5316ms)
+✔ transient read failure preserves stale rows and a forbidden read removes them immediately (58.4321ms)
+✔ refresh invalidates old safety readiness until both authoritative safety reads finish (63.1506ms)
+✔ early manifest role and handover lists expose pending detail availability (81.2627ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5683.5755
+
+✖ failing tests:
+
+test at audit\tools\tests\progressive-loading.test.mjs:95:1
+✖ a malformed tariff refresh retains its previously validated derived rules through final reconciliation (31.7236ms)
+  AssertionError [ERR_ASSERTION]: final reconciliation must not discard the stale resource derived rows
+  + actual - expected
+  
+  + undefined
+  - 12.5
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/progressive-loading.test.mjs:115:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 12.5,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

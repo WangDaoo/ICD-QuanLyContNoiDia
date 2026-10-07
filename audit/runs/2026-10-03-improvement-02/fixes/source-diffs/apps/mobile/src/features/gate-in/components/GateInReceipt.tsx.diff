@@ -1,0 +1,25 @@
+--- before/apps/mobile/src/features/gate-in/components/GateInReceipt.tsx
++++ after/apps/mobile/src/features/gate-in/components/GateInReceipt.tsx
+@@ -1,3 +1,4 @@
++import { displayCode } from '../../../presentation/labels';
+ import { useCallback, useEffect, useRef, useState } from 'react';
+ import { Text, TouchableOpacity, View } from 'react-native';
+ import { Search, Scan } from 'lucide-react-native';
+@@ -202,7 +203,7 @@
+   const editable = !!context && !busy && !blocker && online !== false;
+   return (
+     <Card title="Biên nhận Cổng vào (Gate-In EIR)">
+-      <View style={{ flexDirection: 'row', alignItems: 'flex-end', gap: 6 }}>
++      <View style={{ flexDirection: 'row', alignItems: 'flex-end', gap: theme.spacing.sm }}>
+         <View style={{ flex: 1 }}>
+           <Field
+             label="Số Container*"
+@@ -265,7 +266,7 @@
+           onChange={(id) => void selectVisit(id)}
+           options={matches.map((row) => ({
+             value: row.id,
+-            label: `${row.container.containerNumber} · ${row.state} · ${row.id.slice(-8)}`,
++            label: `${row.container.containerNumber} · ${displayCode(row.state)} · ${row.id.slice(-8)}`,
+           }))}
+         />
+       ) : null}

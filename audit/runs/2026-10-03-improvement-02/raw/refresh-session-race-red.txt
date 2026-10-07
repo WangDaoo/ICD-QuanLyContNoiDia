@@ -1,0 +1,28 @@
+✖ switching user starts a fresh read and a late previous refresh cannot clear its pending state (225.7378ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6496.8912
+
+✖ failing tests:
+
+test at audit\tools\refresh-session-race.test.mjs:10:1
+✖ switching user starts a fresh read and a late previous refresh cannot clear its pending state (225.7378ms)
+  AssertionError [ERR_ASSERTION]: B must not reuse A pending read
+  
+  2 !== 3
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/refresh-session-race.test.mjs:30:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 3,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

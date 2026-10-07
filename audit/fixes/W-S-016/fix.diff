@@ -1,0 +1,627 @@
+--- before/AppContext.tsx
++++ after/AppContext.tsx
+@@ -100,6 +100,7 @@
+   invoices: Invoice[];
+   payments: Payment[];
+   gatePasses: GatePass[];
++  visitSafetyStatus: VisitSafetyStatus;
+   workQueue: WorkQueueTask[];
+   ediMessages: EdiOutboxMessage[];
+   warehouses: CustomerWarehouse[];
+@@ -311,6 +312,7 @@
+ import { mapLiveCollections, mapBillingPreview } from '../services/mappers/live-view.mapper';
+ import { executeOperation, type CommandResult } from '../services/api/operation';
+ import { loadAllPages } from '../services/api/load-list';
++import { getSafetyReadStatus, mergeSafetyRecords, type VisitSafetyStatus } from '../services/visit-safety-data';
+ 
+ const DATA_ROUTES: Record<string, string> = {
+   containerVisits: '/containers', manifests: '/manifests', truckVisits: '/gate/truck-visits',
+@@ -329,7 +331,7 @@
+   return loadAllPages(params => apiClient.get<unknown>(path, { params }));
+ }
+ 
+-const emptyData = () => mapLiveCollections({}, '');
++const emptyData = () => ({ ...mapLiveCollections({}, ''), visitSafetyStatus: {} });
+ const isoDate = (value?: string) => value ? new Date(value).toISOString() : undefined;
+ 
+ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+@@ -388,8 +390,13 @@
+       } catch (error: any) {
+         if (![401,403].includes(error?.status)) failures.push('/reports/summary: ' + error.message);
+       }
++      const visitSafetyStatus: VisitSafetyStatus = {};
+       const perVisit = await Promise.all(visits.map(async v => {
+         const [holds, passes] = await Promise.allSettled([loadList('/containers/' + v.id + '/holds'), loadList('/containers/' + v.id + '/gate-passes')]);
++        visitSafetyStatus[v.id] = { holds: getSafetyReadStatus(holds), gatePasses: getSafetyReadStatus(passes) };
++        for (const [kind, status] of Object.entries(visitSafetyStatus[v.id])) {
++          if (status !== 'ready') failures.push(`/containers/${v.id}/${kind === 'holds' ? 'holds' : 'gate-passes'}: ${status === 'forbidden' ? 'Không có quyền đọc dữ liệu.' : 'Chưa thể kiểm tra; dữ liệu cũ chỉ để tham khảo. Tải lại để thử lại.'}`);
++        }
+         return { holds: holds.status === 'fulfilled' ? holds.value : [], passes: passes.status === 'fulfilled' ? passes.value : [] };
+       }));
+       raw.holds = perVisit.flatMap(v => v.holds);
+@@ -405,7 +412,11 @@
+       if (!tokenStorage.getAccessToken()) {
+         setIsAuthenticated(false); setData(emptyData()); setIsLoading(false); return;
+       }
+-      setData(mapLiveCollections(raw, latestActor.current.role));
++      const next = mapLiveCollections(raw, latestActor.current.role);
++      setData((previous: ReturnType<typeof emptyData>) => ({ ...next, visitSafetyStatus,
++        holds: mergeSafetyRecords(next.holds, previous.holds, visitSafetyStatus, 'holds'),
++        gatePasses: mergeSafetyRecords(next.gatePasses, previous.gatePasses, visitSafetyStatus, 'gatePasses'),
++      }));
+       setApiError(failures.length ? 'Không tải được một số dữ liệu: ' + failures.join(' | ') : !health ? 'Backend hoặc MySQL chưa sẵn sàng.' : '');
+       setIsLoading(false);
+     };
+
+--- before/ContainersView.tsx
++++ after/ContainersView.tsx
+@@ -1,3 +1,4 @@
++import { ModalOverlay } from './ModalOverlay';
+ import React, { useEffect, useState } from 'react';
+ import { useApp } from '../context/AppContext';
+ import { readinessLabel } from '../services/readiness-labels';
+@@ -24,6 +25,7 @@
+ } from 'lucide-react';
+ import { NavTabId } from './Sidebar';
+ import { useBackendReadiness } from './useBackendReadiness';
++import { CriticalDataNotice } from './CriticalDataNotice';
+ 
+ interface ContainersViewProps {
+   onNavigate: (tab: NavTabId, contextId?: string) => void;
+@@ -36,6 +38,7 @@
+     manifests,
+     consignees,
+     holds,
++    visitSafetyStatus = {},
+     invoices,
+     serviceOrders,
+     gatePasses,
+@@ -104,7 +107,7 @@
+     if (hasBlockerOnly) {
+       const activeHolds = holds.filter((h) => h.containerVisitId === v.id && h.status === 'ACTIVE');
+       const invs = invoices.filter((i) => i.containerVisitId === v.id && i.status !== 'PAID');
+-      if (activeHolds.length === 0 && invs.length === 0 && v.currentLocation) return false;
++      if (visitSafetyStatus[v.id]?.holds === 'ready' && activeHolds.length === 0 && invs.length === 0 && v.currentLocation) return false;
+     }
+ 
+     return true;
+@@ -116,6 +119,8 @@
+   const activeVisitOrders = activeVisit ? serviceOrders.filter((s) => s.containerVisitId === activeVisit.id) : [];
+   const activeVisitGatePass = activeVisit ? gatePasses.find((gp) => gp.containerVisitId === activeVisit.id && gp.status === 'ACTIVE') : null;
+   const activeVisitHandover = activeVisit ? handovers.find((h) => h.containerVisitId === activeVisit.id) : null;
++  const holdsReady = activeVisit && visitSafetyStatus[activeVisit.id]?.holds === 'ready';
++  const passesReady = activeVisit && visitSafetyStatus[activeVisit.id]?.gatePasses === 'ready';
+ 
+   const { readiness, readinessError, isCheckingReadiness } = useBackendReadiness(activeVisit?.id);
+ 
+@@ -265,7 +270,8 @@
+                     </td>
+                     <td className="py-3 px-4">
+                       <div className="flex items-center space-x-1.5">
+-                        {activeHoldsCount > 0 && (
++                        {visitSafetyStatus[v.id]?.holds !== 'ready' && <span className="text-amber-900" title="Chưa xác minh lệnh giữ">Holds chưa kiểm tra</span>}
++                        {visitSafetyStatus[v.id]?.holds === 'ready' && activeHoldsCount > 0 && (
+                           <span
+                             title="Có lệnh giữ (Hold)"
+                             className="p-1 bg-amber-100 text-amber-800 rounded-md inline-flex items-center"
+@@ -289,7 +295,7 @@
+                             <Warehouse className="w-3.5 h-3.5" />
+                           </span>
+                         )}
+-                        {activeHoldsCount === 0 && !hasUnpaid && v.currentLocation && (
++                        {visitSafetyStatus[v.id]?.holds === 'ready' && activeHoldsCount === 0 && !hasUnpaid && v.currentLocation && (
+                           <span className="text-emerald-600 inline-flex items-center">
+                             <CheckCircle2 className="w-4 h-4" />
+                           </span>
+@@ -317,8 +323,8 @@
+ 
+       {/* Comprehensive Container Detail Modal (6 Tabs) */}
+       {activeVisit && (
+-        <div className="fixed inset-0 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center z-50 p-4 overflow-y-auto">
+-          <div role="dialog" aria-modal="true" aria-label={`Container 360 ${activeVisit.containerNumber}`} className="bg-white rounded-2xl max-w-5xl w-full p-6 shadow-2xl border border-slate-200 max-h-[90vh] flex flex-col my-auto">
++        <ModalOverlay aria-label={`Container 360 ${activeVisit.containerNumber}`} onClose={() => setActiveModalVisitId(null)} className="fixed inset-0 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center z-50 p-4 overflow-y-auto">
++          <div className="bg-white rounded-2xl max-w-5xl w-full p-6 shadow-2xl border border-slate-200 max-h-[90vh] flex flex-col my-auto">
+             {/* Modal Header */}
+             <div className="flex items-start justify-between pb-4 border-b border-slate-200">
+               <div>
+@@ -382,7 +388,7 @@
+                   activeDetailTab === 'HOLDS' ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-500 hover:text-slate-800'
+                 }`}
+               >
+-                Lệnh giữ Holds ({activeVisitHolds.filter((h) => h.status === 'ACTIVE').length})
++                Lệnh giữ Holds ({holdsReady ? activeVisitHolds.filter((h) => h.status === 'ACTIVE').length : '?'})
+               </button>
+               <button
+                 onClick={() => setActiveDetailTab('TIMELINE')}
+@@ -656,7 +662,7 @@
+               {/* TAB 4: GATE PASS */}
+               {activeDetailTab === 'GATE_PASS' && (
+                 <div className="space-y-4">
+-                  {activeVisitGatePass ? (
++                  {!passesReady ? <CriticalDataNotice kind="gatePasses" visitId={activeVisit.id} /> : activeVisitGatePass ? (
+                     <div className="border border-indigo-200 bg-indigo-50/40 rounded-xl p-5 text-center space-y-3">
+                       <div className="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 font-bold rounded-full">
+                         PHIẾU RA CỔNG ĐANG HIỆU LỰC (ACTIVE)
+@@ -683,8 +689,8 @@
+                           </p>
+                           <div className="grid grid-cols-3 gap-2">
+                             <div>
+-                              <label className="block text-slate-600 mb-1">Biển số xe nhận</label>
+-                              <input
++                              <label htmlFor="containers-gp-plate" className="block text-slate-600 mb-1">Biển số xe nhận</label>
++                              <input id="containers-gp-plate"
+                                 type="text"
+                                 value={gpPlate}
+                                 onChange={(e) => setGpPlate(e.target.value)}
+@@ -692,8 +698,8 @@
+                               />
+                             </div>
+                             <div>
+-                              <label className="block text-slate-600 mb-1">Tên người nhận</label>
+-                              <input
++                              <label htmlFor="containers-gp-receiver" className="block text-slate-600 mb-1">Tên người nhận</label>
++                              <input id="containers-gp-receiver"
+                                 type="text"
+                                 value={gpReceiver}
+                                 onChange={(e) => setGpReceiver(e.target.value)}
+@@ -701,8 +707,8 @@
+                               />
+                             </div>
+                             <div>
+-                              <label className="block text-slate-600 mb-1">Số CMND / CCCD</label>
+-                              <input
++                              <label htmlFor="containers-gp-cccd" className="block text-slate-600 mb-1">Số CMND / CCCD</label>
++                              <input id="containers-gp-cccd"
+                                 type="text"
+                                 value={gpCccd}
+                                 onChange={(e) => setGpCccd(e.target.value)}
+@@ -738,6 +744,7 @@
+               {/* TAB 5: HOLDS */}
+               {activeDetailTab === 'HOLDS' && (
+                 <div className="space-y-4">
++                  <CriticalDataNotice kind="holds" visitId={activeVisit.id} />
+                   <div className="flex items-center justify-between">
+                     <h4 className="font-bold text-slate-800">Lệnh giữ nghiệp vụ (Operational Holds)</h4>
+                     <button
+@@ -754,8 +761,8 @@
+                       <div className="font-bold text-rose-900">Thiết lập Lệnh giữ mới</div>
+                       <div className="grid grid-cols-2 gap-2">
+                         <div>
+-                          <label className="block text-slate-600 mb-1">Loại lệnh giữ</label>
+-                          <select
++                          <label htmlFor="containers-new-hold-type" className="block text-slate-600 mb-1">Loại lệnh giữ</label>
++                          <select id="containers-new-hold-type"
+                             value={newHoldType}
+                             onChange={(e) => setNewHoldType(e.target.value)}
+                             className="w-full px-2.5 py-1.5 border border-slate-300 rounded bg-white"
+@@ -769,8 +776,8 @@
+                           </select>
+                         </div>
+                         <div>
+-                          <label className="block text-slate-600 mb-1">Lý do chi tiết*</label>
+-                          <input
++                          <label htmlFor="containers-new-hold-reason" className="block text-slate-600 mb-1">Lý do chi tiết*</label>
++                          <input id="containers-new-hold-reason"
+                             type="text"
+                             placeholder="Nhập lý do giữ..."
+                             value={newHoldReason}
+@@ -889,18 +896,18 @@
+               </button>
+             </div>
+           </div>
+-        </div>
++        </ModalOverlay>
+       )}
+ 
+       {/* Create Container Visit Modal */}
+       {showCreateVisit && (
+-        <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center z-50 p-4">
++        <ModalOverlay aria-labelledby="containers-dialog-2-title" onClose={() => setShowCreateVisit(false)} className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center z-50 p-4">
+           <div className="bg-white rounded-xl max-w-lg w-full p-6 shadow-xl border border-slate-200 text-xs">
+-            <h3 className="text-base font-bold text-slate-900 mb-4">Tạo Container Visit thủ công</h3>
++            <h3 id="containers-dialog-2-title" className="text-base font-bold text-slate-900 mb-4">Tạo Container Visit thủ công</h3>
+             <div className="space-y-3">
+               <div>
+-                <label className="block font-semibold text-slate-700 mb-1">Số container* (ISO 6346)</label>
+-                <input
++                <label htmlFor="containers-cv-form-container-number" className="block font-semibold text-slate-700 mb-1">Số container* (ISO 6346)</label>
++                <input id="containers-cv-form-container-number"
+                   type="text"
+                   value={cvForm.containerNumber}
+                   onChange={(e) => setCvForm({ ...cvForm, containerNumber: e.target.value.toUpperCase() })}
+@@ -910,8 +917,8 @@
+               </div>
+               <div className="grid grid-cols-2 gap-3">
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">Loại container</label>
+-                  <select
++                  <label htmlFor="containers-cv-form-container-type" className="block font-semibold text-slate-700 mb-1">Loại container</label>
++                  <select id="containers-cv-form-container-type"
+                     value={cvForm.containerType}
+                     onChange={(e) => setCvForm({ ...cvForm, containerType: e.target.value as ContainerVisit['containerType'] })}
+                     className="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white"
+@@ -924,36 +931,36 @@
+                   </select>
+                 </div>
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">Hãng tàu</label>
+-                  <input readOnly value={formManifest?.shippingLine || ''} placeholder="Theo Manifest đã chọn" aria-label="Hãng tàu theo Manifest" className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
++                  <label htmlFor="containers-create-shipping-line" className="block font-semibold text-slate-700 mb-1">Hãng tàu</label>
++                  <input id="containers-create-shipping-line" readOnly value={formManifest?.shippingLine || ''} placeholder="Theo Manifest đã chọn" aria-label="Hãng tàu theo Manifest" className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
+                 </div>
+               </div>
+               <div>
+-                <label className="block font-semibold text-slate-700 mb-1">Chủ hàng (Consignee)*</label>
+-                <select aria-label="Chủ hàng" value={cvForm.consigneeName} onChange={e => setCvForm({...cvForm,consigneeName:e.target.value})} className="w-full px-3 py-2 border border-slate-300 rounded-lg"><option value="">Chọn chủ hàng</option>{consignees.filter(c => c.active).map(c => <option key={c.id} value={c.name}>{c.name}</option>)}</select>
++                <label htmlFor="containers-create-consignee" className="block font-semibold text-slate-700 mb-1">Chủ hàng (Consignee)*</label>
++                <select id="containers-create-consignee" aria-label="Chủ hàng" value={cvForm.consigneeName} onChange={e => setCvForm({...cvForm,consigneeName:e.target.value})} className="w-full px-3 py-2 border border-slate-300 rounded-lg"><option value="">Chọn chủ hàng</option>{consignees.filter(c => c.active).map(c => <option key={c.id} value={c.name}>{c.name}</option>)}</select>
+               </div>
+               <div className="grid grid-cols-3 gap-3">
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">Manifest No.</label>
+-                  <select aria-label="Manifest" value={cvForm.manifestNo} onChange={e => setCvForm({...cvForm,manifestNo:e.target.value,mblNumber:'',hblNumber:''})} className="w-full px-3 py-2 border border-slate-300 rounded-lg"><option value="">Chọn Manifest</option>{manifests.filter(m => m.status !== 'CANCELLED').map(m => <option key={m.id} value={m.manifestNo}>{m.manifestNo}</option>)}</select>
++                  <label htmlFor="containers-create-manifest" className="block font-semibold text-slate-700 mb-1">Manifest No.</label>
++                  <select id="containers-create-manifest" aria-label="Manifest" value={cvForm.manifestNo} onChange={e => setCvForm({...cvForm,manifestNo:e.target.value,mblNumber:'',hblNumber:''})} className="w-full px-3 py-2 border border-slate-300 rounded-lg"><option value="">Chọn Manifest</option>{manifests.filter(m => m.status !== 'CANCELLED').map(m => <option key={m.id} value={m.manifestNo}>{m.manifestNo}</option>)}</select>
+                 </div>
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">MBL No.</label>
+-                  <select aria-label="Master BL" value={cvForm.mblNumber} onChange={e => setCvForm({...cvForm,mblNumber:e.target.value,hblNumber:''})} className="w-full px-3 py-2 border border-slate-300 rounded-lg"><option value="">Chọn MBL</option>{formManifest?.masterBills.map(m => <option key={m.id} value={m.mblNumber}>{m.mblNumber}</option>)}</select>
++                  <label htmlFor="containers-create-mbl" className="block font-semibold text-slate-700 mb-1">MBL No.</label>
++                  <select id="containers-create-mbl" aria-label="Master BL" value={cvForm.mblNumber} onChange={e => setCvForm({...cvForm,mblNumber:e.target.value,hblNumber:''})} className="w-full px-3 py-2 border border-slate-300 rounded-lg"><option value="">Chọn MBL</option>{formManifest?.masterBills.map(m => <option key={m.id} value={m.mblNumber}>{m.mblNumber}</option>)}</select>
+                 </div>
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">HBL No.</label>
+-                  <select aria-label="House BL" value={cvForm.hblNumber} onChange={e => {const h = formMaster?.houseBills.find(h => h.hblNumber === e.target.value);setCvForm({...cvForm,hblNumber:e.target.value,consigneeName:h?.consigneeName || cvForm.consigneeName});}} className="w-full px-3 py-2 border border-slate-300 rounded-lg"><option value="">Chọn HBL</option>{formMaster?.houseBills.map(h => <option key={h.id} value={h.hblNumber}>{h.hblNumber}</option>)}</select>
++                  <label htmlFor="containers-create-hbl" className="block font-semibold text-slate-700 mb-1">HBL No.</label>
++                  <select id="containers-create-hbl" aria-label="House BL" value={cvForm.hblNumber} onChange={e => {const h = formMaster?.houseBills.find(h => h.hblNumber === e.target.value);setCvForm({...cvForm,hblNumber:e.target.value,consigneeName:h?.consigneeName || cvForm.consigneeName});}} className="w-full px-3 py-2 border border-slate-300 rounded-lg"><option value="">Chọn HBL</option>{formMaster?.houseBills.map(h => <option key={h.id} value={h.hblNumber}>{h.hblNumber}</option>)}</select>
+                 </div>
+               </div>
+               <div className="grid grid-cols-2 gap-3">
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">Seal Manifest*</label>
+-                  <input type="text" value={cvForm.manifestSeal} onChange={(e) => setCvForm({ ...cvForm, manifestSeal: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
++                  <label htmlFor="containers-cv-form-manifest-seal" className="block font-semibold text-slate-700 mb-1">Seal Manifest*</label>
++                  <input id="containers-cv-form-manifest-seal" type="text" value={cvForm.manifestSeal} onChange={(e) => setCvForm({ ...cvForm, manifestSeal: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
+                 </div>
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">Trọng lượng (kg)</label>
+-                  <input type="number" value={cvForm.grossWeightKg} onChange={(e) => setCvForm({ ...cvForm, grossWeightKg: Number(e.target.value) })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
++                  <label htmlFor="containers-cv-form-gross-weight-kg" className="block font-semibold text-slate-700 mb-1">Trọng lượng (kg)</label>
++                  <input id="containers-cv-form-gross-weight-kg" type="number" value={cvForm.grossWeightKg} onChange={(e) => setCvForm({ ...cvForm, grossWeightKg: Number(e.target.value) })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
+                 </div>
+               </div>
+             </div>
+@@ -974,7 +981,7 @@
+               </button>
+             </div>
+           </div>
+-        </div>
++        </ModalOverlay>
+       )}
+     </div>
+   );
+
+--- before/GatePassView.tsx
++++ after/GatePassView.tsx
+@@ -1,3 +1,4 @@
++import { ModalOverlay } from './ModalOverlay';
+ import React, { useEffect, useState } from 'react';
+ import QRCode from 'react-qr-code';
+ import { useApp } from '../context/AppContext';
+@@ -19,6 +20,7 @@
+ } from 'lucide-react';
+ import { NavTabId } from './Sidebar';
+ import { useBackendReadiness } from './useBackendReadiness';
++import { CriticalDataNotice } from './CriticalDataNotice';
+ 
+ interface GatePassViewProps {
+   onNavigate: (tab: NavTabId, contextId?: string) => void;
+@@ -120,6 +122,7 @@
+ 
+   return (
+     <div className="space-y-6">
++      <CriticalDataNotice kind="gatePasses" />
+       {/* Header */}
+       <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+         <div>
+@@ -201,16 +204,16 @@
+               const isSelected = selectedGatePass?.id === gp.id;
+               const isExpired = new Date(gp.expiresAt).getTime() < Date.now();
+               return (
+-                <div
++                <button type="button" aria-pressed={isSelected}
+                   key={gp.id}
+                   onClick={() => setSelectedGatePassId(gp.id)}
+-                  className={`p-4 rounded-xl border cursor-pointer transition ${
++                  className={`block w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 p-4 rounded-xl border cursor-pointer transition ${
+                     isSelected
+                       ? 'bg-indigo-50/60 border-indigo-500 shadow-xs'
+                       : 'bg-white border-slate-200 hover:border-slate-300'
+                   }`}
+                 >
+-                  <div className="flex items-center justify-between">
++                  <span className="block flex items-center justify-between">
+                     <span className="text-xs font-mono font-bold text-indigo-700">{gp.code}</span>
+                     <span
+                       className={`px-2 py-0.5 text-[10px] font-bold rounded-full ${
+@@ -223,13 +226,13 @@
+                     >
+                       {isExpired && gp.status === 'ACTIVE' ? 'EXPIRED' : gp.status}
+                     </span>
+-                  </div>
+-                  <div className="font-mono font-bold text-slate-800 text-xs mt-1">{gp.containerNumber}</div>
+-                  <div className="text-[11px] text-slate-500 mt-1 flex justify-between">
++                  </span>
++                  <span className="block font-mono font-bold text-slate-800 text-xs mt-1">{gp.containerNumber}</span>
++                  <span className="block text-[11px] text-slate-500 mt-1 flex justify-between">
+                     <span>Xe: {gp.vehiclePlate}</span>
+                     <span>Tài xế: {gp.receiverName}</span>
+-                  </div>
+-                </div>
++                  </span>
++                </button>
+               );
+             })}
+           </div>
+@@ -344,22 +347,22 @@
+ 
+       {/* Issue Modal */}
+       {showIssueModal && (
+-        <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center z-50 p-4">
++        <ModalOverlay aria-labelledby="gate-pass-dialog-1-title" onClose={() => setShowIssueModal(false)} className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center z-50 p-4">
+           <div className="bg-white rounded-xl max-w-md w-full p-6 shadow-xl border border-slate-200 text-xs">
+-            <h3 className="text-base font-bold text-slate-900 mb-2">Phát hành Phiếu ra cổng (Gate Pass)</h3>
++            <h3 id="gate-pass-dialog-1-title" className="text-base font-bold text-slate-900 mb-2">Phát hành Phiếu ra cổng (Gate Pass)</h3>
+             <p className="text-slate-500 mb-4">
+               Chọn container để kiểm tra hồ sơ, thanh toán và lệnh giữ từ backend trước khi phát hành.
+             </p>
+ 
+             <form onSubmit={handleIssueGatePass} className="space-y-4">
+               <div>
+-                <label className="block font-semibold text-slate-700 mb-1">Chọn container trong bãi*</label>
++                <label htmlFor="gate-pass-issue-visit-id" className="block font-semibold text-slate-700 mb-1">Chọn container trong bãi*</label>
+                 {eligibleContainers.length === 0 ? (
+                   <div className="p-3 bg-amber-50 border border-amber-200 text-amber-900 rounded-lg">
+                     Chưa có container trong bãi để kiểm tra.
+                   </div>
+                 ) : (
+-                  <select
++                  <select id="gate-pass-issue-visit-id"
+                     value={issueVisitId}
+                     onChange={(e) => setIssueVisitId(e.target.value)}
+                     className="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono font-bold bg-white"
+@@ -379,8 +382,9 @@
+               {readiness && (readiness.blockers.length ? <div className="p-3 rounded-lg border border-amber-200 bg-amber-50 text-amber-900"><strong>Điều kiện chưa đạt:</strong><ul className="list-disc pl-4 mt-1">{readiness.blockers.map((blocker, index) => <li key={index}>{readinessLabel(blocker)}</li>)}</ul></div> : <p className="text-emerald-700">Đạt điều kiện từ backend. Hệ thống sẽ kiểm tra lại khi phát hành.</p>)}
+ 
+               <div>
+-                <label className="block font-semibold text-slate-700 mb-1">Biển số xe nhận hàng*</label>
++                <label htmlFor="gate-pass-receiver-vehicle-plate" className="block font-semibold text-slate-700 mb-1">Biển số xe nhận hàng*</label>
+                 <input
++                  id="gate-pass-receiver-vehicle-plate"
+                   type="text"
+                   required
+                   value={vehiclePlate}
+@@ -392,8 +396,9 @@
+ 
+               <div className="grid grid-cols-2 gap-2">
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">Tên tài xế / Người nhận*</label>
++                  <label htmlFor="gate-pass-receiver-name" className="block font-semibold text-slate-700 mb-1">Tên tài xế / Người nhận*</label>
+                   <input
++                    id="gate-pass-receiver-name"
+                     type="text"
+                     required
+                     value={receiverName}
+@@ -403,8 +408,9 @@
+                   />
+                 </div>
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">Số CMND / CCCD*</label>
++                  <label htmlFor="gate-pass-receiver-cccd" className="block font-semibold text-slate-700 mb-1">Số CMND / CCCD*</label>
+                   <input
++                    id="gate-pass-receiver-cccd"
+                     type="text"
+                     required
+                     value={receiverCccd}
+@@ -433,7 +439,7 @@
+               </div>
+             </form>
+           </div>
+-        </div>
++        </ModalOverlay>
+       )}
+     </div>
+   );
+
+--- before/Header.tsx
++++ after/Header.tsx
+@@ -1,15 +1,17 @@
+ import React, { useState } from 'react';
+ import { AlertTriangle, Bell, CheckCircle2, LogOut, Menu, RefreshCw, UserCircle } from 'lucide-react';
+ import { useApp } from '../context/AppContext';
++import { areSafetyReadsReady } from '../services/visit-safety-data';
+ 
+ interface HeaderProps { currentTab: string; onMenuClick: () => void; }
+ 
+ export const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
+-  const { currentUser, holds, notifications, markNotificationRead, markAllNotificationsRead, logout, isLoading, apiReady, refreshData } = useApp();
++  const { currentUser, containerVisits, holds, visitSafetyStatus = {}, notifications, markNotificationRead, markAllNotificationsRead, logout, isLoading, apiReady, refreshData } = useApp();
+   const [showNotifs, setShowNotifs] = useState(false);
+   const [isSigningOut, setIsSigningOut] = useState(false);
+   const unreadCount = notifications.filter((notification) => !notification.read).length;
+   const activeHoldCount = holds.filter((hold) => hold.status === 'ACTIVE').length;
++  const holdsIncomplete = !areSafetyReadsReady(containerVisits.map(v => v.id), visitSafetyStatus, 'holds');
+ 
+   const handleLogout = async () => {
+     setIsSigningOut(true);
+@@ -25,7 +27,7 @@
+       </div>
+       <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
+         <div className="hidden xl:flex items-center gap-2 text-xs">
+-          {activeHoldCount > 0 && <span className="flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 text-amber-800"><AlertTriangle className="h-3.5 w-3.5" />{activeHoldCount} lệnh giữ</span>}
++          {(holdsIncomplete || activeHoldCount > 0) && <span className="flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 text-amber-800"><AlertTriangle className="h-3.5 w-3.5" />{holdsIncomplete ? 'Holds chưa kiểm tra đủ' : `${activeHoldCount} lệnh giữ`}</span>}
+           <span className={`flex items-center gap-1.5 rounded-full border px-2.5 py-1 ${apiReady ? 'border-emerald-200 bg-emerald-50 text-emerald-700' : 'border-amber-200 bg-amber-50 text-amber-800'}`}><CheckCircle2 className="h-3.5 w-3.5" />{apiReady ? 'Đã kết nối' : 'Chưa kết nối'}</span>
+         </div>
+         <button type="button" onClick={() => void refreshData()} disabled={isLoading} aria-label="Tải lại dữ liệu" title="Tải lại dữ liệu" className="rounded-lg p-2 text-slate-500 hover:bg-slate-100 disabled:opacity-50"><RefreshCw className={`h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} /></button>
+
+--- before/DashboardView.tsx
++++ after/DashboardView.tsx
+@@ -18,6 +18,8 @@
+   Users,
+ } from 'lucide-react';
+ import { NavTabId } from './Sidebar';
++import { CriticalDataNotice } from './CriticalDataNotice';
++import { areSafetyReadsReady } from '../services/visit-safety-data';
+ 
+ interface DashboardViewProps {
+   onNavigate: (tab: NavTabId) => void;
+@@ -32,11 +34,13 @@
+     handovers,
+     truckVisits,
+     holds,
++    visitSafetyStatus = {},
+     ediMessages,
+   } = useApp();
+ 
+   // Metrics
+   const inYardContainers = containerVisits.filter((c) => c.state === 'IN_YARD' || c.state === 'UNDER_INSPECTION' || c.state === 'IN_STRIPPING');
++  const holdsIncomplete = !areSafetyReadsReady(containerVisits.map(v => v.id), visitSafetyStatus, 'holds');
+   const exitedContainers = containerVisits.filter((c) => c.state === 'EXITED');
+   const gatePassIssuedContainers = containerVisits.filter((c) => c.state === 'GATE_PASS_ISSUED');
+ 
+@@ -309,16 +313,17 @@
+                 <span>Kiểm soát Lệnh Giữ (Operational Holds)</span>
+               </h3>
+               <span className={`px-2 py-0.5 text-[10px] font-bold rounded-full ${
+-                holds.filter(h => h.status === 'ACTIVE').length > 0
++                holdsIncomplete || holds.filter(h => h.status === 'ACTIVE').length > 0
+                   ? 'bg-rose-100 text-rose-800'
+                   : 'bg-emerald-100 text-emerald-800'
+               }`}>
+-                {holds.filter(h => h.status === 'ACTIVE').length} đang khóa
++                {holdsIncomplete ? 'Chưa kiểm tra đủ' : `${holds.filter(h => h.status === 'ACTIVE').length} đang khóa`}
+               </span>
+             </div>
+             <p className="text-xs text-slate-500 mb-3">
+               Các chốt chặn kiểm soát pháp lý, hải quan, cước hãng tàu và hư hỏng trước khi cho phép ra cổng.
+             </p>
++            <CriticalDataNotice kind="holds" />
+ 
+             <div className="space-y-2">
+               {holds.slice(0, 3).map((hold) => (
+
+--- before/YardSiteMap.tsx
++++ after/YardSiteMap.tsx
+@@ -4,6 +4,8 @@
+ import type { YardSlot } from '../../types';
+ import { getBlockGeometry, getSlotsAt, getSlotAppearance, legendForMode, type YardColorMode } from './yard-model';
+ import { useYardDialogFocus } from './useYardDialogFocus';
++import { CriticalDataNotice } from '../CriticalDataNotice';
++import { areSafetyReadsReady } from '../../services/visit-safety-data';
+ 
+ interface Props {
+   onContainer: (visitId: string) => void;
+@@ -12,7 +14,7 @@
+ }
+ 
+ export function YardSiteMap({ onContainer, onAssign, onOperation }: Props) {
+-  const { yardBlocks, yardSlots, containerVisits, holds, inspections, currentUser, yardMovements, bookings } = useApp();
++  const { yardBlocks, yardSlots, containerVisits, holds, visitSafetyStatus = {}, inspections, currentUser, yardMovements, bookings } = useApp();
+   const [mode, setMode] = useState<YardColorMode>('SLOT');
+   const [blockCode, setBlockCode] = useState('');
+   const [tier, setTier] = useState('ALL');
+@@ -24,7 +26,8 @@
+   const visibleTier = tier === 'ALL' || geometry.tiers.includes(tier) ? tier : 'ALL';
+   const selected = yardSlots.find(s => s.id === selectedId);
+   const slotDialog = useYardDialogFocus(!!selected, () => setSelectedId(''));
+-  const describe = (s: YardSlot) => getSlotAppearance(s, containerVisits, holds, inspections, mode);
++  const describe = (s: YardSlot) => getSlotAppearance(s, containerVisits, holds, inspections, mode, !s.occupiedByContainerId || visitSafetyStatus[s.occupiedByContainerId]?.holds === 'ready');
++  const holdsIncomplete = !areSafetyReadsReady(containerVisits.map(v => v.id), visitSafetyStatus, 'holds');
+   const can = (permission: string) => currentUser.permissionCodes?.some(p => p === '*' || p === permission) ?? false;
+   const match = (s: YardSlot) => !search.trim() || `${s.slotCode} ${s.occupiedByContainerNumber ?? ''}`.toLowerCase().includes(search.trim().toLowerCase());
+   const occupied = yardSlots.filter(s => s.occupiedByContainerId).length;
+@@ -45,12 +48,14 @@
+       <div className={`truncate font-mono ${compact ? 'text-[9px]' : 'text-xs mt-1'}`}>{a.container?.containerNumber ?? s.occupiedByContainerNumber ?? a.label}</div>
+       {!compact && <div className="text-[10px] mt-1">{a.container?.containerType ?? s.supportedType ?? 'Mọi loại'} · {a.label}</div>}
+       {a.hold && <span className="text-[9px] font-bold inline-block px-1 rounded mt-1 bg-white text-red-700 border border-red-300">HOLD</span>}
++      {s.occupiedByContainerId && visitSafetyStatus[s.occupiedByContainerId]?.holds !== 'ready' && <span className="block text-[10px] font-semibold">Holds chưa kiểm tra</span>}
+     </button>;
+   };
+ 
+   return <div className="space-y-4">
++    <CriticalDataNotice kind="holds" />
+     <div className="grid grid-cols-2 xl:grid-cols-4 gap-3">
+-      {[['Đang sử dụng', `${occupied}/${yardSlots.length}`, 'Vị trí có container'], ['Vị trí khả dụng', available, 'Trống và đang hoạt động'], ['Container Hold', held, 'Lệnh giữ hoặc kết quả giám định'], ['Công việc đang mở', tasks, 'Đảo chuyển, booking, giám định']].map(([label, value, caption]) =>
++      {[['Đang sử dụng', `${occupied}/${yardSlots.length}`, 'Vị trí có container'], ['Vị trí khả dụng', available, 'Trống và đang hoạt động'], ['Container Hold', holdsIncomplete ? 'Chưa kiểm tra' : held, 'Lệnh giữ hoặc kết quả giám định'], ['Công việc đang mở', tasks, 'Đảo chuyển, booking, giám định']].map(([label, value, caption]) =>
+         <div key={String(label)} className="bg-white border border-slate-200 rounded-xl p-4"><div className="text-xs text-slate-500">{label}</div><div className="text-2xl font-bold text-slate-900 my-1">{value}</div><div className="text-[11px] text-slate-500">{caption}</div></div>)}
+     </div>
+     <section className="rounded-xl border border-slate-300 overflow-hidden bg-white">
+
+--- before/yard-model.ts
++++ after/yard-model.ts
+@@ -26,6 +26,7 @@
+     ...SLOT_PALETTE,
+     { key: 'in-yard', label: 'Trong bãi', background: '#16A34A', color: '#FFFFFF', border: '#15803D' },
+     { key: 'hold', label: 'Đang giữ (Hold)', background: '#DC2626', color: '#FFFFFF', border: '#B91C1C' },
++    { key: 'unverified', label: 'Holds chưa kiểm tra', background: '#E2E8F0', color: '#334155', border: '#94A3B8' },
+     { key: 'inspection', label: 'Đang kiểm định', background: '#EAB308', color: '#422006', border: '#CA8A04' },
+     { key: 'gate-pass', label: 'Đã cấp Phiếu ra cổng', background: '#7C3AED', color: '#FFFFFF', border: '#6D28D9' },
+     { key: 'stripped', label: 'Rút hàng xong', background: '#2563EB', color: '#FFFFFF', border: '#1D4ED8' },
+@@ -40,6 +41,7 @@
+   holds: readonly OperationalHold[],
+   inspections: readonly ContainerInspection[],
+   mode: YardColorMode,
++  holdsKnown = true,
+ ): YardSlotAppearance {
+   // Occupancy stores the visit ID; physical container IDs cannot identify a visit's lifecycle.
+   const visitId = slot.occupiedByContainerId;
+@@ -56,7 +58,8 @@
+   } else if (!occupied) {
+     key = slot.reeferPower ? 'reefer' : 'empty';
+   } else if (mode === 'STATE') {
+-    if (hold) key = 'hold';
++    if (!holdsKnown) key = 'unverified';
++    else if (hold) key = 'hold';
+     else if (container?.state === 'UNDER_INSPECTION' || (visitId && inspections.some(
+       item => item.containerVisitId === visitId && item.status === 'IN_PROGRESS',
+     ))) key = 'inspection';
+
+--- before/apps/web/src/services/visit-safety-data.ts
++++ after/apps/web/src/services/visit-safety-data.ts
+@@ -0,0 +1,18 @@
++export type SafetyReadStatus = 'ready' | 'unavailable' | 'forbidden';
++export type VisitSafetyStatus = Record<string, { holds: SafetyReadStatus; gatePasses: SafetyReadStatus }>;
++
++export function areSafetyReadsReady(visitIds: readonly string[], statuses: VisitSafetyStatus, kind: 'holds' | 'gatePasses'): boolean {
++  return visitIds.every(id => statuses[id]?.[kind] === 'ready');
++}
++
++export function getSafetyReadStatus(result: PromiseSettledResult<unknown>): SafetyReadStatus {
++  if (result.status === 'fulfilled') return 'ready';
++  return result.reason?.status === 403 || result.reason?.status === 401 ? 'forbidden' : 'unavailable';
++}
++
++export function mergeSafetyRecords<T extends { containerVisitId: string }>(
++  next: T[], previous: T[], statuses: VisitSafetyStatus, kind: 'holds' | 'gatePasses',
++): T[] {
++  // Preserve only transient failures; permission denial must not keep exposing old data.
++  return [...next, ...previous.filter(row => statuses[row.containerVisitId]?.[kind] === 'unavailable')];
++}
+
+--- before/apps/web/src/components/CriticalDataNotice.tsx
++++ after/apps/web/src/components/CriticalDataNotice.tsx
+@@ -0,0 +1,14 @@
++import React from 'react';
++import { useApp } from '../context/AppContext';
++
++export function CriticalDataNotice({ kind, visitId }: { kind: 'holds' | 'gatePasses'; visitId?: string }) {
++  const { containerVisits, visitSafetyStatus = {}, refreshData, isLoading } = useApp();
++  const statuses = (visitId ? [visitId] : containerVisits.map(v => v.id)).map(id => visitSafetyStatus[id]?.[kind]);
++  if (statuses.every(status => status === 'ready')) return null;
++  const forbidden = statuses.some(status => status === 'forbidden');
++  const name = kind === 'holds' ? 'lệnh giữ (Holds)' : 'phiếu ra cổng (Gate Pass)';
++  return <div role="alert" className="rounded-lg border border-amber-300 bg-amber-50 p-3 text-xs text-amber-900">
++    <p>{forbidden ? `Không có quyền đọc một số ${name}. Liên hệ quản trị viên để kiểm tra quyền truy cập.` : `Chưa thể kiểm tra ${name}. Dữ liệu đã tải trước chỉ để tham khảo, chưa xác nhận trạng thái hiện tại.`}</p>
++    <button type="button" disabled={isLoading} onClick={() => void refreshData()} className="mt-2 font-semibold underline disabled:opacity-50">{isLoading ? 'Đang tải lại…' : 'Tải lại dữ liệu kiểm tra'}</button>
++  </div>;
++}

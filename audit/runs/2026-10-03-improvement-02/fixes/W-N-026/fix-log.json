@@ -1,0 +1,26 @@
+{
+  "status": "VERIFIED",
+  "change": "aria-pressed cập nhật theo tab hiện tại trên sáu native button; regression ban đầu/chuyển toàn bộ tab. Browser Enter chọn đúng mỗi tab, chỉ một pressed=true, focus-visible solid2px. Lời đọc screen reader chưa kiểm.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/ContainersView.tsx",
+      "line": 546,
+      "detail": "aria-pressed={activeDetailTab === 'OVERVIEW'}",
+      "snippet": "                aria-pressed={activeDetailTab === 'OVERVIEW'}\n                className={`px-4 py-2 font-bold border-b-2 transition ${\n                  activeDetailTab === 'OVERVIEW'\n                    ? 'border-blue-600 text-blue-600'"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/container-detail-selection-red-2026-10-04.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/container-detail-selection-green-2026-10-04.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/container-detail-keyboard-selection-2026-10-04.json",
+    "audit/runs/2026-10-03-improvement-02/raw/dependency-detail-checkpoint-2026-10-04.md"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Meaningful RED/GREEN source regression; real API only if explicitly linked.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/ContainersView.tsx.diff"
+  ],
+  "isolated_review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/dependency-detail-2026-10-04/W-N-026.diff"
+  ]
+}

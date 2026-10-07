@@ -1,0 +1,4790 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "row_semantics": "Individual observation only. Reach/capture PASS is not screen-level UI/WCAG conformance. UNKNOWN aggregate rows cover unexecuted role/state cross-products.",
+  "summary": {
+    "PASS": 104,
+    "FAIL": 2,
+    "UNKNOWN": 32,
+    "N/A": 2
+  },
+  "cases": [
+    {
+      "platform": "web",
+      "screen": "dashboard",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/dashboard-1440-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/dashboard-1440-measure.json",
+        "audit/screenshots/re-audit/web/dashboard-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "dashboard",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/dashboard-768-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/dashboard-768-measure.json",
+        "audit/screenshots/re-audit/web/dashboard-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "dashboard",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/dashboard-375-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/dashboard-375-measure.json",
+        "audit/screenshots/re-audit/web/dashboard-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "work-queue",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/work-queue-1440-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/work-queue-1440-measure.json",
+        "audit/screenshots/re-audit/web/work-queue-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "work-queue",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/work-queue-768-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/work-queue-768-measure.json",
+        "audit/screenshots/re-audit/web/work-queue-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "work-queue",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/work-queue-375-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/work-queue-375-measure.json",
+        "audit/screenshots/re-audit/web/work-queue-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "manifests",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/manifests-1440-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/manifests-1440-measure.json",
+        "audit/screenshots/re-audit/web/manifests-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "manifests",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/manifests-768-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/manifests-768-measure.json",
+        "audit/screenshots/re-audit/web/manifests-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "manifests",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/manifests-375-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/manifests-375-measure.json",
+        "audit/screenshots/re-audit/web/manifests-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "containers",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/containers-1440-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/containers-1440-measure.json",
+        "audit/screenshots/re-audit/web/containers-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "containers",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/containers-768-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/containers-768-measure.json",
+        "audit/screenshots/re-audit/web/containers-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "containers",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/containers-375-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/containers-375-measure.json",
+        "audit/screenshots/re-audit/web/containers-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "movement-orders",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/movement-orders-1440-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/movement-orders-1440-measure.json",
+        "audit/screenshots/re-audit/web/movement-orders-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "movement-orders",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/movement-orders-768-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/movement-orders-768-measure.json",
+        "audit/screenshots/re-audit/web/movement-orders-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "movement-orders",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/movement-orders-375-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/movement-orders-375-measure.json",
+        "audit/screenshots/re-audit/web/movement-orders-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "truck-visits",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/truck-visits-1440-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/truck-visits-1440-measure.json",
+        "audit/screenshots/re-audit/web/truck-visits-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "truck-visits",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/truck-visits-768-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/truck-visits-768-measure.json",
+        "audit/screenshots/re-audit/web/truck-visits-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "truck-visits",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/truck-visits-375-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/truck-visits-375-measure.json",
+        "audit/screenshots/re-audit/web/truck-visits-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "gate-in",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/gate-in-1440-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/gate-in-1440-measure.json",
+        "audit/screenshots/re-audit/web/gate-in-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "gate-in",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/gate-in-768-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/gate-in-768-measure.json",
+        "audit/screenshots/re-audit/web/gate-in-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "gate-in",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/gate-in-375-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/gate-in-375-measure.json",
+        "audit/screenshots/re-audit/web/gate-in-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "yard",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/yard-1440-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/yard-1440-measure.json",
+        "audit/screenshots/re-audit/web/yard-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "yard",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/yard-768-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/yard-768-measure.json",
+        "audit/screenshots/re-audit/web/yard-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "yard",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/yard-375-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/yard-375-measure.json",
+        "audit/screenshots/re-audit/web/yard-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "billing",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/billing-1440-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/billing-1440-measure.json",
+        "audit/screenshots/re-audit/web/billing-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "billing",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/billing-768-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/billing-768-measure.json",
+        "audit/screenshots/re-audit/web/billing-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "billing",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/billing-375-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/billing-375-measure.json",
+        "audit/screenshots/re-audit/web/billing-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "gate-pass",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/gate-pass-1440-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/gate-pass-1440-measure.json",
+        "audit/screenshots/re-audit/web/gate-pass-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "gate-pass",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/gate-pass-768-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/gate-pass-768-measure.json",
+        "audit/screenshots/re-audit/web/gate-pass-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "gate-pass",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/gate-pass-375-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/gate-pass-375-measure.json",
+        "audit/screenshots/re-audit/web/gate-pass-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "edi",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/edi-1440-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/edi-1440-measure.json",
+        "audit/screenshots/re-audit/web/edi-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "edi",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/edi-768-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/edi-768-measure.json",
+        "audit/screenshots/re-audit/web/edi-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "edi",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/edi-375-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/edi-375-measure.json",
+        "audit/screenshots/re-audit/web/edi-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "handovers",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/handovers-1440-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/handovers-1440-measure.json",
+        "audit/screenshots/re-audit/web/handovers-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "handovers",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/handovers-768-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/handovers-768-measure.json",
+        "audit/screenshots/re-audit/web/handovers-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "handovers",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/handovers-375-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/handovers-375-measure.json",
+        "audit/screenshots/re-audit/web/handovers-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "partner-clients",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/partner-clients-1440-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/partner-clients-1440-measure.json",
+        "audit/screenshots/re-audit/web/partner-clients-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "partner-clients",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/partner-clients-768-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/partner-clients-768-measure.json",
+        "audit/screenshots/re-audit/web/partner-clients-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "partner-clients",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/partner-clients-375-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/partner-clients-375-measure.json",
+        "audit/screenshots/re-audit/web/partner-clients-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "partner-api-logs",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled initial screen",
+      "status": "FAIL",
+      "meaning": "Whole app crash; narrower repetitions skipped after reproduced failure",
+      "evidence": [
+        "audit/raw/baseline/web/partner-api-logs-1440-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "FAIL",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/partner-api-logs-1440-measure.json",
+        "audit/screenshots/re-audit/web/partner-api-logs-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "partner-api-logs",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled initial screen",
+      "status": "UNKNOWN",
+      "meaning": "Whole app crash; narrower repetitions skipped after reproduced failure",
+      "evidence": [],
+      "unknown_reason": "Blocked by known P0; not repeated",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/partner-api-logs-768-measure.json",
+        "audit/screenshots/re-audit/web/partner-api-logs-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "partner-api-logs",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled initial screen",
+      "status": "UNKNOWN",
+      "meaning": "Whole app crash; narrower repetitions skipped after reproduced failure",
+      "evidence": [],
+      "unknown_reason": "Blocked by known P0; not repeated",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/partner-api-logs-375-measure.json",
+        "audit/screenshots/re-audit/web/partner-api-logs-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "master-data",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/master-data-1440-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/master-data-1440-measure.json",
+        "audit/screenshots/re-audit/web/master-data-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "master-data",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/master-data-768-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/master-data-768-measure.json",
+        "audit/screenshots/re-audit/web/master-data-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "master-data",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/master-data-375-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/master-data-375-measure.json",
+        "audit/screenshots/re-audit/web/master-data-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "users-roles",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/users-roles-1440-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/users-roles-1440-measure.json",
+        "audit/screenshots/re-audit/web/users-roles-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "users-roles",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/users-roles-768-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/users-roles-768-measure.json",
+        "audit/screenshots/re-audit/web/users-roles-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "users-roles",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/users-roles-375-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/users-roles-375-measure.json",
+        "audit/screenshots/re-audit/web/users-roles-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "reports",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/reports-1440-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/reports-1440-measure.json",
+        "audit/screenshots/re-audit/web/reports-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "reports",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/reports-768-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/reports-768-measure.json",
+        "audit/screenshots/re-audit/web/reports-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "reports",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/reports-375-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/reports-375-measure.json",
+        "audit/screenshots/re-audit/web/reports-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "activity",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/activity-1440-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/activity-1440-measure.json",
+        "audit/screenshots/re-audit/web/activity-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "activity",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/activity-768-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/activity-768-measure.json",
+        "audit/screenshots/re-audit/web/activity-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "activity",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled initial screen",
+      "status": "PASS",
+      "meaning": "Screen reachable and measured; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/baseline/web/activity-375-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "PASS",
+      "verification_mode": "FRESH_BROWSER_MEASURE",
+      "re_audit_evidence": [
+        "audit/raw/re-audit/web/activity-375-measure.json",
+        "audit/screenshots/re-audit/web/activity-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "Login",
+      "role": "public",
+      "theme": "current dark branding",
+      "viewport": 1440,
+      "state": "signed out",
+      "status": "PASS",
+      "meaning": "Public form reachable; named fields and focus ring measured",
+      "evidence": [
+        "audit/raw/baseline/web/login-1440-measure.json"
+      ],
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web",
+      "screen": "Login",
+      "role": "public",
+      "theme": "current dark branding",
+      "viewport": 768,
+      "state": "signed out",
+      "status": "PASS",
+      "meaning": "Public form reachable; named fields and focus ring measured",
+      "evidence": [
+        "audit/raw/baseline/web/login-768-measure.json"
+      ],
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web",
+      "screen": "Login",
+      "role": "public",
+      "theme": "current dark branding",
+      "viewport": 375,
+      "state": "signed out",
+      "status": "PASS",
+      "meaning": "Public form reachable; named fields and focus ring measured",
+      "evidence": [
+        "audit/raw/baseline/web/login-375-measure.json"
+      ],
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web",
+      "screen": "master-data-create",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "state": "detail/form/empty opened without submit",
+      "status": "PASS",
+      "meaning": "Evidence capture only; defects linked in findings",
+      "evidence": [
+        "audit/raw/baseline/web/master-data-create-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web",
+      "screen": "users-create",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "state": "detail/form/empty opened without submit",
+      "status": "PASS",
+      "meaning": "Evidence capture only; defects linked in findings",
+      "evidence": [
+        "audit/raw/baseline/web/users-create-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web",
+      "screen": "manifest-create",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "state": "detail/form/empty opened without submit",
+      "status": "PASS",
+      "meaning": "Evidence capture only; defects linked in findings",
+      "evidence": [
+        "audit/raw/baseline/web/manifest-create-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web",
+      "screen": "truck-visit-create",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "state": "detail/form/empty opened without submit",
+      "status": "PASS",
+      "meaning": "Evidence capture only; defects linked in findings",
+      "evidence": [
+        "audit/raw/baseline/web/truck-visit-create-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web",
+      "screen": "partner-client-create",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "state": "detail/form/empty opened without submit",
+      "status": "PASS",
+      "meaning": "Evidence capture only; defects linked in findings",
+      "evidence": [
+        "audit/raw/baseline/web/partner-client-create-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web",
+      "screen": "yard-slot-detail",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": {
+        "height": 812,
+        "width": 375
+      },
+      "state": "detail/form/empty opened without submit",
+      "status": "PASS",
+      "meaning": "Evidence capture only; defects linked in findings",
+      "evidence": [
+        "audit/raw/baseline/web/yard-slot-detail-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web",
+      "screen": "container-detail-overview",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "state": "detail/form/empty opened without submit",
+      "status": "PASS",
+      "meaning": "Evidence capture only; defects linked in findings",
+      "evidence": [
+        "audit/raw/baseline/web/container-detail-overview-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web",
+      "screen": "container-detail-yard",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "state": "detail/form/empty opened without submit",
+      "status": "PASS",
+      "meaning": "Evidence capture only; defects linked in findings",
+      "evidence": [
+        "audit/raw/baseline/web/container-detail-yard-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web",
+      "screen": "container-detail-billing",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "state": "detail/form/empty opened without submit",
+      "status": "PASS",
+      "meaning": "Evidence capture only; defects linked in findings",
+      "evidence": [
+        "audit/raw/baseline/web/container-detail-billing-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web",
+      "screen": "container-detail-gate-pass",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "state": "detail/form/empty opened without submit",
+      "status": "PASS",
+      "meaning": "Evidence capture only; defects linked in findings",
+      "evidence": [
+        "audit/raw/baseline/web/container-detail-gate-pass-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web",
+      "screen": "container-detail-holds",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "state": "detail/form/empty opened without submit",
+      "status": "PASS",
+      "meaning": "Evidence capture only; defects linked in findings",
+      "evidence": [
+        "audit/raw/baseline/web/container-detail-holds-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web",
+      "screen": "container-detail-timeline",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "state": "detail/form/empty opened without submit",
+      "status": "PASS",
+      "meaning": "Evidence capture only; defects linked in findings",
+      "evidence": [
+        "audit/raw/baseline/web/container-detail-timeline-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web",
+      "screen": "manifest-empty-search",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "state": "detail/form/empty opened without submit",
+      "status": "PASS",
+      "meaning": "Evidence capture only; defects linked in findings",
+      "evidence": [
+        "audit/raw/baseline/web/manifest-empty-search-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web",
+      "screen": "movement-truck-shortcut",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "state": "detail/form/empty opened without submit",
+      "status": "PASS",
+      "meaning": "Evidence capture only; defects linked in findings",
+      "evidence": [
+        "audit/raw/baseline/web/movement-truck-shortcut-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web",
+      "screen": "web-notifications",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "state": "detail/form/empty opened without submit",
+      "status": "PASS",
+      "meaning": "Evidence capture only; defects linked in findings",
+      "evidence": [
+        "audit/raw/baseline/web/web-notifications-measure.json"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "GateOut",
+      "caseId": "01-gate-out-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "Quét",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Quản trị viên Hệ thống",
+        "Quét",
+        "PHIÊN ĐĂNG NHẬP CA TRỰC",
+        "ĐÃ ĐĂNG NHẬP",
+        "Tài khoản: System Administrator",
+        "ADMIN",
+        "Tiếp nhận Vào (Gate-In)",
+        "Quét Ra (Gate-Out)"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/01-gate-out-light.xml",
+        "audit/screenshots/baseline/mobile/01-gate-out-light.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "GateOut",
+      "caseId": "39-gate-out-dark",
+      "role": "ADMIN",
+      "theme": "DARK",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "Quét",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Quản trị viên Hệ thống",
+        "Quét",
+        "PHIÊN ĐĂNG NHẬP CA TRỰC",
+        "ĐÃ ĐĂNG NHẬP",
+        "Tài khoản: System Administrator",
+        "ADMIN",
+        "Tiếp nhận Vào (Gate-In)",
+        "Quét Ra (Gate-Out)"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/39-gate-out-dark.xml",
+        "audit/screenshots/baseline/mobile/39-gate-out-dark.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "YardHome",
+      "caseId": "03-yard-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "Bãi",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Quản trị viên Hệ thống",
+        "Quét",
+        "PHIÊN ĐĂNG NHẬP CA TRỰC",
+        "ĐÃ ĐĂNG NHẬP",
+        "Tài khoản: System Administrator",
+        "ADMIN",
+        "Lệnh Tác nghiệp Bãi (Yard Stacking)",
+        "Chọn Container cần xếp/dời vị trí"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/03-yard-light.xml",
+        "audit/screenshots/baseline/mobile/03-yard-light.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "YardHome",
+      "caseId": "11-yard-dark",
+      "role": "ADMIN",
+      "theme": "DARK",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "Bãi",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Quản trị viên Hệ thống",
+        "Quét",
+        "Sơ đồ vị trí bãi — Tổng quan",
+        "Đang hiển thị 48 / 48 ô bãi",
+        "Slot trống",
+        "Có container",
+        "Bảo trì / Ngưng dùng",
+        "Slot lạnh trống"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/11-yard-dark.xml",
+        "audit/screenshots/baseline/mobile/11-yard-dark.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "YardAssignment",
+      "caseId": "04-yard-select-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "vị trí",
+      "observed_text_sample": [
+        "Chọn Container cần xếp/dời vị trí",
+        "Tìm trong danh sách…",
+        "QAOU4835930 — A-02-03-1",
+        "QAOU6004067 — A-02-02-1",
+        "QAOU5007570 — A-01-01-2",
+        "QAOU5007565 — A-01-03-2",
+        "QAMU6102765 — A-01-02-2",
+        "VSCU6748392 — C-01-02-1",
+        "TCSU9283741 — D-01-02-1",
+        "VFCU7482910 — A-01-03-1"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/04-yard-select-light.xml",
+        "audit/screenshots/baseline/mobile/04-yard-select-light.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "YardAssignment",
+      "caseId": "14-yard-select-dark",
+      "role": "ADMIN",
+      "theme": "DARK",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "vị trí",
+      "observed_text_sample": [
+        "Chọn Container cần xếp/dời vị trí",
+        "Tìm trong danh sách…",
+        "QAOU4835930 — A-02-03-1",
+        "QAOU6004067 — A-02-02-1",
+        "QAOU5007570 — A-01-01-2",
+        "QAOU5007565 — A-01-03-2",
+        "QAMU6102765 — A-01-02-2",
+        "VSCU6748392 — C-01-02-1",
+        "TCSU9283741 — D-01-02-1",
+        "VFCU7482910 — A-01-03-1"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/14-yard-select-dark.xml",
+        "audit/screenshots/baseline/mobile/14-yard-select-dark.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "YardMap",
+      "caseId": "05-yard-map-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "Block",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Quản trị viên Hệ thống",
+        "Quét",
+        "Sơ đồ vị trí bãi — Tổng quan",
+        "Đang hiển thị 48 / 48 ô bãi",
+        "Slot trống",
+        "Có container",
+        "Bảo trì / Ngưng dùng",
+        "Slot lạnh trống"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/05-yard-map-light.xml",
+        "audit/screenshots/baseline/mobile/05-yard-map-light.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "YardMap",
+      "caseId": "09-yard-map-dark",
+      "role": "ADMIN",
+      "theme": "DARK",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "Block",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Quản trị viên Hệ thống",
+        "Quét",
+        "Sơ đồ vị trí bãi — Tổng quan",
+        "Đang hiển thị 48 / 48 ô bãi",
+        "Slot trống",
+        "Có container",
+        "Bảo trì / Ngưng dùng",
+        "Slot lạnh trống"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/09-yard-map-dark.xml",
+        "audit/screenshots/baseline/mobile/09-yard-map-dark.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "YardSlotDetail",
+      "caseId": "06-yard-slot-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "Slot A-01-01-1",
+      "observed_text_sample": [
+        "Slot A-01-01-1",
+        "Đóng",
+        "Có container",
+        "Block · Khu bãi",
+        "A · Khu A — Hàng khô Dry Cargo",
+        "Row · Hàng",
+        "Bay · Dãy",
+        "Tier · Tầng",
+        "1",
+        "1"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/06-yard-slot-light.xml",
+        "audit/screenshots/baseline/mobile/06-yard-slot-light.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "YardSlotDetail",
+      "caseId": "10-yard-slot-dark",
+      "role": "ADMIN",
+      "theme": "DARK",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "Slot A-01-01-1",
+      "observed_text_sample": [
+        "Slot A-01-01-1",
+        "Đóng",
+        "Có container",
+        "Block · Khu bãi",
+        "A · Khu A — Hàng khô Dry Cargo",
+        "Row · Hàng",
+        "Bay · Dãy",
+        "Tier · Tầng",
+        "1",
+        "1"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/10-yard-slot-dark.xml",
+        "audit/screenshots/baseline/mobile/10-yard-slot-dark.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "ContainerDetail",
+      "caseId": "07-container-detail-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "Container",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Chi tiết container",
+        "Quét",
+        "TCSU8849201",
+        "Nhấn giữ số container để sao chép",
+        "TCSU8849201",
+        "IN_YARD",
+        "ISO / Kích thước / Loại",
+        "42G1 · SIZE_40 · DRY"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/07-container-detail-light.xml",
+        "audit/screenshots/baseline/mobile/07-container-detail-light.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "ContainerDetail",
+      "caseId": "08-container-detail-dark",
+      "role": "ADMIN",
+      "theme": "DARK",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "Container",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Chi tiết container",
+        "Quét",
+        "TCSU8849201",
+        "Nhấn giữ số container để sao chép",
+        "TCSU8849201",
+        "IN_YARD",
+        "ISO / Kích thước / Loại",
+        "42G1 · SIZE_40 · DRY"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/08-container-detail-dark.xml",
+        "audit/screenshots/baseline/mobile/08-container-detail-dark.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "YardOperations",
+      "caseId": "16-yard-operations-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "bãi",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Danh sách tác nghiệp bãi",
+        "Quét",
+        "Tra cứu lệnh",
+        "Loại tác nghiệp",
+        "Đảo chuyển",
+        "Trạng thái",
+        "Tất cả",
+        "QAOU4835930"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/16-yard-operations-light.xml",
+        "audit/screenshots/baseline/mobile/16-yard-operations-light.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "YardOperations",
+      "caseId": "15-yard-operations-dark",
+      "role": "ADMIN",
+      "theme": "DARK",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "bãi",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Danh sách tác nghiệp bãi",
+        "Quét",
+        "Tra cứu lệnh",
+        "Loại tác nghiệp",
+        "Đảo chuyển",
+        "Trạng thái",
+        "Tất cả",
+        "QAOU4835930"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/15-yard-operations-dark.xml",
+        "audit/screenshots/baseline/mobile/15-yard-operations-dark.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "YardOperationDetail",
+      "caseId": "17-yard-operation-detail-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "UNKNOWN",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Tác nghiệp bãi",
+        "Quét",
+        "QAOU4835930",
+        "COMPLETED",
+        "Loại lệnh",
+        "Đảo chuyển",
+        "Vị trí đi",
+        "A-02-01-2"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/17-yard-operation-detail-light.xml",
+        "audit/screenshots/baseline/mobile/17-yard-operation-detail-light.png"
+      ],
+      "unknown_reason": "Screen identity requires further source/pixel confirmation; capture retained but not counted as verified reach",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "YardOperationDetail",
+      "caseId": "18-yard-operation-detail-dark",
+      "role": "ADMIN",
+      "theme": "DARK",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "UNKNOWN",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Tác nghiệp bãi",
+        "Quét",
+        "QAOU4835930",
+        "COMPLETED",
+        "Loại lệnh",
+        "Đảo chuyển",
+        "Vị trí đi",
+        "A-02-01-2"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/18-yard-operation-detail-dark.xml",
+        "audit/screenshots/baseline/mobile/18-yard-operation-detail-dark.png"
+      ],
+      "unknown_reason": "Screen identity requires further source/pixel confirmation; capture retained but not counted as verified reach",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "SurveyHome",
+      "caseId": "20-survey-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "Giám",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Quản trị viên Hệ thống",
+        "Quét",
+        "PHIÊN ĐĂNG NHẬP CA TRỰC",
+        "ĐÃ ĐĂNG NHẬP",
+        "Tài khoản: System Administrator",
+        "ADMIN",
+        "Biên bản Giám định Hư hỏng Hiện trường",
+        "Ghi nhận tình trạng vỏ container"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/20-survey-light.xml",
+        "audit/screenshots/baseline/mobile/20-survey-light.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "SurveyHome",
+      "caseId": "19-survey-dark",
+      "role": "ADMIN",
+      "theme": "DARK",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "Giám",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Quản trị viên Hệ thống",
+        "Quét",
+        "PHIÊN ĐĂNG NHẬP CA TRỰC",
+        "ĐÃ ĐĂNG NHẬP",
+        "Tài khoản: System Administrator",
+        "ADMIN",
+        "Biên bản Giám định Hư hỏng Hiện trường",
+        "Ghi nhận tình trạng vỏ container"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/19-survey-dark.xml",
+        "audit/screenshots/baseline/mobile/19-survey-dark.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "SelectField",
+      "caseId": "22-survey-picker-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "UNKNOWN",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "",
+      "observed_text_sample": [
+        "Loại giám định",
+        "Giám định hư hỏng",
+        "Kiểm tra seal",
+        "Kiểm tra tình trạng"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/22-survey-picker-light.xml",
+        "audit/screenshots/baseline/mobile/22-survey-picker-light.png"
+      ],
+      "unknown_reason": "Screen identity requires further source/pixel confirmation; capture retained but not counted as verified reach",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "SelectField",
+      "caseId": "24-survey-picker-dark",
+      "role": "ADMIN",
+      "theme": "DARK",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "UNKNOWN",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Quản trị viên Hệ thống",
+        "Quét",
+        "PHIÊN ĐĂNG NHẬP CA TRỰC",
+        "ĐÃ ĐĂNG NHẬP",
+        "Tài khoản: System Administrator",
+        "ADMIN",
+        "Biên bản Giám định Hư hỏng Hiện trường",
+        "Ghi nhận tình trạng vỏ container"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/24-survey-picker-dark.xml",
+        "audit/screenshots/baseline/mobile/24-survey-picker-dark.png"
+      ],
+      "unknown_reason": "Screen identity requires further source/pixel confirmation; capture retained but not counted as verified reach",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "SurveySeal",
+      "caseId": "23-survey-seal-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "seal",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Quản trị viên Hệ thống",
+        "Quét",
+        "PHIÊN ĐĂNG NHẬP CA TRỰC",
+        "ĐÃ ĐĂNG NHẬP",
+        "Tài khoản: System Administrator",
+        "ADMIN",
+        "Biên bản Giám định Hư hỏng Hiện trường",
+        "Ghi nhận tình trạng vỏ container"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/23-survey-seal-light.xml",
+        "audit/screenshots/baseline/mobile/23-survey-seal-light.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "SurveyConfirmation",
+      "caseId": "33-survey-confirm-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "DAMAGE_SURVEY",
+      "observed_text_sample": [
+        "Xác nhận yêu cầu giám định",
+        "TCSU8849201 · DAMAGE_SURVEY",
+        "Audit draft",
+        "Gửi yêu cầu",
+        "Quay lại"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/33-survey-confirm-light.xml",
+        "audit/screenshots/baseline/mobile/33-survey-confirm-light.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "SurveyConfirmation",
+      "caseId": "31-survey-confirm-dark",
+      "role": "ADMIN",
+      "theme": "DARK",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "DAMAGE_SURVEY",
+      "observed_text_sample": [
+        "Xác nhận yêu cầu giám định",
+        "TCSU8849201 · DAMAGE_SURVEY",
+        "Audit draft",
+        "Gửi yêu cầu",
+        "Quay lại"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/31-survey-confirm-dark.xml",
+        "audit/screenshots/baseline/mobile/31-survey-confirm-dark.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "ContainerSearch",
+      "caseId": "35-lookup-results-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "UNKNOWN",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Quản trị viên Hệ thống",
+        "Quét",
+        "PHIÊN ĐĂNG NHẬP CA TRỰC",
+        "ĐÃ ĐĂNG NHẬP",
+        "Tài khoản: System Administrator",
+        "ADMIN",
+        "Số container",
+        "TCSU"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/35-lookup-results-light.xml",
+        "audit/screenshots/baseline/mobile/35-lookup-results-light.png"
+      ],
+      "unknown_reason": "Screen identity requires further source/pixel confirmation; capture retained but not counted as verified reach",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "ContainerSearch",
+      "caseId": "36-lookup-results-dark",
+      "role": "ADMIN",
+      "theme": "DARK",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "UNKNOWN",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Quản trị viên Hệ thống",
+        "Quét",
+        "PHIÊN ĐĂNG NHẬP CA TRỰC",
+        "ĐÃ ĐĂNG NHẬP",
+        "Tài khoản: System Administrator",
+        "ADMIN",
+        "Số container",
+        "TCSU"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/36-lookup-results-dark.xml",
+        "audit/screenshots/baseline/mobile/36-lookup-results-dark.png"
+      ],
+      "unknown_reason": "Screen identity requires further source/pixel confirmation; capture retained but not counted as verified reach",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "WorkQueue",
+      "caseId": "02-workqueue-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "Việc",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Quản trị viên Hệ thống",
+        "Quét",
+        "PHIÊN ĐĂNG NHẬP CA TRỰC",
+        "ĐÃ ĐĂNG NHẬP",
+        "Tài khoản: System Administrator",
+        "ADMIN",
+        "Việc ca trực: 0 tác vụ",
+        "Quá hạn: 0"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/02-workqueue-light.xml",
+        "audit/screenshots/baseline/mobile/02-workqueue-light.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "WorkQueue",
+      "caseId": "37-workqueue-dark",
+      "role": "ADMIN",
+      "theme": "DARK",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "Việc",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Quản trị viên Hệ thống",
+        "Quét",
+        "PHIÊN ĐĂNG NHẬP CA TRỰC",
+        "ĐÃ ĐĂNG NHẬP",
+        "Tài khoản: System Administrator",
+        "ADMIN",
+        "Việc ca trực: 0 tác vụ",
+        "Quá hạn: 0"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/37-workqueue-dark.xml",
+        "audit/screenshots/baseline/mobile/37-workqueue-dark.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "GateIn",
+      "caseId": "38-gate-in-dark",
+      "role": "ADMIN",
+      "theme": "DARK",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "Gate-In",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Quản trị viên Hệ thống",
+        "Quét",
+        "PHIÊN ĐĂNG NHẬP CA TRỰC",
+        "ĐÃ ĐĂNG NHẬP",
+        "Tài khoản: System Administrator",
+        "ADMIN",
+        "Tiếp nhận Vào (Gate-In)",
+        "Quét Ra (Gate-Out)"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/38-gate-in-dark.xml",
+        "audit/screenshots/baseline/mobile/38-gate-in-dark.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "GateIn",
+      "caseId": "64-gate-in-bottom-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "UNKNOWN",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Quản trị viên Hệ thống",
+        "Quét",
+        "Tiếp nhận Vào (Gate-In)",
+        "Quét Ra (Gate-Out)",
+        "Biên nhận Cổng vào (Gate-In EIR)",
+        "Số Container*",
+        "VD: TEMU8829104",
+        "Biển số đầu kéo*"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/64-gate-in-bottom-light.xml",
+        "audit/screenshots/baseline/mobile/64-gate-in-bottom-light.png"
+      ],
+      "unknown_reason": "Screen identity requires further source/pixel confirmation; capture retained but not counted as verified reach",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "Scanner",
+      "caseId": "44-scanner-ready-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "UNKNOWN",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "",
+      "observed_text_sample": [
+        "Quét QR phiếu ra cổng",
+        "TOS-MOBILE · Tác nghiệp hiện trường",
+        "QR phiếu ra cổng",
+        "Đặt mã QR trên phiếu ra cổng vào khung.",
+        "Giữ máy ổn định, đủ ánh sáng và để mã rõ nét.",
+        "Bật đèn",
+        "Nhập mã thủ công",
+        "Sau khi đọc mã, máy chủ sẽ kiểm tra hồ sơ và điều kiện nghiệp vụ."
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/44-scanner-ready-light.xml",
+        "audit/screenshots/baseline/mobile/44-scanner-ready-light.png"
+      ],
+      "unknown_reason": "Screen identity requires further source/pixel confirmation; capture retained but not counted as verified reach",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "Scanner",
+      "caseId": "42-scanner-ready-dark",
+      "role": "ADMIN",
+      "theme": "DARK",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "UNKNOWN",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "",
+      "observed_text_sample": [
+        "Quét QR phiếu ra cổng",
+        "TOS-MOBILE · Tác nghiệp hiện trường",
+        "QR phiếu ra cổng",
+        "Đặt mã QR trên phiếu ra cổng vào khung.",
+        "Giữ máy ổn định, đủ ánh sáng và để mã rõ nét.",
+        "Bật đèn",
+        "Nhập mã thủ công",
+        "Sau khi đọc mã, máy chủ sẽ kiểm tra hồ sơ và điều kiện nghiệp vụ."
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/42-scanner-ready-dark.xml",
+        "audit/screenshots/baseline/mobile/42-scanner-ready-dark.png"
+      ],
+      "unknown_reason": "Screen identity requires further source/pixel confirmation; capture retained but not counted as verified reach",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "ScannerPermissionDenied",
+      "caseId": "63-scanner-denied-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "camera",
+      "observed_text_sample": [
+        "Quét mã container",
+        "TOS-MOBILE · Tác nghiệp hiện trường",
+        "QR · Code128 · Code39",
+        "Cho phép dùng camera để đọc mã. App chỉ mở camera khi bạn đang ở màn quét.",
+        "Mở cài đặt",
+        "Đặt mã QR hoặc mã vạch trên nhãn container vào khung.",
+        "Giữ máy ổn định, đủ ánh sáng và để mã rõ nét.",
+        "Bật đèn",
+        "Nhập mã thủ công",
+        "Sau khi đọc mã, máy chủ sẽ kiểm tra hồ sơ và điều kiện nghiệp vụ."
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/63-scanner-denied-light.xml",
+        "audit/screenshots/baseline/mobile/63-scanner-denied-light.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "Notifications",
+      "caseId": "45-notifications-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "Thông báo",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Thông báo",
+        "Quét",
+        "✓ Tất cả loại",
+        "Hóa đơn",
+        "Đã ra cổng",
+        "Phiếu sắp hết hạn",
+        "Sắp hết miễn lưu bãi",
+        "Giám định giữ hàng"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/45-notifications-light.xml",
+        "audit/screenshots/baseline/mobile/45-notifications-light.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "Notifications",
+      "caseId": "46-notifications-dark",
+      "role": "ADMIN",
+      "theme": "DARK",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "Thông báo",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Thông báo",
+        "Quét",
+        "✓ Tất cả loại",
+        "Hóa đơn",
+        "Đã ra cổng",
+        "Phiếu sắp hết hạn",
+        "Sắp hết miễn lưu bãi",
+        "Giám định giữ hàng"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/46-notifications-dark.xml",
+        "audit/screenshots/baseline/mobile/46-notifications-dark.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "NotificationDetail",
+      "caseId": "48-notification-detail-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "Container",
+      "observed_text_sample": [
+        "Container QATU2282957 Gate-Out Completed",
+        "Container QATU2282957 has successfully gated out of ICD.",
+        "13:50:14 1/10/2026",
+        "Đã đọc",
+        "Mở tác nghiệp liên quan",
+        "Đóng"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/48-notification-detail-light.xml",
+        "audit/screenshots/baseline/mobile/48-notification-detail-light.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "NotificationDetail",
+      "caseId": "47-notification-detail-dark",
+      "role": "ADMIN",
+      "theme": "DARK",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "Container",
+      "observed_text_sample": [
+        "Container QATU2282957 Gate-Out Completed",
+        "Container QATU2282957 has successfully gated out of ICD.",
+        "13:50:14 1/10/2026",
+        "Đã đọc",
+        "Mở tác nghiệp liên quan",
+        "Đóng"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/47-notification-detail-dark.xml",
+        "audit/screenshots/baseline/mobile/47-notification-detail-dark.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "Account",
+      "caseId": "49-account-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "Tài khoản",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Tài khoản và ca trực",
+        "Quét",
+        "Thông tin tài khoản",
+        "Họ tên",
+        "System Administrator",
+        "Email",
+        "admin@icd.local",
+        "Vai trò"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/49-account-light.xml",
+        "audit/screenshots/baseline/mobile/49-account-light.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "Account",
+      "caseId": "53-account-dark",
+      "role": "ADMIN",
+      "theme": "DARK",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "Tài khoản",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Tài khoản và ca trực",
+        "Quét",
+        "Thông tin tài khoản",
+        "Họ tên",
+        "System Administrator",
+        "Email",
+        "admin@icd.local",
+        "Vai trò"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/53-account-dark.xml",
+        "audit/screenshots/baseline/mobile/53-account-dark.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "LogoutConfirmation",
+      "caseId": "52-logout-confirm-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "Đăng xuất",
+      "observed_text_sample": [
+        "Kết thúc ca và đăng xuất",
+        "Các thao tác đã xác nhận được giữ trên hệ thống. Dữ liệu chưa gửi trong biểu mẫu sẽ không được lưu.",
+        "Đăng xuất",
+        "Quay lại"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/52-logout-confirm-light.xml",
+        "audit/screenshots/baseline/mobile/52-logout-confirm-light.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "LogoutConfirmation",
+      "caseId": "54-logout-confirm-dark",
+      "role": "ADMIN",
+      "theme": "DARK",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "Đăng xuất",
+      "observed_text_sample": [
+        "Kết thúc ca và đăng xuất",
+        "Các thao tác đã xác nhận được giữ trên hệ thống. Dữ liệu chưa gửi trong biểu mẫu sẽ không được lưu.",
+        "Đăng xuất",
+        "Quay lại"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/54-logout-confirm-dark.xml",
+        "audit/screenshots/baseline/mobile/54-logout-confirm-dark.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "GateInLargeType",
+      "caseId": "57-gate-320dp-font150-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "320dp; font_scale1.5",
+      "state": "native read-only screen/overlay",
+      "status": "FAIL",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "Gate-In",
+      "observed_text_sample": [
+        "Tools",
+        "TOS-MOBILE",
+        "ADMIN",
+        "Quản trị viên Hệ thống",
+        "Quét",
+        "PHIÊN ĐĂNG NHẬP CA TRỰC",
+        "ĐÃ ĐĂNG NHẬP",
+        "Tài khoản: System Administrator",
+        "ADMIN",
+        "Tiếp nhận Vào (Gate-In)"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/57-gate-320dp-font150-light.xml",
+        "audit/screenshots/baseline/mobile/57-gate-320dp-font150-light.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "FAIL",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "TruckArrivalForm",
+      "caseId": "65-truck-arrival-form-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "UNKNOWN",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Quản trị viên Hệ thống",
+        "Quét",
+        "Biển số đầu kéo*",
+        "Số Seal thực tế*",
+        "Theo lượt xe",
+        "Seal đã kiểm tra",
+        "Tài xế nhận hàng*",
+        "Cân Gross (kg)"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/65-truck-arrival-form-light.xml",
+        "audit/screenshots/baseline/mobile/65-truck-arrival-form-light.png"
+      ],
+      "unknown_reason": "Screen identity requires further source/pixel confirmation; capture retained but not counted as verified reach",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "TruckArrivalForm",
+      "caseId": "66-truck-arrival-form-dark",
+      "role": "ADMIN",
+      "theme": "DARK",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "UNKNOWN",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Quản trị viên Hệ thống",
+        "Quét",
+        "Biển số đầu kéo*",
+        "Số Seal thực tế*",
+        "Theo lượt xe",
+        "Seal đã kiểm tra",
+        "Tài xế nhận hàng*",
+        "Cân Gross (kg)"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/66-truck-arrival-form-dark.xml",
+        "audit/screenshots/baseline/mobile/66-truck-arrival-form-dark.png"
+      ],
+      "unknown_reason": "Screen identity requires further source/pixel confirmation; capture retained but not counted as verified reach",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "YardBookingForm",
+      "caseId": "71-yard-booking-form-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "Lịch",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Danh sách tác nghiệp bãi",
+        "Quét",
+        "QATU2282957",
+        "COMPLETED",
+        "INSPECTION",
+        "Đặt lịch dịch vụ tại bãi",
+        "Container đang ở bãi*",
+        "Chọn…"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/71-yard-booking-form-light.xml",
+        "audit/screenshots/baseline/mobile/71-yard-booking-form-light.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "YardBookingForm",
+      "caseId": "70-yard-booking-form-dark",
+      "role": "ADMIN",
+      "theme": "DARK",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "Lịch",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Danh sách tác nghiệp bãi",
+        "Quét",
+        "QATU2282957",
+        "COMPLETED",
+        "INSPECTION",
+        "Đặt lịch dịch vụ tại bãi",
+        "Container đang ở bãi*",
+        "Chọn…"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/70-yard-booking-form-dark.xml",
+        "audit/screenshots/baseline/mobile/70-yard-booking-form-dark.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "BookingConfirmation",
+      "caseId": "75-booking-confirm-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "STRIPPING",
+      "observed_text_sample": [
+        "Xác nhận lịch tác nghiệp",
+        "QAOU4835930 · STRIPPING&#10;2026-10-05 10:00 (UTC+7)&#10;",
+        "Tạo lịch",
+        "Quay lại"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/75-booking-confirm-light.xml",
+        "audit/screenshots/baseline/mobile/75-booking-confirm-light.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "BookingConfirmation",
+      "caseId": "76-booking-confirm-dark",
+      "role": "ADMIN",
+      "theme": "DARK",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "PASS",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "STRIPPING",
+      "observed_text_sample": [
+        "Xác nhận lịch tác nghiệp",
+        "QAOU4835930 · STRIPPING&#10;2026-10-05 10:00 (UTC+7)&#10;",
+        "Tạo lịch",
+        "Quay lại"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/76-booking-confirm-dark.xml",
+        "audit/screenshots/baseline/mobile/76-booking-confirm-dark.png"
+      ],
+      "unknown_reason": "",
+      "baseline_status": "PASS",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "ContainerReadiness",
+      "caseId": "80-container-readiness-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "UNKNOWN",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Chi tiết container",
+        "Quét",
+        "CHƯA ĐỦ ĐIỀU KIỆN",
+        "Kết quả kiểm tra cấp phiếu. Xuất cổng cần quét phiếu và kiểm tra lại tại cổng.",
+        "• Chưa có hồ sơ tính phí.",
+        "• Còn dịch vụ chưa được tính phí.",
+        "Đảo chuyển đang mở",
+        "0"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/80-container-readiness-light.xml",
+        "audit/screenshots/baseline/mobile/80-container-readiness-light.png"
+      ],
+      "unknown_reason": "Screen identity requires further source/pixel confirmation; capture retained but not counted as verified reach",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "ContainerReadiness",
+      "caseId": "83-container-readiness-dark",
+      "role": "ADMIN",
+      "theme": "DARK",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "UNKNOWN",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Chi tiết container",
+        "Quét",
+        "Công ty TNHH Samsung Electronics VN (SEVT)",
+        "HBL",
+        "HBL-TCSU-VN03",
+        "Vào cổng",
+        "10:18:20 30/9/2026",
+        "Ra cổng"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/83-container-readiness-dark.xml",
+        "audit/screenshots/baseline/mobile/83-container-readiness-dark.png"
+      ],
+      "unknown_reason": "Screen identity requires further source/pixel confirmation; capture retained but not counted as verified reach",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "ContainerHistory",
+      "caseId": "81-container-handover-history-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "UNKNOWN",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Chi tiết container",
+        "Quét",
+        "Tình trạng phí",
+        "Đơn phí chưa hoàn tất",
+        "0",
+        "Hóa đơn chưa thanh toán",
+        "0",
+        "Dịch vụ chưa tính phí"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/81-container-handover-history-light.xml",
+        "audit/screenshots/baseline/mobile/81-container-handover-history-light.png"
+      ],
+      "unknown_reason": "Screen identity requires further source/pixel confirmation; capture retained but not counted as verified reach",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "ContainerHistory",
+      "caseId": "82-container-handover-history-dark",
+      "role": "ADMIN",
+      "theme": "DARK",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "UNKNOWN",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Chi tiết container",
+        "Quét",
+        "Tình trạng phí",
+        "Đơn phí chưa hoàn tất",
+        "0",
+        "Hóa đơn chưa thanh toán",
+        "0",
+        "Dịch vụ chưa tính phí"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/82-container-handover-history-dark.xml",
+        "audit/screenshots/baseline/mobile/82-container-handover-history-dark.png"
+      ],
+      "unknown_reason": "Screen identity requires further source/pixel confirmation; capture retained but not counted as verified reach",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "InspectionDetail",
+      "caseId": "87-inspection-hold-detail-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "UNKNOWN",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Giám định hiện trường",
+        "Quét",
+        "QAOU5007570",
+        "COMPLETED",
+        "Loại lệnh",
+        "CUSTOMS",
+        "Ghi chú",
+        "OPS-QA-HOLD-NOTIFICATION: Giám định QA riêng để kiểm tra thông báo HOLD cho điều độ&#10;Kết quả kiểm định: QA HOLD: chờ điều độ xác minh hồ sơ hải quan, không cho xuất cổng."
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/87-inspection-hold-detail-light.xml",
+        "audit/screenshots/baseline/mobile/87-inspection-hold-detail-light.png"
+      ],
+      "unknown_reason": "Screen identity requires further source/pixel confirmation; capture retained but not counted as verified reach",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "InspectionDetail",
+      "caseId": "88-inspection-hold-detail-dark",
+      "role": "ADMIN",
+      "theme": "DARK",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "UNKNOWN",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Giám định hiện trường",
+        "Quét",
+        "QAOU5007570",
+        "COMPLETED",
+        "Loại lệnh",
+        "CUSTOMS",
+        "Ghi chú",
+        "OPS-QA-HOLD-NOTIFICATION: Giám định QA riêng để kiểm tra thông báo HOLD cho điều độ&#10;Kết quả kiểm định: QA HOLD: chờ điều độ xác minh hồ sơ hải quan, không cho xuất cổng."
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/88-inspection-hold-detail-dark.xml",
+        "audit/screenshots/baseline/mobile/88-inspection-hold-detail-dark.png"
+      ],
+      "unknown_reason": "Screen identity requires further source/pixel confirmation; capture retained but not counted as verified reach",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "BookingDetail",
+      "caseId": "91-booking-detail-light",
+      "role": "ADMIN",
+      "theme": "LIGHT",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "UNKNOWN",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Tác nghiệp bãi",
+        "Quét",
+        "QAOU6004067",
+        "COMPLETED",
+        "Loại lệnh",
+        "INSPECTION",
+        "Ghi chú",
+        "WEB-YARD-QA: kiểm tra trường trọng lượng tùy chọn giữ trống"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/91-booking-detail-light.xml",
+        "audit/screenshots/baseline/mobile/91-booking-detail-light.png"
+      ],
+      "unknown_reason": "Screen identity requires further source/pixel confirmation; capture retained but not counted as verified reach",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "BookingDetail",
+      "caseId": "90-booking-detail-dark",
+      "role": "ADMIN",
+      "theme": "DARK",
+      "viewport": "1080x1920px; density420; font_scale1",
+      "state": "native read-only screen/overlay",
+      "status": "UNKNOWN",
+      "meaning": "Native reach/capture and XML text validation only; not complete UX compliance",
+      "expected_text": "",
+      "observed_text_sample": [
+        "TOS-MOBILE",
+        "ADMIN",
+        "Tác nghiệp bãi",
+        "Quét",
+        "QAOU6004067",
+        "COMPLETED",
+        "Loại lệnh",
+        "INSPECTION",
+        "Ghi chú",
+        "WEB-YARD-QA: kiểm tra trường trọng lượng tùy chọn giữ trống"
+      ],
+      "evidence": [
+        "audit/raw/baseline/mobile/90-booking-detail-dark.xml",
+        "audit/screenshots/baseline/mobile/90-booking-detail-dark.png"
+      ],
+      "unknown_reason": "Screen identity requires further source/pixel confirmation; capture retained but not counted as verified reach",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web/mobile",
+      "screen": "all",
+      "role": "applicable",
+      "theme": "applicable",
+      "viewport": "applicable",
+      "state": "roles other than ADMIN",
+      "status": "UNKNOWN",
+      "unknown_reason": "No role-specific test session supplied; no users created or permission changes made.",
+      "evidence": [],
+      "unknown_id": "U-01",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "all",
+      "role": "applicable",
+      "theme": "applicable",
+      "viewport": "applicable",
+      "state": "iOS/VoiceOver",
+      "status": "UNKNOWN",
+      "unknown_reason": "No iOS runtime; Android evidence does not establish iOS behavior.",
+      "evidence": [],
+      "unknown_id": "U-02",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web/mobile",
+      "screen": "all",
+      "role": "applicable",
+      "theme": "applicable",
+      "viewport": "applicable",
+      "state": "live screen reader; external keyboard on RN",
+      "status": "UNKNOWN",
+      "unknown_reason": "No actual TalkBack/VoiceOver/web screen-reader announcement test. DOM/XML/accessibility props alone are insufficient.",
+      "evidence": [],
+      "unknown_id": "U-03",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web/mobile",
+      "screen": "business forms",
+      "role": "applicable",
+      "theme": "applicable",
+      "viewport": "applicable",
+      "state": "POST/PATCH/DELETE outcomes; success and rejected save; offline queue",
+      "status": "UNKNOWN",
+      "unknown_reason": "No business writes authorized; conditional handler flaws are source-verified, real transaction outcomes remain unknown.",
+      "evidence": [],
+      "unknown_id": "U-04",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web",
+      "screen": "authenticated screens",
+      "role": "applicable",
+      "theme": "applicable",
+      "viewport": "applicable",
+      "state": "full axe and6 original kz checks",
+      "status": "UNKNOWN",
+      "unknown_reason": "CUA evaluate is DOM-read-only; scripts inject/mutate DOM/state/listeners. Only compatible table/layout run. Login-only Lighthouse embedded axe is separately scoped.",
+      "evidence": [],
+      "unknown_id": "U-05",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web",
+      "screen": "all",
+      "role": "applicable",
+      "theme": "applicable",
+      "viewport": "applicable",
+      "state": "hover runtime, browser zoom200%, exact320px reflow",
+      "status": "UNKNOWN",
+      "unknown_reason": "375/768/1440 viewport tests done; actual zoom/hover and320px run not performed. Do not equate375px with WCAG reflow at320px.",
+      "evidence": [],
+      "unknown_id": "U-06",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web",
+      "screen": "authenticated screens",
+      "role": "applicable",
+      "theme": "applicable",
+      "viewport": "applicable",
+      "state": "Core Web Vitals field and INP",
+      "status": "UNKNOWN",
+      "unknown_reason": "Only production Login navigation lab runs; TBT is not INP. No authenticated performance/real-user dataset.",
+      "evidence": [],
+      "unknown_id": "U-07",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "mobile",
+      "screen": "Login/restore/Monitor/GateInSuccess/GateOutConfirm/Forbidden",
+      "role": "applicable",
+      "theme": "applicable",
+      "viewport": "applicable",
+      "state": "native runtime",
+      "status": "UNKNOWN",
+      "unknown_reason": "Current ADMIN session or unmet operation/role prerequisite; source reviewed, no test records/users created.",
+      "evidence": [],
+      "unknown_id": "U-08",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web/mobile",
+      "screen": "nested reads/permission/error/offline",
+      "role": "applicable",
+      "theme": "applicable",
+      "viewport": "applicable",
+      "state": "all unavailable data variants",
+      "status": "UNKNOWN",
+      "unknown_reason": "Camera denied tested; no complete network failure matrix or artificial response fixtures. Record data availability separately from verified empty.",
+      "evidence": [],
+      "unknown_id": "U-09",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web",
+      "screen": "Login and obscured backgrounds",
+      "role": "applicable",
+      "theme": "applicable",
+      "viewport": "applicable",
+      "state": "pixel confirmation of secondary contrast candidates",
+      "status": "UNKNOWN",
+      "unknown_reason": "Color4 supports measured computed styles; Login Lighthouse reports100. Reconcile the method/scope difference with pixel validation before confirming these extra candidates. Modal-obscured background samples and decoration excluded from actionable contrast evidence.",
+      "evidence": [],
+      "unknown_id": "U-10",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web/mobile",
+      "screen": "secondary overlays beyond captured inventory",
+      "role": "applicable",
+      "theme": "applicable",
+      "viewport": "applicable",
+      "state": "not captured state/theme/viewport combinations",
+      "status": "UNKNOWN",
+      "unknown_reason": "Source inventory reviewed; no claim every overlay has been exercised at every viewport/theme. Full cross-product remains in coverage as UNKNOWN.",
+      "evidence": [],
+      "unknown_id": "U-11",
+      "baseline_status": "UNKNOWN",
+      "re_audit_status": "NOT_RETESTED",
+      "verification_mode": "CARRIED_BASELINE_NOT_RETESTED",
+      "note": "Historical status remains visible; not a fresh PASS claim."
+    },
+    {
+      "platform": "web",
+      "screen": "all",
+      "role": "all",
+      "theme": "alternate dark",
+      "viewport": "all",
+      "state": "theme switch",
+      "status": "N/A",
+      "reason": "No alternate web theme selector in current app.",
+      "baseline_status": "N/A",
+      "re_audit_status": "N/A",
+      "verification_mode": "UNCHANGED_APPLICABILITY"
+    },
+    {
+      "platform": "mobile",
+      "screen": "all",
+      "role": "all",
+      "theme": "both",
+      "viewport": "native",
+      "state": "hover/cursor",
+      "status": "N/A",
+      "reason": "Touch-first native adaptation; external keyboard focus remains UNKNOWN.",
+      "baseline_status": "N/A",
+      "re_audit_status": "N/A",
+      "verification_mode": "UNCHANGED_APPLICABILITY"
+    }
+  ],
+  "unknowns": [
+    {
+      "id": "U-01",
+      "platform": "web/mobile",
+      "screen": "all",
+      "state": "roles other than ADMIN",
+      "reason": "No role-specific test session supplied; no users created or permission changes made."
+    },
+    {
+      "id": "U-02",
+      "platform": "mobile",
+      "screen": "all",
+      "state": "iOS/VoiceOver",
+      "reason": "No iOS runtime; Android evidence does not establish iOS behavior."
+    },
+    {
+      "id": "U-03",
+      "platform": "web/mobile",
+      "screen": "all",
+      "state": "live screen reader; external keyboard on RN",
+      "reason": "No actual TalkBack/VoiceOver/web screen-reader announcement test. DOM/XML/accessibility props alone are insufficient."
+    },
+    {
+      "id": "U-04",
+      "platform": "web/mobile",
+      "screen": "business forms",
+      "state": "POST/PATCH/DELETE outcomes; success and rejected save; offline queue",
+      "reason": "No business writes authorized; conditional handler flaws are source-verified, real transaction outcomes remain unknown."
+    },
+    {
+      "id": "U-05",
+      "platform": "web",
+      "screen": "authenticated screens",
+      "state": "full axe and6 original kz checks",
+      "reason": "CUA evaluate is DOM-read-only; scripts inject/mutate DOM/state/listeners. Only compatible table/layout run. Login-only Lighthouse embedded axe is separately scoped."
+    },
+    {
+      "id": "U-06",
+      "platform": "web",
+      "screen": "all",
+      "state": "hover runtime, browser zoom200%, exact320px reflow",
+      "reason": "375/768/1440 viewport tests done; actual zoom/hover and320px run not performed. Do not equate375px with WCAG reflow at320px."
+    },
+    {
+      "id": "U-07",
+      "platform": "web",
+      "screen": "authenticated screens",
+      "state": "Core Web Vitals field and INP",
+      "reason": "Only production Login navigation lab runs; TBT is not INP. No authenticated performance/real-user dataset."
+    },
+    {
+      "id": "U-08",
+      "platform": "mobile",
+      "screen": "Login/restore/Monitor/GateInSuccess/GateOutConfirm/Forbidden",
+      "state": "native runtime",
+      "reason": "Current ADMIN session or unmet operation/role prerequisite; source reviewed, no test records/users created."
+    },
+    {
+      "id": "U-09",
+      "platform": "web/mobile",
+      "screen": "nested reads/permission/error/offline",
+      "state": "all unavailable data variants",
+      "reason": "Camera denied tested; no complete network failure matrix or artificial response fixtures. Record data availability separately from verified empty."
+    },
+    {
+      "id": "U-10",
+      "platform": "web",
+      "screen": "Login and obscured backgrounds",
+      "state": "pixel confirmation of secondary contrast candidates",
+      "reason": "Color4 supports measured computed styles; Login Lighthouse reports100. Reconcile the method/scope difference with pixel validation before confirming these extra candidates. Modal-obscured background samples and decoration excluded from actionable contrast evidence."
+    },
+    {
+      "id": "U-11",
+      "platform": "web/mobile",
+      "screen": "secondary overlays beyond captured inventory",
+      "state": "not captured state/theme/viewport combinations",
+      "reason": "Source inventory reviewed; no claim every overlay has been exercised at every viewport/theme. Full cross-product remains in coverage as UNKNOWN."
+    }
+  ],
+  "re_audit_cases": [
+    {
+      "platform": "web",
+      "screen": "activity",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/activity-1440-measure.json",
+        "audit/screenshots/re-audit/web/activity-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "activity",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/activity-375-measure.json",
+        "audit/screenshots/re-audit/web/activity-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "activity",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/activity-768-measure.json",
+        "audit/screenshots/re-audit/web/activity-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "billing",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/billing-1440-measure.json",
+        "audit/screenshots/re-audit/web/billing-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "billing",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/billing-375-measure.json",
+        "audit/screenshots/re-audit/web/billing-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "billing",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/billing-768-measure.json",
+        "audit/screenshots/re-audit/web/billing-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "containers",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/containers-1440-measure.json",
+        "audit/screenshots/re-audit/web/containers-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "containers",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/containers-375-measure.json",
+        "audit/screenshots/re-audit/web/containers-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "containers",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/containers-768-measure.json",
+        "audit/screenshots/re-audit/web/containers-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "dashboard",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/dashboard-1440-measure.json",
+        "audit/screenshots/re-audit/web/dashboard-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "dashboard",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/dashboard-375-measure.json",
+        "audit/screenshots/re-audit/web/dashboard-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "dashboard",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/dashboard-768-measure.json",
+        "audit/screenshots/re-audit/web/dashboard-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "edi",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/edi-1440-measure.json",
+        "audit/screenshots/re-audit/web/edi-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "edi",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/edi-375-measure.json",
+        "audit/screenshots/re-audit/web/edi-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "edi",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/edi-768-measure.json",
+        "audit/screenshots/re-audit/web/edi-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "gate-in",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/gate-in-1440-measure.json",
+        "audit/screenshots/re-audit/web/gate-in-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "gate-in",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/gate-in-375-measure.json",
+        "audit/screenshots/re-audit/web/gate-in-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "gate-in",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/gate-in-768-measure.json",
+        "audit/screenshots/re-audit/web/gate-in-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "gate-pass",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/gate-pass-1440-measure.json",
+        "audit/screenshots/re-audit/web/gate-pass-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "gate-pass",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/gate-pass-375-measure.json",
+        "audit/screenshots/re-audit/web/gate-pass-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "gate-pass",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/gate-pass-768-measure.json",
+        "audit/screenshots/re-audit/web/gate-pass-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "handovers",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/handovers-1440-measure.json",
+        "audit/screenshots/re-audit/web/handovers-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "handovers",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/handovers-375-measure.json",
+        "audit/screenshots/re-audit/web/handovers-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "handovers",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/handovers-768-measure.json",
+        "audit/screenshots/re-audit/web/handovers-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "manifests",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/manifests-1440-measure.json",
+        "audit/screenshots/re-audit/web/manifests-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "manifests",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/manifests-375-measure.json",
+        "audit/screenshots/re-audit/web/manifests-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "manifests",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/manifests-768-measure.json",
+        "audit/screenshots/re-audit/web/manifests-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "master-data",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/master-data-1440-measure.json",
+        "audit/screenshots/re-audit/web/master-data-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "master-data",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/master-data-375-measure.json",
+        "audit/screenshots/re-audit/web/master-data-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "master-data",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/master-data-768-measure.json",
+        "audit/screenshots/re-audit/web/master-data-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "movement-orders",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/movement-orders-1440-measure.json",
+        "audit/screenshots/re-audit/web/movement-orders-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "movement-orders",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/movement-orders-375-measure.json",
+        "audit/screenshots/re-audit/web/movement-orders-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "movement-orders",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/movement-orders-768-measure.json",
+        "audit/screenshots/re-audit/web/movement-orders-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "partner-api-logs",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/partner-api-logs-1440-measure.json",
+        "audit/screenshots/re-audit/web/partner-api-logs-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "partner-api-logs",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/partner-api-logs-375-measure.json",
+        "audit/screenshots/re-audit/web/partner-api-logs-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "partner-api-logs",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/partner-api-logs-768-measure.json",
+        "audit/screenshots/re-audit/web/partner-api-logs-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "partner-clients",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/partner-clients-1440-measure.json",
+        "audit/screenshots/re-audit/web/partner-clients-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "partner-clients",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/partner-clients-375-measure.json",
+        "audit/screenshots/re-audit/web/partner-clients-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "partner-clients",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/partner-clients-768-measure.json",
+        "audit/screenshots/re-audit/web/partner-clients-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "reports",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/reports-1440-measure.json",
+        "audit/screenshots/re-audit/web/reports-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "reports",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/reports-375-measure.json",
+        "audit/screenshots/re-audit/web/reports-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "reports",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/reports-768-measure.json",
+        "audit/screenshots/re-audit/web/reports-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "truck-visits",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/truck-visits-1440-measure.json",
+        "audit/screenshots/re-audit/web/truck-visits-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "truck-visits",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/truck-visits-375-measure.json",
+        "audit/screenshots/re-audit/web/truck-visits-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "truck-visits",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/truck-visits-768-measure.json",
+        "audit/screenshots/re-audit/web/truck-visits-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "users-roles",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/users-roles-1440-measure.json",
+        "audit/screenshots/re-audit/web/users-roles-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "users-roles",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/users-roles-375-measure.json",
+        "audit/screenshots/re-audit/web/users-roles-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "users-roles",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/users-roles-768-measure.json",
+        "audit/screenshots/re-audit/web/users-roles-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "work-queue",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/work-queue-1440-measure.json",
+        "audit/screenshots/re-audit/web/work-queue-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "work-queue",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/work-queue-375-measure.json",
+        "audit/screenshots/re-audit/web/work-queue-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "work-queue",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/work-queue-768-measure.json",
+        "audit/screenshots/re-audit/web/work-queue-768.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "yard",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 1440,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/yard-1440-measure.json",
+        "audit/screenshots/re-audit/web/yard-1440.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "yard",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 375,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/yard-375-measure.json",
+        "audit/screenshots/re-audit/web/yard-375.jpg"
+      ]
+    },
+    {
+      "platform": "web",
+      "screen": "yard",
+      "role": "ADMIN",
+      "theme": "current",
+      "viewport": 768,
+      "state": "settled screen",
+      "status": "PASS",
+      "meaning": "Reachable/measured only; not a blanket UX pass",
+      "evidence": [
+        "audit/raw/re-audit/web/yard-768-measure.json",
+        "audit/screenshots/re-audit/web/yard-768.jpg"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "02-gate-in-light",
+      "viewport_dp": 411.42857142857144,
+      "density_dpi": 420,
+      "font_scale": 1.0,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/02-gate-in-light.xml",
+        "audit/screenshots/re-audit/mobile/02-gate-in-light.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "03-gate-in-dark",
+      "viewport_dp": 411.42857142857144,
+      "density_dpi": 420,
+      "font_scale": 1.0,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/03-gate-in-dark.xml",
+        "audit/screenshots/re-audit/mobile/03-gate-in-dark.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "04-account-dark",
+      "viewport_dp": 411.42857142857144,
+      "density_dpi": 420,
+      "font_scale": 1.0,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/04-account-dark.xml",
+        "audit/screenshots/re-audit/mobile/04-account-dark.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "05-account-bottom-dark",
+      "viewport_dp": 411.42857142857144,
+      "density_dpi": 420,
+      "font_scale": 1.0,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/05-account-bottom-dark.xml",
+        "audit/screenshots/re-audit/mobile/05-account-bottom-dark.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "06-logout-dark",
+      "viewport_dp": 411.42857142857144,
+      "density_dpi": 420,
+      "font_scale": 1.0,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/06-logout-dark.xml",
+        "audit/screenshots/re-audit/mobile/06-logout-dark.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "07-logout-light",
+      "viewport_dp": 411.42857142857144,
+      "density_dpi": 420,
+      "font_scale": 1.0,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/07-logout-light.xml",
+        "audit/screenshots/re-audit/mobile/07-logout-light.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "08-lookup-light",
+      "viewport_dp": 411.42857142857144,
+      "density_dpi": 420,
+      "font_scale": 1.0,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/08-lookup-light.xml",
+        "audit/screenshots/re-audit/mobile/08-lookup-light.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "09-lookup-results-light",
+      "viewport_dp": 411.42857142857144,
+      "density_dpi": 420,
+      "font_scale": 1.0,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/09-lookup-results-light.xml",
+        "audit/screenshots/re-audit/mobile/09-lookup-results-light.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "10-container-detail-light",
+      "viewport_dp": 411.42857142857144,
+      "density_dpi": 420,
+      "font_scale": 1.0,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/10-container-detail-light.xml",
+        "audit/screenshots/re-audit/mobile/10-container-detail-light.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "11-container-readiness-light",
+      "viewport_dp": 411.42857142857144,
+      "density_dpi": 420,
+      "font_scale": 1.0,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/11-container-readiness-light.xml",
+        "audit/screenshots/re-audit/mobile/11-container-readiness-light.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "12-container-readiness-dark",
+      "viewport_dp": 411.42857142857144,
+      "density_dpi": 420,
+      "font_scale": 1.0,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/12-container-readiness-dark.xml",
+        "audit/screenshots/re-audit/mobile/12-container-readiness-dark.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "13-survey-dark",
+      "viewport_dp": 411.42857142857144,
+      "density_dpi": 420,
+      "font_scale": 1.0,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/13-survey-dark.xml",
+        "audit/screenshots/re-audit/mobile/13-survey-dark.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "14-picker-dark",
+      "viewport_dp": 411.42857142857144,
+      "density_dpi": 420,
+      "font_scale": 1.0,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/14-picker-dark.xml",
+        "audit/screenshots/re-audit/mobile/14-picker-dark.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "15-picker-light",
+      "viewport_dp": 411.42857142857144,
+      "density_dpi": 420,
+      "font_scale": 1.0,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/15-picker-light.xml",
+        "audit/screenshots/re-audit/mobile/15-picker-light.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "16-survey-bottom-light",
+      "viewport_dp": 411.42857142857144,
+      "density_dpi": 420,
+      "font_scale": 1.0,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/16-survey-bottom-light.xml",
+        "audit/screenshots/re-audit/mobile/16-survey-bottom-light.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "17-survey-scrolled-light",
+      "viewport_dp": 411.42857142857144,
+      "density_dpi": 420,
+      "font_scale": 1.0,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/17-survey-scrolled-light.xml",
+        "audit/screenshots/re-audit/mobile/17-survey-scrolled-light.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "18-scanner-light",
+      "viewport_dp": 411.42857142857144,
+      "density_dpi": 420,
+      "font_scale": 1.0,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/18-scanner-light.xml",
+        "audit/screenshots/re-audit/mobile/18-scanner-light.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "19-scanner-dark",
+      "viewport_dp": 411.42857142857144,
+      "density_dpi": 420,
+      "font_scale": 1.0,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/19-scanner-dark.xml",
+        "audit/screenshots/re-audit/mobile/19-scanner-dark.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "20-yard-dark",
+      "viewport_dp": 411.42857142857144,
+      "density_dpi": 420,
+      "font_scale": 1.0,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/20-yard-dark.xml",
+        "audit/screenshots/re-audit/mobile/20-yard-dark.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "21-yard-map-dark",
+      "viewport_dp": 411.42857142857144,
+      "density_dpi": 420,
+      "font_scale": 1.0,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/21-yard-map-dark.xml",
+        "audit/screenshots/re-audit/mobile/21-yard-map-dark.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "22-yard-grid-dark",
+      "viewport_dp": 411.42857142857144,
+      "density_dpi": 420,
+      "font_scale": 1.0,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/22-yard-grid-dark.xml",
+        "audit/screenshots/re-audit/mobile/22-yard-grid-dark.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "23-yard-slot-dark",
+      "viewport_dp": 411.42857142857144,
+      "density_dpi": 420,
+      "font_scale": 1.0,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/23-yard-slot-dark.xml",
+        "audit/screenshots/re-audit/mobile/23-yard-slot-dark.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "24-yard-grid-light",
+      "viewport_dp": 411.42857142857144,
+      "density_dpi": 420,
+      "font_scale": 1.0,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/24-yard-grid-light.xml",
+        "audit/screenshots/re-audit/mobile/24-yard-grid-light.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "25-yard-slot-light",
+      "viewport_dp": 411.42857142857144,
+      "density_dpi": 420,
+      "font_scale": 1.0,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/25-yard-slot-light.xml",
+        "audit/screenshots/re-audit/mobile/25-yard-slot-light.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "26-320-gate-light",
+      "viewport_dp": 320,
+      "density_dpi": 420,
+      "font_scale": 1.5,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/26-320-gate-light.xml",
+        "audit/screenshots/re-audit/mobile/26-320-gate-light.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "26-pre-narrow-current",
+      "viewport_dp": 411.42857142857144,
+      "density_dpi": 420,
+      "font_scale": 1.0,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/26-pre-narrow-current.xml",
+        "audit/screenshots/re-audit/mobile/26-pre-narrow-current.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "27-320-gate-out-light",
+      "viewport_dp": 320,
+      "density_dpi": 420,
+      "font_scale": 1.5,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/27-320-gate-out-light.xml",
+        "audit/screenshots/re-audit/mobile/27-320-gate-out-light.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "28-320-scanner-light",
+      "viewport_dp": 320,
+      "density_dpi": 420,
+      "font_scale": 1.5,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/28-320-scanner-light.xml",
+        "audit/screenshots/re-audit/mobile/28-320-scanner-light.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "29-320-survey-light",
+      "viewport_dp": 320,
+      "density_dpi": 420,
+      "font_scale": 1.5,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/29-320-survey-light.xml",
+        "audit/screenshots/re-audit/mobile/29-320-survey-light.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "30-320-picker-light",
+      "viewport_dp": 320,
+      "density_dpi": 420,
+      "font_scale": 1.5,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/30-320-picker-light.xml",
+        "audit/screenshots/re-audit/mobile/30-320-picker-light.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "31-320-survey-dark",
+      "viewport_dp": 320,
+      "density_dpi": 420,
+      "font_scale": 1.5,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/31-320-survey-dark.xml",
+        "audit/screenshots/re-audit/mobile/31-320-survey-dark.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "32-320-picker-dark",
+      "viewport_dp": 320,
+      "density_dpi": 420,
+      "font_scale": 1.5,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/32-320-picker-dark.xml",
+        "audit/screenshots/re-audit/mobile/32-320-picker-dark.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "33-320-account-dark",
+      "viewport_dp": 320,
+      "density_dpi": 420,
+      "font_scale": 1.5,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/33-320-account-dark.xml",
+        "audit/screenshots/re-audit/mobile/33-320-account-dark.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "34-320-logout-dark",
+      "viewport_dp": 320,
+      "density_dpi": 420,
+      "font_scale": 1.5,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/34-320-logout-dark.xml",
+        "audit/screenshots/re-audit/mobile/34-320-logout-dark.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "35-320-logout-light",
+      "viewport_dp": 320,
+      "density_dpi": 420,
+      "font_scale": 1.5,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/35-320-logout-light.xml",
+        "audit/screenshots/re-audit/mobile/35-320-logout-light.png"
+      ]
+    },
+    {
+      "platform": "mobile",
+      "capture": "36-restored-final-light",
+      "viewport_dp": 411.42857142857144,
+      "density_dpi": 420,
+      "font_scale": 1.0,
+      "status": "PASS",
+      "meaning": "Recorded clickable geometry sample, not whole-screen UX pass",
+      "evidence": [
+        "audit/raw/re-audit/mobile/36-restored-final-light.xml",
+        "audit/screenshots/re-audit/mobile/36-restored-final-light.png"
+      ]
+    }
+  ],
+  "re_audit_case_summary": {
+    "fresh_web_main_screens": 54,
+    "fresh_native_captures": 36,
+    "baseline_rows": 140,
+    "baseline_row_re_audit_status_counts": {
+      "PASS": 54,
+      "NOT_RETESTED": 84,
+      "N/A": 2
+    }
+  },
+  "unknown_update": "Original UNKNOWN scope retained. Async/no-tab/conditional-dialog fixtures now verify specified source behavior, but do not establish corresponding live runtime or business outcomes."
+}

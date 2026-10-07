@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "timezone": "Asia/Saigon",
+  "repoRoot": "D:/Project/Đồ Án 4 +Mobile/icd-management",
+  "gitHead": "5a037f9de865e73ac9061fffd6a4885979bd079c",
+  "sourceSnapshot": "audit/raw/baseline/source-hashes.json",
+  "sourceIntegrity": "audit/raw/baseline/source-integrity-final.json",
+  "sourceFilesChecked": 200,
+  "sourceFilesUnchanged": 200,
+  "workingTree": "Existing dirty/untracked tree audited; no reset, migration, commit or worktree",
+  "stack": {
+    "web": {
+      "name": "@icd/web",
+      "version": "0.1.0",
+      "private": true,
+      "type": "module",
+      "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview",
+        "typecheck": "tsc --noEmit"
+      },
+      "dependencies": {
+        "@icd/api-client": "workspace:*",
+        "@icd/shared-types": "workspace:*",
+        "@icd/validation": "workspace:*",
+        "clsx": "^2.1.1",
+        "lucide-react": "^0.546.0",
+        "motion": "^12.23.24",
+        "react": "19.2.3",
+        "react-dom": "19.2.3",
+        "react-qr-code": "^2.2.0",
+        "react-router-dom": "^7.3.0"
+      },
+      "devDependencies": {
+        "@tailwindcss/vite": "^4.0.9",
+        "@types/node": "^22.14.0",
+        "@types/react": "~19.2.2",
+        "@types/react-dom": "~19.2.2",
+        "@vitejs/plugin-react": "^4.3.4",
+        "tailwindcss": "^4.0.9",
+        "typescript": "~5.9.3",
+        "vite": "^6.2.0"
+      }
+    },
+    "mobile": {
+      "name": "@icd/mobile",
+      "version": "0.1.0",
+      "main": "index.ts",
+      "dependencies": {
+        "@expo/metro-runtime": "~57.0.16",
+        "@icd/api-client": "workspace:*",
+        "@icd/shared-types": "workspace:*",
+        "@icd/validation": "workspace:*",
+        "@react-native-async-storage/async-storage": "2.2.0",
+        "@react-navigation/bottom-tabs": "^7.19.2",
+        "@react-navigation/native": "^7.3.18",
+        "@react-navigation/native-stack": "^7.18.10",
+        "expo": "~57.0.18",
+        "expo-camera": "~57.0.4",
+        "expo-image-picker": "~57.0.14",
+        "expo-secure-store": "^57.0.4",
+        "expo-status-bar": "~57.0.1",
+        "react": "19.2.3",
+        "react-dom": "19.2.3",
+        "react-native": "0.86.3",
+        "lucide-react-native": "0.546.0",
+        "react-native-svg": "15.15.4",
+        "react-native-web": "~0.21.0",
+        "react-native-safe-area-context": "~5.7.0",
+        "react-native-screens": "~4.26.0"
+      },
+      "devDependencies": {
+        "@types/react": "~19.2.2",
+        "typescript": "~6.0.3"
+      },
+      "scripts": {
+        "start": "expo start",
+        "android": "expo start --android",
+        "ios": "expo start --ios",
+        "web": "expo start --web --port 8081",
+        "test": "node --test tests/*.test.cjs",
+        "typecheck": "tsc --noEmit -p tsconfig.json"
+      },
+      "private": true
+    },
+    "webStyling": "Tailwind4",
+    "mobileStyling": "StyleSheet + internal theme",
+    "state": "Context/local hooks",
+    "webNavigation": "Sidebar/tab state; router package presence does not establish URL routes",
+    "tamagui": "N/A: not used"
+  },
+  "toolManifest": "audit/tool-manifest.json",
+  "tools": {
+    "frontend-law-auditor": {
+      "repository": "Jacobinwwey/frontend-law-auditor",
+      "url": "https://github.com/Jacobinwwey/frontend-law-auditor",
+      "commit": "6870ab3dc654ff6f879ef8fdee8d5fc085b6e507",
+      "default_branch": "main",
+      "resolved_at_utc": "2026-10-02T19:45:02.369005+00:00"
+    },
+    "mobile-ux-audit": {
+      "repository": "aditya305/mobile-ux-audit",
+      "url": "https://github.com/aditya305/mobile-ux-audit",
+      "commit": "a80d8c1de20ab51a5dffbf274dc13acf47c49baa",
+      "default_branch": "main",
+      "resolved_at_utc": "2026-10-02T19:45:03.414232+00:00"
+    },
+    "kz-skills": {
+      "repository": "kz-95/kz-skills",
+      "url": "https://github.com/kz-95/kz-skills",
+      "commit": "ca77ea4be13dc1405d18d0671e4696ecd91c3e62",
+      "default_branch": "main",
+      "resolved_at_utc": "2026-10-02T19:45:04.493246+00:00",
+      "local_path": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\kz-skills-source",
+      "mode": "reference-only; dependencies not installed",
+      "depth": 1,
+      "verified_commit": "ca77ea4be13dc1405d18d0671e4696ecd91c3e62"
+    },
+    "lumen": {
+      "repository": "LedgerHQ/lumen",
+      "url": "https://github.com/LedgerHQ/lumen",
+      "commit": "efafe93739bce351735b7b20fd2a2cf18424f099",
+      "default_branch": "main",
+      "resolved_at_utc": "2026-10-02T19:45:05.683458+00:00",
+      "local_path": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\lumen-source",
+      "mode": "reference-only; dependencies not installed",
+      "depth": 1,
+      "verified_commit": "efafe93739bce351735b7b20fd2a2cf18424f099"
+    },
+    "ux-gap-detector": {
+      "repository": "laststance/skills",
+      "url": "https://github.com/laststance/skills",
+      "commit": "66d87e7906a9584d193fa32b91b9e1c3a6232743",
+      "default_branch": "main",
+      "resolved_at_utc": "2026-10-02T19:45:06.851364+00:00",
+      "local_path": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\reference\\laststance-skills",
+      "mode": "reference-only; dependencies not installed",
+      "depth": 1,
+      "verified_commit": "66d87e7906a9584d193fa32b91b9e1c3a6232743",
+      "rubric_path": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\reference\\laststance-skills\\skills\\ux-gap-detector\\scoring-rubric.md",
+      "rubric_sha256": "42af283bcacf77b5d59adbc3e987449458f4f9fe1034875215b21f56c3fb5792",
+      "rubric_caveat": "Per-dimension issue-priority table uses 0-49/50-74/75+ ranges although dimensions max25; use explicit 0-25 dimension and 0-100 overall verdict bands; do not invent normalization."
+    }
+  },
+  "scope": {
+    "phases": "0-4 audit only;5-6 pending user approval",
+    "runtime": [
+      "API3000",
+      "Web5173",
+      "Metro8081",
+      "Android emulator"
+    ],
+    "writes": "No business transactions submitted",
+    "roles": "ADMIN session + public web Login; other runtime roles UNKNOWN",
+    "themes": "Web current; mobile LIGHT/DARK",
+    "ios": "UNKNOWN"
+  },
+  "checks": {
+    "webTypecheck": "PASS",
+    "mobileTypecheck": "PASS",
+    "webTests": {
+      "pass": 54,
+      "fail": 0
+    },
+    "mobileTests": {
+      "pass": 125,
+      "fail": 0
+    },
+    "webBuild": "PASS",
+    "eslint": {
+      "exit": 1,
+      "errors": 291,
+      "warnings": 3
+    }
+  },
+  "performance": "audit/raw/baseline/web/lighthouse-summary.json",
+  "restoration": {
+    "browser": "Only audit-created tabs20/21 closed; viewport reset; original9 tabs untouched",
+    "android": "Original settings/session restored in92-final-restored; permissions before/after artifacts retained",
+    "preview": "Own4173 preview stopped; listener absent"
+  },
+  "agentReview": "web static author performed evidence/severity challenge against independent root runtime; not a second-author review. Native final ledger reconstructed by root from existing evidence after worker usage-limit interruption."
+}

@@ -1,0 +1,26 @@
+{
+  "status": "VERIFIED",
+  "change": "Header wrap badge theo chiều rộng, nút đóng không co; tab giữ nhãn một dòng trong thanh cuộn hiện có. Đo thực320/375/768/1440px: mã11ký tự một dòng, không tràn document hoặc phần thân popup. Không suy luận zoom200% đã đạt.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/ContainersView.tsx",
+      "line": 516,
+      "detail": "flex flex-wrap items-center gap-x-3 gap-y-2",
+      "snippet": "                <div className=\"flex flex-wrap items-center gap-x-3 gap-y-2\">\n                  <h3 className=\"text-xl font-bold font-mono text-slate-900\">\n                    {activeVisit.containerNumber}\n                  </h3>"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/browser/container-dialog-320-oct04.json",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/container-dialog-narrow-header-after-2026-10-04.json",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/container-detail-responsive-after-2026-10-04.json",
+    "audit/runs/2026-10-03-improvement-02/raw/dependency-detail-checkpoint-2026-10-04.md"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Actual browser geometry/screenshot before and after; no implementation-mirroring style test.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/ContainersView.tsx.diff"
+  ],
+  "isolated_review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/dependency-detail-2026-10-04/W-N-025.diff"
+  ]
+}

@@ -1,0 +1,21 @@
+✔ nearest-rank p95 keeps the nineteenth sample of twenty, not the mean (1.7143ms)
+✔ empty, nonfinite and negative timing values cannot become valid measurements (0.4542ms)
+✔ untrusted input, hidden document and unrelated event clocks are rejected (0.2634ms)
+✔ twenty verified samples produce p50/p95 for each measured group (0.5878ms)
+✔ nineteen samples cannot close the twenty-sample criterion (0.2273ms)
+✔ timeouts, untrusted or unpainted acknowledgements remain in the denominator (0.3718ms)
+✔ slow valid feedback is a failure instead of being excluded as an outlier (0.2585ms)
+✔ duplicate IDs and unknown groups cannot silently pad the sample count (4.4538ms)
+✔ navigation feedback rejects blank markup: blank (373.5607ms)
+✔ navigation feedback rejects blank markup: yard:Đang mở màn nghiệp vụ… (31.3144ms)
+✔ navigation feedback rejects blank markup: yard:Bãi (26.6074ms)
+✔ frame calibration reports idle cadence without subtracting it from interaction samples (6.971ms)
+✔ diagnostic observers expose support and use event threshold16; unsupported is explicit (22.4088ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4245.2418

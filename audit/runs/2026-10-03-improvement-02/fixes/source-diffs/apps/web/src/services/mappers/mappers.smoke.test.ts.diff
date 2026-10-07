@@ -1,0 +1,14 @@
+--- before/apps/web/src/services/mappers/mappers.smoke.test.ts
++++ after/apps/web/src/services/mappers/mappers.smoke.test.ts
+@@ -71,7 +71,10 @@
+   id: 'gp-1',
+   gatePassNumber: 'GP001',
+   containerVisitId: 'visit-1',
+-  containerVisit: { container: { containerNumber: 'MSKU1234567' }, houseBl: { consignee: { name: 'Cong ty A' } } },
++  containerVisit: {
++    container: { containerNumber: 'MSKU1234567' },
++    houseBl: { consignee: { name: 'Cong ty A' } },
++  },
+   truckPlate: '51C-12345',
+   driverName: 'Nguyen Van A',
+   qrToken: 'qr-token',

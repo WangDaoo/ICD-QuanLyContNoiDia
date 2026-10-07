@@ -1,0 +1,12 @@
+✔ gate-out requires explicit boolean true and rejects malformed scan flags without a write (246.2574ms)
+✔ payment context rejects invalid amounts and methods before any request (23.9903ms)
+✔ Billing preserves edited two-decimal amounts and declares a matching numeric step (144.3877ms)
+✔ Billing invalid payment values show an error and never delegate a write (86.5792ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4961.2813

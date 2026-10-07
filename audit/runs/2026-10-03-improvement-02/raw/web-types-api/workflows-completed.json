@@ -1,0 +1,1305 @@
+{
+  "run": "2026-10-03-improvement-02",
+  "target": {
+    "apiPort": 3001,
+    "mysqlPort": 3308,
+    "database": "icd_ux_audit_20261003_e2e"
+  },
+  "ids": {
+    "prefix": "AUD25157BF4",
+    "shippingLine": "15b38e58-0dad-407b-8b6c-fa82f4d46228",
+    "consignee": "d480b7bc-6268-4ec0-8a25-5cc6e335f85b",
+    "clearingAgent": "f6895ebb-1722-44c2-b972-c8b882a83718",
+    "transporter": "18397895-2256-4f80-a56a-a01dc60cfcb0",
+    "manifest": "bc41c663-e15c-4908-a15e-babd0a3710c9",
+    "masterBl": "e5616898-be54-4947-97c4-fd65a3b35b9a",
+    "houseBl": "92644ccc-5539-4a41-a408-68ec66cc2d57",
+    "mainVisit": "52a2b4f6-3020-455e-92d3-6c050657a8d9",
+    "yardVisit": "13fba35b-c15e-4f89-9fd4-f78ebe04b8dd",
+    "authorizedVisit": "0038fc1b-2b84-4dd0-beec-2409e671b84b",
+    "pendingVisit": "c92a079d-9f6d-496e-af69-b58aec66bbe8",
+    "cancelledVisit": "193d149a-673f-4f76-a863-b3656d1181c4",
+    "mainMovementOrder": "93e9c8ec-e845-46b4-bef3-07f8c2153666",
+    "yardMovementOrder": "1ed2bc71-8483-4e02-89f0-7b3191c40bb7",
+    "authorizedMovementOrder": "a15ae97f-f916-4e0d-a79c-4a414c05c2c7",
+    "truckVisit": "5930cee0-4217-4cc9-a941-c4801b2a13b3",
+    "yardBlock": "4b744dbc-15d2-4e26-b2e0-b70f5d8f80d8",
+    "slot1": "dc9fd213-9cfa-4c20-a9c9-62af72a616cd",
+    "slot2": "0c3266e1-de06-4374-9e06-17177b1d41c1",
+    "slot3": "6fa2888f-ec01-4dd0-aa62-d983250685f9",
+    "slot4": "5cffc256-12ba-4212-a859-5cdc7d17cb66",
+    "completedMovement": "1bc7bfdd-a0c3-45ee-a9f3-35613baa6dd3",
+    "cancelledMovement": "68e1c38e-e1a3-43fc-be97-376e8e76aafe",
+    "completedInspection": "3368dce0-3abb-4d1e-89dc-1ba2cee7b363",
+    "cancelledInspection": "2f2a40a0-a8b7-494b-9b30-b932774bbcc8",
+    "completedBooking": "2e9d62f7-0b5f-40ab-ba08-6b5d9810b46f",
+    "cancelledBooking": "12e2ab61-27e6-4463-b7c2-c33a432187df",
+    "releasedHold": "1665f784-582e-49bf-9a52-d7e1cf945d90",
+    "activeTariff": "430989d3-95b9-486c-910a-0859b0537bd6",
+    "draftTariff": "24c9472f-7d1b-48e6-9d57-1577a22a7e51",
+    "invoicedServiceOrder": "97b8cc61-0350-4894-a0bd-312ba2609f75",
+    "paidInvoice": "afc81472-f75d-4156-8ff7-497496aa1b23",
+    "cancelledGatePass": "e5d03369-d825-4bdb-adca-f963d4cebc72",
+    "usedGatePass": "429b1952-7399-430b-a471-d405548dd348",
+    "pendingMovement": "74bfffd0-84e9-428b-8a64-c3fbb6806d12",
+    "pendingInspection": "18b65213-974f-41a0-be33-93dd1cc5f6ae",
+    "pendingBooking": "0b6f2705-7ac3-4e3b-bc85-0f2315390910",
+    "progressBooking": "3b69f7cd-4709-405f-aacb-f60169ad8e52",
+    "activeHold": "cebbe7ab-c42b-4aae-a6ff-9bef9c64d681",
+    "draftServiceOrder": "95a7660b-0a34-4fbb-844d-ad1ea96caac7",
+    "rejectedAck": "4d0da4c6-1140-41e6-9473-ebf8e93b0891",
+    "resolvedEdiAlert": "593d8b61-7f48-433c-81d9-7f5f944e1e13",
+    "partnerClient": "03fdb948-3d6e-4e9f-b1c9-8c11dceda2a4",
+    "warehouse": "8a101a50-119f-4606-a97e-8cee79472477",
+    "completedHandover": "c86c3835-b8f0-42bb-8cf0-e202d28418b0",
+    "draftHandover": "467345c2-7677-42ee-9188-ec63076a983c"
+  },
+  "states": {
+    "manifest": "DRAFT",
+    "mainVisit": "EXITED",
+    "yardVisit": "IN_YARD",
+    "authorizedVisit": "AUTHORIZED",
+    "pendingVisit": "PENDING",
+    "cancelledVisit": "CANCELLED",
+    "mainMovementOrder": "AUTHORIZED",
+    "yardMovementOrder": "AUTHORIZED",
+    "authorizedMovementOrder": "AUTHORIZED",
+    "truckVisit": "IN_PROGRESS",
+    "completedMovement": "COMPLETED",
+    "cancelledMovement": "CANCELLED",
+    "completedInspection": "COMPLETED",
+    "cancelledInspection": "CANCELLED",
+    "completedBooking": "COMPLETED",
+    "cancelledBooking": "CANCELLED",
+    "releasedHold": "RELEASED",
+    "activeTariff": "ACTIVE",
+    "draftTariff": "DRAFT",
+    "invoicedServiceOrder": "INVOICED",
+    "paidInvoice": "PAID",
+    "cancelledGatePass": "CANCELLED",
+    "usedGatePass": "USED",
+    "pendingMovement": "PENDING",
+    "pendingInspection": "PENDING",
+    "pendingBooking": "PENDING",
+    "progressBooking": "IN_PROGRESS",
+    "activeHold": "ACTIVE",
+    "draftServiceOrder": "DRAFT",
+    "resolvedEdiAlert": "RESOLVED",
+    "completedHandover": "COMPLETED",
+    "draftHandover": "DRAFT"
+  },
+  "completed": true,
+  "results": [
+    {
+      "name": "POST /auth/login",
+      "status": 200,
+      "expected": [
+        200
+      ],
+      "passed": true
+    },
+    {
+      "name": "GET /containers",
+      "status": 401,
+      "expected": [
+        401
+      ],
+      "passed": true,
+      "errorCode": "AUTH_TOKEN_MISSING"
+    },
+    {
+      "name": "POST /containers",
+      "status": 400,
+      "expected": [
+        400
+      ],
+      "passed": true,
+      "errorCode": "VALIDATION_FAILED"
+    },
+    {
+      "name": "POST /admin/master-data/shipping-lines",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /admin/master-data/consignees",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /admin/master-data/clearing-agents",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /admin/master-data/transporters",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "PUT /integrations/edi/routes/15b38e58-0dad-407b-8b6c-fa82f4d46228",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /manifests",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /manifests/bc41c663-e15c-4908-a15e-babd0a3710c9/master-bls",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /manifests/bc41c663-e15c-4908-a15e-babd0a3710c9/master-bls/e5616898-be54-4947-97c4-fd65a3b35b9a/house-bls",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /manifests/bc41c663-e15c-4908-a15e-babd0a3710c9/submit",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /manifests/bc41c663-e15c-4908-a15e-babd0a3710c9/submit",
+      "status": 400,
+      "expected": [
+        400,
+        409
+      ],
+      "passed": true,
+      "errorCode": "MANIFEST_INVALID_STATE"
+    },
+    {
+      "name": "POST /containers",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/193d149a-673f-4f76-a863-b3656d1181c4/cancel",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/52a2b4f6-3020-455e-92d3-6c050657a8d9/gate-in",
+      "status": 409,
+      "expected": [
+        400,
+        409
+      ],
+      "passed": true,
+      "errorCode": "CONTAINER_INVALID_STATE"
+    },
+    {
+      "name": "POST /containers/52a2b4f6-3020-455e-92d3-6c050657a8d9/movement-orders",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /movement-orders/93e9c8ec-e845-46b4-bef3-07f8c2153666/authorize",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/13fba35b-c15e-4f89-9fd4-f78ebe04b8dd/movement-orders",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /movement-orders/1ed2bc71-8483-4e02-89f0-7b3191c40bb7/authorize",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/0038fc1b-2b84-4dd0-beec-2409e671b84b/movement-orders",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /movement-orders/a15ae97f-f916-4e0d-a79c-4a414c05c2c7/authorize",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /gate/truck-visits",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /gate/truck-visits/5930cee0-4217-4cc9-a941-c4801b2a13b3/arrive",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "GET /containers/52a2b4f6-3020-455e-92d3-6c050657a8d9/gate-in-context",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/52a2b4f6-3020-455e-92d3-6c050657a8d9/gate-in",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/13fba35b-c15e-4f89-9fd4-f78ebe04b8dd/gate-in",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/52a2b4f6-3020-455e-92d3-6c050657a8d9/gate-in",
+      "status": 409,
+      "expected": [
+        400,
+        409
+      ],
+      "passed": true,
+      "errorCode": "CONTAINER_INVALID_STATE"
+    },
+    {
+      "name": "POST /yard/blocks",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /yard/blocks/4b744dbc-15d2-4e26-b2e0-b70f5d8f80d8/slots",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /yard/blocks/4b744dbc-15d2-4e26-b2e0-b70f5d8f80d8/slots",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /yard/blocks/4b744dbc-15d2-4e26-b2e0-b70f5d8f80d8/slots",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /yard/blocks/4b744dbc-15d2-4e26-b2e0-b70f5d8f80d8/slots",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/52a2b4f6-3020-455e-92d3-6c050657a8d9/yard/check",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/52a2b4f6-3020-455e-92d3-6c050657a8d9/yard/assign",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/13fba35b-c15e-4f89-9fd4-f78ebe04b8dd/yard/check",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/13fba35b-c15e-4f89-9fd4-f78ebe04b8dd/yard/assign",
+      "status": 409,
+      "expected": [
+        400,
+        409
+      ],
+      "passed": true,
+      "errorCode": "YARD_ASSIGNMENT_BLOCKED"
+    },
+    {
+      "name": "POST /containers/13fba35b-c15e-4f89-9fd4-f78ebe04b8dd/yard/assign",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/52a2b4f6-3020-455e-92d3-6c050657a8d9/yard/movements",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /yard/movements/1bc7bfdd-a0c3-45ee-a9f3-35613baa6dd3/start",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /yard/movements/1bc7bfdd-a0c3-45ee-a9f3-35613baa6dd3/complete",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /yard/movements/1bc7bfdd-a0c3-45ee-a9f3-35613baa6dd3/complete",
+      "status": 409,
+      "expected": [
+        400,
+        409
+      ],
+      "passed": true,
+      "errorCode": "YARD_MOVEMENT_NOT_IN_PROGRESS"
+    },
+    {
+      "name": "POST /containers/52a2b4f6-3020-455e-92d3-6c050657a8d9/yard/movements",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /yard/movements/68e1c38e-e1a3-43fc-be97-376e8e76aafe/cancel",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/52a2b4f6-3020-455e-92d3-6c050657a8d9/inspections",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /inspections/3368dce0-3abb-4d1e-89dc-1ba2cee7b363/start",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /inspections/3368dce0-3abb-4d1e-89dc-1ba2cee7b363/complete",
+      "status": 400,
+      "expected": [
+        400
+      ],
+      "passed": true,
+      "errorCode": "BAD_REQUEST"
+    },
+    {
+      "name": "POST /inspections/3368dce0-3abb-4d1e-89dc-1ba2cee7b363/complete",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/52a2b4f6-3020-455e-92d3-6c050657a8d9/inspections",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /inspections/2f2a40a0-a8b7-494b-9b30-b932774bbcc8/cancel",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/52a2b4f6-3020-455e-92d3-6c050657a8d9/yard-bookings",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /yard/bookings/2e9d62f7-0b5f-40ab-ba08-6b5d9810b46f/start",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /yard/bookings/2e9d62f7-0b5f-40ab-ba08-6b5d9810b46f/complete",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/52a2b4f6-3020-455e-92d3-6c050657a8d9/yard-bookings",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /yard/bookings/12e2ab61-27e6-4463-b7c2-c33a432187df/cancel",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/52a2b4f6-3020-455e-92d3-6c050657a8d9/holds",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "GET /containers/52a2b4f6-3020-455e-92d3-6c050657a8d9/gate-pass/readiness",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/52a2b4f6-3020-455e-92d3-6c050657a8d9/holds/1665f784-582e-49bf-9a52-d7e1cf945d90/release",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/52a2b4f6-3020-455e-92d3-6c050657a8d9/gate-pass",
+      "status": 400,
+      "expected": [
+        400,
+        409
+      ],
+      "passed": true,
+      "errorCode": "GATE_PASS_NOT_READY"
+    },
+    {
+      "name": "GET /admin/service-types",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /admin/tariffs",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /admin/tariffs/430989d3-95b9-486c-910a-0859b0537bd6/rules",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /admin/tariffs/430989d3-95b9-486c-910a-0859b0537bd6/rules",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /admin/tariffs/430989d3-95b9-486c-910a-0859b0537bd6/rules",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /admin/tariffs/430989d3-95b9-486c-910a-0859b0537bd6/rules",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /admin/tariffs/430989d3-95b9-486c-910a-0859b0537bd6/rules",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /admin/tariffs/430989d3-95b9-486c-910a-0859b0537bd6/activate",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /admin/tariffs",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /service-orders/preview",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/52a2b4f6-3020-455e-92d3-6c050657a8d9/service-orders",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /service-orders/97b8cc61-0350-4894-a0bd-312ba2609f75/confirm",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /service-orders/97b8cc61-0350-4894-a0bd-312ba2609f75/invoice",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /invoices/afc81472-f75d-4156-8ff7-497496aa1b23/payments",
+      "status": 400,
+      "expected": [
+        400
+      ],
+      "passed": true,
+      "errorCode": "VALIDATION_FAILED"
+    },
+    {
+      "name": "POST /invoices/afc81472-f75d-4156-8ff7-497496aa1b23/payments",
+      "status": 400,
+      "expected": [
+        400
+      ],
+      "passed": true,
+      "errorCode": "VALIDATION_FAILED"
+    },
+    {
+      "name": "POST /invoices/afc81472-f75d-4156-8ff7-497496aa1b23/payments",
+      "status": 400,
+      "expected": [
+        400,
+        409
+      ],
+      "passed": true,
+      "errorCode": "PAYMENT_ALLOCATION_EXCEEDS_INVOICE_BALANCE"
+    },
+    {
+      "name": "POST /invoices/afc81472-f75d-4156-8ff7-497496aa1b23/payments",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "GET /invoices/afc81472-f75d-4156-8ff7-497496aa1b23",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "GET /containers/52a2b4f6-3020-455e-92d3-6c050657a8d9/gate-pass/readiness",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "Partial payment cannot release container",
+      "passed": true,
+      "evidence": {
+        "invoiceId": "afc81472-f75d-4156-8ff7-497496aa1b23",
+        "status": "PARTIALLY_PAID",
+        "ready": false
+      }
+    },
+    {
+      "name": "POST /invoices/afc81472-f75d-4156-8ff7-497496aa1b23/payments",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "GET /invoices/afc81472-f75d-4156-8ff7-497496aa1b23",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "GET /containers/52a2b4f6-3020-455e-92d3-6c050657a8d9/gate-pass/readiness",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/52a2b4f6-3020-455e-92d3-6c050657a8d9/gate-pass",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /gate-passes/e5d03369-d825-4bdb-adca-f963d4cebc72/cancel",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /gate-pass/scan",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/52a2b4f6-3020-455e-92d3-6c050657a8d9/gate-pass",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /gate-pass/scan",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /gate-out",
+      "status": 409,
+      "expected": [
+        400,
+        409
+      ],
+      "passed": true,
+      "errorCode": "GATE_PASS_VISIT_MISMATCH"
+    },
+    {
+      "name": "POST /gate-out",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /gate-out",
+      "status": 409,
+      "expected": [
+        400,
+        409
+      ],
+      "passed": true,
+      "errorCode": "GATE_PASS_ALREADY_USED"
+    },
+    {
+      "name": "GET /containers/52a2b4f6-3020-455e-92d3-6c050657a8d9",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "Canonical complete lifecycle",
+      "passed": true,
+      "evidence": {
+        "containerVisitId": "52a2b4f6-3020-455e-92d3-6c050657a8d9",
+        "state": "EXITED",
+        "invoiceId": "afc81472-f75d-4156-8ff7-497496aa1b23",
+        "invoiceStatus": "PAID",
+        "gatePassId": "429b1952-7399-430b-a471-d405548dd348",
+        "gatePassStatus": "USED"
+      }
+    },
+    {
+      "name": "POST /containers/13fba35b-c15e-4f89-9fd4-f78ebe04b8dd/yard/movements",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/13fba35b-c15e-4f89-9fd4-f78ebe04b8dd/inspections",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/13fba35b-c15e-4f89-9fd4-f78ebe04b8dd/yard-bookings",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/13fba35b-c15e-4f89-9fd4-f78ebe04b8dd/yard-bookings",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /yard/bookings/3b69f7cd-4709-405f-aacb-f60169ad8e52/start",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/13fba35b-c15e-4f89-9fd4-f78ebe04b8dd/holds",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /containers/13fba35b-c15e-4f89-9fd4-f78ebe04b8dd/service-orders",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "Durable UI operation fixtures",
+      "passed": true,
+      "evidence": {
+        "pendingMovementId": "74bfffd0-84e9-428b-8a64-c3fbb6806d12",
+        "pendingInspectionId": "18b65213-974f-41a0-be33-93dd1cc5f6ae",
+        "pendingBookingId": "0b6f2705-7ac3-4e3b-bc85-0f2315390910",
+        "progressBookingId": "3b69f7cd-4709-405f-aacb-f60169ad8e52"
+      }
+    },
+    {
+      "name": "POST /integrations/edi/dispatch",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "GET /integrations/edi/outbox?containerVisitId=52a2b4f6-3020-455e-92d3-6c050657a8d9",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "Actual canonical EDI snapshots persisted and sent via MOCK",
+      "passed": true,
+      "evidence": {
+        "ids": [
+          "5d21e31d-e7dc-4930-ae6c-25271aa74ac3",
+          "87775522-1124-4681-98ad-b2d976c6dbeb"
+        ],
+        "statuses": [
+          "SENT",
+          "SENT"
+        ],
+        "messageTypes": [
+          "CODECO_GATE_OUT",
+          "CODECO_GATE_IN"
+        ]
+      }
+    },
+    {
+      "name": "POST /integrations/edi/acks/ingest",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /integrations/edi/alerts/sync",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "GET /integrations/edi/alerts",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /integrations/edi/alerts/593d8b61-7f48-433c-81d9-7f5f944e1e13/acknowledge",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /integrations/edi/alerts/593d8b61-7f48-433c-81d9-7f5f944e1e13/resolve",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /admin/partner-clients",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /customer-warehouses",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /handovers",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /handovers/c86c3835-b8f0-42bb-8cf0-e202d28418b0/icd-confirm",
+      "status": 400,
+      "expected": [
+        400,
+        409
+      ],
+      "passed": true,
+      "errorCode": "BAD_REQUEST"
+    },
+    {
+      "name": "POST /handovers/c86c3835-b8f0-42bb-8cf0-e202d28418b0/publish",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /v1/external/handovers/c86c3835-b8f0-42bb-8cf0-e202d28418b0/accept",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /v1/external/handovers/c86c3835-b8f0-42bb-8cf0-e202d28418b0/accept",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /v1/external/handovers/c86c3835-b8f0-42bb-8cf0-e202d28418b0/accept",
+      "status": 409,
+      "expected": [
+        409
+      ],
+      "passed": true,
+      "errorCode": "IDEMPOTENCY_CONFLICT"
+    },
+    {
+      "name": "POST /v1/external/handovers/c86c3835-b8f0-42bb-8cf0-e202d28418b0/in-transit",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /v1/external/handovers/c86c3835-b8f0-42bb-8cf0-e202d28418b0/warehouse-received",
+      "status": 400,
+      "expected": [
+        400,
+        409
+      ],
+      "passed": true,
+      "errorCode": "WAREHOUSE_MISMATCH"
+    },
+    {
+      "name": "POST /v1/external/handovers/c86c3835-b8f0-42bb-8cf0-e202d28418b0/warehouse-received",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /handovers/c86c3835-b8f0-42bb-8cf0-e202d28418b0/icd-confirm",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "GET /admin/partner-api-logs",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /auth/login",
+      "status": 200,
+      "expected": [
+        200
+      ],
+      "passed": true
+    },
+    {
+      "name": "GET /containers/52a2b4f6-3020-455e-92d3-6c050657a8d9",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "GET /invoices/afc81472-f75d-4156-8ff7-497496aa1b23",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "GET /handovers/c86c3835-b8f0-42bb-8cf0-e202d28418b0",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "GET /admin/partner-api-logs?partnerApiClientId=03fdb948-3d6e-4e9f-b1c9-8c11dceda2a4",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "Persisted handover, idempotency and rejection logs verified",
+      "passed": true,
+      "evidence": {
+        "handoverId": "c86c3835-b8f0-42bb-8cf0-e202d28418b0",
+        "status": "COMPLETED",
+        "logCount": 4
+      }
+    },
+    {
+      "name": "POST /handovers",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    }
+  ],
+  "finishNote": "Resumed from durable fixture after replacing an incorrect expected log count with actual endpoint/status assertions; idempotent replay is not logged twice."
+}

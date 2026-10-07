@@ -1,0 +1,3230 @@
+{
+  "method": "Independent recorded PNG pixel counts/luminance and original clickable XML bounds divided by recorded density",
+  "colors": [
+    {
+      "name": "Light session success",
+      "contrast": 5.20586291679739,
+      "matches": true,
+      "passes_4_5": true
+    },
+    {
+      "name": "Dark session success",
+      "contrast": 6.261447724751318,
+      "matches": true,
+      "passes_4_5": true
+    },
+    {
+      "name": "Light readiness warning",
+      "contrast": 6.837002380367332,
+      "matches": true,
+      "passes_4_5": true
+    },
+    {
+      "name": "Dark readiness warning",
+      "contrast": 7.613441863650239,
+      "matches": true,
+      "passes_4_5": true
+    },
+    {
+      "name": "Dark logout fill",
+      "contrast": 6.28516456066244,
+      "matches": true,
+      "passes_4_5": true
+    },
+    {
+      "name": "Light logout fill",
+      "contrast": 6.28516456066244,
+      "matches": true,
+      "passes_4_5": true
+    },
+    {
+      "name": "Light role danger text",
+      "contrast": 5.914600426850339,
+      "matches": true,
+      "passes_4_5": true
+    },
+    {
+      "name": "Dark role danger text",
+      "contrast": 5.389131472162823,
+      "matches": true,
+      "passes_4_5": true
+    },
+    {
+      "name": "Light selected Gate-Out",
+      "contrast": 5.483924052498801,
+      "matches": true,
+      "passes_4_5": true
+    }
+  ],
+  "targets": [
+    {
+      "capture": "02-gate-in-light",
+      "label": "Chuyển sang nền tối",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "02-gate-in-light",
+      "label": "Quét mã",
+      "xml_match": true,
+      "width_dp": 53.333333333333336,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "02-gate-in-light",
+      "label": "Thông báo",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "02-gate-in-light",
+      "label": "Tài khoản và kết thúc ca",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "02-gate-in-light",
+      "label": "Tiếp nhận Vào (Gate-In)",
+      "xml_match": true,
+      "width_dp": 183.61904761904762,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "02-gate-in-light",
+      "label": "Quét Ra (Gate-Out)",
+      "xml_match": true,
+      "width_dp": 183.61904761904762,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "02-gate-in-light",
+      "label": "Số Container*",
+      "xml_match": true,
+      "width_dp": 245.71428571428572,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "02-gate-in-light",
+      "label": "Tìm hồ sơ container",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "02-gate-in-light",
+      "label": "Quét mã container",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "02-gate-in-light",
+      "label": "Tình trạng vỏ container",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 35.80952380952381,
+      "partial": true,
+      "passes": null
+    },
+    {
+      "capture": "02-gate-in-light",
+      "label": "Cổng",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "02-gate-in-light",
+      "label": "Bãi",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "02-gate-in-light",
+      "label": "Giám định",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "02-gate-in-light",
+      "label": "Tra cứu",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "02-gate-in-light",
+      "label": "Việc ca",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "03-gate-in-dark",
+      "label": "Chuyển sang nền sáng",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "03-gate-in-dark",
+      "label": "Quét mã",
+      "xml_match": true,
+      "width_dp": 53.333333333333336,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "03-gate-in-dark",
+      "label": "Thông báo",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "03-gate-in-dark",
+      "label": "Tài khoản và kết thúc ca",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "03-gate-in-dark",
+      "label": "Tiếp nhận Vào (Gate-In)",
+      "xml_match": true,
+      "width_dp": 183.61904761904762,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "03-gate-in-dark",
+      "label": "Quét Ra (Gate-Out)",
+      "xml_match": true,
+      "width_dp": 183.61904761904762,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "03-gate-in-dark",
+      "label": "Số Container*",
+      "xml_match": true,
+      "width_dp": 245.71428571428572,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "03-gate-in-dark",
+      "label": "Tìm hồ sơ container",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "03-gate-in-dark",
+      "label": "Quét mã container",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "03-gate-in-dark",
+      "label": "Tình trạng vỏ container",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 35.80952380952381,
+      "partial": true,
+      "passes": null
+    },
+    {
+      "capture": "03-gate-in-dark",
+      "label": "Cổng",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "03-gate-in-dark",
+      "label": "Bãi",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "03-gate-in-dark",
+      "label": "Giám định",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "03-gate-in-dark",
+      "label": "Tra cứu",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "03-gate-in-dark",
+      "label": "Việc ca",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "04-account-dark",
+      "label": "Quay lại",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "04-account-dark",
+      "label": "Chuyển sang nền sáng",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "04-account-dark",
+      "label": "Quét mã",
+      "xml_match": true,
+      "width_dp": 53.333333333333336,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "04-account-dark",
+      "label": "Thông báo",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "04-account-dark",
+      "label": "Tài khoản và kết thúc ca",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "04-account-dark",
+      "label": "Xem quyền được cấp",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "04-account-dark",
+      "label": "Kiểm tra kết nối máy chủ",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "04-account-dark",
+      "label": "Đổi sang nền sáng",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "05-account-bottom-dark",
+      "label": "Quay lại",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "05-account-bottom-dark",
+      "label": "Chuyển sang nền sáng",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "05-account-bottom-dark",
+      "label": "Quét mã",
+      "xml_match": true,
+      "width_dp": 53.333333333333336,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "05-account-bottom-dark",
+      "label": "Thông báo",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "05-account-bottom-dark",
+      "label": "Tài khoản và kết thúc ca",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "05-account-bottom-dark",
+      "label": "Xem quyền được cấp",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "05-account-bottom-dark",
+      "label": "Kiểm tra kết nối máy chủ",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "05-account-bottom-dark",
+      "label": "Đổi sang nền sáng",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "05-account-bottom-dark",
+      "label": "Đăng xuất tài khoản",
+      "xml_match": true,
+      "width_dp": 383.23809523809524,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "06-logout-dark",
+      "label": "Đóng hộp thoại",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "06-logout-dark",
+      "label": "Đăng xuất",
+      "xml_match": true,
+      "width_dp": 345.14285714285717,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "06-logout-dark",
+      "label": "Quay lại",
+      "xml_match": true,
+      "width_dp": 345.14285714285717,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "07-logout-light",
+      "label": "Đóng hộp thoại",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "07-logout-light",
+      "label": "Đăng xuất",
+      "xml_match": true,
+      "width_dp": 345.14285714285717,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "07-logout-light",
+      "label": "Quay lại",
+      "xml_match": true,
+      "width_dp": 345.14285714285717,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "08-lookup-light",
+      "label": "Chuyển sang nền tối",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "08-lookup-light",
+      "label": "Quét mã",
+      "xml_match": true,
+      "width_dp": 53.333333333333336,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "08-lookup-light",
+      "label": "Thông báo",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "08-lookup-light",
+      "label": "Tài khoản và kết thúc ca",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "08-lookup-light",
+      "label": "Số container",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "08-lookup-light",
+      "label": "Tìm kiếm container",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "08-lookup-light",
+      "label": "Cổng",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "08-lookup-light",
+      "label": "Bãi",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "08-lookup-light",
+      "label": "Giám định",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "08-lookup-light",
+      "label": "Tra cứu",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "08-lookup-light",
+      "label": "Việc ca",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "09-lookup-results-light",
+      "label": "Chuyển sang nền tối",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "09-lookup-results-light",
+      "label": "Quét mã",
+      "xml_match": true,
+      "width_dp": 53.333333333333336,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "09-lookup-results-light",
+      "label": "Thông báo",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "09-lookup-results-light",
+      "label": "Tài khoản và kết thúc ca",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "09-lookup-results-light",
+      "label": "Số container",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "09-lookup-results-light",
+      "label": "busy",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "09-lookup-results-light",
+      "label": "QAOU4835930, IN_YARD, 45G1 · Công ty Cổ phần Sản xuất & Kinh doanh VinFast",
+      "xml_match": true,
+      "width_dp": 383.23809523809524,
+      "height_dp": 126.47619047619048,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "09-lookup-results-light",
+      "label": "Cổng",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "09-lookup-results-light",
+      "label": "Bãi",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "09-lookup-results-light",
+      "label": "Giám định",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "09-lookup-results-light",
+      "label": "Tra cứu",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "09-lookup-results-light",
+      "label": "Việc ca",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "10-container-detail-light",
+      "label": "Quay lại",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "10-container-detail-light",
+      "label": "Chuyển sang nền tối",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "10-container-detail-light",
+      "label": "Quét mã",
+      "xml_match": true,
+      "width_dp": 53.333333333333336,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "10-container-detail-light",
+      "label": "Thông báo",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "10-container-detail-light",
+      "label": "Tài khoản và kết thúc ca",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "10-container-detail-light",
+      "label": "Cổng",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "10-container-detail-light",
+      "label": "Bãi",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "10-container-detail-light",
+      "label": "Giám định",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "10-container-detail-light",
+      "label": "Tra cứu",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "10-container-detail-light",
+      "label": "Việc ca",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "11-container-readiness-light",
+      "label": "Quay lại",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "11-container-readiness-light",
+      "label": "Chuyển sang nền tối",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "11-container-readiness-light",
+      "label": "Quét mã",
+      "xml_match": true,
+      "width_dp": 53.333333333333336,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "11-container-readiness-light",
+      "label": "Thông báo",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "11-container-readiness-light",
+      "label": "Tài khoản và kết thúc ca",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "11-container-readiness-light",
+      "label": "Cổng",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "11-container-readiness-light",
+      "label": "Bãi",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "11-container-readiness-light",
+      "label": "Giám định",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "11-container-readiness-light",
+      "label": "Tra cứu",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "11-container-readiness-light",
+      "label": "Việc ca",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "12-container-readiness-dark",
+      "label": "Quay lại",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "12-container-readiness-dark",
+      "label": "Chuyển sang nền sáng",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "12-container-readiness-dark",
+      "label": "Quét mã",
+      "xml_match": true,
+      "width_dp": 53.333333333333336,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "12-container-readiness-dark",
+      "label": "Thông báo",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "12-container-readiness-dark",
+      "label": "Tài khoản và kết thúc ca",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "12-container-readiness-dark",
+      "label": "Cổng",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "12-container-readiness-dark",
+      "label": "Bãi",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "12-container-readiness-dark",
+      "label": "Giám định",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "12-container-readiness-dark",
+      "label": "Tra cứu",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "12-container-readiness-dark",
+      "label": "Việc ca",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "13-survey-dark",
+      "label": "Chuyển sang nền sáng",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "13-survey-dark",
+      "label": "Quét mã",
+      "xml_match": true,
+      "width_dp": 53.333333333333336,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "13-survey-dark",
+      "label": "Thông báo",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "13-survey-dark",
+      "label": "Tài khoản và kết thúc ca",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "13-survey-dark",
+      "label": "Loại giám định",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "13-survey-dark",
+      "label": "Số Container*",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "13-survey-dark",
+      "label": "Nội dung ghi nhận*",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 74.28571428571429,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "13-survey-dark",
+      "label": "Nhẹ",
+      "xml_match": true,
+      "width_dp": 113.9047619047619,
+      "height_dp": 46.476190476190474,
+      "partial": true,
+      "passes": null
+    },
+    {
+      "capture": "13-survey-dark",
+      "label": "Trung bình",
+      "xml_match": true,
+      "width_dp": 113.52380952380952,
+      "height_dp": 46.476190476190474,
+      "partial": true,
+      "passes": null
+    },
+    {
+      "capture": "13-survey-dark",
+      "label": "Nặng",
+      "xml_match": true,
+      "width_dp": 113.9047619047619,
+      "height_dp": 46.476190476190474,
+      "partial": true,
+      "passes": null
+    },
+    {
+      "capture": "13-survey-dark",
+      "label": "Cổng",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "13-survey-dark",
+      "label": "Bãi",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "13-survey-dark",
+      "label": "Giám định",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "13-survey-dark",
+      "label": "Tra cứu",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "13-survey-dark",
+      "label": "Việc ca",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "14-picker-dark",
+      "label": "Đóng danh sách",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "14-picker-dark",
+      "label": "Giám định hư hỏng",
+      "xml_match": true,
+      "width_dp": 343.6190476190476,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "14-picker-dark",
+      "label": "Kiểm tra seal",
+      "xml_match": true,
+      "width_dp": 343.6190476190476,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "14-picker-dark",
+      "label": "Kiểm tra tình trạng",
+      "xml_match": true,
+      "width_dp": 343.6190476190476,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "15-picker-light",
+      "label": "Đóng danh sách",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "15-picker-light",
+      "label": "Giám định hư hỏng",
+      "xml_match": true,
+      "width_dp": 343.6190476190476,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "15-picker-light",
+      "label": "Kiểm tra seal",
+      "xml_match": true,
+      "width_dp": 343.6190476190476,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "15-picker-light",
+      "label": "Kiểm tra tình trạng",
+      "xml_match": true,
+      "width_dp": 343.6190476190476,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "16-survey-bottom-light",
+      "label": "Chuyển sang nền tối",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "16-survey-bottom-light",
+      "label": "Quét mã",
+      "xml_match": true,
+      "width_dp": 53.333333333333336,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "16-survey-bottom-light",
+      "label": "Thông báo",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "16-survey-bottom-light",
+      "label": "Tài khoản và kết thúc ca",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "16-survey-bottom-light",
+      "label": "Loại giám định",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "16-survey-bottom-light",
+      "label": "Số Container*",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "16-survey-bottom-light",
+      "label": "Nội dung ghi nhận*",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 74.28571428571429,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "16-survey-bottom-light",
+      "label": "Nhẹ",
+      "xml_match": true,
+      "width_dp": 113.9047619047619,
+      "height_dp": 46.476190476190474,
+      "partial": true,
+      "passes": null
+    },
+    {
+      "capture": "16-survey-bottom-light",
+      "label": "Trung bình",
+      "xml_match": true,
+      "width_dp": 113.52380952380952,
+      "height_dp": 46.476190476190474,
+      "partial": true,
+      "passes": null
+    },
+    {
+      "capture": "16-survey-bottom-light",
+      "label": "Nặng",
+      "xml_match": true,
+      "width_dp": 113.9047619047619,
+      "height_dp": 46.476190476190474,
+      "partial": true,
+      "passes": null
+    },
+    {
+      "capture": "16-survey-bottom-light",
+      "label": "Cổng",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "16-survey-bottom-light",
+      "label": "Bãi",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "16-survey-bottom-light",
+      "label": "Giám định",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "16-survey-bottom-light",
+      "label": "Tra cứu",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "16-survey-bottom-light",
+      "label": "Việc ca",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "17-survey-scrolled-light",
+      "label": "Chuyển sang nền tối",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "17-survey-scrolled-light",
+      "label": "Quét mã",
+      "xml_match": true,
+      "width_dp": 53.333333333333336,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "17-survey-scrolled-light",
+      "label": "Thông báo",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "17-survey-scrolled-light",
+      "label": "Tài khoản và kết thúc ca",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "17-survey-scrolled-light",
+      "label": "Loại giám định",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": -57.904761904761905,
+      "partial": true,
+      "passes": null
+    },
+    {
+      "capture": "17-survey-scrolled-light",
+      "label": "Số Container*",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 23.238095238095237,
+      "partial": true,
+      "passes": null
+    },
+    {
+      "capture": "17-survey-scrolled-light",
+      "label": "Nội dung ghi nhận*",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 74.28571428571429,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "17-survey-scrolled-light",
+      "label": "Nhẹ",
+      "xml_match": true,
+      "width_dp": 113.9047619047619,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "17-survey-scrolled-light",
+      "label": "Trung bình",
+      "xml_match": true,
+      "width_dp": 113.52380952380952,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "17-survey-scrolled-light",
+      "label": "Nặng",
+      "xml_match": true,
+      "width_dp": 113.9047619047619,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "17-survey-scrolled-light",
+      "label": "Gửi biên bản Giám định",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "17-survey-scrolled-light",
+      "label": "QAOU4835930, Hoàn tất, Kết quả: PASS · Đạt giám định., MOBILE-YARD-QA: Kiểm tra tình trạng container QA cục bộ, seal nguyên và vỏ không hư hỏng.\nKết quả kiểm định: MOBILE-YARD-QA: PASS, seal nguyên và vỏ đạt sau kiểm tra trực tiếp.",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 134.0952380952381,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "17-survey-scrolled-light",
+      "label": "QAOU5007565, Hoàn tất, Kết quả: PASS · Đạt giám định., WEB-YARD-QA: PASS sau kiểm tra màu vàng, không còn việc đang mở",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 10.285714285714286,
+      "partial": true,
+      "passes": null
+    },
+    {
+      "capture": "17-survey-scrolled-light",
+      "label": "Cổng",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "17-survey-scrolled-light",
+      "label": "Bãi",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "17-survey-scrolled-light",
+      "label": "Giám định",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "17-survey-scrolled-light",
+      "label": "Tra cứu",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "17-survey-scrolled-light",
+      "label": "Việc ca",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "18-scanner-light",
+      "label": "Đóng màn quét",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "18-scanner-light",
+      "label": "Bật đèn",
+      "xml_match": true,
+      "width_dp": 102.47619047619048,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "18-scanner-light",
+      "label": "Nhập mã thủ công",
+      "xml_match": true,
+      "width_dp": 256.76190476190476,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "19-scanner-dark",
+      "label": "Đóng màn quét",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "19-scanner-dark",
+      "label": "Bật đèn",
+      "xml_match": true,
+      "width_dp": 102.47619047619048,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "19-scanner-dark",
+      "label": "Nhập mã thủ công",
+      "xml_match": true,
+      "width_dp": 256.76190476190476,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "20-yard-dark",
+      "label": "Chuyển sang nền sáng",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "20-yard-dark",
+      "label": "Quét mã",
+      "xml_match": true,
+      "width_dp": 53.333333333333336,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "20-yard-dark",
+      "label": "Thông báo",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "20-yard-dark",
+      "label": "Tài khoản và kết thúc ca",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "20-yard-dark",
+      "label": "Chọn Container cần xếp/dời vị trí",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "20-yard-dark",
+      "label": "Gợi ý vị trí trống",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "20-yard-dark",
+      "label": "Kiểm tra vị trí nhập tay",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "20-yard-dark",
+      "label": "Danh sách tác nghiệp và đặt lịch",
+      "xml_match": true,
+      "width_dp": 383.23809523809524,
+      "height_dp": 44.57142857142857,
+      "partial": true,
+      "passes": null
+    },
+    {
+      "capture": "20-yard-dark",
+      "label": "Cổng",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "20-yard-dark",
+      "label": "Bãi",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "20-yard-dark",
+      "label": "Giám định",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "20-yard-dark",
+      "label": "Tra cứu",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "20-yard-dark",
+      "label": "Việc ca",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "21-yard-map-dark",
+      "label": "Chuyển sang nền sáng",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "21-yard-map-dark",
+      "label": "Quét mã",
+      "xml_match": true,
+      "width_dp": 53.333333333333336,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "21-yard-map-dark",
+      "label": "Thông báo",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "21-yard-map-dark",
+      "label": "Tài khoản và kết thúc ca",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "21-yard-map-dark",
+      "label": "Kiểm tra vị trí nhập tay",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 3.8095238095238093,
+      "partial": true,
+      "passes": null
+    },
+    {
+      "capture": "21-yard-map-dark",
+      "label": "Danh sách tác nghiệp và đặt lịch",
+      "xml_match": true,
+      "width_dp": 383.23809523809524,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "21-yard-map-dark",
+      "label": "Block A",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "21-yard-map-dark",
+      "label": "Block B",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "21-yard-map-dark",
+      "label": "Block C",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "21-yard-map-dark",
+      "label": "Block D",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "21-yard-map-dark",
+      "label": "Tier 1",
+      "xml_match": true,
+      "width_dp": 52.19047619047619,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "21-yard-map-dark",
+      "label": "Tier 2",
+      "xml_match": true,
+      "width_dp": 52.19047619047619,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "21-yard-map-dark",
+      "label": "Slot A-01-01-1, Có container, TCSU8849201",
+      "xml_match": true,
+      "width_dp": 104.0,
+      "height_dp": 20.19047619047619,
+      "partial": true,
+      "passes": null
+    },
+    {
+      "capture": "21-yard-map-dark",
+      "label": "Slot A-01-02-1, Có container, GLDU5739201",
+      "xml_match": true,
+      "width_dp": 104.0,
+      "height_dp": 20.19047619047619,
+      "partial": true,
+      "passes": null
+    },
+    {
+      "capture": "21-yard-map-dark",
+      "label": "Slot A-01-03-1, Có container, VFCU7482910",
+      "xml_match": true,
+      "width_dp": 63.61904761904762,
+      "height_dp": 20.19047619047619,
+      "partial": true,
+      "passes": null
+    },
+    {
+      "capture": "21-yard-map-dark",
+      "label": "Cổng",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "21-yard-map-dark",
+      "label": "Bãi",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "21-yard-map-dark",
+      "label": "Giám định",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "21-yard-map-dark",
+      "label": "Tra cứu",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "21-yard-map-dark",
+      "label": "Việc ca",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "22-yard-grid-dark",
+      "label": "Chuyển sang nền sáng",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "22-yard-grid-dark",
+      "label": "Quét mã",
+      "xml_match": true,
+      "width_dp": 53.333333333333336,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "22-yard-grid-dark",
+      "label": "Thông báo",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "22-yard-grid-dark",
+      "label": "Tài khoản và kết thúc ca",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "22-yard-grid-dark",
+      "label": "Block A",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "22-yard-grid-dark",
+      "label": "Block B",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "22-yard-grid-dark",
+      "label": "Block C",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "22-yard-grid-dark",
+      "label": "Block D",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "22-yard-grid-dark",
+      "label": "Tier 1",
+      "xml_match": true,
+      "width_dp": 52.19047619047619,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "22-yard-grid-dark",
+      "label": "Tier 2",
+      "xml_match": true,
+      "width_dp": 52.19047619047619,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "22-yard-grid-dark",
+      "label": "Slot A-01-01-1, Có container, TCSU8849201",
+      "xml_match": true,
+      "width_dp": 104.0,
+      "height_dp": 64.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "22-yard-grid-dark",
+      "label": "Slot A-01-02-1, Có container, GLDU5739201",
+      "xml_match": true,
+      "width_dp": 104.0,
+      "height_dp": 64.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "22-yard-grid-dark",
+      "label": "Slot A-01-03-1, Có container, VFCU7482910",
+      "xml_match": true,
+      "width_dp": 63.61904761904762,
+      "height_dp": 64.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "22-yard-grid-dark",
+      "label": "Slot A-02-01-1, Slot trống",
+      "xml_match": true,
+      "width_dp": 104.0,
+      "height_dp": 64.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "22-yard-grid-dark",
+      "label": "Slot A-02-02-1, Có container, QAOU6004067",
+      "xml_match": true,
+      "width_dp": 104.0,
+      "height_dp": 64.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "22-yard-grid-dark",
+      "label": "Slot A-02-03-1, Có container, QAOU4835930",
+      "xml_match": true,
+      "width_dp": 63.61904761904762,
+      "height_dp": 64.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "22-yard-grid-dark",
+      "label": "Cổng",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "22-yard-grid-dark",
+      "label": "Bãi",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "22-yard-grid-dark",
+      "label": "Giám định",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "22-yard-grid-dark",
+      "label": "Tra cứu",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "22-yard-grid-dark",
+      "label": "Việc ca",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "23-yard-slot-dark",
+      "label": "Đóng chi tiết slot",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "23-yard-slot-dark",
+      "label": "Mở chi tiết container",
+      "xml_match": true,
+      "width_dp": 345.5238095238095,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "24-yard-grid-light",
+      "label": "Chuyển sang nền sáng",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "24-yard-grid-light",
+      "label": "Quét mã",
+      "xml_match": true,
+      "width_dp": 53.333333333333336,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "24-yard-grid-light",
+      "label": "Thông báo",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "24-yard-grid-light",
+      "label": "Tài khoản và kết thúc ca",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "24-yard-grid-light",
+      "label": "Block A",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "24-yard-grid-light",
+      "label": "Block B",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "24-yard-grid-light",
+      "label": "Block C",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "24-yard-grid-light",
+      "label": "Block D",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "24-yard-grid-light",
+      "label": "Tier 1",
+      "xml_match": true,
+      "width_dp": 52.19047619047619,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "24-yard-grid-light",
+      "label": "Tier 2",
+      "xml_match": true,
+      "width_dp": 52.19047619047619,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "24-yard-grid-light",
+      "label": "Slot A-01-01-1, Có container, TCSU8849201",
+      "xml_match": true,
+      "width_dp": 104.0,
+      "height_dp": 64.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "24-yard-grid-light",
+      "label": "Slot A-01-02-1, Có container, GLDU5739201",
+      "xml_match": true,
+      "width_dp": 104.0,
+      "height_dp": 64.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "24-yard-grid-light",
+      "label": "Slot A-01-03-1, Có container, VFCU7482910",
+      "xml_match": true,
+      "width_dp": 63.61904761904762,
+      "height_dp": 64.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "24-yard-grid-light",
+      "label": "Slot A-02-01-1, Slot trống",
+      "xml_match": true,
+      "width_dp": 104.0,
+      "height_dp": 64.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "24-yard-grid-light",
+      "label": "Slot A-02-02-1, Có container, QAOU6004067",
+      "xml_match": true,
+      "width_dp": 104.0,
+      "height_dp": 64.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "24-yard-grid-light",
+      "label": "Slot A-02-03-1, Có container, QAOU4835930",
+      "xml_match": true,
+      "width_dp": 63.61904761904762,
+      "height_dp": 64.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "24-yard-grid-light",
+      "label": "Cổng",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "24-yard-grid-light",
+      "label": "Bãi",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "24-yard-grid-light",
+      "label": "Giám định",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "24-yard-grid-light",
+      "label": "Tra cứu",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "24-yard-grid-light",
+      "label": "Việc ca",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "25-yard-slot-light",
+      "label": "Đóng chi tiết slot",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "25-yard-slot-light",
+      "label": "Mở chi tiết container",
+      "xml_match": true,
+      "width_dp": 345.5238095238095,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-320-gate-light",
+      "label": "Chuyển sang nền tối",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-320-gate-light",
+      "label": "Quét mã",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-320-gate-light",
+      "label": "Thông báo",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-320-gate-light",
+      "label": "Tài khoản và kết thúc ca",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-320-gate-light",
+      "label": "Tiếp nhận Vào (Gate-In)",
+      "xml_match": true,
+      "width_dp": 137.9047619047619,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-320-gate-light",
+      "label": "Quét Ra (Gate-Out)",
+      "xml_match": true,
+      "width_dp": 137.9047619047619,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-320-gate-light",
+      "label": "Số Container*",
+      "xml_match": true,
+      "width_dp": 154.28571428571428,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-320-gate-light",
+      "label": "Tìm hồ sơ container",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-320-gate-light",
+      "label": "Quét mã container",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-320-gate-light",
+      "label": "Cổng",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-320-gate-light",
+      "label": "Bãi",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-320-gate-light",
+      "label": "Giám định",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-320-gate-light",
+      "label": "Tra cứu",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-320-gate-light",
+      "label": "Việc ca",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-pre-narrow-current",
+      "label": "Chuyển sang nền tối",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-pre-narrow-current",
+      "label": "Quét mã",
+      "xml_match": true,
+      "width_dp": 53.333333333333336,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-pre-narrow-current",
+      "label": "Thông báo",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-pre-narrow-current",
+      "label": "Tài khoản và kết thúc ca",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-pre-narrow-current",
+      "label": "Tiếp nhận Vào (Gate-In)",
+      "xml_match": true,
+      "width_dp": 183.61904761904762,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-pre-narrow-current",
+      "label": "Quét Ra (Gate-Out)",
+      "xml_match": true,
+      "width_dp": 183.61904761904762,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-pre-narrow-current",
+      "label": "Số Container*",
+      "xml_match": true,
+      "width_dp": 245.71428571428572,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-pre-narrow-current",
+      "label": "Tìm hồ sơ container",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-pre-narrow-current",
+      "label": "Quét mã container",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-pre-narrow-current",
+      "label": "Tình trạng vỏ container",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 35.80952380952381,
+      "partial": true,
+      "passes": null
+    },
+    {
+      "capture": "26-pre-narrow-current",
+      "label": "Cổng",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-pre-narrow-current",
+      "label": "Bãi",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-pre-narrow-current",
+      "label": "Giám định",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-pre-narrow-current",
+      "label": "Tra cứu",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "26-pre-narrow-current",
+      "label": "Việc ca",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "27-320-gate-out-light",
+      "label": "Chuyển sang nền tối",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "27-320-gate-out-light",
+      "label": "Quét mã",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "27-320-gate-out-light",
+      "label": "Thông báo",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "27-320-gate-out-light",
+      "label": "Tài khoản và kết thúc ca",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "27-320-gate-out-light",
+      "label": "Tiếp nhận Vào (Gate-In)",
+      "xml_match": true,
+      "width_dp": 137.9047619047619,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "27-320-gate-out-light",
+      "label": "Quét Ra (Gate-Out)",
+      "xml_match": true,
+      "width_dp": 137.9047619047619,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "27-320-gate-out-light",
+      "label": "Nội dung QR đầy đủ *",
+      "xml_match": true,
+      "width_dp": 262.0952380952381,
+      "height_dp": 74.28571428571429,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "27-320-gate-out-light",
+      "label": "Kiểm tra phiếu & readiness",
+      "xml_match": true,
+      "width_dp": 262.0952380952381,
+      "height_dp": 70.47619047619048,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "27-320-gate-out-light",
+      "label": "Quét QR bằng camera",
+      "xml_match": true,
+      "width_dp": 262.0952380952381,
+      "height_dp": 35.80952380952381,
+      "partial": true,
+      "passes": null
+    },
+    {
+      "capture": "27-320-gate-out-light",
+      "label": "Cổng",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "27-320-gate-out-light",
+      "label": "Bãi",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "27-320-gate-out-light",
+      "label": "Giám định",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "27-320-gate-out-light",
+      "label": "Tra cứu",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "27-320-gate-out-light",
+      "label": "Việc ca",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "28-320-scanner-light",
+      "label": "Đóng màn quét",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "28-320-scanner-light",
+      "label": "Bật đèn",
+      "xml_match": true,
+      "width_dp": 123.42857142857143,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "28-320-scanner-light",
+      "label": "Nhập mã thủ công",
+      "xml_match": true,
+      "width_dp": 144.38095238095238,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "29-320-survey-light",
+      "label": "Chuyển sang nền tối",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "29-320-survey-light",
+      "label": "Quét mã",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "29-320-survey-light",
+      "label": "Thông báo",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "29-320-survey-light",
+      "label": "Tài khoản và kết thúc ca",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "29-320-survey-light",
+      "label": "Loại giám định",
+      "xml_match": true,
+      "width_dp": 262.0952380952381,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "29-320-survey-light",
+      "label": "Số Container*",
+      "xml_match": true,
+      "width_dp": 262.0952380952381,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "29-320-survey-light",
+      "label": "Nội dung ghi nhận*",
+      "xml_match": true,
+      "width_dp": 262.0952380952381,
+      "height_dp": 40.38095238095238,
+      "partial": true,
+      "passes": null
+    },
+    {
+      "capture": "29-320-survey-light",
+      "label": "Cổng",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "29-320-survey-light",
+      "label": "Bãi",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "29-320-survey-light",
+      "label": "Giám định",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "29-320-survey-light",
+      "label": "Tra cứu",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "29-320-survey-light",
+      "label": "Việc ca",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "30-320-picker-light",
+      "label": "Đóng danh sách",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "30-320-picker-light",
+      "label": "Giám định hư hỏng",
+      "xml_match": true,
+      "width_dp": 252.1904761904762,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "30-320-picker-light",
+      "label": "Kiểm tra seal",
+      "xml_match": true,
+      "width_dp": 252.1904761904762,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "30-320-picker-light",
+      "label": "Kiểm tra tình trạng",
+      "xml_match": true,
+      "width_dp": 252.1904761904762,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "31-320-survey-dark",
+      "label": "Chuyển sang nền sáng",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "31-320-survey-dark",
+      "label": "Quét mã",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "31-320-survey-dark",
+      "label": "Thông báo",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "31-320-survey-dark",
+      "label": "Tài khoản và kết thúc ca",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "31-320-survey-dark",
+      "label": "Loại giám định",
+      "xml_match": true,
+      "width_dp": 262.0952380952381,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "31-320-survey-dark",
+      "label": "Số Container*",
+      "xml_match": true,
+      "width_dp": 262.0952380952381,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "31-320-survey-dark",
+      "label": "Nội dung ghi nhận*",
+      "xml_match": true,
+      "width_dp": 262.0952380952381,
+      "height_dp": 40.38095238095238,
+      "partial": true,
+      "passes": null
+    },
+    {
+      "capture": "31-320-survey-dark",
+      "label": "Cổng",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "31-320-survey-dark",
+      "label": "Bãi",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "31-320-survey-dark",
+      "label": "Giám định",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "31-320-survey-dark",
+      "label": "Tra cứu",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "31-320-survey-dark",
+      "label": "Việc ca",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "32-320-picker-dark",
+      "label": "Đóng danh sách",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "32-320-picker-dark",
+      "label": "Giám định hư hỏng",
+      "xml_match": true,
+      "width_dp": 252.1904761904762,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "32-320-picker-dark",
+      "label": "Kiểm tra seal",
+      "xml_match": true,
+      "width_dp": 252.1904761904762,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "32-320-picker-dark",
+      "label": "Kiểm tra tình trạng",
+      "xml_match": true,
+      "width_dp": 252.1904761904762,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "33-320-account-dark",
+      "label": "Quay lại",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "33-320-account-dark",
+      "label": "Chuyển sang nền sáng",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "33-320-account-dark",
+      "label": "Quét mã",
+      "xml_match": true,
+      "width_dp": 64.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "33-320-account-dark",
+      "label": "Thông báo",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "33-320-account-dark",
+      "label": "Tài khoản và kết thúc ca",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "33-320-account-dark",
+      "label": "Xem quyền được cấp",
+      "xml_match": true,
+      "width_dp": 262.0952380952381,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "34-320-logout-dark",
+      "label": "Đóng hộp thoại",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "34-320-logout-dark",
+      "label": "Đăng xuất",
+      "xml_match": true,
+      "width_dp": 253.71428571428572,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "34-320-logout-dark",
+      "label": "Quay lại",
+      "xml_match": true,
+      "width_dp": 253.71428571428572,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "35-320-logout-light",
+      "label": "Đóng hộp thoại",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "35-320-logout-light",
+      "label": "Đăng xuất",
+      "xml_match": true,
+      "width_dp": 253.71428571428572,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "35-320-logout-light",
+      "label": "Quay lại",
+      "xml_match": true,
+      "width_dp": 253.71428571428572,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "36-restored-final-light",
+      "label": "Chuyển sang nền tối",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "36-restored-final-light",
+      "label": "Quét mã",
+      "xml_match": true,
+      "width_dp": 53.333333333333336,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "36-restored-final-light",
+      "label": "Thông báo",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "36-restored-final-light",
+      "label": "Tài khoản và kết thúc ca",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "36-restored-final-light",
+      "label": "Tiếp nhận Vào (Gate-In)",
+      "xml_match": true,
+      "width_dp": 183.61904761904762,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "36-restored-final-light",
+      "label": "Quét Ra (Gate-Out)",
+      "xml_match": true,
+      "width_dp": 183.61904761904762,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "36-restored-final-light",
+      "label": "Số Container*",
+      "xml_match": true,
+      "width_dp": 245.71428571428572,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "36-restored-final-light",
+      "label": "Tìm hồ sơ container",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "36-restored-final-light",
+      "label": "Quét mã container",
+      "xml_match": true,
+      "width_dp": 48.0,
+      "height_dp": 48.0,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "36-restored-final-light",
+      "label": "Tình trạng vỏ container",
+      "xml_match": true,
+      "width_dp": 353.5238095238095,
+      "height_dp": 35.80952380952381,
+      "partial": true,
+      "passes": null
+    },
+    {
+      "capture": "36-restored-final-light",
+      "label": "Cổng",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "36-restored-final-light",
+      "label": "Bãi",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "36-restored-final-light",
+      "label": "Giám định",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "36-restored-final-light",
+      "label": "Tra cứu",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    },
+    {
+      "capture": "36-restored-final-light",
+      "label": "Việc ca",
+      "xml_match": true,
+      "width_dp": 82.28571428571429,
+      "height_dp": 56.76190476190476,
+      "partial": false,
+      "passes": true
+    }
+  ],
+  "status": "PASS"
+}

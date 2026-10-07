@@ -1,0 +1,73 @@
+{
+  "phase": "notifications-read",
+  "checkedAt": "2026-10-02T01:54:21.816Z",
+  "users": [
+    {
+      "email": "gate@icd.local",
+      "total": 3,
+      "unreadCount": 1,
+      "qaNotifications": [
+        {
+          "id": "10497ced-8525-4350-b8e4-d62e6a910f77",
+          "type": "GATE_OUT_COMPLETED",
+          "title": "Container QAOU1882075 Gate-Out Completed",
+          "deepLink": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947",
+          "sourceId": "f6482365-ae79-4ae3-9dec-efecd8f04947",
+          "readAt": null
+        },
+        {
+          "id": "fccf879c-37f8-45c4-9d45-4daa5379a034",
+          "type": "GATE_OUT_COMPLETED",
+          "title": "Container QAOU5007550 Gate-Out Completed",
+          "deepLink": "/containers/eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "sourceId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "readAt": "2026-10-02T01:13:41.793Z"
+        },
+        {
+          "id": "f7d15eee-4b20-4596-b732-a4832c668aa7",
+          "type": "WORK_QUEUE_GATE_IN",
+          "title": "Việc nhận cổng mới: QAOU1882075",
+          "deepLink": "/tasks/gate-in/f6482365-ae79-4ae3-9dec-efecd8f04947",
+          "sourceId": "f6482365-ae79-4ae3-9dec-efecd8f04947",
+          "readAt": "2026-10-02T01:11:22.177Z"
+        }
+      ]
+    },
+    {
+      "email": "yard@icd.local",
+      "total": 0,
+      "unreadCount": 0,
+      "qaNotifications": []
+    },
+    {
+      "email": "operator@icd.local",
+      "total": 1,
+      "unreadCount": 0,
+      "qaNotifications": [
+        {
+          "id": "dcd808f3-8558-4cd4-9239-72430d6fa81a",
+          "type": "INSPECTION_HOLD",
+          "title": "Giám định HOLD: Container QAOU5007570",
+          "deepLink": "/inspections/cd79419f-3f37-49b3-9e49-b0b53a445b86",
+          "sourceId": "cd79419f-3f37-49b3-9e49-b0b53a445b86",
+          "readAt": "2026-10-02T01:31:40.167Z"
+        }
+      ]
+    },
+    {
+      "email": "docs@icd.local",
+      "total": 1,
+      "unreadCount": 1,
+      "qaNotifications": [
+        {
+          "id": "1c87ee08-b93d-4d36-b366-836463bf8fba",
+          "type": "INSPECTION_HOLD",
+          "title": "Giám định HOLD: Container QAOU5007570",
+          "deepLink": "/inspections/cd79419f-3f37-49b3-9e49-b0b53a445b86",
+          "sourceId": "cd79419f-3f37-49b3-9e49-b0b53a445b86",
+          "readAt": null
+        }
+      ]
+    }
+  ]
+}

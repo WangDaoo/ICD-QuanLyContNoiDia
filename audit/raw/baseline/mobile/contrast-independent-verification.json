@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "method": "Independent read-only RGB pixel/count and WCAG luminance calculation from recorded screenshot rectangles",
+  "results": [
+    {
+      "name": "Light session success text",
+      "screenshot": "audit/screenshots/baseline/mobile/01-gate-out-light.png",
+      "contrast": 3.577119430816408,
+      "foreground_pixels": 987,
+      "background_pixels": 8112,
+      "matches_recorded_measurement": true
+    },
+    {
+      "name": "Dark logout text",
+      "screenshot": "audit/screenshots/baseline/mobile/54-logout-confirm-dark.png",
+      "contrast": 2.6914147371969004,
+      "foreground_pixels": 1234,
+      "background_pixels": 92506,
+      "matches_recorded_measurement": true
+    },
+    {
+      "name": "Light logout text",
+      "screenshot": "audit/screenshots/baseline/mobile/52-logout-confirm-light.png",
+      "contrast": 4.829404522659002,
+      "foreground_pixels": 1562,
+      "background_pixels": 92506,
+      "matches_recorded_measurement": true
+    },
+    {
+      "name": "Light readiness warning text",
+      "screenshot": "audit/screenshots/baseline/mobile/07-container-detail-light.png",
+      "contrast": 3.072120267157449,
+      "foreground_pixels": 2102,
+      "background_pixels": 17285,
+      "matches_recorded_measurement": true
+    },
+    {
+      "name": "Dark session success text",
+      "screenshot": "audit/screenshots/baseline/mobile/37-workqueue-dark.png",
+      "contrast": 6.261447724751318,
+      "foreground_pixels": 987,
+      "background_pixels": 8112,
+      "matches_recorded_measurement": true
+    },
+    {
+      "name": "Light body text",
+      "screenshot": "audit/screenshots/baseline/mobile/03-yard-light.png",
+      "contrast": 17.85253496299567,
+      "foreground_pixels": 3731,
+      "background_pixels": 57438,
+      "matches_recorded_measurement": true
+    },
+    {
+      "name": "Dark body text",
+      "screenshot": "audit/screenshots/baseline/mobile/19-survey-dark.png",
+      "contrast": 15.548940498393227,
+      "foreground_pixels": 4299,
+      "background_pixels": 56713,
+      "matches_recorded_measurement": true
+    }
+  ]
+}

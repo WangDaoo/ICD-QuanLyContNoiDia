@@ -1,0 +1,22 @@
+{
+  "status": "FIXED",
+  "change": "Header/action/tab labels wrap at narrow widths and retain font scaling.",
+  "source_evidence": [
+    {
+      "file": "apps/mobile/src/navigation/ResponsiveTabBar.tsx",
+      "line": 9,
+      "detail": "export function",
+      "snippet": "export function ResponsiveTabBar({ state, descriptors, navigation, visibleTabs }: BottomTabBarProps & { visibleTabs: Array<keyof MainTabParamList> }) {\n  const { theme } = useTheme();\n  const insets = useSafeAreaInsets();\n  const [keyboardOpen, setKeyboardOpen] = useState(false);"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+  ],
+  "limitations": "FIXED; actual native font150/200%, keyboard and safe-area matrix still pending.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/navigation/ResponsiveTabBar.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

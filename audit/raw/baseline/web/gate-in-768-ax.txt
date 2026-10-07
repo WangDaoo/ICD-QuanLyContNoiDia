@@ -1,0 +1,66 @@
+Browser tab: 20, Title: "ICD Management System — Quản lý Kho bãi Container Nội địa", URL: "http://127.0.0.1:5173/".
+0 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/
+	1 container root
+		2 container
+			3 text ICD
+			4 heading ICD Management System, Value: 1
+				5 text ICD Management System
+			6 text Cảng cạn & kho bãi container nội địa
+			7 button Tải lại dữ liệu
+			8 button (collapsed) Description: Thông báo (0 chưa đọc), Secondary Actions: Expand
+			10 button Đăng xuất
+		11 container Điều hướng nghiệp vụ
+			226 text TỔNG QUAN & ĐIỀU PHỐI
+			227 button Tổng quan vận hành
+			228 button Danh sách công việc
+			229 text QUẢN LÝ HÀNG HÓA & CỔNG
+			230 button Bản lược khai (Manifest)
+			231 button Quản lý Container
+			232 button Movement Order
+			233 button Chuyến xe ra/vào
+			234 button Tiếp nhận vào cổng (Gate-in)
+			235 button Vận hành Bãi (Yard)
+			236 text TÀI CHÍNH & RA CỔNG
+			237 button Dịch vụ & Thanh toán
+			238 button Phiếu ra cổng & Gate-out
+			239 button Vận hành EDI (CODECO)
+			240 text TÍCH HỢP ĐỐI TÁC
+			241 button Bàn giao vận chuyển
+			242 button Đối tác tích hợp API
+			243 button Nhật ký API đối tác
+			244 text HỆ THỐNG & QUẢN TRỊ
+			245 button Danh mục dùng chung
+			246 button Người dùng & Phân quyền
+			247 button Báo cáo vận hành
+			248 button Nhật ký kiểm toán
+			36 text System Administrator
+			37 text admin@icd.local
+			38 text ADMIN
+		39 container
+			249 heading Tiếp nhận container vào cổng, Value: 2
+				250 text Tiếp nhận container vào cổng
+			251 text Đối chiếu xe đã đến, seal và trọng lượng thực tế trước khi tiếp nhận.
+			252 container
+				253 text Container chờ tiếp nhận
+				254 pop up button (collapsed, settable) Container chờ tiếp nhận, Value: Chọn container, Secondary Actions: Expand
+					255 menu
+						256 (selected) Chọn container
+						257 HACU2938475 · AUTHORIZED
+			258 container
+				259 text Chuyến xe đã đến cổng
+				260 pop up button (collapsed, settable) Chuyến xe đã đến cổng, Value: Chọn xe ARRIVED, Secondary Actions: Expand
+					261 menu
+						262 (selected) Chọn xe ARRIVED
+			263 container
+				264 text Seal thực tế
+				265 text field (settable) Seal thực tế
+			266 container
+				267 text Trọng lượng thực tế (kg)
+				268 stepper (settable) Trọng lượng thực tế (kg)
+			269 container
+				270 text Ghi chú tình trạng container
+				271 text entry area (settable) Ghi chú tình trạng container
+			272 button (disabled) Xác nhận gate-in
+			273 button Xem chuyến xe
+
+The focused UI element is 234 button Tiếp nhận vào cổng (Gate-in)

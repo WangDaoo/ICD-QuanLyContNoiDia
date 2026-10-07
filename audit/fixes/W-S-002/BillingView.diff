@@ -1,0 +1,83 @@
+diff --git "a/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\before\\apps\\web\\src\\components\\BillingView.tsx" "b/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\after\\apps\\web\\src\\components\\BillingView.tsx"
+index 52d98a9..6118efd 100644
+--- "a/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\before\\apps\\web\\src\\components\\BillingView.tsx"	
++++ "b/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\after\\apps\\web\\src\\components\\BillingView.tsx"	
+@@ -424,17 +424,17 @@ export const BillingView: React.FC<BillingViewProps> = ({ onNavigate, targetVisi
+             <h3 id="billing-dialog-1-title" className="text-base font-bold text-slate-900 mb-4">Tạo Bảng giá mới</h3>
+             <div className="space-y-3">
+               <div>
+-                <label className="block font-semibold text-slate-700 mb-1">Tên bảng giá*</label>
+-                <input value={tariffName} onChange={(e) => setTariffName(e.target.value)} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
++                <label htmlFor="billing-tariff-name" className="block font-semibold text-slate-700 mb-1">Tên bảng giá*</label>
++                <input id="billing-tariff-name" value={tariffName} onChange={(e) => setTariffName(e.target.value)} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
+               </div>
+               <div className="grid grid-cols-2 gap-3">
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">Hiệu lực từ*</label>
+-                  <input type="date" value={tariffFrom} onChange={(e) => setTariffFrom(e.target.value)} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
++                  <label htmlFor="billing-tariff-from" className="block font-semibold text-slate-700 mb-1">Hiệu lực từ*</label>
++                  <input id="billing-tariff-from" type="date" value={tariffFrom} onChange={(e) => setTariffFrom(e.target.value)} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
+                 </div>
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">Hiệu lực đến</label>
+-                  <input type="date" value={tariffTo} onChange={(e) => setTariffTo(e.target.value)} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
++                  <label htmlFor="billing-tariff-to" className="block font-semibold text-slate-700 mb-1">Hiệu lực đến</label>
++                  <input id="billing-tariff-to" type="date" value={tariffTo} onChange={(e) => setTariffTo(e.target.value)} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
+                 </div>
+               </div>
+             </div>
+@@ -462,8 +462,8 @@ export const BillingView: React.FC<BillingViewProps> = ({ onNavigate, targetVisi
+             <h3 id="billing-dialog-2-title" className="text-base font-bold text-slate-900 mb-4">Thêm Quy tắc giá</h3>
+             <div className="space-y-3">
+               <div>
+-                <label className="block font-semibold text-slate-700 mb-1">Mã loại dịch vụ*</label>
+-                <select value={ruleForm.serviceType} onChange={(e) => setRuleForm({ ...ruleForm, serviceType: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white">
++                <label htmlFor="billing-rule-form-service-type" className="block font-semibold text-slate-700 mb-1">Mã loại dịch vụ*</label>
++                <select id="billing-rule-form-service-type" value={ruleForm.serviceType} onChange={(e) => setRuleForm({ ...ruleForm, serviceType: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white">
+                   <option value="RECEPTION">RECEPTION — Tiếp nhận</option>
+                   <option value="STORAGE">STORAGE — Lưu bãi</option>
+                   <option value="MOVEMENT">MOVEMENT — Di chuyển nội bãi</option>
+@@ -474,8 +474,8 @@ export const BillingView: React.FC<BillingViewProps> = ({ onNavigate, targetVisi
+               <p className="text-slate-500">Tên dịch vụ và đơn vị tính lấy từ danh mục. Quy tắc này áp dụng mọi kích thước và loại container.</p>
+               <div className="grid grid-cols-2 gap-3">
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">Đơn giá (VNĐ)</label>
+-                  <input type="number" value={ruleForm.unitPriceVnd} onChange={(e) => setRuleForm({ ...ruleForm, unitPriceVnd: Number(e.target.value) })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
++                  <label htmlFor="billing-rule-form-unit-price-vnd" className="block font-semibold text-slate-700 mb-1">Đơn giá (VNĐ)</label>
++                  <input id="billing-rule-form-unit-price-vnd" type="number" value={ruleForm.unitPriceVnd} onChange={(e) => setRuleForm({ ...ruleForm, unitPriceVnd: Number(e.target.value) })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
+                 </div>
+               </div>
+             </div>
+@@ -503,8 +503,8 @@ export const BillingView: React.FC<BillingViewProps> = ({ onNavigate, targetVisi
+             <h3 id="billing-dialog-3-title" className="text-base font-bold text-slate-900 mb-4">Tạo Đơn dịch vụ (Service Order) mới</h3>
+             <form onSubmit={handleCreateSo} className="space-y-4">
+               <div>
+-                <label className="block font-semibold text-slate-700 mb-1">Chọn Container*</label>
+-                <select
++                <label htmlFor="billing-selected-visit-id" className="block font-semibold text-slate-700 mb-1">Chọn Container*</label>
++                <select id="billing-selected-visit-id"
+                   value={selectedVisitId}
+                   onChange={(e) => setSelectedVisitId(e.target.value)}
+                   className="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono font-bold bg-white"
+@@ -553,8 +553,8 @@ export const BillingView: React.FC<BillingViewProps> = ({ onNavigate, targetVisi
+ 
+             <form onSubmit={handleRecordPayment} aria-busy={isPaying} className="space-y-4">
+               <div>
+-                <label className="block font-semibold text-slate-700 mb-1">Số tiền thanh toán (VNĐ)*</label>
+-                <input
++                <label htmlFor="billing-pay-amount" className="block font-semibold text-slate-700 mb-1">Số tiền thanh toán (VNĐ)*</label>
++                <input id="billing-pay-amount"
+                   type="number"
+                   required
+                   value={payAmount}
+@@ -567,8 +567,8 @@ export const BillingView: React.FC<BillingViewProps> = ({ onNavigate, targetVisi
+               </div>
+ 
+               <div>
+-                <label className="block font-semibold text-slate-700 mb-1">Phương thức thanh toán*</label>
+-                <select
++                <label htmlFor="billing-pay-method" className="block font-semibold text-slate-700 mb-1">Phương thức thanh toán*</label>
++                <select id="billing-pay-method"
+                   value={payMethod}
+                   disabled={isPaying}
+                   onChange={(e) => {

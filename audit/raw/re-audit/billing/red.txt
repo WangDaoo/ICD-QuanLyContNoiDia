@@ -1,0 +1,78 @@
+✖ W-S-005: duplicate submits before React commits invoke one delayed command (555.3153ms)
+✖ W-S-005: pending payment locks fields and synchronous cancellation (125.0918ms)
+✖ W-S-005: recoverable command result preserves values and permits a deliberate retry (115.7637ms)
+✖ W-S-005: rejected command keeps values, reports failure, and releases the guard (66.342ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 0
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5662.4004
+
+✖ failing tests:
+
+test at audit\raw\re-audit\billing\billing-payment.test.cjs:89:1
+✖ W-S-005: duplicate submits before React commits invoke one delayed command (555.3153ms)
+  AssertionError [ERR_ASSERTION]: Repeated submit before a React commit must invoke exactly one payment command
+  
+  2 !== 1
+  
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\raw\re-audit\billing\billing-payment.test.cjs:94:12)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\raw\re-audit\billing\billing-payment.test.cjs:103:1
+✖ W-S-005: pending payment locks fields and synchronous cancellation (125.0918ms)
+  TypeError: Cannot set properties of undefined (setting 'value')
+      at Object.setMethod (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\raw\re-audit\billing\billing-payment.test.cjs:82:20)
+      at D:\Project\Đồ Án 4 +Mobile\icd-management\audit\raw\re-audit\billing\billing-payment.test.cjs:112:12
+      at process.env.NODE_ENV.exports.act (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react@19.2.3\node_modules\react\cjs\react.development.js:814:22)
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\raw\re-audit\billing\billing-payment.test.cjs:108:5)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+
+test at audit\raw\re-audit\billing\billing-payment.test.cjs:130:1
+✖ W-S-005: recoverable command result preserves values and permits a deliberate retry (115.7637ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Recoverable fixture refusal/. Input:
+  
+  ''
+  
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\raw\re-audit\billing\billing-payment.test.cjs:146:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: /Recoverable fixture refusal/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at audit\raw\re-audit\billing\billing-payment.test.cjs:157:1
+✖ W-S-005: rejected command keeps values, reports failure, and releases the guard (66.342ms)
+  Error: Recoverable rejected fixture
+      at D:\Project\Đồ Án 4 +Mobile\icd-management\audit\raw\re-audit\billing\billing-payment.test.cjs:164:42
+      at process.env.NODE_ENV.exports.act (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react@19.2.3\node_modules\react\cjs\react.development.js:814:22)
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\raw\re-audit\billing\billing-payment.test.cjs:164:11)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)

@@ -1,0 +1,9 @@
+{
+  "url": "http://127.0.0.1:5174/app/master-data",
+  "globalReadPending": "true",
+  "confirmedRenderedRow": "Maersk Line (A.P. Moller)\tMAEU\tACTIVE\tKhóa",
+  "tableRows": 24,
+  "configuredDelayMs": 5000,
+  "slowResource": "GET /api/containers",
+  "scope": "Fresh reload; actual known shipping-line row visible while global read pending, not an empty/skeleton row"
+}

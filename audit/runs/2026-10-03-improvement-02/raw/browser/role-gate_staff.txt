@@ -1,0 +1,116 @@
+- link "Đến nội dung nghiệp vụ":
+  - /url: "#main-content"
+- banner:
+  - generic: ICD
+  - heading "ICD Management System" [level=1]
+  - paragraph: Cảng cạn & kho bãi container nội địa
+  - text: 2 lệnh giữ
+  - text: Đã kết nối
+  - button "Tải lại dữ liệu":
+  - button "Thông báo (7 chưa đọc)":
+  - generic: UI Audit GATE_STAFF
+  - generic: GATE_STAFF
+  - button "Đăng xuất":
+- complementary "Điều hướng nghiệp vụ":
+  - generic: Tổng quan & Điều phối
+  - button "Tổng quan vận hành":
+    - generic: Tổng quan vận hành
+  - button "Danh sách công việc 2":
+    - generic: Danh sách công việc
+    - generic: "2"
+  - generic: Quản lý Hàng hóa & Cổng
+  - button "Quản lý Container":
+    - generic: Quản lý Container
+  - button "Movement Order":
+    - generic: Movement Order
+  - button "Chuyến xe ra/vào":
+    - generic: Chuyến xe ra/vào
+  - button "Tiếp nhận vào cổng (Gate-in)":
+    - generic: Tiếp nhận vào cổng (Gate-in)
+  - generic: Tài chính & Ra cổng
+  - button "Phiếu ra cổng & Gate-out":
+    - generic: Phiếu ra cổng & Gate-out
+  - generic: Tích hợp đối tác
+  - button "Bàn giao vận chuyển":
+    - generic: Bàn giao vận chuyển
+  - generic: Hệ thống & Quản trị
+  - button "Danh mục dùng chung":
+    - generic: Danh mục dùng chung
+  - generic: UI Audit GATE_STAFF
+  - generic: ui-gate_staff@audit.icd.test
+  - generic: GATE_STAFF
+- main:
+  - heading "Có 2 tác vụ QUÁ HẠN SLA trong Danh sách công việc!" [level=2]
+  - paragraph: Tiếp nhận cổng cho container AUDU0424946 | Tiếp nhận cổng cho container AUDU2384586
+  - button "Xử lý ngay →"
+  - generic: Container trong Bãi
+  - generic: "12"
+  - generic: / — vị trí
+  - alert:
+    - paragraph: Bạn không có quyền xem dữ liệu này.
+  - generic: Cần xử lý (Work Queue)
+  - generic: "2"
+  - generic: 2 Quá hạn SLA
+  - generic: "Độ ưu tiên cao:"
+  - generic: 0 tác vụ
+  - button "Xem danh sách công việc →"
+  - generic: Doanh thu & Công nợ
+  - alert:
+    - paragraph: Bạn không có quyền xem dữ liệu này.
+  - generic: Phiếu Ra Cổng & Xuất Bãi
+  - generic: "0"
+  - generic: 2 đã xuất cổng
+  - generic: "Sẵn sàng ra cổng:"
+  - generic: Kiểm tra phiếu & điều kiện
+  - button "Quản lý Phiếu ra cổng & Gate-out →"
+  - heading "Hoạt động Cổng & Chuyến xe (Truck Visits)" [level=2]
+  - paragraph: Lịch hẹn Gate Appointment và tình trạng tiếp nhận
+  - button "Xem tất cả":
+    - generic: Xem tất cả
+  - generic: AUDITQR1003
+  - generic: ·
+  - generic: Synthetic QR Audit Driver
+  - generic: "AUD25157BF4 Audit Transporter · Cont: AUDU4246647"
+  - generic: COMPLETED
+  - generic: AUDIT
+  - generic: AUD25157BF4
+  - generic: ·
+  - generic: Synthetic Audit Driver
+  - generic: "AUD25157BF4 Audit Transporter · Cont: AUDU2384565, AUDU2384570, AUDU2384586"
+  - generic: IN_PROGRESS
+  - generic: AUDIT
+  - generic: AUDD174DD12
+  - generic: ·
+  - generic: Synthetic Audit Driver
+  - generic: "AUDD174DD12 Audit Transporter · Cont: AUDU0424925, AUDU0424930, AUDU0424946"
+  - generic: IN_PROGRESS
+  - generic: AUDIT
+  - heading "Cảnh báo thời gian lưu bãi Chưa kiểm tra" [level=2]:
+    - generic: Cảnh báo thời gian lưu bãi
+    - generic: Chưa kiểm tra
+  - paragraph: Container gần hoặc vượt ngưỡng cảnh báo từ backend. Phí thực tế xem tại Dịch vụ & Thanh toán.
+  - alert:
+    - paragraph: Bạn không có quyền xem dữ liệu này.
+  - heading "Kiểm soát Lệnh Giữ (Operational Holds)" [level=2]:
+    - generic: Kiểm soát Lệnh Giữ (Operational Holds)
+  - generic: 2 đang khóa
+  - paragraph: Các chốt chặn kiểm soát pháp lý, hải quan, cước hãng tàu và hư hỏng trước khi cho phép ra cổng.
+  - generic: AUDU2384570
+  - generic: CUSTOMS
+  - generic: Synthetic active UI fixture
+  - generic: Đang giữ
+  - generic: AUDU2384565
+  - generic: DOCUMENT
+  - generic: Synthetic audit hold
+  - generic: Đã gỡ
+  - generic: AUDU0424930
+  - generic: CUSTOMS
+  - generic: Synthetic active UI fixture
+  - generic: Đang giữ
+  - button "Kiểm tra điều kiện xuất cổng (Readiness) →"
+  - heading "Vận hành EDI (CODECO)" [level=2]:
+    - generic: Vận hành EDI (CODECO)
+  - generic: Shipping Lines
+  - paragraph: Thông điệp gửi tự động cho hãng tàu khi Gate-in và Gate-out thành công.
+  - alert:
+    - paragraph: Bạn không có quyền xem dữ liệu này.

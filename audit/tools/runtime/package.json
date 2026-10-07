@@ -1,0 +1,16 @@
+{
+  "name": "icd-audit-runtime",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Isolated read-only audit tooling; not an application dependency",
+  "type": "module",
+  "dependencies": {
+    "axe-core": "4.13.0",
+    "colorjs.io": "0.7.1",
+    "jsdom": "30.1.1",
+    "lighthouse": "13.5.0",
+    "playwright": "1.63.0",
+    "tsx": "4.23.15",
+    "web-vitals": "6.2.2"
+  }
+}

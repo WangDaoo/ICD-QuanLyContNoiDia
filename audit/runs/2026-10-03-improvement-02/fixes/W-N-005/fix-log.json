@@ -1,0 +1,21 @@
+{
+  "status": "VERIFIED",
+  "change": "Require boolean true; false/string/object/missing scan flags issue zero writes.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/context/AppContext.tsx",
+      "line": 653,
+      "detail": "scan.canGateOut",
+      "snippet": "        if (scan.canGateOut !== true) return { success: false, message: 'Chưa đủ điều kiện xuất cổng: ' + asStrings(readiness.blockers).join(', ') };\n        const result = await command('/gate-out', { visitId: scan.visitId ?? asOptionalString(scanPass.containerVisitId) ?? knownPass?.containerVisitId, qrToken: token });\n        return { ...result, containerNumber: asOptionalString(scanContainer.containerNumber) };\n      } catch (error: unknown) { return { success: false, message: errorMessage(error) }; }"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/web-types-independent-checkpoint.md"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Meaningful RED/GREEN source regression; real API only if explicitly linked.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/context/AppContext.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

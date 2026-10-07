@@ -1,0 +1,34 @@
+✔ forbidden dashboard metrics never pretend zero revenue or zero yard capacity (310.45ms)
+✖ report sections distinguish unavailable source data from real zero totals (22.7038ms)
+✔ loading dashboard metrics do not show numeric zero; stale values are explicitly labelled (63.0666ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 2
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4880.224
+
+✖ failing tests:
+
+test at audit\tools\dashboard-resource-regression.test.mjs:23:1
+✖ report sections distinguish unavailable source data from real zero totals (22.7038ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /0 TEU|0\.0M ₫|0 \/ 0 vị trí|0 chuyến/. Input:
+  
+  'Báo cáo Quản trị & Phân tích Hoạt động ICD (Analytics & Reports)Tổng hợp hồ sơ container hiện có, công suất bãi, thời gian lưu bãi và số tiền đã thuTổng sản lượng TEU0 TEUTính trên các hồ sơ container hiện cóTỷ lệ lấp đầy bãi0%0 / 0 vị trí đang sử dụngDoanh thu thu về0.0M ₫Tổng xuất HĐ: 0.0M ₫Chuyến bàn giao ngoại ICD0 chuyếnSố hồ sơ bàn giao đã lưuPhân bổ Sản lượng TEU theo Hãng tàuTình trạng Container Trong Bãi (Yard Dwell Time)Lưu bãi 0–2 ngày0 container · 0%Lưu bãi 3–7 ngày0 container · 0%Lưu bãi từ 8 ngày0 container · 0%Tính từ ngày vào cổng của container còn trong ICD. Phí thực tế xem tại Dịch vụ & Thanh toán.'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/dashboard-resource-regression.test.mjs:25:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Báo cáo Quản trị & Phân tích Hoạt động ICD (Analytics & Reports)Tổng hợp hồ sơ container hiện có, công suất bãi, thời gian lưu bãi và số tiền đã thuTổng sản lượng TEU0 TEUTính trên các hồ sơ container hiện cóTỷ lệ lấp đầy bãi0%0 / 0 vị trí đang sử dụngDoanh thu thu về0.0M ₫Tổng xuất HĐ: 0.0M ₫Chuyến bàn giao ngoại ICD0 chuyếnSố hồ sơ bàn giao đã lưuPhân bổ Sản lượng TEU theo Hãng tàuTình trạng Container Trong Bãi (Yard Dwell Time)Lưu bãi 0–2 ngày0 container · 0%Lưu bãi 3–7 ngày0 container · 0%Lưu bãi từ 8 ngày0 container · 0%Tính từ ngày vào cổng của container còn trong ICD. Phí thực tế xem tại Dịch vụ & Thanh toán.',
+    expected: /0 TEU|0\.0M ₫|0 \/ 0 vị trí|0 chuyến/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }

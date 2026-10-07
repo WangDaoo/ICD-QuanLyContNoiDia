@@ -1,0 +1,11 @@
+import { Text, View } from 'react-native';
+import { Field, useFieldStyles } from './ScreenLayout';
+import { useTheme } from '../theme/ThemeProvider';
+export function BookingDateField({ value, onChange, disabled, error }: { value: string; onChange: (value: string) => void; disabled?: boolean; error?: string }) {
+  const styles = useFieldStyles();
+  const { theme } = useTheme();
+  return <View style={{ gap: theme.spacing.sm }}>
+    <Field label="Lịch thực hiện (giờ Việt Nam)*" value={value} onChangeText={onChange} editable={!disabled} error={error} placeholder="YYYY-MM-DD HH:mm" accessibilityHint="Nhập năm-tháng-ngày và giờ-phút, giờ Việt Nam UTC+7" />
+    <Text style={styles.muted}>Nhập YYYY-MM-DD HH:mm, ví dụ 2026-10-03 09:30. Giờ Việt Nam (UTC+7). Trên Android/iOS dùng bộ chọn ngày và giờ.</Text>
+  </View>;
+}

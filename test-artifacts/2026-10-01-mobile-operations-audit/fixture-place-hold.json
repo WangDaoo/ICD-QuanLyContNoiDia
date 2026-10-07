@@ -1,0 +1,37 @@
+{
+  "phase": "place-hold",
+  "alias": "yard",
+  "checkedAt": "2026-10-02T00:43:42.264Z",
+  "checks": [
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c/yard/operations/active-summary",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c/holds",
+      "status": 201,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/operational-holds/db00e863-7a3c-4a9f-820b-8892e3713b5c",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c/gate-pass/readiness",
+      "status": 200,
+      "expectedStatus": "2xx"
+    }
+  ]
+}

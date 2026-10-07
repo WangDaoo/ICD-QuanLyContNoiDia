@@ -1,0 +1,61 @@
+{
+  "phase": "notifications-read",
+  "alias": "yard",
+  "checkedAt": "2026-10-02T01:54:21.813Z",
+  "checks": [
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/notifications/history?page=1&pageSize=100",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/notifications/history?page=1&pageSize=100",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/notifications/history?page=1&pageSize=100",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/notifications/history?page=1&pageSize=100",
+      "status": 200,
+      "expectedStatus": "2xx"
+    }
+  ]
+}

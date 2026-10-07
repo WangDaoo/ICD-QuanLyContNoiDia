@@ -1,0 +1,53 @@
+Browser tab: 22, Title: "ICD Management System — Quản lý Kho bãi Container Nội địa", URL: "http://127.0.0.1:5173/".
+1 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/
+	2 container root
+		41 container
+			42 text ICD
+			43 heading ICD Management System, Value: 1
+				44 text ICD Management System
+			45 text Cảng cạn & kho bãi container nội địa 1 lệnh giữ Đã kết nối
+			46 button Tải lại dữ liệu
+			47 button (collapsed) Description: Thông báo (0 chưa đọc), Secondary Actions: Expand
+			48 text System Administrator ADMIN
+			49 button Đăng xuất
+		12 container Điều hướng nghiệp vụ
+			13 container
+				14 text TỔNG QUAN & ĐIỀU PHỐI
+				15 button Tổng quan vận hành
+				16 button Danh sách công việc
+				17 text QUẢN LÝ HÀNG HÓA & CỔNG
+				18 button Bản lược khai (Manifest)
+				19 button Quản lý Container
+				20 button Movement Order
+				21 button Chuyến xe ra/vào
+				22 button Tiếp nhận vào cổng (Gate-in)
+				23 button Vận hành Bãi (Yard)
+				24 text TÀI CHÍNH & RA CỔNG
+				25 button Dịch vụ & Thanh toán
+				26 button Phiếu ra cổng & Gate-out
+				27 button Vận hành EDI (CODECO)
+				28 text TÍCH HỢP ĐỐI TÁC
+				29 button Bàn giao vận chuyển
+				30 button Đối tác tích hợp API
+				31 button Nhật ký API đối tác
+				32 text HỆ THỐNG & QUẢN TRỊ
+				33 button Danh mục dùng chung
+				34 button Người dùng & Phân quyền
+				35 button Báo cáo vận hành
+				36 button Nhật ký kiểm toán
+			37 text System Administrator
+			38 text admin@icd.local
+			39 text ADMIN
+		40 container
+			50 heading Đối tác Tích hợp API Vận chuyển (Mô đun 13), Value: 2
+				51 text Đối tác Tích hợp API Vận chuyển (Mô đun 13)
+			52 text Quản lý API Key, phân quyền phạm vi (Scopes), cơ chế xoay vòng khóa bí mật (Rotation) và mã băm SHA-256 an toàn
+			53 button Thêm Đối tác API mới
+			54 text Local QA Transport QA-1790837623372 REVOKED Masked API Key: icd_live_•••••••••••• 9736 Băm SHA-256: Quyền (Scopes): handover.read handover.accept handover.transit handover.confirm_warehouse Yêu cầu gần nhất: 13:53:43 1/10/2026
+			55 button Xoay vòng Khóa (Rotate Key)
+			56 text Tổng Công ty Giao nhận Kho vận VinaTrans VINATRANS_EXPRESS ACTIVE Masked API Key: icd_live_•••••••••••• 3F88 Băm SHA-256: Quyền (Scopes): handover.read handover.accept handover.transit handover.confirm_warehouse handover.failure Yêu cầu gần nhất: Chưa có cuộc gọi nào
+			57 button Xoay vòng Khóa (Rotate Key)
+			58 text Công ty Cổ phần Vận tải & Tiếp vận ABC ABC_LOGISTICS ACTIVE Masked API Key: icd_live_•••••••••••• 9A4F Băm SHA-256: Quyền (Scopes): handover.read handover.accept handover.transit handover.confirm_warehouse Yêu cầu gần nhất: Chưa có cuộc gọi nào
+			59 button Xoay vòng Khóa (Rotate Key)
+
+The focused UI element is 30 button Đối tác tích hợp API

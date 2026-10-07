@@ -1,0 +1,26 @@
+{
+  "appOverflow": "hidden",
+  "bodyOverflow": "hidden",
+  "dialog": "billing-dialog-1-title",
+  "fields": [
+    {
+      "aria": null,
+      "id": "billing-tariff-name",
+      "label": "Tên bảng giá*"
+    },
+    {
+      "aria": null,
+      "id": "billing-tariff-from",
+      "label": "Hiệu lực từ*"
+    },
+    {
+      "aria": null,
+      "id": "billing-tariff-to",
+      "label": "Hiệu lực đến"
+    }
+  ],
+  "focus": "billing-tariff-name",
+  "inside": true,
+  "modal": true,
+  "name": "Tạo Bảng giá mới"
+}

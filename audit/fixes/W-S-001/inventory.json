@@ -1,0 +1,137 @@
+[
+  {
+    "file": "apps/web/src/components/ManifestsView.tsx",
+    "dialogIndex": 1,
+    "title": "Tạo Bản lược khai (Manifest) mới",
+    "onClose": "() => setShowCreateModal(false)",
+    "name": "aria-labelledby=\"manifests-dialog-1-title\"",
+    "pending": null,
+    "opener": "Tạo Manifest mới"
+  },
+  {
+    "file": "apps/web/src/components/ManifestsView.tsx",
+    "dialogIndex": 2,
+    "title": "Thêm Master BL vào {selectedManifest.manifestNo}",
+    "onClose": "() => setShowMblModal(false)",
+    "name": "aria-labelledby=\"manifests-dialog-2-title\"",
+    "pending": null,
+    "opener": "+ Master BL (selected DRAFT Manifest)"
+  },
+  {
+    "file": "apps/web/src/components/ManifestsView.tsx",
+    "dialogIndex": 3,
+    "title": "Thêm House BL",
+    "onClose": "() => setShowHblModal(null)",
+    "name": "aria-labelledby=\"manifests-dialog-3-title\"",
+    "pending": null,
+    "opener": "+ House BL (selected DRAFT Manifest, existing Master BL)"
+  },
+  {
+    "file": "apps/web/src/components/ContainersView.tsx",
+    "dialogIndex": 1,
+    "title": "{activeVisit.containerNumber}",
+    "onClose": "() => setActiveModalVisitId(null)",
+    "name": "aria-label={`Container 360 ${activeVisit.containerNumber}`}",
+    "pending": null,
+    "opener": "Chi tiết (container row)"
+  },
+  {
+    "file": "apps/web/src/components/ContainersView.tsx",
+    "dialogIndex": 2,
+    "title": "Tạo Container Visit thủ công",
+    "onClose": "() => setShowCreateVisit(false)",
+    "name": "aria-labelledby=\"containers-dialog-2-title\"",
+    "pending": null,
+    "opener": "Tạo Container Visit"
+  },
+  {
+    "file": "apps/web/src/components/TruckVisitsView.tsx",
+    "dialogIndex": 1,
+    "title": "Tạo Lịch hẹn Chuyến xe (Truck Visit)",
+    "onClose": "() => setShowCreateModal(false)",
+    "name": "aria-labelledby=\"truck-visits-dialog-1-title\"",
+    "pending": null,
+    "opener": "Tạo Chuyến xe mới"
+  },
+  {
+    "file": "apps/web/src/components/BillingView.tsx",
+    "dialogIndex": 1,
+    "title": "Tạo Bảng giá mới",
+    "onClose": "() => setShowTariffModal(false)",
+    "name": "aria-labelledby=\"billing-dialog-1-title\"",
+    "pending": null,
+    "opener": "Tạo Bảng giá (Tariff), tariff tab"
+  },
+  {
+    "file": "apps/web/src/components/BillingView.tsx",
+    "dialogIndex": 2,
+    "title": "Thêm Quy tắc giá",
+    "onClose": "() => setShowRuleModal(null)",
+    "name": "aria-labelledby=\"billing-dialog-2-title\"",
+    "pending": null,
+    "opener": "+ Quy tắc giá, tariff card"
+  },
+  {
+    "file": "apps/web/src/components/BillingView.tsx",
+    "dialogIndex": 3,
+    "title": "Tạo Đơn dịch vụ (Service Order) mới",
+    "onClose": "() => setShowCreateSoModal(false)",
+    "name": "aria-labelledby=\"billing-dialog-3-title\"",
+    "pending": null,
+    "opener": "Tạo Đơn dịch vụ (Service Order)"
+  },
+  {
+    "file": "apps/web/src/components/BillingView.tsx",
+    "dialogIndex": 4,
+    "title": "Ghi nhận Thanh toán Hóa đơn",
+    "onClose": "closePaymentModal",
+    "name": "aria-labelledby=\"billing-dialog-4-title\"",
+    "pending": " pending={isPaying}",
+    "opener": "Ghi nhận Thanh toán, unpaid/part-paid invoice"
+  },
+  {
+    "file": "apps/web/src/components/GatePassView.tsx",
+    "dialogIndex": 1,
+    "title": "Phát hành Phiếu ra cổng (Gate Pass)",
+    "onClose": "() => setShowIssueModal(false)",
+    "name": "aria-labelledby=\"gate-pass-dialog-1-title\"",
+    "pending": null,
+    "opener": "Cấp Phiếu ra cổng mới"
+  },
+  {
+    "file": "apps/web/src/components/HandoversView.tsx",
+    "dialogIndex": 1,
+    "title": "Tạo lệnh bàn giao vận chuyển ngoài",
+    "onClose": "() => setShowCreateModal(false)",
+    "name": "aria-labelledby=\"handovers-dialog-1-title\"",
+    "pending": null,
+    "opener": "Tạo Lệnh Bàn giao mới"
+  },
+  {
+    "file": "apps/web/src/components/MasterDataView.tsx",
+    "dialogIndex": 1,
+    "title": "Thêm {tabs.find((t) => t.id === tab)?.label}",
+    "onClose": "() => setShowForm(false)",
+    "name": "aria-labelledby=\"master-data-dialog-1-title\"",
+    "pending": null,
+    "opener": "Thêm mới (current master data category)"
+  },
+  {
+    "file": "apps/web/src/components/UsersRolesView.tsx",
+    "dialogIndex": 1,
+    "title": "Thêm người dùng",
+    "onClose": "() => setShowUserForm(false)",
+    "name": "aria-labelledby=\"users-roles-dialog-1-title\"",
+    "pending": null,
+    "opener": "Thêm người dùng, users tab"
+  },
+  {
+    "file": "apps/web/src/components/PartnerManagementView.tsx",
+    "dialogIndex": 1,
+    "title": "Đăng ký Đối tác Tích hợp API mới",
+    "onClose": "() => setShowAddModal(false)",
+    "name": "aria-labelledby=\"partner-management-dialog-1-title\"",
+    "pending": null,
+    "opener": "Thêm Đối tác API mới, clients tab"
+  }
+]

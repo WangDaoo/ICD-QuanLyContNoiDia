@@ -1,7 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { ClipboardList } from 'lucide-react-native';
 
-import { theme } from '../theme/theme';
+import { useTheme } from '../theme/ThemeProvider';
+import type { Theme } from '../theme/theme';
 
 interface EmptyStateProps {
   title?: string;
@@ -12,20 +14,22 @@ interface EmptyStateProps {
 export function EmptyState({
   title = 'Không có dữ liệu',
   description = 'Hiện tại không có thông tin để hiển thị.',
-  iconText = '📋',
+  iconText,
 }: EmptyStateProps) {
+  const { theme } = useTheme();
+  const styles = createStyles(theme);
   return (
     <View style={styles.container}>
-      <Text style={styles.icon}>{iconText}</Text>
-      <Text style={styles.title}>{title}</Text>
+      {iconText ? <Text style={styles.icon}>{iconText}</Text> : <ClipboardList size={24} strokeWidth={1.5} color={theme.colors.textMuted} style={{ marginBottom: 10 }} />}
+      <Text accessibilityRole="header" style={styles.title}>{title}</Text>
       <Text style={styles.description}>{description}</Text>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (theme: Theme) => StyleSheet.create({
   container: {
-    padding: theme.spacing.xxxl,
+    padding: 12,
     alignItems: 'center',
     justifyContent: 'center',
   },

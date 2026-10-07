@@ -1,0 +1,113 @@
+Browser tab: 20, Title: "ICD Management System — Quản lý Kho bãi Container Nội địa", URL: "http://127.0.0.1:5173/".
+0 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/
+	1 container root
+		2 container
+			3 text ICD
+			4 heading ICD Management System, Value: 1
+				5 text ICD Management System
+			6 text Cảng cạn & kho bãi container nội địa
+			7 button Tải lại dữ liệu
+			8 button (collapsed) Description: Thông báo (0 chưa đọc), Secondary Actions: Expand
+			10 button Đăng xuất
+		11 container Điều hướng nghiệp vụ
+			226 text TỔNG QUAN & ĐIỀU PHỐI
+			227 button Tổng quan vận hành
+			228 button Danh sách công việc
+			229 text QUẢN LÝ HÀNG HÓA & CỔNG
+			230 button Bản lược khai (Manifest)
+			231 button Quản lý Container
+			232 button Movement Order
+			233 button Chuyến xe ra/vào
+			234 button Tiếp nhận vào cổng (Gate-in)
+			235 button Vận hành Bãi (Yard)
+			236 text TÀI CHÍNH & RA CỔNG
+			237 button Dịch vụ & Thanh toán
+			238 button Phiếu ra cổng & Gate-out
+			239 button Vận hành EDI (CODECO)
+			240 text TÍCH HỢP ĐỐI TÁC
+			241 button Bàn giao vận chuyển
+			242 button Đối tác tích hợp API
+			243 button Nhật ký API đối tác
+			244 text HỆ THỐNG & QUẢN TRỊ
+			245 button Danh mục dùng chung
+			246 button Người dùng & Phân quyền
+			247 button Báo cáo vận hành
+			248 button Nhật ký kiểm toán
+			36 text System Administrator
+			37 text admin@icd.local
+			38 text ADMIN
+		39 container
+			249 heading Trung tâm Trao đổi Dữ liệu Điện tử (EDI Center), Value: 2
+				250 text Trung tâm Trao đổi Dữ liệu Điện tử (EDI Center)
+			251 text Giao tiếp tự động chuẩn UN/EDIFACT (CODECO_GATE_IN, CODECO_GATE_OUT, COREOR) với các Hãng tàu quốc tế và Cục Hải quan
+			252 button Outbox
+			253 button Routes
+			254 button Alerts
+			255 pop up button (collapsed, settable) Value: Tất cả loại điện tín, Secondary Actions: Expand
+				256 menu
+					257 (selected) Tất cả loại điện tín
+					258 CODECO Gate In
+					259 CODECO Gate Out
+					260 COREOR Release Order
+			261 button Chạy Dispatcher
+			262 text CODECO_GATE_IN SENT
+			263 text QAOU4835930
+			264 text Hãng tàu: 
+			265 text CMA CGM Group
+			266 text 22:04:43 CODECO_GATE_IN SENT
+			267 text QAOU6004067
+			268 text Hãng tàu: 
+			269 text CMA CGM Group
+			270 text 16:00:00 CODECO_GATE_OUT SENT
+			271 text QAOU1882075
+			272 text Hãng tàu: 
+			273 text CMA CGM Group
+			274 text 08:35:55 CODECO_GATE_IN SENT
+			275 text QAOU1882075
+			276 text Hãng tàu: 
+			277 text CMA CGM Group
+			278 text 08:12:18 CODECO_GATE_OUT SENT
+			279 text QAOU5007550
+			280 text Hãng tàu: 
+			281 text CMA CGM Group
+			282 text 08:07:57 CODECO_GATE_IN SENT
+			283 text QAOU5007565
+			284 text Hãng tàu: 
+			285 text CMA CGM Group
+			286 text 07:46:07 CODECO_GATE_IN SENT
+			287 text QAOU5007550
+			288 text Hãng tàu: 
+			289 text CMA CGM Group
+			290 text 07:41:41 CODECO_GATE_IN SENT
+			291 text QAOU5007570
+			292 text Hãng tàu: 
+			293 text CMA CGM Group
+			294 text 07:38:39 CODECO_GATE_IN SENT
+			295 text QAMU6102765
+			296 text Hãng tàu: 
+			297 text CMA CGM Group
+			298 text 15:51:24 CODECO_GATE_OUT SENT
+			299 text QATU2282957
+			300 text Hãng tàu: 
+			301 text MSC (Mediterranean Shipping Company)
+			302 text 13:50:14 CODECO_GATE_IN SENT
+			303 text QATU2282957
+			304 text Hãng tàu: 
+			305 text MSC (Mediterranean Shipping Company)
+			306 text 13:32:55 Điện tín  CODECO_GATE_IN Hãng nhận:  CMA CGM Group Container liên quan: 
+			307 text QAOU4835930
+			308 text  · Idempotency Key:  CODECO_GATE_IN:8296f2ae-da88-4f0e-bb0d-2835d2d7dc7c
+			309 button Copy
+			310 text Trạng thái truyền: SENT Thời gian tạo: 22:04:43 2/10/2026 Số lần thử lại: 0  lần DỮ LIỆU ĐIỆN TÍN THÔ (UN/EDIFACT D.00B SEGMENT PAYLOAD): UNB+UNOA:2+VNICD+CMA CGM Group+20261002:1504+7e9e93'
+UNH+7e9e93+CODECO_GATE_IN:D:00B:UN:SMDG20'
+BGM+34+6f4a78d9-c2ce-4ec2-8e00-97f9027e9e93+9'
+NAD+MS+VNICD:160:ZZZ'
+NAD+MR+CMA CGM Group:160:ZZZ'
+EQD+CN+QAOU4835930+45G1:102:5++2+5'
+LOC+11+VNICD:139:6'
+DTM+132:20261002:102'
+CNT+16:1'
+UNT+9+7e9e93'
+UNZ+1+7e9e93'
+
+The focused UI element is 239 button Vận hành EDI (CODECO)

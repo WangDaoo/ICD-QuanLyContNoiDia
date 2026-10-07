@@ -1,0 +1,59 @@
+diff --git "a/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\before\\apps\\web\\src\\components\\TruckVisitsView.tsx" "b/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\after\\apps\\web\\src\\components\\TruckVisitsView.tsx"
+index 6dafc1e..970f089 100644
+--- "a/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\before\\apps\\web\\src\\components\\TruckVisitsView.tsx"	
++++ "b/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\after\\apps\\web\\src\\components\\TruckVisitsView.tsx"	
+@@ -186,8 +186,8 @@ export const TruckVisitsView: React.FC<TruckVisitsViewProps> = ({ onNavigate })
+               </div>
+ 
+               <div>
+-                <label className="block font-semibold text-slate-700 mb-1">Biển số đầu kéo*</label>
+-                <input
++                <label htmlFor="truck-visits-plate" className="block font-semibold text-slate-700 mb-1">Biển số đầu kéo*</label>
++                <input id="truck-visits-plate"
+                   type="text"
+                   required
+                   value={plate}
+@@ -198,8 +198,8 @@ export const TruckVisitsView: React.FC<TruckVisitsViewProps> = ({ onNavigate })
+ 
+               <div className="grid grid-cols-2 gap-2">
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">Tên tài xế*</label>
+-                  <input
++                  <label htmlFor="truck-visits-driver" className="block font-semibold text-slate-700 mb-1">Tên tài xế*</label>
++                  <input id="truck-visits-driver"
+                     type="text"
+                     required
+                     value={driver}
+@@ -208,8 +208,8 @@ export const TruckVisitsView: React.FC<TruckVisitsViewProps> = ({ onNavigate })
+                   />
+                 </div>
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">Số điện thoại*</label>
+-                  <input
++                  <label htmlFor="truck-visits-phone" className="block font-semibold text-slate-700 mb-1">Số điện thoại*</label>
++                  <input id="truck-visits-phone"
+                     type="text"
+                     required
+                     value={phone}
+@@ -220,8 +220,8 @@ export const TruckVisitsView: React.FC<TruckVisitsViewProps> = ({ onNavigate })
+               </div>
+ 
+               <div>
+-                <label className="block font-semibold text-slate-700 mb-1">Hãng vận tải (Transporter)</label>
+-                <input
++                <label htmlFor="truck-visits-transporter" className="block font-semibold text-slate-700 mb-1">Hãng vận tải (Transporter)</label>
++                <input id="truck-visits-transporter"
+                   type="text"
+                   value={transporter}
+                   onChange={(e) => setTransporter(e.target.value)}
+@@ -230,8 +230,8 @@ export const TruckVisitsView: React.FC<TruckVisitsViewProps> = ({ onNavigate })
+               </div>
+ 
+               <div>
+-                <label className="block font-semibold text-slate-700 mb-1">Số Container gắn chuyến*</label>
+-                <input
++                <label htmlFor="truck-visits-selected-conts" className="block font-semibold text-slate-700 mb-1">Số Container gắn chuyến*</label>
++                <input id="truck-visits-selected-conts"
+                   type="text"
+                   required
+                   value={selectedConts}

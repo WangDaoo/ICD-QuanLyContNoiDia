@@ -1,0 +1,50 @@
+✖ a network write failure reports unknown server outcome without suggesting another write (2.7375ms)
+✖ a server rejection preserves its message and has a confirmed outcome (0.5374ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1142.5588
+
+✖ failing tests:
+
+test at apps\web\src\services\api\operation.test.ts:21:1
+✖ a network write failure reports unknown server outcome without suggesting another write (2.7375ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'unknown'
+  
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\operation.test.ts:25:10)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'unknown',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\api\operation.test.ts:30:1
+✖ a server rejection preserves its message and has a confirmed outcome (0.5374ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'confirmed'
+  
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\operation.test.ts:34:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'confirmed',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,31 @@
+{
+  "phase": "prepare-hold-inspection",
+  "alias": "yard",
+  "checkedAt": "2026-10-02T01:06:29.103Z",
+  "checks": [
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c/inspections",
+      "status": 201,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/inspections/cd79419f-3f37-49b3-9e49-b0b53a445b86",
+      "status": 200,
+      "expectedStatus": "2xx"
+    }
+  ]
+}

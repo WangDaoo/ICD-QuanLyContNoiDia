@@ -1,0 +1,10 @@
+file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/audit-api-client.mjs:62
+  if (!expected.includes(response.status)) throw new Error(`${method} ${path} unexpected HTTP ${response.status}; code ${errorCode ?? 'unspecified'}`);
+                                                 ^
+
+Error: GET /admin/partner-api-logs?pageSize=100 unexpected HTTP 403; code AUTH_PERMISSION_DENIED
+    at requestApi (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/audit-api-client.mjs:62:50)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/audit-api-partner-log-access.mjs:9:18
+
+Node.js v24.13.0

@@ -1,0 +1,411 @@
+{
+  "legend": [
+    {
+      "color": "rgb(248, 250, 252)",
+      "key": "empty",
+      "label": "Slot trống"
+    },
+    {
+      "color": "rgb(37, 99, 235)",
+      "key": "occupied",
+      "label": "Có container"
+    },
+    {
+      "color": "rgb(100, 116, 139)",
+      "key": "maintenance",
+      "label": "Bảo trì / Ngưng dùng"
+    },
+    {
+      "color": "rgb(6, 182, 212)",
+      "key": "reefer",
+      "label": "Slot lạnh trống (Reefer)"
+    },
+    {
+      "color": "rgb(22, 163, 74)",
+      "key": "in-yard",
+      "label": "Trong bãi"
+    },
+    {
+      "color": "rgb(220, 38, 38)",
+      "key": "hold",
+      "label": "Đang giữ (Hold)"
+    },
+    {
+      "color": "rgb(234, 179, 8)",
+      "key": "inspection",
+      "label": "Đang kiểm định"
+    },
+    {
+      "color": "rgb(124, 58, 237)",
+      "key": "gate-pass",
+      "label": "Đã cấp Phiếu ra cổng"
+    },
+    {
+      "color": "rgb(37, 99, 235)",
+      "key": "stripped",
+      "label": "Rút hàng xong"
+    }
+  ],
+  "slots": [
+    {
+      "color": "rgb(22, 163, 74)",
+      "id": "16e20650-8393-4d21-a0da-d9e799d8e6bf",
+      "key": "in-yard",
+      "label": "Vị trí A-01-01-1, Trong bãi, TCSU8849201"
+    },
+    {
+      "color": "rgb(220, 38, 38)",
+      "id": "94ab8cfb-345f-407a-bc4f-e8e4ed8ed29f",
+      "key": "hold",
+      "label": "Vị trí A-01-01-2, Đang giữ (Hold), QAOU5007570, Hold"
+    },
+    {
+      "color": "rgb(22, 163, 74)",
+      "id": "5641dff3-b978-4348-9371-bfdbf840d94d",
+      "key": "in-yard",
+      "label": "Vị trí A-01-02-1, Trong bãi, GLDU5739201"
+    },
+    {
+      "color": "rgb(22, 163, 74)",
+      "id": "eddc44df-8fbe-4346-8a9a-81fc0f110686",
+      "key": "in-yard",
+      "label": "Vị trí A-01-02-2, Trong bãi, QAMU6102765"
+    },
+    {
+      "color": "rgb(22, 163, 74)",
+      "id": "f75cd3d9-c357-40d1-9aac-1101f9b1b2c5",
+      "key": "in-yard",
+      "label": "Vị trí A-01-03-1, Trong bãi, VFCU7482910"
+    },
+    {
+      "color": "rgb(22, 163, 74)",
+      "id": "0aa21460-e2cf-4b4d-9426-0216a24cba4f",
+      "key": "in-yard",
+      "label": "Vị trí A-01-03-2, Trong bãi, QAOU5007565"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "1b97d235-1b5b-461a-b202-77115df3abe2",
+      "key": "empty",
+      "label": "Vị trí A-02-01-1, Slot trống"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "3c552f06-b3f6-4670-84b0-86c154231892",
+      "key": "empty",
+      "label": "Vị trí A-02-01-2, Slot trống"
+    },
+    {
+      "color": "rgb(22, 163, 74)",
+      "id": "ed2743c4-1ef8-43f7-9873-2fd11eee16b6",
+      "key": "in-yard",
+      "label": "Vị trí A-02-02-1, Trong bãi, QAOU6004067"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "fba66d3c-d356-4d60-a600-03a48e9c341e",
+      "key": "empty",
+      "label": "Vị trí A-02-02-2, Slot trống"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "96cfe87e-1b4f-41c4-9b23-d64317f163c4",
+      "key": "empty",
+      "label": "Vị trí A-02-03-1, Slot trống"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "7bd5497c-ba73-4b2e-8eca-ded185929c71",
+      "key": "empty",
+      "label": "Vị trí A-02-03-2, Slot trống"
+    },
+    {
+      "color": "rgb(22, 163, 74)",
+      "id": "686d8a8a-f660-4007-98a7-0c3e9323c629",
+      "key": "in-yard",
+      "label": "Vị trí B-01-01-1, Trong bãi, VMCU9284012"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "89d96dec-0357-4f67-bd91-2db3e83289e7",
+      "key": "empty",
+      "label": "Vị trí B-01-01-2, Slot trống"
+    },
+    {
+      "color": "rgb(22, 163, 74)",
+      "id": "69edb7ba-48d1-49e9-91a5-526b3633d643",
+      "key": "in-yard",
+      "label": "Vị trí B-01-02-1, Trong bãi, BDCU3849102"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "affd066c-3942-4e80-924a-df22ad4674e9",
+      "key": "empty",
+      "label": "Vị trí B-01-02-2, Slot trống"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "883576e1-1553-486a-8012-a1c6979ba9da",
+      "key": "empty",
+      "label": "Vị trí B-01-03-1, Slot trống"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "dbbaf3a4-6767-49ba-aa55-67a3462f6d6d",
+      "key": "empty",
+      "label": "Vị trí B-01-03-2, Slot trống"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "c17e5bd6-bb18-4213-a2c5-84ea17b9d149",
+      "key": "empty",
+      "label": "Vị trí B-02-01-1, Slot trống"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "78ea0837-9206-49e5-9fef-6d2e3838d382",
+      "key": "empty",
+      "label": "Vị trí B-02-01-2, Slot trống"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "94b42f62-85ef-49ce-82df-a70dd8a9f9e2",
+      "key": "empty",
+      "label": "Vị trí B-02-02-1, Slot trống"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "1dfcaa09-4229-4f07-9cc7-9955471bdccb",
+      "key": "empty",
+      "label": "Vị trí B-02-02-2, Slot trống"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "169b61ff-c179-4bcb-b27d-65b09d50e87c",
+      "key": "empty",
+      "label": "Vị trí B-02-03-1, Slot trống"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "b725622e-bbb4-417e-bb6a-c7cef0a5eda8",
+      "key": "empty",
+      "label": "Vị trí B-02-03-2, Slot trống"
+    },
+    {
+      "color": "rgb(22, 163, 74)",
+      "id": "9c9f4e22-f835-4802-aa54-a666bf0ba884",
+      "key": "in-yard",
+      "label": "Vị trí C-01-01-1, Trong bãi, VSCU1049281"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "2a7605d4-54fd-4dff-ace5-55857ae7b441",
+      "key": "empty",
+      "label": "Vị trí C-01-01-2, Slot trống"
+    },
+    {
+      "color": "rgb(22, 163, 74)",
+      "id": "3306a934-3ea6-4374-8262-1fd6dd86be31",
+      "key": "in-yard",
+      "label": "Vị trí C-01-02-1, Trong bãi, VSCU6748392"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "b309b4b4-7ca1-4cc6-9f81-c31d9ea8a52b",
+      "key": "empty",
+      "label": "Vị trí C-01-02-2, Slot trống"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "9ed26969-415c-4e1d-81b3-c06231cd89d3",
+      "key": "empty",
+      "label": "Vị trí C-01-03-1, Slot trống"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "8f449ac8-cf87-4f62-af9f-068f313d8f1a",
+      "key": "empty",
+      "label": "Vị trí C-01-03-2, Slot trống"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "f70262c6-2151-4f8b-aed8-9a3169ca8089",
+      "key": "empty",
+      "label": "Vị trí C-02-01-1, Slot trống"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "ef282ea6-906b-4797-9d84-d0958ee519c8",
+      "key": "empty",
+      "label": "Vị trí C-02-01-2, Slot trống"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "84494aa6-acad-4604-a71f-b0876744ca97",
+      "key": "empty",
+      "label": "Vị trí C-02-02-1, Slot trống"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "47218002-c260-4bb8-a53a-7cb2ba4c55e3",
+      "key": "empty",
+      "label": "Vị trí C-02-02-2, Slot trống"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "ef2cf202-16df-40d1-b580-796984c93cc7",
+      "key": "empty",
+      "label": "Vị trí C-02-03-1, Slot trống"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "f77f5dc8-dedd-4568-831e-d43bb642168f",
+      "key": "empty",
+      "label": "Vị trí C-02-03-2, Slot trống"
+    },
+    {
+      "color": "rgb(22, 163, 74)",
+      "id": "13a771a2-4e5d-4fb6-86c1-d5ef82fd60d0",
+      "key": "in-yard",
+      "label": "Vị trí D-01-01-1, Trong bãi, HACU4829103"
+    },
+    {
+      "color": "rgb(6, 182, 212)",
+      "id": "97596a6b-d945-4402-ac4c-5065b71f38ac",
+      "key": "reefer",
+      "label": "Vị trí D-01-01-2, Slot lạnh trống (Reefer)"
+    },
+    {
+      "color": "rgb(22, 163, 74)",
+      "id": "75388b0d-4edc-4e24-b25a-23d513c8f6a1",
+      "key": "in-yard",
+      "label": "Vị trí D-01-02-1, Trong bãi, TCSU9283741"
+    },
+    {
+      "color": "rgb(6, 182, 212)",
+      "id": "701f3469-485b-45fd-959c-1f5399efd0e7",
+      "key": "reefer",
+      "label": "Vị trí D-01-02-2, Slot lạnh trống (Reefer)"
+    },
+    {
+      "color": "rgb(6, 182, 212)",
+      "id": "52d5977c-e1d0-4b99-8541-48ccb51f2e1c",
+      "key": "reefer",
+      "label": "Vị trí D-01-03-1, Slot lạnh trống (Reefer)"
+    },
+    {
+      "color": "rgb(6, 182, 212)",
+      "id": "2802d20a-0ab6-4e36-8925-dac9cd5ed43e",
+      "key": "reefer",
+      "label": "Vị trí D-01-03-2, Slot lạnh trống (Reefer)"
+    },
+    {
+      "color": "rgb(6, 182, 212)",
+      "id": "fbb649dc-edc0-46cb-bf89-1ec52f22b26f",
+      "key": "reefer",
+      "label": "Vị trí D-02-01-1, Slot lạnh trống (Reefer)"
+    },
+    {
+      "color": "rgb(6, 182, 212)",
+      "id": "8a2b40ca-c79f-4c4a-8420-3202f344ae05",
+      "key": "reefer",
+      "label": "Vị trí D-02-01-2, Slot lạnh trống (Reefer)"
+    },
+    {
+      "color": "rgb(6, 182, 212)",
+      "id": "bb20aec9-bb71-44d2-ba47-1fe44a3eb1d4",
+      "key": "reefer",
+      "label": "Vị trí D-02-02-1, Slot lạnh trống (Reefer)"
+    },
+    {
+      "color": "rgb(6, 182, 212)",
+      "id": "16510122-bd65-4497-bc7a-80d206518b29",
+      "key": "reefer",
+      "label": "Vị trí D-02-02-2, Slot lạnh trống (Reefer)"
+    },
+    {
+      "color": "rgb(6, 182, 212)",
+      "id": "8cb5e504-3143-43bf-86b6-f285bbfedde5",
+      "key": "reefer",
+      "label": "Vị trí D-02-03-1, Slot lạnh trống (Reefer)"
+    },
+    {
+      "color": "rgb(6, 182, 212)",
+      "id": "f80496cc-051d-4416-8db9-ecb596f59f8b",
+      "key": "reefer",
+      "label": "Vị trí D-02-03-2, Slot lạnh trống (Reefer)"
+    },
+    {
+      "color": "rgb(22, 163, 74)",
+      "id": "16e20650-8393-4d21-a0da-d9e799d8e6bf",
+      "key": "in-yard",
+      "label": "Vị trí A-01-01-1, Trong bãi, TCSU8849201"
+    },
+    {
+      "color": "rgb(220, 38, 38)",
+      "id": "94ab8cfb-345f-407a-bc4f-e8e4ed8ed29f",
+      "key": "hold",
+      "label": "Vị trí A-01-01-2, Đang giữ (Hold), QAOU5007570, Hold"
+    },
+    {
+      "color": "rgb(22, 163, 74)",
+      "id": "5641dff3-b978-4348-9371-bfdbf840d94d",
+      "key": "in-yard",
+      "label": "Vị trí A-01-02-1, Trong bãi, GLDU5739201"
+    },
+    {
+      "color": "rgb(22, 163, 74)",
+      "id": "eddc44df-8fbe-4346-8a9a-81fc0f110686",
+      "key": "in-yard",
+      "label": "Vị trí A-01-02-2, Trong bãi, QAMU6102765"
+    },
+    {
+      "color": "rgb(22, 163, 74)",
+      "id": "f75cd3d9-c357-40d1-9aac-1101f9b1b2c5",
+      "key": "in-yard",
+      "label": "Vị trí A-01-03-1, Trong bãi, VFCU7482910"
+    },
+    {
+      "color": "rgb(22, 163, 74)",
+      "id": "0aa21460-e2cf-4b4d-9426-0216a24cba4f",
+      "key": "in-yard",
+      "label": "Vị trí A-01-03-2, Trong bãi, QAOU5007565"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "1b97d235-1b5b-461a-b202-77115df3abe2",
+      "key": "empty",
+      "label": "Vị trí A-02-01-1, Slot trống"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "3c552f06-b3f6-4670-84b0-86c154231892",
+      "key": "empty",
+      "label": "Vị trí A-02-01-2, Slot trống"
+    },
+    {
+      "color": "rgb(22, 163, 74)",
+      "id": "ed2743c4-1ef8-43f7-9873-2fd11eee16b6",
+      "key": "in-yard",
+      "label": "Vị trí A-02-02-1, Trong bãi, QAOU6004067"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "fba66d3c-d356-4d60-a600-03a48e9c341e",
+      "key": "empty",
+      "label": "Vị trí A-02-02-2, Slot trống"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "96cfe87e-1b4f-41c4-9b23-d64317f163c4",
+      "key": "empty",
+      "label": "Vị trí A-02-03-1, Slot trống"
+    },
+    {
+      "color": "rgb(248, 250, 252)",
+      "id": "7bd5497c-ba73-4b2e-8eca-ded185929c71",
+      "key": "empty",
+      "label": "Vị trí A-02-03-2, Slot trống"
+    }
+  ]
+}

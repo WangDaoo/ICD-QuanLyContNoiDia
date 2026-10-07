@@ -1,0 +1,11 @@
+{
+  "id": "W-N-030",
+  "file": "apps/web/src/index.css",
+  "before_sha256": "9085a6b4f691fe6afb7bd3aa2fe5b0d25c10a6b0c095d5dbdea089b89d68ec6e",
+  "after_sha256": "4a29bc3520f361b1a113e78026016cf5dcac94db9f1d30609153b5bb6da0df7e",
+  "after_snapshot_source": "apps/web/src/index.css",
+  "overlapping_approved_findings": [
+    "W-N-031"
+  ],
+  "scope": "Actual retained snapshots. Shared CSS batches overlap explicitly; not a synthetic reconstruction."
+}

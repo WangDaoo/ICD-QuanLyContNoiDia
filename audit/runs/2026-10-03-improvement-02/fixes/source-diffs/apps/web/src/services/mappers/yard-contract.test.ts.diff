@@ -1,0 +1,53 @@
+--- before/apps/web/src/services/mappers/yard-contract.test.ts
++++ after/apps/web/src/services/mappers/yard-contract.test.ts
+@@ -72,22 +72,33 @@
+ 
+ test('booking condition notes including persisted cancellation reason are visible after reload', () => {
+   const conditionNotes = 'Seal intact [Hủy: Giữ nguyên vị trí để kiểm tra]';
+-  const collections = mapLiveCollections({
+-    bookings: [{ id: 'booking-1', status: 'CANCELLED', conditionNotes, notes: 'Stale legacy notes' }],
+-  }, 'ADMIN');
++  const collections = mapLiveCollections(
++    {
++      bookings: [
++        { id: 'booking-1', status: 'CANCELLED', conditionNotes, notes: 'Stale legacy notes' },
++      ],
++    },
++    'ADMIN',
++  );
+ 
+   assert.equal(collections.bookings[0].notes, conditionNotes);
+   assert.equal(collections.bookings[0].conditionNotes, conditionNotes);
+ });
+ 
+ test('legacy booking notes remain visible when canonical condition notes are absent', () => {
+-  const collections = mapLiveCollections({ bookings: [{ id: 'booking-2', notes: 'Legacy note' }] }, 'ADMIN');
++  const collections = mapLiveCollections(
++    { bookings: [{ id: 'booking-2', notes: 'Legacy note' }] },
++    'ADMIN',
++  );
+ 
+   assert.equal(collections.bookings[0].notes, 'Legacy note');
+ });
+ 
+ test('booking completion with null measured weight keeps the optional weight absent', () => {
+-  const collections = mapLiveCollections({ bookings: [{ id: 'booking-null-weight', actualWeight: null }] }, 'ADMIN');
++  const collections = mapLiveCollections(
++    { bookings: [{ id: 'booking-null-weight', actualWeight: null }] },
++    'ADMIN',
++  );
+ 
+   assert.equal(collections.bookings[0].actualWeightKg, undefined);
+ });
+@@ -100,7 +111,10 @@
+ 
+ test('booking completion retains explicitly recorded zero measured weight', () => {
+   for (const actualWeight of [0, '0']) {
+-    const collections = mapLiveCollections({ bookings: [{ id: 'booking-zero-weight', actualWeight }] }, 'ADMIN');
++    const collections = mapLiveCollections(
++      { bookings: [{ id: 'booking-zero-weight', actualWeight }] },
++      'ADMIN',
++    );
+ 
+     assert.equal(collections.bookings[0].actualWeightKg, 0);
+   }

@@ -1,0 +1,4499 @@
+{
+  "checkedAt": "2026-10-02T15:13:33.054Z",
+  "phase": "after-assignment",
+  "checks": [
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/blocks?pageSize=100",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/slots?pageSize=100",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/eca87bd1-901a-4f38-b5ec-d7e32cb8639c/yard/location",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/movements?containerVisitId=eca87bd1-901a-4f38-b5ec-d7e32cb8639c&pageSize=100",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/bookings?containerVisitId=eca87bd1-901a-4f38-b5ec-d7e32cb8639c&pageSize=100",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/inspections?containerVisitId=eca87bd1-901a-4f38-b5ec-d7e32cb8639c&pageSize=100",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/eca87bd1-901a-4f38-b5ec-d7e32cb8639c/holds",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/eca87bd1-901a-4f38-b5ec-d7e32cb8639c/gate-pass/readiness",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/eca87bd1-901a-4f38-b5ec-d7e32cb8639c/events?pageSize=100",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/cac4e8ca-967b-4fbc-a845-ec844c6a263f/yard/location",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/movements?containerVisitId=cac4e8ca-967b-4fbc-a845-ec844c6a263f&pageSize=100",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/bookings?containerVisitId=cac4e8ca-967b-4fbc-a845-ec844c6a263f&pageSize=100",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/inspections?containerVisitId=cac4e8ca-967b-4fbc-a845-ec844c6a263f&pageSize=100",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/cac4e8ca-967b-4fbc-a845-ec844c6a263f/holds",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/cac4e8ca-967b-4fbc-a845-ec844c6a263f/gate-pass/readiness",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/cac4e8ca-967b-4fbc-a845-ec844c6a263f/events?pageSize=100",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c/yard/location",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/movements?containerVisitId=2a1ee6c4-b438-495c-8b35-14df04f6403c&pageSize=100",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/bookings?containerVisitId=2a1ee6c4-b438-495c-8b35-14df04f6403c&pageSize=100",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/inspections?containerVisitId=2a1ee6c4-b438-495c-8b35-14df04f6403c&pageSize=100",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c/holds",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c/gate-pass/readiness",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c/events?pageSize=100",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947/yard/location",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/movements?containerVisitId=f6482365-ae79-4ae3-9dec-efecd8f04947&pageSize=100",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/bookings?containerVisitId=f6482365-ae79-4ae3-9dec-efecd8f04947&pageSize=100",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/inspections?containerVisitId=f6482365-ae79-4ae3-9dec-efecd8f04947&pageSize=100",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947/holds",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947/gate-pass/readiness",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947/events?pageSize=100",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/8296f2ae-da88-4f0e-bb0d-2835d2d7dc7c",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/8296f2ae-da88-4f0e-bb0d-2835d2d7dc7c/yard/location",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/movements?containerVisitId=8296f2ae-da88-4f0e-bb0d-2835d2d7dc7c&pageSize=100",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/bookings?containerVisitId=8296f2ae-da88-4f0e-bb0d-2835d2d7dc7c&pageSize=100",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/inspections?containerVisitId=8296f2ae-da88-4f0e-bb0d-2835d2d7dc7c&pageSize=100",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/8296f2ae-da88-4f0e-bb0d-2835d2d7dc7c/holds",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/8296f2ae-da88-4f0e-bb0d-2835d2d7dc7c/gate-pass/readiness",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/8296f2ae-da88-4f0e-bb0d-2835d2d7dc7c/events?pageSize=100",
+      "status": 200
+    }
+  ],
+  "blocks": [
+    {
+      "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+      "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+      "blockCode": "A",
+      "name": "Khu A — Hàng khô Dry Cargo",
+      "operational": true,
+      "_count": {
+        "slots": 12
+      }
+    },
+    {
+      "id": "8326c567-012f-48d4-b334-ae473a5952f0",
+      "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+      "blockCode": "B",
+      "name": "Khu B — Hàng xuất kiểm & Stripping",
+      "operational": true,
+      "_count": {
+        "slots": 12
+      }
+    },
+    {
+      "id": "e767f9f9-7407-4970-9e5c-744c068236b8",
+      "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+      "blockCode": "C",
+      "name": "Khu C — Container nặng & Chờ xuất",
+      "operational": true,
+      "_count": {
+        "slots": 12
+      }
+    },
+    {
+      "id": "f43f3ef5-9be2-46b5-8131-adf454b1cba3",
+      "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+      "blockCode": "D",
+      "name": "Khu D — Container lạnh Reefer",
+      "operational": true,
+      "_count": {
+        "slots": 12
+      }
+    }
+  ],
+  "slots": [
+    {
+      "id": "16e20650-8393-4d21-a0da-d9e799d8e6bf",
+      "yardBlock": {
+        "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "A",
+        "name": "Khu A — Hàng khô Dry Cargo",
+        "operational": true
+      },
+      "rowNo": "1",
+      "bayNo": "1",
+      "tierNo": "1",
+      "slotCode": "A-01-01-1",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "OCCUPIED",
+      "currentContainer": {
+        "containerVisitId": "42d4f9cd-b38a-4cfe-94b7-6a755c601a52",
+        "containerNumber": "TCSU8849201",
+        "startedAt": "2026-10-01T03:18:20.446Z"
+      }
+    },
+    {
+      "id": "94ab8cfb-345f-407a-bc4f-e8e4ed8ed29f",
+      "yardBlock": {
+        "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "A",
+        "name": "Khu A — Hàng khô Dry Cargo",
+        "operational": true
+      },
+      "rowNo": "1",
+      "bayNo": "1",
+      "tierNo": "2",
+      "slotCode": "A-01-01-2",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "OCCUPIED",
+      "currentContainer": {
+        "containerVisitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+        "containerNumber": "QAOU5007570",
+        "startedAt": "2026-10-02T00:39:22.616Z"
+      }
+    },
+    {
+      "id": "5641dff3-b978-4348-9371-bfdbf840d94d",
+      "yardBlock": {
+        "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "A",
+        "name": "Khu A — Hàng khô Dry Cargo",
+        "operational": true
+      },
+      "rowNo": "1",
+      "bayNo": "2",
+      "tierNo": "1",
+      "slotCode": "A-01-02-1",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "OCCUPIED",
+      "currentContainer": {
+        "containerVisitId": "1e792509-4c88-4140-978f-87dc88230fca",
+        "containerNumber": "GLDU5739201",
+        "startedAt": "2026-10-01T03:18:20.470Z"
+      }
+    },
+    {
+      "id": "eddc44df-8fbe-4346-8a9a-81fc0f110686",
+      "yardBlock": {
+        "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "A",
+        "name": "Khu A — Hàng khô Dry Cargo",
+        "operational": true
+      },
+      "rowNo": "1",
+      "bayNo": "2",
+      "tierNo": "2",
+      "slotCode": "A-01-02-2",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "OCCUPIED",
+      "currentContainer": {
+        "containerVisitId": "1b09f42d-a027-4522-928c-999ba655c3fe",
+        "containerNumber": "QAMU6102765",
+        "startedAt": "2026-10-01T08:54:42.150Z"
+      }
+    },
+    {
+      "id": "f75cd3d9-c357-40d1-9aac-1101f9b1b2c5",
+      "yardBlock": {
+        "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "A",
+        "name": "Khu A — Hàng khô Dry Cargo",
+        "operational": true
+      },
+      "rowNo": "1",
+      "bayNo": "3",
+      "tierNo": "1",
+      "slotCode": "A-01-03-1",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "OCCUPIED",
+      "currentContainer": {
+        "containerVisitId": "0d527b40-b88c-4242-8012-2be93c2e6656",
+        "containerNumber": "VFCU7482910",
+        "startedAt": "2026-10-01T03:18:20.548Z"
+      }
+    },
+    {
+      "id": "0aa21460-e2cf-4b4d-9426-0216a24cba4f",
+      "yardBlock": {
+        "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "A",
+        "name": "Khu A — Hàng khô Dry Cargo",
+        "operational": true
+      },
+      "rowNo": "1",
+      "bayNo": "3",
+      "tierNo": "2",
+      "slotCode": "A-01-03-2",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "OCCUPIED",
+      "currentContainer": {
+        "containerVisitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+        "containerNumber": "QAOU5007565",
+        "startedAt": "2026-10-02T09:09:21.321Z"
+      }
+    },
+    {
+      "id": "1b97d235-1b5b-461a-b202-77115df3abe2",
+      "yardBlock": {
+        "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "A",
+        "name": "Khu A — Hàng khô Dry Cargo",
+        "operational": true
+      },
+      "rowNo": "2",
+      "bayNo": "1",
+      "tierNo": "1",
+      "slotCode": "A-02-01-1",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "3c552f06-b3f6-4670-84b0-86c154231892",
+      "yardBlock": {
+        "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "A",
+        "name": "Khu A — Hàng khô Dry Cargo",
+        "operational": true
+      },
+      "rowNo": "2",
+      "bayNo": "1",
+      "tierNo": "2",
+      "slotCode": "A-02-01-2",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "ed2743c4-1ef8-43f7-9873-2fd11eee16b6",
+      "yardBlock": {
+        "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "A",
+        "name": "Khu A — Hàng khô Dry Cargo",
+        "operational": true
+      },
+      "rowNo": "2",
+      "bayNo": "2",
+      "tierNo": "1",
+      "slotCode": "A-02-02-1",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "OCCUPIED",
+      "currentContainer": {
+        "containerVisitId": "806029e4-a22d-41bb-a370-0964dd112f50",
+        "containerNumber": "QAOU6004067",
+        "startedAt": "2026-10-02T09:05:15.049Z"
+      }
+    },
+    {
+      "id": "fba66d3c-d356-4d60-a600-03a48e9c341e",
+      "yardBlock": {
+        "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "A",
+        "name": "Khu A — Hàng khô Dry Cargo",
+        "operational": true
+      },
+      "rowNo": "2",
+      "bayNo": "2",
+      "tierNo": "2",
+      "slotCode": "A-02-02-2",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "96cfe87e-1b4f-41c4-9b23-d64317f163c4",
+      "yardBlock": {
+        "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "A",
+        "name": "Khu A — Hàng khô Dry Cargo",
+        "operational": true
+      },
+      "rowNo": "2",
+      "bayNo": "3",
+      "tierNo": "1",
+      "slotCode": "A-02-03-1",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "OCCUPIED",
+      "currentContainer": {
+        "containerVisitId": "8296f2ae-da88-4f0e-bb0d-2835d2d7dc7c",
+        "containerNumber": "QAOU4835930",
+        "startedAt": "2026-10-02T15:13:21.412Z"
+      }
+    },
+    {
+      "id": "7bd5497c-ba73-4b2e-8eca-ded185929c71",
+      "yardBlock": {
+        "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "A",
+        "name": "Khu A — Hàng khô Dry Cargo",
+        "operational": true
+      },
+      "rowNo": "2",
+      "bayNo": "3",
+      "tierNo": "2",
+      "slotCode": "A-02-03-2",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "686d8a8a-f660-4007-98a7-0c3e9323c629",
+      "yardBlock": {
+        "id": "8326c567-012f-48d4-b334-ae473a5952f0",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "B",
+        "name": "Khu B — Hàng xuất kiểm & Stripping",
+        "operational": true
+      },
+      "rowNo": "1",
+      "bayNo": "1",
+      "tierNo": "1",
+      "slotCode": "B-01-01-1",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "OCCUPIED",
+      "currentContainer": {
+        "containerVisitId": "cb567507-f5fe-4c6f-bad9-04c3ef06ca49",
+        "containerNumber": "VMCU9284012",
+        "startedAt": "2026-10-01T03:18:20.498Z"
+      }
+    },
+    {
+      "id": "89d96dec-0357-4f67-bd91-2db3e83289e7",
+      "yardBlock": {
+        "id": "8326c567-012f-48d4-b334-ae473a5952f0",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "B",
+        "name": "Khu B — Hàng xuất kiểm & Stripping",
+        "operational": true
+      },
+      "rowNo": "1",
+      "bayNo": "1",
+      "tierNo": "2",
+      "slotCode": "B-01-01-2",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "69edb7ba-48d1-49e9-91a5-526b3633d643",
+      "yardBlock": {
+        "id": "8326c567-012f-48d4-b334-ae473a5952f0",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "B",
+        "name": "Khu B — Hàng xuất kiểm & Stripping",
+        "operational": true
+      },
+      "rowNo": "1",
+      "bayNo": "2",
+      "tierNo": "1",
+      "slotCode": "B-01-02-1",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "OCCUPIED",
+      "currentContainer": {
+        "containerVisitId": "fe47f578-6c29-4f63-ac55-175dbdcd6d6e",
+        "containerNumber": "BDCU3849102",
+        "startedAt": "2026-10-01T03:18:20.522Z"
+      }
+    },
+    {
+      "id": "affd066c-3942-4e80-924a-df22ad4674e9",
+      "yardBlock": {
+        "id": "8326c567-012f-48d4-b334-ae473a5952f0",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "B",
+        "name": "Khu B — Hàng xuất kiểm & Stripping",
+        "operational": true
+      },
+      "rowNo": "1",
+      "bayNo": "2",
+      "tierNo": "2",
+      "slotCode": "B-01-02-2",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "883576e1-1553-486a-8012-a1c6979ba9da",
+      "yardBlock": {
+        "id": "8326c567-012f-48d4-b334-ae473a5952f0",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "B",
+        "name": "Khu B — Hàng xuất kiểm & Stripping",
+        "operational": true
+      },
+      "rowNo": "1",
+      "bayNo": "3",
+      "tierNo": "1",
+      "slotCode": "B-01-03-1",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "dbbaf3a4-6767-49ba-aa55-67a3462f6d6d",
+      "yardBlock": {
+        "id": "8326c567-012f-48d4-b334-ae473a5952f0",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "B",
+        "name": "Khu B — Hàng xuất kiểm & Stripping",
+        "operational": true
+      },
+      "rowNo": "1",
+      "bayNo": "3",
+      "tierNo": "2",
+      "slotCode": "B-01-03-2",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "c17e5bd6-bb18-4213-a2c5-84ea17b9d149",
+      "yardBlock": {
+        "id": "8326c567-012f-48d4-b334-ae473a5952f0",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "B",
+        "name": "Khu B — Hàng xuất kiểm & Stripping",
+        "operational": true
+      },
+      "rowNo": "2",
+      "bayNo": "1",
+      "tierNo": "1",
+      "slotCode": "B-02-01-1",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "78ea0837-9206-49e5-9fef-6d2e3838d382",
+      "yardBlock": {
+        "id": "8326c567-012f-48d4-b334-ae473a5952f0",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "B",
+        "name": "Khu B — Hàng xuất kiểm & Stripping",
+        "operational": true
+      },
+      "rowNo": "2",
+      "bayNo": "1",
+      "tierNo": "2",
+      "slotCode": "B-02-01-2",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "94b42f62-85ef-49ce-82df-a70dd8a9f9e2",
+      "yardBlock": {
+        "id": "8326c567-012f-48d4-b334-ae473a5952f0",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "B",
+        "name": "Khu B — Hàng xuất kiểm & Stripping",
+        "operational": true
+      },
+      "rowNo": "2",
+      "bayNo": "2",
+      "tierNo": "1",
+      "slotCode": "B-02-02-1",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "1dfcaa09-4229-4f07-9cc7-9955471bdccb",
+      "yardBlock": {
+        "id": "8326c567-012f-48d4-b334-ae473a5952f0",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "B",
+        "name": "Khu B — Hàng xuất kiểm & Stripping",
+        "operational": true
+      },
+      "rowNo": "2",
+      "bayNo": "2",
+      "tierNo": "2",
+      "slotCode": "B-02-02-2",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "169b61ff-c179-4bcb-b27d-65b09d50e87c",
+      "yardBlock": {
+        "id": "8326c567-012f-48d4-b334-ae473a5952f0",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "B",
+        "name": "Khu B — Hàng xuất kiểm & Stripping",
+        "operational": true
+      },
+      "rowNo": "2",
+      "bayNo": "3",
+      "tierNo": "1",
+      "slotCode": "B-02-03-1",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "b725622e-bbb4-417e-bb6a-c7cef0a5eda8",
+      "yardBlock": {
+        "id": "8326c567-012f-48d4-b334-ae473a5952f0",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "B",
+        "name": "Khu B — Hàng xuất kiểm & Stripping",
+        "operational": true
+      },
+      "rowNo": "2",
+      "bayNo": "3",
+      "tierNo": "2",
+      "slotCode": "B-02-03-2",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "9c9f4e22-f835-4802-aa54-a666bf0ba884",
+      "yardBlock": {
+        "id": "e767f9f9-7407-4970-9e5c-744c068236b8",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "C",
+        "name": "Khu C — Container nặng & Chờ xuất",
+        "operational": true
+      },
+      "rowNo": "1",
+      "bayNo": "1",
+      "tierNo": "1",
+      "slotCode": "C-01-01-1",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "OCCUPIED",
+      "currentContainer": {
+        "containerVisitId": "7e6110ce-bcae-4bb7-b6b5-0a2a6eb49477",
+        "containerNumber": "VSCU1049281",
+        "startedAt": "2026-10-01T03:18:20.420Z"
+      }
+    },
+    {
+      "id": "2a7605d4-54fd-4dff-ace5-55857ae7b441",
+      "yardBlock": {
+        "id": "e767f9f9-7407-4970-9e5c-744c068236b8",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "C",
+        "name": "Khu C — Container nặng & Chờ xuất",
+        "operational": true
+      },
+      "rowNo": "1",
+      "bayNo": "1",
+      "tierNo": "2",
+      "slotCode": "C-01-01-2",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "3306a934-3ea6-4374-8262-1fd6dd86be31",
+      "yardBlock": {
+        "id": "e767f9f9-7407-4970-9e5c-744c068236b8",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "C",
+        "name": "Khu C — Container nặng & Chờ xuất",
+        "operational": true
+      },
+      "rowNo": "1",
+      "bayNo": "2",
+      "tierNo": "1",
+      "slotCode": "C-01-02-1",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "OCCUPIED",
+      "currentContainer": {
+        "containerVisitId": "4d4d3c5b-8467-4582-ad74-21768b62163c",
+        "containerNumber": "VSCU6748392",
+        "startedAt": "2026-10-01T03:18:20.622Z"
+      }
+    },
+    {
+      "id": "b309b4b4-7ca1-4cc6-9f81-c31d9ea8a52b",
+      "yardBlock": {
+        "id": "e767f9f9-7407-4970-9e5c-744c068236b8",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "C",
+        "name": "Khu C — Container nặng & Chờ xuất",
+        "operational": true
+      },
+      "rowNo": "1",
+      "bayNo": "2",
+      "tierNo": "2",
+      "slotCode": "C-01-02-2",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "9ed26969-415c-4e1d-81b3-c06231cd89d3",
+      "yardBlock": {
+        "id": "e767f9f9-7407-4970-9e5c-744c068236b8",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "C",
+        "name": "Khu C — Container nặng & Chờ xuất",
+        "operational": true
+      },
+      "rowNo": "1",
+      "bayNo": "3",
+      "tierNo": "1",
+      "slotCode": "C-01-03-1",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "8f449ac8-cf87-4f62-af9f-068f313d8f1a",
+      "yardBlock": {
+        "id": "e767f9f9-7407-4970-9e5c-744c068236b8",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "C",
+        "name": "Khu C — Container nặng & Chờ xuất",
+        "operational": true
+      },
+      "rowNo": "1",
+      "bayNo": "3",
+      "tierNo": "2",
+      "slotCode": "C-01-03-2",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "f70262c6-2151-4f8b-aed8-9a3169ca8089",
+      "yardBlock": {
+        "id": "e767f9f9-7407-4970-9e5c-744c068236b8",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "C",
+        "name": "Khu C — Container nặng & Chờ xuất",
+        "operational": true
+      },
+      "rowNo": "2",
+      "bayNo": "1",
+      "tierNo": "1",
+      "slotCode": "C-02-01-1",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "ef282ea6-906b-4797-9d84-d0958ee519c8",
+      "yardBlock": {
+        "id": "e767f9f9-7407-4970-9e5c-744c068236b8",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "C",
+        "name": "Khu C — Container nặng & Chờ xuất",
+        "operational": true
+      },
+      "rowNo": "2",
+      "bayNo": "1",
+      "tierNo": "2",
+      "slotCode": "C-02-01-2",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "84494aa6-acad-4604-a71f-b0876744ca97",
+      "yardBlock": {
+        "id": "e767f9f9-7407-4970-9e5c-744c068236b8",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "C",
+        "name": "Khu C — Container nặng & Chờ xuất",
+        "operational": true
+      },
+      "rowNo": "2",
+      "bayNo": "2",
+      "tierNo": "1",
+      "slotCode": "C-02-02-1",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "47218002-c260-4bb8-a53a-7cb2ba4c55e3",
+      "yardBlock": {
+        "id": "e767f9f9-7407-4970-9e5c-744c068236b8",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "C",
+        "name": "Khu C — Container nặng & Chờ xuất",
+        "operational": true
+      },
+      "rowNo": "2",
+      "bayNo": "2",
+      "tierNo": "2",
+      "slotCode": "C-02-02-2",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "ef2cf202-16df-40d1-b580-796984c93cc7",
+      "yardBlock": {
+        "id": "e767f9f9-7407-4970-9e5c-744c068236b8",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "C",
+        "name": "Khu C — Container nặng & Chờ xuất",
+        "operational": true
+      },
+      "rowNo": "2",
+      "bayNo": "3",
+      "tierNo": "1",
+      "slotCode": "C-02-03-1",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "f77f5dc8-dedd-4568-831e-d43bb642168f",
+      "yardBlock": {
+        "id": "e767f9f9-7407-4970-9e5c-744c068236b8",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "C",
+        "name": "Khu C — Container nặng & Chờ xuất",
+        "operational": true
+      },
+      "rowNo": "2",
+      "bayNo": "3",
+      "tierNo": "2",
+      "slotCode": "C-02-03-2",
+      "supportedContainerType": null,
+      "reeferPower": false,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "13a771a2-4e5d-4fb6-86c1-d5ef82fd60d0",
+      "yardBlock": {
+        "id": "f43f3ef5-9be2-46b5-8131-adf454b1cba3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "D",
+        "name": "Khu D — Container lạnh Reefer",
+        "operational": true
+      },
+      "rowNo": "1",
+      "bayNo": "1",
+      "tierNo": "1",
+      "slotCode": "D-01-01-1",
+      "supportedContainerType": null,
+      "reeferPower": true,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "OCCUPIED",
+      "currentContainer": {
+        "containerVisitId": "afc67ff0-0fe7-44a2-9a27-fd682d024731",
+        "containerNumber": "HACU4829103",
+        "startedAt": "2026-10-01T03:18:20.392Z"
+      }
+    },
+    {
+      "id": "97596a6b-d945-4402-ac4c-5065b71f38ac",
+      "yardBlock": {
+        "id": "f43f3ef5-9be2-46b5-8131-adf454b1cba3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "D",
+        "name": "Khu D — Container lạnh Reefer",
+        "operational": true
+      },
+      "rowNo": "1",
+      "bayNo": "1",
+      "tierNo": "2",
+      "slotCode": "D-01-01-2",
+      "supportedContainerType": null,
+      "reeferPower": true,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "75388b0d-4edc-4e24-b25a-23d513c8f6a1",
+      "yardBlock": {
+        "id": "f43f3ef5-9be2-46b5-8131-adf454b1cba3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "D",
+        "name": "Khu D — Container lạnh Reefer",
+        "operational": true
+      },
+      "rowNo": "1",
+      "bayNo": "2",
+      "tierNo": "1",
+      "slotCode": "D-01-02-1",
+      "supportedContainerType": null,
+      "reeferPower": true,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "OCCUPIED",
+      "currentContainer": {
+        "containerVisitId": "6a324f12-ca09-40b5-94af-0e431574c414",
+        "containerNumber": "TCSU9283741",
+        "startedAt": "2026-10-01T03:18:20.597Z"
+      }
+    },
+    {
+      "id": "701f3469-485b-45fd-959c-1f5399efd0e7",
+      "yardBlock": {
+        "id": "f43f3ef5-9be2-46b5-8131-adf454b1cba3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "D",
+        "name": "Khu D — Container lạnh Reefer",
+        "operational": true
+      },
+      "rowNo": "1",
+      "bayNo": "2",
+      "tierNo": "2",
+      "slotCode": "D-01-02-2",
+      "supportedContainerType": null,
+      "reeferPower": true,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "52d5977c-e1d0-4b99-8541-48ccb51f2e1c",
+      "yardBlock": {
+        "id": "f43f3ef5-9be2-46b5-8131-adf454b1cba3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "D",
+        "name": "Khu D — Container lạnh Reefer",
+        "operational": true
+      },
+      "rowNo": "1",
+      "bayNo": "3",
+      "tierNo": "1",
+      "slotCode": "D-01-03-1",
+      "supportedContainerType": null,
+      "reeferPower": true,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "2802d20a-0ab6-4e36-8925-dac9cd5ed43e",
+      "yardBlock": {
+        "id": "f43f3ef5-9be2-46b5-8131-adf454b1cba3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "D",
+        "name": "Khu D — Container lạnh Reefer",
+        "operational": true
+      },
+      "rowNo": "1",
+      "bayNo": "3",
+      "tierNo": "2",
+      "slotCode": "D-01-03-2",
+      "supportedContainerType": null,
+      "reeferPower": true,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "fbb649dc-edc0-46cb-bf89-1ec52f22b26f",
+      "yardBlock": {
+        "id": "f43f3ef5-9be2-46b5-8131-adf454b1cba3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "D",
+        "name": "Khu D — Container lạnh Reefer",
+        "operational": true
+      },
+      "rowNo": "2",
+      "bayNo": "1",
+      "tierNo": "1",
+      "slotCode": "D-02-01-1",
+      "supportedContainerType": null,
+      "reeferPower": true,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "8a2b40ca-c79f-4c4a-8420-3202f344ae05",
+      "yardBlock": {
+        "id": "f43f3ef5-9be2-46b5-8131-adf454b1cba3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "D",
+        "name": "Khu D — Container lạnh Reefer",
+        "operational": true
+      },
+      "rowNo": "2",
+      "bayNo": "1",
+      "tierNo": "2",
+      "slotCode": "D-02-01-2",
+      "supportedContainerType": null,
+      "reeferPower": true,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "bb20aec9-bb71-44d2-ba47-1fe44a3eb1d4",
+      "yardBlock": {
+        "id": "f43f3ef5-9be2-46b5-8131-adf454b1cba3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "D",
+        "name": "Khu D — Container lạnh Reefer",
+        "operational": true
+      },
+      "rowNo": "2",
+      "bayNo": "2",
+      "tierNo": "1",
+      "slotCode": "D-02-02-1",
+      "supportedContainerType": null,
+      "reeferPower": true,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "16510122-bd65-4497-bc7a-80d206518b29",
+      "yardBlock": {
+        "id": "f43f3ef5-9be2-46b5-8131-adf454b1cba3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "D",
+        "name": "Khu D — Container lạnh Reefer",
+        "operational": true
+      },
+      "rowNo": "2",
+      "bayNo": "2",
+      "tierNo": "2",
+      "slotCode": "D-02-02-2",
+      "supportedContainerType": null,
+      "reeferPower": true,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "8cb5e504-3143-43bf-86b6-f285bbfedde5",
+      "yardBlock": {
+        "id": "f43f3ef5-9be2-46b5-8131-adf454b1cba3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "D",
+        "name": "Khu D — Container lạnh Reefer",
+        "operational": true
+      },
+      "rowNo": "2",
+      "bayNo": "3",
+      "tierNo": "1",
+      "slotCode": "D-02-03-1",
+      "supportedContainerType": null,
+      "reeferPower": true,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    },
+    {
+      "id": "f80496cc-051d-4416-8db9-ecb596f59f8b",
+      "yardBlock": {
+        "id": "f43f3ef5-9be2-46b5-8131-adf454b1cba3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "D",
+        "name": "Khu D — Container lạnh Reefer",
+        "operational": true
+      },
+      "rowNo": "2",
+      "bayNo": "3",
+      "tierNo": "2",
+      "slotCode": "D-02-03-2",
+      "supportedContainerType": null,
+      "reeferPower": true,
+      "maxWeight": "32000",
+      "operational": true,
+      "status": "AVAILABLE",
+      "currentContainer": null
+    }
+  ],
+  "visits": [
+    {
+      "alias": "first",
+      "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+      "containerNumber": "QAOU5007550",
+      "state": "EXITED",
+      "location": null,
+      "movements": [
+        {
+          "id": "880dfcda-a98b-4483-ad32-0c0bd86b53b4",
+          "containerVisitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "fromSlotId": "0aa21460-e2cf-4b4d-9426-0216a24cba4f",
+          "toSlotId": "1b97d235-1b5b-461a-b202-77115df3abe2",
+          "status": "COMPLETED",
+          "reason": null,
+          "startedAt": "2026-10-02T00:52:16.026Z",
+          "completedAt": "2026-10-02T00:52:25.661Z",
+          "createdById": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "completedById": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "createdAt": "2026-10-02T00:51:20.548Z",
+          "updatedAt": "2026-10-02T00:52:25.677Z",
+          "containerVisit": {
+            "id": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+            "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+            "containerId": "cd238d7b-af9c-4092-ab3b-94950d7bf311",
+            "manifestId": "80e9a478-e035-41e8-ae86-17546175c7cd",
+            "masterBlId": "90c386aa-b536-4477-8e97-e7322b14955b",
+            "houseBlId": "5076b86f-3eb2-47c6-b3e6-6a033c00a8e4",
+            "consigneeId": "1a668d3c-21d8-42a3-babc-4ee211acf0d3",
+            "state": "EXITED",
+            "fullEmptyStatus": "FULL",
+            "sealNo": "OPS-QA-SEAL-1",
+            "cargoDescription": null,
+            "grossWeight": "20000",
+            "category": "IMPORT",
+            "isOverstay": false,
+            "dwellDays": 0,
+            "gateInAt": "2026-10-02T00:41:41.892Z",
+            "gateOutAt": "2026-10-02T01:07:57.801Z",
+            "createdAt": "2026-10-02T00:38:20.809Z",
+            "updatedAt": "2026-10-02T01:07:57.890Z",
+            "container": {
+              "id": "cd238d7b-af9c-4092-ab3b-94950d7bf311",
+              "containerNumber": "QAOU5007550",
+              "isoCode": "45G1",
+              "size": "SIZE_40",
+              "type": "DRY",
+              "height": null,
+              "tareWeight": null,
+              "maxPayload": null,
+              "createdAt": "2026-10-02T00:38:20.790Z",
+              "updatedAt": "2026-10-02T00:38:20.790Z"
+            }
+          },
+          "fromSlot": {
+            "id": "0aa21460-e2cf-4b4d-9426-0216a24cba4f",
+            "yardBlockId": "a1509670-52af-4556-a1ac-7f2276086dc3",
+            "rowNo": "1",
+            "bayNo": "3",
+            "tierNo": "2",
+            "slotCode": "A-01-03-2",
+            "supportedContainerType": null,
+            "reeferPower": false,
+            "maxWeight": "32000",
+            "operational": true,
+            "yardBlock": {
+              "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+              "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+              "blockCode": "A",
+              "name": "Khu A — Hàng khô Dry Cargo",
+              "operational": true
+            }
+          },
+          "toSlot": {
+            "id": "1b97d235-1b5b-461a-b202-77115df3abe2",
+            "yardBlockId": "a1509670-52af-4556-a1ac-7f2276086dc3",
+            "rowNo": "2",
+            "bayNo": "1",
+            "tierNo": "1",
+            "slotCode": "A-02-01-1",
+            "supportedContainerType": null,
+            "reeferPower": false,
+            "maxWeight": "32000",
+            "operational": true,
+            "yardBlock": {
+              "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+              "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+              "blockCode": "A",
+              "name": "Khu A — Hàng khô Dry Cargo",
+              "operational": true
+            }
+          },
+          "createdByUser": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          },
+          "completedByUser": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          }
+        }
+      ],
+      "bookings": [
+        {
+          "id": "c16238aa-a5e9-40e2-bdeb-ad11763ca36d",
+          "containerVisitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "bookingType": "INSPECTION",
+          "status": "COMPLETED",
+          "scheduledAt": "2026-10-02T01:00:00.000Z",
+          "startedAt": "2026-10-02T00:58:26.738Z",
+          "completedAt": "2026-10-02T00:58:40.445Z",
+          "actualPackageCount": 100,
+          "actualWeight": "20000",
+          "conditionNotes": "QA hoàn tất kiểm tra 100 kiện; cân thực tế 20000kg.",
+          "createdById": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "completedById": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "createdAt": "2026-10-02T00:57:54.522Z",
+          "updatedAt": "2026-10-02T00:58:40.449Z",
+          "containerVisit": {
+            "id": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+            "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+            "containerId": "cd238d7b-af9c-4092-ab3b-94950d7bf311",
+            "manifestId": "80e9a478-e035-41e8-ae86-17546175c7cd",
+            "masterBlId": "90c386aa-b536-4477-8e97-e7322b14955b",
+            "houseBlId": "5076b86f-3eb2-47c6-b3e6-6a033c00a8e4",
+            "consigneeId": "1a668d3c-21d8-42a3-babc-4ee211acf0d3",
+            "state": "EXITED",
+            "fullEmptyStatus": "FULL",
+            "sealNo": "OPS-QA-SEAL-1",
+            "cargoDescription": null,
+            "grossWeight": "20000",
+            "category": "IMPORT",
+            "isOverstay": false,
+            "dwellDays": 0,
+            "gateInAt": "2026-10-02T00:41:41.892Z",
+            "gateOutAt": "2026-10-02T01:07:57.801Z",
+            "createdAt": "2026-10-02T00:38:20.809Z",
+            "updatedAt": "2026-10-02T01:07:57.890Z",
+            "container": {
+              "id": "cd238d7b-af9c-4092-ab3b-94950d7bf311",
+              "containerNumber": "QAOU5007550",
+              "isoCode": "45G1",
+              "size": "SIZE_40",
+              "type": "DRY",
+              "height": null,
+              "tareWeight": null,
+              "maxPayload": null,
+              "createdAt": "2026-10-02T00:38:20.790Z",
+              "updatedAt": "2026-10-02T00:38:20.790Z"
+            }
+          },
+          "createdByUser": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          },
+          "completedByUser": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          }
+        }
+      ],
+      "inspections": [
+        {
+          "id": "a8852c1b-fdb9-42e9-ab38-e66701e3c11a",
+          "containerVisitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "inspectionType": "DAMAGE_SURVEY",
+          "status": "COMPLETED",
+          "result": "PASS",
+          "notes": "Mức độ: Nhẹ. QA vận hành: vết xước nhẹ vách trái, seal nguyên.\nKết quả kiểm định: QA kết luận: vết xước nhẹ, đủ điều kiện tiếp tục.",
+          "startedAt": "2026-10-02T00:55:56.545Z",
+          "completedAt": "2026-10-02T00:56:22.206Z",
+          "createdById": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "completedById": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "createdAt": "2026-10-02T00:55:18.562Z",
+          "updatedAt": "2026-10-02T00:56:22.209Z",
+          "containerVisit": {
+            "id": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+            "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+            "containerId": "cd238d7b-af9c-4092-ab3b-94950d7bf311",
+            "manifestId": "80e9a478-e035-41e8-ae86-17546175c7cd",
+            "masterBlId": "90c386aa-b536-4477-8e97-e7322b14955b",
+            "houseBlId": "5076b86f-3eb2-47c6-b3e6-6a033c00a8e4",
+            "consigneeId": "1a668d3c-21d8-42a3-babc-4ee211acf0d3",
+            "state": "EXITED",
+            "fullEmptyStatus": "FULL",
+            "sealNo": "OPS-QA-SEAL-1",
+            "cargoDescription": null,
+            "grossWeight": "20000",
+            "category": "IMPORT",
+            "isOverstay": false,
+            "dwellDays": 0,
+            "gateInAt": "2026-10-02T00:41:41.892Z",
+            "gateOutAt": "2026-10-02T01:07:57.801Z",
+            "createdAt": "2026-10-02T00:38:20.809Z",
+            "updatedAt": "2026-10-02T01:07:57.890Z",
+            "container": {
+              "id": "cd238d7b-af9c-4092-ab3b-94950d7bf311",
+              "containerNumber": "QAOU5007550",
+              "isoCode": "45G1",
+              "size": "SIZE_40",
+              "type": "DRY",
+              "height": null,
+              "tareWeight": null,
+              "maxPayload": null,
+              "createdAt": "2026-10-02T00:38:20.790Z",
+              "updatedAt": "2026-10-02T00:38:20.790Z"
+            }
+          },
+          "createdByUser": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          },
+          "completedByUser": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          }
+        }
+      ],
+      "holds": [],
+      "readiness": {
+        "containerVisitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+        "ready": false,
+        "isReady": false,
+        "blockers": [
+          "CONTAINER_NOT_IN_YARD",
+          "NO_YARD_POSITION"
+        ],
+        "details": {
+          "containerStatus": "EXITED",
+          "yardLocation": null,
+          "activeOperations": {
+            "movementCount": 0,
+            "inspectionCount": 0,
+            "bookingCount": 0,
+            "hasActiveOperations": false
+          },
+          "inspectionHoldCount": 0,
+          "activeHolds": [],
+          "billing": {
+            "hasNoOrders": false,
+            "pendingOrders": [],
+            "unpaidInvoices": [],
+            "unbilledServicesCount": 0,
+            "billingConfigMissing": false
+          }
+        }
+      },
+      "events": [
+        {
+          "id": "954eac40-a2a0-49e7-a5c7-668884c3b0f6",
+          "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "eventType": "GATE_OUT",
+          "fromState": "GATE_PASS_ISSUED",
+          "toState": "EXITED",
+          "actorId": "64b73e99-bf75-4736-b5ea-5263cbe3bf2c",
+          "metadata": {
+            "gateOutAt": "2026-10-02T01:07:57.801Z",
+            "referenceId": "ceb98909-33fa-4388-a829-dc5154f910fd",
+            "gatePassCode": "GP-MUQ99LSU-EC4D56",
+            "receiverName": "Local QA receiver",
+            "vehiclePlate": "51C-OUTQA",
+            "referenceType": "GATE_PASS"
+          },
+          "note": "Container QAOU5007550 đã Gate-out với phiếu GP-MUQ99LSU-EC4D56",
+          "createdAt": "2026-10-02T01:07:57.898Z",
+          "actor": {
+            "id": "64b73e99-bf75-4736-b5ea-5263cbe3bf2c",
+            "name": "Lê Văn Cổng (Gate Staff)",
+            "email": "gate@icd.local"
+          }
+        },
+        {
+          "id": "233db3a4-10ef-4bf4-8554-00606e4c6eb3",
+          "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "eventType": "GATE_PASS_ISSUED",
+          "fromState": "IN_YARD",
+          "toState": "GATE_PASS_ISSUED",
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "code": "GP-MUQ99LSU-EC4D56",
+            "issuedAt": "2026-10-02T00:59:25.437Z",
+            "expiresAt": "2026-10-03T00:59:25.437Z",
+            "referenceId": "ceb98909-33fa-4388-a829-dc5154f910fd",
+            "referenceType": "gate_pass"
+          },
+          "note": null,
+          "createdAt": "2026-10-02T00:59:25.480Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "9b1510a4-4827-4ef5-b8c4-877d57d6aa3c",
+          "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "eventType": "INVOICE_PAID",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "status": "PAID",
+            "invoiceId": "dcdc6ac9-f18b-44b5-b8f3-5290d879e6ef",
+            "invoiceNo": "INV-20261002-9447016586",
+            "paidAmount": 990000
+          },
+          "note": null,
+          "createdAt": "2026-10-02T00:59:18.925Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "f724979d-97ca-44ae-abf0-cbc152680774",
+          "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "eventType": "PAYMENT_RECORDED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "amount": 990000,
+            "method": "CASH",
+            "invoiceId": "dcdc6ac9-f18b-44b5-b8f3-5290d879e6ef",
+            "invoiceNo": "INV-20261002-9447016586",
+            "paymentId": "3eb44b2c-f2ea-4c75-9470-77b51b0d7d85",
+            "paymentRef": "OPS-QA-1790901500518-LOCAL-TEST-ONLY"
+          },
+          "note": null,
+          "createdAt": "2026-10-02T00:59:18.922Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "404c50f3-1d09-4ee9-811b-eda226895ba0",
+          "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "eventType": "INVOICE_ISSUED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "dueAt": "2026-10-03T00:59:18.831Z",
+            "invoiceId": "dcdc6ac9-f18b-44b5-b8f3-5290d879e6ef",
+            "invoiceNo": "INV-20261002-9447016586",
+            "totalAmount": 990000,
+            "serviceOrderId": "29a3eb58-59ad-498d-9d6d-3e5b02448601"
+          },
+          "note": null,
+          "createdAt": "2026-10-02T00:59:18.866Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "46b52022-e1b7-40a8-8fdc-e5c7c70cf12a",
+          "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "eventType": "SERVICE_ORDER_CONFIRMED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "orderNumber": "SO-20261002-6929245CA430",
+            "referenceId": "29a3eb58-59ad-498d-9d6d-3e5b02448601",
+            "totalAmount": 990000,
+            "referenceType": "ServiceOrder"
+          },
+          "note": "Confirmed service order SO-20261002-6929245CA430",
+          "createdAt": "2026-10-02T00:59:18.824Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "de408331-37ee-4c98-b32e-6287997f74ac",
+          "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "eventType": "SERVICE_ORDER_CREATED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "itemCount": 4,
+            "orderNumber": "SO-20261002-6929245CA430",
+            "referenceId": "29a3eb58-59ad-498d-9d6d-3e5b02448601",
+            "totalAmount": 990000,
+            "referenceType": "ServiceOrder"
+          },
+          "note": "Created draft service order SO-20261002-6929245CA430",
+          "createdAt": "2026-10-02T00:59:18.783Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "a1043c84-0ed9-475c-bd1f-b08871ce91be",
+          "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "eventType": "IN_YARD_BOOKING_COMPLETED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "metadata": {
+            "bookingId": "c16238aa-a5e9-40e2-bdeb-ad11763ca36d",
+            "bookingType": "INSPECTION",
+            "referenceId": "c16238aa-a5e9-40e2-bdeb-ad11763ca36d",
+            "actualWeight": 20000,
+            "referenceType": "in_yard_booking",
+            "actualPackageCount": 100
+          },
+          "note": "Hoàn tất tác nghiệp bãi: INSPECTION",
+          "createdAt": "2026-10-02T00:58:40.452Z",
+          "actor": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          }
+        },
+        {
+          "id": "d31aeacc-8219-4174-9bca-599aa917b5cc",
+          "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "eventType": "IN_YARD_BOOKING_STARTED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "metadata": {
+            "bookingId": "c16238aa-a5e9-40e2-bdeb-ad11763ca36d",
+            "bookingType": "INSPECTION",
+            "referenceId": "c16238aa-a5e9-40e2-bdeb-ad11763ca36d",
+            "referenceType": "in_yard_booking"
+          },
+          "note": "Bắt đầu tác nghiệp bãi: INSPECTION",
+          "createdAt": "2026-10-02T00:58:26.744Z",
+          "actor": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          }
+        },
+        {
+          "id": "006cbaa3-0f02-4ebf-8a90-4a6a21cb463e",
+          "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "eventType": "IN_YARD_BOOKING_CREATED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "metadata": {
+            "bookingId": "c16238aa-a5e9-40e2-bdeb-ad11763ca36d",
+            "bookingType": "INSPECTION",
+            "referenceId": "c16238aa-a5e9-40e2-bdeb-ad11763ca36d",
+            "scheduledAt": "2026-10-02T01:00:00.000Z",
+            "referenceType": "in_yard_booking"
+          },
+          "note": "Đặt lịch tác nghiệp INSPECTION vào lúc 2026-10-02T01:00:00.000Z",
+          "createdAt": "2026-10-02T00:57:54.526Z",
+          "actor": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          }
+        },
+        {
+          "id": "caa8f434-4992-456f-9ded-5423848a6aa0",
+          "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "eventType": "INSPECTION_COMPLETED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "metadata": {
+            "result": "PASS",
+            "referenceId": "a8852c1b-fdb9-42e9-ab38-e66701e3c11a",
+            "inspectionId": "a8852c1b-fdb9-42e9-ab38-e66701e3c11a",
+            "referenceType": "container_inspection",
+            "inspectionType": "DAMAGE_SURVEY"
+          },
+          "note": "Hoàn tất giám định DAMAGE_SURVEY với kết quả: PASS",
+          "createdAt": "2026-10-02T00:56:22.267Z",
+          "actor": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          }
+        },
+        {
+          "id": "29a52be3-f9c6-461d-8278-46a9575a6fcc",
+          "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "eventType": "INSPECTION_STARTED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "metadata": {
+            "referenceId": "a8852c1b-fdb9-42e9-ab38-e66701e3c11a",
+            "inspectionId": "a8852c1b-fdb9-42e9-ab38-e66701e3c11a",
+            "referenceType": "container_inspection",
+            "inspectionType": "DAMAGE_SURVEY"
+          },
+          "note": "Bắt đầu thực hiện giám định: DAMAGE_SURVEY",
+          "createdAt": "2026-10-02T00:55:56.606Z",
+          "actor": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          }
+        },
+        {
+          "id": "2ee2e975-9bc0-4dee-b248-6bc53552ae37",
+          "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "eventType": "INSPECTION_REQUESTED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "metadata": {
+            "referenceId": "a8852c1b-fdb9-42e9-ab38-e66701e3c11a",
+            "inspectionId": "a8852c1b-fdb9-42e9-ab38-e66701e3c11a",
+            "referenceType": "container_inspection",
+            "inspectionType": "DAMAGE_SURVEY"
+          },
+          "note": "Tạo yêu cầu giám định: DAMAGE_SURVEY",
+          "createdAt": "2026-10-02T00:55:18.620Z",
+          "actor": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          }
+        },
+        {
+          "id": "fbf2ea8e-6589-4bed-ac08-f1ee0ddc59a6",
+          "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "eventType": "YARD_MOVED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "metadata": {
+            "toSlotId": "1b97d235-1b5b-461a-b202-77115df3abe2",
+            "fromSlotId": "0aa21460-e2cf-4b4d-9426-0216a24cba4f",
+            "movementId": "880dfcda-a98b-4483-ad32-0c0bd86b53b4",
+            "newLocation": "A-02-01-1",
+            "referenceId": "6d58e997-bc47-472a-9fa8-10bec34df6e0",
+            "locationLogId": "6d58e997-bc47-472a-9fa8-10bec34df6e0",
+            "referenceType": "container_location_log"
+          },
+          "note": "Hoàn tất đảo chuyển container sang vị trí A-02-01-1",
+          "createdAt": "2026-10-02T00:52:25.685Z",
+          "actor": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          }
+        },
+        {
+          "id": "a537836e-ca12-4f9c-add1-d829277997f9",
+          "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "eventType": "YARD_MOVEMENT_STARTED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "metadata": {
+            "movementId": "880dfcda-a98b-4483-ad32-0c0bd86b53b4",
+            "referenceId": "880dfcda-a98b-4483-ad32-0c0bd86b53b4",
+            "referenceType": "yard_movement"
+          },
+          "note": "Bắt đầu đảo chuyển sang vị trí A-02-01-1",
+          "createdAt": "2026-10-02T00:52:16.088Z",
+          "actor": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          }
+        },
+        {
+          "id": "50d530bf-1c2a-44e6-9f41-0e9567cdfd08",
+          "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "eventType": "YARD_MOVEMENT_REQUESTED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "metadata": {
+            "reason": null,
+            "toSlotId": "1b97d235-1b5b-461a-b202-77115df3abe2",
+            "fromSlotId": "0aa21460-e2cf-4b4d-9426-0216a24cba4f",
+            "movementId": "880dfcda-a98b-4483-ad32-0c0bd86b53b4",
+            "referenceId": "880dfcda-a98b-4483-ad32-0c0bd86b53b4",
+            "referenceType": "yard_movement"
+          },
+          "note": "Yêu cầu đảo chuyển từ vị trí A-01-03-2 sang A-02-01-1",
+          "createdAt": "2026-10-02T00:51:20.555Z",
+          "actor": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          }
+        },
+        {
+          "id": "ea45b68a-ac30-4e99-8fcd-6f5e1dbe9040",
+          "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "eventType": "YARD_ASSIGNED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "metadata": {
+            "bayNo": "3",
+            "rowNo": "1",
+            "source": "MANUAL",
+            "tierNo": "2",
+            "slotCode": "A-01-03-2",
+            "blockCode": "A",
+            "yardSlotId": "0aa21460-e2cf-4b4d-9426-0216a24cba4f",
+            "referenceId": "f83137e3-0b68-44f6-861c-fe93567ea2e6",
+            "referenceType": "container_location_log",
+            "recommendationId": null
+          },
+          "note": null,
+          "createdAt": "2026-10-02T00:50:56.326Z",
+          "actor": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          }
+        },
+        {
+          "id": "9aa1e4d7-2e4e-46d9-a8b5-0a59120b52f5",
+          "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "eventType": "GATE_IN",
+          "fromState": "AUTHORIZED",
+          "toState": "IN_YARD",
+          "actorId": "64b73e99-bf75-4736-b5ea-5263cbe3bf2c",
+          "metadata": {
+            "gateInAt": "2026-10-02T00:41:41.892Z",
+            "actualSeal": "OPS-QA-SEAL-1",
+            "referenceId": "e5c295b7-2729-48b1-99e6-91059bde5366",
+            "actualWeight": 20000,
+            "truckVisitId": "fc525ccc-ba8e-49f2-8831-62eadd0ae0e3",
+            "conditionCode": "GOOD",
+            "referenceType": "container_reception",
+            "sealComparison": "MATCH"
+          },
+          "note": null,
+          "createdAt": "2026-10-02T00:41:41.953Z",
+          "actor": {
+            "id": "64b73e99-bf75-4736-b5ea-5263cbe3bf2c",
+            "name": "Lê Văn Cổng (Gate Staff)",
+            "email": "gate@icd.local"
+          }
+        },
+        {
+          "id": "c49bf03e-6496-446d-8a2e-355cd0dd2cab",
+          "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "eventType": "TRUCK_VISIT_ARRIVED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "64b73e99-bf75-4736-b5ea-5263cbe3bf2c",
+          "metadata": {
+            "referenceId": "fc525ccc-ba8e-49f2-8831-62eadd0ae0e3",
+            "referenceType": "truck_visit"
+          },
+          "note": "Xe đã đến cổng ICD (Làn: QA-LANE-01)",
+          "createdAt": "2026-10-02T00:40:43.325Z",
+          "actor": {
+            "id": "64b73e99-bf75-4736-b5ea-5263cbe3bf2c",
+            "name": "Lê Văn Cổng (Gate Staff)",
+            "email": "gate@icd.local"
+          }
+        },
+        {
+          "id": "44726881-64bc-4479-a493-a9e74ab668ca",
+          "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "eventType": "TRUCK_VISIT_SCHEDULED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "referenceId": "fc525ccc-ba8e-49f2-8831-62eadd0ae0e3",
+            "referenceType": "truck_visit"
+          },
+          "note": "Lên lịch chuyến xe TV-20261002-9AC7FC (Biển số: 51C-QA0755)",
+          "createdAt": "2026-10-02T00:38:21.309Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "6cbee976-ef7c-4181-8d3e-68f009876194",
+          "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "eventType": "MOVEMENT_AUTHORIZED",
+          "fromState": "PENDING",
+          "toState": "AUTHORIZED",
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "referenceId": "01ffe8f7-1f8c-408d-94eb-b998adafb3d3",
+            "referenceType": "movement_order"
+          },
+          "note": "Container visit authorized via Movement Order",
+          "createdAt": "2026-10-02T00:38:21.054Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "2db92e31-4928-4f41-84d0-2458e57e23d2",
+          "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "eventType": "MOVEMENT_ORDER_CREATED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "referenceId": "01ffe8f7-1f8c-408d-94eb-b998adafb3d3",
+            "referenceType": "movement_order"
+          },
+          "note": "Tạo lệnh vận chuyển (Movement Order DRAFT)",
+          "createdAt": "2026-10-02T00:38:21.001Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "0ab1f836-8e76-43ac-bad0-8b46847883b8",
+          "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+          "eventType": "VISIT_CREATED",
+          "fromState": null,
+          "toState": "PENDING",
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": null,
+          "note": "Container visit registered",
+          "createdAt": "2026-10-02T00:38:20.819Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        }
+      ]
+    },
+    {
+      "alias": "second",
+      "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+      "containerNumber": "QAOU5007565",
+      "state": "IN_YARD",
+      "location": {
+        "id": "292c8679-bc41-49af-908d-6e9e2f8f1348",
+        "containerVisitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+        "startedAt": "2026-10-02T09:09:21.321Z",
+        "endedAt": null,
+        "source": "MOVEMENT",
+        "recommendationId": null,
+        "yardSlot": {
+          "id": "0aa21460-e2cf-4b4d-9426-0216a24cba4f",
+          "yardBlockId": "a1509670-52af-4556-a1ac-7f2276086dc3",
+          "rowNo": "1",
+          "bayNo": "3",
+          "tierNo": "2",
+          "slotCode": "A-01-03-2",
+          "supportedContainerType": null,
+          "reeferPower": false,
+          "maxWeight": "32000",
+          "operational": true,
+          "yardBlock": {
+            "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+            "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+            "blockCode": "A",
+            "name": "Khu A — Hàng khô Dry Cargo",
+            "operational": true
+          }
+        },
+        "assignedBy": {
+          "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "name": "System Administrator",
+          "email": "admin@icd.local"
+        }
+      },
+      "movements": [
+        {
+          "id": "1f0abc86-b24b-423a-a5c8-8228719e8af7",
+          "containerVisitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "fromSlotId": "0aa21460-e2cf-4b4d-9426-0216a24cba4f",
+          "toSlotId": "3c552f06-b3f6-4670-84b0-86c154231892",
+          "status": "CANCELLED",
+          "reason": "WEB-YARD-QA: hủy khi đang chạy, giữ nguyên A-01-03-2",
+          "startedAt": "2026-10-02T09:09:47.271Z",
+          "completedAt": null,
+          "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "completedById": null,
+          "createdAt": "2026-10-02T09:09:45.878Z",
+          "updatedAt": "2026-10-02T09:10:06.715Z",
+          "containerVisit": {
+            "id": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+            "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+            "containerId": "18fc5961-ff49-4fde-a998-6562e50311f3",
+            "manifestId": "80e9a478-e035-41e8-ae86-17546175c7cd",
+            "masterBlId": "90c386aa-b536-4477-8e97-e7322b14955b",
+            "houseBlId": "5076b86f-3eb2-47c6-b3e6-6a033c00a8e4",
+            "consigneeId": "1a668d3c-21d8-42a3-babc-4ee211acf0d3",
+            "state": "IN_YARD",
+            "fullEmptyStatus": "FULL",
+            "sealNo": "OPS-QA-SEAL-2",
+            "cargoDescription": null,
+            "grossWeight": "20000",
+            "category": "IMPORT",
+            "isOverstay": false,
+            "dwellDays": 0,
+            "gateInAt": "2026-10-02T00:46:07.174Z",
+            "gateOutAt": null,
+            "createdAt": "2026-10-02T00:38:20.859Z",
+            "updatedAt": "2026-10-02T00:46:07.190Z",
+            "container": {
+              "id": "18fc5961-ff49-4fde-a998-6562e50311f3",
+              "containerNumber": "QAOU5007565",
+              "isoCode": "45G1",
+              "size": "SIZE_40",
+              "type": "DRY",
+              "height": null,
+              "tareWeight": null,
+              "maxPayload": null,
+              "createdAt": "2026-10-02T00:38:20.850Z",
+              "updatedAt": "2026-10-02T00:38:20.850Z"
+            }
+          },
+          "fromSlot": {
+            "id": "0aa21460-e2cf-4b4d-9426-0216a24cba4f",
+            "yardBlockId": "a1509670-52af-4556-a1ac-7f2276086dc3",
+            "rowNo": "1",
+            "bayNo": "3",
+            "tierNo": "2",
+            "slotCode": "A-01-03-2",
+            "supportedContainerType": null,
+            "reeferPower": false,
+            "maxWeight": "32000",
+            "operational": true,
+            "yardBlock": {
+              "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+              "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+              "blockCode": "A",
+              "name": "Khu A — Hàng khô Dry Cargo",
+              "operational": true
+            }
+          },
+          "toSlot": {
+            "id": "3c552f06-b3f6-4670-84b0-86c154231892",
+            "yardBlockId": "a1509670-52af-4556-a1ac-7f2276086dc3",
+            "rowNo": "2",
+            "bayNo": "1",
+            "tierNo": "2",
+            "slotCode": "A-02-01-2",
+            "supportedContainerType": null,
+            "reeferPower": false,
+            "maxWeight": "32000",
+            "operational": true,
+            "yardBlock": {
+              "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+              "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+              "blockCode": "A",
+              "name": "Khu A — Hàng khô Dry Cargo",
+              "operational": true
+            }
+          },
+          "createdByUser": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          },
+          "completedByUser": null
+        },
+        {
+          "id": "9c2dba91-8755-4d03-8f1a-896853a5e2dc",
+          "containerVisitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "fromSlotId": "3c552f06-b3f6-4670-84b0-86c154231892",
+          "toSlotId": "0aa21460-e2cf-4b4d-9426-0216a24cba4f",
+          "status": "COMPLETED",
+          "reason": "WEB-YARD-QA: hoàn trả về vị trí trước kiểm thử",
+          "startedAt": "2026-10-02T09:09:05.557Z",
+          "completedAt": "2026-10-02T09:09:21.321Z",
+          "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "completedById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "createdAt": "2026-10-02T09:09:04.167Z",
+          "updatedAt": "2026-10-02T09:09:21.328Z",
+          "containerVisit": {
+            "id": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+            "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+            "containerId": "18fc5961-ff49-4fde-a998-6562e50311f3",
+            "manifestId": "80e9a478-e035-41e8-ae86-17546175c7cd",
+            "masterBlId": "90c386aa-b536-4477-8e97-e7322b14955b",
+            "houseBlId": "5076b86f-3eb2-47c6-b3e6-6a033c00a8e4",
+            "consigneeId": "1a668d3c-21d8-42a3-babc-4ee211acf0d3",
+            "state": "IN_YARD",
+            "fullEmptyStatus": "FULL",
+            "sealNo": "OPS-QA-SEAL-2",
+            "cargoDescription": null,
+            "grossWeight": "20000",
+            "category": "IMPORT",
+            "isOverstay": false,
+            "dwellDays": 0,
+            "gateInAt": "2026-10-02T00:46:07.174Z",
+            "gateOutAt": null,
+            "createdAt": "2026-10-02T00:38:20.859Z",
+            "updatedAt": "2026-10-02T00:46:07.190Z",
+            "container": {
+              "id": "18fc5961-ff49-4fde-a998-6562e50311f3",
+              "containerNumber": "QAOU5007565",
+              "isoCode": "45G1",
+              "size": "SIZE_40",
+              "type": "DRY",
+              "height": null,
+              "tareWeight": null,
+              "maxPayload": null,
+              "createdAt": "2026-10-02T00:38:20.850Z",
+              "updatedAt": "2026-10-02T00:38:20.850Z"
+            }
+          },
+          "fromSlot": {
+            "id": "3c552f06-b3f6-4670-84b0-86c154231892",
+            "yardBlockId": "a1509670-52af-4556-a1ac-7f2276086dc3",
+            "rowNo": "2",
+            "bayNo": "1",
+            "tierNo": "2",
+            "slotCode": "A-02-01-2",
+            "supportedContainerType": null,
+            "reeferPower": false,
+            "maxWeight": "32000",
+            "operational": true,
+            "yardBlock": {
+              "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+              "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+              "blockCode": "A",
+              "name": "Khu A — Hàng khô Dry Cargo",
+              "operational": true
+            }
+          },
+          "toSlot": {
+            "id": "0aa21460-e2cf-4b4d-9426-0216a24cba4f",
+            "yardBlockId": "a1509670-52af-4556-a1ac-7f2276086dc3",
+            "rowNo": "1",
+            "bayNo": "3",
+            "tierNo": "2",
+            "slotCode": "A-01-03-2",
+            "supportedContainerType": null,
+            "reeferPower": false,
+            "maxWeight": "32000",
+            "operational": true,
+            "yardBlock": {
+              "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+              "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+              "blockCode": "A",
+              "name": "Khu A — Hàng khô Dry Cargo",
+              "operational": true
+            }
+          },
+          "createdByUser": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          },
+          "completedByUser": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "8e1c9819-f202-4871-940b-fdf47af63c51",
+          "containerVisitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "fromSlotId": "0aa21460-e2cf-4b4d-9426-0216a24cba4f",
+          "toSlotId": "3c552f06-b3f6-4670-84b0-86c154231892",
+          "status": "COMPLETED",
+          "reason": "WEB-YARD-QA: chuyển để kiểm tra cập nhật vị trí rồi hoàn trả",
+          "startedAt": "2026-10-02T09:07:40.554Z",
+          "completedAt": "2026-10-02T09:08:15.754Z",
+          "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "completedById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "createdAt": "2026-10-02T09:06:43.374Z",
+          "updatedAt": "2026-10-02T09:08:15.761Z",
+          "containerVisit": {
+            "id": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+            "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+            "containerId": "18fc5961-ff49-4fde-a998-6562e50311f3",
+            "manifestId": "80e9a478-e035-41e8-ae86-17546175c7cd",
+            "masterBlId": "90c386aa-b536-4477-8e97-e7322b14955b",
+            "houseBlId": "5076b86f-3eb2-47c6-b3e6-6a033c00a8e4",
+            "consigneeId": "1a668d3c-21d8-42a3-babc-4ee211acf0d3",
+            "state": "IN_YARD",
+            "fullEmptyStatus": "FULL",
+            "sealNo": "OPS-QA-SEAL-2",
+            "cargoDescription": null,
+            "grossWeight": "20000",
+            "category": "IMPORT",
+            "isOverstay": false,
+            "dwellDays": 0,
+            "gateInAt": "2026-10-02T00:46:07.174Z",
+            "gateOutAt": null,
+            "createdAt": "2026-10-02T00:38:20.859Z",
+            "updatedAt": "2026-10-02T00:46:07.190Z",
+            "container": {
+              "id": "18fc5961-ff49-4fde-a998-6562e50311f3",
+              "containerNumber": "QAOU5007565",
+              "isoCode": "45G1",
+              "size": "SIZE_40",
+              "type": "DRY",
+              "height": null,
+              "tareWeight": null,
+              "maxPayload": null,
+              "createdAt": "2026-10-02T00:38:20.850Z",
+              "updatedAt": "2026-10-02T00:38:20.850Z"
+            }
+          },
+          "fromSlot": {
+            "id": "0aa21460-e2cf-4b4d-9426-0216a24cba4f",
+            "yardBlockId": "a1509670-52af-4556-a1ac-7f2276086dc3",
+            "rowNo": "1",
+            "bayNo": "3",
+            "tierNo": "2",
+            "slotCode": "A-01-03-2",
+            "supportedContainerType": null,
+            "reeferPower": false,
+            "maxWeight": "32000",
+            "operational": true,
+            "yardBlock": {
+              "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+              "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+              "blockCode": "A",
+              "name": "Khu A — Hàng khô Dry Cargo",
+              "operational": true
+            }
+          },
+          "toSlot": {
+            "id": "3c552f06-b3f6-4670-84b0-86c154231892",
+            "yardBlockId": "a1509670-52af-4556-a1ac-7f2276086dc3",
+            "rowNo": "2",
+            "bayNo": "1",
+            "tierNo": "2",
+            "slotCode": "A-02-01-2",
+            "supportedContainerType": null,
+            "reeferPower": false,
+            "maxWeight": "32000",
+            "operational": true,
+            "yardBlock": {
+              "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+              "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+              "blockCode": "A",
+              "name": "Khu A — Hàng khô Dry Cargo",
+              "operational": true
+            }
+          },
+          "createdByUser": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          },
+          "completedByUser": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "b412f65d-bc7f-473d-bbe8-498bc176acfd",
+          "containerVisitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "fromSlotId": "0aa21460-e2cf-4b4d-9426-0216a24cba4f",
+          "toSlotId": "3c552f06-b3f6-4670-84b0-86c154231892",
+          "status": "CANCELLED",
+          "reason": "QA hủy đảo chuyển: giữ container tại vị trí cũ, không thực hiện di dời.",
+          "startedAt": null,
+          "completedAt": null,
+          "createdById": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "completedById": null,
+          "createdAt": "2026-10-02T01:37:34.927Z",
+          "updatedAt": "2026-10-02T01:38:14.474Z",
+          "containerVisit": {
+            "id": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+            "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+            "containerId": "18fc5961-ff49-4fde-a998-6562e50311f3",
+            "manifestId": "80e9a478-e035-41e8-ae86-17546175c7cd",
+            "masterBlId": "90c386aa-b536-4477-8e97-e7322b14955b",
+            "houseBlId": "5076b86f-3eb2-47c6-b3e6-6a033c00a8e4",
+            "consigneeId": "1a668d3c-21d8-42a3-babc-4ee211acf0d3",
+            "state": "IN_YARD",
+            "fullEmptyStatus": "FULL",
+            "sealNo": "OPS-QA-SEAL-2",
+            "cargoDescription": null,
+            "grossWeight": "20000",
+            "category": "IMPORT",
+            "isOverstay": false,
+            "dwellDays": 0,
+            "gateInAt": "2026-10-02T00:46:07.174Z",
+            "gateOutAt": null,
+            "createdAt": "2026-10-02T00:38:20.859Z",
+            "updatedAt": "2026-10-02T00:46:07.190Z",
+            "container": {
+              "id": "18fc5961-ff49-4fde-a998-6562e50311f3",
+              "containerNumber": "QAOU5007565",
+              "isoCode": "45G1",
+              "size": "SIZE_40",
+              "type": "DRY",
+              "height": null,
+              "tareWeight": null,
+              "maxPayload": null,
+              "createdAt": "2026-10-02T00:38:20.850Z",
+              "updatedAt": "2026-10-02T00:38:20.850Z"
+            }
+          },
+          "fromSlot": {
+            "id": "0aa21460-e2cf-4b4d-9426-0216a24cba4f",
+            "yardBlockId": "a1509670-52af-4556-a1ac-7f2276086dc3",
+            "rowNo": "1",
+            "bayNo": "3",
+            "tierNo": "2",
+            "slotCode": "A-01-03-2",
+            "supportedContainerType": null,
+            "reeferPower": false,
+            "maxWeight": "32000",
+            "operational": true,
+            "yardBlock": {
+              "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+              "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+              "blockCode": "A",
+              "name": "Khu A — Hàng khô Dry Cargo",
+              "operational": true
+            }
+          },
+          "toSlot": {
+            "id": "3c552f06-b3f6-4670-84b0-86c154231892",
+            "yardBlockId": "a1509670-52af-4556-a1ac-7f2276086dc3",
+            "rowNo": "2",
+            "bayNo": "1",
+            "tierNo": "2",
+            "slotCode": "A-02-01-2",
+            "supportedContainerType": null,
+            "reeferPower": false,
+            "maxWeight": "32000",
+            "operational": true,
+            "yardBlock": {
+              "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+              "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+              "blockCode": "A",
+              "name": "Khu A — Hàng khô Dry Cargo",
+              "operational": true
+            }
+          },
+          "createdByUser": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          },
+          "completedByUser": null
+        }
+      ],
+      "bookings": [
+        {
+          "id": "0f790e55-3aba-4dc3-bc68-934daefe8bae",
+          "containerVisitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "bookingType": "INSPECTION",
+          "status": "CANCELLED",
+          "scheduledAt": "2026-10-02T10:30:00.000Z",
+          "startedAt": "2026-10-02T09:17:37.802Z",
+          "completedAt": null,
+          "actualPackageCount": null,
+          "actualWeight": null,
+          "conditionNotes": "WEB-YARD-QA: lịch 17:30 đã sửa FormData [Hủy: WEB-YARD-QA: hủy booking đang thực hiện, giữ lịch sử giờ 17:30]",
+          "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "completedById": null,
+          "createdAt": "2026-10-02T09:16:49.110Z",
+          "updatedAt": "2026-10-02T09:17:40.033Z",
+          "containerVisit": {
+            "id": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+            "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+            "containerId": "18fc5961-ff49-4fde-a998-6562e50311f3",
+            "manifestId": "80e9a478-e035-41e8-ae86-17546175c7cd",
+            "masterBlId": "90c386aa-b536-4477-8e97-e7322b14955b",
+            "houseBlId": "5076b86f-3eb2-47c6-b3e6-6a033c00a8e4",
+            "consigneeId": "1a668d3c-21d8-42a3-babc-4ee211acf0d3",
+            "state": "IN_YARD",
+            "fullEmptyStatus": "FULL",
+            "sealNo": "OPS-QA-SEAL-2",
+            "cargoDescription": null,
+            "grossWeight": "20000",
+            "category": "IMPORT",
+            "isOverstay": false,
+            "dwellDays": 0,
+            "gateInAt": "2026-10-02T00:46:07.174Z",
+            "gateOutAt": null,
+            "createdAt": "2026-10-02T00:38:20.859Z",
+            "updatedAt": "2026-10-02T00:46:07.190Z",
+            "container": {
+              "id": "18fc5961-ff49-4fde-a998-6562e50311f3",
+              "containerNumber": "QAOU5007565",
+              "isoCode": "45G1",
+              "size": "SIZE_40",
+              "type": "DRY",
+              "height": null,
+              "tareWeight": null,
+              "maxPayload": null,
+              "createdAt": "2026-10-02T00:38:20.850Z",
+              "updatedAt": "2026-10-02T00:38:20.850Z"
+            }
+          },
+          "createdByUser": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          },
+          "completedByUser": null
+        },
+        {
+          "id": "0c80626e-ecba-4941-9a16-7e1dcfd7cb7d",
+          "containerVisitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "bookingType": "INSPECTION",
+          "status": "COMPLETED",
+          "scheduledAt": "2026-10-02T09:12:00.000Z",
+          "startedAt": "2026-10-02T09:12:19.104Z",
+          "completedAt": "2026-10-02T09:13:46.374Z",
+          "actualPackageCount": 100,
+          "actualWeight": "20000",
+          "conditionNotes": "WEB-YARD-QA: 100 kiện, 20000kg, hàng nguyên vẹn, đã kiểm tra thực tế",
+          "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "completedById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "createdAt": "2026-10-02T09:12:17.615Z",
+          "updatedAt": "2026-10-02T09:13:46.377Z",
+          "containerVisit": {
+            "id": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+            "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+            "containerId": "18fc5961-ff49-4fde-a998-6562e50311f3",
+            "manifestId": "80e9a478-e035-41e8-ae86-17546175c7cd",
+            "masterBlId": "90c386aa-b536-4477-8e97-e7322b14955b",
+            "houseBlId": "5076b86f-3eb2-47c6-b3e6-6a033c00a8e4",
+            "consigneeId": "1a668d3c-21d8-42a3-babc-4ee211acf0d3",
+            "state": "IN_YARD",
+            "fullEmptyStatus": "FULL",
+            "sealNo": "OPS-QA-SEAL-2",
+            "cargoDescription": null,
+            "grossWeight": "20000",
+            "category": "IMPORT",
+            "isOverstay": false,
+            "dwellDays": 0,
+            "gateInAt": "2026-10-02T00:46:07.174Z",
+            "gateOutAt": null,
+            "createdAt": "2026-10-02T00:38:20.859Z",
+            "updatedAt": "2026-10-02T00:46:07.190Z",
+            "container": {
+              "id": "18fc5961-ff49-4fde-a998-6562e50311f3",
+              "containerNumber": "QAOU5007565",
+              "isoCode": "45G1",
+              "size": "SIZE_40",
+              "type": "DRY",
+              "height": null,
+              "tareWeight": null,
+              "maxPayload": null,
+              "createdAt": "2026-10-02T00:38:20.850Z",
+              "updatedAt": "2026-10-02T00:38:20.850Z"
+            }
+          },
+          "createdByUser": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          },
+          "completedByUser": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "e06849cc-a845-466d-9c38-35ecb6e92679",
+          "containerVisitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "bookingType": "STRIPPING",
+          "status": "CANCELLED",
+          "scheduledAt": "2026-10-02T09:10:00.000Z",
+          "startedAt": null,
+          "completedAt": null,
+          "actualPackageCount": null,
+          "actualWeight": null,
+          "conditionNotes": "[Hủy: WEB-YARD-QA: hủy lịch thử giờ trước khi thực hiện]",
+          "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "completedById": null,
+          "createdAt": "2026-10-02T09:10:32.367Z",
+          "updatedAt": "2026-10-02T09:11:59.499Z",
+          "containerVisit": {
+            "id": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+            "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+            "containerId": "18fc5961-ff49-4fde-a998-6562e50311f3",
+            "manifestId": "80e9a478-e035-41e8-ae86-17546175c7cd",
+            "masterBlId": "90c386aa-b536-4477-8e97-e7322b14955b",
+            "houseBlId": "5076b86f-3eb2-47c6-b3e6-6a033c00a8e4",
+            "consigneeId": "1a668d3c-21d8-42a3-babc-4ee211acf0d3",
+            "state": "IN_YARD",
+            "fullEmptyStatus": "FULL",
+            "sealNo": "OPS-QA-SEAL-2",
+            "cargoDescription": null,
+            "grossWeight": "20000",
+            "category": "IMPORT",
+            "isOverstay": false,
+            "dwellDays": 0,
+            "gateInAt": "2026-10-02T00:46:07.174Z",
+            "gateOutAt": null,
+            "createdAt": "2026-10-02T00:38:20.859Z",
+            "updatedAt": "2026-10-02T00:46:07.190Z",
+            "container": {
+              "id": "18fc5961-ff49-4fde-a998-6562e50311f3",
+              "containerNumber": "QAOU5007565",
+              "isoCode": "45G1",
+              "size": "SIZE_40",
+              "type": "DRY",
+              "height": null,
+              "tareWeight": null,
+              "maxPayload": null,
+              "createdAt": "2026-10-02T00:38:20.850Z",
+              "updatedAt": "2026-10-02T00:38:20.850Z"
+            }
+          },
+          "createdByUser": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          },
+          "completedByUser": null
+        },
+        {
+          "id": "1b02ff00-4994-443c-95a6-04059ceb5341",
+          "containerVisitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "bookingType": "INSPECTION",
+          "status": "CANCELLED",
+          "scheduledAt": "2026-10-02T01:00:00.000Z",
+          "startedAt": null,
+          "completedAt": null,
+          "actualPackageCount": null,
+          "actualWeight": null,
+          "conditionNotes": "[Hủy: QA huỷ lịch thử, không thực hiện dịch vụ.]",
+          "createdById": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "completedById": null,
+          "createdAt": "2026-10-02T00:59:43.893Z",
+          "updatedAt": "2026-10-02T01:01:41.577Z",
+          "containerVisit": {
+            "id": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+            "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+            "containerId": "18fc5961-ff49-4fde-a998-6562e50311f3",
+            "manifestId": "80e9a478-e035-41e8-ae86-17546175c7cd",
+            "masterBlId": "90c386aa-b536-4477-8e97-e7322b14955b",
+            "houseBlId": "5076b86f-3eb2-47c6-b3e6-6a033c00a8e4",
+            "consigneeId": "1a668d3c-21d8-42a3-babc-4ee211acf0d3",
+            "state": "IN_YARD",
+            "fullEmptyStatus": "FULL",
+            "sealNo": "OPS-QA-SEAL-2",
+            "cargoDescription": null,
+            "grossWeight": "20000",
+            "category": "IMPORT",
+            "isOverstay": false,
+            "dwellDays": 0,
+            "gateInAt": "2026-10-02T00:46:07.174Z",
+            "gateOutAt": null,
+            "createdAt": "2026-10-02T00:38:20.859Z",
+            "updatedAt": "2026-10-02T00:46:07.190Z",
+            "container": {
+              "id": "18fc5961-ff49-4fde-a998-6562e50311f3",
+              "containerNumber": "QAOU5007565",
+              "isoCode": "45G1",
+              "size": "SIZE_40",
+              "type": "DRY",
+              "height": null,
+              "tareWeight": null,
+              "maxPayload": null,
+              "createdAt": "2026-10-02T00:38:20.850Z",
+              "updatedAt": "2026-10-02T00:38:20.850Z"
+            }
+          },
+          "createdByUser": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          },
+          "completedByUser": null
+        }
+      ],
+      "inspections": [
+        {
+          "id": "b1038817-6e8c-4995-871b-5599af2ecf37",
+          "containerVisitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "inspectionType": "DAMAGE_CHECK",
+          "status": "COMPLETED",
+          "result": "PASS",
+          "notes": "WEB-YARD-QA: PASS sau kiểm tra màu vàng, không còn việc đang mở",
+          "startedAt": "2026-10-02T09:21:29.074Z",
+          "completedAt": "2026-10-02T09:21:55.645Z",
+          "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "completedById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "createdAt": "2026-10-02T09:21:27.585Z",
+          "updatedAt": "2026-10-02T09:21:55.646Z",
+          "containerVisit": {
+            "id": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+            "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+            "containerId": "18fc5961-ff49-4fde-a998-6562e50311f3",
+            "manifestId": "80e9a478-e035-41e8-ae86-17546175c7cd",
+            "masterBlId": "90c386aa-b536-4477-8e97-e7322b14955b",
+            "houseBlId": "5076b86f-3eb2-47c6-b3e6-6a033c00a8e4",
+            "consigneeId": "1a668d3c-21d8-42a3-babc-4ee211acf0d3",
+            "state": "IN_YARD",
+            "fullEmptyStatus": "FULL",
+            "sealNo": "OPS-QA-SEAL-2",
+            "cargoDescription": null,
+            "grossWeight": "20000",
+            "category": "IMPORT",
+            "isOverstay": false,
+            "dwellDays": 0,
+            "gateInAt": "2026-10-02T00:46:07.174Z",
+            "gateOutAt": null,
+            "createdAt": "2026-10-02T00:38:20.859Z",
+            "updatedAt": "2026-10-02T00:46:07.190Z",
+            "container": {
+              "id": "18fc5961-ff49-4fde-a998-6562e50311f3",
+              "containerNumber": "QAOU5007565",
+              "isoCode": "45G1",
+              "size": "SIZE_40",
+              "type": "DRY",
+              "height": null,
+              "tareWeight": null,
+              "maxPayload": null,
+              "createdAt": "2026-10-02T00:38:20.850Z",
+              "updatedAt": "2026-10-02T00:38:20.850Z"
+            }
+          },
+          "createdByUser": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          },
+          "completedByUser": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "4474100d-0930-4c64-af3f-c7a60f154a06",
+          "containerVisitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "inspectionType": "DAMAGE_CHECK",
+          "status": "COMPLETED",
+          "result": "PASS",
+          "notes": "WEB-YARD-QA: PASS, hàng và seal nguyên vẹn, kết quả kiểm tra thực tế",
+          "startedAt": "2026-10-02T09:18:04.618Z",
+          "completedAt": "2026-10-02T09:19:29.076Z",
+          "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "completedById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "createdAt": "2026-10-02T09:17:42.109Z",
+          "updatedAt": "2026-10-02T09:19:29.078Z",
+          "containerVisit": {
+            "id": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+            "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+            "containerId": "18fc5961-ff49-4fde-a998-6562e50311f3",
+            "manifestId": "80e9a478-e035-41e8-ae86-17546175c7cd",
+            "masterBlId": "90c386aa-b536-4477-8e97-e7322b14955b",
+            "houseBlId": "5076b86f-3eb2-47c6-b3e6-6a033c00a8e4",
+            "consigneeId": "1a668d3c-21d8-42a3-babc-4ee211acf0d3",
+            "state": "IN_YARD",
+            "fullEmptyStatus": "FULL",
+            "sealNo": "OPS-QA-SEAL-2",
+            "cargoDescription": null,
+            "grossWeight": "20000",
+            "category": "IMPORT",
+            "isOverstay": false,
+            "dwellDays": 0,
+            "gateInAt": "2026-10-02T00:46:07.174Z",
+            "gateOutAt": null,
+            "createdAt": "2026-10-02T00:38:20.859Z",
+            "updatedAt": "2026-10-02T00:46:07.190Z",
+            "container": {
+              "id": "18fc5961-ff49-4fde-a998-6562e50311f3",
+              "containerNumber": "QAOU5007565",
+              "isoCode": "45G1",
+              "size": "SIZE_40",
+              "type": "DRY",
+              "height": null,
+              "tareWeight": null,
+              "maxPayload": null,
+              "createdAt": "2026-10-02T00:38:20.850Z",
+              "updatedAt": "2026-10-02T00:38:20.850Z"
+            }
+          },
+          "createdByUser": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          },
+          "completedByUser": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        }
+      ],
+      "holds": [],
+      "readiness": {
+        "containerVisitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+        "ready": false,
+        "isReady": false,
+        "blockers": [
+          "NO_BILLING",
+          "UNBILLED_SERVICES"
+        ],
+        "details": {
+          "containerStatus": "IN_YARD",
+          "yardLocation": {
+            "id": "292c8679-bc41-49af-908d-6e9e2f8f1348",
+            "yardSlotId": "0aa21460-e2cf-4b4d-9426-0216a24cba4f"
+          },
+          "activeOperations": {
+            "movementCount": 0,
+            "inspectionCount": 0,
+            "bookingCount": 0,
+            "hasActiveOperations": false
+          },
+          "inspectionHoldCount": 0,
+          "activeHolds": [],
+          "billing": {
+            "hasNoOrders": true,
+            "pendingOrders": [],
+            "unpaidInvoices": [],
+            "unbilledServicesCount": 6,
+            "billingConfigMissing": false
+          }
+        }
+      },
+      "events": [
+        {
+          "id": "e59a0d5a-2ae3-415d-8973-408668d687b8",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "INSPECTION_COMPLETED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "result": "PASS",
+            "referenceId": "b1038817-6e8c-4995-871b-5599af2ecf37",
+            "inspectionId": "b1038817-6e8c-4995-871b-5599af2ecf37",
+            "referenceType": "container_inspection",
+            "inspectionType": "DAMAGE_CHECK"
+          },
+          "note": "Hoàn tất giám định DAMAGE_CHECK với kết quả: PASS",
+          "createdAt": "2026-10-02T09:21:55.650Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "1ccda394-8ff2-49a8-ac06-14c55108e07b",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "INSPECTION_STARTED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "referenceId": "b1038817-6e8c-4995-871b-5599af2ecf37",
+            "inspectionId": "b1038817-6e8c-4995-871b-5599af2ecf37",
+            "referenceType": "container_inspection",
+            "inspectionType": "DAMAGE_CHECK"
+          },
+          "note": "Bắt đầu thực hiện giám định: DAMAGE_CHECK",
+          "createdAt": "2026-10-02T09:21:29.077Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "2ea45659-016e-47f1-a554-20542e437b6b",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "INSPECTION_REQUESTED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "referenceId": "b1038817-6e8c-4995-871b-5599af2ecf37",
+            "inspectionId": "b1038817-6e8c-4995-871b-5599af2ecf37",
+            "referenceType": "container_inspection",
+            "inspectionType": "DAMAGE_CHECK"
+          },
+          "note": "Tạo yêu cầu giám định: DAMAGE_CHECK",
+          "createdAt": "2026-10-02T09:21:27.588Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "49284836-e256-4dff-a0e3-82ccd3d4a8b5",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "INSPECTION_COMPLETED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "result": "PASS",
+            "referenceId": "4474100d-0930-4c64-af3f-c7a60f154a06",
+            "inspectionId": "4474100d-0930-4c64-af3f-c7a60f154a06",
+            "referenceType": "container_inspection",
+            "inspectionType": "DAMAGE_CHECK"
+          },
+          "note": "Hoàn tất giám định DAMAGE_CHECK với kết quả: PASS",
+          "createdAt": "2026-10-02T09:19:29.081Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "865f2d20-5eec-4759-adaf-c9d9f21b33e2",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "INSPECTION_STARTED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "referenceId": "4474100d-0930-4c64-af3f-c7a60f154a06",
+            "inspectionId": "4474100d-0930-4c64-af3f-c7a60f154a06",
+            "referenceType": "container_inspection",
+            "inspectionType": "DAMAGE_CHECK"
+          },
+          "note": "Bắt đầu thực hiện giám định: DAMAGE_CHECK",
+          "createdAt": "2026-10-02T09:18:04.660Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "d014399b-e3dd-42bd-80bc-294b7dffdc7b",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "INSPECTION_REQUESTED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "referenceId": "4474100d-0930-4c64-af3f-c7a60f154a06",
+            "inspectionId": "4474100d-0930-4c64-af3f-c7a60f154a06",
+            "referenceType": "container_inspection",
+            "inspectionType": "DAMAGE_CHECK"
+          },
+          "note": "Tạo yêu cầu giám định: DAMAGE_CHECK",
+          "createdAt": "2026-10-02T09:17:42.150Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "3fe14c54-bbf4-4acd-bba4-3779053efd70",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "IN_YARD_BOOKING_CANCELLED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "reason": "WEB-YARD-QA: hủy booking đang thực hiện, giữ lịch sử giờ 17:30",
+            "bookingId": "0f790e55-3aba-4dc3-bc68-934daefe8bae",
+            "referenceId": "0f790e55-3aba-4dc3-bc68-934daefe8bae",
+            "referenceType": "in_yard_booking"
+          },
+          "note": "Đã hủy đặt lịch tác nghiệp INSPECTION. Lý do: WEB-YARD-QA: hủy booking đang thực hiện, giữ lịch sử giờ 17:30",
+          "createdAt": "2026-10-02T09:17:40.037Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "e33d23c6-8379-4e94-8868-71ffa1b03850",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "IN_YARD_BOOKING_STARTED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "bookingId": "0f790e55-3aba-4dc3-bc68-934daefe8bae",
+            "bookingType": "INSPECTION",
+            "referenceId": "0f790e55-3aba-4dc3-bc68-934daefe8bae",
+            "referenceType": "in_yard_booking"
+          },
+          "note": "Bắt đầu tác nghiệp bãi: INSPECTION",
+          "createdAt": "2026-10-02T09:17:37.807Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "a8c831fd-49f0-4700-acef-900ff83218f3",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "IN_YARD_BOOKING_CREATED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "bookingId": "0f790e55-3aba-4dc3-bc68-934daefe8bae",
+            "bookingType": "INSPECTION",
+            "referenceId": "0f790e55-3aba-4dc3-bc68-934daefe8bae",
+            "scheduledAt": "2026-10-02T10:30:00.000Z",
+            "referenceType": "in_yard_booking"
+          },
+          "note": "Đặt lịch tác nghiệp INSPECTION vào lúc 2026-10-02T10:30:00.000Z",
+          "createdAt": "2026-10-02T09:16:49.113Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "e5c06098-7c51-40cc-89b7-5ec32a020bac",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "IN_YARD_BOOKING_COMPLETED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "bookingId": "0c80626e-ecba-4941-9a16-7e1dcfd7cb7d",
+            "bookingType": "INSPECTION",
+            "referenceId": "0c80626e-ecba-4941-9a16-7e1dcfd7cb7d",
+            "actualWeight": 20000,
+            "referenceType": "in_yard_booking",
+            "actualPackageCount": 100
+          },
+          "note": "Hoàn tất tác nghiệp bãi: INSPECTION",
+          "createdAt": "2026-10-02T09:13:46.410Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "480920a9-6a23-40cf-af27-02facc1ae3cf",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "IN_YARD_BOOKING_STARTED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "bookingId": "0c80626e-ecba-4941-9a16-7e1dcfd7cb7d",
+            "bookingType": "INSPECTION",
+            "referenceId": "0c80626e-ecba-4941-9a16-7e1dcfd7cb7d",
+            "referenceType": "in_yard_booking"
+          },
+          "note": "Bắt đầu tác nghiệp bãi: INSPECTION",
+          "createdAt": "2026-10-02T09:12:19.108Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "f4df8935-97bb-4b1d-82b6-7e8257bea9f2",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "IN_YARD_BOOKING_CREATED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "bookingId": "0c80626e-ecba-4941-9a16-7e1dcfd7cb7d",
+            "bookingType": "INSPECTION",
+            "referenceId": "0c80626e-ecba-4941-9a16-7e1dcfd7cb7d",
+            "scheduledAt": "2026-10-02T09:12:00.000Z",
+            "referenceType": "in_yard_booking"
+          },
+          "note": "Đặt lịch tác nghiệp INSPECTION vào lúc 2026-10-02T09:12:00.000Z",
+          "createdAt": "2026-10-02T09:12:17.619Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "97d093f7-8c4e-4938-81aa-8b9d378c871c",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "IN_YARD_BOOKING_CANCELLED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "reason": "WEB-YARD-QA: hủy lịch thử giờ trước khi thực hiện",
+            "bookingId": "e06849cc-a845-466d-9c38-35ecb6e92679",
+            "referenceId": "e06849cc-a845-466d-9c38-35ecb6e92679",
+            "referenceType": "in_yard_booking"
+          },
+          "note": "Đã hủy đặt lịch tác nghiệp STRIPPING. Lý do: WEB-YARD-QA: hủy lịch thử giờ trước khi thực hiện",
+          "createdAt": "2026-10-02T09:11:59.503Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "c5e320a3-fa1a-4b52-8242-29d4129cc1ab",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "IN_YARD_BOOKING_CREATED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "bookingId": "e06849cc-a845-466d-9c38-35ecb6e92679",
+            "bookingType": "STRIPPING",
+            "referenceId": "e06849cc-a845-466d-9c38-35ecb6e92679",
+            "scheduledAt": "2026-10-02T09:10:00.000Z",
+            "referenceType": "in_yard_booking"
+          },
+          "note": "Đặt lịch tác nghiệp STRIPPING vào lúc 2026-10-02T09:10:00.000Z",
+          "createdAt": "2026-10-02T09:10:32.370Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "b26d4da0-13c6-46e7-bc77-478ec84ccc4c",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "YARD_MOVEMENT_CANCELLED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "reason": "WEB-YARD-QA: hủy khi đang chạy, giữ nguyên A-01-03-2",
+            "movementId": "1f0abc86-b24b-423a-a5c8-8228719e8af7",
+            "referenceId": "1f0abc86-b24b-423a-a5c8-8228719e8af7",
+            "referenceType": "yard_movement"
+          },
+          "note": "Đã hủy yêu cầu đảo chuyển container. Lý do: WEB-YARD-QA: hủy khi đang chạy, giữ nguyên A-01-03-2",
+          "createdAt": "2026-10-02T09:10:06.718Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "03b5e1b7-8a43-4049-9b4d-50c62c103aa5",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "YARD_MOVEMENT_STARTED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "movementId": "1f0abc86-b24b-423a-a5c8-8228719e8af7",
+            "referenceId": "1f0abc86-b24b-423a-a5c8-8228719e8af7",
+            "referenceType": "yard_movement"
+          },
+          "note": "Bắt đầu đảo chuyển sang vị trí A-02-01-2",
+          "createdAt": "2026-10-02T09:09:47.275Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "10a4abd8-04f4-46e9-9457-f35413733b29",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "YARD_MOVEMENT_REQUESTED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "reason": "WEB-YARD-QA: kiểm tra hủy lệnh đang thực hiện",
+            "toSlotId": "3c552f06-b3f6-4670-84b0-86c154231892",
+            "fromSlotId": "0aa21460-e2cf-4b4d-9426-0216a24cba4f",
+            "movementId": "1f0abc86-b24b-423a-a5c8-8228719e8af7",
+            "referenceId": "1f0abc86-b24b-423a-a5c8-8228719e8af7",
+            "referenceType": "yard_movement"
+          },
+          "note": "Yêu cầu đảo chuyển từ vị trí A-01-03-2 sang A-02-01-2",
+          "createdAt": "2026-10-02T09:09:45.886Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "0a4d771b-4a0c-4347-874d-019bbc30199f",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "YARD_MOVED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "toSlotId": "0aa21460-e2cf-4b4d-9426-0216a24cba4f",
+            "fromSlotId": "3c552f06-b3f6-4670-84b0-86c154231892",
+            "movementId": "9c2dba91-8755-4d03-8f1a-896853a5e2dc",
+            "newLocation": "A-01-03-2",
+            "referenceId": "292c8679-bc41-49af-908d-6e9e2f8f1348",
+            "locationLogId": "292c8679-bc41-49af-908d-6e9e2f8f1348",
+            "referenceType": "container_location_log"
+          },
+          "note": "Hoàn tất đảo chuyển container sang vị trí A-01-03-2",
+          "createdAt": "2026-10-02T09:09:21.333Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "ca09a59d-d6d4-4222-875d-e866120a2eda",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "YARD_MOVEMENT_STARTED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "movementId": "9c2dba91-8755-4d03-8f1a-896853a5e2dc",
+            "referenceId": "9c2dba91-8755-4d03-8f1a-896853a5e2dc",
+            "referenceType": "yard_movement"
+          },
+          "note": "Bắt đầu đảo chuyển sang vị trí A-01-03-2",
+          "createdAt": "2026-10-02T09:09:05.562Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "f90c5a3e-1cb7-4ef0-a8f3-d836426fa51c",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "YARD_MOVEMENT_REQUESTED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "reason": "WEB-YARD-QA: hoàn trả về vị trí trước kiểm thử",
+            "toSlotId": "0aa21460-e2cf-4b4d-9426-0216a24cba4f",
+            "fromSlotId": "3c552f06-b3f6-4670-84b0-86c154231892",
+            "movementId": "9c2dba91-8755-4d03-8f1a-896853a5e2dc",
+            "referenceId": "9c2dba91-8755-4d03-8f1a-896853a5e2dc",
+            "referenceType": "yard_movement"
+          },
+          "note": "Yêu cầu đảo chuyển từ vị trí A-02-01-2 sang A-01-03-2",
+          "createdAt": "2026-10-02T09:09:04.171Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "a5f09e39-9ed9-407f-85db-6fb52df21608",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "YARD_MOVED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "toSlotId": "3c552f06-b3f6-4670-84b0-86c154231892",
+            "fromSlotId": "0aa21460-e2cf-4b4d-9426-0216a24cba4f",
+            "movementId": "8e1c9819-f202-4871-940b-fdf47af63c51",
+            "newLocation": "A-02-01-2",
+            "referenceId": "d68724c3-27ec-4843-b3c5-67525fbc59b5",
+            "locationLogId": "d68724c3-27ec-4843-b3c5-67525fbc59b5",
+            "referenceType": "container_location_log"
+          },
+          "note": "Hoàn tất đảo chuyển container sang vị trí A-02-01-2",
+          "createdAt": "2026-10-02T09:08:15.766Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "033be245-3fd1-411a-876f-7a3726a586ff",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "YARD_MOVEMENT_STARTED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "movementId": "8e1c9819-f202-4871-940b-fdf47af63c51",
+            "referenceId": "8e1c9819-f202-4871-940b-fdf47af63c51",
+            "referenceType": "yard_movement"
+          },
+          "note": "Bắt đầu đảo chuyển sang vị trí A-02-01-2",
+          "createdAt": "2026-10-02T09:07:40.562Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "b2db70e5-7f2f-4a7b-abdb-4b6e4580e803",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "YARD_MOVEMENT_REQUESTED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "reason": "WEB-YARD-QA: chuyển để kiểm tra cập nhật vị trí rồi hoàn trả",
+            "toSlotId": "3c552f06-b3f6-4670-84b0-86c154231892",
+            "fromSlotId": "0aa21460-e2cf-4b4d-9426-0216a24cba4f",
+            "movementId": "8e1c9819-f202-4871-940b-fdf47af63c51",
+            "referenceId": "8e1c9819-f202-4871-940b-fdf47af63c51",
+            "referenceType": "yard_movement"
+          },
+          "note": "Yêu cầu đảo chuyển từ vị trí A-01-03-2 sang A-02-01-2",
+          "createdAt": "2026-10-02T09:06:43.380Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "6b659401-cca1-46bc-bd62-ba5512f3175a",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "YARD_MOVEMENT_CANCELLED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "metadata": {
+            "reason": "QA hủy đảo chuyển: giữ container tại vị trí cũ, không thực hiện di dời.",
+            "movementId": "b412f65d-bc7f-473d-bbe8-498bc176acfd",
+            "referenceId": "b412f65d-bc7f-473d-bbe8-498bc176acfd",
+            "referenceType": "yard_movement"
+          },
+          "note": "Đã hủy yêu cầu đảo chuyển container. Lý do: QA hủy đảo chuyển: giữ container tại vị trí cũ, không thực hiện di dời.",
+          "createdAt": "2026-10-02T01:38:14.480Z",
+          "actor": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          }
+        },
+        {
+          "id": "c05b4274-cfe0-4c81-8b23-0324eedea99f",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "YARD_MOVEMENT_REQUESTED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "metadata": {
+            "reason": null,
+            "toSlotId": "3c552f06-b3f6-4670-84b0-86c154231892",
+            "fromSlotId": "0aa21460-e2cf-4b4d-9426-0216a24cba4f",
+            "movementId": "b412f65d-bc7f-473d-bbe8-498bc176acfd",
+            "referenceId": "b412f65d-bc7f-473d-bbe8-498bc176acfd",
+            "referenceType": "yard_movement"
+          },
+          "note": "Yêu cầu đảo chuyển từ vị trí A-01-03-2 sang A-02-01-2",
+          "createdAt": "2026-10-02T01:37:34.959Z",
+          "actor": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          }
+        },
+        {
+          "id": "cd9ce0e9-ec41-409d-96a0-dded6c704556",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "IN_YARD_BOOKING_CANCELLED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "metadata": {
+            "reason": "QA huỷ lịch thử, không thực hiện dịch vụ.",
+            "bookingId": "1b02ff00-4994-443c-95a6-04059ceb5341",
+            "referenceId": "1b02ff00-4994-443c-95a6-04059ceb5341",
+            "referenceType": "in_yard_booking"
+          },
+          "note": "Đã hủy đặt lịch tác nghiệp INSPECTION. Lý do: QA huỷ lịch thử, không thực hiện dịch vụ.",
+          "createdAt": "2026-10-02T01:01:41.581Z",
+          "actor": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          }
+        },
+        {
+          "id": "7642f214-3366-45cc-86d2-a37ad7ecfd75",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "IN_YARD_BOOKING_CREATED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "metadata": {
+            "bookingId": "1b02ff00-4994-443c-95a6-04059ceb5341",
+            "bookingType": "INSPECTION",
+            "referenceId": "1b02ff00-4994-443c-95a6-04059ceb5341",
+            "scheduledAt": "2026-10-02T01:00:00.000Z",
+            "referenceType": "in_yard_booking"
+          },
+          "note": "Đặt lịch tác nghiệp INSPECTION vào lúc 2026-10-02T01:00:00.000Z",
+          "createdAt": "2026-10-02T00:59:43.899Z",
+          "actor": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          }
+        },
+        {
+          "id": "ef81cd95-57d3-4147-bfae-5ac8dd9ca4db",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "YARD_ASSIGNED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "metadata": {
+            "bayNo": "3",
+            "rowNo": "1",
+            "source": "RULE",
+            "tierNo": "2",
+            "slotCode": "A-01-03-2",
+            "blockCode": "A",
+            "yardSlotId": "0aa21460-e2cf-4b4d-9426-0216a24cba4f",
+            "referenceId": "7299dbac-d180-4a4d-be79-d704c5f8efc1",
+            "referenceType": "container_location_log",
+            "recommendationId": "4ce72b17-728e-41fb-a870-1b75be22a2c1"
+          },
+          "note": null,
+          "createdAt": "2026-10-02T00:54:01.676Z",
+          "actor": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          }
+        },
+        {
+          "id": "6533bd83-f2ec-4b67-b088-19305bb251fc",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "GATE_IN",
+          "fromState": "AUTHORIZED",
+          "toState": "IN_YARD",
+          "actorId": "64b73e99-bf75-4736-b5ea-5263cbe3bf2c",
+          "metadata": {
+            "gateInAt": "2026-10-02T00:46:07.174Z",
+            "actualSeal": "OPS-QA-SEAL-2",
+            "referenceId": "49b6ed9d-157d-407f-94a3-824d57f78343",
+            "actualWeight": 20000,
+            "truckVisitId": "fc525ccc-ba8e-49f2-8831-62eadd0ae0e3",
+            "conditionCode": "GOOD",
+            "referenceType": "container_reception",
+            "sealComparison": "MATCH"
+          },
+          "note": null,
+          "createdAt": "2026-10-02T00:46:07.197Z",
+          "actor": {
+            "id": "64b73e99-bf75-4736-b5ea-5263cbe3bf2c",
+            "name": "Lê Văn Cổng (Gate Staff)",
+            "email": "gate@icd.local"
+          }
+        },
+        {
+          "id": "9dbb78a4-0f33-4697-b631-06bd9c4300ed",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "TRUCK_VISIT_ARRIVED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "64b73e99-bf75-4736-b5ea-5263cbe3bf2c",
+          "metadata": {
+            "referenceId": "fc525ccc-ba8e-49f2-8831-62eadd0ae0e3",
+            "referenceType": "truck_visit"
+          },
+          "note": "Xe đã đến cổng ICD (Làn: QA-LANE-01)",
+          "createdAt": "2026-10-02T00:40:43.322Z",
+          "actor": {
+            "id": "64b73e99-bf75-4736-b5ea-5263cbe3bf2c",
+            "name": "Lê Văn Cổng (Gate Staff)",
+            "email": "gate@icd.local"
+          }
+        },
+        {
+          "id": "00fc2d68-c050-46c1-a63e-ef7ce08f3c14",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "TRUCK_VISIT_SCHEDULED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "referenceId": "fc525ccc-ba8e-49f2-8831-62eadd0ae0e3",
+            "referenceType": "truck_visit"
+          },
+          "note": "Lên lịch chuyến xe TV-20261002-9AC7FC (Biển số: 51C-QA0755)",
+          "createdAt": "2026-10-02T00:38:21.313Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "ebb8d31f-d102-455f-ba8b-cf49d1e6e68a",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "MOVEMENT_AUTHORIZED",
+          "fromState": "PENDING",
+          "toState": "AUTHORIZED",
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "referenceId": "d72a073b-09c9-4b17-8c25-38a76665eb31",
+            "referenceType": "movement_order"
+          },
+          "note": "Container visit authorized via Movement Order",
+          "createdAt": "2026-10-02T00:38:21.141Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "fd7ca5d8-0c25-4f7a-97af-e8d7c7926e7a",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "MOVEMENT_ORDER_CREATED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "referenceId": "d72a073b-09c9-4b17-8c25-38a76665eb31",
+            "referenceType": "movement_order"
+          },
+          "note": "Tạo lệnh vận chuyển (Movement Order DRAFT)",
+          "createdAt": "2026-10-02T00:38:21.109Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "763d4f32-c914-4308-a0d1-b7d91070247a",
+          "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+          "eventType": "VISIT_CREATED",
+          "fromState": null,
+          "toState": "PENDING",
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": null,
+          "note": "Container visit registered",
+          "createdAt": "2026-10-02T00:38:20.864Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        }
+      ]
+    },
+    {
+      "alias": "yard",
+      "visitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+      "containerNumber": "QAOU5007570",
+      "state": "IN_YARD",
+      "location": {
+        "id": "03504285-b7e7-492c-8cb0-aac747096cc5",
+        "containerVisitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+        "startedAt": "2026-10-02T00:39:22.616Z",
+        "endedAt": null,
+        "source": "RULE",
+        "recommendationId": "e86977f0-a637-4290-a724-2b21a07d2e99",
+        "yardSlot": {
+          "id": "94ab8cfb-345f-407a-bc4f-e8e4ed8ed29f",
+          "yardBlockId": "a1509670-52af-4556-a1ac-7f2276086dc3",
+          "rowNo": "1",
+          "bayNo": "1",
+          "tierNo": "2",
+          "slotCode": "A-01-01-2",
+          "supportedContainerType": null,
+          "reeferPower": false,
+          "maxWeight": "32000",
+          "operational": true,
+          "yardBlock": {
+            "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+            "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+            "blockCode": "A",
+            "name": "Khu A — Hàng khô Dry Cargo",
+            "operational": true
+          }
+        },
+        "assignedBy": {
+          "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "name": "System Administrator",
+          "email": "admin@icd.local"
+        }
+      },
+      "movements": [],
+      "bookings": [],
+      "inspections": [
+        {
+          "id": "cd79419f-3f37-49b3-9e49-b0b53a445b86",
+          "containerVisitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+          "inspectionType": "CUSTOMS",
+          "status": "COMPLETED",
+          "result": "HOLD",
+          "notes": "OPS-QA-HOLD-NOTIFICATION: Giám định QA riêng để kiểm tra thông báo HOLD cho điều độ\nKết quả kiểm định: QA HOLD: chờ điều độ xác minh hồ sơ hải quan, không cho xuất cổng.",
+          "startedAt": "2026-10-02T01:23:34.400Z",
+          "completedAt": "2026-10-02T01:23:45.565Z",
+          "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "completedById": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "createdAt": "2026-10-02T01:06:29.015Z",
+          "updatedAt": "2026-10-02T01:23:45.569Z",
+          "containerVisit": {
+            "id": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+            "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+            "containerId": "5ca5fae4-337b-4d8e-af86-fd63e78f4c64",
+            "manifestId": "80e9a478-e035-41e8-ae86-17546175c7cd",
+            "masterBlId": "90c386aa-b536-4477-8e97-e7322b14955b",
+            "houseBlId": "5076b86f-3eb2-47c6-b3e6-6a033c00a8e4",
+            "consigneeId": "1a668d3c-21d8-42a3-babc-4ee211acf0d3",
+            "state": "IN_YARD",
+            "fullEmptyStatus": "FULL",
+            "sealNo": "OPS-QA-SEAL-3",
+            "cargoDescription": null,
+            "grossWeight": "20000",
+            "category": "IMPORT",
+            "isOverstay": false,
+            "dwellDays": 0,
+            "gateInAt": "2026-10-02T00:38:39.154Z",
+            "gateOutAt": null,
+            "createdAt": "2026-10-02T00:38:20.900Z",
+            "updatedAt": "2026-10-02T00:38:39.161Z",
+            "container": {
+              "id": "5ca5fae4-337b-4d8e-af86-fd63e78f4c64",
+              "containerNumber": "QAOU5007570",
+              "isoCode": "45G1",
+              "size": "SIZE_40",
+              "type": "DRY",
+              "height": null,
+              "tareWeight": null,
+              "maxPayload": null,
+              "createdAt": "2026-10-02T00:38:20.891Z",
+              "updatedAt": "2026-10-02T00:38:20.891Z"
+            }
+          },
+          "createdByUser": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          },
+          "completedByUser": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          }
+        }
+      ],
+      "holds": [
+        {
+          "id": "db00e863-7a3c-4a9f-820b-8892e3713b5c",
+          "containerVisitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+          "holdType": "CUSTOMS",
+          "status": "ACTIVE",
+          "reason": "OPS-QA-1790901500518 – Giữ kiểm tra hải quan, dữ liệu QA cục bộ",
+          "placedById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "placedAt": "2026-10-02T00:43:42.148Z",
+          "releasedById": null,
+          "releasedAt": null,
+          "releaseReason": null,
+          "placedByUser": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          },
+          "releasedByUser": null
+        }
+      ],
+      "readiness": {
+        "containerVisitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+        "ready": false,
+        "isReady": false,
+        "blockers": [
+          "INSPECTION_HOLD",
+          "OPERATIONAL_HOLD",
+          "NO_BILLING",
+          "UNBILLED_SERVICES"
+        ],
+        "details": {
+          "containerStatus": "IN_YARD",
+          "yardLocation": {
+            "id": "03504285-b7e7-492c-8cb0-aac747096cc5",
+            "yardSlotId": "94ab8cfb-345f-407a-bc4f-e8e4ed8ed29f"
+          },
+          "activeOperations": {
+            "movementCount": 0,
+            "inspectionCount": 0,
+            "bookingCount": 0,
+            "hasActiveOperations": false
+          },
+          "inspectionHoldCount": 1,
+          "activeHolds": [
+            {
+              "id": "db00e863-7a3c-4a9f-820b-8892e3713b5c",
+              "holdType": "CUSTOMS",
+              "reason": "OPS-QA-1790901500518 – Giữ kiểm tra hải quan, dữ liệu QA cục bộ",
+              "placedAt": "2026-10-02T00:43:42.148Z"
+            }
+          ],
+          "billing": {
+            "hasNoOrders": true,
+            "pendingOrders": [],
+            "unpaidInvoices": [],
+            "unbilledServicesCount": 3,
+            "billingConfigMissing": false
+          }
+        }
+      },
+      "events": [
+        {
+          "id": "1853bdc4-607c-4518-85fa-d47556658be8",
+          "visitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+          "eventType": "INSPECTION_COMPLETED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "metadata": {
+            "result": "HOLD",
+            "referenceId": "cd79419f-3f37-49b3-9e49-b0b53a445b86",
+            "inspectionId": "cd79419f-3f37-49b3-9e49-b0b53a445b86",
+            "referenceType": "container_inspection",
+            "inspectionType": "CUSTOMS"
+          },
+          "note": "Hoàn tất giám định CUSTOMS với kết quả: HOLD",
+          "createdAt": "2026-10-02T01:23:45.574Z",
+          "actor": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          }
+        },
+        {
+          "id": "c07afdf8-92df-436e-b86a-be9b23f0e6f8",
+          "visitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+          "eventType": "INSPECTION_STARTED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "metadata": {
+            "referenceId": "cd79419f-3f37-49b3-9e49-b0b53a445b86",
+            "inspectionId": "cd79419f-3f37-49b3-9e49-b0b53a445b86",
+            "referenceType": "container_inspection",
+            "inspectionType": "CUSTOMS"
+          },
+          "note": "Bắt đầu thực hiện giám định: CUSTOMS",
+          "createdAt": "2026-10-02T01:23:34.410Z",
+          "actor": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          }
+        },
+        {
+          "id": "7add15c5-e132-4f06-b226-16255ecdb28f",
+          "visitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+          "eventType": "INSPECTION_REQUESTED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "referenceId": "cd79419f-3f37-49b3-9e49-b0b53a445b86",
+            "inspectionId": "cd79419f-3f37-49b3-9e49-b0b53a445b86",
+            "referenceType": "container_inspection",
+            "inspectionType": "CUSTOMS"
+          },
+          "note": "Tạo yêu cầu giám định: CUSTOMS",
+          "createdAt": "2026-10-02T01:06:29.073Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "8c8e5685-446d-44e7-994c-40569f9658a2",
+          "visitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+          "eventType": "OPERATIONAL_HOLD_PLACED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "reason": "OPS-QA-1790901500518 – Giữ kiểm tra hải quan, dữ liệu QA cục bộ",
+            "holdType": "CUSTOMS",
+            "referenceId": "db00e863-7a3c-4a9f-820b-8892e3713b5c",
+            "referenceType": "operational_hold"
+          },
+          "note": null,
+          "createdAt": "2026-10-02T00:43:42.206Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "ff8790a0-91a9-4d65-9e4e-79ac7956a648",
+          "visitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+          "eventType": "YARD_ASSIGNED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "bayNo": "1",
+            "rowNo": "1",
+            "source": "RULE",
+            "tierNo": "2",
+            "slotCode": "A-01-01-2",
+            "blockCode": "A",
+            "yardSlotId": "94ab8cfb-345f-407a-bc4f-e8e4ed8ed29f",
+            "referenceId": "03504285-b7e7-492c-8cb0-aac747096cc5",
+            "referenceType": "container_location_log",
+            "recommendationId": "e86977f0-a637-4290-a724-2b21a07d2e99"
+          },
+          "note": null,
+          "createdAt": "2026-10-02T00:39:22.625Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "93d5022f-2387-4b41-a53f-905ef0911cd6",
+          "visitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+          "eventType": "GATE_IN",
+          "fromState": "AUTHORIZED",
+          "toState": "IN_YARD",
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "gateInAt": "2026-10-02T00:38:39.154Z",
+            "actualSeal": "OPS-QA-SEAL-3",
+            "referenceId": "c2b6592f-3525-44a1-ad36-4d0a45e1fdc4",
+            "actualWeight": 20000,
+            "truckVisitId": "4d582342-e97e-4a32-aaee-406690b2d6b6",
+            "conditionCode": "GOOD",
+            "referenceType": "container_reception",
+            "sealComparison": "MATCH"
+          },
+          "note": null,
+          "createdAt": "2026-10-02T00:38:39.166Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "d2edd1de-54f3-4e35-9379-d4f51d6fc91c",
+          "visitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+          "eventType": "TRUCK_VISIT_ARRIVED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "referenceId": "4d582342-e97e-4a32-aaee-406690b2d6b6",
+            "referenceType": "truck_visit"
+          },
+          "note": "Xe đã đến cổng ICD (Làn: QA-02)",
+          "createdAt": "2026-10-02T00:38:39.058Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "1ccb231f-8082-4d6c-bd0b-7fe2e03a7c1d",
+          "visitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+          "eventType": "TRUCK_VISIT_SCHEDULED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "referenceId": "4d582342-e97e-4a32-aaee-406690b2d6b6",
+            "referenceType": "truck_visit"
+          },
+          "note": "Lên lịch chuyến xe TV-20261002-40CC4F (Biển số: 51C-YQA755)",
+          "createdAt": "2026-10-02T00:38:21.358Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "16a2097c-76de-496a-95ef-36f5e3f14422",
+          "visitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+          "eventType": "MOVEMENT_AUTHORIZED",
+          "fromState": "PENDING",
+          "toState": "AUTHORIZED",
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "referenceId": "ff19e585-de9a-4d5d-bb20-83b2a56b683d",
+            "referenceType": "movement_order"
+          },
+          "note": "Container visit authorized via Movement Order",
+          "createdAt": "2026-10-02T00:38:21.223Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "17bc87b7-7468-4cfa-b8de-f1bf6fd4283c",
+          "visitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+          "eventType": "MOVEMENT_ORDER_CREATED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "referenceId": "ff19e585-de9a-4d5d-bb20-83b2a56b683d",
+            "referenceType": "movement_order"
+          },
+          "note": "Tạo lệnh vận chuyển (Movement Order DRAFT)",
+          "createdAt": "2026-10-02T00:38:21.189Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "4eee9748-e402-47c7-9743-1f7ca2e26958",
+          "visitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+          "eventType": "VISIT_CREATED",
+          "fromState": null,
+          "toState": "PENDING",
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": null,
+          "note": "Container visit registered",
+          "createdAt": "2026-10-02T00:38:20.906Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        }
+      ]
+    },
+    {
+      "alias": "followup",
+      "visitId": "f6482365-ae79-4ae3-9dec-efecd8f04947",
+      "containerNumber": "QAOU1882075",
+      "state": "EXITED",
+      "location": null,
+      "movements": [],
+      "bookings": [],
+      "inspections": [],
+      "holds": [],
+      "readiness": {
+        "containerVisitId": "f6482365-ae79-4ae3-9dec-efecd8f04947",
+        "ready": false,
+        "isReady": false,
+        "blockers": [
+          "CONTAINER_NOT_IN_YARD",
+          "NO_YARD_POSITION"
+        ],
+        "details": {
+          "containerStatus": "EXITED",
+          "yardLocation": null,
+          "activeOperations": {
+            "movementCount": 0,
+            "inspectionCount": 0,
+            "bookingCount": 0,
+            "hasActiveOperations": false
+          },
+          "inspectionHoldCount": 0,
+          "activeHolds": [],
+          "billing": {
+            "hasNoOrders": false,
+            "pendingOrders": [],
+            "unpaidInvoices": [],
+            "unbilledServicesCount": 0,
+            "billingConfigMissing": false
+          }
+        }
+      },
+      "events": [
+        {
+          "id": "8d0d650f-2a78-4ce8-b9ac-b48ffdbdc2c3",
+          "visitId": "f6482365-ae79-4ae3-9dec-efecd8f04947",
+          "eventType": "GATE_OUT",
+          "fromState": "GATE_PASS_ISSUED",
+          "toState": "EXITED",
+          "actorId": "64b73e99-bf75-4736-b5ea-5263cbe3bf2c",
+          "metadata": {
+            "gateOutAt": "2026-10-02T01:35:55.447Z",
+            "referenceId": "ebda4085-a524-403f-a949-932d7656cfdb",
+            "gatePassCode": "GP-MUQAHDPX-0237BC",
+            "receiverName": "Local QA receiver",
+            "vehiclePlate": "51C-OUTQA",
+            "referenceType": "GATE_PASS"
+          },
+          "note": "Container QAOU1882075 đã Gate-out với phiếu GP-MUQAHDPX-0237BC",
+          "createdAt": "2026-10-02T01:35:55.477Z",
+          "actor": {
+            "id": "64b73e99-bf75-4736-b5ea-5263cbe3bf2c",
+            "name": "Lê Văn Cổng (Gate Staff)",
+            "email": "gate@icd.local"
+          }
+        },
+        {
+          "id": "eee057f4-5f42-482b-8b70-acd0399b1726",
+          "visitId": "f6482365-ae79-4ae3-9dec-efecd8f04947",
+          "eventType": "GATE_PASS_ISSUED",
+          "fromState": "IN_YARD",
+          "toState": "GATE_PASS_ISSUED",
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "code": "GP-MUQAHDPX-0237BC",
+            "issuedAt": "2026-10-02T01:33:27.837Z",
+            "expiresAt": "2026-10-03T01:33:27.837Z",
+            "referenceId": "ebda4085-a524-403f-a949-932d7656cfdb",
+            "referenceType": "gate_pass"
+          },
+          "note": null,
+          "createdAt": "2026-10-02T01:33:27.871Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "cc88962e-f252-4b45-bcf1-e5ca84fbe53d",
+          "visitId": "f6482365-ae79-4ae3-9dec-efecd8f04947",
+          "eventType": "INVOICE_PAID",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "status": "PAID",
+            "invoiceId": "b14c74b7-0275-41fc-be2e-94db54fc734d",
+            "invoiceNo": "INV-20261002-FAAC12541D",
+            "paidAmount": 572000
+          },
+          "note": null,
+          "createdAt": "2026-10-02T01:33:27.470Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "e8c657d0-eb99-4d9e-b0b9-8192164fccce",
+          "visitId": "f6482365-ae79-4ae3-9dec-efecd8f04947",
+          "eventType": "PAYMENT_RECORDED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "amount": 572000,
+            "method": "CASH",
+            "invoiceId": "b14c74b7-0275-41fc-be2e-94db54fc734d",
+            "invoiceNo": "INV-20261002-FAAC12541D",
+            "paymentId": "5e0868a2-f177-47d5-89aa-2af6d0430e8d",
+            "paymentRef": "OPS-QA-1790901500518-followup-LOCAL-TEST-ONLY"
+          },
+          "note": null,
+          "createdAt": "2026-10-02T01:33:27.468Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "75c8492d-7e9d-4e46-b547-8d93fc7c5241",
+          "visitId": "f6482365-ae79-4ae3-9dec-efecd8f04947",
+          "eventType": "INVOICE_ISSUED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "dueAt": "2026-10-03T01:31:24.008Z",
+            "invoiceId": "b14c74b7-0275-41fc-be2e-94db54fc734d",
+            "invoiceNo": "INV-20261002-FAAC12541D",
+            "totalAmount": 572000,
+            "serviceOrderId": "07d2fb91-013c-44c5-932a-d4fb6224b345"
+          },
+          "note": null,
+          "createdAt": "2026-10-02T01:31:24.038Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "17fef558-23c3-4bc4-9078-c21cc68774ce",
+          "visitId": "f6482365-ae79-4ae3-9dec-efecd8f04947",
+          "eventType": "SERVICE_ORDER_CONFIRMED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "orderNumber": "SO-20261002-F445F0D4C17F",
+            "referenceId": "07d2fb91-013c-44c5-932a-d4fb6224b345",
+            "totalAmount": 572000,
+            "referenceType": "ServiceOrder"
+          },
+          "note": "Confirmed service order SO-20261002-F445F0D4C17F",
+          "createdAt": "2026-10-02T01:31:23.954Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "94a59624-d5ba-40fb-86b5-c71736ce02f1",
+          "visitId": "f6482365-ae79-4ae3-9dec-efecd8f04947",
+          "eventType": "SERVICE_ORDER_CREATED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "itemCount": 2,
+            "orderNumber": "SO-20261002-F445F0D4C17F",
+            "referenceId": "07d2fb91-013c-44c5-932a-d4fb6224b345",
+            "totalAmount": 572000,
+            "referenceType": "ServiceOrder"
+          },
+          "note": "Created draft service order SO-20261002-F445F0D4C17F",
+          "createdAt": "2026-10-02T01:31:22.382Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "e3b89b6c-c16f-49ae-b0ec-2249f84c2352",
+          "visitId": "f6482365-ae79-4ae3-9dec-efecd8f04947",
+          "eventType": "YARD_ASSIGNED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+          "metadata": {
+            "bayNo": "1",
+            "rowNo": "2",
+            "source": "RULE",
+            "tierNo": "1",
+            "slotCode": "A-02-01-1",
+            "blockCode": "A",
+            "yardSlotId": "1b97d235-1b5b-461a-b202-77115df3abe2",
+            "referenceId": "4409abe0-032e-46e8-8186-74b99ec5d10a",
+            "referenceType": "container_location_log",
+            "recommendationId": "58ac7142-6d1d-4e0e-93da-1a7266b9a268"
+          },
+          "note": null,
+          "createdAt": "2026-10-02T01:19:08.962Z",
+          "actor": {
+            "id": "f8a87ce1-a71f-4703-bac3-65d8bc026900",
+            "name": "Phạm Văn Bãi (Yard Staff)",
+            "email": "yard@icd.local"
+          }
+        },
+        {
+          "id": "db84d220-4419-4e5e-9cb9-bb6434ffbe0d",
+          "visitId": "f6482365-ae79-4ae3-9dec-efecd8f04947",
+          "eventType": "GATE_IN",
+          "fromState": "AUTHORIZED",
+          "toState": "IN_YARD",
+          "actorId": "64b73e99-bf75-4736-b5ea-5263cbe3bf2c",
+          "metadata": {
+            "gateInAt": "2026-10-02T01:12:18.551Z",
+            "actualSeal": "OPS-QA-FOLLOWUP",
+            "referenceId": "8ca60c82-6171-4042-9ae5-c349d563af1b",
+            "actualWeight": 20000,
+            "truckVisitId": "950be735-d6ca-455d-9e2c-072023a053d7",
+            "conditionCode": "GOOD",
+            "referenceType": "container_reception",
+            "sealComparison": "MATCH"
+          },
+          "note": null,
+          "createdAt": "2026-10-02T01:12:18.563Z",
+          "actor": {
+            "id": "64b73e99-bf75-4736-b5ea-5263cbe3bf2c",
+            "name": "Lê Văn Cổng (Gate Staff)",
+            "email": "gate@icd.local"
+          }
+        },
+        {
+          "id": "98b9e953-41ab-443c-b8a4-cea67a042e0f",
+          "visitId": "f6482365-ae79-4ae3-9dec-efecd8f04947",
+          "eventType": "TRUCK_VISIT_ARRIVED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "referenceId": "950be735-d6ca-455d-9e2c-072023a053d7",
+            "referenceType": "truck_visit"
+          },
+          "note": "Xe đã đến cổng ICD (Làn: QA-FOLLOWUP)",
+          "createdAt": "2026-10-02T01:06:28.584Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "fdf9faec-89a5-4774-ae18-27706575e018",
+          "visitId": "f6482365-ae79-4ae3-9dec-efecd8f04947",
+          "eventType": "TRUCK_VISIT_SCHEDULED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "referenceId": "950be735-d6ca-455d-9e2c-072023a053d7",
+            "referenceType": "truck_visit"
+          },
+          "note": "Lên lịch chuyến xe TV-20261002-7020C9 (Biển số: 51C-FQA2075)",
+          "createdAt": "2026-10-02T01:06:28.500Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "a2934ab0-12f0-4a86-b077-15390001e5ea",
+          "visitId": "f6482365-ae79-4ae3-9dec-efecd8f04947",
+          "eventType": "MOVEMENT_AUTHORIZED",
+          "fromState": "PENDING",
+          "toState": "AUTHORIZED",
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "referenceId": "93819660-6b7c-4f5a-86c9-455122959cfd",
+            "referenceType": "movement_order"
+          },
+          "note": "Container visit authorized via Movement Order",
+          "createdAt": "2026-10-02T01:06:28.408Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "3eb7a77a-2be0-4df6-95a7-25e22de39c79",
+          "visitId": "f6482365-ae79-4ae3-9dec-efecd8f04947",
+          "eventType": "MOVEMENT_ORDER_CREATED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "referenceId": "93819660-6b7c-4f5a-86c9-455122959cfd",
+            "referenceType": "movement_order"
+          },
+          "note": "Tạo lệnh vận chuyển (Movement Order DRAFT)",
+          "createdAt": "2026-10-02T01:06:28.358Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "4ac165ea-838d-490f-a7ee-4e67cb5cd02c",
+          "visitId": "f6482365-ae79-4ae3-9dec-efecd8f04947",
+          "eventType": "VISIT_CREATED",
+          "fromState": null,
+          "toState": "PENDING",
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": null,
+          "note": "Container visit registered",
+          "createdAt": "2026-10-02T01:06:28.269Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        }
+      ]
+    },
+    {
+      "alias": "mobile-yard",
+      "visitId": "8296f2ae-da88-4f0e-bb0d-2835d2d7dc7c",
+      "containerNumber": "QAOU4835930",
+      "state": "IN_YARD",
+      "location": {
+        "id": "0066e884-a43b-4844-8e27-8769473123d2",
+        "containerVisitId": "8296f2ae-da88-4f0e-bb0d-2835d2d7dc7c",
+        "startedAt": "2026-10-02T15:13:21.412Z",
+        "endedAt": null,
+        "source": "MANUAL",
+        "recommendationId": null,
+        "yardSlot": {
+          "id": "96cfe87e-1b4f-41c4-9b23-d64317f163c4",
+          "yardBlockId": "a1509670-52af-4556-a1ac-7f2276086dc3",
+          "rowNo": "2",
+          "bayNo": "3",
+          "tierNo": "1",
+          "slotCode": "A-02-03-1",
+          "supportedContainerType": null,
+          "reeferPower": false,
+          "maxWeight": "32000",
+          "operational": true,
+          "yardBlock": {
+            "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+            "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+            "blockCode": "A",
+            "name": "Khu A — Hàng khô Dry Cargo",
+            "operational": true
+          }
+        },
+        "assignedBy": {
+          "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "name": "System Administrator",
+          "email": "admin@icd.local"
+        }
+      },
+      "movements": [],
+      "bookings": [],
+      "inspections": [],
+      "holds": [],
+      "readiness": {
+        "containerVisitId": "8296f2ae-da88-4f0e-bb0d-2835d2d7dc7c",
+        "ready": false,
+        "isReady": false,
+        "blockers": [
+          "NO_BILLING",
+          "UNBILLED_SERVICES"
+        ],
+        "details": {
+          "containerStatus": "IN_YARD",
+          "yardLocation": {
+            "id": "0066e884-a43b-4844-8e27-8769473123d2",
+            "yardSlotId": "96cfe87e-1b4f-41c4-9b23-d64317f163c4"
+          },
+          "activeOperations": {
+            "movementCount": 0,
+            "inspectionCount": 0,
+            "bookingCount": 0,
+            "hasActiveOperations": false
+          },
+          "inspectionHoldCount": 0,
+          "activeHolds": [],
+          "billing": {
+            "hasNoOrders": true,
+            "pendingOrders": [],
+            "unpaidInvoices": [],
+            "unbilledServicesCount": 2,
+            "billingConfigMissing": false
+          }
+        }
+      },
+      "events": [
+        {
+          "id": "9da7b4f3-50e4-4e6e-ba26-2d788f7f6222",
+          "visitId": "8296f2ae-da88-4f0e-bb0d-2835d2d7dc7c",
+          "eventType": "YARD_ASSIGNED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "bayNo": "3",
+            "rowNo": "2",
+            "source": "MANUAL",
+            "tierNo": "1",
+            "slotCode": "A-02-03-1",
+            "blockCode": "A",
+            "yardSlotId": "96cfe87e-1b4f-41c4-9b23-d64317f163c4",
+            "referenceId": "0066e884-a43b-4844-8e27-8769473123d2",
+            "referenceType": "container_location_log",
+            "recommendationId": null
+          },
+          "note": null,
+          "createdAt": "2026-10-02T15:13:21.416Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "1ce6d235-5a19-4250-a25c-c856a3e294d5",
+          "visitId": "8296f2ae-da88-4f0e-bb0d-2835d2d7dc7c",
+          "eventType": "GATE_IN",
+          "fromState": "AUTHORIZED",
+          "toState": "IN_YARD",
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "gateInAt": "2026-10-02T15:04:43.890Z",
+            "actualSeal": "LOCAL-MOBILE-YARD-QA",
+            "referenceId": "0ad1812a-3f8f-481e-8db9-7a2f7fa294d2",
+            "actualWeight": 20000,
+            "truckVisitId": "cc2ef131-b826-4451-8484-715ae343dc43",
+            "conditionCode": null,
+            "referenceType": "container_reception",
+            "sealComparison": "MATCH"
+          },
+          "note": null,
+          "createdAt": "2026-10-02T15:04:43.899Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "bfe62238-a29d-429a-bc2c-5007c69bdf5e",
+          "visitId": "8296f2ae-da88-4f0e-bb0d-2835d2d7dc7c",
+          "eventType": "TRUCK_VISIT_ARRIVED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "referenceId": "cc2ef131-b826-4451-8484-715ae343dc43",
+            "referenceType": "truck_visit"
+          },
+          "note": "Xe đã đến cổng ICD (Làn: QA-MOBILE-YARD)",
+          "createdAt": "2026-10-02T15:04:43.820Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "6b012fa6-4b14-4f3e-8ad3-07cd79982104",
+          "visitId": "8296f2ae-da88-4f0e-bb0d-2835d2d7dc7c",
+          "eventType": "TRUCK_VISIT_SCHEDULED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "referenceId": "cc2ef131-b826-4451-8484-715ae343dc43",
+            "referenceType": "truck_visit"
+          },
+          "note": "Lên lịch chuyến xe TV-20261002-3E287E (Biển số: 51C-MYQA930)",
+          "createdAt": "2026-10-02T15:04:43.761Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "2177395f-3bac-4b46-8ce5-ee7893f03802",
+          "visitId": "8296f2ae-da88-4f0e-bb0d-2835d2d7dc7c",
+          "eventType": "MOVEMENT_AUTHORIZED",
+          "fromState": "PENDING",
+          "toState": "AUTHORIZED",
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "referenceId": "e05d1831-b01d-4212-a766-9e5f183a5bdb",
+            "referenceType": "movement_order"
+          },
+          "note": "Container visit authorized via Movement Order",
+          "createdAt": "2026-10-02T15:04:43.714Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "c0a53d89-3a8a-4a19-9829-f250912acb63",
+          "visitId": "8296f2ae-da88-4f0e-bb0d-2835d2d7dc7c",
+          "eventType": "MOVEMENT_ORDER_CREATED",
+          "fromState": null,
+          "toState": null,
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": {
+            "referenceId": "e05d1831-b01d-4212-a766-9e5f183a5bdb",
+            "referenceType": "movement_order"
+          },
+          "note": "Tạo lệnh vận chuyển (Movement Order DRAFT)",
+          "createdAt": "2026-10-02T15:04:43.684Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        },
+        {
+          "id": "59b33143-341a-4985-8909-232afd799eb2",
+          "visitId": "8296f2ae-da88-4f0e-bb0d-2835d2d7dc7c",
+          "eventType": "VISIT_CREATED",
+          "fromState": null,
+          "toState": "PENDING",
+          "actorId": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "metadata": null,
+          "note": "Container visit registered",
+          "createdAt": "2026-10-02T15:04:43.624Z",
+          "actor": {
+            "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+            "name": "System Administrator",
+            "email": "admin@icd.local"
+          }
+        }
+      ]
+    }
+  ]
+}

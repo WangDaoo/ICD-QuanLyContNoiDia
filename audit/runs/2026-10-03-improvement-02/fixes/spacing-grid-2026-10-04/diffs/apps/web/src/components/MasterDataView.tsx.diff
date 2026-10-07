@@ -1,0 +1,38 @@
+--- before/apps/web/src/components/MasterDataView.tsx
++++ after/apps/web/src/components/MasterDataView.tsx
+@@ -145,7 +145,7 @@
+ 
+   const statusBadge = (active: boolean) => (
+     <span
+-      className={`px-2 py-0.5 rounded-full text-caption font-bold ${active ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-200 text-slate-600'}`}
++      className={`px-2 py-1 rounded-full text-caption font-bold ${active ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-200 text-slate-600'}`}
+     >
+       {active ? 'ACTIVE' : 'INACTIVE'}
+     </span>
+@@ -162,7 +162,7 @@
+           if (!active || window.confirm(`Khóa mục danh mục ${targetName}?`))
+             void action.run(onClick);
+         }}
+-        className={`px-2.5 py-1 rounded-md font-bold text-caption border ${active ? 'bg-rose-50 text-rose-700 border-rose-200 hover:bg-rose-100' : 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100'}`}
++        className={`px-3 py-1 rounded-md font-bold text-caption border ${active ? 'bg-rose-50 text-rose-700 border-rose-200 hover:bg-rose-100' : 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100'}`}
+       >
+         {active ? 'Khóa' : 'Kích hoạt'}
+       </button>
+@@ -189,7 +189,7 @@
+               action.clear();
+               setShowForm(true);
+             }}
+-            className="px-3.5 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg transition shadow-xs flex items-center space-x-1.5"
++            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg transition shadow-xs flex items-center space-x-2"
+           >
+             <Plus className="w-4 h-4" />
+             <span>Thêm mới</span>
+@@ -206,7 +206,7 @@
+               aria-pressed={tab === t.id}
+               key={t.id}
+               onClick={() => setTab(t.id)}
+-              className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition ${
++              className={`px-3 py-2 rounded-lg text-xs font-bold flex items-center gap-2 transition ${
+                 tab === t.id ? 'bg-blue-600 text-white' : 'text-slate-600 hover:bg-slate-100'
+               }`}
+             >

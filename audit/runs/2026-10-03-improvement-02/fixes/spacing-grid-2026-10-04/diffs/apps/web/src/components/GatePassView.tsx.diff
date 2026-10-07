@@ -1,0 +1,97 @@
+--- before/apps/web/src/components/GatePassView.tsx
++++ after/apps/web/src/components/GatePassView.tsx
+@@ -174,7 +174,7 @@
+               action.clear();
+               setShowIssueModal(true);
+             }}
+-            className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-lg transition shadow-xs flex items-center space-x-1.5"
++            className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-lg transition shadow-xs flex items-center space-x-2"
+           >
+             <Plus className="w-4 h-4" />
+             <span>Cấp Phiếu ra cổng mới</span>
+@@ -203,11 +203,11 @@
+             aria-label="Mã QR hoặc mã Gate Pass"
+             value={scannerInput}
+             onChange={(e) => setScannerInput(e.target.value)}
+-            className="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-white font-mono text-xs w-64 focus:outline-none focus:ring-1 focus:ring-indigo-400"
++            className="px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white font-mono text-xs w-64 focus:outline-none focus:ring-1 focus:ring-indigo-400"
+           />
+           <button
+             type="submit"
+-            className="px-3.5 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-lg transition"
++            className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-lg transition"
+           >
+             Quét mã
+           </button>
+@@ -274,7 +274,7 @@
+                   <span className="block flex items-center justify-between">
+                     <span className="text-xs font-mono font-bold text-indigo-700">{gp.code}</span>
+                     <span
+-                      className={`px-2 py-0.5 text-caption font-bold rounded-full ${
++                      className={`px-2 py-1 text-caption font-bold rounded-full ${
+                         effectiveStatus === 'ACTIVE'
+                           ? 'bg-emerald-100 text-emerald-800'
+                           : gp.status === 'USED'
+@@ -309,7 +309,7 @@
+                       {selectedGatePass.code}
+                     </h3>
+                     <span
+-                      className={`px-2.5 py-0.5 rounded-full text-xs font-bold ${
++                      className={`px-3 py-1 rounded-full text-xs font-bold ${
+                         selectedStatus === 'ACTIVE'
+                           ? 'bg-emerald-100 text-emerald-800'
+                           : selectedGatePass.status === 'USED'
+@@ -320,7 +320,7 @@
+                       {selectedStatus}
+                     </span>
+                   </div>
+-                  <p className="text-slate-500 mt-0.5">
++                  <p className="text-slate-500 mt-1">
+                     Phát hành lúc: {new Date(selectedGatePass.issuedAt).toLocaleString('vi-VN')}
+                   </p>
+                 </div>
+@@ -356,7 +356,7 @@
+ 
+               {/* Vehicle & Receiver verification */}
+               <div className="grid grid-cols-2 gap-4">
+-                <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 space-y-1.5">
++                <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                   <div className="font-bold text-slate-800">Thông tin Phương tiện</div>
+                   <div>
+                     Biển số đăng ký:{' '}
+@@ -371,7 +371,7 @@
+                   </div>
+                 </div>
+ 
+-                <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 space-y-1.5">
++                <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                   <div className="font-bold text-slate-800">Hồ sơ Container</div>
+                   <div>
+                     Số container:{' '}
+@@ -407,7 +407,7 @@
+                           if (reason && window.confirm(`Hủy phiếu ${selectedGatePass.code}?`))
+                             await action.run(() => cancelGatePass(selectedGatePass.id, reason));
+                         }}
+-                        className="px-4 py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold rounded-lg border border-rose-200 transition"
++                        className="px-4 py-3 bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold rounded-lg border border-rose-200 transition"
+                       >
+                         Hủy Gate Pass
+                       </button>
+@@ -416,7 +416,7 @@
+                       <button
+                         disabled={action.pending}
+                         onClick={() => handleConfirmExit(selectedGatePass)}
+-                        className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow-sm flex items-center space-x-2 transition"
++                        className="px-5 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow-sm flex items-center space-x-2 transition"
+                       >
+                         <LogOut className="w-4 h-4" />
+                         <span>Xác nhận Ra cổng (Gate-out)</span>
+@@ -426,7 +426,7 @@
+                 ) : selectedStatus === 'USED' && can('handover.read') ? (
+                   <button
+                     onClick={() => onNavigate('handovers')}
+-                    className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg flex items-center space-x-1.5"
++                    className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg flex items-center space-x-2"
+                   >
+                     <Send className="w-3.5 h-3.5" />
+                     <span>Tiến hành bàn giao vận chuyển</span>

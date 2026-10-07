@@ -1,0 +1,38 @@
+{
+  "phase": "verify-followup",
+  "alias": "yard",
+  "checkedAt": "2026-10-02T01:08:23.052Z",
+  "checks": [
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947/yard/location",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/work-queue?type=GATE_IN&pageSize=100",
+      "status": 404,
+      "expectedStatus": "2xx"
+    }
+  ],
+  "error": "GET /work-queue?type=GATE_IN&pageSize=100: 404 NOT_FOUND Cannot GET /api/work-queue?type=GATE_IN&pageSize=100"
+}

@@ -1,0 +1,22 @@
+✔ geometry naturally sorts real coordinate labels without replacing zero padding or alphanumeric names (1.9138ms)
+✔ sparse stack lookup returns only existing slots in tier order and retains object identity (0.348ms)
+✔ coordinate lookup normalizes numeric inputs but preserves distinct string labels (0.2057ms)
+✔ empty and empty reefer slots use the slot palette in both color modes (0.5001ms)
+✔ maintenance color has priority even for an occupied reefer with a hold (0.388ms)
+✔ slot mode keeps every occupied slot blue while exposing holds as a separate flag (0.2151ms)
+✔ occupiedByContainerId resolves the container visit ID instead of the physical container ID (0.35ms)
+✔ active operational holds and completed HOLD inspections override lifecycle colors (0.2854ms)
+✔ released, unrelated or unfinished holds do not create a hold appearance (0.2835ms)
+✔ inspection, issued gate pass and completed stripping keep distinct honest labels and colors (0.744ms)
+✔ an in-progress inspection colors its IN_YARD visit yellow only in state mode (0.2674ms)
+✔ pending, completed and unrelated inspections do not claim an IN_YARD visit is being inspected (0.1814ms)
+✔ hold has priority over an in-progress inspection on the same visit (0.2104ms)
+✔ every emitted appearance has exactly matching Legend styling without invented states (1.3218ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 316.4733

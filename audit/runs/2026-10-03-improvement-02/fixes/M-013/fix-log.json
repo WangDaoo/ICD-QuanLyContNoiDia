@@ -1,0 +1,22 @@
+{
+  "status": "FIXED",
+  "change": "Shared styles use named typography/spacing/layout tokens and heading-specific line-height.",
+  "source_evidence": [
+    {
+      "file": "apps/mobile/src/theme/typography.ts",
+      "line": 19,
+      "detail": "sectionHeading",
+      "snippet": "  sectionHeading: {\n    fontSize: 13,\n    fontWeight: '600',\n    lineHeight: 16,"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+  ],
+  "limitations": "Static styles and actual rendered heading style fixtures; geometry/reflow still requires native.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/theme/typography.ts.diff"
+  ],
+  "isolated_review_diffs": []
+}

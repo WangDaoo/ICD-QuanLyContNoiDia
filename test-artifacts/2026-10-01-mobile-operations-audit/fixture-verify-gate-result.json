@@ -1,0 +1,65 @@
+{
+  "phase": "verify-gate",
+  "checkedAt": "2026-10-02T00:46:47.433Z",
+  "visits": [
+    {
+      "alias": "first",
+      "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+      "containerNumber": "QAOU5007550",
+      "state": "IN_YARD",
+      "slotCode": null,
+      "reception": {
+        "truckVisitId": "fc525ccc-ba8e-49f2-8831-62eadd0ae0e3",
+        "actualSeal": "OPS-QA-SEAL-1",
+        "actualWeight": 20000,
+        "conditionCode": "GOOD"
+      },
+      "blockers": [
+        "NO_YARD_POSITION",
+        "NO_BILLING",
+        "UNBILLED_SERVICES"
+      ]
+    },
+    {
+      "alias": "second",
+      "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+      "containerNumber": "QAOU5007565",
+      "state": "IN_YARD",
+      "slotCode": null,
+      "reception": {
+        "truckVisitId": "fc525ccc-ba8e-49f2-8831-62eadd0ae0e3",
+        "actualSeal": "OPS-QA-SEAL-2",
+        "actualWeight": 20000,
+        "conditionCode": "GOOD"
+      },
+      "blockers": [
+        "NO_YARD_POSITION",
+        "NO_BILLING",
+        "UNBILLED_SERVICES"
+      ]
+    },
+    {
+      "alias": "yard",
+      "visitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+      "containerNumber": "QAOU5007570",
+      "state": "IN_YARD",
+      "slotCode": "A-01-01-2",
+      "reception": {
+        "truckVisitId": "4d582342-e97e-4a32-aaee-406690b2d6b6",
+        "actualSeal": "OPS-QA-SEAL-3",
+        "actualWeight": 20000,
+        "conditionCode": "GOOD"
+      },
+      "blockers": [
+        "OPERATIONAL_HOLD",
+        "NO_BILLING",
+        "UNBILLED_SERVICES"
+      ]
+    }
+  ],
+  "truck": {
+    "id": "fc525ccc-ba8e-49f2-8831-62eadd0ae0e3",
+    "vehiclePlate": "51C-QA0755",
+    "status": "COMPLETED"
+  }
+}

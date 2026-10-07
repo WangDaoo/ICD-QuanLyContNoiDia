@@ -1,0 +1,56 @@
+{
+  "id": "W-S-020",
+  "verification_status": "VERIFIED_IN_APPROVED_SCOPE",
+  "source_files": [
+    {
+      "file": "apps/web/src/App.tsx",
+      "before_snapshot": "audit/fixes/W-S-020/before/App.tsx",
+      "review_after_snapshot": "audit/fixes/W-S-020/review-after/App.tsx",
+      "before_sha256": "0A80775A2255162E89EBA8D485D057C9067BB5B8E8A14763320A45FA1C597A79",
+      "review_after_sha256": "7391D49EF1A3A21A3A8DE6D1909878466845FC5F470EC89F6BA9884592BF80C3",
+      "current_sha256": "579389C027B6F51A8C035776E4A86B53C536960DF60A273F3886600C3AF05E6D",
+      "diff_scope": "FINAL_SOURCE_ONLY_THIS_FIX",
+      "overlapping_approved_ids": []
+    },
+    {
+      "file": "apps/web/src/types.ts",
+      "before_snapshot": "audit/fixes/W-S-020/before/types.ts",
+      "review_after_snapshot": "audit/fixes/W-S-020/review-after/types.ts",
+      "before_sha256": "8574D45ED6ABC4F1FE95451F742CFF12485009A6F672CC5B3F42BB860562913F",
+      "review_after_sha256": "A0B4606F1411AC61667A5B7A9EF7F68DB25C9F53F20800297DA38CB0EA023A0D",
+      "current_sha256": "FE74BA1D3167A70B4DFE11ED83C35869AC095E9A6C06288C5AEFA46D8F06EC35",
+      "diff_scope": "FINAL_SOURCE_ONLY_THIS_FIX",
+      "overlapping_approved_ids": []
+    },
+    {
+      "file": "apps/web/src/components/PartnerManagementView.tsx",
+      "before_snapshot": "audit/fixes/W-S-020/before/PartnerManagementView.tsx",
+      "review_after_snapshot": "audit/fixes/W-S-020/review-after/PartnerManagementView.tsx",
+      "before_sha256": "7EEC68F03AF487AC05A6CAB37C5334BB3969D845DA7B41EDD00B81D8965C9162",
+      "review_after_sha256": "09804F213AD60371D01B435A9C2C5EB707224933D85A55D14A16426D157C1722",
+      "current_sha256": "3E6345ED9811068BA53E2FF7AE5EBA54CD81263B0BF5B702CA4C8FE1C9A7DBD6",
+      "diff_scope": "ISOLATED_RECORDED_STAGE_AFTER_P0_BEFORE_SEMANTICS",
+      "overlapping_approved_ids": []
+    },
+    {
+      "file": "apps/web/src/services/redacted-log-body.ts",
+      "new_file": true,
+      "snapshot": "audit/fixes/W-S-020/new-files/redacted-log-body.ts",
+      "current_sha256": "35F7D57E7EDAC4C6C8F9D5D848CEAED7837FBB5C09C52551C3D2AA51953E9F36",
+      "diff_scope": "NEW_FILE_THIS_FIX"
+    },
+    {
+      "file": "apps/web/src/components/ViewErrorBoundary.tsx",
+      "new_file": true,
+      "snapshot": "audit/fixes/W-S-020/new-files/ViewErrorBoundary.tsx",
+      "current_sha256": "2F8363E53A1728CF4379669CEFA42B5FC8E5A685F2F6E6D4E3FFB4C264A0FE07",
+      "diff_scope": "NEW_FILE_THIS_FIX"
+    }
+  ],
+  "diff": "audit/fixes/W-S-020/fix.diff",
+  "diff_policy": "Review artifact, not a standalone patch to apply. W-S-020 Partner diff uses recorded P0-only stage. W-S-016 Containers/GatePass final diffs explicitly include other approved shared-file semantics. All source files remain unchanged while generating artifacts.",
+  "evidence": [
+    "audit/raw/re-audit/approved-fix-fixtures-final.txt",
+    "audit/raw/re-audit/web-safety/independent-review-tests.txt"
+  ]
+}

@@ -1,0 +1,61 @@
+--- before/apps/mobile/src/components/ScreenLayout.tsx
++++ after/apps/mobile/src/components/ScreenLayout.tsx
+@@ -6,6 +6,7 @@
+ import { useTheme } from '../theme/ThemeProvider';
+ import { SessionCard } from './SessionCard';
+ import { ConnectionBanner } from './ConnectionBanner';
++import { layout } from '../theme/layout';
+ 
+ export function ScreenLayout({ title, subtitle, onBack, children, refreshing, onRefresh }: PropsWithChildren<{
+   title: string; subtitle?: string; onBack?: () => void; refreshing?: boolean; onRefresh?: () => void;
+@@ -25,14 +26,15 @@
+ 
+ export function Card({ title, children }: PropsWithChildren<{ title?: string }>) {
+   const fieldStyles = useFieldStyles();
+-  return <View style={fieldStyles.card}>{title ? <Text style={fieldStyles.cardTitle}>{title}</Text> : null}{children}</View>;
++  return <View style={fieldStyles.card}>{title ? <Text accessibilityRole="header" style={fieldStyles.cardTitle}>{title}</Text> : null}{children}</View>;
+ }
+ 
+-export function Field({ label, ...props }: TextInputProps & { label: string }) {
++export function Field({ label, error, ...props }: TextInputProps & { label: string; error?: string }) {
+   const { theme } = useTheme();
+   const fieldStyles = useFieldStyles();
+-  return <View style={{ gap: 5, minWidth: 0 }}><Text style={fieldStyles.label}>{label}</Text><TextInput accessibilityLabel={label}
+-    placeholderTextColor={theme.colors.textMuted} {...props} style={[fieldStyles.input, props.multiline && { minHeight: 74, textAlignVertical: 'top' }, props.style]} /></View>;
++  return <View style={{ gap: theme.spacing.sm, minWidth: 0 }}><Text style={fieldStyles.label}>{label}</Text><TextInput accessibilityLabel={label}
++    accessibilityHint={error} placeholderTextColor={theme.colors.textMuted} {...props} style={[fieldStyles.input, props.multiline && { minHeight: layout.multilineInputMinHeight, textAlignVertical: 'top' }, error && { borderColor: theme.colors.danger }, props.style]} />
++    {error ? <Text accessibilityLiveRegion="polite" style={{ ...theme.typography.caption, color: theme.colors.dangerText }}>{error}</Text> : null}</View>;
+ }
+ 
+ export function Notice({ message, success = false }: { message: string; success?: boolean }) {
+@@ -44,21 +46,22 @@
+ }
+ 
+ export function DetailRow({ label, value }: { label: string; value?: string | number | null }) {
++  const { theme } = useTheme();
+   const fieldStyles = useFieldStyles();
+-  return <View style={{ flexDirection: 'row', gap: 8, alignItems: 'flex-start' }}><Text style={[fieldStyles.muted, { flex: 1 }]}>{label}</Text><Text selectable style={[fieldStyles.value, { flex: 1, textAlign: 'right' }]}>{value ?? '—'}</Text></View>;
++  return <View style={{ flexDirection: 'row', gap: theme.spacing.sm, alignItems: 'flex-start' }}><Text style={[fieldStyles.muted, { flex: 1 }]}>{label}</Text><Text selectable style={[fieldStyles.value, { flex: 1, textAlign: 'right' }]}>{value ?? '—'}</Text></View>;
+ }
+ 
+ const createFieldStyles = (theme: Theme) => StyleSheet.create({
+   screen: { flex: 1, backgroundColor: theme.colors.background },
+-  content: { padding: 14, gap: 14, paddingBottom: 24, flexGrow: 1, width: '100%', maxWidth: 600, alignSelf: 'center' },
+-  card: { backgroundColor: theme.colors.surface, borderColor: theme.colors.border, borderWidth: 1, borderRadius: 12, padding: 14, gap: 12 },
+-  cardTitle: { color: theme.colors.textPrimary, fontSize: 12, fontWeight: '700', lineHeight: 18, borderBottomWidth: 1, borderBottomColor: theme.colors.border, paddingBottom: 8 },
+-  label: { color: theme.colors.textSecondary, fontSize: 11, fontWeight: '600', lineHeight: 16 },
+-  input: { backgroundColor: theme.colors.surfaceSubtle, color: theme.colors.textPrimary, fontSize: 13, minWidth: 48, minHeight: 48, paddingHorizontal: 10, paddingVertical: 9, borderWidth: 1, borderColor: theme.colors.borderDark, borderRadius: 8 },
++  content: { padding: theme.spacing.lg, gap: theme.spacing.lg, paddingBottom: theme.spacing.xxl, flexGrow: 1, width: '100%', maxWidth: layout.contentMaxWidth, alignSelf: 'center' },
++  card: { backgroundColor: theme.colors.surface, borderColor: theme.colors.border, borderWidth: layout.hairlineBorder, borderRadius: theme.borderRadius.lg, padding: theme.spacing.lg, gap: theme.spacing.md },
++  cardTitle: { ...theme.typography.sectionHeading, color: theme.colors.textPrimary, borderBottomWidth: layout.hairlineBorder, borderBottomColor: theme.colors.border, paddingBottom: theme.spacing.sm },
++  label: { ...theme.typography.captionBold, color: theme.colors.textSecondary },
++  input: { ...theme.typography.body, backgroundColor: theme.colors.surfaceSubtle, color: theme.colors.textPrimary, minWidth: layout.touchTarget, minHeight: layout.touchTarget, paddingHorizontal: theme.spacing.md, paddingVertical: theme.spacing.sm, borderWidth: layout.hairlineBorder, borderColor: theme.colors.borderDark, borderRadius: theme.borderRadius.md },
+   value: { ...theme.typography.bodyBold, color: theme.colors.textPrimary },
+   muted: { ...theme.typography.caption, color: theme.colors.textMuted },
+-  notice: { padding: 10, borderWidth: 1, borderColor: theme.colors.danger, borderRadius: 8, backgroundColor: theme.colors.dangerBackground },
+-  chip: { minWidth: 48, minHeight: 48, borderWidth: 1, borderColor: theme.colors.borderDark, borderRadius: 8, paddingHorizontal: 10, justifyContent: 'center' },
++  notice: { padding: theme.spacing.md, borderWidth: layout.hairlineBorder, borderColor: theme.colors.danger, borderRadius: theme.borderRadius.md, backgroundColor: theme.colors.dangerBackground },
++  chip: { minWidth: layout.touchTarget, minHeight: layout.touchTarget, borderWidth: layout.hairlineBorder, borderColor: theme.colors.borderDark, borderRadius: theme.borderRadius.md, paddingHorizontal: theme.spacing.md, justifyContent: 'center' },
+ });
+ 
+ export const useFieldStyles = () => createFieldStyles(useTheme().theme);

@@ -1,0 +1,17 @@
+{
+  "phase": "verify-payment-duplicate",
+  "checkedAt": "2026-10-02T01:54:18.820Z",
+  "containerNumber": "QAOU1882075",
+  "invoiceId": "b14c74b7-0275-41fc-be2e-94db54fc734d",
+  "invoiceStatus": "PAID",
+  "liveProbeStatus": 400,
+  "liveProbeCode": "PAYMENT_INVOICE_INVALID_STATE",
+  "paymentIdsUnchanged": true,
+  "invoiceAmountsUnchanged": true,
+  "referenceConflictLiveVerified": false,
+  "referenceConflictUnitTests": {
+    "passed": 7,
+    "total": 7
+  },
+  "note": "Only invoice-bound payment creation is exposed. All dedicated QA invoices are PAID, so the existing state guard runs before the unique reference constraint. No new invoice/payment was created for testing; 409 mapping is proven by focused Prisma-error tests."
+}

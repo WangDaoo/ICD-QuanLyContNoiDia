@@ -1,0 +1,205 @@
+✔ canonical nested operation pages retain older active work after the first 100 rows (4.9475ms)
+✔ nested metadata governs paging even when a page has fewer rows than pageSize (0.4645ms)
+✔ flat data and items envelopes preserve their pagination behavior (0.3924ms)
+✔ arrays and unpaged envelopes return their rows without an extra request (0.4738ms)
+✔ a failed later page rejects instead of returning a silently truncated collection (1.3795ms)
+✔ malformed pagination does not permit an unbounded or truncated successful load (0.2255ms)
+✔ malformed collection data is reported as unavailable rather than an empty success (0.2068ms)
+✖ present pagination metadata cannot omit the number of pages (1.4478ms)
+✖ missing pagination on a later page cannot claim a completed collection (0.619ms)
+✖ cancelled inspections retain their terminal backend status (4.1253ms)
+✖ tariff rules preserve service codes and units from the backend catalogue (0.7265ms)
+✖ unrecognized and absent gate-pass states never grant an active pass (0.4155ms)
+✖ whitespace cannot be presented as a known zero financial balance (0.7307ms)
+✖ outbox without acknowledgement data does not invent a pending acknowledgement (0.5438ms)
+✖ acknowledgement errors and unmatched statuses retain the backend status (0.4459ms)
+✖ yard slot restrictions preserve canonical type codes rather than becoming ALL (0.5352ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 7
+ℹ fail 9
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 678.9306
+
+✖ failing tests:
+
+test at apps\web\src\services\api\load-list.test.ts:96:1
+✖ present pagination metadata cannot omit the number of pages (1.4478ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\load-list.test.ts:98:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Invalid pagination metadata/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\api\load-list.test.ts:105:1
+✖ missing pagination on a later page cannot claim a completed collection (0.619ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\load-list.test.ts:106:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Invalid pagination metadata/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\mappers\canonical-status.test.ts:6:1
+✖ cancelled inspections retain their terminal backend status (4.1253ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'PENDING'
+  - 'CANCELLED'
+  
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\mappers\canonical-status.test.ts:11:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'PENDING',
+    expected: 'CANCELLED',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\mappers\canonical-status.test.ts:14:1
+✖ tariff rules preserve service codes and units from the backend catalogue (0.7265ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'STORAGE'
+  - 'STUFFING'
+       ^
+  
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\mappers\canonical-status.test.ts:21:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'STORAGE',
+    expected: 'STUFFING',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\mappers\canonical-status.test.ts:25:1
+✖ unrecognized and absent gate-pass states never grant an active pass (0.4155ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'ACTIVE'
+  - 'UNKNOWN'
+  
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\mappers\canonical-status.test.ts:27:12)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'ACTIVE',
+    expected: 'UNKNOWN',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\mappers\canonical-status.test.ts:34:1
+✖ whitespace cannot be presented as a known zero financial balance (0.7307ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\mappers\canonical-status.test.ts:36:12)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Invalid financial amount/,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\mappers\canonical-status.test.ts:50:1
+✖ outbox without acknowledgement data does not invent a pending acknowledgement (0.5438ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'PENDING'
+  - undefined
+  
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\mappers\canonical-status.test.ts:52:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'PENDING',
+    expected: undefined,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\mappers\canonical-status.test.ts:55:1
+✖ acknowledgement errors and unmatched statuses retain the backend status (0.4459ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'PENDING' !== 'ERROR'
+  
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\mappers\canonical-status.test.ts:58:12)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'PENDING',
+    expected: 'ERROR',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\mappers\canonical-status.test.ts:62:1
+✖ yard slot restrictions preserve canonical type codes rather than becoming ALL (0.5352ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'ALL' !== 'DRY'
+  
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\mappers\canonical-status.test.ts:64:12)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'ALL',
+    expected: 'DRY',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

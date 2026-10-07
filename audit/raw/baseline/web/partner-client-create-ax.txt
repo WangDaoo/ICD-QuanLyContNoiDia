@@ -1,0 +1,62 @@
+Browser tab: 20, Title: "ICD Management System — Quản lý Kho bãi Container Nội địa", URL: "http://127.0.0.1:5173/".
+0 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/
+	1 container root
+		2 container
+			3 text ICD
+			4 heading ICD Management System, Value: 1
+				5 text ICD Management System
+			671 text Cảng cạn & kho bãi container nội địa 1  lệnh giữ Đã kết nối
+			7 button Tải lại dữ liệu
+			8 button (collapsed) Description: Thông báo (0 chưa đọc), Secondary Actions: Expand
+			672 text System Administrator ADMIN
+			10 button Đăng xuất
+		673 container Điều hướng nghiệp vụ
+			674 container
+				675 text TỔNG QUAN & ĐIỀU PHỐI
+				676 button Tổng quan vận hành
+				677 button Danh sách công việc
+				678 text QUẢN LÝ HÀNG HÓA & CỔNG
+				679 button Bản lược khai (Manifest)
+				680 button Quản lý Container
+				681 button Movement Order
+				682 button Chuyến xe ra/vào
+				683 button Tiếp nhận vào cổng (Gate-in)
+				684 button Vận hành Bãi (Yard)
+				685 text TÀI CHÍNH & RA CỔNG
+				686 button Dịch vụ & Thanh toán
+				687 button Phiếu ra cổng & Gate-out
+				688 button Vận hành EDI (CODECO)
+				689 text TÍCH HỢP ĐỐI TÁC
+				690 button Bàn giao vận chuyển
+				691 button Đối tác tích hợp API
+				692 button Nhật ký API đối tác
+				693 text HỆ THỐNG & QUẢN TRỊ
+				694 button Danh mục dùng chung
+				695 button Người dùng & Phân quyền
+				696 button Báo cáo vận hành
+				697 button Nhật ký kiểm toán
+			698 text System Administrator
+			699 text admin@icd.local
+			700 text ADMIN
+		39 container
+			701 heading Đối tác Tích hợp API Vận chuyển (Mô đun 13), Value: 2
+				702 text Đối tác Tích hợp API Vận chuyển (Mô đun 13)
+			703 text Quản lý API Key, phân quyền phạm vi (Scopes), cơ chế xoay vòng khóa bí mật (Rotation) và mã băm SHA-256 an toàn
+			704 button Thêm Đối tác API mới
+			705 text Local QA Transport QA-1790837623372 REVOKED Masked API Key: icd_live_•••••••••••• 9736 Băm SHA-256: Quyền (Scopes): handover.read handover.accept handover.transit handover.confirm_warehouse Yêu cầu gần nhất: 13:53:43 1/10/2026
+			706 button Xoay vòng Khóa (Rotate Key)
+			707 text Tổng Công ty Giao nhận Kho vận VinaTrans VINATRANS_EXPRESS ACTIVE Masked API Key: icd_live_•••••••••••• 3F88 Băm SHA-256: Quyền (Scopes): handover.read handover.accept handover.transit handover.confirm_warehouse handover.failure Yêu cầu gần nhất: Chưa có cuộc gọi nào
+			708 button Xoay vòng Khóa (Rotate Key)
+			709 text Công ty Cổ phần Vận tải & Tiếp vận ABC ABC_LOGISTICS ACTIVE Masked API Key: icd_live_•••••••••••• 9A4F Băm SHA-256: Quyền (Scopes): handover.read handover.accept handover.transit handover.confirm_warehouse Yêu cầu gần nhất: Chưa có cuộc gọi nào
+			710 button Xoay vòng Khóa (Rotate Key)
+			711 heading Đăng ký Đối tác Tích hợp API mới, Value: 3
+				712 text Đăng ký Đối tác Tích hợp API mới
+			713 container
+				714 text Mã đối tác (Partner Code)*
+				715 text field (settable)
+				716 text Tên công ty đối tác*
+				717 text field (settable)
+				718 button Hủy
+				719 button Tạo & Cấp API Key
+
+The focused UI element is 704 button Thêm Đối tác API mới

@@ -1,0 +1,26 @@
+{
+  "status": "VERIFIED",
+  "change": "Truck Visit shortcut keeps linked container context and opens authorized create form.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/TruckVisitsView.tsx",
+      "line": 14,
+      "detail": "targetVisitId",
+      "snippet": "  targetVisitId?: string;\n  onNavigate: (tab: NavTabId, contextId?: string) => void;\n}\n"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/web-fixtures-final.txt"
+  ],
+  "limitations": "Actual component fixture; no write on navigation.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [
+    "Authorized Movement Order shortcut opens create with the correct container prefilled.",
+    "Gate-in shortcut selects the relevant visit and matching arrived truck when unambiguous.",
+    "Missing or multiple matching targets have explicit selection/recovery; no write occurs on navigation."
+  ],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/TruckVisitsView.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

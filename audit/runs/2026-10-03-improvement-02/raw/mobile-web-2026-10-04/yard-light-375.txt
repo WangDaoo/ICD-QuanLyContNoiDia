@@ -1,0 +1,86 @@
+- generic: TOS-MOBILE
+- generic: Quản trị viên
+- heading [level=1]: Cổng
+- generic: Quản trị viên Hệ thống
+- button:
+- button:
+  - generic: Quét
+- button:
+- button:
+- heading [level=1]: PHIÊN ĐĂNG NHẬP CA TRỰC
+- generic: ĐÃ ĐĂNG NHẬP
+- generic: "Tài khoản: UI Audit ADMIN"
+- generic: Quản trị viên
+- button:
+  - generic: Tiếp nhận vào cổng
+- button:
+  - generic: Quét phiếu ra cổng
+- heading [level=1]: Biên nhận Cổng vào (Gate-In EIR)
+- generic: Số Container*
+- textbox:
+  - /placeholder: "VD: TEMU8829104"
+- button:
+- button:
+- generic: Biển số đầu kéo*
+- textbox:
+  - /placeholder: Theo lượt xe
+- generic: Số Seal thực tế*
+- textbox:
+  - /placeholder: Seal đã kiểm tra
+- generic: Tài xế nhận hàng*
+- textbox:
+  - /placeholder: Theo lượt xe
+- generic: Cân Gross (kg)
+- textbox:
+  - /placeholder: Kết quả cân
+- generic: Tình trạng vỏ container
+- button [disabled]:
+  - generic: Vỏ tốt, seal nguyên
+- generic: Ghi chú hiện trường
+- textbox:
+  - /placeholder: Ghi nhận bất thường / seal lệch hồ sơ
+- button [disabled]:
+  - generic: Xác nhận tiếp nhận Gate-In
+- button:
+  - generic: Ghi nhận xe đến cổng
+- generic: TOS-MOBILE
+- generic: Quản trị viên
+- heading "Tác nghiệp bãi" [level=1]
+- generic: Quản trị viên Hệ thống
+- button "Chuyển sang nền tối":
+- button "Quét mã":
+  - generic: Quét
+- button "Thông báo":
+- button "Tài khoản và kết thúc ca":
+- heading "PHIÊN ĐĂNG NHẬP CA TRỰC" [level=1]
+- generic: ĐÃ ĐĂNG NHẬP
+- generic: "Tài khoản: UI Audit ADMIN"
+- generic: Quản trị viên
+- heading "Lệnh Tác nghiệp Bãi (Yard Stacking)" [level=1]
+- generic: Chọn Container cần xếp/dời vị trí
+- button "Chọn Container cần xếp/dời vị trí" [disabled]:
+  - generic: Chọn…
+- generic: Vị trí xếp bãi (Block - Row - Bay - Tier)
+- textbox "Vị trí xếp bãi (Block - Row - Bay - Tier)":
+  - /placeholder: "VD: A-01-01-1"
+- button "Gợi ý vị trí trống" [disabled]:
+  - generic: Gợi ý vị trí trống
+- button "Kiểm tra vị trí nhập tay" [disabled]:
+  - generic: Kiểm tra vị trí nhập tay
+- generic: Chọn container để xem vị trí hiện tại và tác nghiệp.
+- button "Danh sách tác nghiệp và đặt lịch":
+  - generic: Danh sách tác nghiệp và đặt lịch
+- heading "Sơ đồ vị trí bãi — Tổng quan" [level=1]
+- generic: Đang hiển thị 0 / 0 ô bãi
+- progressbar:
+- generic: Đang tải dữ liệu...
+- tab "Cổng":
+  - generic: Cổng
+- tab "Bãi" [active]:
+  - generic: Bãi
+- tab "Giám định":
+  - generic: Giám định
+- tab "Tra cứu":
+  - generic: Tra cứu
+- tab "Việc ca":
+  - generic: Việc ca

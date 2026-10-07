@@ -1,0 +1,21 @@
+{
+  "status": "VERIFIED",
+  "change": "Pending detail closes/navigation/context disabled; delayed POST remains visible and single-flight.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/ContainersView.tsx",
+      "line": 508,
+      "detail": "pending={action.pending}",
+      "snippet": "          pending={action.pending}\n          onClose={closeDetail}\n          className=\"fixed inset-0 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center z-50 p-4 overflow-y-auto\"\n        >"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/web-business/independent-green.txt"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Meaningful RED/GREEN source regression; real API only if explicitly linked.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/ContainersView.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

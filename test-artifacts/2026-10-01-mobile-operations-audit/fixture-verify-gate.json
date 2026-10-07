@@ -1,0 +1,73 @@
+{
+  "phase": "verify-gate",
+  "alias": "yard",
+  "checkedAt": "2026-10-02T00:46:47.402Z",
+  "checks": [
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/eca87bd1-901a-4f38-b5ec-d7e32cb8639c/yard/location",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/eca87bd1-901a-4f38-b5ec-d7e32cb8639c/gate-pass/readiness",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/cac4e8ca-967b-4fbc-a845-ec844c6a263f/yard/location",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/cac4e8ca-967b-4fbc-a845-ec844c6a263f/gate-pass/readiness",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c/yard/location",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c/gate-pass/readiness",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/gate/truck-visits/fc525ccc-ba8e-49f2-8831-62eadd0ae0e3",
+      "status": 200,
+      "expectedStatus": "2xx"
+    }
+  ]
+}

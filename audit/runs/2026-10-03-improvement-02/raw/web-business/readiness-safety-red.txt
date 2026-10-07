@@ -1,0 +1,27 @@
+✖ a readiness response with no confirmed checks cannot enable Gate Pass issue (399.8119ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6484.6004
+
+✖ failing tests:
+
+test at audit\tools\improvement-web-business.test.mjs:184:1
+✖ a readiness response with no confirmed checks cannot enable Gate Pass issue (399.8119ms)
+  AssertionError [ERR_ASSERTION]: all backend readiness booleans must be confirmed
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:187:12)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:41:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:185:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

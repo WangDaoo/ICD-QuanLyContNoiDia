@@ -1,0 +1,15 @@
+✔ a read-cache save from the previous session cannot erase the new session same-user record (93.9139ms)
+✔ failed notification filter cannot display rows or pagination from the previous filter (297.5109ms)
+✔ booking detail presents the promised Vietnam schedule on a UTC device (64.1459ms)
+✔ late profile marker save cannot remove a newer session after logout and login (23.5443ms)
+✔ cache cleanup before restoring a new login is ordered even when the old current user is unavailable (23.8477ms)
+✔ canonical notifications present Vietnamese business text without losing entity, deadline, amount, or reason (6.2026ms)
+✔ notification localization leaves custom and unknown content intact and applies in list and detail (49.3371ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 974.4394

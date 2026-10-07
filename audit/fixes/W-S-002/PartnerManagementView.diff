@@ -1,0 +1,26 @@
+diff --git "a/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\before\\apps\\web\\src\\components\\PartnerManagementView.tsx" "b/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\after\\apps\\web\\src\\components\\PartnerManagementView.tsx"
+index 9453ccc..f8c0b93 100644
+--- "a/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\before\\apps\\web\\src\\components\\PartnerManagementView.tsx"	
++++ "b/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\after\\apps\\web\\src\\components\\PartnerManagementView.tsx"	
+@@ -174,8 +174,8 @@ export const PartnerManagementView: React.FC<PartnerManagementViewProps> = ({ mo
+               ) : (
+                 <form onSubmit={handleCreatePartner} className="space-y-4">
+                   <div>
+-                    <label className="block font-semibold text-slate-700 mb-1">Mã đối tác (Partner Code)*</label>
+-                    <input
++                    <label htmlFor="partner-management-new-code" className="block font-semibold text-slate-700 mb-1">Mã đối tác (Partner Code)*</label>
++                    <input id="partner-management-new-code"
+                       type="text"
+                       required
+                       placeholder="VD: TRANS_EXPRESS"
+@@ -186,8 +186,8 @@ export const PartnerManagementView: React.FC<PartnerManagementViewProps> = ({ mo
+                   </div>
+ 
+                   <div>
+-                    <label className="block font-semibold text-slate-700 mb-1">Tên công ty đối tác*</label>
+-                    <input
++                    <label htmlFor="partner-management-new-name" className="block font-semibold text-slate-700 mb-1">Tên công ty đối tác*</label>
++                    <input id="partner-management-new-name"
+                       type="text"
+                       required
+                       placeholder="VD: Công ty TNHH Vận tải Toàn Cầu"

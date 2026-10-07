@@ -1,0 +1,841 @@
+import React, { useEffect, useState } from 'react';
+import { useApp } from '../context/AppContext';
+import { YardSlot, YardBlock, ContainerVisit, YardRecommendation } from '../types';
+import {
+  Warehouse,
+  Grid,
+  List,
+  Sparkles,
+  ArrowRightLeft,
+  CheckCircle2,
+  XCircle,
+  Zap,
+  Weight,
+  Layers,
+  Search,
+  Check,
+  AlertTriangle,
+  ClipboardCheck,
+  MapPin,
+  RadioTower,
+} from 'lucide-react';
+import { NavTabId } from './Sidebar';
+
+interface YardViewProps {
+  onNavigate: (tab: NavTabId, contextId?: string) => void;
+  targetAssignVisitId?: string;
+}
+
+export const YardView: React.FC<YardViewProps> = ({ onNavigate, targetAssignVisitId }) => {
+  const {
+    yardSlots,
+    yardBlocks,
+    containerVisits,
+    holds,
+    assignYardSlot,
+    getSlotRecommendations,
+    createYardBlock,
+    createYardSlot,
+    yardMovements,
+    createYardMovement,
+    startYardMovement,
+    completeYardMovement,
+    cancelYardMovement,
+    bookings,
+    createYardBooking,
+    startYardBooking,
+    completeYardBooking,
+    cancelYardBooking,
+  } = useApp();
+
+  const [showBlockModal, setShowBlockModal] = useState(false);
+  const [showSlotModal, setShowSlotModal] = useState(false);
+  const [blockForm, setBlockForm] = useState({ blockCode: '', name: '' });
+  const [slotForm, setSlotForm] = useState({ blockCode: 'A', rowNo: 1, bayNo: 1, tierNo: 1, maxWeightKg: 30000, reeferPower: false });
+  const [showMoveModal, setShowMoveModal] = useState(false);
+  const [moveForm, setMoveForm] = useState({ visitId: '', toSlot: '', reason: '' });
+  const [showBookingModal, setShowBookingModal] = useState(false);
+  const [bookingForm, setBookingForm] = useState({ visitId: '', bookingType: 'STRIPPING' as any, scheduledAt: new Date().toISOString().slice(0, 16), notes: '' });
+
+  const [activeTab, setActiveTab] = useState<'MAP' | 'LIST' | 'ASSIGN' | 'OPS'>('MAP');
+  const [selectedBlockCode, setSelectedBlockCode] = useState<string>('A');
+  const [assignVisitId, setAssignVisitId] = useState<string>(
+    targetAssignVisitId || containerVisits.find((c) => c.state === 'IN_YARD' && !c.currentLocation)?.id || ''
+  );
+
+  const containerToAssign = containerVisits.find((c) => c.id === assignVisitId);
+
+  const [recommendations, setRecommendations] = useState<YardRecommendation[]>([]);
+  const [recommendationError, setRecommendationError] = useState('');
+  const [recommendationLoading, setRecommendationLoading] = useState(false);
+  useEffect(() => {
+    if (targetAssignVisitId) { setAssignVisitId(targetAssignVisitId); setActiveTab('ASSIGN'); }
+  }, [targetAssignVisitId]);
+  useEffect(() => {
+    let cancelled = false;
+    setRecommendations([]);
+    setRecommendationError('');
+    setRecommendationLoading(false);
+    if (activeTab !== 'ASSIGN' || !containerToAssign || containerToAssign.currentLocation) return;
+    setRecommendationLoading(true);
+    getSlotRecommendations(containerToAssign.id)
+      .then(rows => { if (!cancelled) setRecommendations(rows); })
+      .catch(error => { if (!cancelled) setRecommendationError(error instanceof Error ? error.message : 'Không tải được đề xuất vị trí.'); })
+      .finally(() => { if (!cancelled) setRecommendationLoading(false); });
+    return () => { cancelled = true; };
+  }, [activeTab, containerToAssign?.id, containerToAssign?.currentLocation, getSlotRecommendations]);
+
+  const handleAssign = async (slotCode: string) => {
+    if (!assignVisitId) return;
+    const res = await assignYardSlot(assignVisitId, slotCode);
+    alert(res.message);
+  };
+
+  const currentBlockSlots = yardSlots.filter((s) => s.blockCode === selectedBlockCode);
+  const occupiedSlots = yardSlots.filter((s) => s.occupiedByContainerId);
+  const availableSlots = yardSlots.filter((s) => s.operational && !s.occupiedByContainerId);
+  const reeferSlots = yardSlots.filter((s) => s.reeferPower);
+  const inactiveSlots = yardSlots.filter((s) => !s.operational);
+  const selectedBlock = yardBlocks.find((block) => block.blockCode === selectedBlockCode);
+  const currentBlockOccupied = currentBlockSlots.filter((s) => s.occupiedByContainerId).length;
+  const currentBlockReefer = currentBlockSlots.filter((s) => s.reeferPower).length;
+  const utilizationRate = yardSlots.length > 0 ? Math.round((occupiedSlots.length / yardSlots.length) * 100) : 0;
+  const currentBlockUtilization =
+    currentBlockSlots.length > 0 ? Math.round((currentBlockOccupied / currentBlockSlots.length) * 100) : 0;
+  const activeHolds = holds.filter((hold) => hold.status === 'ACTIVE');
+  const readyForGateOut = containerVisits.filter((container) => container.state === 'GATE_PASS_ISSUED');
+  const pendingYardTasks = [
+    ...yardMovements.filter((movement) => movement.status === 'PENDING' || movement.status === 'IN_PROGRESS'),
+    ...bookings.filter((booking) => booking.status === 'PENDING' || booking.status === 'IN_PROGRESS'),
+  ].length;
+
+  const getContainerStateClass = (state?: string) => {
+    switch (state) {
+      case 'UNDER_INSPECTION':
+        return 'bg-[#DC2626] border-[#B91C1C] text-white';
+      case 'STRIPPED':
+        return 'bg-[#0D9488] border-[#0F766E] text-white';
+      case 'GATE_PASS_ISSUED':
+        return 'bg-[#7C3AED] border-[#6D28D9] text-white';
+      case 'IN_YARD':
+        return 'bg-[#16A34A] border-[#15803D] text-white';
+      case 'AUTHORIZED':
+        return 'bg-[#2563EB] border-[#1D4ED8] text-white';
+      case 'EXITED':
+        return 'bg-[#475569] border-[#334155] text-white';
+      default:
+        return 'bg-[#2563EB] border-[#1D4ED8] text-white';
+    }
+  };
+
+  const getSlotClass = (slot: YardSlot) => {
+    if (!slot.operational) return 'bg-[#64748B] border-[#475569] text-white opacity-80';
+    if (!slot.occupiedByContainerId && slot.reeferPower) return 'bg-[#ECFEFF] border-[#06B6D4] text-[#155E75]';
+    if (!slot.occupiedByContainerId) return 'bg-[#F8FAFC] border-[#CBD5E1] text-[#334155] hover:bg-[#DBEAFE] hover:border-[#2563EB]';
+
+    const container = containerVisits.find((item) => item.id === slot.occupiedByContainerId);
+    return getContainerStateClass(container?.state);
+  };
+
+  return (
+    <div className="space-y-6">
+      {/* Header */}
+      <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h2 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
+            <Warehouse className="w-5 h-5 text-blue-600" />
+            <span>Vận hành Bãi Container (Yard Management)</span>
+          </h2>
+          <p className="text-xs text-slate-500 mt-1">
+            Sơ đồ 2D trực quan, xếp vị trí bãi tự động theo thuật toán tối ưu xếp dỡ (ML/Rule ranking)
+          </p>
+        </div>
+
+        {/* Tab switchers */}
+        <div className="flex max-w-full flex-wrap items-center gap-1 bg-slate-100 p-1 rounded-lg text-xs font-semibold [&>button]:shrink-0 [&>button]:whitespace-nowrap">
+          <button
+            onClick={() => setActiveTab('MAP')}
+            className={`px-3 py-1.5 rounded-md flex items-center space-x-1.5 transition ${
+              activeTab === 'MAP' ? 'bg-white text-blue-700 shadow-xs' : 'text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            <Grid className="w-3.5 h-3.5" />
+            <span>Sơ đồ 2D Bãi</span>
+          </button>
+          <button
+            onClick={() => setActiveTab('LIST')}
+            className={`px-3 py-1.5 rounded-md flex items-center space-x-1.5 transition ${
+              activeTab === 'LIST' ? 'bg-white text-blue-700 shadow-xs' : 'text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            <List className="w-3.5 h-3.5" />
+            <span>Danh sách Vị trí</span>
+          </button>
+          <button
+            onClick={() => setActiveTab('ASSIGN')}
+            className={`px-3 py-1.5 rounded-md flex items-center space-x-1.5 transition ${
+              activeTab === 'ASSIGN' ? 'bg-white text-blue-700 shadow-xs' : 'text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+            <span>Xếp vị trí (ML Rerank)</span>
+          </button>
+          <button
+            onClick={() => setActiveTab('OPS')}
+            className={`px-3 py-1.5 rounded-md flex items-center space-x-1.5 transition ${
+              activeTab === 'OPS' ? 'bg-white text-blue-700 shadow-xs' : 'text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            <ArrowRightLeft className="w-3.5 h-3.5" />
+            <span>Di chuyển & Booking</span>
+          </button>
+        </div>
+      </div>
+
+      {/* TAB 1: 2D MAP VIEW */}
+      {activeTab === 'MAP' && (
+        <div className="space-y-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+            <div className="bg-white border border-slate-200 rounded-lg p-4">
+              <div className="flex items-center justify-between text-xs text-slate-500">
+                <span>Công suất bãi</span>
+                <Layers className="w-4 h-4 text-slate-400" />
+              </div>
+              <div className="mt-2 flex items-end gap-2">
+                <span className="text-2xl font-bold text-slate-900">{utilizationRate}%</span>
+                <span className="pb-1 text-xs font-semibold text-slate-500">
+                  {occupiedSlots.length}/{yardSlots.length} slot
+                </span>
+              </div>
+              <div className="mt-3 h-1.5 rounded-full bg-slate-100 overflow-hidden">
+                <div className="h-full rounded-full bg-[#2563EB]" style={{ width: `${utilizationRate}%` }} />
+              </div>
+            </div>
+
+            <div className="bg-white border border-slate-200 rounded-lg p-4">
+              <div className="flex items-center justify-between text-xs text-slate-500">
+                <span>Slot khả dụng</span>
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+              </div>
+              <div className="mt-2 text-2xl font-bold text-slate-900">{availableSlots.length}</div>
+              <div className="mt-1 text-xs text-slate-500">Trống và đang operational</div>
+            </div>
+
+            <div className="bg-white border border-slate-200 rounded-lg p-4">
+              <div className="flex items-center justify-between text-xs text-slate-500">
+                <span>Reefer points</span>
+                <Zap className="w-4 h-4 text-cyan-600" />
+              </div>
+              <div className="mt-2 text-2xl font-bold text-slate-900">{reeferSlots.length}</div>
+              <div className="mt-1 text-xs text-slate-500">Nguồn lạnh sẵn sàng theo slot</div>
+            </div>
+
+            <div className="bg-white border border-slate-200 rounded-lg p-4">
+              <div className="flex items-center justify-between text-xs text-slate-500">
+                <span>Việc cần xử lý</span>
+                <AlertTriangle className="w-4 h-4 text-amber-600" />
+              </div>
+              <div className="mt-2 text-2xl font-bold text-slate-900">{pendingYardTasks}</div>
+              <div className="mt-1 text-xs text-slate-500">{activeHolds.length} hold, {readyForGateOut.length} ready out</div>
+            </div>
+          </div>
+
+          <div className="bg-white border border-slate-200 rounded-lg">
+            <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-3 border-b border-slate-200 px-4 py-3">
+              <div>
+                <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-[#2563EB]" />
+                  <span>Yard Control Map — Block {selectedBlockCode}</span>
+                </h3>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  {selectedBlock?.name || 'Chưa chọn block'} · {currentBlockOccupied}/{currentBlockSlots.length} slot · utilization {currentBlockUtilization}%
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2 text-xs">
+                <button className="px-3 py-1.5 rounded-md border border-slate-300 bg-[#F8FAFC] text-slate-700 font-semibold">
+                  Bay view
+                </button>
+                <button className="px-3 py-1.5 rounded-md border border-slate-300 bg-[#F8FAFC] text-slate-700 font-semibold">
+                  Layer view
+                </button>
+                <button
+                  onClick={() => setActiveTab('ASSIGN')}
+                  className="px-3 py-1.5 rounded-md bg-[#2563EB] text-white font-bold"
+                >
+                  Assign slot
+                </button>
+                <button
+                  onClick={() => setShowMoveModal(true)}
+                  className="px-3 py-1.5 rounded-md border border-slate-300 bg-white text-slate-700 font-semibold"
+                >
+                  Yard move
+                </button>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 xl:grid-cols-[220px_1fr_280px] min-h-[560px]">
+              <aside className="border-b xl:border-b-0 xl:border-r border-slate-200 bg-[#F8FAFC] p-3">
+                <div className="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-2">Block selector</div>
+                <div className="space-y-2">
+                  {yardBlocks.map((block) => {
+                    const isSelected = selectedBlockCode === block.blockCode;
+                    const blockSlots = yardSlots.filter((s) => s.blockCode === block.blockCode);
+                    const occupied = blockSlots.filter((s) => s.occupiedByContainerId).length;
+                    const percent = blockSlots.length > 0 ? Math.round((occupied / blockSlots.length) * 100) : 0;
+
+                    return (
+                      <button
+                        key={block.id}
+                        onClick={() => setSelectedBlockCode(block.blockCode)}
+                        className={`w-full text-left rounded-md border p-3 transition ${
+                          isSelected
+                            ? 'bg-white border-[#2563EB] shadow-xs'
+                            : 'bg-[#F8FAFC] border-slate-200 hover:bg-white hover:border-slate-300'
+                        }`}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm font-bold text-slate-900">Block {block.blockCode}</span>
+                          <span className="text-[11px] font-bold text-slate-500">{percent}%</span>
+                        </div>
+                        <div className="mt-1 text-[11px] text-slate-500 truncate">{block.name}</div>
+                        <div className="mt-2 h-1.5 bg-slate-200 rounded-full overflow-hidden">
+                          <div className="h-full rounded-full bg-[#2563EB]" style={{ width: `${percent}%` }} />
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </aside>
+
+              <section className="bg-[#EEF2F6] p-4">
+                <div className="mb-3 grid grid-cols-[48px_1fr] gap-2 text-[10px] font-bold uppercase text-slate-500">
+                  <div />
+                  <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2">
+                    {Array.from(new Set(currentBlockSlots.map((slot) => slot.bayNo))).map((bay) => (
+                      <div key={bay} className="text-center">Bay {bay}</div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-[48px_1fr] gap-2">
+                  <div className="space-y-2">
+                    {Array.from(new Set(currentBlockSlots.map((slot) => slot.rowNo))).map((row) => (
+                      <div key={row} className="h-[74px] flex items-center justify-center text-[10px] font-bold text-slate-500">
+                        Row {row}
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2 content-start">
+                    {currentBlockSlots.map((slot) => {
+                      const container = containerVisits.find((item) => item.id === slot.occupiedByContainerId);
+                      const isOnHold = activeHolds.some((hold) => hold.containerVisitId === slot.occupiedByContainerId);
+                      const isReady = container?.state === 'GATE_PASS_ISSUED';
+
+                      return (
+                        <button
+                          key={slot.id}
+                          type="button"
+                          className={`min-h-[74px] rounded-md border px-2 py-2 text-left transition shadow-xs ${getSlotClass(slot)}`}
+                          title={slot.occupiedByContainerNumber || slot.slotCode}
+                        >
+                          <div className="flex items-center justify-between gap-1">
+                            <span className="font-mono text-[11px] font-bold truncate">{slot.slotCode}</span>
+                            <span className="flex items-center gap-1">
+                              {slot.reeferPower && <Zap className="w-3 h-3 text-cyan-300" />}
+                              {!slot.operational && <XCircle className="w-3 h-3" />}
+                            </span>
+                          </div>
+
+                          {slot.occupiedByContainerId ? (
+                            <div className="mt-2 space-y-1">
+                              <div className="font-mono text-[11px] font-bold truncate">{slot.occupiedByContainerNumber}</div>
+                              <div className="text-[10px] opacity-90">
+                                {slot.occupiedContainerType} · Tier {slot.tierNo}
+                              </div>
+                              <div className="flex flex-wrap gap-1">
+                                {isOnHold && <span className="rounded bg-white/20 px-1.5 py-0.5 text-[9px] font-bold">HOLD</span>}
+                                {isReady && <span className="rounded bg-white/20 px-1.5 py-0.5 text-[9px] font-bold">READY</span>}
+                              </div>
+                            </div>
+                          ) : (
+                            <div className="mt-3 text-[10px] font-semibold opacity-75">
+                              {slot.operational ? 'AVAILABLE' : 'LOCKED'}
+                            </div>
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              </section>
+
+              <aside className="border-t xl:border-t-0 xl:border-l border-slate-200 bg-white p-4 space-y-4">
+                <div>
+                  <div className="text-[11px] font-bold uppercase tracking-wide text-slate-500">Block summary</div>
+                  <div className="mt-3 rounded-md border border-slate-200 bg-[#F8FAFC] p-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-bold text-slate-900">Block {selectedBlockCode}</span>
+                      <span className="text-xs font-bold text-[#2563EB]">{currentBlockUtilization}% full</span>
+                    </div>
+                    <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
+                      <div className="rounded bg-white border border-slate-200 p-2">
+                        <div className="text-slate-500">Occupied</div>
+                        <div className="font-bold text-slate-900">{currentBlockOccupied}</div>
+                      </div>
+                      <div className="rounded bg-white border border-slate-200 p-2">
+                        <div className="text-slate-500">Available</div>
+                        <div className="font-bold text-slate-900">{currentBlockSlots.length - currentBlockOccupied}</div>
+                      </div>
+                      <div className="rounded bg-white border border-slate-200 p-2">
+                        <div className="text-slate-500">Reefer</div>
+                        <div className="font-bold text-slate-900">{currentBlockReefer}</div>
+                      </div>
+                      <div className="rounded bg-white border border-slate-200 p-2">
+                        <div className="text-slate-500">Locked</div>
+                        <div className="font-bold text-slate-900">{inactiveSlots.length}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="text-[11px] font-bold uppercase tracking-wide text-slate-500">Nghiệp vụ bãi</div>
+                  <div className="mt-3 space-y-2 text-xs">
+                    <button onClick={() => setActiveTab('ASSIGN')} className="w-full flex items-center justify-between rounded-md border border-slate-200 bg-white p-3 hover:border-[#2563EB]">
+                      <span className="flex items-center gap-2 font-semibold text-slate-700">
+                        <ClipboardCheck className="w-4 h-4 text-[#2563EB]" />
+                        Gợi ý xếp vị trí
+                      </span>
+                      <span className="text-slate-400">Assign</span>
+                    </button>
+                    <button onClick={() => setShowMoveModal(true)} className="w-full flex items-center justify-between rounded-md border border-slate-200 bg-white p-3 hover:border-[#2563EB]">
+                      <span className="flex items-center gap-2 font-semibold text-slate-700">
+                        <ArrowRightLeft className="w-4 h-4 text-[#2563EB]" />
+                        Tạo lệnh đảo chuyển
+                      </span>
+                      <span className="text-slate-400">{yardMovements.length}</span>
+                    </button>
+                    <button onClick={() => setShowBookingModal(true)} className="w-full flex items-center justify-between rounded-md border border-slate-200 bg-white p-3 hover:border-[#2563EB]">
+                      <span className="flex items-center gap-2 font-semibold text-slate-700">
+                        <RadioTower className="w-4 h-4 text-[#2563EB]" />
+                        Booking rút/đóng/kiểm
+                      </span>
+                      <span className="text-slate-400">{bookings.length}</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="text-[11px] font-bold uppercase tracking-wide text-slate-500">Legend</div>
+                  <div className="mt-3 grid grid-cols-1 gap-2 text-xs text-slate-600">
+                    <span className="flex items-center gap-2"><span className="w-3 h-3 rounded bg-[#F8FAFC] border border-[#CBD5E1]" /> Slot trống</span>
+                    <span className="flex items-center gap-2"><span className="w-3 h-3 rounded bg-[#2563EB]" /> Gated in</span>
+                    <span className="flex items-center gap-2"><span className="w-3 h-3 rounded bg-[#16A34A]" /> In yard</span>
+                    <span className="flex items-center gap-2"><span className="w-3 h-3 rounded bg-[#DC2626]" /> Hold</span>
+                    <span className="flex items-center gap-2"><span className="w-3 h-3 rounded bg-[#0D9488]" /> Ready out</span>
+                    <span className="flex items-center gap-2"><span className="w-3 h-3 rounded bg-[#ECFEFF] border border-[#06B6D4]" /> Reefer empty</span>
+                    <span className="flex items-center gap-2"><span className="w-3 h-3 rounded bg-[#64748B]" /> Locked</span>
+                  </div>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* TAB 2: LIST VIEW */}
+      {activeTab === 'LIST' && (
+        <div className="space-y-3">
+          <div className="flex justify-end gap-2">
+            <button onClick={() => setShowBlockModal(true)} className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-lg">+ Block bãi</button>
+            <button onClick={() => setShowSlotModal(true)} className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg">+ Vị trí (Slot)</button>
+          </div>
+          <div className="bg-white rounded-xl border border-slate-200 shadow-xs overflow-hidden">
+          <table className="w-full text-left text-xs">
+            <thead className="bg-slate-50 border-b border-slate-200 text-slate-600 font-semibold">
+              <tr>
+                <th className="py-3 px-4">Mã Vị trí (Slot Code)</th>
+                <th className="py-3 px-4">Khu vực / Block</th>
+                <th className="py-3 px-4">Hàng (Row)</th>
+                <th className="py-3 px-4">Lô (Bay)</th>
+                <th className="py-3 px-4">Tầng (Tier)</th>
+                <th className="py-3 px-4">Điện lạnh</th>
+                <th className="py-3 px-4">Tải trọng max</th>
+                <th className="py-3 px-4">Container đang chứa</th>
+                <th className="py-3 px-4 text-right">Trạng thái</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              {yardSlots.map((s) => (
+                <tr key={s.id} className="hover:bg-slate-50">
+                  <td className="py-2.5 px-4 font-mono font-bold text-blue-700">{s.slotCode}</td>
+                  <td className="py-2.5 px-4 font-bold text-slate-800">Khu {s.blockCode}</td>
+                  <td className="py-2.5 px-4 text-slate-600">{s.rowNo}</td>
+                  <td className="py-2.5 px-4 text-slate-600">{s.bayNo}</td>
+                  <td className="py-2.5 px-4 text-slate-600">Tầng {s.tierNo}</td>
+                  <td className="py-2.5 px-4">
+                    {s.reeferPower ? (
+                      <span className="flex items-center text-amber-600 font-semibold">
+                        <Zap className="w-3.5 h-3.5 mr-1" /> Có (Reefer)
+                      </span>
+                    ) : (
+                      <span className="text-slate-400">Không</span>
+                    )}
+                  </td>
+                  <td className="py-2.5 px-4 font-semibold text-slate-700">
+                    {(s.maxWeightKg / 1000).toFixed(0)} tấn
+                  </td>
+                  <td className="py-2.5 px-4">
+                    {s.occupiedByContainerNumber ? (
+                      <span className="font-mono font-bold text-slate-900 bg-slate-100 px-2 py-0.5 rounded">
+                        {s.occupiedByContainerNumber}
+                      </span>
+                    ) : (
+                      <span className="text-slate-400 italic">—</span>
+                    )}
+                  </td>
+                  <td className="py-2.5 px-4 text-right">
+                    <span
+                      className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                        s.occupiedByContainerId ? 'bg-blue-100 text-blue-800' : 'bg-emerald-100 text-emerald-800'
+                      }`}
+                    >
+                      {s.occupiedByContainerId ? 'Occupied' : 'Available'}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          </div>
+        </div>
+      )}
+
+      {/* TAB 4: MOVEMENT & BOOKING LIFECYCLE */}
+      {activeTab === 'OPS' && (
+        <div className="space-y-6">
+          <div className="bg-white rounded-xl border border-slate-200 shadow-xs p-4">
+            <div className="flex items-center justify-between mb-3">
+              <h4 className="font-bold text-slate-800 text-sm">Lệnh di chuyển nội bãi (Yard Movement)</h4>
+              <button onClick={() => setShowMoveModal(true)} className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg">+ Tạo lệnh di chuyển</button>
+            </div>
+            <div className="space-y-2 text-xs">
+              {yardMovements.length === 0 && <div className="text-slate-400 italic py-4 text-center">Chưa có lệnh di chuyển nào.</div>}
+              {yardMovements.map((m) => (
+                <div key={m.id} className="flex items-center justify-between p-3 bg-slate-50 rounded-lg border border-slate-100">
+                  <div>
+                    <span className="font-mono font-bold text-slate-800">{m.containerNumber}</span>
+                    <span className="text-slate-500 mx-2">{m.fromSlot} → {m.toSlot}</span>
+                    <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                      m.status === 'COMPLETED' ? 'bg-emerald-100 text-emerald-800' : m.status === 'IN_PROGRESS' ? 'bg-blue-100 text-blue-800' : m.status === 'CANCELLED' ? 'bg-rose-100 text-rose-800' : 'bg-amber-100 text-amber-800'
+                    }`}>{m.status}</span>
+                  </div>
+                  <div className="flex gap-1.5">
+                    {m.status === 'PENDING' && (
+                      <>
+                        <button onClick={async () => { const result = await startYardMovement(m.id); alert(result.message); }} className="px-2.5 py-1 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-md font-bold border border-blue-200">Bắt đầu</button>
+                        <button onClick={async () => { const r = window.prompt('Lý do hủy:'); if (r) { const result = await cancelYardMovement(m.id, r); alert(result.message); } }} className="px-2.5 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded-md font-bold border border-rose-200">Hủy</button>
+                      </>
+                    )}
+                    {m.status === 'IN_PROGRESS' && (
+                      <button onClick={async () => { const result = await completeYardMovement(m.id); alert(result.message); }} className="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-md font-bold">Hoàn tất</button>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl border border-slate-200 shadow-xs p-4">
+            <div className="flex items-center justify-between mb-3">
+              <h4 className="font-bold text-slate-800 text-sm">Lịch trong bãi (Stripping / Stuffing / Inspection)</h4>
+              <button onClick={() => setShowBookingModal(true)} className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg">+ Đặt lịch</button>
+            </div>
+            <div className="space-y-2 text-xs">
+              {bookings.length === 0 && <div className="text-slate-400 italic py-4 text-center">Chưa có booking nào.</div>}
+              {bookings.map((b) => (
+                <div key={b.id} className="flex items-center justify-between p-3 bg-slate-50 rounded-lg border border-slate-100">
+                  <div>
+                    <span className="font-mono font-bold text-slate-800">{b.containerNumber}</span>
+                    <span className="text-slate-500 mx-2">{b.bookingType} · {new Date(b.scheduledAt).toLocaleString('vi-VN')}</span>
+                    <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                      b.status === 'COMPLETED' ? 'bg-emerald-100 text-emerald-800' : b.status === 'IN_PROGRESS' ? 'bg-blue-100 text-blue-800' : b.status === 'CANCELLED' ? 'bg-rose-100 text-rose-800' : 'bg-amber-100 text-amber-800'
+                    }`}>{b.status}</span>
+                  </div>
+                  <div className="flex gap-1.5">
+                    {b.status === 'PENDING' && (
+                      <>
+                        <button onClick={async () => { const result = await startYardBooking(b.id); alert(result.message); }} className="px-2.5 py-1 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-md font-bold border border-blue-200">Bắt đầu</button>
+                        <button onClick={async () => { const r = window.prompt('Lý do hủy:'); if (r) { const result = await cancelYardBooking(b.id, r); alert(result.message); } }} className="px-2.5 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded-md font-bold border border-rose-200">Hủy</button>
+                      </>
+                    )}
+                    {b.status === 'IN_PROGRESS' && (
+                      <button onClick={async () => { const result = await completeYardBooking(b.id); alert(result.message); }} className="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-md font-bold">Hoàn tất</button>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modals: Block / Slot / Movement / Booking */}
+      {showBlockModal && (
+        <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-xl max-w-sm w-full p-6 shadow-xl border border-slate-200 text-xs">
+            <h3 className="text-base font-bold text-slate-900 mb-4">Tạo Block bãi mới</h3>
+            <div className="space-y-3">
+              <div>
+                <label className="block font-semibold text-slate-700 mb-1">Mã Block* (VD: B)</label>
+                <input value={blockForm.blockCode} onChange={(e) => setBlockForm({ ...blockForm, blockCode: e.target.value.toUpperCase() })} className="w-full px-3 py-2 border border-slate-300 rounded-lg uppercase" />
+              </div>
+              <div>
+                <label className="block font-semibold text-slate-700 mb-1">Tên Block</label>
+                <input value={blockForm.name} onChange={(e) => setBlockForm({ ...blockForm, name: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
+              </div>
+            </div>
+            <div className="flex justify-end space-x-2 pt-4 mt-2 border-t border-slate-200">
+              <button onClick={() => setShowBlockModal(false)} className="px-4 py-2 border border-slate-300 text-slate-700 rounded-lg font-medium">Hủy</button>
+              <button onClick={async () => { if (blockForm.blockCode) { const result = await createYardBlock(blockForm.blockCode, blockForm.name || `Block ${blockForm.blockCode}`); alert(result.message); if (result.success) { setShowBlockModal(false); setBlockForm({ blockCode: '', name: '' }); } } }} className="px-4 py-2 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700">Tạo</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showSlotModal && (
+        <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-xl max-w-sm w-full p-6 shadow-xl border border-slate-200 text-xs">
+            <h3 className="text-base font-bold text-slate-900 mb-4">Tạo Vị trí (Slot) mới</h3>
+            <div className="space-y-3">
+              <div>
+                <label className="block font-semibold text-slate-700 mb-1">Block</label>
+                <select value={slotForm.blockCode} onChange={(e) => setSlotForm({ ...slotForm, blockCode: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white">
+                  {yardBlocks.map((b) => <option key={b.id} value={b.blockCode}>{b.blockCode} — {b.name}</option>)}
+                </select>
+              </div>
+              <div className="grid grid-cols-3 gap-2">
+                <div><label className="block font-semibold text-slate-700 mb-1">Row</label><input type="number" value={slotForm.rowNo} onChange={(e) => setSlotForm({ ...slotForm, rowNo: Number(e.target.value) })} className="w-full px-2 py-2 border border-slate-300 rounded-lg" /></div>
+                <div><label className="block font-semibold text-slate-700 mb-1">Bay</label><input type="number" value={slotForm.bayNo} onChange={(e) => setSlotForm({ ...slotForm, bayNo: Number(e.target.value) })} className="w-full px-2 py-2 border border-slate-300 rounded-lg" /></div>
+                <div><label className="block font-semibold text-slate-700 mb-1">Tier</label><input type="number" value={slotForm.tierNo} onChange={(e) => setSlotForm({ ...slotForm, tierNo: Number(e.target.value) })} className="w-full px-2 py-2 border border-slate-300 rounded-lg" /></div>
+              </div>
+              <div>
+                <label className="block font-semibold text-slate-700 mb-1">Tải trọng tối đa (kg)</label>
+                <input type="number" value={slotForm.maxWeightKg} onChange={(e) => setSlotForm({ ...slotForm, maxWeightKg: Number(e.target.value) })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
+              </div>
+              <label className="flex items-center gap-2 font-semibold text-slate-700">
+                <input type="checkbox" checked={slotForm.reeferPower} onChange={(e) => setSlotForm({ ...slotForm, reeferPower: e.target.checked })} /> Có nguồn điện lạnh (Reefer)
+              </label>
+            </div>
+            <div className="flex justify-end space-x-2 pt-4 mt-2 border-t border-slate-200">
+              <button onClick={() => setShowSlotModal(false)} className="px-4 py-2 border border-slate-300 text-slate-700 rounded-lg font-medium">Hủy</button>
+              <button
+                onClick={async () => {
+                  const result = await createYardSlot(slotForm.blockCode, slotForm.rowNo, slotForm.bayNo, slotForm.tierNo, slotForm.maxWeightKg, slotForm.reeferPower);
+                  alert(result.message);
+                  if (result.success) setShowSlotModal(false);
+                }}
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700"
+              >
+                Tạo
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showMoveModal && (
+        <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-xl max-w-sm w-full p-6 shadow-xl border border-slate-200 text-xs">
+            <h3 className="text-base font-bold text-slate-900 mb-4">Tạo lệnh di chuyển nội bãi</h3>
+            <div className="space-y-3">
+              <div>
+                <label className="block font-semibold text-slate-700 mb-1">Container (đang IN_YARD)*</label>
+                <select value={moveForm.visitId} onChange={(e) => setMoveForm({ ...moveForm, visitId: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white">
+                  <option value="">-- Chọn container --</option>
+                  {containerVisits.filter((c) => c.state === 'IN_YARD' && c.currentLocation).map((c) => (
+                    <option key={c.id} value={c.id}>{c.containerNumber} (đang tại {c.currentLocation})</option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="block font-semibold text-slate-700 mb-1">Vị trí đích (Slot Code)*</label>
+                <select value={moveForm.toSlot} onChange={(e) => setMoveForm({ ...moveForm, toSlot: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white">
+                  <option value="">-- Chọn vị trí trống --</option>
+                  {yardSlots.filter((s) => !s.occupiedByContainerId).map((s) => <option key={s.id} value={s.slotCode}>{s.slotCode}</option>)}
+                </select>
+              </div>
+              <div>
+                <label className="block font-semibold text-slate-700 mb-1">Lý do*</label>
+                <input value={moveForm.reason} onChange={(e) => setMoveForm({ ...moveForm, reason: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
+              </div>
+            </div>
+            <div className="flex justify-end space-x-2 pt-4 mt-2 border-t border-slate-200">
+              <button onClick={() => setShowMoveModal(false)} className="px-4 py-2 border border-slate-300 text-slate-700 rounded-lg font-medium">Hủy</button>
+              <button
+                onClick={async () => {
+                  if (!moveForm.visitId || !moveForm.toSlot || !moveForm.reason) return;
+                  const res = await createYardMovement(moveForm.visitId, moveForm.toSlot, moveForm.reason);
+                  alert(res.message);
+                  if (res.success) { setShowMoveModal(false); setMoveForm({ visitId: '', toSlot: '', reason: '' }); }
+                }}
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700"
+              >
+                Tạo lệnh
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showBookingModal && (
+        <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-xl max-w-sm w-full p-6 shadow-xl border border-slate-200 text-xs">
+            <h3 className="text-base font-bold text-slate-900 mb-4">Đặt lịch trong bãi</h3>
+            <div className="space-y-3">
+              <div>
+                <label className="block font-semibold text-slate-700 mb-1">Container*</label>
+                <select value={bookingForm.visitId} onChange={(e) => setBookingForm({ ...bookingForm, visitId: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white">
+                  <option value="">-- Chọn container --</option>
+                  {containerVisits.filter((c) => c.state === 'IN_YARD').map((c) => <option key={c.id} value={c.id}>{c.containerNumber}</option>)}
+                </select>
+              </div>
+              <div>
+                <label className="block font-semibold text-slate-700 mb-1">Loại booking</label>
+                <select value={bookingForm.bookingType} onChange={(e) => setBookingForm({ ...bookingForm, bookingType: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white">
+                  <option value="STRIPPING">STRIPPING — Rút hàng</option>
+                  <option value="STUFFING">STUFFING — Đóng hàng</option>
+                  <option value="INSPECTION">INSPECTION — Kiểm định</option>
+                </select>
+              </div>
+              <div>
+                <label className="block font-semibold text-slate-700 mb-1">Thời gian dự kiến*</label>
+                <input type="datetime-local" value={bookingForm.scheduledAt} onChange={(e) => setBookingForm({ ...bookingForm, scheduledAt: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
+              </div>
+              <div>
+                <label className="block font-semibold text-slate-700 mb-1">Ghi chú</label>
+                <input value={bookingForm.notes} onChange={(e) => setBookingForm({ ...bookingForm, notes: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
+              </div>
+            </div>
+            <div className="flex justify-end space-x-2 pt-4 mt-2 border-t border-slate-200">
+              <button onClick={() => setShowBookingModal(false)} className="px-4 py-2 border border-slate-300 text-slate-700 rounded-lg font-medium">Hủy</button>
+              <button
+                onClick={async () => {
+                  if (!bookingForm.visitId) return;
+                  const result = await createYardBooking(bookingForm.visitId, bookingForm.bookingType, new Date(bookingForm.scheduledAt).toISOString(), bookingForm.notes);
+                  alert(result.message);
+                  if (result.success) setShowBookingModal(false);
+                }}
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700"
+              >
+                Đặt lịch
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* TAB 3: SMART ASSIGN (RULE + ML RERANKING) */}
+      {activeTab === 'ASSIGN' && (
+        <div className="bg-white rounded-xl border border-slate-200 shadow-xs p-6 space-y-6 max-w-3xl mx-auto text-xs">
+          <div>
+            <h3 className="text-base font-bold text-slate-900 flex items-center space-x-2">
+              <Sparkles className="w-5 h-5 text-amber-500" />
+              <span>Gợi ý Vị trí Bãi bằng Thuật toán (Rule-based + ML Rerank)</span>
+            </h3>
+            <p className="text-slate-500 mt-1">
+              Hệ thống lọc qua các Hard Safety Rules (tải trọng, kích thước, điện lạnh) và xếp hạng điểm số tối ưu quãng đường xe nâng
+            </p>
+          </div>
+
+          <div>
+            <label className="block font-bold text-slate-700 mb-1.5">Chọn Container cần xếp vị trí:</label>
+            <select
+              value={assignVisitId}
+              onChange={(e) => setAssignVisitId(e.target.value)}
+              className="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono font-bold bg-slate-50"
+            >
+              {containerVisits
+                .filter((c) => c.state === 'IN_YARD' && !c.currentLocation)
+                .map((c) => (
+                  <option key={c.id} value={c.id}>
+                    {c.containerNumber} — {c.containerType} ({c.grossWeightKg.toLocaleString()} kg) | Vị trí hiện tại:{' '}
+                    {c.currentLocation || 'Chưa xếp'}
+                  </option>
+                ))}
+            </select>
+          </div>
+
+          {containerToAssign && (
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50/70 border border-blue-200 rounded-xl flex items-center justify-between">
+                <div>
+                  <span className="text-slate-500">Thông số Container:</span>
+                  <div className="font-bold text-slate-900 text-sm">
+                    {containerToAssign.containerNumber} ({containerToAssign.containerType})
+                  </div>
+                  <div className="text-slate-600 mt-0.5">
+                    Trọng lượng: <strong>{containerToAssign.grossWeightKg.toLocaleString()} kg</strong> · Chủ hàng:{' '}
+                    <strong>{containerToAssign.consigneeName}</strong>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <span className="text-slate-400">Trạng thái:</span>
+                  <div className="font-bold text-emerald-700">{containerToAssign.state}</div>
+                </div>
+              </div>
+
+              {/* Recommendation Cards */}
+              <div className="space-y-3">
+                <div className="font-bold text-slate-800">Vị trí đề xuất từ backend:</div>
+                {recommendationLoading ? <p role="status">Đang tải đề xuất từ backend…</p> : recommendationError ? <p role="alert" className="text-red-700">{recommendationError}</p> : recommendations.length === 0 ? (
+                  <div className="p-6 text-center text-slate-400 border border-slate-200 rounded-xl">
+                    Chọn container đã vào cổng và chưa có vị trí bãi để lấy đề xuất.
+                  </div>
+                ) : (
+                  recommendations.map((rec, index) => (
+                    <div
+                      key={rec.slot.id}
+                      className="p-4 rounded-xl border border-slate-200 bg-slate-50/60 hover:bg-white hover:border-blue-400 transition flex items-center justify-between shadow-xs"
+                    >
+                      <div className="flex items-start space-x-3.5">
+                        <div className="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 font-bold flex items-center justify-center shrink-0">
+                          #{index + 1}
+                        </div>
+                        <div>
+                          <div className="flex items-center space-x-2">
+                            <span className="font-mono font-bold text-sm text-blue-700">{rec.slot.slotCode}</span>
+                            <span className="px-2 py-0.5 bg-emerald-100 text-emerald-800 font-bold text-[10px] rounded-full">
+                              Điểm tối ưu: ★ {rec.ruleScore}
+                            </span>
+                          </div>
+                          <div className="text-slate-600 mt-1 flex flex-wrap gap-1.5">
+                            {rec.reasons.map((r, i) => (
+                              <span key={i} className="px-2 py-0.5 bg-slate-100 text-slate-700 rounded text-[11px]">
+                                {r}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+
+                      <button
+                        onClick={() => handleAssign(rec.slot.slotCode)}
+                        className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-xs flex items-center space-x-1"
+                      >
+                        <Check className="w-4 h-4" />
+                        <span>Chọn vị trí này</span>
+                      </button>
+                    </div>
+                  ))
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+};

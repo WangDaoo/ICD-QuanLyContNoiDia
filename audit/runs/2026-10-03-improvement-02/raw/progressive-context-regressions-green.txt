@@ -1,0 +1,32 @@
+✔ context refuses a write after account switch and preserves the canonical custom role (370.8406ms)
+✔ gate-out requires explicit boolean true and rejects malformed scan flags without a write (441.6091ms)
+✔ payment context rejects invalid amounts and methods before any request (72.3571ms)
+✔ Billing preserves edited two-decimal amounts and declares a matching numeric step (273.1419ms)
+✔ Billing invalid payment values show an error and never delegate a write (132.1884ms)
+✔ switching user starts a fresh read and a late previous refresh cannot clear its pending state (325.5601ms)
+✔ failed critical GET preserves stale records, distinguishes unknown from empty and recovers on retry (402.1466ms)
+✔ W-S-016 review: initial failed holds and passes retain unavailable markers rather than verified absence (357.0879ms)
+✔ W-S-016 review: successful empty reads are ready and show no critical-data warning (29.819ms)
+✔ W-S-016 review: failed gate-pass reload preserves stale row, forbidden reload removes it, and retry recovers (51.1646ms)
+✔ W-S-016 review: later-page hold rejection discards incomplete fresh rows and marks retained records stale (25.9427ms)
+✔ W-S-016 review: unknown per-visit key and failed hold data cannot produce a green state appearance (1.9859ms)
+✔ W-S-016 review: an existing visit missing its status must produce a global warning (1.977ms)
+✔ W-S-016 review: an existing visit missing its status must not reassure with zero holds (224.2495ms)
+✔ direct re-login loads new session data despite an older pending refresh (44.6596ms)
+✔ W-S-020 independent review: raw request and response remain hidden and redacted text cannot become markup (54.4824ms)
+✔ a completed resource is published while an unrelated read remains pending (287.4299ms)
+✔ publication waits for complete and valid pagination without waiting on unrelated reads (67.4782ms)
+✔ a malformed financial response becomes unavailable before any false zero is published (34.1993ms)
+✔ a malformed tariff refresh retains its previously validated derived rules through final reconciliation (81.0148ms)
+✔ a late previous-session resource cannot replace a progressively published new-session resource (38.0428ms)
+✔ transient read failure preserves stale rows and a forbidden read removes them immediately (43.3475ms)
+✔ refresh invalidates old safety readiness until both authoritative safety reads finish (51.3106ms)
+✔ early manifest role and handover lists expose pending detail availability (30.2136ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9665.7556

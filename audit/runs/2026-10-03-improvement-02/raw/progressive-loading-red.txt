@@ -1,0 +1,137 @@
+✖ a completed resource is published while an unrelated read remains pending (243.0157ms)
+✖ publication waits for complete and valid pagination without waiting on unrelated reads (26.0343ms)
+✖ a malformed financial response becomes unavailable before any false zero is published (15.5821ms)
+✖ a late previous-session resource cannot replace a progressively published new-session resource (18.1127ms)
+✖ transient read failure preserves stale rows and a forbidden read removes them immediately (16.194ms)
+✖ refresh invalidates old safety readiness until both authoritative safety reads finish (18.6464ms)
+✖ early manifest role and handover lists expose pending detail availability (16.1546ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 0
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 23334.216
+
+✖ failing tests:
+
+test at audit\tools\tests\progressive-loading.test.mjs:51:1
+✖ a completed resource is published while an unrelated read remains pending (243.0157ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'loading' !== 'ready'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/progressive-loading.test.mjs:57:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'loading',
+    expected: 'ready',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\progressive-loading.test.mjs:64:1
+✖ publication waits for complete and valid pagination without waiting on unrelated reads (26.0343ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'loading' !== 'ready'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/progressive-loading.test.mjs:77:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'loading',
+    expected: 'ready',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\progressive-loading.test.mjs:83:1
+✖ a malformed financial response becomes unavailable before any false zero is published (15.5821ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'loading' !== 'error'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/progressive-loading.test.mjs:89:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'loading',
+    expected: 'error',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\progressive-loading.test.mjs:95:1
+✖ a late previous-session resource cannot replace a progressively published new-session resource (18.1127ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'New actor line'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/progressive-loading.test.mjs:114:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'New actor line',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\progressive-loading.test.mjs:127:1
+✖ transient read failure preserves stale rows and a forbidden read removes them immediately (16.194ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'ready' !== 'stale'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/progressive-loading.test.mjs:144:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'ready',
+    expected: 'stale',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\progressive-loading.test.mjs:156:1
+✖ refresh invalidates old safety readiness until both authoritative safety reads finish (18.6464ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to:
+  
+  'ready'
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/progressive-loading.test.mjs:173:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'ready',
+    expected: 'ready',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\progressive-loading.test.mjs:184:1
+✖ early manifest role and handover lists expose pending detail availability (16.1546ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'loading' !== 'ready'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/progressive-loading.test.mjs:199:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'loading',
+    expected: 'ready',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

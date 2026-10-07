@@ -1,0 +1,60 @@
+{
+  "verifiedAtUtc": "2026-10-02T01:34:43.5528040Z",
+  "finalChanges": [
+    "SessionCard badge changed to ĐÃ ĐĂNG NHẬP with existing compact styling.",
+    "Monitor count changed to ô bãi because all yard slot pages are aggregated."
+  ],
+  "checks": [
+    {
+      "name": "typecheck",
+      "command": "pnpm --filter @icd/mobile typecheck",
+      "cwd": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management",
+      "exitCode": 0,
+      "status": "passed"
+    },
+    {
+      "name": "lint",
+      "command": "node node_modules/.pnpm/eslint@10.10.0_jiti@2.7.0/node_modules/eslint/bin/eslint.js apps/mobile/App.tsx \"apps/mobile/src/**/*.{ts,tsx}\" apps/mobile/tests/api-network.test.cjs apps/mobile/tests/auth-restore.test.cjs apps/mobile/tests/work-queue-read-routing.test.cjs",
+      "cwd": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management",
+      "exitCode": 0,
+      "status": "passed"
+    },
+    {
+      "name": "expoWebExport",
+      "command": "$env:EXPO_PUBLIC_API_BASE_URL = 'http://127.0.0.1:3000/api'; $env:CI = '1'; node node_modules/expo/bin/cli export --platform web --output-dir dist-qa",
+      "cwd": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\apps\\mobile",
+      "exitCode": 0,
+      "status": "passed"
+    },
+    {
+      "name": "diffCheck",
+      "command": "git -c core.safecrlf=false diff --check -- apps/mobile",
+      "cwd": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management",
+      "exitCode": 0,
+      "status": "passed"
+    }
+  ],
+  "mobileTests": {
+    "command": "node --test --test-isolation=none tests/*.test.cjs",
+    "cwd": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\apps\\mobile",
+    "lastVerifiedPassed": 50,
+    "lastVerifiedFailed": 0,
+    "rerunAfterFinalCopyChanges": false,
+    "reason": "Final edits change displayed text only; the preceding full suite passed."
+  },
+  "webExport": {
+    "directory": "apps/mobile/dist-qa",
+    "apiBaseUrl": "http://127.0.0.1:3000/api",
+    "moduleCount": 2259,
+    "assets": 11,
+    "mainBundle": "_expo/static/js/web/index-f623b1e749aff82a7b2aef74e64072eb.js",
+    "mainBundleHash": "f623b1e749aff82a7b2aef74e64072eb",
+    "mainBundleSize": "2.9MB",
+    "runtimeBundle": "_expo/static/js/web/index-12056aa44f0b73ccae3cf8006df93391.js",
+    "runtimeBundleSize": "45KB",
+    "bundleTimeMs": 4154,
+    "warnings": [
+      "Non-blocking NO_COLOR/FORCE_COLOR terminal color warning."
+    ]
+  }
+}

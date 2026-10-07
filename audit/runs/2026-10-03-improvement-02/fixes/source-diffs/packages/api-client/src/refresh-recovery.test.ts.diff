@@ -1,0 +1,190 @@
+--- before/packages/api-client/src/refresh-recovery.test.ts
++++ after/packages/api-client/src/refresh-recovery.test.ts
+@@ -0,0 +1,187 @@
++import assert from 'node:assert/strict';
++import test from 'node:test';
++import { AxiosError, type AxiosAdapter, type InternalAxiosRequestConfig } from 'axios';
++import { ApiError, createApiClient } from './index';
++
++function deferred<T>() {
++  let resolve!: (value: T) => void;
++  let reject!: (error: unknown) => void;
++  const promise = new Promise<T>((yes, no) => { resolve = yes; reject = no; });
++  return { promise, resolve, reject };
++}
++function denied(config: InternalAxiosRequestConfig, status = 401): never {
++  throw new AxiosError(`Request rejected ${status}`, AxiosError.ERR_BAD_RESPONSE, config, undefined,
++    { status, statusText: 'Rejected', headers: {}, data: { error: { code: 'UNAUTHORIZED', message: 'Rejected' } }, config });
++}
++function succeeds(config: InternalAxiosRequestConfig) {
++  return { status: 200, statusText: 'OK', headers: {}, data: { data: 'verified-read' }, config };
++}
++const hasStatus = (status: number) => (error: unknown) => error instanceof ApiError && error.status === status;
++
++for (const status of [0, 500]) test(`transient refresh ApiError ${status} reaches the caller without unauthorized callback`, async () => {
++  let clears = 0;
++  const failure = new ApiError('Refresh temporarily unavailable', status);
++  const client = createApiClient({ baseUrl: 'http://fixture.test/api', getAccessToken: () => 'actor-A',
++    refreshAccessToken: async () => { throw failure; }, onUnauthorized: () => { clears++; } });
++  client.raw.defaults.adapter = async config => denied(config);
++  await assert.rejects(client.get('/containers'), error => error === failure);
++  assert.equal(clears, 0);
++});
++
++test('simultaneous unauthorized reads share one refresh and retry with its token', async () => {
++  let token = 'actor-A'; let refreshCalls = 0; let adapterCalls = 0;
++  const started = deferred<void>(), refresh = deferred<string>();
++  const client = createApiClient({ baseUrl: 'http://fixture.test/api', getAccessToken: () => token,
++    refreshAccessToken: async () => { refreshCalls++; started.resolve(); const next = await refresh.promise; token = next; return next; } });
++  client.raw.defaults.adapter = async config => { adapterCalls++; return config.headers.Authorization === 'Bearer actor-A' ? denied(config) : succeeds(config); };
++  const reads = Promise.all([client.get('/containers'), client.get('/notifications/history')]);
++  await started.promise;
++  await Promise.resolve();
++  assert.equal(refreshCalls, 1);
++  refresh.resolve('actor-A-refreshed');
++  await reads;
++  assert.equal(adapterCalls, 4);
++});
++
++test('staggered old 401 reuses a proven same-actor rotation without another refresh', async () => {
++  let token = 'actor-A', refreshCalls = 0, clears = 0, delayedCalls = 0;
++  const entered = deferred<void>(), late = deferred<void>();
++  const client = createApiClient({ baseUrl: 'http://fixture.test/api', getAccessToken: () => token, getSessionVersion: () => 1,
++    refreshAccessToken: async () => { refreshCalls++; token = 'actor-A-refreshed'; return token; }, onUnauthorized: () => { clears++; } });
++  client.raw.defaults.adapter = async config => {
++    if (config.url === '/containers' && config.headers.Authorization === 'Bearer actor-A') {
++      delayedCalls++; entered.resolve(); await late.promise; return denied(config);
++    }
++    if (config.url === '/containers') delayedCalls++;
++    return config.headers.Authorization === 'Bearer actor-A' ? denied(config) : succeeds(config);
++  };
++  const read = client.get('/containers'); void read.catch(() => undefined);
++  await entered.promise;
++  await client.get('/notifications/history');
++  late.resolve();
++  assert.deepEqual(await read, { data: 'verified-read' });
++  assert.equal(refreshCalls, 1); assert.equal(delayedCalls, 2); assert.equal(clears, 0);
++});
++
++test('an unknown token replacement at an unchanged fixture version remains fenced', async () => {
++  let token = 'actor-A', clears = 0, refreshCalls = 0;
++  const entered = deferred<void>(), late = deferred<void>();
++  const client = createApiClient({ baseUrl: 'http://fixture.test/api', getAccessToken: () => token, getSessionVersion: () => 1,
++    refreshAccessToken: async () => { refreshCalls++; return null; }, onUnauthorized: () => { clears++; } });
++  client.raw.defaults.adapter = async config => { entered.resolve(); await late.promise; return denied(config); };
++  const read = assert.rejects(client.get('/containers'), hasStatus(0));
++  await entered.promise; token = 'unrecognized-actor'; late.resolve(); await read;
++  assert.equal(clears, 0); assert.equal(refreshCalls, 0); assert.equal(token, 'unrecognized-actor');
++});
++
++test('a missing refresh result invalidates only the current session once', async () => {
++  let token: string | null = 'actor-A', version = 1, clears = 0;
++  const client = createApiClient({ baseUrl: 'http://fixture.test/api', getAccessToken: () => token, getSessionVersion: () => version,
++    refreshAccessToken: async () => null, onUnauthorized: () => { clears++; token = null; version++; } });
++  client.raw.defaults.adapter = async config => denied(config);
++  await assert.rejects(client.get('/containers'), hasStatus(401));
++  assert.equal(clears, 1); assert.equal(token, null);
++});
++
++test('late old 401 does not refresh, replay or invalidate the new actor', async () => {
++  let token = 'actor-A', version = 1, clears = 0, refreshCalls = 0;
++  const entered = deferred<void>(), response = deferred<void>();
++  const client = createApiClient({ baseUrl: 'http://fixture.test/api', getAccessToken: () => token, getSessionVersion: () => version,
++    refreshAccessToken: async () => { refreshCalls++; return null; }, onUnauthorized: () => { clears++; } });
++  client.raw.defaults.adapter = async config => { entered.resolve(); await response.promise; return denied(config); };
++  const read = assert.rejects(client.get('/containers'), hasStatus(0));
++  await entered.promise;
++  token = 'actor-B'; version++;
++  response.resolve(); await read;
++  assert.equal(refreshCalls, 0); assert.equal(clears, 0); assert.equal(token, 'actor-B');
++});
++
++test('version changes fence stale 401 even when new login has the same token fixture', async () => {
++  let version = 1, clears = 0, refreshCalls = 0;
++  const entered = deferred<void>(), response = deferred<void>();
++  const client = createApiClient({ baseUrl: 'http://fixture.test/api', getAccessToken: () => 'same-fixture', getSessionVersion: () => version,
++    refreshAccessToken: async () => { refreshCalls++; return null; }, onUnauthorized: () => { clears++; } });
++  client.raw.defaults.adapter = async config => { entered.resolve(); await response.promise; return denied(config); };
++  const read = assert.rejects(client.get('/containers'), hasStatus(0));
++  await entered.promise; version++; response.resolve(); await read;
++  assert.equal(clears, 0); assert.equal(refreshCalls, 0);
++});
++
++for (const outcome of ['fulfill', 'reject'] as const) test(`late refresh ${outcome} cannot retry or clear a different actor`, async () => {
++  let token = 'actor-A', version = 1, clears = 0, calls = 0;
++  const started = deferred<void>(), refresh = deferred<string>();
++  const client = createApiClient({ baseUrl: 'http://fixture.test/api', getAccessToken: () => token, getSessionVersion: () => version,
++    refreshAccessToken: async () => { started.resolve(); return refresh.promise; }, onUnauthorized: () => { clears++; } });
++  client.raw.defaults.adapter = async config => { calls++; return denied(config); };
++  const read = assert.rejects(client.get('/containers'), hasStatus(0));
++  await started.promise; token = 'actor-B'; version++;
++  if (outcome === 'fulfill') refresh.resolve('old-refreshed'); else refresh.reject(new ApiError('Old server error', 500));
++  await read;
++  assert.equal(calls, 1); assert.equal(clears, 0); assert.equal(token, 'actor-B');
++});
++
++test('an old refresh finally cannot release a newer session refresh slot', async () => {
++  let token = 'actor-A', version = 1, refreshCalls = 0;
++  const startedA = deferred<void>(), startedB = deferred<void>(), oldRefresh = deferred<string>(), newRefresh = deferred<string>();
++  const client = createApiClient({ baseUrl: 'http://fixture.test/api', getAccessToken: () => token, getSessionVersion: () => version,
++    refreshAccessToken: async () => {
++      refreshCalls++;
++      if (token === 'actor-A') { startedA.resolve(); return oldRefresh.promise; }
++      startedB.resolve(); const next = await newRefresh.promise; token = next; return next;
++    } });
++  client.raw.defaults.adapter = async config => config.headers.Authorization === 'Bearer actor-B-refreshed' ? succeeds(config) : denied(config);
++  const oldRead = assert.rejects(client.get('/containers'), hasStatus(0));
++  void oldRead.catch(() => undefined);
++  await startedA.promise; token = 'actor-B'; version++;
++  const nextRead = client.get('/containers');
++  void nextRead.catch(() => undefined);
++  let joinedRead: Promise<unknown> | undefined;
++  try {
++    await new Promise(resolve => setImmediate(resolve));
++    assert.equal(refreshCalls, 2, 'new session must start its own refresh while the old refresh is pending');
++    await startedB.promise;
++    oldRefresh.resolve('actor-A-refreshed'); await oldRead;
++    joinedRead = client.get('/notifications/history');
++    void joinedRead.catch(() => undefined);
++    await new Promise(resolve => setImmediate(resolve));
++    assert.equal(refreshCalls, 2, 'old finally must not release the pending B refresh');
++    newRefresh.resolve('actor-B-refreshed'); await Promise.all([nextRead, joinedRead]);
++  } finally {
++    oldRefresh.resolve('actor-A-refreshed'); newRefresh.resolve('actor-B-refreshed');
++    await Promise.allSettled([oldRead, nextRead, ...(joinedRead ? [joinedRead] : [])]);
++  }
++});
++
++test('a retry denied by server invalidates the still-current refreshed session', async () => {
++  let token: string | null = 'actor-A', version = 1, clears = 0, calls = 0;
++  const client = createApiClient({ baseUrl: 'http://fixture.test/api', getAccessToken: () => token, getSessionVersion: () => version,
++    refreshAccessToken: async () => { token = 'actor-A-refreshed'; return token; }, onUnauthorized: () => { clears++; token = null; version++; } });
++  client.raw.defaults.adapter = async config => { calls++; return denied(config); };
++  await assert.rejects(client.get('/containers'), hasStatus(401));
++  assert.equal(calls, 2); assert.equal(clears, 1); assert.equal(token, null);
++});
++
++test('a write queued before logout/login cannot acquire another actor token at dispatch', async () => {
++  let token = 'actor-A', version = 1, calls = 0;
++  const client = createApiClient({ baseUrl: 'http://fixture.test/api', getAccessToken: () => token, getSessionVersion: () => version });
++  client.raw.defaults.adapter = async config => { calls++; return succeeds(config); };
++  const write = assert.rejects(client.post('/invoices/example/payments', { amount: 1 }), hasStatus(0));
++  token = 'actor-B'; version++;
++  await write; assert.equal(calls, 0);
++});
++
++for (const status of [0, 500]) test(`uncertain financial write ${status} is not automatically retried`, async () => {
++  let calls = 0, refreshCalls = 0;
++  const client = createApiClient({ baseUrl: 'http://fixture.test/api', getAccessToken: () => 'actor-A',
++    refreshAccessToken: async () => { refreshCalls++; return 'refreshed'; } });
++  const adapter: AxiosAdapter = async config => { calls++; if (status) return denied(config, status); throw new AxiosError('Network failure', AxiosError.ERR_NETWORK, config); };
++  client.raw.defaults.adapter = adapter;
++  await assert.rejects(client.post('/invoices/example/payments', { amount: 1 }), hasStatus(status));
++  assert.equal(calls, 1); assert.equal(refreshCalls, 0);
++});
++
++test('refresh callback can return a token without changing its getter contract', async () => {
++  const client = createApiClient({ baseUrl: 'http://fixture.test/api', getAccessToken: () => 'actor-A', refreshAccessToken: async () => 'actor-A-refreshed' });
++  client.raw.defaults.adapter = async config => config.headers.Authorization === 'Bearer actor-A-refreshed' ? succeeds(config) : denied(config);
++  assert.deepEqual(await client.get('/containers'), { data: 'verified-read' });
++});

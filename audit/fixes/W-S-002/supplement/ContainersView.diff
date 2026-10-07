@@ -1,0 +1,41 @@
+diff --git a/audit/fixes/W-S-002/supplement/before/apps/web/src/components/ContainersView.tsx b/audit/fixes/W-S-002/supplement/after/apps/web/src/components/ContainersView.tsx
+index 3bd50dc..d9c20e5 100644
+--- a/audit/fixes/W-S-002/supplement/before/apps/web/src/components/ContainersView.tsx
++++ b/audit/fixes/W-S-002/supplement/after/apps/web/src/components/ContainersView.tsx
+@@ -931,26 +931,26 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
+                   </select>
+                 </div>
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">Hãng tàu</label>
+-                  <input readOnly value={formManifest?.shippingLine || ''} placeholder="Theo Manifest đã chọn" aria-label="Hãng tàu theo Manifest" className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
++                  <label htmlFor="containers-create-shipping-line" className="block font-semibold text-slate-700 mb-1">Hãng tàu</label>
++                  <input id="containers-create-shipping-line" readOnly value={formManifest?.shippingLine || ''} placeholder="Theo Manifest đã chọn" aria-label="Hãng tàu theo Manifest" className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
+                 </div>
+               </div>
+               <div>
+-                <label className="block font-semibold text-slate-700 mb-1">Chủ hàng (Consignee)*</label>
+-                <select aria-label="Chủ hàng" value={cvForm.consigneeName} onChange={e => setCvForm({...cvForm,consigneeName:e.target.value})} className="w-full px-3 py-2 border border-slate-300 rounded-lg"><option value="">Chọn chủ hàng</option>{consignees.filter(c => c.active).map(c => <option key={c.id} value={c.name}>{c.name}</option>)}</select>
++                <label htmlFor="containers-create-consignee" className="block font-semibold text-slate-700 mb-1">Chủ hàng (Consignee)*</label>
++                <select id="containers-create-consignee" aria-label="Chủ hàng" value={cvForm.consigneeName} onChange={e => setCvForm({...cvForm,consigneeName:e.target.value})} className="w-full px-3 py-2 border border-slate-300 rounded-lg"><option value="">Chọn chủ hàng</option>{consignees.filter(c => c.active).map(c => <option key={c.id} value={c.name}>{c.name}</option>)}</select>
+               </div>
+               <div className="grid grid-cols-3 gap-3">
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">Manifest No.</label>
+-                  <select aria-label="Manifest" value={cvForm.manifestNo} onChange={e => setCvForm({...cvForm,manifestNo:e.target.value,mblNumber:'',hblNumber:''})} className="w-full px-3 py-2 border border-slate-300 rounded-lg"><option value="">Chọn Manifest</option>{manifests.filter(m => m.status !== 'CANCELLED').map(m => <option key={m.id} value={m.manifestNo}>{m.manifestNo}</option>)}</select>
++                  <label htmlFor="containers-create-manifest" className="block font-semibold text-slate-700 mb-1">Manifest No.</label>
++                  <select id="containers-create-manifest" aria-label="Manifest" value={cvForm.manifestNo} onChange={e => setCvForm({...cvForm,manifestNo:e.target.value,mblNumber:'',hblNumber:''})} className="w-full px-3 py-2 border border-slate-300 rounded-lg"><option value="">Chọn Manifest</option>{manifests.filter(m => m.status !== 'CANCELLED').map(m => <option key={m.id} value={m.manifestNo}>{m.manifestNo}</option>)}</select>
+                 </div>
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">MBL No.</label>
+-                  <select aria-label="Master BL" value={cvForm.mblNumber} onChange={e => setCvForm({...cvForm,mblNumber:e.target.value,hblNumber:''})} className="w-full px-3 py-2 border border-slate-300 rounded-lg"><option value="">Chọn MBL</option>{formManifest?.masterBills.map(m => <option key={m.id} value={m.mblNumber}>{m.mblNumber}</option>)}</select>
++                  <label htmlFor="containers-create-mbl" className="block font-semibold text-slate-700 mb-1">MBL No.</label>
++                  <select id="containers-create-mbl" aria-label="Master BL" value={cvForm.mblNumber} onChange={e => setCvForm({...cvForm,mblNumber:e.target.value,hblNumber:''})} className="w-full px-3 py-2 border border-slate-300 rounded-lg"><option value="">Chọn MBL</option>{formManifest?.masterBills.map(m => <option key={m.id} value={m.mblNumber}>{m.mblNumber}</option>)}</select>
+                 </div>
+                 <div>
+-                  <label className="block font-semibold text-slate-700 mb-1">HBL No.</label>
+-                  <select aria-label="House BL" value={cvForm.hblNumber} onChange={e => {const h = formMaster?.houseBills.find(h => h.hblNumber === e.target.value);setCvForm({...cvForm,hblNumber:e.target.value,consigneeName:h?.consigneeName || cvForm.consigneeName});}} className="w-full px-3 py-2 border border-slate-300 rounded-lg"><option value="">Chọn HBL</option>{formMaster?.houseBills.map(h => <option key={h.id} value={h.hblNumber}>{h.hblNumber}</option>)}</select>
++                  <label htmlFor="containers-create-hbl" className="block font-semibold text-slate-700 mb-1">HBL No.</label>
++                  <select id="containers-create-hbl" aria-label="House BL" value={cvForm.hblNumber} onChange={e => {const h = formMaster?.houseBills.find(h => h.hblNumber === e.target.value);setCvForm({...cvForm,hblNumber:e.target.value,consigneeName:h?.consigneeName || cvForm.consigneeName});}} className="w-full px-3 py-2 border border-slate-300 rounded-lg"><option value="">Chọn HBL</option>{formMaster?.houseBills.map(h => <option key={h.id} value={h.hblNumber}>{h.hblNumber}</option>)}</select>
+                 </div>
+               </div>
+               <div className="grid grid-cols-2 gap-3">

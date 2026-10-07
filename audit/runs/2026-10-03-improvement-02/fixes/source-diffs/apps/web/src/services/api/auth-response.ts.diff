@@ -1,0 +1,79 @@
+--- before/apps/web/src/services/api/auth-response.ts
++++ after/apps/web/src/services/api/auth-response.ts
+@@ -0,0 +1,76 @@
++import { asRecord, unwrapData } from '../mappers/api-response.mapper';
++
++export interface UserResponse {
++  id: string;
++  icdId: string;
++  sessionId: string;
++  name: string;
++  email: string;
++  roleCodes: string[];
++  permissionCodes: string[];
++}
++
++export interface AuthResponse {
++  accessToken: string;
++  refreshToken: string;
++  tokenType: 'Bearer';
++  expiresIn: number;
++  refreshExpiresIn: number;
++  user: UserResponse;
++}
++
++function requiredString(value: unknown): string {
++  if (typeof value !== 'string' || !value.trim())
++    throw new Error('Invalid authentication response');
++  return value;
++}
++
++function stringArray(value: unknown): string[] {
++  if (!Array.isArray(value) || !value.every((item): item is string => typeof item === 'string'))
++    throw new Error('Invalid authentication response');
++  return value;
++}
++
++export function readAuthTokens(
++  response: unknown,
++): Pick<AuthResponse, 'accessToken' | 'refreshToken'> {
++  const d = asRecord(unwrapData<unknown>(response));
++  return {
++    accessToken: requiredString(d.accessToken),
++    refreshToken: requiredString(d.refreshToken),
++  };
++}
++
++export function readUserResponse(response: unknown): UserResponse {
++  const d = asRecord(unwrapData<unknown>(response));
++  return {
++    id: requiredString(d.id),
++    icdId: requiredString(d.icdId),
++    sessionId: requiredString(d.sessionId),
++    name: requiredString(d.name),
++    email: requiredString(d.email),
++    roleCodes: stringArray(d.roleCodes),
++    permissionCodes: stringArray(d.permissionCodes),
++  };
++}
++
++export function readAuthResponse(response: unknown): AuthResponse {
++  const d = asRecord(unwrapData<unknown>(response));
++  if (
++    d.tokenType !== 'Bearer' ||
++    typeof d.expiresIn !== 'number' ||
++    !Number.isFinite(d.expiresIn) ||
++    d.expiresIn <= 0 ||
++    typeof d.refreshExpiresIn !== 'number' ||
++    !Number.isFinite(d.refreshExpiresIn) ||
++    d.refreshExpiresIn <= 0
++  )
++    throw new Error('Invalid authentication response');
++  return {
++    ...readAuthTokens(d),
++    tokenType: d.tokenType,
++    expiresIn: d.expiresIn,
++    refreshExpiresIn: d.refreshExpiresIn,
++    user: readUserResponse(d.user),
++  };
++}

@@ -1,0 +1,49 @@
+{
+  "phase": "verify-hold-notifications",
+  "alias": "yard",
+  "checkedAt": "2026-10-02T01:54:20.478Z",
+  "checks": [
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/inspections/cd79419f-3f37-49b3-9e49-b0b53a445b86",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c/gate-pass/readiness",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/notifications/history?type=INSPECTION_HOLD&pageSize=100",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/notifications/history?type=INSPECTION_HOLD&pageSize=100",
+      "status": 200,
+      "expectedStatus": "2xx"
+    }
+  ]
+}

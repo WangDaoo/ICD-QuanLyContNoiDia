@@ -1,0 +1,7 @@
+{
+  "url": "http://127.0.0.1:5174/app/containers",
+  "fault": "GET /api/containers ->500 on initial load",
+  "alert": "Không thể tải dữ liệu. Chưa xác nhận danh sách hiện tại.\n\nTải lại dữ liệu",
+  "dataRows": 0,
+  "scope": "Real full reload, no cached collection; error distinct from successful empty"
+}

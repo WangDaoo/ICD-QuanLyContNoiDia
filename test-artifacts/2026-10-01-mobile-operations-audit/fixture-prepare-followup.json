@@ -1,0 +1,91 @@
+{
+  "phase": "prepare-followup",
+  "alias": "yard",
+  "checkedAt": "2026-10-02T01:06:28.703Z",
+  "checks": [
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/manifests",
+      "status": 201,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/manifests/f76e890a-e02f-4044-b54e-4518d3e794ad/master-bls",
+      "status": 201,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/manifests/f76e890a-e02f-4044-b54e-4518d3e794ad/master-bls/fd5c920c-c5f5-4939-89d9-716eb180f156/house-bls",
+      "status": 201,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/containers",
+      "status": 201,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/manifests/f76e890a-e02f-4044-b54e-4518d3e794ad/submit",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947/movement-orders",
+      "status": 201,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/movement-orders/93819660-6b7c-4f5a-86c9-455122959cfd/authorize",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/gate/truck-visits",
+      "status": 201,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/gate/truck-visits/950be735-d6ca-455d-9e2c-072023a053d7",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/gate/truck-visits/950be735-d6ca-455d-9e2c-072023a053d7/arrive",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947/gate-in-context",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/gate/truck-visits/fc525ccc-ba8e-49f2-8831-62eadd0ae0e3",
+      "status": 200,
+      "expectedStatus": "2xx"
+    }
+  ]
+}

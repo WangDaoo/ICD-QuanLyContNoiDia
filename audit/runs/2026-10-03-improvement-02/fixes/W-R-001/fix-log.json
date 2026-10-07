@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED",
+  "change": "Semantic supporting-text colors; measured contrast on72 screen/width cases.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/index.css",
+      "line": 15,
+      "detail": "--icd-text-secondary",
+      "snippet": "  --icd-text-secondary: #475569;\n  --icd-text-on-dark-secondary: #cbd5e1;\n  --icd-focus: #2563eb;\n  --icd-state-hover: #eff6ff;"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/contrast-after.json"
+  ],
+  "limitations": "Computed Color4/ancestor alpha; opacity, images and obscured pixels remain separately scoped.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/index.css.diff"
+  ],
+  "isolated_review_diffs": []
+}

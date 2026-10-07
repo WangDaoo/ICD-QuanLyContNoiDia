@@ -1,0 +1,129 @@
+✖ gate-out tasks resolve their canonical gate-pass entity to a visit (3.4735ms)
+✖ card payment method is retained rather than displayed as bank transfer (0.8789ms)
+✖ malformed nested API collections cannot crash view mapping (0.3863ms)
+✖ non-boolean readiness flags cannot grant financial readiness (0.6814ms)
+✖ a saved command whose refresh fails reports an explicit refresh outcome (0.6663ms)
+✖ non-string thrown messages do not escape the command result boundary (0.3735ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 0
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 605.5759
+
+✖ failing tests:
+
+test at apps\web\src\services\mappers\boundary-contract.test.ts:7:1
+✖ gate-out tasks resolve their canonical gate-pass entity to a visit (3.4735ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  '' !== 'visit-1'
+  
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\mappers\boundary-contract.test.ts:12:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: 'visit-1',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\mappers\boundary-contract.test.ts:16:1
+✖ card payment method is retained rather than displayed as bank transfer (0.8789ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'CHUYEN_KHOAN'
+  - 'THE'
+  
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\mappers\boundary-contract.test.ts:18:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'CHUYEN_KHOAN',
+    expected: 'THE',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\mappers\boundary-contract.test.ts:21:1
+✖ malformed nested API collections cannot crash view mapping (0.3863ms)
+  TypeError: (d.masterBls ?? d.masterBills ?? []).map is not a function
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\mappers\live-view.mapper.ts:19:142)
+      at Array.map (<anonymous>)
+      at mapLiveCollections (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\mappers\live-view.mapper.ts:19:38)
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\mappers\boundary-contract.test.ts:22:18)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at apps\web\src\services\mappers\boundary-contract.test.ts:28:1
+✖ non-boolean readiness flags cannot grant financial readiness (0.6814ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'false' !== false
+  
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\mappers\boundary-contract.test.ts:29:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'false',
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\mappers\boundary-contract.test.ts:32:1
+✖ a saved command whose refresh fails reports an explicit refresh outcome (0.6663ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'failed'
+  
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\mappers\boundary-contract.test.ts:35:10)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'failed',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\mappers\boundary-contract.test.ts:39:1
+✖ non-string thrown messages do not escape the command result boundary (0.3735ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'object' !== 'string'
+  
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\mappers\boundary-contract.test.ts:42:10)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'object',
+    expected: 'string',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

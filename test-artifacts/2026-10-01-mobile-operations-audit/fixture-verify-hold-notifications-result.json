@@ -1,0 +1,29 @@
+{
+  "phase": "verify-hold-notifications",
+  "checkedAt": "2026-10-02T01:54:20.480Z",
+  "containerNumber": "QAOU5007570",
+  "inspectionId": "cd79419f-3f37-49b3-9e49-b0b53a445b86",
+  "inspectionStatus": "COMPLETED",
+  "result": "HOLD",
+  "ready": false,
+  "blockers": [
+    "INSPECTION_HOLD",
+    "OPERATIONAL_HOLD",
+    "NO_BILLING",
+    "UNBILLED_SERVICES"
+  ],
+  "recipients": [
+    {
+      "email": "operator@icd.local",
+      "notificationId": "dcd808f3-8558-4cd4-9239-72430d6fa81a",
+      "readAt": "2026-10-02T01:31:40.167Z",
+      "deepLink": "/inspections/cd79419f-3f37-49b3-9e49-b0b53a445b86"
+    },
+    {
+      "email": "docs@icd.local",
+      "notificationId": "1c87ee08-b93d-4d36-b366-836463bf8fba",
+      "readAt": null,
+      "deepLink": "/inspections/cd79419f-3f37-49b3-9e49-b0b53a445b86"
+    }
+  ]
+}

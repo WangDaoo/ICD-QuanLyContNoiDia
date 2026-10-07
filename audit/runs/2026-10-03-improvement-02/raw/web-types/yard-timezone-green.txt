@@ -1,0 +1,19 @@
+✔ schedule defaults and payload preserve the local Vietnam clock (6.9711ms)
+✔ Vietnam schedule defaults and payload are independent of browser timezone (2.6653ms)
+✔ blank, malformed and impossible schedules produce visible validation errors (0.476ms)
+✔ booking schedule uses the edited FormData value instead of the initial clock (242.1006ms)
+✔ cleared or absent booking date controls fail without falling back to a default (0.8847ms)
+✔ booking results retain optional blank fields and explicit zero results (0.5617ms)
+✔ booking results reject negative and fractional package counts and invalid weights (0.362ms)
+✔ yard write permissions are exact and a read or role alone grants no actions (0.2949ms)
+✔ move destinations exclude occupied, inactive, closed block and current source slots (0.6172ms)
+✔ display type and manifest weight do not hide slots whose safety is checked by backend (0.3857ms)
+✔ FAIL and HOLD inspection outcomes need a nonblank note (0.255ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2505.524

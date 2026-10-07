@@ -1,0 +1,16 @@
+✔ restore preserves credentials and hides operational data after Network unavailable (191.3557ms)
+✔ restore preserves credentials and hides operational data after Backend unavailable (17.1279ms)
+✔ restore preserves credentials and hides operational data after Invalid authentication response (16.1412ms)
+✔ definitive restore 401 clears credentials instead of suggesting a transient retry (17.012ms)
+✔ definitive restore 403 clears credentials instead of suggesting a transient retry (15.4051ms)
+✔ retry verifies the retained session before exposing operational data and coalesces duplicate attempts (23.6101ms)
+✔ a delayed retry cannot restore a session after explicit logout (17.4853ms)
+✔ a delayed retry cannot overwrite a newly logged in user (17.7239ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6236.7444

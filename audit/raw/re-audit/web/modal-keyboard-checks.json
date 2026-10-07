@@ -1,0 +1,1145 @@
+[
+  {
+    "id": "master-data",
+    "before": {
+      "appOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "dialog": "master-data-dialog-1-title",
+      "fields": [
+        {
+          "aria": null,
+          "id": "master-data-form-name",
+          "label": "Tên*"
+        },
+        {
+          "aria": null,
+          "id": "master-data-form-code",
+          "label": "Mã SCAC"
+        }
+      ],
+      "focus": "master-data-form-name",
+      "inside": true,
+      "modal": true,
+      "name": "Thêm Hãng tàu (Shipping Line)"
+    },
+    "reverse": {
+      "focus": "\n    ICDICD Management SystemCảng cạn & kho bãi container nội địa1 lệnh giữĐã kết nốiSystem AdministratorADMINTổng quan & Điều phốiTổng quan vận hànhDanh sách công việcQuản lý Hàng hóa & CổngBản lược khai (Manifest)Quản lý ContainerMovement OrderChuyến xe ra/vàoTiếp nhận vào cổng (Gate-in)Vận hành Bãi (Yard)Tài chính & Ra cổngDịch vụ & Thanh toánPhiếu ra cổng & Gate-outVận hành EDI (CODECO)Tích hợp đối tácBàn giao vận chuyểnĐối tác tích hợp APINhật ký API đối tácHệ thống & Quản trịDanh mục dùng chungNgười dùng & Phân quyềnBáo cáo vận hànhNhật ký kiểm toánSystem Administratoradmin@icd.localADMINDanh mục dùng chung (Master Data)Catalog dùng chung cho Manifest/HBL/Truck Visit. Không hard-delete — chỉ khóa (active=false) để giữ lịch sử.Thêm mớiHãng tàu (Shipping Line)Chủ hàng (Consignee)Đại lý Hải quanĐơn vị Vận tảiTênMã sốTrạng tháiHành độngCMA CGM GroupCMDUACTIVEKhóaCông ty Cổ phần Gemadept (GMD Shipping)GLDUACTIVEKhóaCông ty Cổ phần Vận tải biển Việt Nam (VOSCO)VSCUACTIVEKhóaCông ty Cổ phần Vinafco (Vinafco Shipping)VFCUACTIVEKhóaCông ty CP Vận tải Thủy Tân Cảng (Tan Cang Shipping)TCSUACTIVEKhóaCông ty CP Vận tải và Xếp dỡ Hải An (HATS / HAH)HACUACTIVEKhóaCông ty Vận tải Biển Đông (Bien Dong Shipping)BDCUACTIVEKhóaCông ty Vận tải biển Nhật Việt (Glory Marine)GLRUACTIVEKhóaCOSCO Shipping LinesCOSUACTIVEKhóaEvergreen Marine Corp.EGLVACTIVEKhóaHapag-Lloyd AGHLCUACTIVEKhóaHMM Co., Ltd. (Hyundai)HDMUACTIVEKhóaMaersk Line (A.P. Moller)MAEUACTIVEKhóaMSC (Mediterranean Shipping Company)MSCUACTIVEKhóaONE (Ocean Network Express)ONEYACTIVEKhóaTổng công ty Hàng hải Việt Nam (VIMC / Vinalines)VMCUACTIVEKhóaWan Hai LinesWHLCACTIVEKhóaYang Ming Marine TransportYMLUACTIVEKhóaThêm Hãng tàu (Shipping Line)Tên*Mã SCACHủyLưu\n    \n  \n\n",
+      "inside": false
+    },
+    "forward": {
+      "focus": "master-data-form-name",
+      "inside": true
+    },
+    "closed": {
+      "focus": "Thêm mới",
+      "open": false,
+      "overflow": ""
+    }
+  },
+  {
+    "id": "master-data-final",
+    "backWrap": {
+      "focus": "Lưu",
+      "inside": true
+    },
+    "forwardWrap": {
+      "focus": "master-data-form-name",
+      "inside": true
+    },
+    "afterClose": {
+      "focus": "Thêm mới",
+      "open": false,
+      "overflow": ""
+    }
+  },
+  {
+    "id": "manifest-create",
+    "before": {
+      "appOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "dialog": "manifests-dialog-1-title",
+      "fields": [
+        {
+          "aria": null,
+          "id": "manifests-new-vessel",
+          "label": "Tên Tàu (Vessel)*"
+        },
+        {
+          "aria": null,
+          "id": "manifests-new-voyage",
+          "label": "Số Chuyến (Voyage)*"
+        },
+        {
+          "aria": null,
+          "id": "manifests-new-shipping-line",
+          "label": "Hãng tàu (Shipping Line)*"
+        },
+        {
+          "aria": null,
+          "id": "manifests-new-eta",
+          "label": "Ngày tàu đến (ETA)*"
+        },
+        {
+          "aria": null,
+          "id": "manifests-new-pol",
+          "label": "Cảng xếp hàng (POL)"
+        },
+        {
+          "aria": null,
+          "id": "manifests-new-pod",
+          "label": "Cảng dỡ / Cảng đích (POD)"
+        }
+      ],
+      "focus": "manifests-new-vessel",
+      "inside": true,
+      "modal": true,
+      "name": "Tạo Bản lược khai (Manifest) mới"
+    },
+    "reverse": {
+      "focus": "Xác nhận lưu Manifest",
+      "inside": true
+    },
+    "forward": {
+      "focus": "manifests-new-vessel",
+      "inside": true
+    },
+    "labelChecks": [
+      {
+        "id": "manifests-new-vessel",
+        "text": "Tên Tàu (Vessel)*",
+        "focused": "manifests-new-vessel"
+      },
+      {
+        "id": "manifests-new-voyage",
+        "text": "Số Chuyến (Voyage)*",
+        "focused": "manifests-new-voyage"
+      },
+      {
+        "id": "manifests-new-shipping-line",
+        "text": "Hãng tàu (Shipping Line)*",
+        "focused": "manifests-new-shipping-line"
+      },
+      {
+        "id": "manifests-new-eta",
+        "text": "Ngày tàu đến (ETA)*",
+        "focused": "manifests-new-eta"
+      },
+      {
+        "id": "manifests-new-pol",
+        "text": "Cảng xếp hàng (POL)",
+        "focused": "manifests-new-pol"
+      },
+      {
+        "id": "manifests-new-pod",
+        "text": "Cảng dỡ / Cảng đích (POD)",
+        "focused": "manifests-new-pod"
+      }
+    ],
+    "blocked": {
+      "topElementIsDialog": true
+    },
+    "closed": {
+      "focus": "Tạo Manifest mới",
+      "open": false,
+      "overflow": ""
+    }
+  },
+  {
+    "id": "truck-create",
+    "before": {
+      "appOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "dialog": "truck-visits-dialog-1-title",
+      "fields": [
+        {
+          "aria": null,
+          "id": "truck-visits-plate",
+          "label": "Biển số đầu kéo*"
+        },
+        {
+          "aria": null,
+          "id": "truck-visits-driver",
+          "label": "Tên tài xế*"
+        },
+        {
+          "aria": null,
+          "id": "truck-visits-phone",
+          "label": "Số điện thoại*"
+        },
+        {
+          "aria": null,
+          "id": "truck-visits-transporter",
+          "label": "Hãng vận tải (Transporter)"
+        },
+        {
+          "aria": null,
+          "id": "truck-visits-selected-conts",
+          "label": "Số Container gắn chuyến*"
+        }
+      ],
+      "focus": "Vào cổng (Gate-in)",
+      "inside": true,
+      "modal": true,
+      "name": "Tạo Lịch hẹn Chuyến xe (Truck Visit)"
+    },
+    "reverse": {
+      "focus": "Lưu Chuyến Xe",
+      "inside": true
+    },
+    "forward": {
+      "focus": "Vào cổng (Gate-in)",
+      "inside": true
+    },
+    "labelChecks": [
+      {
+        "id": "truck-visits-plate",
+        "text": "Biển số đầu kéo*",
+        "focused": "truck-visits-plate"
+      },
+      {
+        "id": "truck-visits-driver",
+        "text": "Tên tài xế*",
+        "focused": "truck-visits-driver"
+      },
+      {
+        "id": "truck-visits-phone",
+        "text": "Số điện thoại*",
+        "focused": "truck-visits-phone"
+      },
+      {
+        "id": "truck-visits-transporter",
+        "text": "Hãng vận tải (Transporter)",
+        "focused": "truck-visits-transporter"
+      },
+      {
+        "id": "truck-visits-selected-conts",
+        "text": "Số Container gắn chuyến*",
+        "focused": "truck-visits-selected-conts"
+      }
+    ],
+    "blocked": {
+      "topElementIsDialog": true
+    },
+    "closed": {
+      "focus": "Tạo Chuyến xe mới",
+      "open": false,
+      "overflow": ""
+    }
+  },
+  {
+    "id": "partner-create",
+    "before": {
+      "appOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "dialog": "partner-management-dialog-1-title",
+      "fields": [
+        {
+          "aria": null,
+          "id": "partner-management-new-code",
+          "label": "Mã đối tác (Partner Code)*"
+        },
+        {
+          "aria": null,
+          "id": "partner-management-new-name",
+          "label": "Tên công ty đối tác*"
+        }
+      ],
+      "focus": "partner-management-new-code",
+      "inside": true,
+      "modal": true,
+      "name": "Đăng ký Đối tác Tích hợp API mới"
+    },
+    "reverse": {
+      "focus": "Tạo & Cấp API Key",
+      "inside": true
+    },
+    "forward": {
+      "focus": "partner-management-new-code",
+      "inside": true
+    },
+    "labelChecks": [
+      {
+        "id": "partner-management-new-code",
+        "text": "Mã đối tác (Partner Code)*",
+        "focused": "partner-management-new-code"
+      },
+      {
+        "id": "partner-management-new-name",
+        "text": "Tên công ty đối tác*",
+        "focused": "partner-management-new-name"
+      }
+    ],
+    "blocked": {
+      "topElementIsDialog": true
+    },
+    "closed": {
+      "focus": "Thêm Đối tác API mới",
+      "open": false,
+      "overflow": ""
+    }
+  },
+  {
+    "id": "user-create",
+    "before": {
+      "appOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "dialog": "users-roles-dialog-1-title",
+      "fields": [
+        {
+          "aria": null,
+          "id": "users-roles-user-form-name",
+          "label": "Họ tên*"
+        },
+        {
+          "aria": null,
+          "id": "users-roles-user-form-email",
+          "label": "Email*"
+        }
+      ],
+      "focus": "users-roles-user-form-name",
+      "inside": true,
+      "modal": true,
+      "name": "Thêm người dùng"
+    },
+    "reverse": {
+      "focus": "Tạo",
+      "inside": true
+    },
+    "forward": {
+      "focus": "users-roles-user-form-name",
+      "inside": true
+    },
+    "labelChecks": [
+      {
+        "id": "users-roles-user-form-name",
+        "text": "Họ tên*",
+        "focused": "users-roles-user-form-name"
+      },
+      {
+        "id": "users-roles-user-form-email",
+        "text": "Email*",
+        "focused": "users-roles-user-form-email"
+      }
+    ],
+    "blocked": {
+      "topElementIsDialog": true
+    },
+    "closed": {
+      "focus": "Thêm người dùng",
+      "open": false,
+      "overflow": ""
+    }
+  },
+  {
+    "id": "container-create",
+    "before": {
+      "appOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "dialog": "containers-dialog-2-title",
+      "fields": [
+        {
+          "aria": null,
+          "id": "containers-cv-form-container-number",
+          "label": "Số container* (ISO 6346)"
+        },
+        {
+          "aria": null,
+          "id": "containers-cv-form-container-type",
+          "label": "Loại container"
+        },
+        {
+          "aria": "Hãng tàu theo Manifest",
+          "id": "",
+          "label": ""
+        },
+        {
+          "aria": "Chủ hàng",
+          "id": "",
+          "label": ""
+        },
+        {
+          "aria": "Manifest",
+          "id": "",
+          "label": ""
+        },
+        {
+          "aria": "Master BL",
+          "id": "",
+          "label": ""
+        },
+        {
+          "aria": "House BL",
+          "id": "",
+          "label": ""
+        },
+        {
+          "aria": null,
+          "id": "containers-cv-form-manifest-seal",
+          "label": "Seal Manifest*"
+        },
+        {
+          "aria": null,
+          "id": "containers-cv-form-gross-weight-kg",
+          "label": "Trọng lượng (kg)"
+        }
+      ],
+      "focus": "containers-cv-form-container-number",
+      "inside": true,
+      "modal": true,
+      "name": "Tạo Container Visit thủ công"
+    },
+    "reverse": {
+      "focus": "Tạo Container Visit",
+      "inside": true
+    },
+    "forward": {
+      "focus": "containers-cv-form-container-number",
+      "inside": true
+    },
+    "labelChecks": [
+      {
+        "id": "containers-cv-form-container-number",
+        "text": "Số container* (ISO 6346)",
+        "focused": "containers-cv-form-container-number"
+      },
+      {
+        "id": "containers-cv-form-container-type",
+        "text": "Loại container",
+        "focused": "containers-cv-form-container-type"
+      },
+      {
+        "id": "containers-cv-form-manifest-seal",
+        "text": "Seal Manifest*",
+        "focused": "containers-cv-form-manifest-seal"
+      },
+      {
+        "id": "containers-cv-form-gross-weight-kg",
+        "text": "Trọng lượng (kg)",
+        "focused": "containers-cv-form-gross-weight-kg"
+      }
+    ],
+    "blocked": {
+      "topElementIsDialog": true
+    },
+    "closed": {
+      "focus": "Tạo Container Visit",
+      "open": false,
+      "overflow": ""
+    }
+  },
+  {
+    "id": "container-360",
+    "before": {
+      "appOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "dialog": null,
+      "fields": [],
+      "focus": "✕",
+      "inside": true,
+      "modal": true,
+      "name": "Container 360 QAOU4835930"
+    },
+    "reverse": {
+      "focus": "Đóng",
+      "inside": true
+    },
+    "forward": {
+      "focus": "✕",
+      "inside": true
+    },
+    "labelChecks": [],
+    "blocked": {
+      "topElementIsDialog": true
+    },
+    "closed": {
+      "focus": "Chi tiết →",
+      "open": false,
+      "overflow": ""
+    }
+  },
+  {
+    "id": "gate-pass-issue",
+    "before": {
+      "appOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "dialog": "gate-pass-dialog-1-title",
+      "fields": [
+        {
+          "aria": null,
+          "id": "gate-pass-issue-visit-id",
+          "label": "Chọn container trong bãi*"
+        },
+        {
+          "aria": "Biển số xe nhận hàng",
+          "id": "",
+          "label": ""
+        },
+        {
+          "aria": "Tên tài xế / Người nhận",
+          "id": "",
+          "label": ""
+        },
+        {
+          "aria": "Số CMND / CCCD",
+          "id": "",
+          "label": ""
+        }
+      ],
+      "focus": "gate-pass-issue-visit-id",
+      "inside": true,
+      "modal": true,
+      "name": "Phát hành Phiếu ra cổng (Gate Pass)"
+    },
+    "reverse": {
+      "focus": "Hủy",
+      "inside": true
+    },
+    "forward": {
+      "focus": "gate-pass-issue-visit-id",
+      "inside": true
+    },
+    "labelChecks": [
+      {
+        "id": "gate-pass-issue-visit-id",
+        "text": "Chọn container trong bãi*",
+        "focused": "gate-pass-issue-visit-id"
+      }
+    ],
+    "blocked": {
+      "topElementIsDialog": true
+    },
+    "closed": {
+      "focus": "Cấp Phiếu ra cổng mới",
+      "open": false,
+      "overflow": ""
+    }
+  },
+  {
+    "id": "handover-create",
+    "before": {
+      "appOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "dialog": "handovers-dialog-1-title",
+      "fields": [
+        {
+          "aria": null,
+          "id": "handovers-transport-code-input",
+          "label": "Mã chuyến vận chuyển*"
+        },
+        {
+          "aria": null,
+          "id": "handovers-selected-cont-visit-id",
+          "label": "Chọn Container cần bàn giao*"
+        },
+        {
+          "aria": null,
+          "id": "handovers-selected-partner-client-id",
+          "label": "Đối tác vận tải (Partner)*"
+        },
+        {
+          "aria": null,
+          "id": "handovers-selected-warehouse-id",
+          "label": "Kho nhận đích (Warehouse)*"
+        }
+      ],
+      "focus": "handovers-transport-code-input",
+      "inside": true,
+      "modal": true,
+      "name": "Tạo lệnh bàn giao vận chuyển ngoài"
+    },
+    "reverse": {
+      "focus": "Tạo Lệnh Bàn Giao",
+      "inside": true
+    },
+    "forward": {
+      "focus": "handovers-transport-code-input",
+      "inside": true
+    },
+    "labelChecks": [
+      {
+        "id": "handovers-transport-code-input",
+        "text": "Mã chuyến vận chuyển*",
+        "focused": "handovers-transport-code-input"
+      },
+      {
+        "id": "handovers-selected-cont-visit-id",
+        "text": "Chọn Container cần bàn giao*",
+        "focused": "handovers-selected-cont-visit-id"
+      },
+      {
+        "id": "handovers-selected-partner-client-id",
+        "text": "Đối tác vận tải (Partner)*",
+        "focused": "handovers-selected-partner-client-id"
+      },
+      {
+        "id": "handovers-selected-warehouse-id",
+        "text": "Kho nhận đích (Warehouse)*",
+        "focused": "handovers-selected-warehouse-id"
+      }
+    ],
+    "blocked": {
+      "topElementIsDialog": true
+    },
+    "closed": {
+      "focus": "Tạo Lệnh Bàn giao mới",
+      "open": false,
+      "overflow": ""
+    }
+  },
+  {
+    "id": "billing-service-order",
+    "before": {
+      "appOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "dialog": "billing-dialog-3-title",
+      "fields": [
+        {
+          "aria": null,
+          "id": "billing-selected-visit-id",
+          "label": "Chọn Container*"
+        }
+      ],
+      "focus": "billing-selected-visit-id",
+      "inside": true,
+      "modal": true,
+      "name": "Tạo Đơn dịch vụ (Service Order) mới"
+    },
+    "reverse": {
+      "focus": "Tạo đơn dịch vụ nháp",
+      "inside": true
+    },
+    "forward": {
+      "focus": "billing-selected-visit-id",
+      "inside": true
+    },
+    "labelChecks": [
+      {
+        "id": "billing-selected-visit-id",
+        "text": "Chọn Container*",
+        "focused": "billing-selected-visit-id"
+      }
+    ],
+    "blocked": {
+      "topElementIsDialog": true
+    },
+    "closed": {
+      "focus": "Tạo Đơn dịch vụ (Service Order)",
+      "open": false,
+      "overflow": ""
+    }
+  },
+  {
+    "id": "billing-tariff",
+    "before": {
+      "appOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "dialog": "billing-dialog-1-title",
+      "fields": [
+        {
+          "aria": null,
+          "id": "billing-tariff-name",
+          "label": "Tên bảng giá*"
+        },
+        {
+          "aria": null,
+          "id": "billing-tariff-from",
+          "label": "Hiệu lực từ*"
+        },
+        {
+          "aria": null,
+          "id": "billing-tariff-to",
+          "label": "Hiệu lực đến"
+        }
+      ],
+      "focus": "billing-tariff-name",
+      "inside": true,
+      "modal": true,
+      "name": "Tạo Bảng giá mới"
+    },
+    "reverse": {
+      "focus": "Tạo",
+      "inside": true
+    },
+    "forward": {
+      "focus": "billing-tariff-name",
+      "inside": true
+    },
+    "labelChecks": [
+      {
+        "id": "billing-tariff-name",
+        "text": "Tên bảng giá*",
+        "focused": "billing-tariff-name"
+      },
+      {
+        "id": "billing-tariff-from",
+        "text": "Hiệu lực từ*",
+        "focused": "billing-tariff-from"
+      },
+      {
+        "id": "billing-tariff-to",
+        "text": "Hiệu lực đến",
+        "focused": "billing-tariff-to"
+      }
+    ],
+    "blocked": {
+      "topElementIsDialog": true
+    },
+    "closed": {
+      "focus": "Tạo Bảng giá (Tariff)",
+      "open": false,
+      "overflow": ""
+    }
+  },
+  {
+    "id": "billing-rule",
+    "before": {
+      "appOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "dialog": "billing-dialog-2-title",
+      "fields": [
+        {
+          "aria": null,
+          "id": "billing-rule-form-service-type",
+          "label": "Mã loại dịch vụ*"
+        },
+        {
+          "aria": null,
+          "id": "billing-rule-form-unit-price-vnd",
+          "label": "Đơn giá (VNĐ)"
+        }
+      ],
+      "focus": "billing-rule-form-service-type",
+      "inside": true,
+      "modal": true,
+      "name": "Thêm Quy tắc giá"
+    },
+    "reverse": {
+      "focus": "Lưu",
+      "inside": true
+    },
+    "forward": {
+      "focus": "billing-rule-form-service-type",
+      "inside": true
+    },
+    "labelChecks": [
+      {
+        "id": "billing-rule-form-service-type",
+        "text": "Mã loại dịch vụ*",
+        "focused": "billing-rule-form-service-type"
+      },
+      {
+        "id": "billing-rule-form-unit-price-vnd",
+        "text": "Đơn giá (VNĐ)",
+        "focused": "billing-rule-form-unit-price-vnd"
+      }
+    ],
+    "blocked": {
+      "topElementIsDialog": true
+    },
+    "closed": {
+      "focus": "+ Quy tắc giá",
+      "open": false,
+      "overflow": ""
+    }
+  },
+  {
+    "id": "master-consignee",
+    "before": {
+      "appOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "dialog": "master-data-dialog-1-title",
+      "fields": [
+        {
+          "aria": null,
+          "id": "master-data-form-name",
+          "label": "Tên*"
+        },
+        {
+          "aria": null,
+          "id": "master-data-form-tax-code",
+          "label": "Mã số thuế"
+        },
+        {
+          "aria": null,
+          "id": "master-data-form-phone",
+          "label": "Điện thoại"
+        },
+        {
+          "aria": null,
+          "id": "master-data-form-address",
+          "label": "Địa chỉ"
+        },
+        {
+          "aria": null,
+          "id": "master-data-form-email",
+          "label": "Email"
+        }
+      ],
+      "focus": "master-data-form-name",
+      "inside": true,
+      "modal": true,
+      "name": "Thêm Chủ hàng (Consignee)"
+    },
+    "reverse": {
+      "focus": "Lưu",
+      "inside": true
+    },
+    "forward": {
+      "focus": "master-data-form-name",
+      "inside": true
+    },
+    "labelChecks": [
+      {
+        "id": "master-data-form-name",
+        "text": "Tên*",
+        "focused": "master-data-form-name"
+      },
+      {
+        "id": "master-data-form-tax-code",
+        "text": "Mã số thuế",
+        "focused": "master-data-form-tax-code"
+      },
+      {
+        "id": "master-data-form-phone",
+        "text": "Điện thoại",
+        "focused": "master-data-form-phone"
+      },
+      {
+        "id": "master-data-form-address",
+        "text": "Địa chỉ",
+        "focused": "master-data-form-address"
+      },
+      {
+        "id": "master-data-form-email",
+        "text": "Email",
+        "focused": "master-data-form-email"
+      }
+    ],
+    "blocked": {
+      "topElementIsDialog": true
+    },
+    "closed": {
+      "focus": "Thêm mới",
+      "open": false,
+      "overflow": ""
+    }
+  },
+  {
+    "id": "master-agent",
+    "before": {
+      "appOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "dialog": "master-data-dialog-1-title",
+      "fields": [
+        {
+          "aria": null,
+          "id": "master-data-form-name",
+          "label": "Tên*"
+        },
+        {
+          "aria": null,
+          "id": "master-data-form-tax-code",
+          "label": "Mã số thuế"
+        },
+        {
+          "aria": null,
+          "id": "master-data-form-phone",
+          "label": "Điện thoại"
+        },
+        {
+          "aria": null,
+          "id": "master-data-form-address",
+          "label": "Địa chỉ"
+        }
+      ],
+      "focus": "master-data-form-name",
+      "inside": true,
+      "modal": true,
+      "name": "Thêm Đại lý Hải quan"
+    },
+    "reverse": {
+      "focus": "Lưu",
+      "inside": true
+    },
+    "forward": {
+      "focus": "master-data-form-name",
+      "inside": true
+    },
+    "labelChecks": [
+      {
+        "id": "master-data-form-name",
+        "text": "Tên*",
+        "focused": "master-data-form-name"
+      },
+      {
+        "id": "master-data-form-tax-code",
+        "text": "Mã số thuế",
+        "focused": "master-data-form-tax-code"
+      },
+      {
+        "id": "master-data-form-phone",
+        "text": "Điện thoại",
+        "focused": "master-data-form-phone"
+      },
+      {
+        "id": "master-data-form-address",
+        "text": "Địa chỉ",
+        "focused": "master-data-form-address"
+      }
+    ],
+    "blocked": {
+      "topElementIsDialog": true
+    },
+    "closed": {
+      "focus": "Thêm mới",
+      "open": false,
+      "overflow": ""
+    }
+  },
+  {
+    "id": "master-transporter",
+    "before": {
+      "appOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "dialog": "master-data-dialog-1-title",
+      "fields": [
+        {
+          "aria": null,
+          "id": "master-data-form-name",
+          "label": "Tên*"
+        },
+        {
+          "aria": null,
+          "id": "master-data-form-tax-code",
+          "label": "Mã số thuế"
+        },
+        {
+          "aria": null,
+          "id": "master-data-form-phone",
+          "label": "Điện thoại"
+        },
+        {
+          "aria": null,
+          "id": "master-data-form-address",
+          "label": "Địa chỉ"
+        }
+      ],
+      "focus": "master-data-form-name",
+      "inside": true,
+      "modal": true,
+      "name": "Thêm Đơn vị Vận tải"
+    },
+    "reverse": {
+      "focus": "Lưu",
+      "inside": true
+    },
+    "forward": {
+      "focus": "master-data-form-name",
+      "inside": true
+    },
+    "labelChecks": [
+      {
+        "id": "master-data-form-name",
+        "text": "Tên*",
+        "focused": "master-data-form-name"
+      },
+      {
+        "id": "master-data-form-tax-code",
+        "text": "Mã số thuế",
+        "focused": "master-data-form-tax-code"
+      },
+      {
+        "id": "master-data-form-phone",
+        "text": "Điện thoại",
+        "focused": "master-data-form-phone"
+      },
+      {
+        "id": "master-data-form-address",
+        "text": "Địa chỉ",
+        "focused": "master-data-form-address"
+      }
+    ],
+    "blocked": {
+      "topElementIsDialog": true
+    },
+    "closed": {
+      "focus": "Thêm mới",
+      "open": false,
+      "overflow": ""
+    }
+  },
+  {
+    "id": "container-create-final-375",
+    "before": {
+      "appOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "dialog": "containers-dialog-2-title",
+      "fields": [
+        {
+          "aria": null,
+          "id": "containers-cv-form-container-number",
+          "label": "Số container* (ISO 6346)"
+        },
+        {
+          "aria": null,
+          "id": "containers-cv-form-container-type",
+          "label": "Loại container"
+        },
+        {
+          "aria": "Hãng tàu theo Manifest",
+          "id": "containers-create-shipping-line",
+          "label": "Hãng tàu"
+        },
+        {
+          "aria": "Chủ hàng",
+          "id": "containers-create-consignee",
+          "label": "Chủ hàng (Consignee)*"
+        },
+        {
+          "aria": "Manifest",
+          "id": "containers-create-manifest",
+          "label": "Manifest No."
+        },
+        {
+          "aria": "Master BL",
+          "id": "containers-create-mbl",
+          "label": "MBL No."
+        },
+        {
+          "aria": "House BL",
+          "id": "containers-create-hbl",
+          "label": "HBL No."
+        },
+        {
+          "aria": null,
+          "id": "containers-cv-form-manifest-seal",
+          "label": "Seal Manifest*"
+        },
+        {
+          "aria": null,
+          "id": "containers-cv-form-gross-weight-kg",
+          "label": "Trọng lượng (kg)"
+        }
+      ],
+      "focus": "containers-cv-form-container-number",
+      "inside": true,
+      "modal": true,
+      "name": "Tạo Container Visit thủ công"
+    },
+    "reverse": {
+      "focus": "Tạo Container Visit",
+      "inside": true
+    },
+    "forward": {
+      "focus": "containers-cv-form-container-number",
+      "inside": true
+    },
+    "labelChecks": [
+      {
+        "id": "containers-cv-form-container-number",
+        "text": "Số container* (ISO 6346)",
+        "focused": "containers-cv-form-container-number"
+      },
+      {
+        "id": "containers-cv-form-container-type",
+        "text": "Loại container",
+        "focused": "containers-cv-form-container-type"
+      },
+      {
+        "id": "containers-create-shipping-line",
+        "text": "Hãng tàu",
+        "focused": "containers-create-shipping-line"
+      },
+      {
+        "id": "containers-create-consignee",
+        "text": "Chủ hàng (Consignee)*",
+        "focused": "containers-create-consignee"
+      },
+      {
+        "id": "containers-create-manifest",
+        "text": "Manifest No.",
+        "focused": "containers-create-manifest"
+      },
+      {
+        "id": "containers-create-mbl",
+        "text": "MBL No.",
+        "focused": "containers-create-mbl"
+      },
+      {
+        "id": "containers-create-hbl",
+        "text": "HBL No.",
+        "focused": "containers-create-hbl"
+      },
+      {
+        "id": "containers-cv-form-manifest-seal",
+        "text": "Seal Manifest*",
+        "focused": "containers-cv-form-manifest-seal"
+      },
+      {
+        "id": "containers-cv-form-gross-weight-kg",
+        "text": "Trọng lượng (kg)",
+        "focused": "containers-cv-form-gross-weight-kg"
+      }
+    ],
+    "blocked": {
+      "topElementIsDialog": true
+    },
+    "closed": {
+      "focus": "Tạo Container Visit",
+      "open": false,
+      "overflow": ""
+    }
+  },
+  {
+    "id": "master-data-final-375",
+    "before": {
+      "appOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "dialog": "master-data-dialog-1-title",
+      "fields": [
+        {
+          "aria": null,
+          "id": "master-data-form-name",
+          "label": "Tên*"
+        },
+        {
+          "aria": null,
+          "id": "master-data-form-code",
+          "label": "Mã SCAC"
+        }
+      ],
+      "focus": "master-data-form-name",
+      "inside": true,
+      "modal": true,
+      "name": "Thêm Hãng tàu (Shipping Line)"
+    },
+    "reverse": {
+      "focus": "Lưu",
+      "inside": true
+    },
+    "forward": {
+      "focus": "master-data-form-name",
+      "inside": true
+    },
+    "labelChecks": [
+      {
+        "id": "master-data-form-name",
+        "text": "Tên*",
+        "focused": "master-data-form-name"
+      },
+      {
+        "id": "master-data-form-code",
+        "text": "Mã SCAC",
+        "focused": "master-data-form-code"
+      }
+    ],
+    "blocked": {
+      "topElementIsDialog": true
+    },
+    "closed": {
+      "focus": "Thêm mới",
+      "open": false,
+      "overflow": ""
+    }
+  }
+]

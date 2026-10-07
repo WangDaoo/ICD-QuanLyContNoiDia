@@ -1,0 +1,23 @@
+{
+  "status": "VERIFIED",
+  "change": "Refresh đồng phiên được coalesce; lỗi tạm thời giữ credentials và truyền đúng ApiError. Generation/token lineage có giới hạn chỉ cho phép retry cùng actor, stale actor không clear hoặc replay phiên hiện tại; public contract bổ sung getSessionVersion tùy chọn.",
+  "source_evidence": [
+    {
+      "file": "packages/api-client/src/index.ts",
+      "line": 81,
+      "detail": "const knownRotation",
+      "snippet": "  const knownRotation = (previous: SessionIdentity, current: SessionIdentity): boolean => {\n    if (previous.version === undefined || previous.version !== current.version) return false;\n    let cursor = previous;\n    for (let count = 0; count < rotations.length; count++) {"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/web-refresh-recovery-regressions.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/web-refresh-recovery-review.md",
+    "audit/runs/2026-10-03-improvement-02/raw/web-refresh-recovery-verification.json"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Meaningful RED/GREEN source regression; real API only if explicitly linked.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/packages/api-client/src/index.ts.diff"
+  ],
+  "isolated_review_diffs": []
+}

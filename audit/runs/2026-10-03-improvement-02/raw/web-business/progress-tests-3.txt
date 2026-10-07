@@ -1,0 +1,20 @@
+✔ Master Data retains the draft and blocks a second submission while pending and after rejection (423.9761ms)
+✔ Users blank submit associates errors and focuses the first invalid field (57.9802ms)
+✔ read-only users never receive master-data or user write controls (47.8851ms)
+✔ truck shortcut opens a create dialog with its linked container (47.3706ms)
+✔ expired and cancelled passes never offer exit or handover and explain their status (108.9531ms)
+✔ EDI inspector renders canonical payload snapshot without synthesized ISO type (31.7728ms)
+✔ failed and forbidden collections do not claim a settled empty result (40.7969ms)
+✔ movement order default means now plus 24 hours in Vietnam UTC+7 (25.7764ms)
+✔ manifest MBL blank save identifies the required number and keeps its form (58.751ms)
+✔ Container Gate Pass failed readiness exposes retry without saying business conditions failed (216.0125ms)
+✔ Container Gate Pass renders a token-bearing QR only while the pass is valid (97.9586ms)
+✔ dirty create dialog prevents cancelled navigation and blocks navigation while pending (61.0438ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7685.9469

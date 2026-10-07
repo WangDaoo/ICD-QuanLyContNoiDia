@@ -1,0 +1,20 @@
+diff --git "a/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\before\\apps\\web\\src\\components\\GatePassView.tsx" "b/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\after\\apps\\web\\src\\components\\GatePassView.tsx"
+index aec4a2e..fecea6c 100644
+--- "a/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\before\\apps\\web\\src\\components\\GatePassView.tsx"	
++++ "b/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\after\\apps\\web\\src\\components\\GatePassView.tsx"	
+@@ -354,13 +354,13 @@ export const GatePassView: React.FC<GatePassViewProps> = ({ onNavigate, targetVi
+ 
+             <form onSubmit={handleIssueGatePass} className="space-y-4">
+               <div>
+-                <label className="block font-semibold text-slate-700 mb-1">Chọn container trong bãi*</label>
++                <label htmlFor="gate-pass-issue-visit-id" className="block font-semibold text-slate-700 mb-1">Chọn container trong bãi*</label>
+                 {eligibleContainers.length === 0 ? (
+                   <div className="p-3 bg-amber-50 border border-amber-200 text-amber-900 rounded-lg">
+                     Chưa có container trong bãi để kiểm tra.
+                   </div>
+                 ) : (
+-                  <select
++                  <select id="gate-pass-issue-visit-id"
+                     value={issueVisitId}
+                     onChange={(e) => setIssueVisitId(e.target.value)}
+                     className="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono font-bold bg-white"

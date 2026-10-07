@@ -1,0 +1,25 @@
+{
+  "status": "VERIFIED",
+  "change": "Giữ credentials khi lỗi có thể phục hồi nhưng ẩn dữ liệu nghiệp vụ tới khi xác minh actor; retry coalesced/generation fenced. UI đổi tài khoản single-flight, có pending, bắt rejection. Browser reload khi API ngừng đã hiện màn phục hồi không lộ dữ liệu; retry sau API restart đăng nhập lại đúng ADMIN mà không nhập mật khẩu.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/context/AppContext.tsx",
+      "line": 537,
+      "detail": "const retrySessionRestore",
+      "snippet": "  const retrySessionRestore = useCallback((): Promise<void> => {\n    if (!restoreMounted.current) return Promise.resolve();\n    if (pendingSessionRestore.current?.version === sessionVersion.current)\n      return pendingSessionRestore.current.promise;"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/auth-progressive-regressions-green.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/auth-restore-checkpoint-2026-10-04.md",
+    "audit/runs/2026-10-03-improvement-02/raw/root-auth-recovery-independent-green-2026-10-04.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/bootstrap-outage-recovery-before.json",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/bootstrap-outage-recovery-after.json"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Meaningful RED/GREEN source regression; real API only if explicitly linked.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/context/AppContext.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

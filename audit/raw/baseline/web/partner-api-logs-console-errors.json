@@ -1,0 +1,8 @@
+[
+  {
+    "level": "error",
+    "message": "Error: Objects are not valid as a React child (found: object with keys {note, condition, received_at, receiver_name, receiver_phone, warehouse_code}). If you meant to render a collection of children, use an array instead.\n    at throwOnInvalidObjectTypeImpl (http://127.0.0.1:5173/node_modules/.vite/deps/react-dom_client.js?v=40816267:4598:15)\n    at throwOnInvalidObjectType (http://127.0.0.1:5173/node_modules/.vite/deps/react-dom_client.js?v=40816267:4606:13)\n    at reconcileChildFibersImpl (http://127.0.0.1:5173/node_modules/.vite/deps/react-dom_client.js?v=40816267:5217:13)\n    at http://127.0.0.1:5173/node_modules/.vite/deps/react-dom_client.js?v=40816267:5237:35\n    at reconcileChildren (http://127.0.0.1:5173/node_modules/.vite/deps/react-dom_client.js?v=40816267:7182:53)\n    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/react-dom_client.js?v=40816267:8701:104)\n    at runWithFiberInDEV (http://127.0.0.1:5173/node_modules/.vite/deps/react-dom_client.js?v=40816267:997:72)\n    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/react-dom_client.js?v=40816267:12561:98)\n    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/react-dom_client.js?v=40816267:12424:43)\n    at renderRootSync (http://127.0.0.1:5173/node_modules/.vite/deps/react-dom_client.js?v=40816267:12408:13)",
+    "timestamp": "2026-10-02T19:50:39.351Z",
+    "url": "http://127.0.0.1:5173/node_modules/.vite/deps/react-dom_client.js?v=40816267"
+  }
+]

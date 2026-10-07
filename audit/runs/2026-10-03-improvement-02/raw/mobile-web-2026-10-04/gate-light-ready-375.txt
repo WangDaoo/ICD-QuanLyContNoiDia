@@ -1,0 +1,55 @@
+- generic: TOS-MOBILE
+- generic: Quản trị viên
+- heading "Cổng" [level=1]
+- generic: Quản trị viên Hệ thống
+- button "Chuyển sang nền tối" [active]:
+- button "Quét mã":
+  - generic: Quét
+- button "Thông báo":
+- button "Tài khoản và kết thúc ca":
+- heading "PHIÊN ĐĂNG NHẬP CA TRỰC" [level=1]
+- generic: ĐÃ ĐĂNG NHẬP
+- generic: "Tài khoản: UI Audit ADMIN"
+- generic: Quản trị viên
+- button "Tiếp nhận vào cổng":
+  - generic: Tiếp nhận vào cổng
+- button "Quét phiếu ra cổng":
+  - generic: Quét phiếu ra cổng
+- heading "Biên nhận Cổng vào (Gate-In EIR)" [level=1]
+- generic: Số Container*
+- textbox "Số Container*":
+  - /placeholder: "VD: TEMU8829104"
+- button "Tìm hồ sơ container":
+- button "Quét mã container":
+- generic: Biển số đầu kéo*
+- textbox "Biển số đầu kéo*":
+  - /placeholder: Theo lượt xe
+- generic: Số Seal thực tế*
+- textbox "Số Seal thực tế*":
+  - /placeholder: Seal đã kiểm tra
+- generic: Tài xế nhận hàng*
+- textbox "Tài xế nhận hàng*":
+  - /placeholder: Theo lượt xe
+- generic: Cân Gross (kg)
+- textbox "Cân Gross (kg)":
+  - /placeholder: Kết quả cân
+- generic: Tình trạng vỏ container
+- button "Tình trạng vỏ container" [disabled]:
+  - generic: Vỏ tốt, seal nguyên
+- generic: Ghi chú hiện trường
+- textbox "Ghi chú hiện trường":
+  - /placeholder: Ghi nhận bất thường / seal lệch hồ sơ
+- button "Xác nhận tiếp nhận Gate-In" [disabled]:
+  - generic: Xác nhận tiếp nhận Gate-In
+- button "Ghi nhận xe đến cổng":
+  - generic: Ghi nhận xe đến cổng
+- tab "Cổng":
+  - generic: Cổng
+- tab "Bãi":
+  - generic: Bãi
+- tab "Giám định":
+  - generic: Giám định
+- tab "Tra cứu":
+  - generic: Tra cứu
+- tab "Việc ca":
+  - generic: Việc ca

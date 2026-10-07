@@ -1,0 +1,19 @@
+--- before/apps/web/src/components/yard/YardOperations.render.test.tsx
++++ after/apps/web/src/components/yard/YardOperations.render.test.tsx
+@@ -92,7 +92,8 @@
+ 
+ test('initial booking action opens an accessible dialog with a local date control', () => {
+   const html = render(['yard.booking'], { initialAction: 'BOOKING', initialVisitId: 'v1' });
+-  assert.match(html, /role="dialog"/);
++  // Native dialog has the same implicit semantics as an explicit dialog role.
++  assert.match(html, /<dialog\b|role="dialog"/);
+   assert.match(html, /aria-modal="true"/);
+   assert.match(html, /type="datetime-local"/);
+   assert.match(html, /aria-label="Thời gian dự kiến"/);
+@@ -105,5 +106,5 @@
+ 
+ test('an initial action cannot bypass its permission requirement', () => {
+   const html = render(['yard.read'], { initialAction: 'MOVE', initialVisitId: 'v1' });
+-  assert.doesNotMatch(html, /role="dialog"/);
++  assert.doesNotMatch(html, /<dialog\b|role="dialog"/);
+ });

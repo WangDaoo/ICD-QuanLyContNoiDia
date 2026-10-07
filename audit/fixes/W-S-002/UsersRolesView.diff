@@ -1,0 +1,21 @@
+diff --git "a/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\before\\apps\\web\\src\\components\\UsersRolesView.tsx" "b/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\after\\apps\\web\\src\\components\\UsersRolesView.tsx"
+index 707e00c..0b55de6 100644
+--- "a/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\before\\apps\\web\\src\\components\\UsersRolesView.tsx"	
++++ "b/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-002\\after\\apps\\web\\src\\components\\UsersRolesView.tsx"	
+@@ -149,12 +149,12 @@ export const UsersRolesView: React.FC = () => {
+             <h3 id="users-roles-dialog-1-title" className="text-base font-bold text-slate-900 mb-4">Thêm người dùng</h3>
+             <div className="space-y-3">
+               <div>
+-                <label className="block font-semibold text-slate-700 mb-1">Họ tên*</label>
+-                <input value={userForm.name} onChange={(e) => setUserForm({ ...userForm, name: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
++                <label htmlFor="users-roles-user-form-name" className="block font-semibold text-slate-700 mb-1">Họ tên*</label>
++                <input id="users-roles-user-form-name" value={userForm.name} onChange={(e) => setUserForm({ ...userForm, name: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
+               </div>
+               <div>
+-                <label className="block font-semibold text-slate-700 mb-1">Email*</label>
+-                <input value={userForm.email} onChange={(e) => setUserForm({ ...userForm, email: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
++                <label htmlFor="users-roles-user-form-email" className="block font-semibold text-slate-700 mb-1">Email*</label>
++                <input id="users-roles-user-form-email" value={userForm.email} onChange={(e) => setUserForm({ ...userForm, email: e.target.value })} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
+               </div>
+               <div>
+                 <label className="block font-semibold text-slate-700 mb-1">Vai trò</label>

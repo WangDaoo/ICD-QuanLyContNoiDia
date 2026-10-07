@@ -1,0 +1,20 @@
+{
+  "status": "VERIFIED",
+  "method": "Prior accepted fix retained; fresh regression suite rechecked.",
+  "source_evidence": [
+    {
+      "file": "apps/mobile/src/theme/colors.ts",
+      "line": 7,
+      "detail": "successText",
+      "snippet": "  successText: '#047857', warningText: '#92400E', dangerText: '#B91C1C', successButton: '#047857',\n  dangerButton: '#BE123C', onDangerButton: '#FFFFFF',\n  infoBackground: '#EFF6FF', successBackground: '#ECFDF5', warningBackground: '#FFFBEB', dangerBackground: '#FEF2F2',\n};"
+    }
+  ],
+  "limitations": "9 cặp màu chữ native có RGB pixel thực tế đạt ≥4.5:1. Kết quả chỉ áp dụng các cặp đã đo, không chứng nhận toàn bộ màu của app.",
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/web-old-regressions-final.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/web-old-billing-final.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+  ],
+  "review_diffs": [],
+  "isolated_review_diffs": []
+}

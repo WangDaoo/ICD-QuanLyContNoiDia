@@ -1,0 +1,61 @@
+{
+  "scope": "Trusted pointerdown plus settled native hover on actual controls; no synthetic events",
+  "at": "2026-10-04T06:17:55.025Z",
+  "records": [
+    {
+      "at": "2026-10-04T06:17:54.744Z",
+      "trusted": true,
+      "width": 1280,
+      "path": "/app/containers",
+      "before": {
+        "tag": "input",
+        "name": "Tìm container",
+        "class": "w-full pl-9 pr-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 bg-slate-50",
+        "hover": false,
+        "active": false,
+        "focus": false,
+        "disabled": false,
+        "filter": "none",
+        "background": "oklch(0.984 0.003 247.858)",
+        "color": "oklch(0.208 0.042 265.755)",
+        "border": "oklch(0.929 0.013 255.508)",
+        "outline": "oklch(0.208 0.042 265.755) none 2.66667px",
+        "transition": "0.15s",
+        "easing": "ease-out"
+      },
+      "pointerdown": {
+        "tag": "input",
+        "name": "Tìm container",
+        "class": "w-full pl-9 pr-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 bg-slate-50",
+        "hover": true,
+        "active": true,
+        "focus": false,
+        "disabled": false,
+        "filter": "none",
+        "background": "oklch(0.984 0.003 247.858)",
+        "color": "oklch(0.208 0.042 265.755)",
+        "border": "oklch(0.929 0.013 255.508)",
+        "outline": "oklch(0.208 0.042 265.755) none 2.66667px",
+        "transition": "0.15s",
+        "easing": "ease-out"
+      },
+      "after": {
+        "tag": "input",
+        "name": "Tìm container",
+        "class": "w-full pl-9 pr-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 bg-slate-50",
+        "hover": true,
+        "active": false,
+        "focus": true,
+        "disabled": false,
+        "filter": "none",
+        "background": "oklch(0.984 0.003 247.858)",
+        "color": "oklch(0.208 0.042 265.755)",
+        "border": "oklch(0.929 0.013 255.508)",
+        "outline": "rgb(37, 99, 235) solid 2px",
+        "transition": "0.15s",
+        "easing": "ease-out"
+      },
+      "sameClass": true
+    }
+  ]
+}

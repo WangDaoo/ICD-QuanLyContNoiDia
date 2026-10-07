@@ -1,0 +1,29 @@
+
+> @icd/web@0.1.0 typecheck D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web
+> tsc --noEmit
+
+src/components/CollectionState.tsx(4,11): error TS2339: Property 'resourceStatus' does not exist on type 'AppContextType'.
+src/components/CollectionState.tsx(16,11): error TS2339: Property 'detailStatus' does not exist on type 'AppContextType'.
+src/components/ManifestsView.tsx(123,42): error TS2339: Property 'id' does not exist on type '{}'.
+src/components/PartnerManagementView.tsx(45,30): error TS2339: Property 'plainApiKey' does not exist on type 'CommandResult<unknown>'.
+src/components/PartnerManagementView.tsx(46,89): error TS2339: Property 'plainApiKey' does not exist on type 'CommandResult<unknown>'.
+src/components/PartnerManagementView.tsx(53,28): error TS2339: Property 'plainApiKey' does not exist on type 'CommandResult<unknown>'.
+src/components/PartnerManagementView.tsx(53,64): error TS2339: Property 'plainApiKey' does not exist on type 'CommandResult<unknown>'.
+src/services/mappers/icd-view.mapper.ts(141,5): error TS2322: Type 'string' is not assignable to type 'ContainerType | "ALL" | undefined'.
+src/services/mappers/live-view.mapper.ts(43,5): error TS2322: Type '{ id: string; containerVisitId: string; containerNumber: string; inspectionType: "Hải quan" | "Nội bộ" | "Kiểm dịch"; status: "PENDING" | "IN_PROGRESS" | "COMPLETED"; result: string | undefined; notes: string | undefined; inspectorName: string | undefined; inspectedAt: string | undefined; documentUrl: string | undef...' is not assignable to type 'ContainerInspection[]'.
+  Type '{ id: string; containerVisitId: string; containerNumber: string; inspectionType: "Hải quan" | "Nội bộ" | "Kiểm dịch"; status: "PENDING" | "IN_PROGRESS" | "COMPLETED"; result: string | undefined; notes: string | undefined; inspectorName: string | undefined; inspectedAt: string | undefined; documentUrl: string | undef...' is not assignable to type 'ContainerInspection'.
+    Types of property 'result' are incompatible.
+      Type 'string | undefined' is not assignable to type '"PASS" | "FAIL" | "HOLD" | undefined'.
+        Type 'string' is not assignable to type '"PASS" | "FAIL" | "HOLD" | undefined'.
+src/services/mappers/live-view.mapper.ts(47,5): error TS2322: Type '{ id: string; serviceType: string; serviceName: string; containerType: "ALL"; unitPriceVnd: number; unit: "lần" | "ngày" | "container"; freeDays: number | undefined; }[]' is not assignable to type 'TariffRule[]'.
+  Type '{ id: string; serviceType: string; serviceName: string; containerType: "ALL"; unitPriceVnd: number; unit: "lần" | "ngày" | "container"; freeDays: number | undefined; }' is not assignable to type 'TariffRule'.
+    Types of property 'serviceType' are incompatible.
+      Type 'string' is not assignable to type '"STRIPPING" | "INSPECTION" | "RECEPTION" | "STORAGE" | "MOVEMENT"'.
+src/services/mappers/live-view.mapper.ts(73,5): error TS2322: Type '{ id: string; messageType: "CODECO_GATE_IN" | "CODECO_GATE_OUT" | "COREOR"; containerNumber: string; shippingLine: string; status: "PENDING" | "PROCESSING" | "SENT" | "FAILED" | "DEAD"; ... 7 more ...; payloadSnapshot: JsonValue | undefined; }[]' is not assignable to type 'EdiOutboxMessage[]'.
+  Type '{ id: string; messageType: "CODECO_GATE_IN" | "CODECO_GATE_OUT" | "COREOR"; containerNumber: string; shippingLine: string; status: "PENDING" | "PROCESSING" | "SENT" | "FAILED" | "DEAD"; ... 7 more ...; payloadSnapshot: View.JsonValue | undefined; }' is not assignable to type 'EdiOutboxMessage'.
+    Types of property 'ackStatus' are incompatible.
+      Type 'string' is not assignable to type '"PENDING" | "ACCEPTED" | "REJECTED" | undefined'.
+src/services/mappers/yard-contract.test.ts(80,40): error TS2339: Property 'conditionNotes' does not exist on type 'InYardBooking'.
+D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @icd/web@0.1.0 typecheck: `tsc --noEmit`
+Exit status 2

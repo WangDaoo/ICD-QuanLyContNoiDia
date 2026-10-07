@@ -7,7 +7,9 @@ import {
   ViewStyle,
 } from 'react-native';
 
-import { theme } from '../theme/theme';
+import { useTheme } from '../theme/ThemeProvider';
+import type { Theme } from '../theme/theme';
+import { useApiConnection } from '../services/api/ApiConnectionProvider';
 
 interface PrimaryButtonProps {
   title: string;
@@ -16,6 +18,7 @@ interface PrimaryButtonProps {
   loading?: boolean;
   variant?: 'primary' | 'secondary' | 'danger';
   style?: ViewStyle;
+  requiresOnline?: boolean;
 }
 
 export function PrimaryButton({
@@ -25,14 +28,18 @@ export function PrimaryButton({
   loading = false,
   variant = 'primary',
   style,
+  requiresOnline = false,
 }: PrimaryButtonProps) {
-  const isActionDisabled = disabled || loading;
+  const { theme } = useTheme();
+  const styles = createStyles(theme);
+  const { online, writesReady } = useApiConnection();
+  const isActionDisabled = disabled || loading || (requiresOnline && (online === false || writesReady === false));
 
   const getBackgroundColor = () => {
     if (isActionDisabled) return theme.colors.borderDark;
     switch (variant) {
       case 'danger':
-        return theme.colors.danger;
+        return theme.colors.dangerButton;
       case 'secondary':
         return theme.colors.surface;
       case 'primary':
@@ -44,7 +51,8 @@ export function PrimaryButton({
   const getTextColor = () => {
     if (isActionDisabled) return theme.colors.textMuted;
     if (variant === 'secondary') return theme.colors.textPrimary;
-    return theme.colors.surface;
+    if (variant === 'danger') return theme.colors.onDangerButton;
+    return '#FFFFFF';
   };
 
   return (
@@ -60,12 +68,14 @@ export function PrimaryButton({
       ]}
       onPress={onPress}
       disabled={isActionDisabled}
+      accessibilityRole="button"
+      accessibilityState={{ disabled: isActionDisabled, busy: loading }}
       activeOpacity={0.8}
     >
       {loading ? (
         <ActivityIndicator
           size="small"
-          color={variant === 'secondary' ? theme.colors.primary : theme.colors.surface}
+          color={variant === 'secondary' ? theme.colors.primary : '#FFFFFF'}
         />
       ) : (
         <Text style={[styles.text, { color: getTextColor() }]}>{title}</Text>
@@ -74,13 +84,14 @@ export function PrimaryButton({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (theme: Theme) => StyleSheet.create({
   button: {
     borderRadius: theme.borderRadius.md,
-    paddingVertical: theme.spacing.md,
+    paddingVertical: 10,
     paddingHorizontal: theme.spacing.xl,
     alignItems: 'center',
     justifyContent: 'center',
+    minWidth: 48,
     minHeight: 48,
   },
   text: {

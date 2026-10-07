@@ -1,0 +1,18 @@
+--- before/apps/web/src/context/resource-data.ts
++++ after/apps/web/src/context/resource-data.ts
+@@ -0,0 +1,15 @@
++export type ResourceState = 'loading' | 'ready' | 'error' | 'forbidden' | 'stale';
++export type ResourceStatus = Partial<Record<string, ResourceState>>;
++export type DetailStatus = Record<'manifests' | 'roles' | 'handovers', Record<string, ResourceState>>;
++export function errorStatus(error: unknown): number | undefined {
++  return error !== null && typeof error === 'object' && 'status' in error && typeof error.status === 'number' ? error.status : undefined;
++}
++export function errorMessage(error: unknown): string {
++  return error instanceof Error ? error.message : 'Không thể tải dữ liệu. Kiểm tra kết nối rồi thử lại.';
++}
++export function readFailureState(error: unknown, hasPrevious: boolean): ResourceState {
++  return errorStatus(error) === 403 ? 'forbidden' : hasPrevious ? 'stale' : 'error';
++}
++export function retainCollection<T>(previous: T[], next: T[], state: ResourceState): T[] {
++  return state === 'stale' ? previous : next;
++}

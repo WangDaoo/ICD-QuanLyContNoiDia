@@ -1,0 +1,232 @@
+✖ unknown yard location is never a real unassigned position when yardSlots is loading (347.2633ms)
+✖ unknown yard location is never a real unassigned position when yardSlots is error (62.883ms)
+✖ unknown yard location is never a real unassigned position when yardSlots is forbidden (56.4895ms)
+✖ unknown yard location is never a real unassigned position when yardSlots is stale (60.4523ms)
+✖ previously known location stays explicitly cached across row and details when yardSlots is loading (58.6359ms)
+✖ previously known location stays explicitly cached across row and details when yardSlots is error (60.5304ms)
+✖ previously known location stays explicitly cached across row and details when yardSlots is stale (74.9914ms)
+✖ forbidden yard catalog cannot reveal a previously cached location in row, details or timeline (61.3641ms)
+✔ ready unassigned container retains truthful missing-position labels and blocker (83.7511ms)
+✔ ready assigned container remains authoritative while an unrelated catalog loads (72.551ms)
+✖ container collection stale cannot convert cached missing location into a confirmed unassigned position (62.7049ms)
+✖ late yard result replaces unknown copy with remapped assigned location in an already open detail (74.077ms)
+✖ undefined initial resource status during global load remains an unconfirmed location (54.2333ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 2
+ℹ fail 11
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5722.7955
+
+✖ failing tests:
+
+test at audit\tools\tests\container-location-availability.test.mjs:58:3
+✖ unknown yard location is never a real unassigned position when yardSlots is loading (347.2633ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Chưa xếp/. Input:
+  
+  'AUDU424664720GPAudit ConsigneeChưa xếpIN_YARD——Chi tiết →'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:62:14)
+      at async fixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:53:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:59:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'AUDU424664720GPAudit ConsigneeChưa xếpIN_YARD——Chi tiết →',
+    expected: /Chưa xếp/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\container-location-availability.test.mjs:58:3
+✖ unknown yard location is never a real unassigned position when yardSlots is error (62.883ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Chưa xếp/. Input:
+  
+  'AUDU424664720GPAudit ConsigneeChưa xếpIN_YARD——Chi tiết →'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:62:14)
+      at async fixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:53:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:59:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'AUDU424664720GPAudit ConsigneeChưa xếpIN_YARD——Chi tiết →',
+    expected: /Chưa xếp/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\container-location-availability.test.mjs:58:3
+✖ unknown yard location is never a real unassigned position when yardSlots is forbidden (56.4895ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Chưa xếp/. Input:
+  
+  'AUDU424664720GPAudit ConsigneeChưa xếpIN_YARD——Chi tiết →'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:62:14)
+      at async fixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:53:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:59:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'AUDU424664720GPAudit ConsigneeChưa xếpIN_YARD——Chi tiết →',
+    expected: /Chưa xếp/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\container-location-availability.test.mjs:58:3
+✖ unknown yard location is never a real unassigned position when yardSlots is stale (60.4523ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Chưa xếp/. Input:
+  
+  'AUDU424664720GPAudit ConsigneeChưa xếpIN_YARD——Chi tiết →'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:62:14)
+      at async fixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:53:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:59:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'AUDU424664720GPAudit ConsigneeChưa xếpIN_YARD——Chi tiết →',
+    expected: /Chưa xếp/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\container-location-availability.test.mjs:74:3
+✖ previously known location stays explicitly cached across row and details when yardSlots is loading (58.6359ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /AUD25157BF4\/A\/03\/01.*dữ liệu đã tải/. Input:
+  
+  'AUD25157BF4/A/03/01'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:78:14)
+      at async fixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:53:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:75:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'AUD25157BF4/A/03/01',
+    expected: /AUD25157BF4\/A\/03\/01.*dữ liệu đã tải/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\container-location-availability.test.mjs:74:3
+✖ previously known location stays explicitly cached across row and details when yardSlots is error (60.5304ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /AUD25157BF4\/A\/03\/01.*dữ liệu đã tải/. Input:
+  
+  'AUD25157BF4/A/03/01'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:78:14)
+      at async fixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:53:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:75:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'AUD25157BF4/A/03/01',
+    expected: /AUD25157BF4\/A\/03\/01.*dữ liệu đã tải/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\container-location-availability.test.mjs:74:3
+✖ previously known location stays explicitly cached across row and details when yardSlots is stale (74.9914ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /AUD25157BF4\/A\/03\/01.*dữ liệu đã tải/. Input:
+  
+  'AUD25157BF4/A/03/01'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:78:14)
+      at async fixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:53:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:75:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'AUD25157BF4/A/03/01',
+    expected: /AUD25157BF4\/A\/03\/01.*dữ liệu đã tải/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\container-location-availability.test.mjs:90:1
+✖ forbidden yard catalog cannot reveal a previously cached location in row, details or timeline (61.3641ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /AUD25157BF4/. Input:
+  
+  'AUD25157BF4/A/03/01'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:94:12)
+      at async fixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:53:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:91:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'AUD25157BF4/A/03/01',
+    expected: /AUD25157BF4/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\container-location-availability.test.mjs:125:1
+✖ container collection stale cannot convert cached missing location into a confirmed unassigned position (62.7049ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Chưa xác nhận vị trí bãi/. Input:
+  
+  'Chưa xếp'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:128:12)
+      at async fixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:53:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:126:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Chưa xếp',
+    expected: /Chưa xác nhận vị trí bãi/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\container-location-availability.test.mjs:134:1
+✖ late yard result replaces unknown copy with remapped assigned location in an already open detail (74.077ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Chưa xếp/. Input:
+  
+  'AUDU424664720GPAudit ConsigneeChưa xếpIN_YARD——Chi tiết →'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:137:12)
+      at async fixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:53:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:135:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'AUDU424664720GPAudit ConsigneeChưa xếpIN_YARD——Chi tiết →',
+    expected: /Chưa xếp/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\container-location-availability.test.mjs:145:1
+✖ undefined initial resource status during global load remains an unconfirmed location (54.2333ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Chưa xếp/. Input:
+  
+  'AUDU424664720GPAudit ConsigneeChưa xếpIN_YARD——Chi tiết →'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:148:12)
+      at async fixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:53:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:146:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'AUDU424664720GPAudit ConsigneeChưa xếpIN_YARD——Chi tiết →',
+    expected: /Chưa xếp/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }

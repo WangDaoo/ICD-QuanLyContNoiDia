@@ -1,0 +1,60 @@
+--- before/apps/mobile/src/features/yard/screens/YardOperationsScreen.tsx
++++ after/apps/mobile/src/features/yard/screens/YardOperationsScreen.tsx
+@@ -7,6 +7,9 @@
+ import { PrimaryButton } from '../../../components/PrimaryButton';
+ import { ActionDialog } from '../../../components/ActionDialog';
+ import { StatusBadge } from '../../../components/StatusBadge';
++import { BookingDateField } from '../../../components/BookingDateField';
++import { parseVietnamBookingDate } from '../../../components/booking-date';
++import { displayCode } from '../../../presentation/labels';
+ import { useAuth } from '../../auth/hooks/useAuth';
+ import { hasAnyPermission } from '../../auth/permissions';
+ import type { YardStackParamList } from '../../../navigation/types';
+@@ -27,6 +30,7 @@
+   const [scheduledAt,setScheduledAt] = useState(''); const [notes,setNotes] = useState('');
+   const [loading,setLoading] = useState(false);const [busy,setBusy] = useState(false);const [error,setError] = useState('');
+   const [confirm,setConfirm] = useState(false);
++  const [dateError, setDateError] = useState('');
+   const canBook = hasAnyPermission(user,['yard.booking']) && hasAnyPermission(user,['container.read']);
+   const load = useCallback(async () => {
+     if (!hasAnyPermission(user,['yard.read'])) return;
+@@ -41,16 +45,12 @@
+     finally {if (ticket === request.current) setLoading(false);}
+   },[type,params?.visitId,user,canBook]);
+   useFocusEffect(useCallback(() => {void load();return () => {request.current++;};},[load]));
+-  const parsedDate = () => {
+-    if (!/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/.test(scheduledAt)) return null;
+-    const date = new Date(scheduledAt.replace(' ','T')+':00+07:00');
+-    if (!Number.isFinite(date.getTime())) return null;
+-    const local = new Date(date.getTime()+7*3600000).toISOString().slice(0,16).replace('T',' ');
+-    return local === scheduledAt ? date : null;
+-  };
++  const parsedDate = () => parseVietnamBookingDate(scheduledAt);
+   const review = () => {
+     setError('');
+-    if (!visitId || !parsedDate()) {setError('Chọn container và nhập lịch đúng dạng YYYY-MM-DD HH:mm (giờ Việt Nam).');return;}
++    if (!visitId) {setError('Chọn container đang ở bãi.');return;}
++    if (!parsedDate()) {setDateError('Chọn ngày và giờ thực hiện hợp lệ (giờ Việt Nam UTC+7).');return;}
++    setDateError('');
+     setConfirm(true);
+   };
+   const create = async () => {
+@@ -66,15 +66,15 @@
+       <SelectField label="Trạng thái" value={status} options={[{value:'ALL',label:'Tất cả'},{value:'PENDING',label:'Chờ thực hiện'},{value:'IN_PROGRESS',label:'Đang thực hiện'},{value:'COMPLETED',label:'Hoàn tất'},{value:'CANCELLED',label:'Đã hủy'}]} onChange={setStatus} />
+       {error && !confirm ? <Notice message={error} /> : null}
+       {!loading && !rows.some(row => status === 'ALL' || row.status === status) ? <Text style={styles.muted}>Không có tác nghiệp phù hợp.</Text> : null}
+-      {rows.filter(row => status === 'ALL' || row.status === status).map(row => <TouchableOpacity key={row.id} accessibilityRole="button" onPress={() => navigation.navigate('YardOperationDetail',{operationId:row.id,operationType:type,visitId:row.containerVisitId})} style={{paddingVertical:12,gap:6}}><Text style={styles.value}>{row.containerVisit?.container.containerNumber || row.id}</Text><StatusBadge label={row.status} /><Text style={styles.muted}>{row.inspectionType || row.bookingType || `${row.fromSlot?.slotCode || '—'} → ${row.toSlot?.slotCode || '—'}`}</Text></TouchableOpacity>)}
++      {rows.filter(row => status === 'ALL' || row.status === status).map(row => <TouchableOpacity key={row.id} accessibilityRole="button" onPress={() => navigation.navigate('YardOperationDetail',{operationId:row.id,operationType:type,visitId:row.containerVisitId})} style={{ minWidth:48, minHeight:48, paddingVertical:12, gap:8, marginBottom:8 }}><Text style={styles.value}>{row.containerVisit?.container.containerNumber || row.id}</Text><StatusBadge label={displayCode(row.status)} /><Text style={styles.muted}>{row.inspectionType || row.bookingType ? displayCode(row.inspectionType || row.bookingType) : `${row.fromSlot?.slotCode || '-'} -> ${row.toSlot?.slotCode || '-'}`}</Text></TouchableOpacity>)}
+     </Card>
+     {canBook ? <Card title="Đặt lịch dịch vụ tại bãi">
+       <SelectField label="Container đang ở bãi*" value={visitId} options={containers.map(row => ({value:row.id,label:row.container.containerNumber}))} onChange={setVisitId} disabled={busy} />
+       <SelectField label="Dịch vụ*" value={bookingType} options={[{value:'STRIPPING',label:'Rút hàng'},{value:'STUFFING',label:'Đóng hàng'},{value:'INSPECTION',label:'Kiểm tra'}]} onChange={value => setBookingType(value as BookingType)} disabled={busy} />
+-      <Field label="Lịch thực hiện (giờ Việt Nam)*" placeholder="2026-10-02 09:30" value={scheduledAt} onChangeText={setScheduledAt} editable={!busy} />
++      <BookingDateField value={scheduledAt} onChange={value => { setScheduledAt(value); if (parseVietnamBookingDate(value)) setDateError(''); }} disabled={busy} error={dateError || undefined} />
+       <Field label="Ghi chú điều kiện" value={notes} onChangeText={setNotes} multiline editable={!busy} />
+       <PrimaryButton requiresOnline title="Tạo lịch tác nghiệp" onPress={review} disabled={!visitId || busy} />
+     </Card> : null}
+-    <ActionDialog requiresOnline visible={confirm} title="Xác nhận lịch tác nghiệp" busy={busy} onClose={() => setConfirm(false)} onConfirm={() => void create()} confirmLabel="Tạo lịch"><Text style={styles.value}>{containers.find(row => row.id === visitId)?.container.containerNumber} · {bookingType}{'\n'}{scheduledAt} (UTC+7){'\n'}{notes}</Text>{error ? <Notice message={error} /> : null}</ActionDialog>
++    <ActionDialog requiresOnline visible={confirm} title="Xác nhận lịch tác nghiệp" busy={busy} onClose={() => setConfirm(false)} onConfirm={() => void create()} confirmLabel="Tạo lịch"><Text style={styles.value}>{containers.find(row => row.id === visitId)?.container.containerNumber} · {displayCode(bookingType)}{'\n'}{scheduledAt} (UTC+7){'\n'}{notes}</Text>{error ? <Notice message={error} /> : null}</ActionDialog>
+   </ScreenLayout>;
+ }

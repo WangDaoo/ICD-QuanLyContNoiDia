@@ -1,0 +1,27 @@
+{
+  "status": "VERIFIED",
+  "change": "Field-associated validation and focus to first invalid control.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/useFormValidation.tsx",
+      "line": 3,
+      "detail": "export function",
+      "snippet": "export function useFormValidation() {\n  const [errors, setErrors] = useState<Record<string, string>>({});\n  const validate = (form: HTMLFormElement) => {\n    const next: Record<string, string> = {};"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/web-fixtures-final.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/axe-master-validation-final.json"
+  ],
+  "limitations": "Fixture and native browser validation; actual screen-reader announcements pending.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [
+    "Submit blank required values: visible error names each missing field and focus lands on first invalid field.",
+    "Invalid email uses type=email or equivalent accessible validation; phone uses type=tel where applicable.",
+    "Correcting input clears its stale error; error text is linked with aria-describedby and invalid state."
+  ],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/useFormValidation.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

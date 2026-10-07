@@ -1,0 +1,28 @@
+✖ failed critical GET preserves stale records, distinguishes unknown from empty and recovers on retry (220.1732ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6193.8867
+
+✖ failing tests:
+
+test at audit\tools\safety-data-regression.test.mjs:10:1
+✖ failed critical GET preserves stale records, distinguishes unknown from empty and recovers on retry (220.1732ms)
+  AssertionError [ERR_ASSERTION]: retain previous records while explicitly stale
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/safety-data-regression.test.mjs:35:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

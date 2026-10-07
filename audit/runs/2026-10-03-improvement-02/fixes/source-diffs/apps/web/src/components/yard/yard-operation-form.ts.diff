@@ -1,0 +1,38 @@
+--- before/apps/web/src/components/yard/yard-operation-form.ts
++++ after/apps/web/src/components/yard/yard-operation-form.ts
+@@ -1,4 +1,5 @@
+ import type { ContainerVisit, YardBlock, YardSlot } from '../../types';
++import { vietnamDateTimeInput, vietnamDateTimeToIso } from '../../lib/time';
+ 
+ export type YardOperationAction = 'MOVE' | 'BOOKING' | 'INSPECTION';
+ export type BookingCompletion = {
+@@ -18,24 +19,14 @@
+ }
+ 
+ export function formatLocalDateTime(date = new Date()): string {
+-  const pad = (value: number) => String(value).padStart(2, '0');
+-  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`;
++  return vietnamDateTimeInput(date.getTime());
+ }
+ 
+ export function parseLocalDateTime(value: string): { iso?: string; error?: string } {
+-  const match = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/.exec(value);
+-  if (!match) return { error: 'Vui lòng nhập ngày giờ dự kiến hợp lệ.' };
+-  const [year, month, day, hour, minute] = match.slice(1).map(Number);
+-  const date = new Date(year, month - 1, day, hour, minute);
+-  if (
+-    date.getFullYear() !== year ||
+-    date.getMonth() !== month - 1 ||
+-    date.getDate() !== day ||
+-    date.getHours() !== hour ||
+-    date.getMinutes() !== minute
+-  )
+-    return { error: 'Ngày giờ dự kiến không hợp lệ.' };
+-  return { iso: date.toISOString() };
++  if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(value))
++    return { error: 'Vui lòng nhập ngày giờ dự kiến hợp lệ.' };
++  const iso = vietnamDateTimeToIso(value);
++  return iso ? { iso } : { error: 'Ngày giờ dự kiến không hợp lệ.' };
+ }
+ 
+ export function parseBookingSchedule(formData: FormData): { iso?: string; error?: string } {

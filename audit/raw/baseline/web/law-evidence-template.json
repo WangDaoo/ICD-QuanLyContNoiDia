@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "project": "example-product",
+    "flow": "signup",
+    "auditor": "your-name",
+    "notes": "Fill measured values before running strict mode."
+  },
+  "metrics": {
+    "primary_cta_count": 1,
+    "min_target_size_px": 44,
+    "primary_action_reach": "natural",
+    "critical_action_at_task_end": true,
+    "screen_choice_count": 6,
+    "progressive_disclosure": true,
+    "group_spacing_ratio": 2.0,
+    "role_style_consistency": true,
+    "continuity_cue": true,
+    "closure_support": true,
+    "figure_ground_contrast": true,
+    "motion_group_consistency": true,
+    "focal_points": 1,
+    "isolated_key_element_count": 1,
+    "pattern_familiarity": true,
+    "chunk_count": 6,
+    "progress_visible": true,
+    "unfinished_resume_path": true,
+    "system_handles_complexity": true,
+    "positive_end_state": true,
+    "input_tolerant_parsing": true,
+    "feedback_ms_p95": 300,
+    "critical_actions_boundary_placement": true,
+    "inline_validation_clear": true,
+    "simplicity_score": 85,
+    "scope_creep_signals": false
+  }
+}

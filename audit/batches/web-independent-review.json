@@ -1,0 +1,338 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-03",
+  "scope": "Second evidence and severity review of the ten P0/P1 entries in web-static-findings.json, plus two parent-requested runtime corroborations. Report only; no app edits, browser interaction, writes to business data or broad test reruns.",
+  "independence_note": "The reviewer authored the original static batch. This is an evidence/severity challenge against independently captured parent runtime artifacts, not a second-person independent authorship review.",
+  "dispositions": [
+    {
+      "id": "W-S-001",
+      "decision": "approve",
+      "original_severity": "P1",
+      "recommended_severity": "P1",
+      "source_status": "VERIFIED",
+      "runtime_status": "CONFIRMED_ON_MASTER_DATA_ONLY",
+      "anchors": [
+        "apps/web/src/components/MasterDataView.tsx:152",
+        "apps/web/src/components/ContainersView.tsx:321"
+      ],
+      "artifacts": [
+        "audit/raw/baseline/web/master-data-dialog-keyboard.json"
+      ],
+      "rationale": "Master Data overlay remains open on Escape and Tab reaches the outside Shipping Line category button. The source establishes the same missing focus/key implementation on the listed plain-div overlays. Container 360 has a role/name and must not be described as missing those semantics.",
+      "required_revision": "Attach runtime evidence only to Master Data. Keep scroll/backdrop leakage UNKNOWN. Exclude Yard dialogs.",
+      "dedup": "One grouped modal-behavior defect across repeated overlay implementations; do not count each missing modal property as a separate finding."
+    },
+    {
+      "id": "W-S-002",
+      "decision": "approve",
+      "original_severity": "P1",
+      "recommended_severity": "P1",
+      "source_status": "VERIFIED",
+      "runtime_status": "CONFIRMED_ON_MASTER_DATA_ONLY",
+      "anchors": [
+        "apps/web/src/components/MasterDataView.tsx:157",
+        "apps/web/src/components/MasterDataView.tsx:158",
+        "apps/web/src/components/TruckVisitsView.tsx:188",
+        "apps/web/src/components/BillingView.tsx:532"
+      ],
+      "artifacts": [
+        "audit/raw/baseline/web/master-data-dialog-keyboard.json"
+      ],
+      "rationale": "AX shows unnamed Name and SCAC text fields while visible sibling labels exist; source shows no native association or alternate accessible name. The listed operational fields are structurally unnamed. This materially impairs assistive-technology form completion.",
+      "required_revision": "Do not generalize to every field or already named controls; the exact exclusions in the static finding are correct.",
+      "dedup": "Distinct from W-S-006 required/error feedback: label/name and validation are different obligations."
+    },
+    {
+      "id": "W-S-003",
+      "decision": "approve",
+      "original_severity": "P1",
+      "recommended_severity": "P1",
+      "source_status": "VERIFIED",
+      "runtime_status": "UNKNOWN_NOT_KEYBOARD_EXERCISED",
+      "anchors": [
+        "apps/web/src/components/ManifestsView.tsx:209",
+        "apps/web/src/components/HandoversView.tsx:214",
+        "apps/web/src/components/GatePassView.tsx:204",
+        "apps/web/src/components/EDIView.tsx:208",
+        "apps/web/src/components/PartnerManagementView.tsx:246"
+      ],
+      "artifacts": [],
+      "rationale": "All five selectors are div/onClick controls without tabIndex or keyboard handling. The source proves sequential keyboard operation cannot choose the record; this blocks essential master/detail workflows for keyboard users.",
+      "required_revision": "Runtime keyboard confirmation remains UNKNOWN. Log-card keyboard checks additionally require fixing W-S-020 first.",
+      "dedup": "One repeated selector-pattern defect across five surfaces."
+    },
+    {
+      "id": "W-S-004",
+      "decision": "revise",
+      "original_severity": "P1",
+      "recommended_severity": "P2",
+      "source_status": "VERIFIED_CONDITIONAL_PATH",
+      "runtime_status": "UNKNOWN_SAVE_NOT_EXERCISED",
+      "anchors": [
+        "apps/web/src/components/MasterDataView.tsx:36",
+        "apps/web/src/components/MasterDataView.tsx:42",
+        "apps/web/src/components/UsersRolesView.tsx:178",
+        "apps/web/src/components/UsersRolesView.tsx:179",
+        "apps/web/src/context/AppContext.tsx:448"
+      ],
+      "artifacts": [],
+      "rationale": "Unconditional reset and closure precede the asynchronous result. Failed saves lose transient input, but a global error banner exists and users can reopen/re-enter these short forms. No persisted-data loss or reproduced rejected save supports the higher severity.",
+      "required_revision": "Retain the conditional wording and downgrade to P2; do not say that the application suppresses all errors.",
+      "dedup": "Related save-lifecycle remediation to W-S-005, but discarded input and repeated command attempts are distinct consequences."
+    },
+    {
+      "id": "W-S-005",
+      "decision": "revise",
+      "original_severity": "P1",
+      "recommended_severity": "P1",
+      "source_status": "VERIFIED_COMMAND_REENTRY_PATH",
+      "runtime_status": "UNKNOWN_DUPLICATE_COMMAND_OR_RECORD_NOT_EXERCISED",
+      "anchors": [
+        "apps/web/src/components/BillingView.tsx:88",
+        "apps/web/src/components/BillingView.tsx:562",
+        "apps/web/src/context/AppContext.tsx:489",
+        "apps/api/src/modules/billing/services/payment.service.ts:123",
+        "apps/api/src/modules/billing/services/payment.service.ts:134"
+      ],
+      "artifacts": [],
+      "rationale": "Payment submit lacks any local pending guard and each attempt gets a fresh reference. This financial operation justifies P1 prevention, while the API rejects already-paid/void invoices and allocations exceeding remaining balance. Source does not prove accepted duplicate full payments, double charging or concurrent transaction outcomes.",
+      "required_revision": "Keep P1 scoped to the payment command re-entry risk. Treat the other non-financial no-pending actions as P2 subcases unless their own destructive outcome is demonstrated. Preserve the current statement that backend acceptance is unproven.",
+      "dedup": "Use a single pending/re-entry remediation group; do not count each enabled financial button independently."
+    },
+    {
+      "id": "W-S-008",
+      "decision": "revise",
+      "original_severity": "P1",
+      "recommended_severity": "P2",
+      "source_status": "VERIFIED_CONDITIONAL_STATUS_PATH",
+      "runtime_status": "UNKNOWN_EXPIRED_OR_CANCELLED_FIXTURE_NOT_EXERCISED",
+      "anchors": [
+        "apps/web/src/components/GatePassView.tsx:202",
+        "apps/web/src/components/GatePassView.tsx:247",
+        "apps/web/src/components/GatePassView.tsx:300",
+        "apps/web/src/components/ContainersView.tsx:117",
+        "apps/web/src/components/ContainersView.tsx:662"
+      ],
+      "artifacts": [],
+      "rationale": "List/detail status logic contradicts itself for expired ACTIVE passes and falsely labels cancelled/expired states as used. Backend Gate-out rechecks remain in place; operational delay/confusion is supported, enforcement bypass is not.",
+      "required_revision": "Downgrade to P2 until a reproduced blocked or harmful operational case justifies escalation.",
+      "dedup": "One status-derivation defect shared by Gate Pass detail and Container 360."
+    },
+    {
+      "id": "W-S-009",
+      "decision": "revise",
+      "original_severity": "P1",
+      "recommended_severity": "P2",
+      "source_status": "VERIFIED",
+      "runtime_status": "UNKNOWN_INLINE_QR_FLOW_NOT_SCANNED",
+      "anchors": [
+        "apps/web/src/components/ContainersView.tsx:669",
+        "apps/web/src/components/GatePassView.tsx:274"
+      ],
+      "artifacts": [],
+      "rationale": "Lucide QrCode is a fixed decorative graphic, so it cannot encode the issued token. The dedicated Gate Pass screen has a real QR and the inline screen exposes token text. The misleading inline affordance is real, but a blocked scan workflow has not been reproduced and a working alternative exists.",
+      "required_revision": "Downgrade to P2; say the inline symbol is not an encoded token rather than claiming every Gate Pass QR is broken.",
+      "dedup": "Distinct from W-S-008 status copy, although both fixes may be reviewed together in Container 360."
+    },
+    {
+      "id": "W-S-016",
+      "decision": "revise",
+      "original_severity": "P1",
+      "recommended_severity": "P1",
+      "source_status": "VERIFIED_CONDITIONAL_GET_FAILURE_PATH",
+      "runtime_status": "UNKNOWN_NESTED_GET_REJECTION_NOT_INDUCED",
+      "anchors": [
+        "apps/web/src/context/AppContext.tsx:391",
+        "apps/web/src/context/AppContext.tsx:393",
+        "apps/web/src/context/AppContext.tsx:409",
+        "apps/web/src/context/AppContext.tsx:370",
+        "apps/web/src/context/AppContext.tsx:375",
+        "apps/web/src/context/AppContext.tsx:379"
+      ],
+      "artifacts": [],
+      "rationale": "Rejected holds/passes reads become empty arrays with no failure marker. P1 is defensible for critical operational data becoming indistinguishable from verified absence, while backend readiness and exit enforcement still recheck. Incomplete manifest/role/handover detail fallbacks merit P2 independently.",
+      "required_revision": "Keep P1 scoped to critical holds/passes availability. Mark all observed-network consequences conditional; do not claim the baseline actually had missing holds or a clean global banner after induced rejection.",
+      "dedup": "Distinct from W-S-015 settled empty-state messaging: unknown data is not a verified empty result."
+    },
+    {
+      "id": "W-S-017",
+      "decision": "revise",
+      "original_severity": "P1",
+      "recommended_severity": "P2",
+      "source_status": "VERIFIED_DISPLAY_AND_COPY_PATH",
+      "runtime_status": "UNKNOWN_ACTUAL_PAYLOAD_COMPARISON_NOT_CAPTURED",
+      "anchors": [
+        "apps/web/src/components/EDIView.tsx:30",
+        "apps/web/src/components/EDIView.tsx:36",
+        "apps/web/src/components/EDIView.tsx:262",
+        "apps/web/src/components/EDIView.tsx:303",
+        "apps/web/src/components/EDIView.tsx:306"
+      ],
+      "artifacts": [],
+      "rationale": "The raw-labelled inspector and Copy action use generated, hardcoded segments. This is misleading debugging data. The finding does not establish a changed actual dispatch payload, and no 20-foot/reefer versus authoritative payload comparison was captured.",
+      "required_revision": "Downgrade to P2; state that a non-45G1 case would display the wrong generated type. Clearly label the example or display the authoritative payload when available.",
+      "dedup": "Group Copy and raw inspector under one source-of-truth display defect."
+    },
+    {
+      "id": "W-S-020",
+      "decision": "approve",
+      "original_severity": "P0",
+      "recommended_severity": "P0",
+      "source_status": "VERIFIED",
+      "runtime_status": "REPRODUCED_BY_PARENT_AT_1440",
+      "anchors": [
+        "apps/web/src/components/PartnerManagementView.tsx:297",
+        "apps/web/src/components/PartnerManagementView.tsx:306",
+        "apps/web/src/services/mappers/live-view.mapper.ts:40",
+        "apps/web/src/types.ts:424",
+        "apps/web/src/App.tsx:77"
+      ],
+      "artifacts": [
+        "audit/raw/baseline/web/partner-api-logs-console-errors.json",
+        "audit/raw/baseline/web/partner-api-logs-crash-ax.txt",
+        "audit/raw/baseline/web/partner-api-logs-1440-measure.json"
+      ],
+      "rationale": "Console reports object-as-React-child keys matching a structured log body; source passes body values unchanged into pre. Captured AX contains only the web area and measured controls/headings are empty. The entire React app, including its navigation, disappears on this supported screen entry.",
+      "required_revision": "Use P0 as a release blocker for this reproduced whole-root failure, with clear route/data scope and reload recovery. Do not describe all screens as independently broken. Serialize/format JSON and correct its type; error-boundary containment complements the rendering fix.",
+      "dedup": "Merge the parent runtime crash record with W-S-020; count one root cause, not separate request-body, response-body and missing-boundary crashes."
+    }
+  ],
+  "supplemental_findings": [
+    {
+      "id": "W-S-021",
+      "decision": "approve",
+      "severity": "P2",
+      "category": "accessibility",
+      "criterion": "WCAG 2.4.7; kz focus check",
+      "title": "Yard map search removes its visible keyboard focus style",
+      "issue": "The named search input has outline-none and its surrounding label has no focus-within treatment. The global focus rule applies only to buttons and links. At the captured phone width the focused input and its parent have neither an outline style nor a box shadow, leaving only the text caret as a location cue.",
+      "source_status": "VERIFIED",
+      "runtime_status": "CONFIRMED_BY_PARENT_COMPUTED_STYLE_AND_CAPTURE",
+      "evidence": [
+        {
+          "file": "apps/web/src/components/yard/YardSiteMap.tsx",
+          "line": 109,
+          "detail": "Input outline-none and unstyled focused label."
+        },
+        {
+          "file": "apps/web/src/index.css",
+          "line": 7,
+          "detail": "Global focus-visible selector only covers button and a."
+        }
+      ],
+      "artifacts": [
+        "audit/raw/baseline/web/yard-search-keyboard-focus.json",
+        "audit/screenshots/baseline/web/yard-search-keyboard-focus.jpg"
+      ],
+      "measurements": {
+        "focusVisible": true,
+        "inputOutlineStyle": "none",
+        "inputBoxShadow": "none",
+        "parentOutlineStyle": "none",
+        "parentBoxShadow": "none"
+      },
+      "fix": {
+        "snippet": "<label className=\"flex gap-2 border border-slate-300 rounded-lg items-center px-2\n  focus-within:ring-2 focus-within:ring-blue-600 focus-within:ring-offset-2\">\n  <Search size={14} />\n  <input aria-label=\"Tìm vị trí hoặc container trên bản đồ\" value={search}\n    onChange={e => setSearch(e.target.value)} placeholder=\"Mã vị trí / container\"\n    className=\"py-2 w-40 outline-none\" />\n</label>"
+      },
+      "acceptance_verification": [
+        "Tab into search at desktop and phone widths; a persistent visible input/wrapper indicator distinguishes focus.",
+        "Verify pointer-only interaction does not accidentally obscure the indicator and text editing continues normally."
+      ],
+      "nielsen": [
+        "H1",
+        "H4"
+      ],
+      "dedup": "Keep separate from W-S-001 modal keyboard behavior."
+    },
+    {
+      "id": "W-S-022",
+      "decision": "approve",
+      "severity": "P2",
+      "category": "accessibility",
+      "criterion": "WCAG 1.4.3; kz contrast check",
+      "title": "Meaningful light metadata text fails measured contrast",
+      "issue": "The runtime current-theme Color.js results show ordinary metadata text below 4.5:1. Exact source examples use text-slate-400 for voyage IDs, request IDs, clearing-agent attribution, yard gate lanes and EDI transmission metadata. These are meaningful text, so decorative-dot exclusions do not apply.",
+      "source_status": "VERIFIED_ANCHORS",
+      "runtime_status": "CONFIRMED_MEASURED_CURRENT_THEME",
+      "evidence": [
+        {
+          "file": "apps/web/src/components/ManifestsView.tsx",
+          "line": 233,
+          "detail": "Voyage number; measured 2.4043827741:1."
+        },
+        {
+          "file": "apps/web/src/components/EDIView.tsx",
+          "line": 283,
+          "detail": "Transmission status label; measured 2.5107724557:1; created-time/retry labels at 287 and 293 use same class/background."
+        },
+        {
+          "file": "apps/web/src/components/AuditsView.tsx",
+          "line": 78,
+          "detail": "Request ID; measured 2.6282293368:1."
+        },
+        {
+          "file": "apps/web/src/components/ManifestsView.tsx",
+          "line": 352,
+          "detail": "Clearing agent text at 353; measured 2.6282293368:1."
+        },
+        {
+          "file": "apps/web/src/components/DashboardView.tsx",
+          "line": 241,
+          "detail": "Gate lane; measured 2.5573485696:1."
+        }
+      ],
+      "artifacts": [
+        "audit/raw/baseline/web/contrast-failing-pairs.json",
+        "audit/raw/baseline/web/contrast-color4-results.json"
+      ],
+      "measurements": {
+        "requiredRatio": 4.5,
+        "verifiedExampleRatios": [
+          2.4043827741475643,
+          2.510772455652595,
+          2.628229336800696,
+          2.557348569643788
+        ],
+        "viewports": [
+          375,
+          768,
+          1440
+        ],
+        "theme": "Current theme only; alternate web dark theme unavailable"
+      },
+      "excluded": "Dashboard separator dots are decorative. Audits actor at 68 and Handover actor at 394 use slate-800, so do not report their text as slate-400 failures. Container hold placedBy at 826 is a source candidate only: this review found no captured measured example and does not claim a runtime failure for it.",
+      "fix": {
+        "snippet": "<div className=\"grid grid-cols-3 gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200\">\n  <div>\n    <span className=\"text-slate-600\">Trạng thái truyền:</span>\n    <div className=\"font-bold text-slate-800 mt-0.5\">{selectedEdi.status}</div>\n  </div>\n  {/* Apply measured readable text colors to the other metadata labels. */}\n</div>"
+      },
+      "acceptance_verification": [
+        "Recompute contrast using rendered foreground and composited background; meaningful ordinary text must meet 4.5:1.",
+        "Verify 375, 768 and 1440 widths in the current theme; exclude decorative icons/separators and do not mark an unavailable alternate theme as tested."
+      ],
+      "nielsen": [
+        "H4",
+        "H6"
+      ],
+      "dedup": "Merge with the parent contrast finding; count the repeated low-contrast metadata pattern once, preserving example anchors and measured pairs."
+    }
+  ],
+  "runtime_positive_control": {
+    "surface": "Yard slot detail dialog",
+    "artifact": "audit/raw/baseline/web/yard-slot-dialog-keyboard.json",
+    "result": "PASS_IN_CAPTURED_PATH",
+    "detail": "Parent captured Shift+Tab containment reaching Tạo giám định, Escape closure and return to the same named slot button. Do not extend W-S-001 to this dialog."
+  },
+  "totals": {
+    "reviewed_original_high_priority": 10,
+    "approve": 4,
+    "revise": 6,
+    "unknown_decisions": 0,
+    "supplemental_approved": 2
+  },
+  "remaining_unknowns": [
+    "Rejected-save behavior was not exercised.",
+    "Duplicate payment acceptance and transaction concurrency were not exercised.",
+    "Expired/cancelled Gate Pass cases, inline QR scanning and authoritative EDI payload comparisons were not exercised.",
+    "Nested GET failure scenarios were not induced.",
+    "Original static findings beyond these ten were outside this severity-review scope."
+  ]
+}

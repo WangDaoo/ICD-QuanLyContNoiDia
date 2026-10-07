@@ -1,0 +1,23 @@
+{
+  "status": "VERIFIED",
+  "change": "Validate/publish từng list hoàn chỉnh; detail/safety vẫn loading tới khi reconcile authoritative. Giữ tariff và rules stale cùng nhau; phép đo browser5s chỉ chứng minh section danh mục đã hiện khi read container còn pending.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/context/AppContext.tsx",
+      "line": 413,
+      "detail": "const publishResource",
+      "snippet": "      const publishResource = (key: keyof LiveCollections) => {\n        if (!activeSession()) return;\n        const mapped = mapLiveCollections(raw, latestActor.current.role);\n        const affected = new Set([key, ...DEPENDENT_FIELDS.filter(rule => rule.sources.includes(key)).map(rule => rule.resource)]);"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/progressive-context-regressions-green.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/progressive-loading-checkpoint-2026-10-04.md",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/network-progressive-delay5-master.json"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Meaningful RED/GREEN source regression; real API only if explicitly linked.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/context/AppContext.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

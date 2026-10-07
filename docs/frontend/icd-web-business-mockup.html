@@ -1,0 +1,1476 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ICD Web Business Mockup</title>
+    <style>
+      :root {
+        --primary: #0052cc;
+        --primary-dark: #0747a6;
+        --primary-soft: #deebff;
+        --nav: #091e42;
+        --nav-2: #172b4d;
+        --bg: #f4f5f7;
+        --surface: #ffffff;
+        --surface-soft: #fafbfc;
+        --border: #dfe1e6;
+        --text: #172b4d;
+        --muted: #5e6c84;
+        --faint: #7a869a;
+        --green: #00875a;
+        --green-bg: #e3fcef;
+        --orange: #ff991f;
+        --orange-bg: #fff0b3;
+        --red: #de350b;
+        --red-bg: #ffebe6;
+        --purple: #6554c0;
+        --purple-bg: #eae6ff;
+        --blue-bg: #deebff;
+        --shadow: 0 8px 24px rgba(9, 30, 66, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          sans-serif;
+        line-height: 1.45;
+      }
+
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
+      }
+
+      .app {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 264px minmax(0, 1fr);
+      }
+
+      .sidebar {
+        background: var(--nav);
+        color: #deebff;
+        padding: 18px 14px;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow: auto;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0 8px 18px;
+        border-bottom: 1px solid rgba(222, 235, 255, 0.16);
+        margin-bottom: 16px;
+      }
+
+      .brand-mark {
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        background: var(--primary);
+        border-radius: 8px;
+        font-weight: 700;
+      }
+
+      .brand strong {
+        display: block;
+        font-size: 15px;
+      }
+
+      .brand span {
+        display: block;
+        color: #8993a4;
+        font-size: 12px;
+      }
+
+      .nav-group {
+        margin: 18px 0;
+      }
+
+      .nav-group-title {
+        color: #8993a4;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        padding: 0 10px 8px;
+      }
+
+      .nav-item {
+        width: 100%;
+        border: 0;
+        color: #deebff;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 9px 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        text-align: left;
+      }
+
+      .nav-item:hover,
+      .nav-item.active {
+        background: var(--primary);
+      }
+
+      .nav-main {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        min-width: 0;
+      }
+
+      .nav-icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 6px;
+        background: rgba(222, 235, 255, 0.12);
+        display: grid;
+        place-items: center;
+        color: #ffffff;
+        font-size: 12px;
+        flex: 0 0 auto;
+      }
+
+      .nav-badge {
+        background: rgba(255, 255, 255, 0.16);
+        color: #ffffff;
+        border-radius: 999px;
+        padding: 1px 7px;
+        font-size: 11px;
+      }
+
+      .main {
+        min-width: 0;
+      }
+
+      .topbar {
+        height: 64px;
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 24px;
+        position: sticky;
+        top: 0;
+        z-index: 5;
+      }
+
+      .breadcrumbs {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .top-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .search {
+        width: 280px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 9px 12px;
+        background: var(--surface-soft);
+      }
+
+      .user-chip {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-left: 1px solid var(--border);
+        padding-left: 12px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--primary-soft);
+        color: var(--primary-dark);
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+      }
+
+      .content {
+        padding: 24px;
+      }
+
+      .page {
+        display: none;
+      }
+
+      .page.active {
+        display: block;
+      }
+
+      .page-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 26px;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        margin: 0 0 12px;
+        font-size: 18px;
+        letter-spacing: 0;
+      }
+
+      h3 {
+        margin: 0 0 8px;
+        font-size: 15px;
+        letter-spacing: 0;
+      }
+
+      .lead {
+        margin: 6px 0 0;
+        color: var(--muted);
+      }
+
+      .row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--text);
+        border-radius: 8px;
+        padding: 9px 12px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 38px;
+      }
+
+      .btn.primary {
+        background: var(--primary);
+        border-color: var(--primary);
+        color: #ffffff;
+      }
+
+      .btn.danger {
+        color: var(--red);
+        border-color: #ffbdad;
+        background: #fff7f5;
+      }
+
+      .btn:focus,
+      .nav-item:focus {
+        outline: 3px solid rgba(76, 154, 255, 0.35);
+        outline-offset: 2px;
+      }
+
+      .grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      .cols-2 {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      }
+
+      .cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .cols-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        padding: 16px;
+      }
+
+      .metric {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .metric-label {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .metric-value {
+        font-size: 28px;
+        font-weight: 700;
+        margin-top: 4px;
+      }
+
+      .metric-note {
+        color: var(--faint);
+        font-size: 12px;
+        margin-top: 3px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 24px;
+        border-radius: 999px;
+        padding: 2px 9px;
+        font-size: 12px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+
+      .pill.green {
+        background: var(--green-bg);
+        color: var(--green);
+      }
+
+      .pill.orange {
+        background: var(--orange-bg);
+        color: #974f00;
+      }
+
+      .pill.red {
+        background: var(--red-bg);
+        color: var(--red);
+      }
+
+      .pill.blue {
+        background: var(--blue-bg);
+        color: var(--primary-dark);
+      }
+
+      .pill.purple {
+        background: var(--purple-bg);
+        color: var(--purple);
+      }
+
+      .filters {
+        display: grid;
+        grid-template-columns: 1.3fr repeat(3, minmax(150px, 1fr)) auto;
+        gap: 10px;
+        margin-bottom: 16px;
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .field label {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .field input,
+      .field select,
+      .field textarea {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+        min-height: 38px;
+        padding: 8px 10px;
+        color: var(--text);
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 760px;
+      }
+
+      th,
+      td {
+        text-align: left;
+        padding: 12px 10px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: middle;
+      }
+
+      th {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+        background: var(--surface-soft);
+      }
+
+      td {
+        font-size: 14px;
+      }
+
+      .code {
+        font-family: 'Cascadia Mono', Consolas, monospace;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .tabs {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        border-bottom: 1px solid var(--border);
+        margin: 0 -16px 16px;
+        padding: 0 16px;
+      }
+
+      .tab {
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+        padding: 11px 10px;
+        border-bottom: 3px solid transparent;
+        cursor: pointer;
+      }
+
+      .tab.active {
+        color: var(--primary);
+        border-color: var(--primary);
+        font-weight: 700;
+      }
+
+      .detail-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.3fr) minmax(320px, 0.7fr);
+        gap: 16px;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 12px;
+      }
+
+      .timeline-item {
+        display: grid;
+        grid-template-columns: 92px 1fr;
+        gap: 12px;
+        align-items: start;
+      }
+
+      .timeline-time {
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .timeline-body {
+        border-left: 3px solid var(--primary-soft);
+        padding-left: 12px;
+      }
+
+      .checklist {
+        display: grid;
+        gap: 8px;
+      }
+
+      .check {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 10px;
+      }
+
+      .board {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(72px, 1fr));
+        gap: 8px;
+      }
+
+      .slot {
+        min-height: 54px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface-soft);
+        padding: 8px;
+        font-size: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .slot.busy {
+        background: var(--blue-bg);
+        border-color: #b3d4ff;
+      }
+
+      .slot.hold {
+        background: var(--red-bg);
+        border-color: #ffbdad;
+      }
+
+      .slot.free {
+        background: var(--green-bg);
+        border-color: #abf5d1;
+      }
+
+      .stepper {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+        margin-bottom: 16px;
+      }
+
+      .step {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 11px;
+        min-height: 72px;
+      }
+
+      .step.active {
+        border-color: var(--primary);
+        background: var(--blue-bg);
+      }
+
+      .split-pane {
+        display: grid;
+        grid-template-columns: 360px minmax(0, 1fr);
+        gap: 16px;
+      }
+
+      .qr {
+        width: 160px;
+        height: 160px;
+        background:
+          linear-gradient(90deg, var(--text) 12px, transparent 12px) 0 0 / 32px 32px,
+          linear-gradient(var(--text) 12px, transparent 12px) 0 0 / 32px 32px,
+          var(--surface);
+        border: 8px solid var(--surface);
+        outline: 1px solid var(--border);
+        border-radius: 8px;
+      }
+
+      .modal-preview {
+        border: 1px solid var(--border);
+        background: rgba(9, 30, 66, 0.06);
+        border-radius: 8px;
+        padding: 18px;
+      }
+
+      .modal-box {
+        max-width: 520px;
+        margin: 0 auto;
+        background: var(--surface);
+        border-radius: 8px;
+        box-shadow: 0 20px 48px rgba(9, 30, 66, 0.22);
+        padding: 18px;
+      }
+
+      .api-key {
+        border: 1px dashed var(--primary);
+        background: var(--blue-bg);
+        color: var(--primary-dark);
+        border-radius: 8px;
+        padding: 12px;
+        font-family: 'Cascadia Mono', Consolas, monospace;
+        overflow-wrap: anywhere;
+      }
+
+      .note {
+        border-left: 4px solid var(--orange);
+        background: var(--orange-bg);
+        color: #6b3b00;
+        padding: 10px 12px;
+        border-radius: 8px;
+        font-size: 13px;
+      }
+
+      @media (max-width: 1100px) {
+        .app {
+          grid-template-columns: 88px minmax(0, 1fr);
+        }
+
+        .brand div:not(.brand-mark),
+        .nav-group-title,
+        .nav-item span:not(.nav-icon):not(.nav-badge) {
+          display: none;
+        }
+
+        .nav-item {
+          justify-content: center;
+        }
+
+        .nav-badge {
+          display: none;
+        }
+
+        .sidebar {
+          padding-inline: 12px;
+        }
+
+        .cols-4 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .filters,
+        .detail-layout,
+        .split-pane {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .app {
+          display: block;
+        }
+
+        .sidebar {
+          position: static;
+          height: auto;
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 8px;
+        }
+
+        .brand,
+        .nav-group-title {
+          display: none;
+        }
+
+        .nav-group {
+          margin: 0;
+          display: contents;
+        }
+
+        .topbar {
+          height: auto;
+          padding: 12px;
+          align-items: stretch;
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .search {
+          width: 100%;
+        }
+
+        .content {
+          padding: 16px;
+        }
+
+        .page-head {
+          flex-direction: column;
+        }
+
+        .cols-2,
+        .cols-3,
+        .cols-4,
+        .stepper {
+          grid-template-columns: 1fr;
+        }
+
+        .board {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar" aria-label="Điều hướng chính">
+        <div class="brand">
+          <div class="brand-mark">ICD</div>
+          <div>
+            <strong>ICD Management</strong>
+            <span>Web nghiệp vụ kho bãi</span>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <div class="nav-group-title">TỔNG QUAN</div>
+          <button class="nav-item active" data-page="dashboard">
+            <span class="nav-main"><span class="nav-icon">DB</span><span>Dashboard</span></span>
+          </button>
+          <button class="nav-item" data-page="workqueue">
+            <span class="nav-main"><span class="nav-icon">WQ</span><span>Work Queue</span></span>
+            <span class="nav-badge">18</span>
+          </button>
+        </div>
+
+        <div class="nav-group">
+          <div class="nav-group-title">VẬN HÀNH</div>
+          <button class="nav-item" data-page="container">
+            <span class="nav-main"
+              ><span class="nav-icon">CT</span><span>Container Detail</span></span
+            >
+          </button>
+          <button class="nav-item" data-page="gatein">
+            <span class="nav-main"><span class="nav-icon">GI</span><span>Gate-in</span></span>
+          </button>
+          <button class="nav-item" data-page="yard">
+            <span class="nav-main"><span class="nav-icon">YD</span><span>Yard</span></span>
+          </button>
+          <button class="nav-item" data-page="billing">
+            <span class="nav-main"><span class="nav-icon">BL</span><span>Billing</span></span>
+          </button>
+          <button class="nav-item" data-page="gatepass">
+            <span class="nav-main"><span class="nav-icon">GP</span><span>Gate Pass</span></span>
+          </button>
+        </div>
+
+        <div class="nav-group">
+          <div class="nav-group-title">TÍCH HỢP</div>
+          <button class="nav-item" data-page="handover">
+            <span class="nav-main"><span class="nav-icon">HO</span><span>Handover</span></span>
+            <span class="nav-badge">5</span>
+          </button>
+          <button class="nav-item" data-page="admin">
+            <span class="nav-main"><span class="nav-icon">AD</span><span>Partner Admin</span></span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <div class="breadcrumbs" id="breadcrumbs">Tổng quan / Dashboard</div>
+            <strong id="top-title">Điều hành ICD hôm nay</strong>
+          </div>
+          <div class="top-actions">
+            <input class="search" placeholder="Tìm container, gate pass, transport code..." />
+            <button class="btn">Thông báo</button>
+            <div class="user-chip"><span class="avatar">QA</span><span>ADMIN</span></div>
+          </div>
+        </header>
+
+        <div class="content">
+          <section class="page active" id="dashboard">
+            <div class="page-head">
+              <div>
+                <h1>Dashboard vận hành</h1>
+                <p class="lead">Theo dõi tồn bãi, cổng, công việc gấp, doanh thu và công nợ.</p>
+              </div>
+              <div class="row">
+                <button class="btn">Làm mới</button>
+                <button class="btn primary">Mở Work Queue</button>
+              </div>
+            </div>
+
+            <div class="grid cols-4">
+              <div class="card metric">
+                <div>
+                  <div class="metric-label">Container trong bãi</div>
+                  <div class="metric-value">428</div>
+                  <div class="metric-note">72 container sắp hết free days</div>
+                </div>
+                <span class="pill blue">Live</span>
+              </div>
+              <div class="card metric">
+                <div>
+                  <div class="metric-label">Gate activity hôm nay</div>
+                  <div class="metric-value">96</div>
+                  <div class="metric-note">58 gate-in, 38 gate-out</div>
+                </div>
+                <span class="pill green">Ổn</span>
+              </div>
+              <div class="card metric">
+                <div>
+                  <div class="metric-label">Task quá SLA</div>
+                  <div class="metric-value">11</div>
+                  <div class="metric-note">Cần xử lý trong ca hiện tại</div>
+                </div>
+                <span class="pill red">Gấp</span>
+              </div>
+              <div class="card metric">
+                <div>
+                  <div class="metric-label">Công nợ chưa thu</div>
+                  <div class="metric-value">1.82B</div>
+                  <div class="metric-note">34 invoice chưa thanh toán</div>
+                </div>
+                <span class="pill orange">Theo dõi</span>
+              </div>
+            </div>
+
+            <div class="grid cols-2" style="margin-top: 16px">
+              <div class="card">
+                <h2>Khung cảnh báo nghiệp vụ</h2>
+                <div class="checklist">
+                  <div class="check">
+                    <span>MSCU1234567 còn 4 giờ trước khi Gate Pass hết hạn</span>
+                    <span class="pill orange">GATE_OUT</span>
+                  </div>
+                  <div class="check">
+                    <span>CSQU3054383 chờ xếp bãi quá 42 phút</span>
+                    <span class="pill red">YARD_ASSIGN</span>
+                  </div>
+                  <div class="check">
+                    <span>VC-2026-001 chờ ICD xác nhận bàn giao</span>
+                    <span class="pill purple">HANDOVER</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <h2>Sơ đồ luồng tổng quát</h2>
+                <div class="stepper">
+                  <div class="step active">
+                    <strong>1. Gate-in</strong><br /><span class="metric-note"
+                      >Truck Visit ARRIVED</span
+                    >
+                  </div>
+                  <div class="step">
+                    <strong>2. Yard</strong><br /><span class="metric-note"
+                      >Assign, movement, inspection</span
+                    >
+                  </div>
+                  <div class="step">
+                    <strong>3. Billing</strong><br /><span class="metric-note"
+                      >Invoice, payment</span
+                    >
+                  </div>
+                  <div class="step">
+                    <strong>4. Gate-out</strong><br /><span class="metric-note"
+                      >QR, readiness, EXITED</span
+                    >
+                  </div>
+                </div>
+                <div class="note">
+                  Handover chạy sau Gate-out và không thay đổi state Container Visit.
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="page" id="workqueue">
+            <div class="page-head">
+              <div>
+                <h1>Danh sách công việc</h1>
+                <p class="lead">Màn hình ưu tiên theo SLA, urgency và role đang đăng nhập.</p>
+              </div>
+              <button class="btn primary">Nhận việc tiếp theo</button>
+            </div>
+
+            <div class="filters">
+              <div class="field"><label>Tìm kiếm</label><input value="MSCU" /></div>
+              <div class="field">
+                <label>Loại việc</label
+                ><select>
+                  <option>Tất cả</option>
+                  <option>Gate-in</option>
+                  <option>Yard</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Urgency</label
+                ><select>
+                  <option>Overdue + High</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Trạng thái</label
+                ><select>
+                  <option>Đang mở</option>
+                </select>
+              </div>
+              <div class="field"><label>&nbsp;</label><button class="btn">Lọc</button></div>
+            </div>
+
+            <div class="card table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Ưu tiên</th>
+                    <th>Container</th>
+                    <th>Nghiệp vụ</th>
+                    <th>Thông tin nhanh</th>
+                    <th>SLA</th>
+                    <th>Hành động</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="pill red">OVERDUE</span></td>
+                    <td class="code">CSQU3054383</td>
+                    <td>Tiếp nhận vào cổng</td>
+                    <td>Truck 51A-12345, tài xế Nguyễn Văn A</td>
+                    <td>Quá 45 phút</td>
+                    <td><button class="btn primary">Gate-in</button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="pill orange">HIGH</span></td>
+                    <td class="code">MSCU6639870</td>
+                    <td>Xếp vị trí bãi</td>
+                    <td>40HC, gross 28.5t, chưa có slot</td>
+                    <td>Còn 18 phút</td>
+                    <td><button class="btn primary">Assign Yard</button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="pill purple">REVIEW</span></td>
+                    <td class="code">TCKU1234567</td>
+                    <td>Bàn giao vận chuyển</td>
+                    <td>Partner đã xác nhận kho nhận</td>
+                    <td>Chờ ICD</td>
+                    <td><button class="btn">Review</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="page" id="container">
+            <div class="page-head">
+              <div>
+                <h1>Container MSCU1234567</h1>
+                <p class="lead">
+                  Chi tiết Container Visit, vị trí, blocker, billing, gate pass, timeline và
+                  handover.
+                </p>
+              </div>
+              <div class="row">
+                <span class="pill green">IN_YARD</span>
+                <button class="btn">Thêm Hold</button>
+                <button class="btn primary">Tạo Gate Pass</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="tabs">
+                <button class="tab active">Tổng quan</button>
+                <button class="tab">Tác nghiệp bãi</button>
+                <button class="tab">Billing</button>
+                <button class="tab">Gate Pass</button>
+                <button class="tab">Timeline</button>
+                <button class="tab">Handover</button>
+              </div>
+              <div class="detail-layout">
+                <div class="grid">
+                  <div class="grid cols-3">
+                    <div>
+                      <h3>Thông tin container</h3>
+                      <p>40HC, DRY, seal SL123456, gross 18.2t</p>
+                    </div>
+                    <div>
+                      <h3>Chủ hàng</h3>
+                      <p>ABC Trading Co. / HBL20260920001</p>
+                    </div>
+                    <div>
+                      <h3>Vị trí hiện tại</h3>
+                      <p>A / R01 / B02 / T1</p>
+                    </div>
+                  </div>
+                  <div>
+                    <h3>Readiness checklist</h3>
+                    <div class="checklist">
+                      <div class="check">
+                        <span>Có vị trí bãi active</span><span class="pill green">PASS</span>
+                      </div>
+                      <div class="check">
+                        <span>Billing đã thanh toán</span><span class="pill green">PASS</span>
+                      </div>
+                      <div class="check">
+                        <span>Không có inspection HOLD</span><span class="pill green">PASS</span>
+                      </div>
+                      <div class="check">
+                        <span>Không có operational hold active</span
+                        ><span class="pill green">PASS</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card" style="box-shadow: none">
+                  <h3>Bàn giao vận chuyển</h3>
+                  <p><span class="code">VC-2026-001</span> · ABC Logistics · Kho ABC</p>
+                  <p><span class="pill purple">IN_TRANSIT</span></p>
+                  <button class="btn">Xem Handover</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="page" id="gatein">
+            <div class="page-head">
+              <div>
+                <h1>Tiếp nhận vào cổng</h1>
+                <p class="lead">
+                  Form tác nghiệp gate staff: xác nhận Truck Visit, seal thực tế, tình trạng và ảnh.
+                </p>
+              </div>
+              <span class="pill blue">Truck Visit ARRIVED</span>
+            </div>
+
+            <div class="stepper">
+              <div class="step active">
+                <strong>1. Tìm container</strong><br /><span class="metric-note"
+                  >Scan hoặc nhập tay</span
+                >
+              </div>
+              <div class="step active">
+                <strong>2. Nhập reception</strong><br /><span class="metric-note"
+                  >Seal, weight, photo</span
+                >
+              </div>
+              <div class="step">
+                <strong>3. Xác nhận</strong><br /><span class="metric-note">Commit gate-in</span>
+              </div>
+              <div class="step">
+                <strong>4. Giao Yard</strong><br /><span class="metric-note">Tạo task assign</span>
+              </div>
+            </div>
+
+            <div class="split-pane">
+              <div class="card">
+                <h2>Container context</h2>
+                <p class="code">MSCU1234567</p>
+                <p>Movement Order: <span class="pill green">AUTHORIZED</span></p>
+                <p>Truck: 51A-12345 · LANE-1</p>
+                <p>Seal manifest: SL123456</p>
+              </div>
+              <div class="card">
+                <h2>Phiếu tiếp nhận</h2>
+                <div class="grid cols-2">
+                  <div class="field"><label>Seal thực tế</label><input value="SL123456" /></div>
+                  <div class="field">
+                    <label>Trọng lượng thực tế</label><input value="18250.75" />
+                  </div>
+                  <div class="field">
+                    <label>Tình trạng</label
+                    ><select>
+                      <option>NORMAL</option>
+                      <option>DAMAGE</option>
+                    </select>
+                  </div>
+                  <div class="field"><label>Ảnh seal</label><input type="file" /></div>
+                  <div class="field" style="grid-column: 1 / -1">
+                    <label>Ghi chú</label><textarea>Container nguyên trạng.</textarea>
+                  </div>
+                </div>
+                <div class="row" style="margin-top: 14px">
+                  <button class="btn">Lưu nháp</button>
+                  <button class="btn primary">Xác nhận Gate-in</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="page" id="yard">
+            <div class="page-head">
+              <div>
+                <h1>Yard Assignment & Operations</h1>
+                <p class="lead">Sơ đồ slot, gợi ý vị trí, movement, inspection và booking.</p>
+              </div>
+              <button class="btn primary">Assign slot đã chọn</button>
+            </div>
+
+            <div class="grid cols-2">
+              <div class="card">
+                <h2>Sơ đồ block A</h2>
+                <div class="board">
+                  <div class="slot busy"><strong>A-R01-B01-T1</strong><span>MSCU6639</span></div>
+                  <div class="slot free"><strong>A-R01-B02-T1</strong><span>Free</span></div>
+                  <div class="slot busy"><strong>A-R01-B03-T1</strong><span>CSQU3054</span></div>
+                  <div class="slot hold"><strong>A-R01-B04-T1</strong><span>Blocked</span></div>
+                  <div class="slot free"><strong>A-R02-B01-T1</strong><span>Free</span></div>
+                  <div class="slot busy"><strong>A-R02-B02-T1</strong><span>TCKU1234</span></div>
+                  <div class="slot free"><strong>A-R02-B03-T1</strong><span>Free</span></div>
+                  <div class="slot free"><strong>A-R02-B04-T1</strong><span>Free</span></div>
+                  <div class="slot busy"><strong>A-R03-B01-T1</strong><span>HLXU2345</span></div>
+                  <div class="slot free"><strong>A-R03-B02-T1</strong><span>Free</span></div>
+                  <div class="slot free"><strong>A-R03-B03-T1</strong><span>Free</span></div>
+                  <div class="slot hold"><strong>A-R03-B04-T1</strong><span>Maintenance</span></div>
+                </div>
+              </div>
+              <div class="card">
+                <h2>Gợi ý vị trí</h2>
+                <div class="checklist">
+                  <div class="check">
+                    <span><strong>#1 A/R02/B03/T1</strong><br />Gần cổng, tải trọng phù hợp</span
+                    ><span class="pill green">92</span>
+                  </div>
+                  <div class="check">
+                    <span><strong>#2 A/R03/B02/T1</strong><br />Cùng khu consignee</span
+                    ><span class="pill blue">85</span>
+                  </div>
+                  <div class="check">
+                    <span
+                      ><strong>#3 A/R01/B02/T1</strong><br />Slot trống, reefer không yêu cầu</span
+                    ><span class="pill orange">78</span>
+                  </div>
+                </div>
+                <hr />
+                <h3>Tác nghiệp đang mở</h3>
+                <div class="checklist">
+                  <div class="check">
+                    <span>Inspection CUSTOMS</span><span class="pill orange">IN_PROGRESS</span>
+                  </div>
+                  <div class="check">
+                    <span>Movement sang B/R01/B05/T1</span><span class="pill blue">PENDING</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="page" id="billing">
+            <div class="page-head">
+              <div>
+                <h1>Billing container</h1>
+                <p class="lead">
+                  Tính phí, service order, invoice, payment allocation và readiness.
+                </p>
+              </div>
+              <button class="btn primary">Tạo Service Order</button>
+            </div>
+
+            <div class="grid cols-3">
+              <div class="card metric">
+                <div>
+                  <div class="metric-label">Tổng phí</div>
+                  <div class="metric-value">3.7M</div>
+                  <div class="metric-note">VND</div>
+                </div>
+              </div>
+              <div class="card metric">
+                <div>
+                  <div class="metric-label">Đã thanh toán</div>
+                  <div class="metric-value">3.7M</div>
+                  <div class="metric-note">Payment allocated</div>
+                </div>
+                <span class="pill green">PAID</span>
+              </div>
+              <div class="card metric">
+                <div>
+                  <div class="metric-label">Readiness</div>
+                  <div class="metric-value">PASS</div>
+                  <div class="metric-note">Gate Pass allowed</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card table-wrap" style="margin-top: 16px">
+              <h2>Service order items</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Dịch vụ</th>
+                    <th>Nguồn</th>
+                    <th>Số lượng</th>
+                    <th>Đơn giá</th>
+                    <th>Thành tiền</th>
+                    <th>Trạng thái</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Reception</td>
+                    <td>Gate-in</td>
+                    <td>1 lần</td>
+                    <td>500,000</td>
+                    <td>500,000</td>
+                    <td><span class="pill green">CONFIRMED</span></td>
+                  </tr>
+                  <tr>
+                    <td>Storage</td>
+                    <td>5 ngày</td>
+                    <td>5 ngày</td>
+                    <td>300,000</td>
+                    <td>1,500,000</td>
+                    <td><span class="pill green">CONFIRMED</span></td>
+                  </tr>
+                  <tr>
+                    <td>Inspection</td>
+                    <td>Customs</td>
+                    <td>1 lần</td>
+                    <td>700,000</td>
+                    <td>700,000</td>
+                    <td><span class="pill green">CONFIRMED</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="page" id="gatepass">
+            <div class="page-head">
+              <div>
+                <h1>Phiếu ra cổng</h1>
+                <p class="lead">Readiness, phát hành QR, scan và xác nhận Gate-out.</p>
+              </div>
+              <span class="pill green">READY</span>
+            </div>
+
+            <div class="grid cols-2">
+              <div class="card">
+                <h2>Readiness panel</h2>
+                <div class="checklist">
+                  <div class="check">
+                    <span>Container đang IN_YARD</span><span class="pill green">PASS</span>
+                  </div>
+                  <div class="check">
+                    <span>Có Yard Position</span><span class="pill green">PASS</span>
+                  </div>
+                  <div class="check">
+                    <span>Billing hoàn tất</span><span class="pill green">PASS</span>
+                  </div>
+                  <div class="check">
+                    <span>Không có active Hold</span><span class="pill green">PASS</span>
+                  </div>
+                </div>
+                <div class="row" style="margin-top: 14px">
+                  <button class="btn primary">Tạo Phiếu ra cổng</button>
+                </div>
+              </div>
+              <div class="card">
+                <h2>Gate Pass active</h2>
+                <div class="row" style="align-items: flex-start">
+                  <div class="qr" aria-label="QR mockup"></div>
+                  <div>
+                    <p class="code">GP-2026-0342</p>
+                    <p><span class="pill green">ACTIVE</span></p>
+                    <p>Hết hạn: 21/09/2026 18:30</p>
+                    <p>Xe: 51B-54321 · Người nhận: Lê Thị C</p>
+                    <div class="row">
+                      <button class="btn">In phiếu</button><button class="btn danger">Hủy</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="page" id="handover">
+            <div class="page-head">
+              <div>
+                <h1>Bàn giao vận chuyển</h1>
+                <p class="lead">
+                  Lifecycle riêng sau Gate-out, partner cập nhật qua External API, ICD xác nhận
+                  cuối.
+                </p>
+              </div>
+              <button class="btn primary">Tạo Handover</button>
+            </div>
+
+            <div class="card">
+              <div class="tabs">
+                <button class="tab active">Tổng quan</button>
+                <button class="tab">Partner confirmation</button>
+                <button class="tab">Timeline</button>
+                <button class="tab">API log liên quan</button>
+              </div>
+              <div class="detail-layout">
+                <div>
+                  <h2>VC-2026-001 <span class="pill purple">PARTNER_CONFIRMED</span></h2>
+                  <div class="grid cols-3">
+                    <div>
+                      <h3>Container</h3>
+                      <p class="code">MSCU1234567</p>
+                    </div>
+                    <div>
+                      <h3>Partner</h3>
+                      <p>ABC Logistics</p>
+                    </div>
+                    <div>
+                      <h3>Kho đích</h3>
+                      <p>WH-ABC · KCN ABC</p>
+                    </div>
+                  </div>
+                  <hr />
+                  <h3>Partner xác nhận kho nhận</h3>
+                  <p>
+                    Received at: 21/09/2026 15:30 · Receiver: Nguyễn Văn B · GPS: 20.123456,
+                    105.123456 (±12m)
+                  </p>
+                  <div class="row">
+                    <button class="btn primary">Xác nhận bàn giao</button
+                    ><button class="btn danger">Tạo tranh chấp</button>
+                  </div>
+                </div>
+                <div>
+                  <h3>Timeline</h3>
+                  <div class="timeline">
+                    <div class="timeline-item">
+                      <div class="timeline-time">09:00</div>
+                      <div class="timeline-body">READY_FOR_HANDOVER · Operator A</div>
+                    </div>
+                    <div class="timeline-item">
+                      <div class="timeline-time">09:05</div>
+                      <div class="timeline-body">PARTNER_ACCEPTED · API</div>
+                    </div>
+                    <div class="timeline-item">
+                      <div class="timeline-time">09:20</div>
+                      <div class="timeline-body">IN_TRANSIT · API</div>
+                    </div>
+                    <div class="timeline-item">
+                      <div class="timeline-time">15:30</div>
+                      <div class="timeline-body">PARTNER_CONFIRMED · API</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="page" id="admin">
+            <div class="page-head">
+              <div>
+                <h1>Partner API Admin</h1>
+                <p class="lead">
+                  Quản lý Partner Client, API key one-time reveal, scope và nhật ký gọi API.
+                </p>
+              </div>
+              <button class="btn primary">Tạo Partner Client</button>
+            </div>
+
+            <div class="grid cols-2">
+              <div class="card table-wrap">
+                <h2>Partner clients</h2>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Partner</th>
+                      <th>Scopes</th>
+                      <th>Key</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>ABC Logistics</td>
+                      <td>read, accept, transit, confirm</td>
+                      <td>last4: 8F2A</td>
+                      <td><span class="pill green">ACTIVE</span></td>
+                      <td><button class="btn">Rotate</button></td>
+                    </tr>
+                    <tr>
+                      <td>XYZ Transport</td>
+                      <td>read, accept</td>
+                      <td>last4: B91C</td>
+                      <td><span class="pill orange">LIMITED</span></td>
+                      <td><button class="btn">Xem</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="modal-preview">
+                <div class="modal-box">
+                  <h2>API Key mới</h2>
+                  <p>Plaintext key chỉ hiển thị đúng một lần. Backend chỉ lưu hash và last4.</p>
+                  <div class="api-key">pk_live_icd_8F2A_xxxxxxxxxxxxxxxxxxxxx</div>
+                  <div class="row" style="margin-top: 14px">
+                    <button class="btn primary">Sao chép</button
+                    ><button class="btn">Đã lưu key</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card table-wrap" style="margin-top: 16px">
+              <h2>Nhật ký API đối tác</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Partner</th>
+                    <th>Endpoint</th>
+                    <th>HTTP</th>
+                    <th>Business</th>
+                    <th>Latency</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>15:30:08</td>
+                    <td>ABC Logistics</td>
+                    <td>/warehouse-received</td>
+                    <td>200</td>
+                    <td>PARTNER_CONFIRMED</td>
+                    <td>181ms</td>
+                  </tr>
+                  <tr>
+                    <td>09:20:11</td>
+                    <td>ABC Logistics</td>
+                    <td>/in-transit</td>
+                    <td>200</td>
+                    <td>IN_TRANSIT</td>
+                    <td>143ms</td>
+                  </tr>
+                  <tr>
+                    <td>09:05:40</td>
+                    <td>ABC Logistics</td>
+                    <td>/accept</td>
+                    <td>200</td>
+                    <td>PARTNER_ACCEPTED</td>
+                    <td>127ms</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      const titles = {
+        dashboard: ['Tổng quan / Dashboard', 'Điều hành ICD hôm nay'],
+        workqueue: ['Tổng quan / Work Queue', 'Danh sách công việc thông minh'],
+        container: ['Vận hành / Container Detail', 'MSCU1234567'],
+        gatein: ['Vận hành / Gate-in', 'Tiếp nhận vào cổng'],
+        yard: ['Vận hành / Yard', 'Quản lý bãi'],
+        billing: ['Tài chính / Billing', 'Dịch vụ và thanh toán'],
+        gatepass: ['Tài chính / Gate Pass', 'Phiếu ra cổng'],
+        handover: ['Tích hợp / Handover', 'Bàn giao vận chuyển'],
+        admin: ['Quản trị / Partner API', 'Đối tác tích hợp API'],
+      };
+
+      function showPage(id) {
+        document.querySelectorAll('.page').forEach((page) => page.classList.remove('active'));
+        document.querySelectorAll('.nav-item').forEach((item) => item.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        document.querySelector(`[data-page="${id}"]`).classList.add('active');
+        document.getElementById('breadcrumbs').textContent = titles[id][0];
+        document.getElementById('top-title').textContent = titles[id][1];
+      }
+
+      document.querySelectorAll('.nav-item').forEach((button) => {
+        button.addEventListener('click', () => showPage(button.dataset.page));
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+✔ W-S-016 review: initial failed holds and passes retain unavailable markers rather than verified absence (385.3268ms)
+✔ W-S-016 review: successful empty reads are ready and show no critical-data warning (28.4483ms)
+✔ W-S-016 review: failed gate-pass reload preserves stale row, forbidden reload removes it, and retry recovers (30.6975ms)
+✔ W-S-016 review: later-page hold rejection discards incomplete fresh rows and marks retained records stale (21.2279ms)
+✔ W-S-016 review: unknown per-visit key and failed hold data cannot produce a green state appearance (1.2828ms)
+✔ W-S-016 review: an existing visit missing its status must produce a global warning (1.0967ms)
+✔ W-S-016 review: an existing visit missing its status must not reassure with zero holds (213.0701ms)
+✔ Code-only observation, UI reachability unknown: direct re-login clears protected rows and manual refresh recovers (36.8387ms)
+✔ W-S-020 independent review: raw request and response remain hidden and redacted text cannot become markup (49.5852ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6648.8031

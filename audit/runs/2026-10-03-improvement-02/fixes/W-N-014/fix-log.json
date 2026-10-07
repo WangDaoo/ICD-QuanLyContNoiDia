@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED",
+  "change": "Hiển thị lịch sử và hướng dẫn UTC+7, đúng instant ngay cả khi thiết bị dùng UTC; không chuyển ISO thêm lần nữa.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/yard/YardOperations.tsx",
+      "line": 65,
+      "detail": "timeZone: 'Asia/Ho_Chi_Minh'",
+      "snippet": "    : date.toLocaleString('vi-VN', { dateStyle: 'short', timeStyle: 'short', timeZone: 'Asia/Ho_Chi_Minh' });\n}\n\nfunction FeedbackMessage({ feedback }: { feedback: Feedback }) {"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/yard-dialog-navigation-red.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/yard-dialog-navigation-green.txt"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Meaningful RED/GREEN source regression; real API only if explicitly linked.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/yard/YardOperations.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

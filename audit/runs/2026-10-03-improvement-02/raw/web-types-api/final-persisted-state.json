@@ -1,0 +1,59 @@
+{
+  "run": "2026-10-03-improvement-02",
+  "verifiedAt": "2026-10-03T16:04:10.624Z",
+  "target": {
+    "database": "icd_ux_audit_20261003_e2e",
+    "apiPort": 3001,
+    "mysqlPort": 3308,
+    "guardedRuntime": true
+  },
+  "manifest": {
+    "id": "bc41c663-e15c-4908-a15e-babd0a3710c9",
+    "status": "SUBMITTED"
+  },
+  "containerVisit": {
+    "id": "52a2b4f6-3020-455e-92d3-6c050657a8d9",
+    "state": "EXITED"
+  },
+  "invoice": {
+    "id": "afc81472-f75d-4156-8ff7-497496aa1b23",
+    "status": "PAID",
+    "totalAmount": 550000,
+    "paidAmount": 550000,
+    "outstandingAmount": 0
+  },
+  "gatePasses": [
+    {
+      "id": "429b1952-7399-430b-a471-d405548dd348",
+      "status": "USED"
+    },
+    {
+      "id": "e5d03369-d825-4bdb-adca-f963d4cebc72",
+      "status": "CANCELLED"
+    }
+  ],
+  "handover": {
+    "id": "c86c3835-b8f0-42bb-8cf0-e202d28418b0",
+    "status": "COMPLETED"
+  },
+  "inspectionsPagination": {
+    "pageSize": 2,
+    "pageCalls": 3,
+    "rowCount": 6,
+    "uniqueRowCount": 6,
+    "states": {
+      "PENDING": 2,
+      "CANCELLED": 2,
+      "COMPLETED": 2
+    }
+  },
+  "assertions": {
+    "manifestSubmitted": true,
+    "containerExited": true,
+    "invoicePaidWithZeroBalance": true,
+    "gatePassUsed": true,
+    "gatePassCancelled": true,
+    "handoverCompleted": true,
+    "paginationCompleteAndUnique": true
+  }
+}

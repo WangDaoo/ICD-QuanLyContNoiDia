@@ -1,0 +1,15 @@
+✔ canonical nested operation pages retain older active work after the first 100 rows (3.2307ms)
+✔ nested metadata governs paging even when a page has fewer rows than pageSize (0.5488ms)
+✔ flat data and items envelopes preserve their pagination behavior (0.5078ms)
+✔ arrays and unpaged envelopes return their rows without an extra request (0.5104ms)
+✔ a failed later page rejects instead of returning a silently truncated collection (1.0542ms)
+✔ malformed pagination does not permit an unbounded or truncated successful load (0.2629ms)
+✔ malformed collection data is reported as unavailable rather than an empty success (0.2239ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 568.9486

@@ -1,0 +1,122 @@
+✖ dirty modal blocks browser Back when the leave choice is cancelled (693.3505ms)
+✖ accepted Back suspends the native dialog and Forward restores the same draft and focus (234.4572ms)
+✖ pending save blocks browser Back without issuing a second command (459.7182ms)
+✖ filter-only query replacement leaves the dirty dialog open without a leave prompt (213.0183ms)
+✔ internal navigation has exactly one dirty leave prompt and can be cancelled (182.7521ms)
+✖ hidden dialogs do not block active-page navigation or reload (91.6668ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 1
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8006.3522
+
+✖ failing tests:
+
+test at audit\tools\improvement-web-navigation.test.mjs:92:1
+✖ dirty modal blocks browser Back when the leave choice is cancelled (693.3505ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + '/app/master-data'
+  - '/app/users-roles'
+          ^
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-navigation.test.mjs:97:12)
+      at async <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-navigation.test.mjs:87:7)
+      at async withDom (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-navigation.test.mjs:72:9)
+      at async withLayout (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-navigation.test.mjs:77:3)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-navigation.test.mjs:93:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '/app/master-data',
+    expected: '/app/users-roles',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\improvement-web-navigation.test.mjs:103:1
+✖ accepted Back suspends the native dialog and Forward restores the same draft and focus (234.4572ms)
+  AssertionError [ERR_ASSERTION]: form component remains mounted
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-navigation.test.mjs:110:12)
+      at async <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-navigation.test.mjs:87:7)
+      at async withDom (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-navigation.test.mjs:72:9)
+      at async withLayout (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-navigation.test.mjs:77:3)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-navigation.test.mjs:104:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\improvement-web-navigation.test.mjs:119:1
+✖ pending save blocks browser Back without issuing a second command (459.7182ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + '/app/master-data'
+  - '/app/users-roles'
+          ^
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-navigation.test.mjs:128:16)
+      at async <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-navigation.test.mjs:87:7)
+      at async withDom (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-navigation.test.mjs:72:9)
+      at async withLayout (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-navigation.test.mjs:77:3)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-navigation.test.mjs:121:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '/app/master-data',
+    expected: '/app/users-roles',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\improvement-web-navigation.test.mjs:135:1
+✖ filter-only query replacement leaves the dirty dialog open without a leave prompt (213.0183ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(dialog.isConnected)
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-navigation.test.mjs:141:12)
+      at async <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-navigation.test.mjs:87:7)
+      at async withDom (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-navigation.test.mjs:72:9)
+      at async withLayout (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-navigation.test.mjs:77:3)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-navigation.test.mjs:136:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\improvement-web-navigation.test.mjs:155:1
+✖ hidden dialogs do not block active-page navigation or reload (91.6668ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-navigation.test.mjs:166:12)
+      at async withDom (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-navigation.test.mjs:72:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-navigation.test.mjs:156:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

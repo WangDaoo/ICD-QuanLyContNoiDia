@@ -1,0 +1,49 @@
+{
+  "phase": "resume-prepare",
+  "results": [
+    {
+      "method": "POST",
+      "path": "/auth/login",
+      "status": 200,
+      "expected": "2xx"
+    },
+    {
+      "method": "GET",
+      "path": "/containers?pageSize=100",
+      "status": 200,
+      "expected": "2xx"
+    },
+    {
+      "method": "GET",
+      "path": "/movement-orders?pageSize=100",
+      "status": 200,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/movement-orders/2cccc430-133b-47e5-a765-149ed5f2ba06/authorize",
+      "status": 200,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/gate/truck-visits",
+      "status": 201,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/gate/truck-visits/3440fa09-b089-4ea3-9da3-bbf1c8cdf6b9/arrive",
+      "status": 200,
+      "expected": "2xx"
+    }
+  ],
+  "state": {
+    "manifestId": "8cda1937-ffb4-4b5c-8775-6bf105432fec",
+    "manifestNo": "MF-20261001-7B83BFFF",
+    "visitId": "0a6afd91-946f-47ab-a4c0-fcf2b69a032f",
+    "containerNumber": "QATU2282957",
+    "truckId": "3440fa09-b089-4ea3-9da3-bbf1c8cdf6b9",
+    "movementId": "2cccc430-133b-47e5-a765-149ed5f2ba06"
+  }
+}

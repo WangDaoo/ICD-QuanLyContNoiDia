@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "project": "ICD",
+    "flow": "MasterData create form; partial evidence",
+    "auditor": "Codex",
+    "notes": "Measured target height and source/runtime form behavior only; timing/completion/motion/simplicity are omitted UNKNOWN. Diagnostic44px target threshold is not WCAG2.2 AA target minimum."
+  },
+  "metrics": {
+    "min_target_size_px": 33.333335876464844,
+    "critical_action_at_task_end": true,
+    "inline_validation_clear": false,
+    "unfinished_resume_path": false
+  },
+  "evidence": {
+    "min_target_size_px": "audit/raw/baseline/web/master-data-create-measure.json Lưu51.5x33.3333CSSpx",
+    "critical_action_at_task_end": "audit/screenshots/baseline/web/master-data-create.jpg",
+    "inline_validation_clear": "W-S-006 source guards",
+    "unfinished_resume_path": "W-S-004/W-S-014 source reset/memory navigation"
+  },
+  "missing_metrics_reason": "No submitted business transaction; no response timing, success state, quantitative choice density or thumb reach measured"
+}

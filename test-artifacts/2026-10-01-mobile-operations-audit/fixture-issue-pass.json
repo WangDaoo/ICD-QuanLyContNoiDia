@@ -1,0 +1,25 @@
+{
+  "phase": "issue-pass",
+  "alias": "followup",
+  "checkedAt": "2026-10-02T01:33:27.947Z",
+  "checks": [
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947/gate-pass",
+      "status": 201,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/gate-passes/ebda4085-a524-403f-a949-932d7656cfdb/qr",
+      "status": 200,
+      "expectedStatus": "2xx"
+    }
+  ]
+}

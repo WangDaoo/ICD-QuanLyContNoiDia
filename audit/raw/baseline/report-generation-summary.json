@@ -1,0 +1,1481 @@
+{
+  "date": "2026-10-03",
+  "findings": 38,
+  "counts": {
+    "web": {
+      "P0": 1,
+      "P1": 5,
+      "P2": 16,
+      "P3": 2
+    },
+    "mobile": {
+      "P0": 0,
+      "P1": 3,
+      "P2": 10,
+      "P3": 1
+    }
+  },
+  "uxGap": {
+    "web": {
+      "min": 48.67424242424242,
+      "max": 79.40151515151516,
+      "observed_coverage": 0.78,
+      "dimensions": [
+        {
+          "dimension": 1,
+          "name": "Typography & Spacing",
+          "max_points": 25,
+          "min": 14.5,
+          "max": 21,
+          "criteria": [
+            {
+              "criterion": "type_scale",
+              "weight": 5,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 1,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "web-D1-type_scale-1",
+                "web-D1-type_scale-2"
+              ],
+              "applicable": true,
+              "min": 0.5,
+              "max": 0.5
+            },
+            {
+              "criterion": "font_weight",
+              "weight": 3,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 0,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "web-D1-font_weight-1"
+              ],
+              "applicable": true,
+              "min": 1,
+              "max": 1
+            },
+            {
+              "criterion": "line_height",
+              "weight": 3,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 1,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "web-D1-line_height-1",
+                "web-D1-line_height-2"
+              ],
+              "applicable": true,
+              "min": 0.5,
+              "max": 0.5
+            },
+            {
+              "criterion": "letter_spacing",
+              "weight": 2,
+              "counts": {
+                "PASS": 0,
+                "FAIL": 0,
+                "UNKNOWN": 1
+              },
+              "observation_ids": [
+                "web-D1-letter_spacing-1"
+              ],
+              "applicable": true,
+              "min": 0,
+              "max": 1
+            },
+            {
+              "criterion": "spacing_rhythm",
+              "weight": 5,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 0,
+                "UNKNOWN": 1
+              },
+              "observation_ids": [
+                "web-D1-spacing_rhythm-1",
+                "web-D1-spacing_rhythm-2"
+              ],
+              "applicable": true,
+              "min": 0.5,
+              "max": 1
+            },
+            {
+              "criterion": "margin_padding",
+              "weight": 4,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 0,
+                "UNKNOWN": 1
+              },
+              "observation_ids": [
+                "web-D1-margin_padding-1",
+                "web-D1-margin_padding-2"
+              ],
+              "applicable": true,
+              "min": 0.5,
+              "max": 1
+            },
+            {
+              "criterion": "whitespace",
+              "weight": 3,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 0,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "web-D1-whitespace-1"
+              ],
+              "applicable": true,
+              "min": 1,
+              "max": 1
+            }
+          ]
+        },
+        {
+          "dimension": 2,
+          "name": "Interactive States",
+          "max_points": 25,
+          "min": 8.5,
+          "max": 21,
+          "criteria": [
+            {
+              "criterion": "hover",
+              "weight": 5,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 0,
+                "UNKNOWN": 1
+              },
+              "observation_ids": [
+                "web-D2-hover-1",
+                "web-D2-hover-2"
+              ],
+              "applicable": true,
+              "min": 0.5,
+              "max": 1
+            },
+            {
+              "criterion": "focus",
+              "weight": 5,
+              "counts": {
+                "PASS": 2,
+                "FAIL": 2,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "web-D2-focus-1",
+                "web-D2-focus-2",
+                "web-D2-focus-3",
+                "web-D2-focus-4"
+              ],
+              "applicable": true,
+              "min": 0.5,
+              "max": 0.5
+            },
+            {
+              "criterion": "active",
+              "weight": 3,
+              "counts": {
+                "PASS": 0,
+                "FAIL": 0,
+                "UNKNOWN": 1
+              },
+              "observation_ids": [
+                "web-D2-active-1"
+              ],
+              "applicable": true,
+              "min": 0,
+              "max": 1
+            },
+            {
+              "criterion": "timing",
+              "weight": 4,
+              "counts": {
+                "PASS": 0,
+                "FAIL": 0,
+                "UNKNOWN": 1
+              },
+              "observation_ids": [
+                "web-D2-timing-1"
+              ],
+              "applicable": true,
+              "min": 0,
+              "max": 1
+            },
+            {
+              "criterion": "cursor",
+              "weight": 2,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 0,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "web-D2-cursor-1"
+              ],
+              "applicable": true,
+              "min": 1,
+              "max": 1
+            },
+            {
+              "criterion": "disabled",
+              "weight": 3,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 1,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "web-D2-disabled-1",
+                "web-D2-disabled-2"
+              ],
+              "applicable": true,
+              "min": 0.5,
+              "max": 0.5
+            },
+            {
+              "criterion": "easing",
+              "weight": 3,
+              "counts": {
+                "PASS": 0,
+                "FAIL": 0,
+                "UNKNOWN": 1
+              },
+              "observation_ids": [
+                "web-D2-easing-1"
+              ],
+              "applicable": true,
+              "min": 0,
+              "max": 1
+            }
+          ]
+        },
+        {
+          "dimension": 3,
+          "name": "Content Hierarchy",
+          "max_points": 25,
+          "min": 18.666666666666664,
+          "max": 20.166666666666664,
+          "criteria": [
+            {
+              "criterion": "visual_weight",
+              "weight": 5,
+              "counts": {
+                "PASS": 2,
+                "FAIL": 1,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "web-D3-visual_weight-1",
+                "web-D3-visual_weight-2",
+                "web-D3-visual_weight-3"
+              ],
+              "applicable": true,
+              "min": 0.6666666666666666,
+              "max": 0.6666666666666666
+            },
+            {
+              "criterion": "headings",
+              "weight": 3,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 1,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "web-D3-headings-1",
+                "web-D3-headings-2"
+              ],
+              "applicable": true,
+              "min": 0.5,
+              "max": 0.5
+            },
+            {
+              "criterion": "CTA",
+              "weight": 5,
+              "counts": {
+                "PASS": 2,
+                "FAIL": 1,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "web-D3-CTA-1",
+                "web-D3-CTA-2",
+                "web-D3-CTA-3"
+              ],
+              "applicable": true,
+              "min": 0.6666666666666666,
+              "max": 0.6666666666666666
+            },
+            {
+              "criterion": "density",
+              "weight": 3,
+              "counts": {
+                "PASS": 2,
+                "FAIL": 0,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "web-D3-density-1",
+                "web-D3-density-2"
+              ],
+              "applicable": true,
+              "min": 1,
+              "max": 1
+            },
+            {
+              "criterion": "separation",
+              "weight": 3,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 0,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "web-D3-separation-1"
+              ],
+              "applicable": true,
+              "min": 1,
+              "max": 1
+            },
+            {
+              "criterion": "data_chrome",
+              "weight": 3,
+              "counts": {
+                "PASS": 2,
+                "FAIL": 0,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "web-D3-data_chrome-1",
+                "web-D3-data_chrome-2"
+              ],
+              "applicable": true,
+              "min": 1,
+              "max": 1
+            },
+            {
+              "criterion": "above_fold",
+              "weight": 3,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 0,
+                "UNKNOWN": 1
+              },
+              "observation_ids": [
+                "web-D3-above_fold-1",
+                "web-D3-above_fold-2"
+              ],
+              "applicable": true,
+              "min": 0.5,
+              "max": 1
+            }
+          ]
+        },
+        {
+          "dimension": 4,
+          "name": "Loading & Error UX",
+          "max_points": 25,
+          "min": 7.007575757575759,
+          "max": 17.234848484848484,
+          "criteria": [
+            {
+              "criterion": "initial",
+              "weight": 5,
+              "counts": {
+                "PASS": 0,
+                "FAIL": 0,
+                "UNKNOWN": 1
+              },
+              "observation_ids": [
+                "web-D4-initial-1"
+              ],
+              "applicable": true,
+              "min": 0,
+              "max": 1
+            },
+            {
+              "criterion": "progressive",
+              "weight": 3,
+              "counts": {
+                "PASS": 0,
+                "FAIL": 0,
+                "UNKNOWN": 1
+              },
+              "observation_ids": [
+                "web-D4-progressive-1"
+              ],
+              "applicable": true,
+              "min": 0,
+              "max": 1
+            },
+            {
+              "criterion": "empty",
+              "weight": 5,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 1,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "web-D4-empty-1",
+                "web-D4-empty-2"
+              ],
+              "applicable": true,
+              "min": 0.5,
+              "max": 0.5
+            },
+            {
+              "criterion": "validation",
+              "weight": 4,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 1,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "web-D4-validation-1",
+                "web-D4-validation-2"
+              ],
+              "applicable": true,
+              "min": 0.5,
+              "max": 0.5
+            },
+            {
+              "criterion": "recovery",
+              "weight": 2,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 2,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "web-D4-recovery-1",
+                "web-D4-recovery-2",
+                "web-D4-recovery-3"
+              ],
+              "applicable": true,
+              "min": 0.3333333333333333,
+              "max": 0.3333333333333333
+            },
+            {
+              "criterion": "indicators",
+              "weight": 3,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 1,
+                "UNKNOWN": 1
+              },
+              "observation_ids": [
+                "web-D4-indicators-1",
+                "web-D4-indicators-2",
+                "web-D4-indicators-3"
+              ],
+              "applicable": true,
+              "min": 0.3333333333333333,
+              "max": 0.6666666666666666
+            },
+            {
+              "criterion": "optimistic",
+              "weight": 3,
+              "counts": {
+                "PASS": 0,
+                "FAIL": 0,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "web-D4-optimistic-1"
+              ],
+              "applicable": false,
+              "min": null,
+              "max": null
+            }
+          ]
+        }
+      ]
+    },
+    "mobile": {
+      "min": 39.13636363636364,
+      "max": 69.58333333333334,
+      "observed_coverage": 0.78,
+      "dimensions": [
+        {
+          "dimension": 1,
+          "name": "Typography & Spacing",
+          "max_points": 25,
+          "min": 12,
+          "max": 14,
+          "criteria": [
+            {
+              "criterion": "type_scale",
+              "weight": 5,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 1,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "mobile-D1-type_scale-1",
+                "mobile-D1-type_scale-2"
+              ],
+              "applicable": true,
+              "min": 0.5,
+              "max": 0.5
+            },
+            {
+              "criterion": "font_weight",
+              "weight": 3,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 1,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "mobile-D1-font_weight-1",
+                "mobile-D1-font_weight-2"
+              ],
+              "applicable": true,
+              "min": 0.5,
+              "max": 0.5
+            },
+            {
+              "criterion": "line_height",
+              "weight": 3,
+              "counts": {
+                "PASS": 2,
+                "FAIL": 1,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "mobile-D1-line_height-1",
+                "mobile-D1-line_height-2",
+                "mobile-D1-line_height-3"
+              ],
+              "applicable": true,
+              "min": 0.6666666666666666,
+              "max": 0.6666666666666666
+            },
+            {
+              "criterion": "letter_spacing",
+              "weight": 2,
+              "counts": {
+                "PASS": 0,
+                "FAIL": 0,
+                "UNKNOWN": 1
+              },
+              "observation_ids": [
+                "mobile-D1-letter_spacing-1"
+              ],
+              "applicable": true,
+              "min": 0,
+              "max": 1
+            },
+            {
+              "criterion": "spacing_rhythm",
+              "weight": 5,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 1,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "mobile-D1-spacing_rhythm-1",
+                "mobile-D1-spacing_rhythm-2"
+              ],
+              "applicable": true,
+              "min": 0.5,
+              "max": 0.5
+            },
+            {
+              "criterion": "margin_padding",
+              "weight": 4,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 1,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "mobile-D1-margin_padding-1",
+                "mobile-D1-margin_padding-2"
+              ],
+              "applicable": true,
+              "min": 0.5,
+              "max": 0.5
+            },
+            {
+              "criterion": "whitespace",
+              "weight": 3,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 1,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "mobile-D1-whitespace-1",
+                "mobile-D1-whitespace-2"
+              ],
+              "applicable": true,
+              "min": 0.5,
+              "max": 0.5
+            }
+          ]
+        },
+        {
+          "dimension": 2,
+          "name": "Interactive States",
+          "max_points": 25,
+          "min": 4.166666666666667,
+          "max": 25,
+          "criteria": [
+            {
+              "criterion": "hover",
+              "weight": 5,
+              "counts": {
+                "PASS": 0,
+                "FAIL": 0,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "mobile-D2-hover-1"
+              ],
+              "applicable": false,
+              "min": null,
+              "max": null
+            },
+            {
+              "criterion": "focus",
+              "weight": 5,
+              "counts": {
+                "PASS": 0,
+                "FAIL": 0,
+                "UNKNOWN": 1
+              },
+              "observation_ids": [
+                "mobile-D2-focus-1"
+              ],
+              "applicable": true,
+              "min": 0,
+              "max": 1
+            },
+            {
+              "criterion": "active",
+              "weight": 3,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 0,
+                "UNKNOWN": 1
+              },
+              "observation_ids": [
+                "mobile-D2-active-1",
+                "mobile-D2-active-2"
+              ],
+              "applicable": true,
+              "min": 0.5,
+              "max": 1
+            },
+            {
+              "criterion": "timing",
+              "weight": 4,
+              "counts": {
+                "PASS": 0,
+                "FAIL": 0,
+                "UNKNOWN": 1
+              },
+              "observation_ids": [
+                "mobile-D2-timing-1"
+              ],
+              "applicable": true,
+              "min": 0,
+              "max": 1
+            },
+            {
+              "criterion": "cursor",
+              "weight": 2,
+              "counts": {
+                "PASS": 0,
+                "FAIL": 0,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "mobile-D2-cursor-1"
+              ],
+              "applicable": false,
+              "min": null,
+              "max": null
+            },
+            {
+              "criterion": "disabled",
+              "weight": 3,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 0,
+                "UNKNOWN": 1
+              },
+              "observation_ids": [
+                "mobile-D2-disabled-1",
+                "mobile-D2-disabled-2"
+              ],
+              "applicable": true,
+              "min": 0.5,
+              "max": 1
+            },
+            {
+              "criterion": "easing",
+              "weight": 3,
+              "counts": {
+                "PASS": 0,
+                "FAIL": 0,
+                "UNKNOWN": 1
+              },
+              "observation_ids": [
+                "mobile-D2-easing-1"
+              ],
+              "applicable": true,
+              "min": 0,
+              "max": 1
+            }
+          ]
+        },
+        {
+          "dimension": 3,
+          "name": "Content Hierarchy",
+          "max_points": 25,
+          "min": 13.5,
+          "max": 16,
+          "criteria": [
+            {
+              "criterion": "visual_weight",
+              "weight": 5,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 1,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "mobile-D3-visual_weight-1",
+                "mobile-D3-visual_weight-2"
+              ],
+              "applicable": true,
+              "min": 0.5,
+              "max": 0.5
+            },
+            {
+              "criterion": "headings",
+              "weight": 3,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 1,
+                "UNKNOWN": 1
+              },
+              "observation_ids": [
+                "mobile-D3-headings-1",
+                "mobile-D3-headings-2",
+                "mobile-D3-headings-3"
+              ],
+              "applicable": true,
+              "min": 0.3333333333333333,
+              "max": 0.6666666666666666
+            },
+            {
+              "criterion": "CTA",
+              "weight": 5,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 1,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "mobile-D3-CTA-1",
+                "mobile-D3-CTA-2"
+              ],
+              "applicable": true,
+              "min": 0.5,
+              "max": 0.5
+            },
+            {
+              "criterion": "density",
+              "weight": 3,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 1,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "mobile-D3-density-1",
+                "mobile-D3-density-2"
+              ],
+              "applicable": true,
+              "min": 0.5,
+              "max": 0.5
+            },
+            {
+              "criterion": "separation",
+              "weight": 3,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 0,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "mobile-D3-separation-1"
+              ],
+              "applicable": true,
+              "min": 1,
+              "max": 1
+            },
+            {
+              "criterion": "data_chrome",
+              "weight": 3,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 1,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "mobile-D3-data_chrome-1",
+                "mobile-D3-data_chrome-2"
+              ],
+              "applicable": true,
+              "min": 0.5,
+              "max": 0.5
+            },
+            {
+              "criterion": "above_fold",
+              "weight": 3,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 0,
+                "UNKNOWN": 1
+              },
+              "observation_ids": [
+                "mobile-D3-above_fold-1",
+                "mobile-D3-above_fold-2"
+              ],
+              "applicable": true,
+              "min": 0.5,
+              "max": 1
+            }
+          ]
+        },
+        {
+          "dimension": 4,
+          "name": "Loading & Error UX",
+          "max_points": 25,
+          "min": 9.469696969696969,
+          "max": 14.583333333333336,
+          "criteria": [
+            {
+              "criterion": "initial",
+              "weight": 5,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 1,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "mobile-D4-initial-1",
+                "mobile-D4-initial-2"
+              ],
+              "applicable": true,
+              "min": 0.5,
+              "max": 0.5
+            },
+            {
+              "criterion": "progressive",
+              "weight": 3,
+              "counts": {
+                "PASS": 0,
+                "FAIL": 0,
+                "UNKNOWN": 1
+              },
+              "observation_ids": [
+                "mobile-D4-progressive-1"
+              ],
+              "applicable": true,
+              "min": 0,
+              "max": 1
+            },
+            {
+              "criterion": "empty",
+              "weight": 5,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 1,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "mobile-D4-empty-1",
+                "mobile-D4-empty-2"
+              ],
+              "applicable": true,
+              "min": 0.5,
+              "max": 0.5
+            },
+            {
+              "criterion": "validation",
+              "weight": 4,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 2,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "mobile-D4-validation-1",
+                "mobile-D4-validation-2",
+                "mobile-D4-validation-3"
+              ],
+              "applicable": true,
+              "min": 0.3333333333333333,
+              "max": 0.3333333333333333
+            },
+            {
+              "criterion": "recovery",
+              "weight": 2,
+              "counts": {
+                "PASS": 2,
+                "FAIL": 1,
+                "UNKNOWN": 1
+              },
+              "observation_ids": [
+                "mobile-D4-recovery-1",
+                "mobile-D4-recovery-2",
+                "mobile-D4-recovery-3",
+                "mobile-D4-recovery-4"
+              ],
+              "applicable": true,
+              "min": 0.5,
+              "max": 0.75
+            },
+            {
+              "criterion": "indicators",
+              "weight": 3,
+              "counts": {
+                "PASS": 1,
+                "FAIL": 1,
+                "UNKNOWN": 1
+              },
+              "observation_ids": [
+                "mobile-D4-indicators-1",
+                "mobile-D4-indicators-2",
+                "mobile-D4-indicators-3"
+              ],
+              "applicable": true,
+              "min": 0.3333333333333333,
+              "max": 0.6666666666666666
+            },
+            {
+              "criterion": "optimistic",
+              "weight": 3,
+              "counts": {
+                "PASS": 0,
+                "FAIL": 0,
+                "UNKNOWN": 0
+              },
+              "observation_ids": [
+                "mobile-D4-optimistic-1"
+              ],
+              "applicable": false,
+              "min": null,
+              "max": null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "nielsen": {
+    "web": {
+      "conversion": "Project conversion, not an official Nielsen0-100 scale:100-2.5*sum(max severity per heuristic)",
+      "observed": 30,
+      "min": 0,
+      "max": 30,
+      "heuristics": [
+        {
+          "id": "H1",
+          "name": "Trạng thái hệ thống",
+          "verified_max_severity": 4,
+          "possible_max_severity": 4,
+          "finding_ids": [
+            "W-S-020",
+            "W-S-005",
+            "W-S-016",
+            "W-S-004",
+            "W-S-007",
+            "W-S-008",
+            "W-S-009",
+            "W-S-010",
+            "W-S-015",
+            "W-S-017",
+            "W-S-018"
+          ],
+          "unknown_ids": [
+            "U-01",
+            "U-03",
+            "U-04",
+            "U-05",
+            "U-06",
+            "U-07",
+            "U-09",
+            "U-10",
+            "U-11"
+          ],
+          "note": "Max verified finding severity; no sum of duplicate causes."
+        },
+        {
+          "id": "H2",
+          "name": "Phù hợp thực tế",
+          "verified_max_severity": 2,
+          "possible_max_severity": 4,
+          "finding_ids": [
+            "W-S-008",
+            "W-S-011",
+            "W-S-012",
+            "W-S-013",
+            "W-S-017"
+          ],
+          "unknown_ids": [
+            "U-01",
+            "U-03",
+            "U-04",
+            "U-05",
+            "U-06",
+            "U-07",
+            "U-09",
+            "U-10",
+            "U-11"
+          ],
+          "note": "Max verified finding severity; no sum of duplicate causes."
+        },
+        {
+          "id": "H3",
+          "name": "Quyền kiểm soát",
+          "verified_max_severity": 4,
+          "possible_max_severity": 4,
+          "finding_ids": [
+            "W-S-020",
+            "W-S-001",
+            "W-S-003",
+            "W-S-004",
+            "W-S-012",
+            "W-S-014",
+            "W-S-019"
+          ],
+          "unknown_ids": [
+            "U-01",
+            "U-03",
+            "U-04",
+            "U-05",
+            "U-06",
+            "U-07",
+            "U-09",
+            "U-10",
+            "U-11"
+          ],
+          "note": "Max verified finding severity; no sum of duplicate causes."
+        },
+        {
+          "id": "H4",
+          "name": "Nhất quán",
+          "verified_max_severity": 3,
+          "possible_max_severity": 4,
+          "finding_ids": [
+            "W-S-001",
+            "W-S-002",
+            "W-S-003",
+            "W-R-001",
+            "W-R-002",
+            "W-S-007",
+            "W-S-009",
+            "W-S-019",
+            "W-R-003",
+            "W-R-004"
+          ],
+          "unknown_ids": [
+            "U-01",
+            "U-03",
+            "U-04",
+            "U-05",
+            "U-06",
+            "U-07",
+            "U-09",
+            "U-10",
+            "U-11"
+          ],
+          "note": "Max verified finding severity; no sum of duplicate causes."
+        },
+        {
+          "id": "H5",
+          "name": "Ngăn lỗi",
+          "verified_max_severity": 3,
+          "possible_max_severity": 4,
+          "finding_ids": [
+            "W-S-005",
+            "W-S-016",
+            "W-S-006",
+            "W-S-008",
+            "W-S-009",
+            "W-S-011",
+            "W-S-012",
+            "W-S-017",
+            "W-S-018"
+          ],
+          "unknown_ids": [
+            "U-01",
+            "U-03",
+            "U-04",
+            "U-05",
+            "U-06",
+            "U-07",
+            "U-09",
+            "U-10",
+            "U-11"
+          ],
+          "note": "Max verified finding severity; no sum of duplicate causes."
+        },
+        {
+          "id": "H6",
+          "name": "Nhận biết",
+          "verified_max_severity": 3,
+          "possible_max_severity": 4,
+          "finding_ids": [
+            "W-S-002",
+            "W-S-013",
+            "W-S-014"
+          ],
+          "unknown_ids": [
+            "U-01",
+            "U-03",
+            "U-04",
+            "U-05",
+            "U-06",
+            "U-07",
+            "U-09",
+            "U-10",
+            "U-11"
+          ],
+          "note": "Max verified finding severity; no sum of duplicate causes."
+        },
+        {
+          "id": "H7",
+          "name": "Hiệu quả",
+          "verified_max_severity": 3,
+          "possible_max_severity": 4,
+          "finding_ids": [
+            "W-S-003",
+            "W-R-002",
+            "W-S-013",
+            "W-S-014"
+          ],
+          "unknown_ids": [
+            "U-01",
+            "U-03",
+            "U-04",
+            "U-05",
+            "U-06",
+            "U-07",
+            "U-09",
+            "U-10",
+            "U-11"
+          ],
+          "note": "Max verified finding severity; no sum of duplicate causes."
+        },
+        {
+          "id": "H8",
+          "name": "Thông tin cần thiết",
+          "verified_max_severity": 2,
+          "possible_max_severity": 4,
+          "finding_ids": [
+            "W-R-001"
+          ],
+          "unknown_ids": [
+            "U-01",
+            "U-03",
+            "U-04",
+            "U-05",
+            "U-06",
+            "U-07",
+            "U-09",
+            "U-10",
+            "U-11"
+          ],
+          "note": "Max verified finding severity; no sum of duplicate causes."
+        },
+        {
+          "id": "H9",
+          "name": "Phục hồi lỗi",
+          "verified_max_severity": 4,
+          "possible_max_severity": 4,
+          "finding_ids": [
+            "W-S-020",
+            "W-S-016",
+            "W-S-004",
+            "W-S-006",
+            "W-S-010",
+            "W-S-015"
+          ],
+          "unknown_ids": [
+            "U-01",
+            "U-03",
+            "U-04",
+            "U-05",
+            "U-06",
+            "U-07",
+            "U-09",
+            "U-10",
+            "U-11"
+          ],
+          "note": "Max verified finding severity; no sum of duplicate causes."
+        },
+        {
+          "id": "H10",
+          "name": "Trợ giúp",
+          "verified_max_severity": 0,
+          "possible_max_severity": 4,
+          "finding_ids": [],
+          "unknown_ids": [
+            "U-01",
+            "U-03",
+            "U-04",
+            "U-05",
+            "U-06",
+            "U-07",
+            "U-09",
+            "U-10",
+            "U-11"
+          ],
+          "note": "No verified finding in sampled scope; incomplete runtime prevents claiming full heuristic pass."
+        }
+      ]
+    },
+    "mobile": {
+      "conversion": "Project conversion, not an official Nielsen0-100 scale:100-2.5*sum(max severity per heuristic)",
+      "observed": 45,
+      "min": 0,
+      "max": 45,
+      "heuristics": [
+        {
+          "id": "H1",
+          "name": "Trạng thái hệ thống",
+          "verified_max_severity": 2,
+          "possible_max_severity": 4,
+          "finding_ids": [
+            "M-008",
+            "M-009"
+          ],
+          "unknown_ids": [
+            "U-01",
+            "U-02",
+            "U-03",
+            "U-04",
+            "U-08",
+            "U-09",
+            "U-11"
+          ],
+          "note": "Max verified finding severity; no sum of duplicate causes."
+        },
+        {
+          "id": "H2",
+          "name": "Phù hợp thực tế",
+          "verified_max_severity": 2,
+          "possible_max_severity": 4,
+          "finding_ids": [
+            "M-006",
+            "M-007"
+          ],
+          "unknown_ids": [
+            "U-01",
+            "U-02",
+            "U-03",
+            "U-04",
+            "U-08",
+            "U-09",
+            "U-11"
+          ],
+          "note": "Max verified finding severity; no sum of duplicate causes."
+        },
+        {
+          "id": "H3",
+          "name": "Quyền kiểm soát",
+          "verified_max_severity": 3,
+          "possible_max_severity": 4,
+          "finding_ids": [
+            "M-003"
+          ],
+          "unknown_ids": [
+            "U-01",
+            "U-02",
+            "U-03",
+            "U-04",
+            "U-08",
+            "U-09",
+            "U-11"
+          ],
+          "note": "Max verified finding severity; no sum of duplicate causes."
+        },
+        {
+          "id": "H4",
+          "name": "Nhất quán",
+          "verified_max_severity": 3,
+          "possible_max_severity": 4,
+          "finding_ids": [
+            "M-001",
+            "M-002",
+            "M-004",
+            "M-005",
+            "M-011",
+            "M-014",
+            "M-013"
+          ],
+          "unknown_ids": [
+            "U-01",
+            "U-02",
+            "U-03",
+            "U-04",
+            "U-08",
+            "U-09",
+            "U-11"
+          ],
+          "note": "Max verified finding severity; no sum of duplicate causes."
+        },
+        {
+          "id": "H5",
+          "name": "Ngăn lỗi",
+          "verified_max_severity": 3,
+          "possible_max_severity": 4,
+          "finding_ids": [
+            "M-001",
+            "M-002",
+            "M-004",
+            "M-010",
+            "M-012"
+          ],
+          "unknown_ids": [
+            "U-01",
+            "U-02",
+            "U-03",
+            "U-04",
+            "U-08",
+            "U-09",
+            "U-11"
+          ],
+          "note": "Max verified finding severity; no sum of duplicate causes."
+        },
+        {
+          "id": "H6",
+          "name": "Nhận biết",
+          "verified_max_severity": 2,
+          "possible_max_severity": 4,
+          "finding_ids": [
+            "M-006",
+            "M-009",
+            "M-014"
+          ],
+          "unknown_ids": [
+            "U-01",
+            "U-02",
+            "U-03",
+            "U-04",
+            "U-08",
+            "U-09",
+            "U-11"
+          ],
+          "note": "Max verified finding severity; no sum of duplicate causes."
+        },
+        {
+          "id": "H7",
+          "name": "Hiệu quả",
+          "verified_max_severity": 2,
+          "possible_max_severity": 4,
+          "finding_ids": [
+            "M-010",
+            "M-011"
+          ],
+          "unknown_ids": [
+            "U-01",
+            "U-02",
+            "U-03",
+            "U-04",
+            "U-08",
+            "U-09",
+            "U-11"
+          ],
+          "note": "Max verified finding severity; no sum of duplicate causes."
+        },
+        {
+          "id": "H8",
+          "name": "Thông tin cần thiết",
+          "verified_max_severity": 2,
+          "possible_max_severity": 4,
+          "finding_ids": [
+            "M-005",
+            "M-007"
+          ],
+          "unknown_ids": [
+            "U-01",
+            "U-02",
+            "U-03",
+            "U-04",
+            "U-08",
+            "U-09",
+            "U-11"
+          ],
+          "note": "Max verified finding severity; no sum of duplicate causes."
+        },
+        {
+          "id": "H9",
+          "name": "Phục hồi lỗi",
+          "verified_max_severity": 3,
+          "possible_max_severity": 4,
+          "finding_ids": [
+            "M-003",
+            "M-008",
+            "M-012"
+          ],
+          "unknown_ids": [
+            "U-01",
+            "U-02",
+            "U-03",
+            "U-04",
+            "U-08",
+            "U-09",
+            "U-11"
+          ],
+          "note": "Max verified finding severity; no sum of duplicate causes."
+        },
+        {
+          "id": "H10",
+          "name": "Trợ giúp",
+          "verified_max_severity": 0,
+          "possible_max_severity": 4,
+          "finding_ids": [],
+          "unknown_ids": [
+            "U-01",
+            "U-02",
+            "U-03",
+            "U-04",
+            "U-08",
+            "U-09",
+            "U-11"
+          ],
+          "note": "No verified finding in sampled scope; incomplete runtime prevents claiming full heuristic pass."
+        }
+      ]
+    }
+  },
+  "coverage": {
+    "PASS": 104,
+    "FAIL": 2,
+    "UNKNOWN": 32,
+    "N/A": 2
+  },
+  "sourceUnchanged": 200,
+  "report": "audit/2026-10-03-report.md"
+}

@@ -1,0 +1,16 @@
+--- before/apps/web/src/components/Header.tsx
++++ after/apps/web/src/components/Header.tsx
+@@ -62,10 +62,10 @@
+         <div className="h-9 w-9 shrink-0 rounded-xl bg-blue-600 text-white flex items-center justify-center font-black text-xs shadow-sm">ICD</div>
+         <div className="min-w-0"><h1 className="truncate text-sm sm:text-base font-bold tracking-tight text-slate-800">ICD Management System</h1><p className="hidden sm:block text-xs text-slate-500">Cảng cạn & kho bãi container nội địa</p></div>
+       </div>
+-      <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
++      <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+         <div className="hidden xl:flex items-center gap-2 text-xs">
+-          {(holdsIncomplete || activeHoldCount > 0) && <span className="flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 text-amber-800"><AlertTriangle className="h-3.5 w-3.5" />{holdsIncomplete ? 'Holds chưa kiểm tra đủ' : `${activeHoldCount} lệnh giữ`}</span>}
+-          <span className={`flex items-center gap-1.5 rounded-full border px-2.5 py-1 ${apiReady ? 'border-emerald-200 bg-emerald-50 text-emerald-700' : 'border-amber-200 bg-amber-50 text-amber-800'}`}><CheckCircle2 className="h-3.5 w-3.5" />{apiReady ? 'Đã kết nối' : 'Chưa kết nối'}</span>
++          {(holdsIncomplete || activeHoldCount > 0) && <span className="flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-amber-800"><AlertTriangle className="h-3.5 w-3.5" />{holdsIncomplete ? 'Holds chưa kiểm tra đủ' : `${activeHoldCount} lệnh giữ`}</span>}
++          <span className={`flex items-center gap-2 rounded-full border px-3 py-1 ${apiReady ? 'border-emerald-200 bg-emerald-50 text-emerald-700' : 'border-amber-200 bg-amber-50 text-amber-800'}`}><CheckCircle2 className="h-3.5 w-3.5" />{apiReady ? 'Đã kết nối' : 'Chưa kết nối'}</span>
+         </div>
+         <button type="button" onClick={() => void refreshData()} disabled={isLoading} aria-label="Tải lại dữ liệu" title="Tải lại dữ liệu" className="rounded-lg p-2 text-slate-500 hover:bg-slate-100 disabled:opacity-50"><RefreshCw className={`h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} /></button>
+         <div className="relative" ref={panelGroup}>

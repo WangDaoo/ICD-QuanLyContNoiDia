@@ -1,0 +1,55 @@
+- link "Đến nội dung nghiệp vụ":
+  - /url: "#main-content"
+- banner:
+  - button "Mở menu điều hướng":
+  - generic: ICD
+  - heading "ICD Management System" [level=1]
+  - button "Tải lại dữ liệu":
+  - button "Thông báo (0 chưa đọc)":
+  - button "Đăng xuất":
+- main:
+  - heading "Container 360 · Danh sách & vòng đời" [level=2]:
+    - generic: Container 360 · Danh sách & vòng đời
+  - paragraph: Theo dõi trạng thái vòng đời, vị trí bãi Yard, thời gian lưu bãi (Dwell days), Holds và kiểm tra điều kiện ra cổng (Readiness)
+  - generic: "Tổng cộng: 19 containers"
+  - button "Tạo Container Visit":
+    - generic: Tạo Container Visit
+  - status: Đã lưu trên hệ thống.
+  - textbox "Tìm container" [active]:
+    - /placeholder: Tìm theo số cont, chủ hàng, manifest...
+    - text: QAOU6100040
+  - combobox "Lọc trạng thái container":
+    - option "Tất cả trạng thái" [selected]
+    - option "Pending"
+    - option "Authorized (Chờ cổng)"
+    - option "In Yard (Trong bãi)"
+    - option "Under Inspection"
+    - option "Gate Pass Issued"
+    - option "Exited (Đã ra cổng)"
+  - checkbox "Chỉ container có Blocker (Lệnh giữ / Chưa thanh toán / Chưa vị trí)"
+  - generic: Chỉ container có Blocker (Lệnh giữ / Chưa thanh toán / Chưa vị trí)
+  - generic: Hiển thị 1 containers
+  - table:
+    - rowgroup:
+      - row "Số Container Loại Chủ hàng (Consignee) Vị trí Bãi Trạng thái Vào cổng Ngày lưu Blockers Thao tác":
+        - columnheader "Số Container"
+        - columnheader "Loại"
+        - columnheader "Chủ hàng (Consignee)"
+        - columnheader "Vị trí Bãi"
+        - columnheader "Trạng thái"
+        - columnheader "Vào cổng"
+        - columnheader "Ngày lưu"
+        - columnheader "Blockers"
+        - columnheader "Thao tác"
+    - rowgroup:
+      - row "QAOU6100040 40HC Công ty Cổ phần Sản xuất & Kinh doanh VinFast Chưa xếp PENDING — — Chi tiết →":
+        - cell "QAOU6100040"
+        - cell "40HC"
+        - cell "Công ty Cổ phần Sản xuất & Kinh doanh VinFast"
+        - cell "Chưa xếp"
+        - cell "PENDING"
+        - cell "—"
+        - cell "—"
+        - cell
+        - cell "Chi tiết →":
+          - button "Chi tiết →"

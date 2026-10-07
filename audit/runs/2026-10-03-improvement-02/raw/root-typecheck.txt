@@ -1,0 +1,20 @@
+
+> @icd/web@0.1.0 typecheck D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web
+> tsc --noEmit
+
+src/App.tsx(38,24): error TS2554: Expected 1 arguments, but got 0.
+src/App.tsx(46,5): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/components/BillingView.tsx(63,80): error TS2345: Argument of type 'ServiceOrderItem_Preview' is not assignable to parameter of type 'SetStateAction<{ items: ServiceOrderItem[]; totalAmountVnd: number; } | null>'.
+  Type 'ServiceOrderItem_Preview' is not assignable to type '{ items: ServiceOrderItem[]; totalAmountVnd: number; }'.
+    Types of property 'items' are incompatible.
+      Type '{ serviceType: string; serviceName: string; quantity: number; unit: string; unitPriceVnd: number; amountVnd: number; }[]' is not assignable to type 'ServiceOrderItem[]'.
+        Property 'id' is missing in type '{ serviceType: string; serviceName: string; quantity: number; unit: string; unitPriceVnd: number; amountVnd: number; }' but required in type 'ServiceOrderItem'.
+src/services/api/load-list.test.ts(10,35): error TS2304: Cannot find name 'Row'.
+src/services/api/load-list.test.ts(26,35): error TS2304: Cannot find name 'Row'.
+src/services/api/load-list.test.ts(38,37): error TS2304: Cannot find name 'Row'.
+src/services/api/load-list.test.ts(51,37): error TS2304: Cannot find name 'Row'.
+src/services/api/load-list.test.ts(63,37): error TS2304: Cannot find name 'Row'.
+D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @icd/web@0.1.0 typecheck: `tsc --noEmit`
+Exit status 2

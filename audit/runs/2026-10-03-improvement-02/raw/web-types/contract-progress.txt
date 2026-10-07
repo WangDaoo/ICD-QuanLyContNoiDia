@@ -1,0 +1,28 @@
+✔ login rejects malformed token responses before storing a session (5.0754ms)
+✔ gate-out tasks resolve their canonical gate-pass entity to a visit (10.5357ms)
+✔ unsupported payment methods are never displayed as bank transfer (5.1315ms)
+✔ malformed nested API collections cannot crash view mapping (17.9373ms)
+✔ non-boolean readiness flags cannot grant financial readiness (0.7562ms)
+✔ a saved command whose refresh fails reports an explicit refresh outcome (0.7654ms)
+✔ non-string thrown messages do not escape the command result boundary (0.4302ms)
+✔ invalid invoice totals cannot be presented as a zero balance (8.4623ms)
+✔ canonical MAINTENANCE prevents an otherwise operational slot from being offered (12.751ms)
+✔ closed block prevents its operational slots from being offered (0.6556ms)
+✔ alphanumeric coordinates retain the backend row, bay and tier labels (2.1371ms)
+✔ zero-padded numeric coordinate strings remain distinct backend labels (0.3769ms)
+✔ legacy numeric coordinates remain compatible with existing numeric callers (0.3441ms)
+✔ explicit nonoperational slot remains unavailable even when status says AVAILABLE (0.7006ms)
+✔ canonical occupied slot remains operational and keeps exact visit identity (0.3494ms)
+✔ booking condition notes including persisted cancellation reason are visible after reload (11.6222ms)
+✔ legacy booking notes remain visible when canonical condition notes are absent (1.6612ms)
+✔ booking completion with null measured weight keeps the optional weight absent (19.9883ms)
+✔ booking completion without measured weight keeps the optional weight absent (3.7729ms)
+✔ booking completion retains explicitly recorded zero measured weight (0.5447ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1294.689

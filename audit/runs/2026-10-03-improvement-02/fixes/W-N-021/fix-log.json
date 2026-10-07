@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED",
+  "change": "Service kiểm credential generation; provider kiểm actor generation và credential generation. Same-actor refresh vẫn được cleanup; logout cũ không xóa phiên mới; giữ lỗi server cho UI xử lý.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/services/api/auth.service.ts",
+      "line": 34,
+      "detail": "const version = tokenStorage.getSessionVersion()",
+      "snippet": "    const version = tokenStorage.getSessionVersion();\n    try {\n      await apiClient.post('/auth/logout');\n    } finally {"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/logout-session-race-green-2026-10-04.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/logout-race-checkpoint-2026-10-04.md"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Meaningful RED/GREEN source regression; real API only if explicitly linked.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/api/auth.service.ts.diff"
+  ],
+  "isolated_review_diffs": []
+}

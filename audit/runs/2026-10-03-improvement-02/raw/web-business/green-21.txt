@@ -1,0 +1,45 @@
+✔ Master Data retains the draft and blocks a second submission while pending and after rejection (915.506ms)
+✔ Users blank submit associates errors and focuses the first invalid field (46.464ms)
+✔ read-only users never receive master-data or user write controls (37.4012ms)
+✔ truck shortcut opens a create dialog with its linked container (41.2717ms)
+✔ expired and cancelled passes never offer exit or handover and explain their status (93.2226ms)
+✔ EDI inspector renders canonical payload snapshot without synthesized ISO type (37.0839ms)
+✔ failed and forbidden collections do not claim a settled empty result (65.8548ms)
+✔ movement order default means now plus 24 hours in Vietnam UTC+7 (31.651ms)
+✔ manifest MBL blank save identifies the required number and keeps its form (54.7104ms)
+✔ Container Gate Pass failed readiness exposes retry without saying business conditions failed (80.1929ms)
+✔ Container Gate Pass renders a token-bearing QR only while the pass is valid (122.4591ms)
+✔ dirty create dialog prevents cancelled navigation and blocks navigation while pending (69.9066ms)
+✔ Billing read-only page keeps invoice balances without offering billing or tariff writes (27.0042ms)
+✔ successful save followed by refresh failure reports saved without inviting another save (50.8795ms)
+✔ active pass changes to expired at its deadline without a user interaction (698.8298ms)
+✔ late readiness result for the previous container cannot enable issue for the new target (77.7259ms)
+✔ a readiness response with no confirmed checks cannot enable Gate Pass issue (58.8397ms)
+✔ User creation keeps the entered identity until a rejected save settles and sends once (63.0565ms)
+✖ Partner creation sends once and retains its draft after rejection (37.6722ms)
+✔ Handover creation sends once and retains transport code after rejection (89.5523ms)
+✔ EDI dispatch sends once while pending and reports the backend result (55.1307ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 20
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 47510.7228
+
+✖ failing tests:
+
+test at audit\tools\improvement-web-business.test.mjs:202:1
+✖ Partner creation sends once and retains its draft after rejection (37.6722ms)
+  TypeError: Cannot read properties of undefined (reading '0')
+      at PartnerManagementView (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\PartnerManagementView.tsx:26:96)
+      at Object.react_stack_bottom_frame (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:25904:20)
+      at renderWithHooks (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:7662:22)
+      at updateFunctionComponent (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:10166:19)
+      at beginWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:11778:18)
+      at runWithFiberInDEV (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:871:30)
+      at performUnitOfWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17641:22)
+      at workLoopSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17469:41)
+      at renderRootSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17450:11)
+      at performWorkOnRoot (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:16583:35)

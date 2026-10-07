@@ -1,0 +1,287 @@
+{
+  "scope": "Visible loading/resource transitions in the actual authenticated app; 50ms polling starts at iframe load, not navigation start",
+  "at": "2026-10-04T06:45:46.295Z",
+  "truncated": false,
+  "records": [
+    {
+      "elapsedMs": 0.09999990463256836,
+      "at": "2026-10-04T06:45:39.839Z",
+      "path": "/__audit-production-20261004-after-pointer-final.html",
+      "view": null,
+      "headings": [],
+      "statuses": [],
+      "rowCount": 0,
+      "knownRows": []
+    },
+    {
+      "elapsedMs": 60.199999928474426,
+      "at": "2026-10-04T06:45:39.900Z",
+      "path": "/__audit-production-20261004-after-pointer-final.html",
+      "view": "dashboard",
+      "headings": [],
+      "statuses": [
+        "Đang tải dữ liệu vận hành…",
+        "Đang mở màn nghiệp vụ…"
+      ],
+      "rowCount": 0,
+      "knownRows": []
+    },
+    {
+      "elapsedMs": 210.59999990463257,
+      "at": "2026-10-04T06:45:40.050Z",
+      "path": "/app/gate-in",
+      "view": "dashboard",
+      "headings": [],
+      "statuses": [
+        "Đang tải dữ liệu vận hành…",
+        "Đang mở màn nghiệp vụ…"
+      ],
+      "rowCount": 0,
+      "knownRows": []
+    },
+    {
+      "elapsedMs": 297.89999997615814,
+      "at": "2026-10-04T06:45:40.137Z",
+      "path": "/app/gate-in",
+      "view": "gate-in",
+      "headings": [
+        "Tiếp nhận container vào cổng"
+      ],
+      "statuses": [
+        "Đang tải dữ liệu vận hành…"
+      ],
+      "rowCount": 0,
+      "knownRows": []
+    },
+    {
+      "elapsedMs": 499,
+      "at": "2026-10-04T06:45:40.338Z",
+      "path": "/app/yard",
+      "view": "gate-in",
+      "headings": [
+        "Tiếp nhận container vào cổng"
+      ],
+      "statuses": [
+        "Đang tải dữ liệu vận hành…"
+      ],
+      "rowCount": 0,
+      "knownRows": []
+    },
+    {
+      "elapsedMs": 557.6999999284744,
+      "at": "2026-10-04T06:45:40.397Z",
+      "path": "/app/yard",
+      "view": "yard",
+      "headings": [],
+      "statuses": [
+        "Đang tải dữ liệu vận hành…",
+        "Đang mở màn nghiệp vụ…"
+      ],
+      "rowCount": 0,
+      "knownRows": []
+    },
+    {
+      "elapsedMs": 635.0999999046326,
+      "at": "2026-10-04T06:45:40.474Z",
+      "path": "/app/yard",
+      "view": "yard",
+      "headings": [
+        "Vận hành Bãi Container",
+        "Sơ đồ tổng thể ICD",
+        "Chi tiết Block A"
+      ],
+      "statuses": [
+        "Đang tải dữ liệu vận hành…"
+      ],
+      "rowCount": 0,
+      "knownRows": []
+    },
+    {
+      "elapsedMs": 801.5999999046326,
+      "at": "2026-10-04T06:45:40.641Z",
+      "path": "/app/billing",
+      "view": "yard",
+      "headings": [
+        "Vận hành Bãi Container",
+        "Sơ đồ tổng thể ICD",
+        "Chi tiết Block A"
+      ],
+      "statuses": [
+        "Đang tải dữ liệu vận hành…"
+      ],
+      "rowCount": 0,
+      "knownRows": []
+    },
+    {
+      "elapsedMs": 857.8999999761581,
+      "at": "2026-10-04T06:45:40.697Z",
+      "path": "/app/billing",
+      "view": "billing",
+      "headings": [],
+      "statuses": [
+        "Đang tải dữ liệu vận hành…",
+        "Đang mở màn nghiệp vụ…"
+      ],
+      "rowCount": 0,
+      "knownRows": []
+    },
+    {
+      "elapsedMs": 1213.7999999523163,
+      "at": "2026-10-04T06:45:41.053Z",
+      "path": "/app/billing",
+      "view": "billing",
+      "headings": [
+        "Dịch vụ & Thanh toán (Billing & Invoices)"
+      ],
+      "statuses": [
+        "Đang tải dữ liệu vận hành…"
+      ],
+      "rowCount": 3,
+      "knownRows": [
+        "INV-20261003-5DB4EB6F5EAUDU4246647AUD25157BF4 Audit Consignee3/10/20264/10/2026220,000₫220,000₫PAID Đã trả đủ"
+      ]
+    },
+    {
+      "elapsedMs": 1329.2999999523163,
+      "at": "2026-10-04T06:45:41.169Z",
+      "path": "/app/gate-pass",
+      "view": "billing",
+      "headings": [
+        "Dịch vụ & Thanh toán (Billing & Invoices)"
+      ],
+      "statuses": [
+        "Đang tải dữ liệu vận hành…"
+      ],
+      "rowCount": 3,
+      "knownRows": [
+        "INV-20261003-5DB4EB6F5EAUDU4246647AUD25157BF4 Audit Consignee3/10/20264/10/2026220,000₫220,000₫PAID Đã trả đủ"
+      ]
+    },
+    {
+      "elapsedMs": 1355,
+      "at": "2026-10-04T06:45:41.194Z",
+      "path": "/app/gate-pass",
+      "view": "gate-pass",
+      "headings": [],
+      "statuses": [
+        "Đang tải dữ liệu vận hành…",
+        "Đang mở màn nghiệp vụ…"
+      ],
+      "rowCount": 0,
+      "knownRows": []
+    },
+    {
+      "elapsedMs": 1660.8999999761581,
+      "at": "2026-10-04T06:45:41.500Z",
+      "path": "/app/gate-pass",
+      "view": "gate-pass",
+      "headings": [
+        "Phiếu ra cổng (Gate Pass) & Kiểm soát Xuất kho"
+      ],
+      "statuses": [
+        "Đang tải dữ liệu vận hành…",
+        "Đang tải dữ liệu…"
+      ],
+      "rowCount": 0,
+      "knownRows": []
+    },
+    {
+      "elapsedMs": 1845.3999999761581,
+      "at": "2026-10-04T06:45:41.685Z",
+      "path": "/app/edi",
+      "view": "gate-pass",
+      "headings": [
+        "Phiếu ra cổng (Gate Pass) & Kiểm soát Xuất kho"
+      ],
+      "statuses": [
+        "Đang tải dữ liệu vận hành…",
+        "Đang tải dữ liệu…"
+      ],
+      "rowCount": 0,
+      "knownRows": []
+    },
+    {
+      "elapsedMs": 1855.1999999284744,
+      "at": "2026-10-04T06:45:41.695Z",
+      "path": "/app/edi",
+      "view": "edi",
+      "headings": [],
+      "statuses": [
+        "Đang tải dữ liệu vận hành…",
+        "Đang mở màn nghiệp vụ…"
+      ],
+      "rowCount": 0,
+      "knownRows": []
+    },
+    {
+      "elapsedMs": 2161.2999999523163,
+      "at": "2026-10-04T06:45:42.001Z",
+      "path": "/app/edi",
+      "view": "edi",
+      "headings": [
+        "Trung tâm Trao đổi Dữ liệu Điện tử (EDI Center)"
+      ],
+      "statuses": [
+        "Đang tải dữ liệu vận hành…"
+      ],
+      "rowCount": 0,
+      "knownRows": []
+    },
+    {
+      "elapsedMs": 2341.0999999046326,
+      "at": "2026-10-04T06:45:42.180Z",
+      "path": "/app/handovers",
+      "view": "edi",
+      "headings": [
+        "Trung tâm Trao đổi Dữ liệu Điện tử (EDI Center)"
+      ],
+      "statuses": [
+        "Đang tải dữ liệu vận hành…"
+      ],
+      "rowCount": 0,
+      "knownRows": []
+    },
+    {
+      "elapsedMs": 2352.5999999046326,
+      "at": "2026-10-04T06:45:42.192Z",
+      "path": "/app/handovers",
+      "view": "handovers",
+      "headings": [],
+      "statuses": [
+        "Đang tải dữ liệu vận hành…",
+        "Đang mở màn nghiệp vụ…"
+      ],
+      "rowCount": 0,
+      "knownRows": []
+    },
+    {
+      "elapsedMs": 2729.6999999284744,
+      "at": "2026-10-04T06:45:42.569Z",
+      "path": "/app/handovers",
+      "view": "handovers",
+      "headings": [
+        "Bàn giao Vận chuyển Ngoài ICD (Partner Handover)",
+        "AUD25157BF4DRAFT"
+      ],
+      "statuses": [
+        "Đang tải dữ liệu vận hành…",
+        "Đang tải chi tiết…Tải lại chi tiết"
+      ],
+      "rowCount": 0,
+      "knownRows": []
+    },
+    {
+      "elapsedMs": 6455.699999928474,
+      "at": "2026-10-04T06:45:46.295Z",
+      "path": "/app/handovers",
+      "view": "handovers",
+      "headings": [
+        "Bàn giao Vận chuyển Ngoài ICD (Partner Handover)",
+        "AUD25157BF4DRAFT"
+      ],
+      "statuses": [],
+      "rowCount": 0,
+      "knownRows": []
+    }
+  ]
+}

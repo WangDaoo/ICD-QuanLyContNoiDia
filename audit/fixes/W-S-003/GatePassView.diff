@@ -1,0 +1,43 @@
+diff --git "a/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-003\\before\\apps\\web\\src\\components\\GatePassView.tsx" "b/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-003\\after\\apps\\web\\src\\components\\GatePassView.tsx"
+index fecea6c..785880b 100644
+--- "a/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-003\\before\\apps\\web\\src\\components\\GatePassView.tsx"	
++++ "b/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-003\\after\\apps\\web\\src\\components\\GatePassView.tsx"	
+@@ -202,16 +202,16 @@ export const GatePassView: React.FC<GatePassViewProps> = ({ onNavigate, targetVi
+               const isSelected = selectedGatePass?.id === gp.id;
+               const isExpired = new Date(gp.expiresAt).getTime() < Date.now();
+               return (
+-                <div
++                <button type="button" aria-pressed={isSelected}
+                   key={gp.id}
+                   onClick={() => setSelectedGatePassId(gp.id)}
+-                  className={`p-4 rounded-xl border cursor-pointer transition ${
++                  className={`block w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 p-4 rounded-xl border cursor-pointer transition ${
+                     isSelected
+                       ? 'bg-indigo-50/60 border-indigo-500 shadow-xs'
+                       : 'bg-white border-slate-200 hover:border-slate-300'
+                   }`}
+                 >
+-                  <div className="flex items-center justify-between">
++                  <span className="block flex items-center justify-between">
+                     <span className="text-xs font-mono font-bold text-indigo-700">{gp.code}</span>
+                     <span
+                       className={`px-2 py-0.5 text-[10px] font-bold rounded-full ${
+@@ -224,13 +224,13 @@ export const GatePassView: React.FC<GatePassViewProps> = ({ onNavigate, targetVi
+                     >
+                       {isExpired && gp.status === 'ACTIVE' ? 'EXPIRED' : gp.status}
+                     </span>
+-                  </div>
+-                  <div className="font-mono font-bold text-slate-800 text-xs mt-1">{gp.containerNumber}</div>
+-                  <div className="text-[11px] text-slate-500 mt-1 flex justify-between">
++                  </span>
++                  <span className="block font-mono font-bold text-slate-800 text-xs mt-1">{gp.containerNumber}</span>
++                  <span className="block text-[11px] text-slate-500 mt-1 flex justify-between">
+                     <span>Xe: {gp.vehiclePlate}</span>
+                     <span>Tài xế: {gp.receiverName}</span>
+-                  </div>
+-                </div>
++                  </span>
++                </button>
+               );
+             })}
+           </div>

@@ -1,0 +1,10 @@
+{
+  "url": "http://127.0.0.1:5174/app/master-data",
+  "globalReadPending": "true",
+  "masterDataRows": 1,
+  "configuredDelayMs": 5000,
+  "slowResource": "GET /api/containers",
+  "scope": "Fresh reload; independently loaded shipping-line rows visible while global read is still pending",
+  "status": "EXCLUDED",
+  "reason": "First matching table row was a loading placeholder; row count alone does not establish resource publication. Replaced by network-progressive-delay5-master.json with a known shipping-line row."
+}

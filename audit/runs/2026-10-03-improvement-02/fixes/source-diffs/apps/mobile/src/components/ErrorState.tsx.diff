@@ -1,0 +1,15 @@
+--- before/apps/mobile/src/components/ErrorState.tsx
++++ after/apps/mobile/src/components/ErrorState.tsx
+@@ -27,10 +27,10 @@
+   return (
+     <View style={styles.container}>
+       <Text style={styles.icon}>⚠️</Text>
+-      <Text style={styles.title}>{title}</Text>
++      <Text accessibilityRole="header" style={styles.title}>{title}</Text>
+       <Text style={styles.message}>{message}</Text>
+       {onRetry ? (
+-        <TouchableOpacity style={styles.button} onPress={onRetry}>
++        <TouchableOpacity accessibilityRole="button" accessibilityLabel={retryText} style={styles.button} onPress={onRetry}>
+           <Text style={styles.buttonText}>{retryText}</Text>
+         </TouchableOpacity>
+       ) : null}

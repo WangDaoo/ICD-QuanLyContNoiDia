@@ -1,0 +1,396 @@
+--- before/apps/web/src/components/ContainersView.tsx
++++ after/apps/web/src/components/ContainersView.tsx
+@@ -222,49 +222,49 @@
+     switch (state) {
+       case 'PENDING':
+         return (
+-          <span className="px-2 py-0.5 rounded-full text-caption font-bold bg-slate-100 text-slate-700">
++          <span className="px-2 py-1 rounded-full text-caption font-bold bg-slate-100 text-slate-700">
+             PENDING
+           </span>
+         );
+       case 'AUTHORIZED':
+         return (
+-          <span className="px-2 py-0.5 rounded-full text-caption font-bold bg-blue-100 text-blue-800">
++          <span className="px-2 py-1 rounded-full text-caption font-bold bg-blue-100 text-blue-800">
+             AUTHORIZED
+           </span>
+         );
+       case 'IN_YARD':
+         return (
+-          <span className="px-2 py-0.5 rounded-full text-caption font-bold bg-emerald-100 text-emerald-800">
++          <span className="px-2 py-1 rounded-full text-caption font-bold bg-emerald-100 text-emerald-800">
+             IN_YARD
+           </span>
+         );
+       case 'UNDER_INSPECTION':
+         return (
+-          <span className="px-2 py-0.5 rounded-full text-caption font-bold bg-amber-100 text-amber-800">
++          <span className="px-2 py-1 rounded-full text-caption font-bold bg-amber-100 text-amber-800">
+             UNDER_INSPECTION
+           </span>
+         );
+       case 'IN_STRIPPING':
+         return (
+-          <span className="px-2 py-0.5 rounded-full text-caption font-bold bg-purple-100 text-purple-800">
++          <span className="px-2 py-1 rounded-full text-caption font-bold bg-purple-100 text-purple-800">
+             IN_STRIPPING
+           </span>
+         );
+       case 'GATE_PASS_ISSUED':
+         return (
+-          <span className="px-2 py-0.5 rounded-full text-caption font-bold bg-indigo-100 text-indigo-800">
++          <span className="px-2 py-1 rounded-full text-caption font-bold bg-indigo-100 text-indigo-800">
+             GATE_PASS_ISSUED
+           </span>
+         );
+       case 'EXITED':
+         return (
+-          <span className="px-2 py-0.5 rounded-full text-caption font-bold bg-slate-200 text-slate-800">
++          <span className="px-2 py-1 rounded-full text-caption font-bold bg-slate-200 text-slate-800">
+             EXITED
+           </span>
+         );
+       default:
+         return (
+-          <span className="px-2 py-0.5 rounded-full text-caption font-bold bg-slate-100 text-slate-600">
++          <span className="px-2 py-1 rounded-full text-caption font-bold bg-slate-100 text-slate-600">
+             {state}
+           </span>
+         );
+@@ -295,7 +295,7 @@
+           <button
+             hidden={!can('container.create')}
+             onClick={() => setShowCreateVisit(true)}
+-            className="px-3.5 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg transition shadow-xs flex items-center space-x-1.5"
++            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg transition shadow-xs flex items-center space-x-2"
+           >
+             <Plus className="w-4 h-4" />
+             <span>Tạo Container Visit</span>
+@@ -320,7 +320,7 @@
+ 
+       {/* Filter Bar */}
+       <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs flex flex-wrap items-center justify-between gap-3 text-xs">
+-        <div className="flex flex-wrap items-center gap-2.5">
++        <div className="flex flex-wrap items-center gap-3">
+           <div className="relative w-64">
+             <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
+             <input
+@@ -337,7 +337,7 @@
+             aria-label="Lọc trạng thái container"
+             value={stateFilter}
+             onChange={(e) => setStateFilter(e.target.value)}
+-            className="border border-slate-200 rounded-lg px-2.5 py-2 bg-slate-50 text-slate-700 font-medium"
++            className="border border-slate-200 rounded-lg px-3 py-2 bg-slate-50 text-slate-700 font-medium"
+           >
+             <option value="ALL">Tất cả trạng thái</option>
+             <option value="PENDING">Pending</option>
+@@ -348,7 +348,7 @@
+             <option value="EXITED">Exited (Đã ra cổng)</option>
+           </select>
+ 
+-          <label className="flex items-center space-x-1.5 cursor-pointer ml-2 text-slate-700 select-none">
++          <label className="flex items-center space-x-2 cursor-pointer ml-2 text-slate-700 select-none">
+             <input
+               type="checkbox"
+               checked={hasBlockerOnly}
+@@ -414,7 +414,7 @@
+                     </td>
+                     <td className="py-3 px-4 font-mono font-semibold text-slate-900">
+                       {v.currentLocation && !yardLocationForbidden ? (
+-                        <span className="px-2 py-0.5 bg-blue-50 text-blue-800 rounded border border-blue-200">
++                        <span className="px-2 py-1 bg-blue-50 text-blue-800 rounded border border-blue-200">
+                           {yardLocationLabel(v)}
+                         </span>
+                       ) : (
+@@ -440,7 +440,7 @@
+                       )}
+                     </td>
+                     <td className="py-3 px-4">
+-                      <div className="flex items-center space-x-1.5">
++                      <div className="flex items-center space-x-2">
+                         {visitSafetyStatus[v.id]?.holds !== 'ready' && (
+                           <span className="text-amber-900" title="Chưa xác minh lệnh giữ">
+                             Holds chưa kiểm tra
+@@ -488,7 +488,7 @@
+                           setActiveModalVisitId(v.id);
+                           setActiveDetailTab('OVERVIEW');
+                         }}
+-                        className="px-2.5 py-1 text-xs font-bold text-blue-600 hover:bg-blue-50 rounded transition"
++                        className="px-3 py-1 text-xs font-bold text-blue-600 hover:bg-blue-50 rounded transition"
+                       >
+                         Chi tiết →
+                       </button>
+@@ -518,7 +518,7 @@
+                     {activeVisit.containerNumber}
+                   </h3>
+                   {getStateBadge(activeVisit.state)}
+-                  <span className="text-xs font-semibold px-2.5 py-0.5 bg-slate-100 text-slate-700 rounded-md">
++                  <span className="text-xs font-semibold px-3 py-1 bg-slate-100 text-slate-700 rounded-md">
+                     {activeVisit.containerType}
+                   </span>
+                 </div>
+@@ -628,7 +628,7 @@
+                         Kiểm tra Điều kiện Sẵn sàng Cấp Phiếu Ra Cổng (Readiness Checklist)
+                       </span>
+                       <span
+-                        className={`px-2.5 py-0.5 rounded-full text-caption font-bold ${
++                        className={`px-3 py-1 rounded-full text-caption font-bold ${
+                           readiness?.blockers.length === 0
+                             ? 'bg-emerald-100 text-emerald-800'
+                             : 'bg-rose-100 text-rose-800'
+@@ -651,7 +651,7 @@
+                     )}
+                     {readiness && (
+                       <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-3">
+-                        <div className="flex items-center space-x-2 bg-white p-2.5 rounded-lg border border-slate-200">
++                        <div className="flex items-center space-x-2 bg-white p-3 rounded-lg border border-slate-200">
+                           {readiness?.isContainerInYard ? (
+                             <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                           ) : (
+@@ -659,7 +659,7 @@
+                           )}
+                           <span>Trong bãi (IN_YARD)</span>
+                         </div>
+-                        <div className="flex items-center space-x-2 bg-white p-2.5 rounded-lg border border-slate-200">
++                        <div className="flex items-center space-x-2 bg-white p-3 rounded-lg border border-slate-200">
+                           {readiness?.hasYardPosition ? (
+                             <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                           ) : (
+@@ -667,7 +667,7 @@
+                           )}
+                           <span>Đã có vị trí bãi</span>
+                         </div>
+-                        <div className="flex items-center space-x-2 bg-white p-2.5 rounded-lg border border-slate-200">
++                        <div className="flex items-center space-x-2 bg-white p-3 rounded-lg border border-slate-200">
+                           {readiness?.isBillingCompleted ? (
+                             <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                           ) : (
+@@ -675,7 +675,7 @@
+                           )}
+                           <span>Thanh toán đủ 100%</span>
+                         </div>
+-                        <div className="flex items-center space-x-2 bg-white p-2.5 rounded-lg border border-slate-200">
++                        <div className="flex items-center space-x-2 bg-white p-3 rounded-lg border border-slate-200">
+                           {readiness?.hasNoActiveYardOps ? (
+                             <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                           ) : (
+@@ -683,7 +683,7 @@
+                           )}
+                           <span>Không vướng tác nghiệp</span>
+                         </div>
+-                        <div className="flex items-center space-x-2 bg-white p-2.5 rounded-lg border border-slate-200">
++                        <div className="flex items-center space-x-2 bg-white p-3 rounded-lg border border-slate-200">
+                           {readiness?.hasNoInspectionHold ? (
+                             <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                           ) : (
+@@ -691,7 +691,7 @@
+                           )}
+                           <span>Không giữ kiểm định</span>
+                         </div>
+-                        <div className="flex items-center space-x-2 bg-white p-2.5 rounded-lg border border-slate-200">
++                        <div className="flex items-center space-x-2 bg-white p-3 rounded-lg border border-slate-200">
+                           {readiness?.hasNoOperationalHold ? (
+                             <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                           ) : (
+@@ -703,9 +703,9 @@
+                     )}
+ 
+                     {readiness && readiness.blockers.length > 0 && (
+-                      <div className="mt-3 p-2.5 bg-rose-50 border border-rose-200 rounded-lg text-rose-800">
++                      <div className="mt-3 p-3 bg-rose-50 border border-rose-200 rounded-lg text-rose-800">
+                         <strong>Các nguyên nhân chưa thể cấp Phiếu ra cổng:</strong>
+-                        <ul className="list-disc pl-4 mt-1 space-y-0.5">
++                        <ul className="list-disc pl-4 mt-1 space-y-1">
+                           {readiness.blockers.map((b, idx) => (
+                             <li key={idx}>{readinessLabel(b)}</li>
+                           ))}
+@@ -724,7 +724,7 @@
+                         );
+                         return readable(movementOrderState) && mo ? (
+                           <span
+-                            className={`px-2.5 py-0.5 rounded-full text-caption font-bold ${
++                            className={`px-3 py-1 rounded-full text-caption font-bold ${
+                               mo.status === 'AUTHORIZED'
+                                 ? 'bg-emerald-100 text-emerald-800'
+                                 : mo.status === 'DRAFT'
+@@ -753,7 +753,7 @@
+                             onClick={() =>
+                               void action.run(() => createMovementOrder(activeVisit.id))
+                             }
+-                            className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold"
++                            className="px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold"
+                           >
+                             + Tạo Movement Order
+                           </button>
+@@ -771,7 +771,7 @@
+                               if (res?.success) setActiveModalVisitId(null);
+                             }
+                           }}
+-                          className="px-3 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded-lg font-bold border border-rose-200"
++                          className="px-3 py-2 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded-lg font-bold border border-rose-200"
+                         >
+                           Hủy Container Visit
+                         </button>
+@@ -782,7 +782,7 @@
+                           setActiveModalVisitId(null);
+                           onNavigate('movement-orders' as NavTabId, activeVisit.id);
+                         }}
+-                        className="px-3 py-1.5 text-blue-600 font-bold hover:underline"
++                        className="px-3 py-2 text-blue-600 font-bold hover:underline"
+                       >
+                         Xem tất cả Movement Order →
+                       </button>
+@@ -799,7 +799,7 @@
+                         </span>
+                       </div>
+                       {readable(handoverState) && activeVisitHandover ? (
+-                        <span className="px-2.5 py-0.5 rounded-full text-caption font-bold bg-indigo-200 text-indigo-900 border border-indigo-300">
++                        <span className="px-3 py-1 rounded-full text-caption font-bold bg-indigo-200 text-indigo-900 border border-indigo-300">
+                           {activeVisitHandover.status}
+                         </span>
+                       ) : (
+@@ -839,7 +839,7 @@
+                             className="font-bold text-indigo-600 hover:text-indigo-800 flex items-center"
+                           >
+                             <span>Xem tiến độ Bàn giao & Duyệt POD</span>
+-                            <ChevronRight className="w-3.5 h-3.5 ml-0.5" />
++                            <ChevronRight className="w-3.5 h-3.5 ml-1" />
+                           </button>
+                         </div>
+                       </div>
+@@ -857,7 +857,7 @@
+                             setActiveModalVisitId(null);
+                             onNavigate('handovers');
+                           }}
+-                          className="px-3 py-1.5 bg-indigo-600 text-white rounded-lg font-bold hover:bg-indigo-700"
++                          className="px-3 py-2 bg-indigo-600 text-white rounded-lg font-bold hover:bg-indigo-700"
+                         >
+                           + Tạo Handover
+                         </button>
+@@ -867,7 +867,7 @@
+ 
+                   {/* Metadata Specs */}
+                   <div className="grid grid-cols-2 gap-4">
+-                    <div className="border border-slate-200 rounded-xl p-3.5 space-y-2 bg-slate-50/50">
++                    <div className="border border-slate-200 rounded-xl p-4 space-y-2 bg-slate-50/50">
+                       <div className="font-bold text-slate-800 border-b border-slate-200 pb-1">
+                         Hồ sơ hàng hóa
+                       </div>
+@@ -893,7 +893,7 @@
+                       </div>
+                     </div>
+ 
+-                    <div className="border border-slate-200 rounded-xl p-3.5 space-y-2 bg-slate-50/50">
++                    <div className="border border-slate-200 rounded-xl p-4 space-y-2 bg-slate-50/50">
+                       <div className="font-bold text-slate-800 border-b border-slate-200 pb-1">
+                         Vị trí & Thời gian
+                       </div>
+@@ -949,7 +949,7 @@
+                         setActiveModalVisitId(null);
+                         onNavigate('yard', activeVisit.id);
+                       }}
+-                      className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold"
++                      className="px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold"
+                     >
+                       Đổi vị trí / Điều chuyển
+                     </button>
+@@ -973,7 +973,7 @@
+                         setActiveModalVisitId(null);
+                         onNavigate('billing', activeVisit.id);
+                       }}
+-                      className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold"
++                      className="px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold"
+                     >
+                       + Tạo Đơn Dịch Vụ
+                     </button>
+@@ -993,7 +993,7 @@
+                         <div className="flex items-center justify-between">
+                           <span className="font-mono font-bold text-blue-700">{inv.invoiceNo}</span>
+                           <span
+-                            className={`px-2 py-0.5 rounded-full text-caption font-bold ${
++                            className={`px-2 py-1 rounded-full text-caption font-bold ${
+                               inv.status === 'PAID'
+                                 ? 'bg-emerald-100 text-emerald-800'
+                                 : 'bg-amber-100 text-amber-800'
+@@ -1091,7 +1091,7 @@
+                                   type="text"
+                                   value={gpPlate}
+                                   onChange={(e) => setGpPlate(e.target.value)}
+-                                  className="w-full px-2.5 py-1.5 border border-slate-300 rounded bg-white"
++                                  className="w-full px-3 py-2 border border-slate-300 rounded bg-white"
+                                 />
+                               </div>
+                               <div>
+@@ -1108,7 +1108,7 @@
+                                   type="text"
+                                   value={gpReceiver}
+                                   onChange={(e) => setGpReceiver(e.target.value)}
+-                                  className="w-full px-2.5 py-1.5 border border-slate-300 rounded bg-white"
++                                  className="w-full px-3 py-2 border border-slate-300 rounded bg-white"
+                                 />
+                               </div>
+                               <div>
+@@ -1125,7 +1125,7 @@
+                                   type="text"
+                                   value={gpCccd}
+                                   onChange={(e) => setGpCccd(e.target.value)}
+-                                  className="w-full px-2.5 py-1.5 border border-slate-300 rounded bg-white"
++                                  className="w-full px-3 py-2 border border-slate-300 rounded bg-white"
+                                 />
+                               </div>
+                             </div>
+@@ -1133,7 +1133,7 @@
+                           <button
+                             disabled={action.pending}
+                             type="submit"
+-                            className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg transition"
++                            className="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg transition"
+                           >
+                             Xác nhận Tạo Phiếu Ra Cổng & Sinh mã QR
+                           </button>
+@@ -1160,7 +1160,7 @@
+                       disabled={action.pending}
+                       hidden={!can('operational_hold.manage')}
+                       onClick={() => setShowAddHold(true)}
+-                      className="px-3 py-1.5 bg-rose-600 hover:bg-rose-700 text-white rounded-lg font-bold flex items-center space-x-1"
++                      className="px-3 py-2 bg-rose-600 hover:bg-rose-700 text-white rounded-lg font-bold flex items-center space-x-1"
+                     >
+                       <Plus className="w-3.5 h-3.5" />
+                       <span>Đặt lệnh giữ (Hold)</span>
+@@ -1182,7 +1182,7 @@
+                             id="containers-new-hold-type"
+                             value={newHoldType}
+                             onChange={(e) => setNewHoldType(e.target.value as HoldType)}
+-                            className="w-full px-2.5 py-1.5 border border-slate-300 rounded bg-white"
++                            className="w-full px-3 py-2 border border-slate-300 rounded bg-white"
+                           >
+                             <option value="CUSTOMS">Hải quan (Customs Hold)</option>
+                             <option value="SHIPPING_LINE">Hãng tàu (Shipping Line Hold)</option>
+@@ -1205,7 +1205,7 @@
+                             placeholder="Nhập lý do giữ..."
+                             value={newHoldReason}
+                             onChange={(e) => setNewHoldReason(e.target.value)}
+-                            className="w-full px-2.5 py-1.5 border border-slate-300 rounded bg-white"
++                            className="w-full px-3 py-2 border border-slate-300 rounded bg-white"
+                           />
+                         </div>
+                       </div>
+@@ -1266,7 +1266,7 @@
+                             </span>
+                           </div>
+                           <div className="text-slate-700 mt-1">{h.reason}</div>
+-                          <div className="text-caption text-slate-400 mt-0.5">
++                          <div className="text-caption text-slate-400 mt-1">
+                             Đặt bởi: {h.placedBy}
+                           </div>
+                         </div>
+@@ -1285,7 +1285,7 @@
+                               )
+                                 await action.run(() => releaseOperationalHold(h.id, note));
+                             }}
+-                            className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg"
++                            className="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg"
+                           >
+                             Release Hold
+                           </button>

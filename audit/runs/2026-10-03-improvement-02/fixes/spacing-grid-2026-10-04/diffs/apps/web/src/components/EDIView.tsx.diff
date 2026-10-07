@@ -1,0 +1,149 @@
+--- before/apps/web/src/components/EDIView.tsx
++++ after/apps/web/src/components/EDIView.tsx
+@@ -75,21 +75,21 @@
+             <button
+               aria-pressed={tab === 'OUTBOX'}
+               onClick={() => setTab('OUTBOX')}
+-              className={`px-3 py-1.5 rounded-md font-bold ${tab === 'OUTBOX' ? 'bg-white shadow-xs text-blue-700' : 'text-slate-500'}`}
++              className={`px-3 py-2 rounded-md font-bold ${tab === 'OUTBOX' ? 'bg-white shadow-xs text-blue-700' : 'text-slate-500'}`}
+             >
+               Outbox
+             </button>
+             <button
+               aria-pressed={tab === 'ROUTES'}
+               onClick={() => setTab('ROUTES')}
+-              className={`px-3 py-1.5 rounded-md font-bold ${tab === 'ROUTES' ? 'bg-white shadow-xs text-blue-700' : 'text-slate-500'}`}
++              className={`px-3 py-2 rounded-md font-bold ${tab === 'ROUTES' ? 'bg-white shadow-xs text-blue-700' : 'text-slate-500'}`}
+             >
+               Routes
+             </button>
+             <button
+               aria-pressed={tab === 'ALERTS'}
+               onClick={() => setTab('ALERTS')}
+-              className={`px-3 py-1.5 rounded-md font-bold relative ${tab === 'ALERTS' ? 'bg-white shadow-xs text-blue-700' : 'text-slate-500'}`}
++              className={`px-3 py-2 rounded-md font-bold relative ${tab === 'ALERTS' ? 'bg-white shadow-xs text-blue-700' : 'text-slate-500'}`}
+             >
+               Alerts
+               {ediAlerts.some((a) => a.status === 'OPEN') && (
+@@ -115,7 +115,7 @@
+                 onClick={async () => {
+                   await action.run(dispatchEdiOutbox);
+                 }}
+-                className="px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg flex items-center gap-1.5"
++                className="px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg flex items-center gap-2"
+               >
+                 <Send className="w-3.5 h-3.5" /> Chạy Dispatcher
+               </button>
+@@ -171,7 +171,7 @@
+                   </td>
+                   <td className="px-4 py-3">
+                     <span
+-                      className={`px-2 py-0.5 rounded-full text-caption font-bold ${r.enabled ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-200 text-slate-600'}`}
++                      className={`px-2 py-1 rounded-full text-caption font-bold ${r.enabled ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-200 text-slate-600'}`}
+                     >
+                       {r.enabled ? 'ENABLED' : 'DISABLED'}
+                     </span>
+@@ -182,7 +182,7 @@
+                       onClick={() =>
+                         void action.run(() => upsertEdiRoute({ ...r, enabled: !r.enabled }))
+                       }
+-                      className={`px-2.5 py-1 rounded-md font-bold text-caption border ${r.enabled ? 'bg-rose-50 text-rose-700 border-rose-200' : 'bg-emerald-50 text-emerald-700 border-emerald-200'}`}
++                      className={`px-3 py-1 rounded-md font-bold text-caption border ${r.enabled ? 'bg-rose-50 text-rose-700 border-rose-200' : 'bg-emerald-50 text-emerald-700 border-emerald-200'}`}
+                     >
+                       {r.enabled ? 'Tắt' : 'Bật'}
+                     </button>
+@@ -205,7 +205,7 @@
+               <div>
+                 <div className="flex items-center gap-2 mb-1">
+                   <span
+-                    className={`px-2 py-0.5 rounded-full text-caption font-bold ${
++                    className={`px-2 py-1 rounded-full text-caption font-bold ${
+                       a.status === 'OPEN'
+                         ? 'bg-rose-100 text-rose-800'
+                         : a.status === 'ACKNOWLEDGED'
+@@ -225,12 +225,12 @@
+                 {a.resolutionNote && <p className="text-emerald-700 mt-1">✓ {a.resolutionNote}</p>}
+               </div>
+               {a.status !== 'RESOLVED' && (
+-                <div className="flex flex-col gap-1.5 shrink-0">
++                <div className="flex flex-col gap-2 shrink-0">
+                   {a.status === 'OPEN' && (
+                     <button
+                       disabled={action.pending || !can('edi.alert.manage')}
+                       onClick={() => void action.run(() => acknowledgeEdiAlert(a.id))}
+-                      className="px-2.5 py-1 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-md font-bold border border-amber-200"
++                      className="px-3 py-1 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-md font-bold border border-amber-200"
+                     >
+                       Đã xem
+                     </button>
+@@ -240,7 +240,7 @@
+                       const note = window.prompt('Ghi chú xử lý:');
+                       if (note) void action.run(() => resolveEdiAlert(a.id, note));
+                     }}
+-                    className="px-2.5 py-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-md font-bold border border-emerald-200"
++                    className="px-3 py-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-md font-bold border border-emerald-200"
+                   >
+                     Đánh dấu đã xử lý
+                   </button>
+@@ -281,7 +281,7 @@
+                       {edi.messageType}
+                     </span>
+                     <span
+-                      className={`px-2 py-0.5 rounded-full text-caption font-bold ${
++                      className={`px-2 py-1 rounded-full text-caption font-bold ${
+                         edi.status === 'SENT'
+                           ? 'bg-emerald-100 text-emerald-800'
+                           : edi.status === 'PROCESSING'
+@@ -318,11 +318,11 @@
+                       <span className="text-base font-bold text-slate-900 font-mono">
+                         Điện tín {selectedEdi.messageType}
+                       </span>
+-                      <span className="px-2 py-0.5 bg-blue-100 text-blue-800 font-bold rounded">
++                      <span className="px-2 py-1 bg-blue-100 text-blue-800 font-bold rounded">
+                         Hãng nhận: {selectedEdi.shippingLine}
+                       </span>
+                     </div>
+-                    <p className="text-slate-500 mt-0.5">
++                    <p className="text-slate-500 mt-1">
+                       Container liên quan:{' '}
+                       <strong className="font-mono text-slate-800">
+                         {selectedEdi.containerNumber}
+@@ -338,7 +338,7 @@
+                       onClick={() =>
+                         handleCopy(JSON.stringify(selectedEdi.payloadSnapshot, null, 2))
+                       }
+-                      className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-lg flex items-center space-x-1"
++                      className="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-lg flex items-center space-x-1"
+                     >
+                       {copied ? (
+                         <Check className="w-3.5 h-3.5 text-emerald-600" />
+@@ -351,7 +351,7 @@
+                       <button
+                         disabled={action.pending}
+                         onClick={() => handleResend(selectedEdi.id)}
+-                        className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg flex items-center space-x-1"
++                        className="px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg flex items-center space-x-1"
+                       >
+                         <RefreshCw className="w-3.5 h-3.5" />
+                         <span>Gửi lại (Retry Transmission)</span>
+@@ -364,17 +364,17 @@
+                 <div className="grid grid-cols-3 gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200">
+                   <div>
+                     <span className="text-slate-400">Trạng thái truyền:</span>
+-                    <div className="font-bold text-slate-800 mt-0.5">{selectedEdi.status}</div>
++                    <div className="font-bold text-slate-800 mt-1">{selectedEdi.status}</div>
+                   </div>
+                   <div>
+                     <span className="text-slate-400">Thời gian tạo:</span>
+-                    <div className="font-semibold text-slate-800 mt-0.5">
++                    <div className="font-semibold text-slate-800 mt-1">
+                       {new Date(selectedEdi.createdAt).toLocaleString('vi-VN')}
+                     </div>
+                   </div>
+                   <div>
+                     <span className="text-slate-400">Số lần thử lại:</span>
+-                    <div className="font-semibold text-slate-800 mt-0.5">
++                    <div className="font-semibold text-slate-800 mt-1">
+                       {selectedEdi.retryCount} lần
+                     </div>
+                   </div>

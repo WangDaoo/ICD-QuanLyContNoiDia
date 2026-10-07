@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+html, body, #root { min-width: 320px; min-height: 100%; }
+body { margin: 0; }
+button, input, select, textarea { font: inherit; }
+button:not(:disabled), [role="button"] { cursor: pointer; }
+button:focus-visible, a:focus-visible { outline: 2px solid #2563eb; outline-offset: 3px; }
+.app-shell { display: flex; flex-direction: column; height: 100dvh; overflow: hidden; }
+.app-content table { white-space: nowrap; }
+.app-content :is(input, select, textarea) { max-width: 100%; }
+.app-content .overflow-hidden:has(> table) { overflow-x: auto; }
+.app-content .fixed > div { max-height: calc(100dvh - 2rem); overflow-y: auto; }
+@media (max-width: 640px) {
+  .app-content .fixed { padding: .5rem; }
+  .app-content .fixed > div { padding: 1rem; max-height: calc(100dvh - 1rem); }
+  .app-content .fixed .grid-cols-2 { grid-template-columns: minmax(0, 1fr); }
+  .app-content .fixed .flex.items-center.justify-between { gap: .75rem; flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }

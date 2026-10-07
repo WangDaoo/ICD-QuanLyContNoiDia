@@ -1,0 +1,96 @@
+✖ ContainersView respects read-only and exact create permission (165.9084ms)
+✖ ManifestsView respects read-only and exact create permission (29.3004ms)
+✖ MovementOrdersView respects read-only and exact create permission (23.4007ms)
+✖ HandoversView respects read-only and exact create permission (21.2478ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 0
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4486.3099
+
+✖ failing tests:
+
+test at audit\tools\web-rbac-regression.test.mjs:13:3
+✖ ContainersView respects read-only and exact create permission (165.9084ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Chế độ chỉ đọc/. Input:
+  
+  'Container 360 · Danh sách & vòng đờiTheo dõi trạng thái vòng đời, vị trí bãi Yard, thời gian lưu bãi (Dwell days), Holds và kiểm tra điều kiện ra cổng (Readiness)Tổng cộng: 0 containersTạo Container VisitTất cả trạng tháiPendingAuthorized (Chờ cổng)In Yard (Trong bãi)Under InspectionGate Pass IssuedExited (Đã ra cổng)Chỉ container có Blocker (Lệnh giữ / Chưa thanh toán / Chưa vị trí)Hiển thị 0 containersChưa có dữ liệu trong danh sách này.Số ContainerLoạiChủ hàng (Consignee)Vị trí BãiTrạng tháiVào cổngNgày lưuBlockersThao tác'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/web-rbac-regression.test.mjs:20:27)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Container 360 · Danh sách & vòng đờiTheo dõi trạng thái vòng đời, vị trí bãi Yard, thời gian lưu bãi (Dwell days), Holds và kiểm tra điều kiện ra cổng (Readiness)Tổng cộng: 0 containersTạo Container VisitTất cả trạng tháiPendingAuthorized (Chờ cổng)In Yard (Trong bãi)Under InspectionGate Pass IssuedExited (Đã ra cổng)Chỉ container có Blocker (Lệnh giữ / Chưa thanh toán / Chưa vị trí)Hiển thị 0 containersChưa có dữ liệu trong danh sách này.Số ContainerLoạiChủ hàng (Consignee)Vị trí BãiTrạng tháiVào cổngNgày lưuBlockersThao tác',
+    expected: /Chế độ chỉ đọc/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at audit\tools\web-rbac-regression.test.mjs:13:3
+✖ ManifestsView respects read-only and exact create permission (29.3004ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Chế độ chỉ đọc/. Input:
+  
+  'Bản lược khai hàng hóa (Manifest) & Vận đơnQuản lý danh sách tàu cập, Master Bill (MBL), House Bill (HBL) và đối soát chuẩn container ISO 6346Tạo Manifest mớiCông cụ đối soát nhanh chuẩn Container ISO 6346Kiểm tra trọng số check-digit thời gian thực cho mã container 11 ký tựChuẩn ISO 6346 hợp lệChưa có dữ liệu trong danh sách này.Chọn một Manifest bên trái để xem chi tiết'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/web-rbac-regression.test.mjs:20:27)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Bản lược khai hàng hóa (Manifest) & Vận đơnQuản lý danh sách tàu cập, Master Bill (MBL), House Bill (HBL) và đối soát chuẩn container ISO 6346Tạo Manifest mớiCông cụ đối soát nhanh chuẩn Container ISO 6346Kiểm tra trọng số check-digit thời gian thực cho mã container 11 ký tựChuẩn ISO 6346 hợp lệChưa có dữ liệu trong danh sách này.Chọn một Manifest bên trái để xem chi tiết',
+    expected: /Chế độ chỉ đọc/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at audit\tools\web-rbac-regression.test.mjs:13:3
+✖ MovementOrdersView respects read-only and exact create permission (23.4007ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Chế độ chỉ đọc/. Input:
+  
+  'Movement Order — Lệnh cho phép container di chuyển về ICDMắt xích bắt buộc giữa Container Visit (PENDING) và Truck Visit/Gate-in. Chỉ khi Authorize thành công, container mới đủ điều kiện vào cổng.Thời hạn khi duyệt lệnh (giờ Việt Nam UTC+7)Mã lệnhContainerTrạng tháiTạo lúcHết hạnDuyệt bởiHành độngChưa có Movement Order nào phù hợp.'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/web-rbac-regression.test.mjs:20:27)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Movement Order — Lệnh cho phép container di chuyển về ICDMắt xích bắt buộc giữa Container Visit (PENDING) và Truck Visit/Gate-in. Chỉ khi Authorize thành công, container mới đủ điều kiện vào cổng.Thời hạn khi duyệt lệnh (giờ Việt Nam UTC+7)Mã lệnhContainerTrạng tháiTạo lúcHết hạnDuyệt bởiHành độngChưa có Movement Order nào phù hợp.',
+    expected: /Chế độ chỉ đọc/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at audit\tools\web-rbac-regression.test.mjs:13:3
+✖ HandoversView respects read-only and exact create permission (21.2478ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Chế độ chỉ đọc/. Input:
+  
+  'BÀN GIAO ĐỐI TÁCBàn giao Vận chuyển Ngoài ICD (Partner Handover)Quản lý quy trình ủy thác container cho đối tác vận tải ngoài, giao tiếp API và nghiệm thu biên bản giao nhận (POD)Tài liệu APITạo Lệnh Bàn giao mớiTất cả trạng tháiDRAFT (Nháp)READY_FOR_HANDOVER (Chờ đối tác nhận)PARTNER_ACCEPTED (Đã nhận)IN_TRANSIT (Đang vận chuyển)PARTNER_CONFIRMED (Chờ duyệt POD)ICD_CONFIRMED (Đã nghiệm thu)COMPLETED (Đã hoàn tất)Hiển thị 0 lệnh bàn giaoChưa có dữ liệu trong danh sách này.Chọn một Lệnh bàn giao bên trái để xem chi tiết'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/web-rbac-regression.test.mjs:20:27)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'BÀN GIAO ĐỐI TÁCBàn giao Vận chuyển Ngoài ICD (Partner Handover)Quản lý quy trình ủy thác container cho đối tác vận tải ngoài, giao tiếp API và nghiệm thu biên bản giao nhận (POD)Tài liệu APITạo Lệnh Bàn giao mớiTất cả trạng tháiDRAFT (Nháp)READY_FOR_HANDOVER (Chờ đối tác nhận)PARTNER_ACCEPTED (Đã nhận)IN_TRANSIT (Đang vận chuyển)PARTNER_CONFIRMED (Chờ duyệt POD)ICD_CONFIRMED (Đã nghiệm thu)COMPLETED (Đã hoàn tất)Hiển thị 0 lệnh bàn giaoChưa có dữ liệu trong danh sách này.Chọn một Lệnh bàn giao bên trái để xem chi tiết',
+    expected: /Chế độ chỉ đọc/,
+    operator: 'match',
+    diff: 'simple'
+  }

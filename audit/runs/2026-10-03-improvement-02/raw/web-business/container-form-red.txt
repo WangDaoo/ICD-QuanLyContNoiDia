@@ -1,0 +1,30 @@
+✖ Container inline Gate Pass blank submission focuses its first required receiver field (496.6954ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6621.5936
+
+✖ failing tests:
+
+test at audit\tools\improvement-web-business.test.mjs:228:1
+✖ Container inline Gate Pass blank submission focuses its first required receiver field (496.6954ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  null !== 'true'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:231:71)
+      at async withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:42:5)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:229:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: 'true',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

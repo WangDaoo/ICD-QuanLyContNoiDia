@@ -1,0 +1,200 @@
+--- before/apps/mobile/src/components/AppHeader.tsx
++++ after/apps/mobile/src/components/AppHeader.tsx
+@@ -7,6 +7,8 @@
+ import { useTheme } from '../theme/ThemeProvider';
+ import { canAccessMobileScreen } from '../features/auth/permissions';
+ import type { RootStackParamList } from '../navigation/types';
++import { layout } from '../theme/layout';
++import { displayCode } from '../presentation/labels';
+ 
+ export function AppHeader({
+   title,
+@@ -21,7 +23,7 @@
+ }) {
+   const insets = useSafeAreaInsets();
+   const { width, fontScale } = useWindowDimensions();
+-  const compact = width < 480 || fontScale > 1.2;
++  const compact = width < layout.dialogMaxWidth || fontScale > 1.2;
+   const { user } = useAuth();
+   const { theme, mode, toggleTheme } = useTheme();
+   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+@@ -29,7 +31,7 @@
+   const roleTitle: Record<string, string> = {
+     ADMIN: 'Quản trị viên Hệ thống',
+     MANAGER: 'Điều hành Vận hành',
+-    GATE_STAFF: 'Trực Cổng (Gate Lanes)',
++    GATE_STAFF: 'Nhân viên cổng',
+     YARD_STAFF: 'Bãi Container & Giám Định',
+     OPERATOR: 'Điều độ Hiện trường',
+     CONSIGNEE: 'Chủ hàng Tra cứu',
+@@ -45,22 +47,22 @@
+           : { screen: 'LookupTab', params: { screen: 'ContainerSearch' } },
+     );
+   const iconButton = {
+-    minWidth: 48,
+-    minHeight: 48,
++    minWidth: layout.touchTarget,
++    minHeight: layout.touchTarget,
+     alignItems: 'center',
+     justifyContent: 'center',
+-    borderRadius: 6,
+-    borderWidth: 1,
++    borderRadius: theme.borderRadius.sm,
++    borderWidth: layout.hairlineBorder,
+     borderColor: theme.colors.border,
+   } as const;
+   return (
+     <View
+       style={{
+         backgroundColor: theme.colors.chrome,
+-        paddingTop: insets.top + 8,
+-        paddingBottom: 8,
+-        paddingHorizontal: 12,
+-        borderBottomWidth: 1,
++        paddingTop: insets.top + theme.spacing.sm,
++        paddingBottom: theme.spacing.sm,
++        paddingHorizontal: theme.spacing.md,
++        borderBottomWidth: layout.hairlineBorder,
+         borderBottomColor: theme.colors.border,
+       }}
+     >
+@@ -69,64 +71,61 @@
+           flexDirection: compact ? 'column' : 'row',
+           alignItems: compact ? 'stretch' : 'center',
+           justifyContent: 'space-between',
+-          gap: 6,
++          gap: theme.spacing.sm,
+         }}
+       >
+-        <View style={{ flex: compact ? undefined : 1, minWidth: 0, flexDirection: 'row', alignItems: 'center', gap: 7 }}>
++        <View style={{ flex: compact ? undefined : 1, minWidth: 0, flexDirection: 'row', alignItems: 'center', gap: theme.spacing.sm }}>
+           {onBack ? (
+             <TouchableOpacity
+               accessibilityRole="button"
+               accessibilityLabel="Quay lại"
+               onPress={onBack}
+-              style={{ minWidth: 48, minHeight: 48, justifyContent: 'center', alignItems: 'center' }}
++              style={{ minWidth: layout.touchTarget, minHeight: layout.touchTarget, justifyContent: 'center', alignItems: 'center' }}
+             >
+-              <ArrowLeft size={17} color={theme.colors.textPrimary} />
++              <ArrowLeft size={layout.headerBackIcon} color={theme.colors.textPrimary} />
+             </TouchableOpacity>
+           ) : null}
+           <View style={{ flex: 1, minWidth: 0 }}>
+-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
++            <View style={{ flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: theme.spacing.sm }}>
+               <View
+                 style={{
+-                  width: 6,
+-                  height: 6,
+-                  borderRadius: 3,
++                  width: theme.spacing.sm,
++                  height: theme.spacing.sm,
++                  borderRadius: theme.borderRadius.full,
+                   backgroundColor: user ? theme.colors.success : theme.colors.textMuted,
+                 }}
+               />
+               <Text
+                 style={{
+-                  fontSize: 12,
+-                  fontWeight: '800',
+-                  letterSpacing: 0.5,
++                  ...theme.typography.bodyBold,
+                   color: theme.colors.textPrimary,
+                 }}
+               >
+                 TOS-MOBILE
+               </Text>
+               <Text
+-                numberOfLines={1}
+                 style={{
+-                  fontSize: 8,
+-                  fontWeight: '700',
++                  ...theme.typography.captionBold,
+                   color: theme.colors.dangerText,
+                   backgroundColor: theme.colors.dangerBackground,
+-                  borderRadius: 3,
+-                  padding: 3,
++                  borderRadius: theme.borderRadius.xs,
++                  padding: theme.spacing.xs,
+                   flexShrink: 1,
+                 }}
+               >
+-                {role}
++                {displayCode(role)}
+               </Text>
+             </View>
+             <Text
+-              numberOfLines={1}
+-              style={{ color: theme.colors.textMuted, fontSize: 10, marginTop: 2 }}
++              accessibilityRole="header"
++              style={{ ...theme.typography.sectionHeading, color: theme.colors.textPrimary, marginTop: theme.spacing.xs }}
+             >
+-              {onBack ? title : roleTitle[role] || subtitle || title}
++              {title}
+             </Text>
++            {subtitle ? <Text style={{ ...theme.typography.caption, color: theme.colors.textMuted }}>{subtitle}</Text> : !onBack ? <Text style={{ ...theme.typography.caption, color: theme.colors.textMuted }}>{roleTitle[role] || 'Tài khoản hiện trường'}</Text> : null}
+           </View>
+         </View>
+-        <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 4, alignItems: 'center', justifyContent: 'flex-end' }}>
++        <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: theme.spacing.sm, alignItems: 'center', justifyContent: 'flex-end' }}>
+           <TouchableOpacity
+             accessibilityRole="button"
+             accessibilityLabel={mode === 'LIGHT' ? 'Chuyển sang nền tối' : 'Chuyển sang nền sáng'}
+@@ -140,9 +139,9 @@
+             ]}
+           >
+             {mode === 'LIGHT' ? (
+-              <Sun size={15} color={theme.colors.warning} />
++              <Sun size={layout.headerActionIcon} color={theme.colors.warning} />
+             ) : (
+-              <Moon size={15} color={theme.colors.warning} />
++              <Moon size={layout.headerActionIcon} color={theme.colors.warning} />
+             )}
+           </TouchableOpacity>
+           {canAccessMobileScreen(user, 'container.read') ||
+@@ -153,18 +152,18 @@
+               accessibilityLabel="Quét mã"
+               onPress={goScan}
+               style={{
+-                minWidth: 48,
+-                minHeight: 48,
+-                paddingHorizontal: 7,
+-                borderRadius: 6,
+-                backgroundColor: '#DC2626',
++                minWidth: layout.touchTarget,
++                minHeight: layout.touchTarget,
++                paddingHorizontal: theme.spacing.sm,
++                borderRadius: theme.borderRadius.sm,
++                backgroundColor: theme.colors.dangerButton,
+                 flexDirection: 'row',
+-                gap: 3,
++                gap: theme.spacing.xs,
+                 alignItems: 'center',
+               }}
+             >
+-              <Scan size={14} color="#FFFFFF" />
+-              <Text style={{ color: '#FFFFFF', fontSize: 10, fontWeight: '700' }}>Quét</Text>
++              <Scan size={layout.headerScanIcon} color={theme.colors.onDangerButton} />
++              <Text style={{ ...theme.typography.captionBold, color: theme.colors.onDangerButton }}>Quét</Text>
+             </TouchableOpacity>
+           ) : null}
+           <TouchableOpacity
+@@ -173,7 +172,7 @@
+             onPress={() => navigation.navigate('Notifications')}
+             style={iconButton}
+           >
+-            <Bell size={15} color={theme.colors.textSecondary} />
++            <Bell size={layout.headerActionIcon} color={theme.colors.textSecondary} />
+           </TouchableOpacity>
+           <TouchableOpacity
+             accessibilityRole="button"
+@@ -181,7 +180,7 @@
+             onPress={() => navigation.navigate('Account')}
+             style={[iconButton, { backgroundColor: theme.colors.dangerBackground }]}
+           >
+-            <LogOut size={15} color={theme.colors.danger} />
++            <LogOut size={layout.headerActionIcon} color={theme.colors.danger} />
+           </TouchableOpacity>
+           {rightAction}
+         </View>

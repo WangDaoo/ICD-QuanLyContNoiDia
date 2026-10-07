@@ -1,0 +1,37 @@
+Browser tab: 20, Title: "ICD Management System — Quản lý Kho bãi Container Nội địa", URL: "http://127.0.0.1:5173/".
+0 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/
+	1 container root
+		2 container
+			278 button Mở menu điều hướng
+			3 text ICD
+			4 heading ICD Management System, Value: 1
+				5 text ICD Management System
+			7 button Tải lại dữ liệu
+			8 button (collapsed) Description: Thông báo (0 chưa đọc), Secondary Actions: Expand
+			10 button Đăng xuất
+		39 container
+			279 heading Danh sách công việc thông minh (Work Queue), Value: 2
+				280 text Danh sách công việc thông minh (Work Queue)
+			281 text Tự động sắp xếp các tác vụ theo mức độ khẩn cấp (Urgency) và cam kết thời gian hoàn thành (SLA) 0  Overdue 0  High 0  Tổng việc Bộ lọc:
+			282 pop up button (collapsed, settable) Value: Tất cả mức độ khẩn cấp, Secondary Actions: Expand
+				283 menu
+					284 (selected) Tất cả mức độ khẩn cấp
+					285 Quá hạn (OVERDUE)
+					286 Ưu tiên cao (HIGH)
+					287 Trung bình (MEDIUM)
+					288 Bình thường (NORMAL)
+			289 pop up button (collapsed, settable) Value: Tất cả loại nghiệp vụ, Secondary Actions: Expand
+				290 menu
+					291 (selected) Tất cả loại nghiệp vụ
+					292 Tiếp nhận vào cổng (Gate-in)
+					293 Xếp vị trí bãi (Yard Assign)
+					294 Thu phí dịch vụ (Billing)
+					295 Xác nhận ra cổng (Gate-out)
+					296 Duyệt bàn giao đối tác (Review POD)
+			297 checkbox (settable, integer) Description: Chỉ việc thuộc vai trò của tôi (ADMIN), Value: 0
+			298 text Chỉ việc thuộc vai trò của tôi ( ADMIN ) Hiển thị  0  /  0  tác vụ
+			299 heading Không có công việc nào cần xử lý, Value: 3
+				300 text Không có công việc nào cần xử lý
+			301 text Toàn bộ các tác vụ theo tiêu chí lọc hiện tại đã được giải quyết hoặc chưa phát sinh.
+
+The focused UI element is 0 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/

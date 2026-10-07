@@ -1,0 +1,28 @@
+{
+  "status": "VERIFIED",
+  "change": "Token-bearing react-qr-code replaces decorative icon in Container360.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/ContainersView.tsx",
+      "line": 1042,
+      "detail": "<QRCode",
+      "snippet": "                          <QRCode\n                            value={activeVisitGatePass.qrToken}\n                            size={160}\n                            data-testid=\"container-gate-pass-qr\""
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/web-fixtures-final.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/qr-runtime-decode.json",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/qr-runtime-backend.json"
+  ],
+  "limitations": "Real backend-ready synthetic lifecycle, real Container360 QR screenshot; OpenCV decoded value SHA256 equals backend token. Test pass cancelled afterward; token text is not in the report.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [
+    "Decode QR in both screens in a disposable fixture; decoded value equals the same qrToken.",
+    "No token/permission: display honest unavailable text and a route to dedicated Gate Pass.",
+    "Keep a readable code alternative and expiration guidance."
+  ],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/ContainersView.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

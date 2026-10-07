@@ -1,0 +1,830 @@
+{
+  "controls": [
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Đến nội dung nghiệp vụ",
+      "tag": "A",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Tải lại dữ liệu",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": "button"
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Thông báo (0 chưa đọc)",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": "button"
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Đăng xuất",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": "button"
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Tổng quan vận hành",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Danh sách công việc12",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Bản lược khai (Manifest)",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Quản lý Container",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Movement Order",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Chuyến xe ra/vào",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Tiếp nhận vào cổng (Gate-in)",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Vận hành Bãi (Yard)",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Dịch vụ & Thanh toán",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Phiếu ra cổng & Gate-out",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Vận hành EDI (CODECO)",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Bàn giao vận chuyển",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Đối tác tích hợp API",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Nhật ký API đối tác",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Danh mục dùng chung",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Người dùng & Phân quyền",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Báo cáo vận hành",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Nhật ký kiểm toán",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Tải lại",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": "button"
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Thêm mới",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Hãng tàu (Shipping Line)",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Chủ hàng (Consignee)",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Đại lý Hải quan",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Đơn vị Vận tải",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    },
+    {
+      "cursor": "pointer",
+      "duration": "0.15s",
+      "easing": "ease-out",
+      "name": "Khóa",
+      "tag": "BUTTON",
+      "transition": "background-color, color, border-color, opacity",
+      "type": null
+    }
+  ],
+  "headings": [
+    {
+      "fontSize": "16px",
+      "letterSpacing": "-0.4px",
+      "lineHeight": "20px",
+      "tag": "H1",
+      "text": "ICD Management System"
+    },
+    {
+      "fontSize": "18px",
+      "letterSpacing": "normal",
+      "lineHeight": "22.5px",
+      "tag": "H2",
+      "text": "Danh mục dùng chung (Master Data)"
+    }
+  ]
+}

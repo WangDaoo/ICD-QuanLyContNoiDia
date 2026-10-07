@@ -1,0 +1,22 @@
+{
+  "status": "FIXED",
+  "change": "Server unread count is visible and only updated after authoritative mark-read outcomes.",
+  "source_evidence": [
+    {
+      "file": "apps/mobile/src/features/notifications/screens/NotificationsScreen.tsx",
+      "line": 29,
+      "detail": "unreadCount",
+      "snippet": "  const [unreadCount, setUnreadCount] = useState<number | null>(null);\n  const [unreadOnly, setUnreadOnly] = useState(false);\n  const [type, setType] = useState('');\n  const [selected, setSelected] = useState<NotificationRecord | null>(null);"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+  ],
+  "limitations": "Zero/nonzero/count failures fixtures; native notification integration pending.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/features/notifications/screens/NotificationsScreen.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

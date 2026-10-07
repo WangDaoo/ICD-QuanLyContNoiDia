@@ -1,0 +1,27 @@
+✖ Truck create destination does not reopen a dismissed form on an unrelated collection refresh (300.9374ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4339.9053
+
+✖ failing tests:
+
+test at audit\tools\improvement-web-business-independent.test.mjs:110:1
+✖ Truck create destination does not reopen a dismissed form on an unrelated collection refresh (300.9374ms)
+  AssertionError [ERR_ASSERTION]: a data refresh must not repeat the already handled create intent
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:117:12)
+      at async withFixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:58:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:111:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

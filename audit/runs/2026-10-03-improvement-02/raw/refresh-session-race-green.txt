@@ -1,0 +1,19 @@
+✔ switching user starts a fresh read and a late previous refresh cannot clear its pending state (107.1568ms)
+✔ failed critical GET preserves stale records, distinguishes unknown from empty and recovers on retry (110.8917ms)
+✔ W-S-016 review: initial failed holds and passes retain unavailable markers rather than verified absence (128.729ms)
+✔ W-S-016 review: successful empty reads are ready and show no critical-data warning (13.1358ms)
+✔ W-S-016 review: failed gate-pass reload preserves stale row, forbidden reload removes it, and retry recovers (11.5854ms)
+✔ W-S-016 review: later-page hold rejection discards incomplete fresh rows and marks retained records stale (9.955ms)
+✔ W-S-016 review: unknown per-visit key and failed hold data cannot produce a green state appearance (0.7354ms)
+✔ W-S-016 review: an existing visit missing its status must produce a global warning (0.5524ms)
+✔ W-S-016 review: an existing visit missing its status must not reassure with zero holds (93.453ms)
+✔ direct re-login loads new session data despite an older pending refresh (20.6547ms)
+✔ W-S-020 independent review: raw request and response remain hidden and redacted text cannot become markup (28.2805ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3487.3636

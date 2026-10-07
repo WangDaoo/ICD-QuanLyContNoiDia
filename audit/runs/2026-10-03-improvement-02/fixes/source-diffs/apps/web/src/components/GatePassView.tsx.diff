@@ -1,0 +1,690 @@
+--- before/apps/web/src/components/GatePassView.tsx
++++ after/apps/web/src/components/GatePassView.tsx
+@@ -1,34 +1,37 @@
++import { useViewQueryState } from '../context/useViewQueryState';
+ import { ModalOverlay } from './ModalOverlay';
+ import React, { useEffect, useState } from 'react';
+ import QRCode from 'react-qr-code';
+ import { useApp } from '../context/AppContext';
+-import { readinessLabel } from '../services/readiness-labels';
+-import { GatePass, ContainerVisit } from '../types';
+-import {
+-  QrCode,
+-  LogOut,
+-  CheckCircle2,
+-  AlertCircle,
+-  Clock,
+-  Send,
+-  Plus,
+-  Search,
+-  Scan,
+-  ShieldCheck,
+-  Truck,
+-  ExternalLink,
+-} from 'lucide-react';
++
++import { GatePass } from '../types';
++import { QrCode, LogOut, CheckCircle2, AlertCircle, Send, Plus, Search, Scan } from 'lucide-react';
+ import { NavTabId } from './Sidebar';
+ import { useBackendReadiness } from './useBackendReadiness';
+ import { CriticalDataNotice } from './CriticalDataNotice';
+ 
++import { useCommandAction, CommandNotice } from './useCommandAction';
++import { useFormValidation, FormErrors } from './useFormValidation';
++import { CollectionState } from './CollectionState';
++import { effectiveGatePassStatus, gatePassStatusMessage } from '../lib/gate-pass';
++import { ReadinessNotice } from './ReadinessNotice';
++import { useGatePassExpiry } from './useGatePassExpiry';
++
+ interface GatePassViewProps {
++  targetGatePassId?: string;
++  targetAction?: 'create';
+   onNavigate: (tab: NavTabId, contextId?: string) => void;
+   targetVisitId?: string;
+ }
+ 
+-export const GatePassView: React.FC<GatePassViewProps> = ({ onNavigate, targetVisitId }) => {
++export const GatePassView: React.FC<GatePassViewProps> = ({
++  onNavigate,
++  targetVisitId,
++  targetGatePassId,
++  targetAction,
++}) => {
+   const {
++    currentUser,
+     gatePasses,
+     containerVisits,
+     scanAndGateOut,
+@@ -36,9 +39,19 @@
+     cancelGatePass,
+   } = useApp();
+ 
+-  const [searchTerm, setSearchTerm] = useState('');
+-  const [selectedGatePassId, setSelectedGatePassId] = useState<string | null>(gatePasses[0]?.id || null);
++  const can = (permission: string) =>
++    currentUser.permissionCodes?.some((code) => code === '*' || code === permission) ?? false;
++  const action = useCommandAction();
++  const now = useGatePassExpiry(gatePasses);
++  const validation = useFormValidation();
++  const [searchTerm, setSearchTerm] = useViewQueryState('gate-pass', 'search', '');
++  const [selectedGatePassId, setSelectedGatePassId] = useViewQueryState(
++    'gate-pass',
++    'selection',
++    targetGatePassId || gatePasses[0]?.id || '',
++  );
+   const selectedGatePass = gatePasses.find((g) => g.id === selectedGatePassId) || null;
++  const selectedStatus = selectedGatePass ? effectiveGatePassStatus(selectedGatePass, now) : null;
+   const [showIssueModal, setShowIssueModal] = useState(false);
+ 
+   // Tra cứu phiếu từ dữ liệu backend; xác nhận Gate-out là command riêng.
+@@ -46,42 +59,61 @@
+   const [scanResult, setScanResult] = useState<{ success: boolean; message: string } | null>(null);
+ 
+   // Issue Form state
+-  const eligibleContainers = containerVisits.filter(
+-    (c) => ['IN_YARD', 'STRIPPED', 'UNDER_INSPECTION', 'IN_STRIPPING'].includes(c.state)
++  const eligibleContainers = containerVisits.filter((c) =>
++    ['IN_YARD', 'STRIPPED', 'UNDER_INSPECTION', 'IN_STRIPPING'].includes(c.state),
+   );
+   const [issueVisitId, setIssueVisitId] = useState(targetVisitId || '');
+   const [vehiclePlate, setVehiclePlate] = useState('');
+   const [receiverName, setReceiverName] = useState('');
+   const [receiverCccd, setReceiverCccd] = useState('');
+-  const { readiness, readinessError, isCheckingReadiness } = useBackendReadiness(showIssueModal ? issueVisitId : null);
++  const evaluation = useBackendReadiness(showIssueModal ? issueVisitId : null);
+ 
+   useEffect(() => {
+-    if (targetVisitId) { setIssueVisitId(targetVisitId); setShowIssueModal(true); }
+-  }, [targetVisitId]);
++    if (
++      !targetGatePassId &&
++      targetAction === 'create' &&
++      targetVisitId &&
++      can('gate_pass.create')
++    ) {
++      setIssueVisitId(targetVisitId);
++      setShowIssueModal(true);
++    }
++  }, [targetVisitId, targetGatePassId, targetAction]);
+   useEffect(() => {
+     if (!selectedGatePassId && gatePasses.length) setSelectedGatePassId(gatePasses[0].id);
+   }, [gatePasses, selectedGatePassId]);
++
++  useEffect(() => {
++    if (targetGatePassId) setSelectedGatePassId(targetGatePassId);
++  }, [targetGatePassId]);
+ 
+   const filteredPasses = gatePasses.filter(
+     (gp) =>
+       gp.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
+       gp.containerNumber.toLowerCase().includes(searchTerm.toLowerCase()) ||
+-      gp.vehiclePlate.toLowerCase().includes(searchTerm.toLowerCase())
++      gp.vehiclePlate.toLowerCase().includes(searchTerm.toLowerCase()),
+   );
+ 
+-  const handleIssueGatePass = async (e: React.FormEvent) => {
++  const handleIssueGatePass = async (e: React.FormEvent<HTMLFormElement>) => {
+     e.preventDefault();
+-    if (!issueVisitId) return;
+-
+-    const res = await createGatePass({
+-      visitId: issueVisitId,
+-      vehiclePlate,
+-      receiverName,
+-      receiverIdNumber: receiverCccd,
+-    });
+-
+-    alert(res.message);
+-    if (res.success && res.gatePass) {
++    if (
++      !can('gate_pass.create') ||
++      action.isPending() ||
++      !validation.validate(e.currentTarget) ||
++      evaluation.status !== 'ready'
++    )
++      return;
++
++    const res = await action.run(() =>
++      createGatePass({
++        visitId: issueVisitId,
++        vehiclePlate,
++        receiverName,
++        receiverIdNumber: receiverCccd,
++      }),
++    );
++
++    if (res?.success && res.gatePass) {
+       setSelectedGatePassId(res.gatePass.id);
+       setShowIssueModal(false);
+     }
+@@ -94,7 +126,7 @@
+     const target = gatePasses.find(
+       (gp) =>
+         gp.qrToken.toLowerCase() === scannerInput.trim().toLowerCase() ||
+-        gp.code.toLowerCase() === scannerInput.trim().toLowerCase()
++        gp.code.toLowerCase() === scannerInput.trim().toLowerCase(),
+     );
+ 
+     if (!target) {
+@@ -113,9 +145,9 @@
+   };
+ 
+   const handleConfirmExit = async (pass: GatePass) => {
+-    const res = await scanAndGateOut(pass.code);
+-    alert(res.message);
+-    if (res.success) {
++    if (!can('gate_pass.use') || effectiveGatePassStatus(pass) !== 'ACTIVE') return;
++    const res = await action.run(() => scanAndGateOut(pass.qrToken || pass.code));
++    if (res?.success) {
+       setSelectedGatePassId(pass.id);
+     }
+   };
+@@ -131,17 +163,23 @@
+             <span>Phiếu ra cổng (Gate Pass) & Kiểm soát Xuất kho</span>
+           </h2>
+           <p className="text-xs text-slate-500 mt-1">
+-            Phát hành mã QR Code ra cổng có thời hạn 24 giờ, đối soát cổng Outbound và xác nhận Gate-out
++            Phát hành mã QR Code ra cổng có thời hạn 24 giờ, đối soát cổng Outbound và xác nhận
++            Gate-out
+           </p>
+         </div>
+ 
+-        <button
+-          onClick={() => setShowIssueModal(true)}
+-          className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-lg transition shadow-xs flex items-center space-x-1.5"
+-        >
+-          <Plus className="w-4 h-4" />
+-          <span>Cấp Phiếu ra cổng mới</span>
+-        </button>
++        {can('gate_pass.create') && (
++          <button
++            onClick={() => {
++              action.clear();
++              setShowIssueModal(true);
++            }}
++            className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-lg transition shadow-xs flex items-center space-x-2"
++          >
++            <Plus className="w-4 h-4" />
++            <span>Cấp Phiếu ra cổng mới</span>
++          </button>
++        )}
+       </div>
+ 
+       {/* Tra cứu mã phiếu */}
+@@ -152,7 +190,9 @@
+           </div>
+           <div>
+             <div className="font-bold text-slate-100">Tra cứu phiếu ra cổng</div>
+-            <div className="text-slate-400 text-[11px]">Quét mã QR từ app tài xế hoặc nhập mã GP-XXXX để xác thực</div>
++            <div className="text-slate-400 text-caption">
++              Quét mã QR từ app tài xế hoặc nhập mã GP-XXXX để xác thực
++            </div>
+           </div>
+         </div>
+ 
+@@ -160,13 +200,14 @@
+           <input
+             type="text"
+             placeholder="Nhập mã QR Token hoặc GP Code..."
++            aria-label="Mã QR hoặc mã Gate Pass"
+             value={scannerInput}
+             onChange={(e) => setScannerInput(e.target.value)}
+-            className="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-white font-mono text-xs w-64 focus:outline-none focus:ring-1 focus:ring-indigo-400"
++            className="px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white font-mono text-xs w-64 focus:outline-none focus:ring-1 focus:ring-indigo-400"
+           />
+           <button
+             type="submit"
+-            className="px-3.5 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-lg transition"
++            className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-lg transition"
+           >
+             Quét mã
+           </button>
+@@ -176,14 +217,21 @@
+       {scanResult && (
+         <div
+           className={`p-3 rounded-lg text-xs font-semibold flex items-center space-x-2 ${
+-            scanResult.success ? 'bg-emerald-50 text-emerald-800 border border-emerald-200' : 'bg-rose-50 text-rose-800 border border-rose-200'
++            scanResult.success
++              ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
++              : 'bg-rose-50 text-rose-800 border border-rose-200'
+           }`}
+         >
+-          {scanResult.success ? <CheckCircle2 className="w-4 h-4" /> : <AlertCircle className="w-4 h-4" />}
++          {scanResult.success ? (
++            <CheckCircle2 className="w-4 h-4" />
++          ) : (
++            <AlertCircle className="w-4 h-4" />
++          )}
+           <span>{scanResult.message}</span>
+         </div>
+       )}
+ 
++      {!showIssueModal && <CommandNotice notice={action.notice} />}
+       {/* Main Grid: Gate Passes list & Pass QR Detail */}
+       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+         {/* Left: Passes List */}
+@@ -193,6 +241,7 @@
+             <input
+               type="text"
+               placeholder="Tìm mã GP, số cont, biển số xe..."
++              aria-label="Tìm Gate Pass"
+               value={searchTerm}
+               onChange={(e) => setSearchTerm(e.target.value)}
+               className="w-full pl-9 pr-3 py-2 text-xs bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-indigo-500"
+@@ -200,11 +249,20 @@
+           </div>
+ 
+           <div className="space-y-2">
++            <CollectionState
++              resource="gatePasses"
++              count={filteredPasses.length}
++              total={gatePasses.length}
++              filtered={!!searchTerm}
++              onClear={() => setSearchTerm('')}
++            />
+             {filteredPasses.map((gp) => {
+               const isSelected = selectedGatePass?.id === gp.id;
+-              const isExpired = new Date(gp.expiresAt).getTime() < Date.now();
++              const effectiveStatus = effectiveGatePassStatus(gp, now);
+               return (
+-                <button type="button" aria-pressed={isSelected}
++                <button
++                  type="button"
++                  aria-pressed={isSelected}
+                   key={gp.id}
+                   onClick={() => setSelectedGatePassId(gp.id)}
+                   className={`block w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 p-4 rounded-xl border cursor-pointer transition ${
+@@ -216,19 +274,21 @@
+                   <span className="block flex items-center justify-between">
+                     <span className="text-xs font-mono font-bold text-indigo-700">{gp.code}</span>
+                     <span
+-                      className={`px-2 py-0.5 text-[10px] font-bold rounded-full ${
+-                        gp.status === 'ACTIVE' && !isExpired
++                      className={`px-2 py-1 text-caption font-bold rounded-full ${
++                        effectiveStatus === 'ACTIVE'
+                           ? 'bg-emerald-100 text-emerald-800'
+                           : gp.status === 'USED'
+-                          ? 'bg-slate-200 text-slate-700'
+-                          : 'bg-rose-100 text-rose-800'
++                            ? 'bg-slate-200 text-slate-700'
++                            : 'bg-rose-100 text-rose-800'
+                       }`}
+                     >
+-                      {isExpired && gp.status === 'ACTIVE' ? 'EXPIRED' : gp.status}
++                      {effectiveStatus}
+                     </span>
+                   </span>
+-                  <span className="block font-mono font-bold text-slate-800 text-xs mt-1">{gp.containerNumber}</span>
+-                  <span className="block text-[11px] text-slate-500 mt-1 flex justify-between">
++                  <span className="block font-mono font-bold text-slate-800 text-xs mt-1">
++                    {gp.containerNumber}
++                  </span>
++                  <span className="block text-caption text-slate-500 mt-1 flex justify-between">
+                     <span>Xe: {gp.vehiclePlate}</span>
+                     <span>Tài xế: {gp.receiverName}</span>
+                   </span>
+@@ -245,20 +305,22 @@
+               <div className="flex items-center justify-between border-b border-slate-200 pb-4">
+                 <div>
+                   <div className="flex items-center space-x-2">
+-                    <h3 className="text-lg font-bold font-mono text-slate-900">{selectedGatePass.code}</h3>
++                    <h3 className="text-lg font-bold font-mono text-slate-900">
++                      {selectedGatePass.code}
++                    </h3>
+                     <span
+-                      className={`px-2.5 py-0.5 rounded-full text-xs font-bold ${
+-                        selectedGatePass.status === 'ACTIVE'
++                      className={`px-3 py-1 rounded-full text-xs font-bold ${
++                        selectedStatus === 'ACTIVE'
+                           ? 'bg-emerald-100 text-emerald-800'
+                           : selectedGatePass.status === 'USED'
+-                          ? 'bg-slate-200 text-slate-800'
+-                          : 'bg-rose-100 text-rose-800'
++                            ? 'bg-slate-200 text-slate-800'
++                            : 'bg-rose-100 text-rose-800'
+                       }`}
+                     >
+-                      {selectedGatePass.status}
++                      {selectedStatus}
+                     </span>
+                   </div>
+-                  <p className="text-slate-500 mt-0.5">
++                  <p className="text-slate-500 mt-1">
+                     Phát hành lúc: {new Date(selectedGatePass.issuedAt).toLocaleString('vi-VN')}
+                   </p>
+                 </div>
+@@ -274,67 +336,102 @@
+               {/* QR Code Presentation Box */}
+               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 text-center space-y-3">
+                 <div className="bg-white p-4 rounded-xl border border-slate-200 inline-block shadow-xs">
+-                  {selectedGatePass.qrToken ? <QRCode value={selectedGatePass.qrToken} size={160} /> : <p>QR chỉ hiển thị với phiếu còn hiệu lực và tài khoản có quyền phát hành.</p>}
+-                </div>
+-                <div className="font-mono text-slate-500 font-semibold break-all text-[10px] max-w-full">{selectedGatePass.qrToken}</div>
++                  {selectedStatus === 'ACTIVE' && selectedGatePass.qrToken ? (
++                    <QRCode
++                      value={selectedGatePass.qrToken}
++                      size={160}
++                      data-testid="gate-pass-qr"
++                    />
++                  ) : (
++                    <p>QR chỉ hiển thị với phiếu còn hiệu lực và tài khoản có quyền phát hành.</p>
++                  )}
++                </div>
++                <div className="font-mono text-slate-500 font-semibold break-all text-caption max-w-full">
++                  {selectedStatus === 'ACTIVE' ? selectedGatePass.qrToken : ''}
++                </div>
+                 <div className="text-slate-600 max-w-sm mx-auto">
+-                  Trình mã này tại cổng Outbound để nhân viên đối soát biển số xe và mở barie.
++                  {selectedStatus && gatePassStatusMessage(selectedStatus)}
+                 </div>
+               </div>
+ 
+               {/* Vehicle & Receiver verification */}
+               <div className="grid grid-cols-2 gap-4">
+-                <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 space-y-1.5">
++                <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                   <div className="font-bold text-slate-800">Thông tin Phương tiện</div>
+-                  <div>Biển số đăng ký: <strong className="font-mono">{selectedGatePass.vehiclePlate}</strong></div>
+-                  <div>Người nhận hàng: <strong>{selectedGatePass.receiverName}</strong></div>
+-                  <div>Số CMND/CCCD: <strong className="font-mono">{selectedGatePass.receiverIdNumber}</strong></div>
+-                </div>
+-
+-                <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 space-y-1.5">
++                  <div>
++                    Biển số đăng ký:{' '}
++                    <strong className="font-mono">{selectedGatePass.vehiclePlate}</strong>
++                  </div>
++                  <div>
++                    Người nhận hàng: <strong>{selectedGatePass.receiverName}</strong>
++                  </div>
++                  <div>
++                    Số CMND/CCCD:{' '}
++                    <strong className="font-mono">{selectedGatePass.receiverIdNumber}</strong>
++                  </div>
++                </div>
++
++                <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                   <div className="font-bold text-slate-800">Hồ sơ Container</div>
+-                  <div>Số container: <strong className="font-mono text-indigo-700">{selectedGatePass.containerNumber}</strong></div>
+-                  <div>Mã chuyến tiếp nhận: <strong className="font-mono text-slate-600">{selectedGatePass.containerVisitId}</strong></div>
+-                  <div className="text-slate-500">Điều kiện được backend kiểm tra lại khi xác nhận ra cổng.</div>
++                  <div>
++                    Số container:{' '}
++                    <strong className="font-mono text-indigo-700">
++                      {selectedGatePass.containerNumber}
++                    </strong>
++                  </div>
++                  <div>
++                    Mã chuyến tiếp nhận:{' '}
++                    <strong className="font-mono text-slate-600">
++                      {selectedGatePass.containerVisitId}
++                    </strong>
++                  </div>
++                  <div className="text-slate-500">
++                    Điều kiện được backend kiểm tra lại khi xác nhận ra cổng.
++                  </div>
+                 </div>
+               </div>
+ 
+               {/* Gate-out Action */}
+               <div className="pt-4 border-t border-slate-200 flex items-center justify-between">
+                 <div className="text-slate-500">
+-                  {selectedGatePass.status === 'ACTIVE'
+-                    ? 'Nhân viên bảo vệ kiểm tra xong biển số và số chì có thể xác nhận cho xe ra.'
+-                    : 'Phiếu này đã được sử dụng để xuất cổng.'}
+-                </div>
+-
+-                {selectedGatePass.status === 'ACTIVE' ? (
++                  {selectedStatus && gatePassStatusMessage(selectedStatus)}
++                </div>
++
++                {selectedStatus === 'ACTIVE' ? (
+                   <div className="flex items-center gap-2">
+-                    <button
+-                      onClick={async () => {
+-                        const reason = window.prompt('Lý do hủy Gate Pass:');
+-                        if (reason) alert((await cancelGatePass(selectedGatePass.id, reason)).message);
+-                      }}
+-                      className="px-4 py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold rounded-lg border border-rose-200 transition"
+-                    >
+-                      Hủy Gate Pass
+-                    </button>
+-                    <button
+-                      onClick={() => handleConfirmExit(selectedGatePass)}
+-                      className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow-sm flex items-center space-x-2 transition"
+-                    >
+-                      <LogOut className="w-4 h-4" />
+-                      <span>Xác nhận Ra cổng (Gate-out)</span>
+-                    </button>
+-                  </div>
+-                ) : (
++                    {can('gate_pass.create') && (
++                      <button
++                        disabled={action.pending}
++                        onClick={async () => {
++                          const reason = window.prompt('Lý do hủy Gate Pass:');
++                          if (reason && window.confirm(`Hủy phiếu ${selectedGatePass.code}?`))
++                            await action.run(() => cancelGatePass(selectedGatePass.id, reason));
++                        }}
++                        className="px-4 py-3 bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold rounded-lg border border-rose-200 transition"
++                      >
++                        Hủy Gate Pass
++                      </button>
++                    )}
++                    {can('gate_pass.use') && (
++                      <button
++                        disabled={action.pending}
++                        onClick={() => handleConfirmExit(selectedGatePass)}
++                        className="px-5 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow-sm flex items-center space-x-2 transition"
++                      >
++                        <LogOut className="w-4 h-4" />
++                        <span>Xác nhận Ra cổng (Gate-out)</span>
++                      </button>
++                    )}
++                  </div>
++                ) : selectedStatus === 'USED' && can('handover.read') ? (
+                   <button
+                     onClick={() => onNavigate('handovers')}
+-                    className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg flex items-center space-x-1.5"
++                    className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg flex items-center space-x-2"
+                   >
+                     <Send className="w-3.5 h-3.5" />
+                     <span>Tiến hành bàn giao vận chuyển</span>
+                   </button>
+-                )}
++                ) : null}
+               </div>
+             </div>
+           ) : (
+@@ -347,83 +444,119 @@
+ 
+       {/* Issue Modal */}
+       {showIssueModal && (
+-        <ModalOverlay aria-labelledby="gate-pass-dialog-1-title" onClose={() => setShowIssueModal(false)} className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center z-50 p-4">
++        <ModalOverlay
++          aria-labelledby="gate-pass-dialog-1-title"
++          pending={action.pending}
++          onClose={() => {
++            if (!action.isPending()) setShowIssueModal(false);
++          }}
++          className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center z-50 p-4"
++        >
+           <div className="bg-white rounded-xl max-w-md w-full p-6 shadow-xl border border-slate-200 text-xs">
+-            <h3 id="gate-pass-dialog-1-title" className="text-base font-bold text-slate-900 mb-2">Phát hành Phiếu ra cổng (Gate Pass)</h3>
++            <h3 id="gate-pass-dialog-1-title" className="text-base font-bold text-slate-900 mb-2">
++              Phát hành Phiếu ra cổng (Gate Pass)
++            </h3>
+             <p className="text-slate-500 mb-4">
+-              Chọn container để kiểm tra hồ sơ, thanh toán và lệnh giữ từ backend trước khi phát hành.
++              Chọn container để kiểm tra hồ sơ, thanh toán và lệnh giữ từ backend trước khi phát
++              hành.
+             </p>
+ 
+-            <form onSubmit={handleIssueGatePass} className="space-y-4">
+-              <div>
+-                <label htmlFor="gate-pass-issue-visit-id" className="block font-semibold text-slate-700 mb-1">Chọn container trong bãi*</label>
+-                {eligibleContainers.length === 0 ? (
+-                  <div className="p-3 bg-amber-50 border border-amber-200 text-amber-900 rounded-lg">
+-                    Chưa có container trong bãi để kiểm tra.
+-                  </div>
+-                ) : (
+-                  <select id="gate-pass-issue-visit-id"
+-                    value={issueVisitId}
+-                    onChange={(e) => setIssueVisitId(e.target.value)}
+-                    className="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono font-bold bg-white"
++            <form noValidate onSubmit={handleIssueGatePass} className="space-y-4">
++              <FormErrors errors={validation.errors} />
++              <CommandNotice notice={action.notice} />
++              <fieldset disabled={action.pending} className="space-y-4">
++                <div>
++                  <label
++                    htmlFor="gate-pass-issue-visit-id"
++                    className="block font-semibold text-slate-700 mb-1"
+                   >
+-                    <option value="">Chọn container…</option>
+-                    {eligibleContainers.map((c) => (
+-                      <option key={c.id} value={c.id}>
+-                        {c.containerNumber} — {c.consigneeName} ({c.currentLocation})
+-                      </option>
+-                    ))}
+-                  </select>
+-                )}
+-              </div>
+-
+-              {isCheckingReadiness && <p role="status" className="text-slate-500">Đang kiểm tra điều kiện ra cổng…</p>}
+-              {readinessError && <p role="alert" className="text-rose-700">{readinessError}</p>}
+-              {readiness && (readiness.blockers.length ? <div className="p-3 rounded-lg border border-amber-200 bg-amber-50 text-amber-900"><strong>Điều kiện chưa đạt:</strong><ul className="list-disc pl-4 mt-1">{readiness.blockers.map((blocker, index) => <li key={index}>{readinessLabel(blocker)}</li>)}</ul></div> : <p className="text-emerald-700">Đạt điều kiện từ backend. Hệ thống sẽ kiểm tra lại khi phát hành.</p>)}
+-
+-              <div>
+-                <label htmlFor="gate-pass-receiver-vehicle-plate" className="block font-semibold text-slate-700 mb-1">Biển số xe nhận hàng*</label>
+-                <input
+-                  id="gate-pass-receiver-vehicle-plate"
+-                  type="text"
+-                  required
+-                  value={vehiclePlate}
+-                  aria-label="Biển số xe nhận hàng"
+-                  onChange={(e) => setVehiclePlate(e.target.value)}
+-                  className="w-full px-3 py-2 border border-slate-300 rounded-lg uppercase font-mono"
+-                />
+-              </div>
+-
+-              <div className="grid grid-cols-2 gap-2">
++                    Chọn container trong bãi*
++                  </label>
++                  {eligibleContainers.length === 0 ? (
++                    <div className="p-3 bg-amber-50 border border-amber-200 text-amber-900 rounded-lg">
++                      Chưa có container trong bãi để kiểm tra.
++                    </div>
++                  ) : (
++                    <select
++                      required
++                      {...validation.props('gate-pass-issue-visit-id')}
++                      id="gate-pass-issue-visit-id"
++                      value={issueVisitId}
++                      onChange={(e) => setIssueVisitId(e.target.value)}
++                      className="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono font-bold bg-white"
++                    >
++                      <option value="">Chọn container…</option>
++                      {eligibleContainers.map((c) => (
++                        <option key={c.id} value={c.id}>
++                          {c.containerNumber} — {c.consigneeName} ({c.currentLocation})
++                        </option>
++                      ))}
++                    </select>
++                  )}
++                </div>
++
++                <ReadinessNotice evaluation={evaluation} />
++
+                 <div>
+-                  <label htmlFor="gate-pass-receiver-name" className="block font-semibold text-slate-700 mb-1">Tên tài xế / Người nhận*</label>
++                  <label
++                    htmlFor="gate-pass-receiver-vehicle-plate"
++                    className="block font-semibold text-slate-700 mb-1"
++                  >
++                    Biển số xe nhận hàng*
++                  </label>
+                   <input
+-                    id="gate-pass-receiver-name"
++                    id="gate-pass-receiver-vehicle-plate"
++                    {...validation.props('gate-pass-receiver-vehicle-plate')}
+                     type="text"
+                     required
+-                    value={receiverName}
+-                    aria-label="Tên tài xế / Người nhận"
+-                    onChange={(e) => setReceiverName(e.target.value)}
+-                    className="w-full px-3 py-2 border border-slate-300 rounded-lg"
++                    value={vehiclePlate}
++                    aria-label="Biển số xe nhận hàng"
++                    onChange={(e) => setVehiclePlate(e.target.value)}
++                    className="w-full px-3 py-2 border border-slate-300 rounded-lg uppercase font-mono"
+                   />
+                 </div>
+-                <div>
+-                  <label htmlFor="gate-pass-receiver-cccd" className="block font-semibold text-slate-700 mb-1">Số CMND / CCCD*</label>
+-                  <input
+-                    id="gate-pass-receiver-cccd"
+-                    type="text"
+-                    required
+-                    value={receiverCccd}
+-                    aria-label="Số CMND / CCCD"
+-                    onChange={(e) => setReceiverCccd(e.target.value)}
+-                    className="w-full px-3 py-2 border border-slate-300 rounded-lg"
+-                  />
+-                </div>
+-              </div>
+-
++
++                <div className="grid grid-cols-2 gap-2">
++                  <div>
++                    <label
++                      htmlFor="gate-pass-receiver-name"
++                      className="block font-semibold text-slate-700 mb-1"
++                    >
++                      Tên tài xế / Người nhận*
++                    </label>
++                    <input
++                      id="gate-pass-receiver-name"
++                      type="text"
++                      required
++                      value={receiverName}
++                      aria-label="Tên tài xế / Người nhận"
++                      onChange={(e) => setReceiverName(e.target.value)}
++                      className="w-full px-3 py-2 border border-slate-300 rounded-lg"
++                    />
++                  </div>
++                  <div>
++                    <label
++                      htmlFor="gate-pass-receiver-cccd"
++                      className="block font-semibold text-slate-700 mb-1"
++                    >
++                      Số CMND / CCCD*
++                    </label>
++                    <input
++                      id="gate-pass-receiver-cccd"
++                      type="text"
++                      required
++                      value={receiverCccd}
++                      aria-label="Số CMND / CCCD"
++                      onChange={(e) => setReceiverCccd(e.target.value)}
++                      className="w-full px-3 py-2 border border-slate-300 rounded-lg"
++                    />
++                  </div>
++                </div>
++              </fieldset>
+               <div className="flex justify-end space-x-2 pt-3 border-t border-slate-200">
+                 <button
+                   type="button"
++                  disabled={action.pending}
+                   onClick={() => setShowIssueModal(false)}
+                   className="px-4 py-2 border border-slate-300 rounded-lg text-slate-700"
+                 >
+@@ -431,7 +564,7 @@
+                 </button>
+                 <button
+                   type="submit"
+-                  disabled={!readiness || readiness.blockers.length > 0 || isCheckingReadiness}
++                  disabled={action.pending || evaluation.status !== 'ready'}
+                   className="px-4 py-2 bg-indigo-600 text-white rounded-lg font-bold hover:bg-indigo-700 disabled:opacity-50"
+                 >
+                   Phát hành & Sinh mã QR

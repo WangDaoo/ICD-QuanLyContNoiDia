@@ -1,0 +1,11 @@
+--- before/apps/mobile/tests/support-contracts.test.cjs
++++ after/apps/mobile/tests/support-contracts.test.cjs
+@@ -8,7 +8,7 @@
+   if (!fs.existsSync(filename)) return {};
+   const code = ts.transpileModule(fs.readFileSync(filename, 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText;
+   const module = { exports: {} };
+-  new Function('require', 'module', 'exports', code)(name => mocks[name] ?? require(name), module, module.exports);
++  new Function('require', 'module', 'exports', code)(name => mocks[name] ?? (name === './connection-gate' ? load('services/api/connection-gate.ts') : require(name)), module, module.exports);
+   return module.exports;
+ }
+ test('notification routes allow only known local destinations with required identifiers', () => {

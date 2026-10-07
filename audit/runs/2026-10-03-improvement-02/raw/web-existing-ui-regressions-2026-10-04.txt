@@ -1,0 +1,47 @@
+✔ offline Color4 contrast tool is present (2.1497ms)
+✔ known black/white WCAG contrast is 21 (6.35ms)
+✔ OKLCH neutral L=.5 parses and has white contrast six (2.9078ms)
+✔ half-transparent black is composited over the measured white surface (1.1041ms)
+✔ nearest transparent surface composites over opaque outer surface (2.5853ms)
+✔ invalid and unresolved colors never silently become white (0.4034ms)
+✔ gradient and image background remains unknown (0.468ms)
+✔ missing opaque canvas remains unknown (0.3438ms)
+✔ disabled text is exempt and does not produce a failure (0.2264ms)
+✔ large bold text uses the three-to-one contrast threshold (0.6071ms)
+✔ CSS group opacity is unknown without rendered pixel evidence (0.2398ms)
+✔ nonmodal notifications close on Escape, outside click, explicit close and route change (352.0056ms)
+✔ dialog enters native modal mode, locks page scroll, and restores opener and original scroll on unmount (325.3304ms)
+✔ native cancel closes an idle dialog and is blocked while its write is pending (32.9754ms)
+✔ Tab and Shift+Tab wrap between enabled visible controls instead of leaving the modal (211.0204ms)
+✔ Tab stays on the named dialog when it contains no enabled focusable control (30.2592ms)
+✔ ManifestsView: operational overlays use a named modal with a close route (64.1791ms)
+✔ ManifestsView: visible field labels identify their adjacent native control (25.4601ms)
+✔ ContainersView: operational overlays use a named modal with a close route (30.3798ms)
+✔ ContainersView: visible field labels identify their adjacent native control (24.349ms)
+✔ TruckVisitsView: operational overlays use a named modal with a close route (5.8555ms)
+✔ TruckVisitsView: visible field labels identify their adjacent native control (5.3868ms)
+✔ BillingView: operational overlays use a named modal with a close route (15.2577ms)
+✔ BillingView: visible field labels identify their adjacent native control (14.6005ms)
+✔ GatePassView: operational overlays use a named modal with a close route (7.1525ms)
+✔ GatePassView: visible field labels identify their adjacent native control (7.1785ms)
+✔ HandoversView: operational overlays use a named modal with a close route (16.4825ms)
+✔ HandoversView: visible field labels identify their adjacent native control (7.2279ms)
+✔ MasterDataView: operational overlays use a named modal with a close route (6.0609ms)
+✔ MasterDataView: visible field labels identify their adjacent native control (5.6324ms)
+✔ UsersRolesView: operational overlays use a named modal with a close route (7.6709ms)
+✔ UsersRolesView: visible field labels identify their adjacent native control (5.1548ms)
+✔ PartnerManagementView: operational overlays use a named modal with a close route (5.3441ms)
+✔ PartnerManagementView: visible field labels identify their adjacent native control (2.8159ms)
+✔ ManifestsView: record selectors support native keyboard selection and selected state (7.5252ms)
+✔ HandoversView: record selectors support native keyboard selection and selected state (8.2569ms)
+✔ GatePassView: record selectors support native keyboard selection and selected state (5.4482ms)
+✔ EDIView: record selectors support native keyboard selection and selected state (4.8536ms)
+✔ PartnerManagementView: record selectors support native keyboard selection and selected state (5.6341ms)
+ℹ tests 39
+ℹ suites 0
+ℹ pass 39
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8175.1307

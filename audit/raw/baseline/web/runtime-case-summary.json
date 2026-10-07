@@ -1,0 +1,592 @@
+[
+  {
+    "id": "dashboard",
+    "width": 1440,
+    "controls": 27,
+    "text": 163,
+    "labelsMissing": 0,
+    "headings": [
+      "ICD Management System",
+      "Hoạt động Cổng & Chuyến xe (Truck Visits)",
+      "Cảnh báo thời gian lưu bãi0 container",
+      "Kiểm soát Lệnh Giữ (Operational Holds)",
+      "Vận hành EDI (CODECO)"
+    ]
+  },
+  {
+    "id": "work-queue",
+    "width": 1440,
+    "controls": 24,
+    "text": 46,
+    "labelsMissing": 0,
+    "headings": [
+      "ICD Management System",
+      "Danh sách công việc thông minh (Work Queue)",
+      "Không có công việc nào cần xử lý"
+    ]
+  },
+  {
+    "id": "manifests",
+    "width": 1440,
+    "controls": 24,
+    "text": 169,
+    "labelsMissing": 2,
+    "headings": [
+      "ICD Management System",
+      "Bản lược khai hàng hóa (Manifest) & Vận đơn",
+      "MF-20261002-84D4CE80",
+      "Danh sách Master BL & House BL liên kết"
+    ]
+  },
+  {
+    "id": "containers",
+    "width": 1440,
+    "controls": 43,
+    "text": 192,
+    "labelsMissing": 1,
+    "headings": [
+      "ICD Management System",
+      "Container 360 · Danh sách & vòng đời"
+    ]
+  },
+  {
+    "id": "movement-orders",
+    "width": 1440,
+    "controls": 31,
+    "text": 91,
+    "labelsMissing": 1,
+    "headings": [
+      "ICD Management System",
+      "Movement Order — Lệnh cho phép container di chuyển về ICD"
+    ]
+  },
+  {
+    "id": "truck-visits",
+    "width": 1440,
+    "controls": 23,
+    "text": 128,
+    "labelsMissing": 1,
+    "headings": [
+      "ICD Management System",
+      "Quản lý Chuyến xe ra/vào (Truck Visits)"
+    ]
+  },
+  {
+    "id": "gate-in",
+    "width": 1440,
+    "controls": 28,
+    "text": 42,
+    "labelsMissing": 0,
+    "headings": [
+      "ICD Management System",
+      "Tiếp nhận container vào cổng"
+    ]
+  },
+  {
+    "id": "yard",
+    "width": 1440,
+    "controls": 95,
+    "text": 255,
+    "labelsMissing": 0,
+    "headings": [
+      "ICD Management System",
+      "Vận hành Bãi Container",
+      "Sơ đồ tổng thể ICD",
+      "Chi tiết Block A"
+    ]
+  },
+  {
+    "id": "billing",
+    "width": 1440,
+    "controls": 25,
+    "text": 84,
+    "labelsMissing": 0,
+    "headings": [
+      "ICD Management System",
+      "Dịch vụ & Thanh toán (Billing & Invoices)"
+    ]
+  },
+  {
+    "id": "gate-pass",
+    "width": 1440,
+    "controls": 26,
+    "text": 75,
+    "labelsMissing": 2,
+    "headings": [
+      "ICD Management System",
+      "Phiếu ra cổng (Gate Pass) & Kiểm soát Xuất kho",
+      "GP-MUQAHDPX-0237BC"
+    ]
+  },
+  {
+    "id": "edi",
+    "width": 1440,
+    "controls": 27,
+    "text": 119,
+    "labelsMissing": 0,
+    "headings": [
+      "ICD Management System",
+      "Trung tâm Trao đổi Dữ liệu Điện tử (EDI Center)"
+    ]
+  },
+  {
+    "id": "handovers",
+    "width": 1440,
+    "controls": 26,
+    "text": 93,
+    "labelsMissing": 1,
+    "headings": [
+      "ICD Management System",
+      "Bàn giao Vận chuyển Ngoài ICD (Partner Handover)",
+      "QA-VC-1790837623424"
+    ]
+  },
+  {
+    "id": "partner-clients",
+    "width": 1440,
+    "controls": 25,
+    "text": 79,
+    "labelsMissing": 0,
+    "headings": [
+      "ICD Management System",
+      "Đối tác Tích hợp API Vận chuyển (Mô đun 13)"
+    ]
+  },
+  {
+    "id": "partner-api-logs",
+    "width": 1440,
+    "controls": 0,
+    "text": 0,
+    "labelsMissing": 0,
+    "headings": []
+  },
+  {
+    "id": "master-data",
+    "width": 1440,
+    "controls": 44,
+    "text": 116,
+    "labelsMissing": 0,
+    "headings": [
+      "ICD Management System",
+      "Danh mục dùng chung (Master Data)"
+    ]
+  },
+  {
+    "id": "users-roles",
+    "width": 1440,
+    "controls": 40,
+    "text": 83,
+    "labelsMissing": 0,
+    "headings": [
+      "ICD Management System",
+      "Người dùng & Phân quyền (RBAC)"
+    ]
+  },
+  {
+    "id": "reports",
+    "width": 1440,
+    "controls": 21,
+    "text": 74,
+    "labelsMissing": 0,
+    "headings": [
+      "ICD Management System",
+      "Báo cáo Quản trị & Phân tích Hoạt động ICD (Analytics & Reports)",
+      "Phân bổ Sản lượng TEU theo Hãng tàu",
+      "Tình trạng Container Trong Bãi (Yard Dwell Time)"
+    ]
+  },
+  {
+    "id": "activity",
+    "width": 1440,
+    "controls": 22,
+    "text": 49,
+    "labelsMissing": 1,
+    "headings": [
+      "ICD Management System",
+      "Nhật ký Kiểm toán & An ninh (Audit Logs)"
+    ]
+  },
+  {
+    "id": "dashboard",
+    "width": 768,
+    "viewport": {
+      "height": 1024,
+      "width": 768
+    },
+    "documentWidth": 768,
+    "controls": 27,
+    "text": 159
+  },
+  {
+    "id": "work-queue",
+    "width": 768,
+    "viewport": {
+      "height": 1024,
+      "width": 768
+    },
+    "documentWidth": 768,
+    "controls": 24,
+    "text": 42
+  },
+  {
+    "id": "manifests",
+    "width": 768,
+    "viewport": {
+      "height": 1024,
+      "width": 768
+    },
+    "documentWidth": 768,
+    "controls": 24,
+    "text": 165
+  },
+  {
+    "id": "containers",
+    "width": 768,
+    "viewport": {
+      "height": 1024,
+      "width": 768
+    },
+    "documentWidth": 768,
+    "controls": 43,
+    "text": 188
+  },
+  {
+    "id": "movement-orders",
+    "width": 768,
+    "viewport": {
+      "height": 1024,
+      "width": 768
+    },
+    "documentWidth": 768,
+    "controls": 31,
+    "text": 87
+  },
+  {
+    "id": "truck-visits",
+    "width": 768,
+    "viewport": {
+      "height": 1024,
+      "width": 768
+    },
+    "documentWidth": 768,
+    "controls": 23,
+    "text": 124
+  },
+  {
+    "id": "gate-in",
+    "width": 768,
+    "viewport": {
+      "height": 1024,
+      "width": 768
+    },
+    "documentWidth": 768,
+    "controls": 28,
+    "text": 38
+  },
+  {
+    "id": "yard",
+    "width": 768,
+    "viewport": {
+      "height": 1024,
+      "width": 768
+    },
+    "documentWidth": 768,
+    "controls": 95,
+    "text": 251
+  },
+  {
+    "id": "billing",
+    "width": 768,
+    "viewport": {
+      "height": 1024,
+      "width": 768
+    },
+    "documentWidth": 768,
+    "controls": 25,
+    "text": 80
+  },
+  {
+    "id": "gate-pass",
+    "width": 768,
+    "viewport": {
+      "height": 1024,
+      "width": 768
+    },
+    "documentWidth": 768,
+    "controls": 26,
+    "text": 71
+  },
+  {
+    "id": "edi",
+    "width": 768,
+    "viewport": {
+      "height": 1024,
+      "width": 768
+    },
+    "documentWidth": 768,
+    "controls": 27,
+    "text": 115
+  },
+  {
+    "id": "handovers",
+    "width": 768,
+    "viewport": {
+      "height": 1024,
+      "width": 768
+    },
+    "documentWidth": 768,
+    "controls": 26,
+    "text": 89
+  },
+  {
+    "id": "partner-clients",
+    "width": 768,
+    "viewport": {
+      "height": 1024,
+      "width": 768
+    },
+    "documentWidth": 768,
+    "controls": 25,
+    "text": 75
+  },
+  {
+    "id": "master-data",
+    "width": 768,
+    "viewport": {
+      "height": 1024,
+      "width": 768
+    },
+    "documentWidth": 768,
+    "controls": 44,
+    "text": 112
+  },
+  {
+    "id": "users-roles",
+    "width": 768,
+    "viewport": {
+      "height": 1024,
+      "width": 768
+    },
+    "documentWidth": 768,
+    "controls": 40,
+    "text": 79
+  },
+  {
+    "id": "reports",
+    "width": 768,
+    "viewport": {
+      "height": 1024,
+      "width": 768
+    },
+    "documentWidth": 768,
+    "controls": 21,
+    "text": 70
+  },
+  {
+    "id": "activity",
+    "width": 768,
+    "viewport": {
+      "height": 1024,
+      "width": 768
+    },
+    "documentWidth": 768,
+    "controls": 22,
+    "text": 45
+  },
+  {
+    "id": "dashboard",
+    "width": 375,
+    "viewport": {
+      "height": 812,
+      "width": 375
+    },
+    "documentWidth": 375,
+    "controls": 10,
+    "text": 132,
+    "unnamedFields": 0
+  },
+  {
+    "id": "work-queue",
+    "width": 375,
+    "viewport": {
+      "height": 812,
+      "width": 375
+    },
+    "documentWidth": 375,
+    "controls": 7,
+    "text": 15,
+    "unnamedFields": 0
+  },
+  {
+    "id": "manifests",
+    "width": 375,
+    "viewport": {
+      "height": 812,
+      "width": 375
+    },
+    "documentWidth": 375,
+    "controls": 7,
+    "text": 138,
+    "unnamedFields": 2
+  },
+  {
+    "id": "containers",
+    "width": 375,
+    "viewport": {
+      "height": 812,
+      "width": 375
+    },
+    "documentWidth": 375,
+    "controls": 26,
+    "text": 161,
+    "unnamedFields": 1
+  },
+  {
+    "id": "movement-orders",
+    "width": 375,
+    "viewport": {
+      "height": 812,
+      "width": 375
+    },
+    "documentWidth": 375,
+    "controls": 14,
+    "text": 60,
+    "unnamedFields": 1
+  },
+  {
+    "id": "truck-visits",
+    "width": 375,
+    "viewport": {
+      "height": 812,
+      "width": 375
+    },
+    "documentWidth": 375,
+    "controls": 6,
+    "text": 97,
+    "unnamedFields": 1
+  },
+  {
+    "id": "gate-in",
+    "width": 375,
+    "viewport": {
+      "height": 812,
+      "width": 375
+    },
+    "documentWidth": 375,
+    "controls": 11,
+    "text": 11,
+    "unnamedFields": 0
+  },
+  {
+    "id": "yard",
+    "width": 375,
+    "viewport": {
+      "height": 812,
+      "width": 375
+    },
+    "documentWidth": 375,
+    "controls": 78,
+    "text": 224,
+    "unnamedFields": 0
+  },
+  {
+    "id": "billing",
+    "width": 375,
+    "viewport": {
+      "height": 812,
+      "width": 375
+    },
+    "documentWidth": 375,
+    "controls": 8,
+    "text": 53,
+    "unnamedFields": 0
+  },
+  {
+    "id": "gate-pass",
+    "width": 375,
+    "viewport": {
+      "height": 812,
+      "width": 375
+    },
+    "documentWidth": 375,
+    "controls": 9,
+    "text": 44
+  },
+  {
+    "id": "edi",
+    "width": 375,
+    "viewport": {
+      "height": 812,
+      "width": 375
+    },
+    "documentWidth": 375,
+    "controls": 10,
+    "text": 88
+  },
+  {
+    "id": "handovers",
+    "width": 375,
+    "viewport": {
+      "height": 812,
+      "width": 375
+    },
+    "documentWidth": 375,
+    "controls": 9,
+    "text": 62
+  },
+  {
+    "id": "partner-clients",
+    "width": 375,
+    "viewport": {
+      "height": 812,
+      "width": 375
+    },
+    "documentWidth": 375,
+    "controls": 8,
+    "text": 48
+  },
+  {
+    "id": "master-data",
+    "width": 375,
+    "viewport": {
+      "height": 812,
+      "width": 375
+    },
+    "documentWidth": 375,
+    "controls": 27,
+    "text": 85
+  },
+  {
+    "id": "users-roles",
+    "width": 375,
+    "viewport": {
+      "height": 812,
+      "width": 375
+    },
+    "documentWidth": 375,
+    "controls": 23,
+    "text": 52
+  },
+  {
+    "id": "reports",
+    "width": 375,
+    "viewport": {
+      "height": 812,
+      "width": 375
+    },
+    "documentWidth": 375,
+    "controls": 4,
+    "text": 43
+  },
+  {
+    "id": "activity",
+    "width": 375,
+    "viewport": {
+      "height": 812,
+      "width": 375
+    },
+    "documentWidth": 375,
+    "controls": 5,
+    "text": 18
+  }
+]

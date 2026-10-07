@@ -1,0 +1,123 @@
+Browser tab: 20, Title: "ICD Management System — Quản lý Kho bãi Container Nội địa", URL: "http://127.0.0.1:5173/".
+0 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/
+	1 container root
+		2 container
+			3 text ICD
+			4 heading ICD Management System, Value: 1
+				5 text ICD Management System
+			671 text Cảng cạn & kho bãi container nội địa 1  lệnh giữ Đã kết nối
+			7 button Tải lại dữ liệu
+			8 button (collapsed) Description: Thông báo (0 chưa đọc), Secondary Actions: Expand
+			672 text System Administrator ADMIN
+			10 button Đăng xuất
+		673 container Điều hướng nghiệp vụ
+			674 container
+				675 text TỔNG QUAN & ĐIỀU PHỐI
+				676 button Tổng quan vận hành
+				677 button Danh sách công việc
+				678 text QUẢN LÝ HÀNG HÓA & CỔNG
+				679 button Bản lược khai (Manifest)
+				680 button Quản lý Container
+				681 button Movement Order
+				682 button Chuyến xe ra/vào
+				683 button Tiếp nhận vào cổng (Gate-in)
+				684 button Vận hành Bãi (Yard)
+				685 text TÀI CHÍNH & RA CỔNG
+				686 button Dịch vụ & Thanh toán
+				687 button Phiếu ra cổng & Gate-out
+				688 button Vận hành EDI (CODECO)
+				689 text TÍCH HỢP ĐỐI TÁC
+				690 button Bàn giao vận chuyển
+				691 button Đối tác tích hợp API
+				692 button Nhật ký API đối tác
+				693 text HỆ THỐNG & QUẢN TRỊ
+				694 button Danh mục dùng chung
+				695 button Người dùng & Phân quyền
+				696 button Báo cáo vận hành
+				697 button Nhật ký kiểm toán
+			698 text System Administrator
+			699 text admin@icd.local
+			700 text ADMIN
+		39 container
+			701 heading Quản lý Chuyến xe ra/vào (Truck Visits), Value: 2
+				702 text Quản lý Chuyến xe ra/vào (Truck Visits)
+			703 text Đặt lịch hẹn trước tại cổng (Gate Appointment) nhằm rút ngắn thời gian xếp dỡ và tránh ùn tắc luồng xe
+			704 button Tạo Chuyến xe mới
+			705 text field (settable)
+			706 text Hiển thị  7  chuyến xe TV-20261002-3E287E COMPLETED Biển số xe:
+			707 text 51C-MYQA930
+			708 text Tài xế:
+			709 text Local mobile yard QA driver
+			710 text  ( ) Đơn vị vận tải:
+			711 text -
+			712 text Làn cổng:
+			713 text QA-MOBILE-YARD
+			714 text Container mang theo: QAOU4835930 TV-20261002-0E5CA2 COMPLETED Biển số xe:
+			715 text 51C-WYQA067
+			716 text Tài xế:
+			717 text Local web yard QA driver
+			718 text  ( ) Đơn vị vận tải:
+			719 text -
+			720 text Làn cổng:
+			721 text QA-WEB-YARD
+			722 text Container mang theo: QAOU6004067 TV-20261002-7020C9 COMPLETED Biển số xe:
+			723 text 51C-FQA2075
+			724 text Tài xế:
+			725 text Local followup mobile QA driver
+			726 text  ( ) Đơn vị vận tải:
+			727 text -
+			728 text Làn cổng:
+			729 text QA-FOLLOWUP
+			730 text Container mang theo: QAOU1882075 TV-20261002-40CC4F COMPLETED Biển số xe:
+			731 text 51C-YQA755
+			732 text Tài xế:
+			733 text Local yard QA driver
+			734 text  ( ) Đơn vị vận tải:
+			735 text -
+			736 text Làn cổng:
+			737 text QA-02
+			738 text Container mang theo: QAOU5007570 TV-20261002-9AC7FC COMPLETED Biển số xe:
+			739 text 51C-QA0755
+			740 text Tài xế:
+			741 text Local mobile QA driver
+			742 text  ( ) Đơn vị vận tải:
+			743 text -
+			744 text Làn cổng:
+			745 text QA-LANE-01
+			746 text Container mang theo: QAOU5007550, QAOU5007565 TV-20261001-724163 COMPLETED Biển số xe:
+			747 text 51C-UIQA
+			748 text Tài xế:
+			749 text Local QA Driver
+			750 text  ( ) Đơn vị vận tải:
+			751 text -
+			752 text Làn cổng:
+			753 text Chưa ghi nhận làn
+			754 text Container mang theo: QAMU6102765 TV-20261001-E30CF6 COMPLETED Biển số xe:
+			755 text 51C-QA1001
+			756 text Tài xế:
+			757 text Local QA Driver
+			758 text  ( ) Đơn vị vận tải:
+			759 text -
+			760 text Làn cổng:
+			761 text Chưa ghi nhận làn
+			762 text Container mang theo: QATU2282957
+			763 heading Tạo Lịch hẹn Chuyến xe (Truck Visit), Value: 3
+				764 text Tạo Lịch hẹn Chuyến xe (Truck Visit)
+			765 container
+				766 text Loại chuyến xe
+				767 button Vào cổng (Gate-in)
+				768 button Ra cổng (Gate-out)
+				769 text Biển số đầu kéo*
+				770 text field (settable)
+				771 text Tên tài xế*
+				772 text field (settable)
+				773 text Số điện thoại*
+				774 text field (settable)
+				775 text Hãng vận tải (Transporter)
+				776 text field (settable)
+				777 text Số Container gắn chuyến*
+				778 text field (settable)
+				779 button Hủy
+				780 button Lưu Chuyến Xe
+
+The focused UI element is 704 button Tạo Chuyến xe mới

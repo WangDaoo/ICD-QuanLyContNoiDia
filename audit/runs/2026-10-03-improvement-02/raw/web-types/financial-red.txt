@@ -1,0 +1,35 @@
+✔ gate-out tasks resolve their canonical gate-pass entity to a visit (3.0505ms)
+✔ unsupported payment methods are never displayed as bank transfer (0.5836ms)
+✔ malformed nested API collections cannot crash view mapping (2.4742ms)
+✔ non-boolean readiness flags cannot grant financial readiness (0.5903ms)
+✔ a saved command whose refresh fails reports an explicit refresh outcome (0.8234ms)
+✔ non-string thrown messages do not escape the command result boundary (0.3399ms)
+✖ invalid invoice totals cannot be presented as a zero balance (2.7345ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 569.6963
+
+✖ failing tests:
+
+test at apps\web\src\services\mappers\boundary-contract.test.ts:45:1
+✖ invalid invoice totals cannot be presented as a zero balance (2.7345ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\mappers\boundary-contract.test.ts:46:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Invalid financial amount/,
+    operator: 'throws',
+    diff: 'simple'
+  }

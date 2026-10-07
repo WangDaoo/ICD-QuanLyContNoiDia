@@ -1,0 +1,758 @@
+{
+  "findings": [
+    {
+      "id": "M-004",
+      "priority": "P2",
+      "platform": "mobile",
+      "status": "FIXED",
+      "title": "Dense header and field actions invite adjacent mis-taps",
+      "acceptance": [
+        "Measured external gaps are≥8dp in native screenshots/hierarchy.",
+        "320dp layout reflows without reducing target sizes or spacing."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+      ],
+      "limitations": "FIXED; requires current Android XML/bounds at320/360/412/768dp before VERIFIED."
+    },
+    {
+      "id": "M-005",
+      "priority": "P2",
+      "platform": "mobile",
+      "status": "FIXED",
+      "title": "Large type on a narrow screen clips the role and spills the gate icon",
+      "acceptance": [
+        "At320dp width and150% type, full role is readable and no icon/text crosses its target.",
+        "All tab labels remain distinguishable; inspect at200% separately."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+      ],
+      "limitations": "FIXED; actual native font150/200%, keyboard and safe-area matrix still pending."
+    },
+    {
+      "id": "M-006",
+      "priority": "P2",
+      "platform": "mobile",
+      "status": "FIXED",
+      "title": "Raw enums and mixed language leak into operational screens",
+      "acceptance": [
+        "Each currently observed enum renders a Vietnamese business label on list/detail/confirmation screens.",
+        "Known backend English notification templates are localized or clearly marked language-specific."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+      ],
+      "limitations": "Known/custom presentation tested from real source; native list/detail screenshots pending."
+    },
+    {
+      "id": "M-007",
+      "priority": "P2",
+      "platform": "mobile",
+      "status": "FIXED",
+      "title": "Seal checks still ask for damage severity",
+      "acceptance": [
+        "Seal and condition checks show relevant fields/copy only.",
+        "Damage surveys retain their current severity choices and submitted notes."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+      ],
+      "limitations": "Mode-switch payload fixture; native flow/popup pending."
+    },
+    {
+      "id": "M-008",
+      "priority": "P2",
+      "platform": "mobile",
+      "status": "FIXED",
+      "title": "Inspection history starts with a false empty message",
+      "acceptance": [
+        "Under a delayed GET, history shows loading rather than empty.",
+        "Under a failed GET, history shows a local retry; successful empty/populated results are distinct."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+      ],
+      "limitations": "Delayed/rejected source component fixtures; native slow/offline behavior pending."
+    },
+    {
+      "id": "M-009",
+      "priority": "P2",
+      "platform": "mobile",
+      "status": "FIXED",
+      "title": "Unread total is passed but never rendered",
+      "acceptance": [
+        "Native header/content shows the server unread count for zero and nonzero states.",
+        "Mark-read actions update the displayed count; verify with authorized fixture state."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+      ],
+      "limitations": "Zero/nonzero/count failures fixtures; native notification integration pending."
+    },
+    {
+      "id": "M-010",
+      "priority": "P2",
+      "platform": "mobile",
+      "status": "FIXED",
+      "title": "Booking date requires a manually formatted timestamp",
+      "acceptance": [
+        "User can enter a valid date/time without recalling separators.",
+        "Helper/timezone remains visible after entry and validation points to this field."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+      ],
+      "limitations": "Expo-compatible9.1.0 installed; native picker/cancel/timezone not yet exercised this run."
+    },
+    {
+      "id": "M-011",
+      "priority": "P2",
+      "platform": "mobile",
+      "status": "FIXED",
+      "title": "Theme selection resets to light when the session reloads",
+      "acceptance": [
+        "Choose dark, close/reopen the app and retain dark with the existing auth session.",
+        "Initial unconfigured appearance follows the selected documented default/system preference."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+      ],
+      "limitations": "Storage/bootstrap fixtures; native cold-launch light/dark screenshots pending."
+    },
+    {
+      "id": "M-012",
+      "priority": "P2",
+      "platform": "mobile",
+      "status": "FIXED",
+      "title": "Missing-field error remains after both survey fields are filled",
+      "acceptance": [
+        "Blank review produces clear field-specific messages.",
+        "Filling each required field removes its missing-field error before another submit; server failures remain visible."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+      ],
+      "limitations": "Actual screen source fixture; native focus/keyboard/TalkBack error read pending."
+    },
+    {
+      "id": "M-014",
+      "priority": "P2",
+      "platform": "mobile",
+      "status": "FIXED",
+      "title": "Shared card headings are plain Text without heading semantics",
+      "acceptance": [
+        "TalkBack heading navigation reaches each meaningful card/title once in logical order.",
+        "Ordinary content and controls remain individually reachable."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+      ],
+      "limitations": "Static/component semantics verified; actual TalkBack traversal and spoken output UNKNOWN."
+    },
+    {
+      "id": "W-R-001",
+      "priority": "P2",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Supporting operational text falls below contrast threshold",
+      "acceptance": [
+        "Recompute the four named pairs at 375/768/1440px; all >=4.5:1.",
+        "Validate representative rendered pixels and exclude decoration, obscured background content and unsupported effects."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/contrast-after.json"
+      ],
+      "limitations": "Computed Color4/ancestor alpha; opacity, images and obscured pixels remain separately scoped."
+    },
+    {
+      "id": "W-R-002",
+      "priority": "P2",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Yard map search has no visible keyboard focus",
+      "acceptance": [
+        "Shift+Tab then Tab into map search; a visible ring appears without layout shift.",
+        "Search remains keyboard usable and the ring is not clipped."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/browser/yard-search-focus-final.json"
+      ],
+      "limitations": "Actual native browser Tab: solid2px outline, focus-visible true; see screenshot."
+    },
+    {
+      "id": "W-S-004",
+      "priority": "P2",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Two create dialogs discard input before the save result arrives",
+      "acceptance": [
+        "Delay a save in a disposable fixture: keep panel and values until outcome.",
+        "Reject save: show actionable local error, preserve all input, allow retry.",
+        "Resolve save: reset/close only after success and show confirmation."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-fixtures-final.txt"
+      ],
+      "limitations": "Actual components in deferred/rejected fixtures plus real browser duplicate/save evidence."
+    },
+    {
+      "id": "W-S-006",
+      "priority": "P2",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Several required-field failures silently return and cannot identify the field",
+      "acceptance": [
+        "Submit blank required values: visible error names each missing field and focus lands on first invalid field.",
+        "Invalid email uses type=email or equivalent accessible validation; phone uses type=tel where applicable.",
+        "Correcting input clears its stale error; error text is linked with aria-describedby and invalid state."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-fixtures-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/browser/axe-master-validation-final.json"
+      ],
+      "limitations": "Fixture and native browser validation; actual screen-reader announcements pending."
+    },
+    {
+      "id": "W-S-007",
+      "priority": "P2",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Role/permission buttons expose selection only through color",
+      "acceptance": [
+        "Accessibility tree exposes true/false selected state for every toggle.",
+        "Keyboard selection updates the state and visible styling together.",
+        "If a full tablist is adopted, implement its complete roles and keyboard behavior rather than roles alone."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-old-regressions-final.txt"
+      ],
+      "limitations": "Actual component semantics; keyboard selection rechecked in retained regression suite."
+    },
+    {
+      "id": "W-S-008",
+      "priority": "P2",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Gate Pass detail contradicts expiration and cancellation status",
+      "acceptance": [
+        "Fixture ACTIVE fresh/ACTIVE expired/USED/CANCELLED/EXPIRED cases: list and detail status agree.",
+        "Expired/cancelled passes have appropriate recovery text and no active Gate-out invitation.",
+        "Container 360 validity claim also considers expiry; backend remains authoritative."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-fixtures-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/web-business/independent-green.txt"
+      ],
+      "limitations": "Expired/cancelled/used/boundary and refreshed-expired fixtures; Android scan pending."
+    },
+    {
+      "id": "W-S-009",
+      "priority": "P2",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Container 360 displays an icon where it promises a Gate Pass QR code",
+      "acceptance": [
+        "Decode QR in both screens in a disposable fixture; decoded value equals the same qrToken.",
+        "No token/permission: display honest unavailable text and a route to dedicated Gate Pass.",
+        "Keep a readable code alternative and expiration guidance."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-fixtures-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/browser/qr-runtime-decode.json",
+        "audit/runs/2026-10-03-improvement-02/raw/browser/qr-runtime-backend.json"
+      ],
+      "limitations": "Real backend-ready synthetic lifecycle, real Container360 QR screenshot; OpenCV decoded value SHA256 equals backend token. Test pass cancelled afterward; token text is not in the report."
+    },
+    {
+      "id": "W-S-010",
+      "priority": "P2",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Container Gate Pass tab calls unknown readiness a failed condition",
+      "acceptance": [
+        "Pending/read failure/no result/blockers/pass each produce distinct truthful content.",
+        "A network error never becomes a claimed failed business condition.",
+        "Issue remains unavailable until an explicit backend pass."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-fixtures-final.txt"
+      ],
+      "limitations": "Deferred old responses cannot enable a newly selected visit; API readiness also tested on isolated DB."
+    },
+    {
+      "id": "W-S-011",
+      "priority": "P2",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Movement Order default expiry shifts the local clock by seven hours",
+      "acceptance": [
+        "Freeze a clock in UTC+07 and inspect the default: exactly 24h later, not 17h.",
+        "Edit local datetime and verify serialized ISO denotes that local clock time.",
+        "Blank/invalid/past dates show a recoverable error and do not submit."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/tariff-vietnam-date-green.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/web-source-tests-final.txt"
+      ],
+      "limitations": "Calendar, timezone and invalid date fixtures; API persisted dates inspected."
+    },
+    {
+      "id": "W-S-012",
+      "priority": "P2",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Work Queue handover review passes the wrong identifier kind",
+      "acceptance": [
+        "With two distinct handovers, opening the second review task selects the second correct handover.",
+        "No matching target displays a missing/unavailable-target state rather than silently selecting the first record.",
+        "Prefer retaining canonical entityId in work-queue mapping if a visit can have multiple handovers."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-source-tests-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/web-fixtures-final.txt"
+      ],
+      "limitations": "Backend does not currently produce HANDOVER_REVIEW; no invented producer."
+    },
+    {
+      "id": "W-S-013",
+      "priority": "P2",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Create Truck Visit shortcut drops its container context and opens no form",
+      "acceptance": [
+        "Authorized Movement Order shortcut opens create with the correct container prefilled.",
+        "Gate-in shortcut selects the relevant visit and matching arrived truck when unambiguous.",
+        "Missing or multiple matching targets have explicit selection/recovery; no write occurs on navigation."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-fixtures-final.txt"
+      ],
+      "limitations": "Actual component fixture; no write on navigation."
+    },
+    {
+      "id": "W-S-014",
+      "priority": "P2",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Screen/context selections are memory-only and view changes discard work",
+      "acceptance": [
+        "Navigate A>B, use browser Back: A and its record/filter/scroll selection restore.",
+        "A copied URL or reload opens the requested authorized destination and record.",
+        "Leaving a dirty multi-field form preserves a draft or gives an explicit discard choice."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/browser/navigation-draft-runtime.json",
+        "audit/runs/2026-10-03-improvement-02/raw/web-fixtures-final.txt"
+      ],
+      "limitations": "Real browser Back/Forward/cancel/accept, Tab/Shift+Tab/Escape; late logout clears user-scoped views."
+    },
+    {
+      "id": "W-S-015",
+      "priority": "P2",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Several lists render a blank region for zero rows",
+      "acceptance": [
+        "Fixture 0 records and a nonempty collection filtered to 0 each render distinct messages.",
+        "No-results recovery clears the actual filters without initiating a write.",
+        "Loading/error/forbidden states are not described as an empty collection."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-fixtures-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/dashboard-resource-green.txt"
+      ],
+      "limitations": "Fixture zero/filter/error/403 plus measured main views; broader network matrix pending."
+    },
+    {
+      "id": "W-S-017",
+      "priority": "P2",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "EDI inspector calls generated example segments the raw transmitted payload",
+      "acceptance": [
+        "A generated preview is visibly and accessibly identified as illustrative before copying.",
+        "If raw payload becomes available, display exactly that payload and clearly identify its version/source.",
+        "A 20-foot/reefer fixture never labels a hardcoded 45G1 example as its transmitted raw data."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-fixtures-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/dashboard-edi-green.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/web-types-api/workflows-completed.json"
+      ],
+      "limitations": "MOCK external provider; internal outbox, ACK and alert operations persisted; no actual external delivery claimed."
+    },
+    {
+      "id": "W-S-018",
+      "priority": "P2",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Read-only page access still exposes write actions",
+      "acceptance": [
+        "Read-only fixture users see viewing controls and clear permission context, no unusable write invitation.",
+        "Users/manage, roles/manage, billing/manage and tariff/manage controls follow exact separate permissions.",
+        "Backend authorization remains enforced on every command."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-all-regressions-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/context-write-permission-green.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/browser/read-only-containers-final.txt"
+      ],
+      "limitations": "Seven real UI accounts; custom roles and104 generated routes/102 single-decorator methods independently compared; exact/downgraded permission fixtures and real read-only notice. Full per-overlay role cross-product remains coverage UNKNOWN."
+    },
+    {
+      "id": "W-S-019",
+      "priority": "P2",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Notifications panel lacks Escape and outside-click dismissal",
+      "acceptance": [
+        "Open panel: trigger again, real Escape and outside pointer each close.",
+        "Escape returns focus to trigger; a visible touch close route stays reachable.",
+        "Click inside keeps appropriate content interactions working and does not lock the main page."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/browser/notification-dismiss-final.json",
+        "audit/runs/2026-10-03-improvement-02/raw/header-availability-green.txt"
+      ],
+      "limitations": "Real browser four dismiss paths; asynchronous mark-read fixtures; unavailable count no longer announces zero."
+    },
+    {
+      "id": "M-013",
+      "priority": "P3",
+      "platform": "mobile",
+      "status": "FIXED",
+      "title": "Shared header/layout repeat values outside existing tokens",
+      "acceptance": [
+        "Affected consumers reference named tokens; literals are limited to token definitions and documented geometry.",
+        "Preserve existing layout and test both themes plus320dp/font scale1.5."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+      ],
+      "limitations": "Static styles and actual rendered heading style fixtures; geometry/reflow still requires native."
+    },
+    {
+      "id": "W-R-003",
+      "priority": "P3",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Repeated metadata sizes bypass the type token scale",
+      "acceptance": [
+        "No repeated arbitrary font-size literals remain in the affected metadata roles.",
+        "Screenshots show equivalent hierarchy before/after; scale changes need separate review."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-source-tests-final.txt"
+      ],
+      "limitations": "Source criterion; complete font/spacing matrix still pending."
+    },
+    {
+      "id": "W-R-004",
+      "priority": "P3",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Default heading line heights exceed the project rubric",
+      "acceptance": [
+        "Heading computed line-height is1.1-1.3 where the role applies.",
+        "Long headings do not overlap or clip at all tested widths."
+      ],
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/browser/axe-dashboard-final.json"
+      ],
+      "limitations": "CSS and sampled computed headings; no claim all content role exceptions are audited."
+    },
+    {
+      "parent_id": "W-S-005",
+      "priority": "P2",
+      "status": "VERIFIED",
+      "scope": "Non-financial command guards and input preservation; deferred/rejected components verified.",
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-fixtures-final.txt"
+      ]
+    },
+    {
+      "parent_id": "W-S-016",
+      "priority": "P2",
+      "status": "VERIFIED",
+      "scope": "Manifest/Role/Handover detail availability with stale/403 recovery.",
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-old-regressions-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/web-fixtures-final.txt"
+      ]
+    },
+    {
+      "id": "W-S-020",
+      "priority": "P0",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Partner API log JSON bodies crash the whole web app",
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-old-regressions-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/web-old-billing-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+      ]
+    },
+    {
+      "id": "M-001",
+      "priority": "P1",
+      "platform": "mobile",
+      "status": "VERIFIED",
+      "title": "Shared controls fall below Android target size",
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-old-regressions-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/web-old-billing-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+      ]
+    },
+    {
+      "id": "M-002",
+      "priority": "P1",
+      "platform": "mobile",
+      "status": "VERIFIED",
+      "title": "Semantic colors produce failing text contrast",
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-old-regressions-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/web-old-billing-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+      ]
+    },
+    {
+      "id": "M-003",
+      "priority": "P1",
+      "platform": "mobile",
+      "status": "VERIFIED",
+      "title": "No authorized tabs leaves the session without an account exit",
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-old-regressions-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/web-old-billing-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+      ]
+    },
+    {
+      "id": "M-N-001",
+      "priority": "P1",
+      "platform": "mobile",
+      "status": "FIXED",
+      "title": "Logout could be undone by a late token refresh or cleanup.",
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+      ]
+    },
+    {
+      "id": "W-N-002",
+      "priority": "P1",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Loose DTO/pagination fallbacks invented financial/status/catalog data.",
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-source-tests-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/web-types-independent-checkpoint.md"
+      ]
+    },
+    {
+      "id": "W-N-003",
+      "priority": "P1",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "A previous session command closure could write after user switch.",
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/context-write-permission-green.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/refresh-session-race-green.txt"
+      ]
+    },
+    {
+      "id": "W-N-005",
+      "priority": "P1",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "String false in canGateOut was truthy and could authorize a gate-out command.",
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-types-independent-checkpoint.md"
+      ]
+    },
+    {
+      "id": "W-N-006",
+      "priority": "P1",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "parseInt truncated backend-valid fractional payment values.",
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-types-independent-checkpoint.md"
+      ]
+    },
+    {
+      "id": "W-N-007",
+      "priority": "P1",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Newly refreshed already-expired pass could reuse stale clock and show QR/exit.",
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-business/independent-green.txt"
+      ]
+    },
+    {
+      "id": "W-N-009",
+      "priority": "P1",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Role editor stayed writable after same-user permission downgrade.",
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-business/independent-green.txt"
+      ]
+    },
+    {
+      "id": "W-N-010",
+      "priority": "P1",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Container detail could close or change context during unresolved Gate Pass creation.",
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-business/independent-green.txt"
+      ]
+    },
+    {
+      "id": "W-S-001",
+      "priority": "P1",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Most operational dialogs do not establish modal keyboard behavior",
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-old-regressions-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/web-old-billing-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+      ]
+    },
+    {
+      "id": "W-S-002",
+      "priority": "P1",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Visible sibling labels are not associated with operational fields",
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-old-regressions-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/web-old-billing-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+      ]
+    },
+    {
+      "id": "W-S-003",
+      "priority": "P1",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Five master/detail lists use pointer-only clickable div cards",
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-old-regressions-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/web-old-billing-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+      ]
+    },
+    {
+      "id": "W-S-005",
+      "priority": "P1",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Payment and other asynchronous actions stay enabled while saving",
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-old-regressions-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/web-old-billing-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+      ]
+    },
+    {
+      "id": "W-S-016",
+      "priority": "P1",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Nested load failures silently become empty holds, passes or incomplete details",
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-old-regressions-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/web-old-billing-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+      ]
+    },
+    {
+      "id": "M-N-002",
+      "priority": "P2",
+      "platform": "mobile",
+      "status": "FIXED",
+      "title": "Late old cache writes/clears could remove a newer same-user cache.",
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/mobile-cache-checkpoint-green.txt"
+      ]
+    },
+    {
+      "id": "W-N-001",
+      "priority": "P2",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Forbidden resource reads displayed zero revenue/capacity/unread counts.",
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/dashboard-resource-green.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/header-availability-green.txt"
+      ]
+    },
+    {
+      "id": "W-N-004",
+      "priority": "P2",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "MANAGER/read-only log readers were rejected by unrelated API-key management permission.",
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-types-api/partner-log-access-green.json"
+      ]
+    },
+    {
+      "id": "W-N-008",
+      "priority": "P2",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "Opening an existing Gate-out pass also opened an unintended issue form.",
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-business/independent-green.txt"
+      ]
+    },
+    {
+      "id": "W-N-011",
+      "priority": "P2",
+      "platform": "web",
+      "status": "VERIFIED",
+      "title": "A collection refresh reopened a dismissed Truck Visit create form and could overwrite its draft.",
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-business/independent-green.txt"
+      ]
+    }
+  ],
+  "phase_status": {
+    "0": "COMPLETE",
+    "1": "COMPLETE_WITH_FRESH_CHECK_LOGS",
+    "2": "SOURCE_FIXED; RUNTIME_ACCEPTANCE_PARTIAL",
+    "3": "SOURCE_FIXED; NATIVE_PENDING",
+    "4": "IN_PROGRESS",
+    "5": "IN_PROGRESS; TARGET_NOT_MET",
+    "6": "PENDING_FULL_MATRIX"
+  },
+  "residual_subtasks": [
+    {
+      "parent_id": "W-S-005",
+      "priority": "P2",
+      "status": "VERIFIED",
+      "scope": "Non-financial command guards and input preservation; deferred/rejected components verified.",
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-fixtures-final.txt"
+      ]
+    },
+    {
+      "parent_id": "W-S-016",
+      "priority": "P2",
+      "status": "VERIFIED",
+      "scope": "Manifest/Role/Handover detail availability with stale/403 recovery.",
+      "evidence": [
+        "audit/runs/2026-10-03-improvement-02/raw/web-old-regressions-final.txt",
+        "audit/runs/2026-10-03-improvement-02/raw/web-fixtures-final.txt"
+      ]
+    }
+  ],
+  "last_checkpoint_at": "2026-10-03T23:25:40.171826+07:00",
+  "overall_status": "IN_PROGRESS; target95 not achieved; native and broad runtime coverage remain."
+}

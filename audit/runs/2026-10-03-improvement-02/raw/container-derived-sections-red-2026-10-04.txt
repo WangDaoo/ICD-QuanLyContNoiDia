@@ -1,0 +1,274 @@
+✔ unknown yard location is never a real unassigned position when yardSlots is loading (374.3794ms)
+✔ unknown yard location is never a real unassigned position when yardSlots is error (73.2112ms)
+✔ unknown yard location is never a real unassigned position when yardSlots is forbidden (86.8687ms)
+✔ unknown yard location is never a real unassigned position when yardSlots is stale (65.6942ms)
+✔ previously known location stays explicitly cached across row and details when yardSlots is loading (72.6621ms)
+✔ previously known location stays explicitly cached across row and details when yardSlots is error (69.892ms)
+✔ previously known location stays explicitly cached across row and details when yardSlots is stale (70.7568ms)
+✔ forbidden yard catalog cannot reveal a previously cached location in row, details or timeline (89.8808ms)
+✔ ready unassigned container retains truthful missing-position labels and blocker (186.9414ms)
+✔ ready assigned container remains authoritative while an unrelated catalog loads (70.8833ms)
+✔ container collection stale cannot convert cached missing location into a confirmed unassigned position (75.199ms)
+✔ late yard result replaces unknown copy with remapped assigned location in an already open detail (97.1648ms)
+✔ undefined initial resource status during global load remains an unconfirmed location (57.3234ms)
+✖ unconfirmed invoice detail does not claim no invoices when loading (74.0443ms)
+✖ unconfirmed handover does not imply a new draft when loading (57.6301ms)
+✖ unconfirmed Movement Order does not imply a missing order when loading (53.4245ms)
+✖ unconfirmed invoice detail does not claim no invoices when error (82.6636ms)
+✖ unconfirmed handover does not imply a new draft when error (52.5874ms)
+✖ unconfirmed Movement Order does not imply a missing order when error (55.8243ms)
+✖ unconfirmed invoice detail does not claim no invoices when forbidden (74.4655ms)
+✖ unconfirmed handover does not imply a new draft when forbidden (58.7643ms)
+✖ unconfirmed Movement Order does not imply a missing order when forbidden (60.7521ms)
+✖ unconfirmed invoice detail does not claim no invoices when stale (65.3112ms)
+✖ unconfirmed handover does not imply a new draft when stale (138.6301ms)
+✖ unconfirmed Movement Order does not imply a missing order when stale (84.6238ms)
+✔ confirmed empty invoice detail retains the original empty copy (58.3249ms)
+✖ forbidden invoice reads hide cached amounts and their unpaid indicator (21854.2787ms)
+✖ unknown billing does not filter a safely located container out as blocker-free (122.8365ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 14
+ℹ fail 14
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 30559.1998
+
+✖ failing tests:
+
+test at audit\tools\tests\container-location-availability.test.mjs:154:3
+✖ unconfirmed invoice detail does not claim no invoices when loading (74.0443ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Chưa phát sinh hóa đơn nào/. Input:
+  
+  'AUDU4246647IN_YARD20GPChủ hàng: Audit Consignee · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianDanh sách Hóa đơn & Đơn dịch vụ+ Tạo Đơn Dịch VụChưa phát sinh hóa đơn nàoĐóng'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:159:14)
+      at async fixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:53:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:155:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'AUDU4246647IN_YARD20GPChủ hàng: Audit Consignee · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianDanh sách Hóa đơn & Đơn dịch vụ+ Tạo Đơn Dịch VụChưa phát sinh hóa đơn nàoĐóng',
+    expected: /Chưa phát sinh hóa đơn nào/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\container-location-availability.test.mjs:163:3
+✖ unconfirmed handover does not imply a new draft when loading (57.6301ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Chưa tạo Handover|Có thể lập trước bản nháp|\+ Tạo Handover/. Input:
+  
+  'AUDU4246647IN_YARD20GPChủ hàng: Audit Consignee · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianKiểm tra Điều kiện Sẵn sàng Cấp Phiếu Ra Cổng (Readiness Checklist)ĐẠTTrong bãi (IN_YARD)Đã có vị trí bãiThanh toán đủ 100%Không vướng tác nghiệpKhông giữ kiểm địnhKhông lệnh giữ (Hold)Movement Order (Lệnh cho phép di chuyển về ICD)Chưa có Movement OrderXem tất cả Movement Order →Bàn giao vận chuyển ngoài ICDChưa tạo HandoverContainer chưa hoàn tất Gate-out. Có thể lập trước bản nháp DRAFT.+ Tạo HandoverHồ sơ hàng hóaMBL: MBLHBL: HBLSeal Manifest: SEALSeal Tiếp nhận: —Trọng lượng tổng: 1.000 kgVị trí & Thời gianVị trí Bãi: Chưa xếpNgày vào cổng: —Ngày ra cổng: —Ngưỡng cảnh báo lưu bãi: Chưa có dữ liệu chính sáchĐóng'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:167:14)
+      at async fixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:53:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:164:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'AUDU4246647IN_YARD20GPChủ hàng: Audit Consignee · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianKiểm tra Điều kiện Sẵn sàng Cấp Phiếu Ra Cổng (Readiness Checklist)ĐẠTTrong bãi (IN_YARD)Đã có vị trí bãiThanh toán đủ 100%Không vướng tác nghiệpKhông giữ kiểm địnhKhông lệnh giữ (Hold)Movement Order (Lệnh cho phép di chuyển về ICD)Chưa có Movement OrderXem tất cả Movement Order →Bàn giao vận chuyển ngoài ICDChưa tạo HandoverContainer chưa hoàn tất Gate-out. Có thể lập trước bản nháp DRAFT.+ Tạo HandoverHồ sơ hàng hóaMBL: MBLHBL: HBLSeal Manifest: SEALSeal Tiếp nhận: —Trọng lượng tổng: 1.000 kgVị trí & Thời gianVị trí Bãi: Chưa xếpNgày vào cổng: —Ngày ra cổng: —Ngưỡng cảnh báo lưu bãi: Chưa có dữ liệu chính sáchĐóng',
+    expected: /Chưa tạo Handover|Có thể lập trước bản nháp|\+ Tạo Handover/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\container-location-availability.test.mjs:170:3
+✖ unconfirmed Movement Order does not imply a missing order when loading (53.4245ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Chưa có Movement Order/. Input:
+  
+  'AUDU4246647IN_YARD20GPChủ hàng: Audit Consignee · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianKiểm tra Điều kiện Sẵn sàng Cấp Phiếu Ra Cổng (Readiness Checklist)ĐẠTTrong bãi (IN_YARD)Đã có vị trí bãiThanh toán đủ 100%Không vướng tác nghiệpKhông giữ kiểm địnhKhông lệnh giữ (Hold)Movement Order (Lệnh cho phép di chuyển về ICD)Chưa có Movement OrderXem tất cả Movement Order →Bàn giao vận chuyển ngoài ICDChưa tạo HandoverContainer chưa hoàn tất Gate-out. Có thể lập trước bản nháp DRAFT.+ Tạo HandoverHồ sơ hàng hóaMBL: MBLHBL: HBLSeal Manifest: SEALSeal Tiếp nhận: —Trọng lượng tổng: 1.000 kgVị trí & Thời gianVị trí Bãi: Chưa xếpNgày vào cổng: —Ngày ra cổng: —Ngưỡng cảnh báo lưu bãi: Chưa có dữ liệu chính sáchĐóng'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:173:14)
+      at async fixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:53:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:171:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'AUDU4246647IN_YARD20GPChủ hàng: Audit Consignee · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianKiểm tra Điều kiện Sẵn sàng Cấp Phiếu Ra Cổng (Readiness Checklist)ĐẠTTrong bãi (IN_YARD)Đã có vị trí bãiThanh toán đủ 100%Không vướng tác nghiệpKhông giữ kiểm địnhKhông lệnh giữ (Hold)Movement Order (Lệnh cho phép di chuyển về ICD)Chưa có Movement OrderXem tất cả Movement Order →Bàn giao vận chuyển ngoài ICDChưa tạo HandoverContainer chưa hoàn tất Gate-out. Có thể lập trước bản nháp DRAFT.+ Tạo HandoverHồ sơ hàng hóaMBL: MBLHBL: HBLSeal Manifest: SEALSeal Tiếp nhận: —Trọng lượng tổng: 1.000 kgVị trí & Thời gianVị trí Bãi: Chưa xếpNgày vào cổng: —Ngày ra cổng: —Ngưỡng cảnh báo lưu bãi: Chưa có dữ liệu chính sáchĐóng',
+    expected: /Chưa có Movement Order/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\container-location-availability.test.mjs:154:3
+✖ unconfirmed invoice detail does not claim no invoices when error (82.6636ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Chưa phát sinh hóa đơn nào/. Input:
+  
+  'AUDU4246647IN_YARD20GPChủ hàng: Audit Consignee · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianDanh sách Hóa đơn & Đơn dịch vụ+ Tạo Đơn Dịch VụChưa phát sinh hóa đơn nàoĐóng'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:159:14)
+      at async fixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:53:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:155:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'AUDU4246647IN_YARD20GPChủ hàng: Audit Consignee · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianDanh sách Hóa đơn & Đơn dịch vụ+ Tạo Đơn Dịch VụChưa phát sinh hóa đơn nàoĐóng',
+    expected: /Chưa phát sinh hóa đơn nào/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\container-location-availability.test.mjs:163:3
+✖ unconfirmed handover does not imply a new draft when error (52.5874ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Chưa tạo Handover|Có thể lập trước bản nháp|\+ Tạo Handover/. Input:
+  
+  'AUDU4246647IN_YARD20GPChủ hàng: Audit Consignee · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianKiểm tra Điều kiện Sẵn sàng Cấp Phiếu Ra Cổng (Readiness Checklist)ĐẠTTrong bãi (IN_YARD)Đã có vị trí bãiThanh toán đủ 100%Không vướng tác nghiệpKhông giữ kiểm địnhKhông lệnh giữ (Hold)Movement Order (Lệnh cho phép di chuyển về ICD)Chưa có Movement OrderXem tất cả Movement Order →Bàn giao vận chuyển ngoài ICDChưa tạo HandoverContainer chưa hoàn tất Gate-out. Có thể lập trước bản nháp DRAFT.+ Tạo HandoverHồ sơ hàng hóaMBL: MBLHBL: HBLSeal Manifest: SEALSeal Tiếp nhận: —Trọng lượng tổng: 1.000 kgVị trí & Thời gianVị trí Bãi: Chưa xếpNgày vào cổng: —Ngày ra cổng: —Ngưỡng cảnh báo lưu bãi: Chưa có dữ liệu chính sáchĐóng'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:167:14)
+      at async fixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:53:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:164:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'AUDU4246647IN_YARD20GPChủ hàng: Audit Consignee · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianKiểm tra Điều kiện Sẵn sàng Cấp Phiếu Ra Cổng (Readiness Checklist)ĐẠTTrong bãi (IN_YARD)Đã có vị trí bãiThanh toán đủ 100%Không vướng tác nghiệpKhông giữ kiểm địnhKhông lệnh giữ (Hold)Movement Order (Lệnh cho phép di chuyển về ICD)Chưa có Movement OrderXem tất cả Movement Order →Bàn giao vận chuyển ngoài ICDChưa tạo HandoverContainer chưa hoàn tất Gate-out. Có thể lập trước bản nháp DRAFT.+ Tạo HandoverHồ sơ hàng hóaMBL: MBLHBL: HBLSeal Manifest: SEALSeal Tiếp nhận: —Trọng lượng tổng: 1.000 kgVị trí & Thời gianVị trí Bãi: Chưa xếpNgày vào cổng: —Ngày ra cổng: —Ngưỡng cảnh báo lưu bãi: Chưa có dữ liệu chính sáchĐóng',
+    expected: /Chưa tạo Handover|Có thể lập trước bản nháp|\+ Tạo Handover/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\container-location-availability.test.mjs:170:3
+✖ unconfirmed Movement Order does not imply a missing order when error (55.8243ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Chưa có Movement Order/. Input:
+  
+  'AUDU4246647IN_YARD20GPChủ hàng: Audit Consignee · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianKiểm tra Điều kiện Sẵn sàng Cấp Phiếu Ra Cổng (Readiness Checklist)ĐẠTTrong bãi (IN_YARD)Đã có vị trí bãiThanh toán đủ 100%Không vướng tác nghiệpKhông giữ kiểm địnhKhông lệnh giữ (Hold)Movement Order (Lệnh cho phép di chuyển về ICD)Chưa có Movement OrderXem tất cả Movement Order →Bàn giao vận chuyển ngoài ICDChưa tạo HandoverContainer chưa hoàn tất Gate-out. Có thể lập trước bản nháp DRAFT.+ Tạo HandoverHồ sơ hàng hóaMBL: MBLHBL: HBLSeal Manifest: SEALSeal Tiếp nhận: —Trọng lượng tổng: 1.000 kgVị trí & Thời gianVị trí Bãi: Chưa xếpNgày vào cổng: —Ngày ra cổng: —Ngưỡng cảnh báo lưu bãi: Chưa có dữ liệu chính sáchĐóng'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:173:14)
+      at async fixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:53:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:171:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'AUDU4246647IN_YARD20GPChủ hàng: Audit Consignee · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianKiểm tra Điều kiện Sẵn sàng Cấp Phiếu Ra Cổng (Readiness Checklist)ĐẠTTrong bãi (IN_YARD)Đã có vị trí bãiThanh toán đủ 100%Không vướng tác nghiệpKhông giữ kiểm địnhKhông lệnh giữ (Hold)Movement Order (Lệnh cho phép di chuyển về ICD)Chưa có Movement OrderXem tất cả Movement Order →Bàn giao vận chuyển ngoài ICDChưa tạo HandoverContainer chưa hoàn tất Gate-out. Có thể lập trước bản nháp DRAFT.+ Tạo HandoverHồ sơ hàng hóaMBL: MBLHBL: HBLSeal Manifest: SEALSeal Tiếp nhận: —Trọng lượng tổng: 1.000 kgVị trí & Thời gianVị trí Bãi: Chưa xếpNgày vào cổng: —Ngày ra cổng: —Ngưỡng cảnh báo lưu bãi: Chưa có dữ liệu chính sáchĐóng',
+    expected: /Chưa có Movement Order/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\container-location-availability.test.mjs:154:3
+✖ unconfirmed invoice detail does not claim no invoices when forbidden (74.4655ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Chưa phát sinh hóa đơn nào/. Input:
+  
+  'AUDU4246647IN_YARD20GPChủ hàng: Audit Consignee · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianDanh sách Hóa đơn & Đơn dịch vụ+ Tạo Đơn Dịch VụChưa phát sinh hóa đơn nàoĐóng'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:159:14)
+      at async fixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:53:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:155:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'AUDU4246647IN_YARD20GPChủ hàng: Audit Consignee · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianDanh sách Hóa đơn & Đơn dịch vụ+ Tạo Đơn Dịch VụChưa phát sinh hóa đơn nàoĐóng',
+    expected: /Chưa phát sinh hóa đơn nào/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\container-location-availability.test.mjs:163:3
+✖ unconfirmed handover does not imply a new draft when forbidden (58.7643ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Chưa tạo Handover|Có thể lập trước bản nháp|\+ Tạo Handover/. Input:
+  
+  'AUDU4246647IN_YARD20GPChủ hàng: Audit Consignee · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianKiểm tra Điều kiện Sẵn sàng Cấp Phiếu Ra Cổng (Readiness Checklist)ĐẠTTrong bãi (IN_YARD)Đã có vị trí bãiThanh toán đủ 100%Không vướng tác nghiệpKhông giữ kiểm địnhKhông lệnh giữ (Hold)Movement Order (Lệnh cho phép di chuyển về ICD)Chưa có Movement OrderXem tất cả Movement Order →Bàn giao vận chuyển ngoài ICDChưa tạo HandoverContainer chưa hoàn tất Gate-out. Có thể lập trước bản nháp DRAFT.+ Tạo HandoverHồ sơ hàng hóaMBL: MBLHBL: HBLSeal Manifest: SEALSeal Tiếp nhận: —Trọng lượng tổng: 1.000 kgVị trí & Thời gianVị trí Bãi: Chưa xếpNgày vào cổng: —Ngày ra cổng: —Ngưỡng cảnh báo lưu bãi: Chưa có dữ liệu chính sáchĐóng'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:167:14)
+      at async fixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:53:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:164:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'AUDU4246647IN_YARD20GPChủ hàng: Audit Consignee · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianKiểm tra Điều kiện Sẵn sàng Cấp Phiếu Ra Cổng (Readiness Checklist)ĐẠTTrong bãi (IN_YARD)Đã có vị trí bãiThanh toán đủ 100%Không vướng tác nghiệpKhông giữ kiểm địnhKhông lệnh giữ (Hold)Movement Order (Lệnh cho phép di chuyển về ICD)Chưa có Movement OrderXem tất cả Movement Order →Bàn giao vận chuyển ngoài ICDChưa tạo HandoverContainer chưa hoàn tất Gate-out. Có thể lập trước bản nháp DRAFT.+ Tạo HandoverHồ sơ hàng hóaMBL: MBLHBL: HBLSeal Manifest: SEALSeal Tiếp nhận: —Trọng lượng tổng: 1.000 kgVị trí & Thời gianVị trí Bãi: Chưa xếpNgày vào cổng: —Ngày ra cổng: —Ngưỡng cảnh báo lưu bãi: Chưa có dữ liệu chính sáchĐóng',
+    expected: /Chưa tạo Handover|Có thể lập trước bản nháp|\+ Tạo Handover/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\container-location-availability.test.mjs:170:3
+✖ unconfirmed Movement Order does not imply a missing order when forbidden (60.7521ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Chưa có Movement Order/. Input:
+  
+  'AUDU4246647IN_YARD20GPChủ hàng: Audit Consignee · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianKiểm tra Điều kiện Sẵn sàng Cấp Phiếu Ra Cổng (Readiness Checklist)ĐẠTTrong bãi (IN_YARD)Đã có vị trí bãiThanh toán đủ 100%Không vướng tác nghiệpKhông giữ kiểm địnhKhông lệnh giữ (Hold)Movement Order (Lệnh cho phép di chuyển về ICD)Chưa có Movement OrderXem tất cả Movement Order →Bàn giao vận chuyển ngoài ICDChưa tạo HandoverContainer chưa hoàn tất Gate-out. Có thể lập trước bản nháp DRAFT.+ Tạo HandoverHồ sơ hàng hóaMBL: MBLHBL: HBLSeal Manifest: SEALSeal Tiếp nhận: —Trọng lượng tổng: 1.000 kgVị trí & Thời gianVị trí Bãi: Chưa xếpNgày vào cổng: —Ngày ra cổng: —Ngưỡng cảnh báo lưu bãi: Chưa có dữ liệu chính sáchĐóng'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:173:14)
+      at async fixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:53:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:171:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'AUDU4246647IN_YARD20GPChủ hàng: Audit Consignee · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianKiểm tra Điều kiện Sẵn sàng Cấp Phiếu Ra Cổng (Readiness Checklist)ĐẠTTrong bãi (IN_YARD)Đã có vị trí bãiThanh toán đủ 100%Không vướng tác nghiệpKhông giữ kiểm địnhKhông lệnh giữ (Hold)Movement Order (Lệnh cho phép di chuyển về ICD)Chưa có Movement OrderXem tất cả Movement Order →Bàn giao vận chuyển ngoài ICDChưa tạo HandoverContainer chưa hoàn tất Gate-out. Có thể lập trước bản nháp DRAFT.+ Tạo HandoverHồ sơ hàng hóaMBL: MBLHBL: HBLSeal Manifest: SEALSeal Tiếp nhận: —Trọng lượng tổng: 1.000 kgVị trí & Thời gianVị trí Bãi: Chưa xếpNgày vào cổng: —Ngày ra cổng: —Ngưỡng cảnh báo lưu bãi: Chưa có dữ liệu chính sáchĐóng',
+    expected: /Chưa có Movement Order/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\container-location-availability.test.mjs:154:3
+✖ unconfirmed invoice detail does not claim no invoices when stale (65.3112ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Chưa phát sinh hóa đơn nào/. Input:
+  
+  'AUDU4246647IN_YARD20GPChủ hàng: Audit Consignee · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianDanh sách Hóa đơn & Đơn dịch vụ+ Tạo Đơn Dịch VụChưa phát sinh hóa đơn nàoĐóng'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:159:14)
+      at async fixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:53:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:155:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'AUDU4246647IN_YARD20GPChủ hàng: Audit Consignee · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianDanh sách Hóa đơn & Đơn dịch vụ+ Tạo Đơn Dịch VụChưa phát sinh hóa đơn nàoĐóng',
+    expected: /Chưa phát sinh hóa đơn nào/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\container-location-availability.test.mjs:163:3
+✖ unconfirmed handover does not imply a new draft when stale (138.6301ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Chưa tạo Handover|Có thể lập trước bản nháp|\+ Tạo Handover/. Input:
+  
+  'AUDU4246647IN_YARD20GPChủ hàng: Audit Consignee · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianKiểm tra Điều kiện Sẵn sàng Cấp Phiếu Ra Cổng (Readiness Checklist)ĐẠTTrong bãi (IN_YARD)Đã có vị trí bãiThanh toán đủ 100%Không vướng tác nghiệpKhông giữ kiểm địnhKhông lệnh giữ (Hold)Movement Order (Lệnh cho phép di chuyển về ICD)Chưa có Movement OrderXem tất cả Movement Order →Bàn giao vận chuyển ngoài ICDChưa tạo HandoverContainer chưa hoàn tất Gate-out. Có thể lập trước bản nháp DRAFT.+ Tạo HandoverHồ sơ hàng hóaMBL: MBLHBL: HBLSeal Manifest: SEALSeal Tiếp nhận: —Trọng lượng tổng: 1.000 kgVị trí & Thời gianVị trí Bãi: Chưa xếpNgày vào cổng: —Ngày ra cổng: —Ngưỡng cảnh báo lưu bãi: Chưa có dữ liệu chính sáchĐóng'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:167:14)
+      at async fixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:53:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:164:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'AUDU4246647IN_YARD20GPChủ hàng: Audit Consignee · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianKiểm tra Điều kiện Sẵn sàng Cấp Phiếu Ra Cổng (Readiness Checklist)ĐẠTTrong bãi (IN_YARD)Đã có vị trí bãiThanh toán đủ 100%Không vướng tác nghiệpKhông giữ kiểm địnhKhông lệnh giữ (Hold)Movement Order (Lệnh cho phép di chuyển về ICD)Chưa có Movement OrderXem tất cả Movement Order →Bàn giao vận chuyển ngoài ICDChưa tạo HandoverContainer chưa hoàn tất Gate-out. Có thể lập trước bản nháp DRAFT.+ Tạo HandoverHồ sơ hàng hóaMBL: MBLHBL: HBLSeal Manifest: SEALSeal Tiếp nhận: —Trọng lượng tổng: 1.000 kgVị trí & Thời gianVị trí Bãi: Chưa xếpNgày vào cổng: —Ngày ra cổng: —Ngưỡng cảnh báo lưu bãi: Chưa có dữ liệu chính sáchĐóng',
+    expected: /Chưa tạo Handover|Có thể lập trước bản nháp|\+ Tạo Handover/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\container-location-availability.test.mjs:170:3
+✖ unconfirmed Movement Order does not imply a missing order when stale (84.6238ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Chưa có Movement Order/. Input:
+  
+  'AUDU4246647IN_YARD20GPChủ hàng: Audit Consignee · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianKiểm tra Điều kiện Sẵn sàng Cấp Phiếu Ra Cổng (Readiness Checklist)ĐẠTTrong bãi (IN_YARD)Đã có vị trí bãiThanh toán đủ 100%Không vướng tác nghiệpKhông giữ kiểm địnhKhông lệnh giữ (Hold)Movement Order (Lệnh cho phép di chuyển về ICD)Chưa có Movement OrderXem tất cả Movement Order →Bàn giao vận chuyển ngoài ICDChưa tạo HandoverContainer chưa hoàn tất Gate-out. Có thể lập trước bản nháp DRAFT.+ Tạo HandoverHồ sơ hàng hóaMBL: MBLHBL: HBLSeal Manifest: SEALSeal Tiếp nhận: —Trọng lượng tổng: 1.000 kgVị trí & Thời gianVị trí Bãi: Chưa xếpNgày vào cổng: —Ngày ra cổng: —Ngưỡng cảnh báo lưu bãi: Chưa có dữ liệu chính sáchĐóng'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:173:14)
+      at async fixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:53:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\container-location-availability.test.mjs:171:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'AUDU4246647IN_YARD20GPChủ hàng: Audit Consignee · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianKiểm tra Điều kiện Sẵn sàng Cấp Phiếu Ra Cổng (Readiness Checklist)ĐẠTTrong bãi (IN_YARD)Đã có vị trí bãiThanh toán đủ 100%Không vướng tác nghiệpKhông giữ kiểm địnhKhông lệnh giữ (Hold)Movement Order (Lệnh cho phép di chuyển về ICD)Chưa có Movement OrderXem tất cả Movement Order →Bàn giao vận chuyển ngoài ICDChưa tạo HandoverContainer chưa hoàn tất Gate-out. Có thể lập trước bản nháp DRAFT.+ Tạo HandoverHồ sơ hàng hóaMBL: MBLHBL: HBLSeal Manifest: SEALSeal Tiếp nhận: —Trọng lượng tổng: 1.000 kgVị trí & Thời gianVị trí Bãi: Chưa xếpNgày vào cổng: —Ngày ra cổng: —Ngưỡng cảnh báo lưu bãi: Chưa có dữ liệu chính sáchĐóng',
+    expected: /Chưa có Movement Order/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\container-location-availability.test.mjs:184:1
+✖ forbidden invoice reads hide cached amounts and their unpaid indicator (21854.2787ms)
+  [RangeError: Array buffer allocation failed]
+
+test at audit\tools\tests\container-location-availability.test.mjs:194:1
+✖ unknown billing does not filter a safely located container out as blocker-free (122.8365ms)
+  [AssertionError [ERR_ASSERTION]: unknown billing must remain visible as unconfirmed when blockers are filtered] { generatedMessage: false, code: 'ERR_ASSERTION', actual: null, expected: true, operator: '==', diff: 'simple' }

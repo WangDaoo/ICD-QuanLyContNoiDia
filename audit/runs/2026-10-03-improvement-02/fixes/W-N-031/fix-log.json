@@ -1,0 +1,24 @@
+{
+  "status": "VERIFIED",
+  "change": "Thêm filter vào transition150ms ease-out hiện có. Đo các frame khi native click/hover và giữ CSS active ưu tiên hơn hover; reduced-motion vẫn tắt transition không thiết yếu. Không thêm animation trang hoặc optimistic transaction.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/index.css",
+      "line": 37,
+      "detail": "opacity, filter; transition-duration",
+      "snippet": "button, a, input, select, textarea { transition-property: background-color, color, border-color, opacity, filter; transition-duration: var(--icd-motion-feedback); transition-timing-function: ease-out; }\n:where(button, a, input, select, textarea, [role=\"button\"]):hover:not(:disabled, [aria-disabled=\"true\"]) { filter: brightness(var(--icd-control-hover-brightness)); }\nbutton:active:not(:disabled), a:active:not([aria-disabled=\"true\"]) { filter: brightness(.92); }\nbutton:disabled { cursor: not-allowed; }"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/browser/pointer-states-complete-final-2026-10-04.json",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/feedback-frames-final-2026-10-04.json"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Actual computed styles, trusted native interaction/frame samples or geometry, as explicitly linked. Offline analysis preserves incomplete/excluded measurements; no implementation-mirroring style test.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/index.css.diff"
+  ],
+  "isolated_review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/feedback-transition-2026-10-04/W-N-031.diff"
+  ]
+}

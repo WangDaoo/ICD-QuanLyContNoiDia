@@ -1,0 +1,11 @@
+--- before/apps/mobile/src/features/auth/screens/LoginScreen.tsx
++++ after/apps/mobile/src/features/auth/screens/LoginScreen.tsx
+@@ -26,7 +26,7 @@
+     <ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', padding: 20 }}>
+       <View style={{ width: '100%', maxWidth: 440, alignSelf: 'center', gap: 24 }}>
+         <View style={{ gap: 12 }}><Text style={{ color: theme.colors.info, fontWeight: '800', letterSpacing: 2 }}>TOS-MOBILE / ICD FIELD</Text>
+-          <Text style={{ color: theme.colors.textPrimary, fontSize: 30, fontWeight: '800' }}>Tác nghiệp hiện trường</Text>
++          <Text accessibilityRole="header" style={{ ...theme.typography.h1, color: theme.colors.textPrimary }}>Tác nghiệp hiện trường</Text>
+           <Text style={fieldStyles.muted}>Tiếp nhận cổng, xếp bãi và kiểm định container.</Text></View>
+         <Card title="Đăng nhập tài khoản ICD">
+           {error ? <Notice message={error} /> : null}

@@ -1,0 +1,36 @@
+{
+  "appOverflow": "hidden",
+  "bodyOverflow": "hidden",
+  "dialog": "truck-visits-dialog-1-title",
+  "fields": [
+    {
+      "aria": null,
+      "id": "truck-visits-plate",
+      "label": "Biển số đầu kéo*"
+    },
+    {
+      "aria": null,
+      "id": "truck-visits-driver",
+      "label": "Tên tài xế*"
+    },
+    {
+      "aria": null,
+      "id": "truck-visits-phone",
+      "label": "Số điện thoại*"
+    },
+    {
+      "aria": null,
+      "id": "truck-visits-transporter",
+      "label": "Hãng vận tải (Transporter)"
+    },
+    {
+      "aria": null,
+      "id": "truck-visits-selected-conts",
+      "label": "Số Container gắn chuyến*"
+    }
+  ],
+  "focus": "Vào cổng (Gate-in)",
+  "inside": true,
+  "modal": true,
+  "name": "Tạo Lịch hẹn Chuyến xe (Truck Visit)"
+}

@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED",
+  "method": "Prior accepted fix retained; fresh regression suite rechecked.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/context/AppContext.tsx",
+      "line": 96,
+      "detail": "visitSafetyStatus",
+      "snippet": "  visitSafetyStatus: VisitSafetyStatus;\n  workQueue: WorkQueueTask[];\n  ediMessages: EdiOutboxMessage[];\n  warehouses: CustomerWarehouse[];"
+    }
+  ],
+  "limitations": "Fixture GET lỗi trang sau, 403, thiếu status, stale, empty thật và retry đã chạy. Không ép lỗi backend thật. Manifest/Role/Handover detail phi an toàn vẫn là việc P2 ngoài phạm vi.",
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/web-old-regressions-final.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/web-old-billing-final.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+  ],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/context/AppContext.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

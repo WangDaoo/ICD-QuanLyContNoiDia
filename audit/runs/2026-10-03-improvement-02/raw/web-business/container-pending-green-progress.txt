@@ -1,0 +1,78 @@
+✔ existing Gate Pass route wins over the linked visit and never opens another issue form (298.2791ms)
+✔ Container detail blocks navigation and explicit close while its inline Gate Pass is saving (140.6385ms)
+✔ Container inline Gate Pass rejection stays visible inside the retained detail dialog (111.796ms)
+✔ a visit-only Gate Pass URL requires the explicit create intent before opening its form (30.2916ms)
+✔ explicit create intent opens the issue form unless an existing pass is the canonical destination (84.7621ms)
+✔ loading a newly expired pass evaluates against the current clock rather than the initial render (14.938ms)
+✔ an open role permission editor stops offering writes after a same-user permission downgrade (33.6412ms)
+✔ refreshed expired pass removes token QR and Gate-out action from its selected detail (36.3773ms)
+✖ ContainersView respects read-only and exact create permission (14.6764ms)
+✖ ManifestsView respects read-only and exact create permission (5.1616ms)
+✖ MovementOrdersView respects read-only and exact create permission (2.6804ms)
+✖ HandoversView respects read-only and exact create permission (3.9619ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 8
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5223.934
+
+✖ failing tests:
+
+test at audit\tools\web-rbac-regression.test.mjs:13:3
+✖ ContainersView respects read-only and exact create permission (14.6764ms)
+  ReferenceError: React is not defined
+      at ReadOnlyNotice (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\ReadOnlyNotice.tsx:7:3)
+      at Object.react_stack_bottom_frame (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:9808:18)
+      at renderWithHooks (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:5062:19)
+      at renderElement (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:5497:23)
+      at retryNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6417:31)
+      at renderNodeDestructive (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6367:11)
+      at renderNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6905:18)
+      at renderChildrenArray (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6674:11)
+      at retryNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6441:13)
+      at renderNodeDestructive (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6367:11)
+
+test at audit\tools\web-rbac-regression.test.mjs:13:3
+✖ ManifestsView respects read-only and exact create permission (5.1616ms)
+  ReferenceError: React is not defined
+      at ReadOnlyNotice (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\ReadOnlyNotice.tsx:7:3)
+      at Object.react_stack_bottom_frame (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:9808:18)
+      at renderWithHooks (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:5062:19)
+      at renderElement (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:5497:23)
+      at retryNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6417:31)
+      at renderNodeDestructive (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6367:11)
+      at renderNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6905:18)
+      at renderChildrenArray (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6674:11)
+      at retryNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6441:13)
+      at renderNodeDestructive (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6367:11)
+
+test at audit\tools\web-rbac-regression.test.mjs:13:3
+✖ MovementOrdersView respects read-only and exact create permission (2.6804ms)
+  ReferenceError: React is not defined
+      at ReadOnlyNotice (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\ReadOnlyNotice.tsx:7:3)
+      at Object.react_stack_bottom_frame (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:9808:18)
+      at renderWithHooks (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:5062:19)
+      at renderElement (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:5497:23)
+      at retryNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6417:31)
+      at renderNodeDestructive (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6367:11)
+      at renderNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6905:18)
+      at renderChildrenArray (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6674:11)
+      at retryNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6441:13)
+      at renderNodeDestructive (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6367:11)
+
+test at audit\tools\web-rbac-regression.test.mjs:13:3
+✖ HandoversView respects read-only and exact create permission (3.9619ms)
+  ReferenceError: React is not defined
+      at ReadOnlyNotice (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\ReadOnlyNotice.tsx:7:3)
+      at Object.react_stack_bottom_frame (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:9808:18)
+      at renderWithHooks (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:5062:19)
+      at renderElement (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:5497:23)
+      at retryNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6417:31)
+      at renderNodeDestructive (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6367:11)
+      at renderNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6905:18)
+      at renderChildrenArray (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6674:11)
+      at retryNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6441:13)
+      at renderNodeDestructive (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6367:11)

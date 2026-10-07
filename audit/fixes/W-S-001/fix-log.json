@@ -1,0 +1,68 @@
+{
+  "id": "W-S-001",
+  "updated_at": "2026-10-03T02:05:08.142Z",
+  "implementation_status": "SOURCE_FIXED",
+  "verification_status": "STATIC_VERIFIED_RUNTIME_PENDING",
+  "scope": "Named native modal opening, explicit Tab wrap, native cancel pending guard, opener restoration and body/main scroll lock",
+  "count": 15,
+  "checks": {
+    "source_regression": {
+      "pass": 23,
+      "fail": 0,
+      "baseline_pass": 0,
+      "baseline_fail": 23,
+      "green": "audit/raw/re-audit/web-semantics/green.txt",
+      "red": "audit/raw/re-audit/web-semantics/red.txt"
+    },
+    "modal_lifecycle": {
+      "pass": 4,
+      "fail": 0,
+      "native_browser_tab_check_required": true,
+      "green": "audit/raw/re-audit/web-semantics/modal-green.txt",
+      "red": "audit/raw/re-audit/web-semantics/modal-trap-red.txt"
+    },
+    "web_source_suite": {
+      "pass": 54,
+      "fail": 0,
+      "path": "audit/raw/re-audit/web-semantics/web-source-tests.txt"
+    },
+    "typecheck": {
+      "command": "rtk tsc --noEmit --project apps/web/tsconfig.json",
+      "result": "No errors found",
+      "runtime_claim": false
+    }
+  },
+  "runtime_owner": "root",
+  "runtime_status": "UNKNOWN_PENDING_PARENT_NATIVE_CHECKS",
+  "preserved": [
+    "Existing source work and write handlers",
+    "Existing panel styles and information",
+    "P2/P3 scope",
+    "Yard dialog behavior"
+  ],
+  "baseline_policy": "Each before snapshot is the current dirty source immediately before this ID was applied; no Git HEAD reset and no overwrite of audit/raw/baseline.",
+  "notes": [
+    "ModalOverlay is new; its empty before snapshot represents a previously absent file.",
+    "Yard focusableControls has an export keyword only; its filtering and hook behavior are unchanged.",
+    "Native Chrome Shift+Tab gap caught by parent was corrected with explicit wrapping; failed evidence preserved."
+  ],
+  "parent_final_verification": {
+    "id": "W-S-001",
+    "status": "VERIFIED_IN_APPROVED_SCOPE",
+    "change": "15 overlay dùng dialog có tên, focus ban đầu, trap Tab/Shift+Tab, khóa nền, Escape và trả focus về nút mở; giữ điều kiện khóa khi đang gửi.",
+    "evidence": [
+      "audit/fixes/W-S-001/inventory.json",
+      "audit/raw/re-audit/web/modal-keyboard-checks.json",
+      "audit/raw/re-audit/web-semantics/modal-green.txt",
+      "audit/raw/re-audit/web-conditional-forms/tests.txt"
+    ],
+    "source_evidence": [
+      {
+        "file": "apps/web/src/components/ModalOverlay.tsx",
+        "line": 13,
+        "detail": "export function"
+      }
+    ],
+    "limitations": "12/15 loại overlay chạy trực tiếp trong browser. MBL/HBL/thanh toán không mở được với dữ liệu hiện tại; kiểm component thật bằng fixture. Đây không phải bằng chứng native browser cho 3 loại đó."
+  }
+}

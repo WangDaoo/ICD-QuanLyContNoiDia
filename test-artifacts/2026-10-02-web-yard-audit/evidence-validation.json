@@ -1,0 +1,25 @@
+{
+  "verifiedAt": "2026-10-02T13:37:24.111Z",
+  "backendSnapshotAt": "2026-10-02T13:36:44.990Z",
+  "assertions": 16,
+  "checks": [
+    "All four blocks and both tiers were inspected",
+    "Map represents exactly the backend slot IDs",
+    "Rendered slot colors match their rendered Legend keys",
+    "move-created-api: occupancy changes only upon completion",
+    "move-started-api: occupancy changes only upon completion",
+    "move-completed-api: occupancy changes only upon completion",
+    "Completed movements and cancellation leave the restored position consistent",
+    "Actual booking results and notes persist",
+    "Edited local 17:30 schedule is saved as 10:30 UTC",
+    "Completed PASS inspection is durable",
+    "Existing active Hold remains active and blocks readiness",
+    "Manual assignment persists at the selected backend coordinates",
+    "QA operations have no pending or in-progress records left",
+    "Untouched optional measured fields remain null after live completion",
+    "API readiness and frontend still respond after QA",
+    "Duplicate block is rejected with the canonical business error"
+  ],
+  "slots": 48,
+  "occupied": 13
+}

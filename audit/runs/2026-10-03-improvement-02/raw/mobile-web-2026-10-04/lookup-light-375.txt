@@ -1,0 +1,164 @@
+- generic: TOS-MOBILE
+- generic: Quản trị viên
+- heading [level=1]: Cổng
+- generic: Quản trị viên Hệ thống
+- button:
+- button:
+  - generic: Quét
+- button:
+- button:
+- heading [level=1]: PHIÊN ĐĂNG NHẬP CA TRỰC
+- generic: ĐÃ ĐĂNG NHẬP
+- generic: "Tài khoản: UI Audit ADMIN"
+- generic: Quản trị viên
+- button:
+  - generic: Tiếp nhận vào cổng
+- button:
+  - generic: Quét phiếu ra cổng
+- heading [level=1]: Biên nhận Cổng vào (Gate-In EIR)
+- generic: Số Container*
+- textbox:
+  - /placeholder: "VD: TEMU8829104"
+- button:
+- button:
+- generic: Biển số đầu kéo*
+- textbox:
+  - /placeholder: Theo lượt xe
+- generic: Số Seal thực tế*
+- textbox:
+  - /placeholder: Seal đã kiểm tra
+- generic: Tài xế nhận hàng*
+- textbox:
+  - /placeholder: Theo lượt xe
+- generic: Cân Gross (kg)
+- textbox:
+  - /placeholder: Kết quả cân
+- generic: Tình trạng vỏ container
+- button [disabled]:
+  - generic: Vỏ tốt, seal nguyên
+- generic: Ghi chú hiện trường
+- textbox:
+  - /placeholder: Ghi nhận bất thường / seal lệch hồ sơ
+- button [disabled]:
+  - generic: Xác nhận tiếp nhận Gate-In
+- button:
+  - generic: Ghi nhận xe đến cổng
+- generic: TOS-MOBILE
+- generic: Quản trị viên
+- heading [level=1]: Tác nghiệp bãi
+- generic: Quản trị viên Hệ thống
+- button:
+- button:
+  - generic: Quét
+- button:
+- button:
+- heading [level=1]: PHIÊN ĐĂNG NHẬP CA TRỰC
+- generic: ĐÃ ĐĂNG NHẬP
+- generic: "Tài khoản: UI Audit ADMIN"
+- generic: Quản trị viên
+- heading [level=1]: Lệnh Tác nghiệp Bãi (Yard Stacking)
+- generic: Chọn Container cần xếp/dời vị trí
+- button [disabled]:
+  - generic: Chọn…
+- generic: Vị trí xếp bãi (Block - Row - Bay - Tier)
+- textbox:
+  - /placeholder: "VD: A-01-01-1"
+- button [disabled]:
+  - generic: Gợi ý vị trí trống
+- button [disabled]:
+  - generic: Kiểm tra vị trí nhập tay
+- generic: Chọn container để xem vị trí hiện tại và tác nghiệp.
+- button:
+  - generic: Danh sách tác nghiệp và đặt lịch
+- heading [level=1]: Sơ đồ vị trí bãi — Tổng quan
+- generic: Đang hiển thị 0 / 0 ô bãi
+- progressbar:
+- generic: Đang tải dữ liệu...
+- generic: TOS-MOBILE
+- generic: Quản trị viên
+- heading [level=1]: Giám định hiện trường
+- generic: Quản trị viên Hệ thống
+- button:
+- button:
+  - generic: Quét
+- button:
+- button:
+- heading [level=1]: PHIÊN ĐĂNG NHẬP CA TRỰC
+- generic: ĐÃ ĐĂNG NHẬP
+- generic: "Tài khoản: UI Audit ADMIN"
+- generic: Quản trị viên
+- heading [level=1]: Biên bản giám định hiện trường
+- generic: Ghi nhận tình trạng thực tế của container và seal
+- generic: Loại giám định
+- button:
+  - generic: Giám định hư hỏng
+- generic: Số Container*
+- textbox:
+  - /placeholder: "VD: MSCU6639870"
+- generic: Nội dung ghi nhận*
+- textbox:
+  - /placeholder: Nhập nội dung ghi nhận thực tế...
+- generic: Mức độ hư hỏng
+- radio:
+  - generic: Nhẹ
+- radio:
+  - generic: Trung bình
+- radio:
+  - generic: Nặng
+- button:
+  - generic: Gửi biên bản Giám định
+- heading [level=1]: Biên bản giám định trong ICD
+- button:
+  - generic: AUDU2384570
+  - generic: Chờ giám định
+  - generic: Synthetic pending UI fixture
+- button:
+  - generic: AUDU2384565
+  - generic: Đã hủy
+  - generic: "Synthetic cancel branch [Hủy: Synthetic audit cancellation]"
+- button:
+  - generic: AUDU2384565
+  - generic: Hoàn tất
+  - generic: "Kết quả: PASS · Đạt giám định."
+  - generic: Synthetic audit passed
+- button:
+  - generic: AUDU0424930
+  - generic: Chờ giám định
+  - generic: Synthetic pending UI fixture
+- button:
+  - generic: AUDU0424925
+  - generic: Đã hủy
+  - generic: "Synthetic cancel branch [Hủy: Synthetic audit cancellation]"
+- button:
+  - generic: AUDU0424925
+  - generic: Hoàn tất
+  - generic: "Kết quả: PASS · Đạt giám định."
+  - generic: Synthetic audit passed
+- generic: TOS-MOBILE
+- generic: Quản trị viên
+- heading "Tra cứu container" [level=1]
+- generic: Thông tin vòng đời và vị trí bãi
+- button "Chuyển sang nền tối":
+- button "Quét mã":
+  - generic: Quét
+- button "Thông báo":
+- button "Tài khoản và kết thúc ca":
+- heading "PHIÊN ĐĂNG NHẬP CA TRỰC" [level=1]
+- generic: ĐÃ ĐĂNG NHẬP
+- generic: "Tài khoản: UI Audit ADMIN"
+- generic: Quản trị viên
+- generic: Số container
+- textbox "Số container":
+  - /placeholder: Nhập số hoặc một phần số container
+- button "Tìm kiếm container" [disabled]:
+  - generic: Tìm kiếm container
+- tab "Cổng":
+  - generic: Cổng
+- tab "Bãi":
+  - generic: Bãi
+- tab "Giám định":
+  - generic: Giám định
+- tab "Tra cứu" [active]:
+  - generic: Tra cứu
+- tab "Việc ca":
+  - generic: Việc ca

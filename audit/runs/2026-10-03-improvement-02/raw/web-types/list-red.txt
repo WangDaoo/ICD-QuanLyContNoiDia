@@ -1,0 +1,45 @@
+✔ canonical nested operation pages retain older active work after the first 100 rows (3.592ms)
+✔ nested metadata governs paging even when a page has fewer rows than pageSize (0.5046ms)
+✔ flat data and items envelopes preserve their pagination behavior (0.7208ms)
+✔ arrays and unpaged envelopes return their rows without an extra request (0.4362ms)
+✔ a failed later page rejects instead of returning a silently truncated collection (1.0738ms)
+✖ malformed pagination does not permit an unbounded or truncated successful load (1.6347ms)
+✖ malformed collection data is reported as unavailable rather than an empty success (0.5309ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 5
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 648.7175
+
+✖ failing tests:
+
+test at apps\web\src\services\api\load-list.test.ts:69:1
+✖ malformed pagination does not permit an unbounded or truncated successful load (1.6347ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\load-list.test.ts:70:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Invalid pagination metadata/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\api\load-list.test.ts:73:1
+✖ malformed collection data is reported as unavailable rather than an empty success (0.5309ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\load-list.test.ts:74:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Invalid list response/,
+    operator: 'rejects',
+    diff: 'simple'
+  }

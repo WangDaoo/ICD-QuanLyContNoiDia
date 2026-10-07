@@ -1,0 +1,290 @@
+{
+  "scope": "Measured observations within frozen104-ID rubric; sampled screens/components, not complete accessibility or native acceptance",
+  "layout": {
+    "main_cases": 72,
+    "overlay_cases": 28,
+    "document_overflow_failures": 0,
+    "unclassified_spacing": 0,
+    "exceptions": {
+      "screen-reader-only offscreen geometry": 400,
+      "horizontal automatic centering": 20,
+      "vertical automatic centering": 34
+    },
+    "all_overlay_variants": "UNKNOWN"
+  },
+  "typography": {
+    "cases": 72,
+    "headings": 196,
+    "uppercase_elements": 360,
+    "purposeful_roles": "Tight app heading; normal section headings; tracked uppercase captions/navigation; neutral dense table/code roles. No invented normative letter-spacing threshold."
+  },
+  "timing": {
+    "samples": 100,
+    "groups": {
+      "navigation": {
+        "total": 20,
+        "verified": 20,
+        "rejected": 0,
+        "sufficient": true,
+        "p50Ms": 23.5,
+        "p95Ms": 57.89999997615814,
+        "minMs": 14.600000023841858,
+        "maxMs": 88.60000002384186,
+        "status": "PASS"
+      },
+      "dialog": {
+        "total": 20,
+        "verified": 20,
+        "rejected": 0,
+        "sufficient": true,
+        "p50Ms": 19.399999976158142,
+        "p95Ms": 24.100000023841858,
+        "minMs": 17.799999952316284,
+        "maxMs": 93,
+        "status": "PASS"
+      },
+      "selection": {
+        "total": 20,
+        "verified": 20,
+        "rejected": 0,
+        "sufficient": true,
+        "p50Ms": 12.299999952316284,
+        "p95Ms": 13.800000071525574,
+        "minMs": 9.899999976158142,
+        "maxMs": 16.899999976158142,
+        "status": "PASS"
+      },
+      "filter": {
+        "total": 20,
+        "verified": 20,
+        "rejected": 0,
+        "sufficient": true,
+        "p50Ms": 14.899999976158142,
+        "p95Ms": 19.40000009536743,
+        "minMs": 6.199999928474426,
+        "maxMs": 19.700000047683716,
+        "status": "PASS"
+      },
+      "submit": {
+        "total": 20,
+        "verified": 20,
+        "rejected": 0,
+        "sufficient": true,
+        "p50Ms": 13.899999976158142,
+        "p95Ms": 16.899999976158142,
+        "minMs": 7.5,
+        "maxMs": 17.399999976158142,
+        "status": "PASS"
+      }
+    },
+    "source_delta_since_timing": [
+      "apps/web/src/index.css"
+    ],
+    "method": "Trusted input to condition observed across two requestAnimationFrames; local upper-bound proxy, not field INP; no samples dropped"
+  },
+  "persisted_synthetic_ui_writes": [
+    {
+      "prefix": "UXT1004A",
+      "verified_records": 20
+    },
+    {
+      "prefix": "UXT1004B",
+      "verified_records": 20
+    },
+    {
+      "prefix": "UXT1004C",
+      "verified_records": 20
+    },
+    {
+      "prefix": "UXT1004D",
+      "verified_records": 20
+    }
+  ],
+  "initial_loading": {
+    "main_screens": 18,
+    "observations": {
+      "dashboard": {
+        "first_observed_ms": 136.79999995231628,
+        "statuses": [
+          "Đang tải dữ liệu vận hành…",
+          "Đang mở màn nghiệp vụ…"
+        ]
+      },
+      "work-queue": {
+        "first_observed_ms": 351.10000002384186,
+        "statuses": [
+          "Đang tải dữ liệu vận hành…",
+          "Đang mở màn nghiệp vụ…"
+        ]
+      },
+      "manifests": {
+        "first_observed_ms": 557.3999999761581,
+        "statuses": [
+          "Đang tải dữ liệu vận hành…",
+          "Đang mở màn nghiệp vụ…"
+        ]
+      },
+      "containers": {
+        "first_observed_ms": 800.6999999284744,
+        "statuses": [
+          "Đang tải dữ liệu vận hành…",
+          "Đang mở màn nghiệp vụ…"
+        ]
+      },
+      "movement-orders": {
+        "first_observed_ms": 1250,
+        "statuses": [
+          "Đang tải dữ liệu vận hành…",
+          "Đang mở màn nghiệp vụ…"
+        ]
+      },
+      "truck-visits": {
+        "first_observed_ms": 1757.6000000238419,
+        "statuses": [
+          "Đang tải dữ liệu vận hành…",
+          "Đang mở màn nghiệp vụ…"
+        ]
+      },
+      "gate-in": {
+        "first_observed_ms": 297.89999997615814,
+        "statuses": [
+          "Đang tải dữ liệu vận hành…"
+        ]
+      },
+      "yard": {
+        "first_observed_ms": 557.6999999284744,
+        "statuses": [
+          "Đang tải dữ liệu vận hành…",
+          "Đang mở màn nghiệp vụ…"
+        ]
+      },
+      "billing": {
+        "first_observed_ms": 857.8999999761581,
+        "statuses": [
+          "Đang tải dữ liệu vận hành…",
+          "Đang mở màn nghiệp vụ…"
+        ]
+      },
+      "gate-pass": {
+        "first_observed_ms": 1355,
+        "statuses": [
+          "Đang tải dữ liệu vận hành…",
+          "Đang mở màn nghiệp vụ…"
+        ]
+      },
+      "edi": {
+        "first_observed_ms": 1855.1999999284744,
+        "statuses": [
+          "Đang tải dữ liệu vận hành…",
+          "Đang mở màn nghiệp vụ…"
+        ]
+      },
+      "handovers": {
+        "first_observed_ms": 2352.5999999046326,
+        "statuses": [
+          "Đang tải dữ liệu vận hành…",
+          "Đang mở màn nghiệp vụ…"
+        ]
+      },
+      "partner-clients": {
+        "first_observed_ms": 206.29999995231628,
+        "statuses": [
+          "Đang tải dữ liệu vận hành…",
+          "Đang mở màn nghiệp vụ…"
+        ]
+      },
+      "partner-api-logs": {
+        "first_observed_ms": 355.89999997615814,
+        "statuses": [
+          "Đang tải dữ liệu vận hành…",
+          "Đang tải dữ liệu…"
+        ]
+      },
+      "master-data": {
+        "first_observed_ms": 613.6000000238419,
+        "statuses": [
+          "Đang tải dữ liệu vận hành…",
+          "Đang mở màn nghiệp vụ…"
+        ]
+      },
+      "users-roles": {
+        "first_observed_ms": 1109.6000000238419,
+        "statuses": [
+          "Đang tải dữ liệu vận hành…",
+          "Đang mở màn nghiệp vụ…"
+        ]
+      },
+      "admin": {
+        "first_observed_ms": 1603.2999999523163,
+        "statuses": [
+          "Đang tải dữ liệu vận hành…",
+          "Đang mở màn nghiệp vụ…"
+        ]
+      },
+      "activity": {
+        "first_observed_ms": 2101.2999999523163,
+        "statuses": [
+          "Đang tải dữ liệu vận hành…",
+          "Đang mở màn nghiệp vụ…"
+        ]
+      }
+    },
+    "method": "Visible DOM50ms nominal polling; starts at iframe load, not navigation start; bounded GETcontainers5s fault"
+  },
+  "progressive": {
+    "known_rows_ms": 688.6000000238419,
+    "all_reads_completed_ms": 6352.300000071526,
+    "real_rows": 103,
+    "known_rows": 2
+  },
+  "animation": {
+    "transition_ms": 150,
+    "easing": "ease-out",
+    "passive_frame_samples": [
+      {
+        "tag": "input",
+        "name": "Tìm lệnh bàn giao",
+        "width": 1280,
+        "frames": 26,
+        "distinct_values": 14,
+        "native_active_observed": true,
+        "settled_hover_filter": 0.97
+      },
+      {
+        "tag": "button",
+        "name": "Thông báo (0 chưa đọc)",
+        "width": 1280,
+        "frames": 27,
+        "distinct_values": 19,
+        "native_active_observed": true,
+        "settled_hover_filter": 0.97
+      },
+      {
+        "tag": "a",
+        "name": "Tài liệu API",
+        "width": 1280,
+        "frames": 25,
+        "distinct_values": 19,
+        "native_active_observed": true,
+        "settled_hover_filter": 0.97
+      }
+    ],
+    "continuous_loading_spinner": "Purposeful progress indication; not animated page content; reduced-motion rule retained"
+  },
+  "placeholder": {
+    "measured": {
+      "PASS": 11,
+      "FAIL": 0,
+      "UNKNOWN": 0,
+      "EXEMPT": 0
+    },
+    "minimum_ratio": 7.239091326472533,
+    "criterion": "WCAG2.2 1.4.3, normal text4.5:1"
+  },
+  "limitations": [
+    "320px CSS reflow is not200% browser zoom",
+    "No spoken screen-reader or Android latest-source acceptance",
+    "Local timing is not field performance",
+    "Purposeful animation and observed geometry do not certify all UI states"
+  ]
+}

@@ -1,0 +1,2364 @@
+{
+  "/containers": {
+    "data": [
+      {
+        "id": "4d4d3c5b-8467-4582-ad74-21768b62163c",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "containerId": "bcaa3b27-cca1-4cf4-a220-9324172343dd",
+        "manifestId": "d488fc32-a771-4bbc-8def-5a88ee1b97ce",
+        "masterBlId": "dd740705-06cf-40c4-8684-9b569c643832",
+        "houseBlId": "c978311b-ac08-4eb0-a9fe-b500f6a0d38b",
+        "consigneeId": "99f5b24d-c2d9-4f72-a30c-aee2d66b68ba",
+        "state": "IN_YARD",
+        "fullEmptyStatus": "FULL",
+        "sealNo": "VOS-993821",
+        "cargoDescription": "Phôi thép đúc đặc chủng & Thép xây dựng kết cấu",
+        "grossWeight": "29500",
+        "category": "IMPORT",
+        "isOverstay": false,
+        "dwellDays": 0,
+        "gateInAt": "2026-09-30T03:18:20.617Z",
+        "gateOutAt": null,
+        "createdAt": "2026-10-01T03:18:20.618Z",
+        "updatedAt": "2026-10-01T03:18:20.618Z",
+        "container": {
+          "id": "bcaa3b27-cca1-4cf4-a220-9324172343dd",
+          "containerNumber": "VSCU6748392",
+          "isoCode": "42G1",
+          "size": "SIZE_40",
+          "type": "DRY",
+          "height": null,
+          "tareWeight": "3800",
+          "maxPayload": "26680",
+          "createdAt": "2026-10-01T03:18:20.601Z",
+          "updatedAt": "2026-10-01T03:18:20.601Z"
+        },
+        "reception": null,
+        "houseBl": {
+          "id": "c978311b-ac08-4eb0-a9fe-b500f6a0d38b",
+          "masterBlId": "dd740705-06cf-40c4-8684-9b569c643832",
+          "hblNumber": "HBL-VSCU-VN10",
+          "consigneeId": "99f5b24d-c2d9-4f72-a30c-aee2d66b68ba",
+          "clearingAgentId": "79256ef4-a2b1-4d5c-8f89-071d35e15a59",
+          "cargoDescription": "Phôi thép đúc đặc chủng & Thép xây dựng kết cấu",
+          "grossWeight": "29500",
+          "packageCount": 158,
+          "createdAt": "2026-10-01T03:18:20.614Z",
+          "updatedAt": "2026-10-01T03:18:20.614Z",
+          "masterBl": {
+            "id": "dd740705-06cf-40c4-8684-9b569c643832",
+            "manifestId": "d488fc32-a771-4bbc-8def-5a88ee1b97ce",
+            "mblNumber": "MBL-VSCU-2026-010",
+            "shippingLineId": "5999064e-b726-475c-9637-11a51f543264",
+            "createdAt": "2026-10-01T03:18:20.609Z",
+            "updatedAt": "2026-10-01T03:18:20.609Z",
+            "manifest": {
+              "id": "d488fc32-a771-4bbc-8def-5a88ee1b97ce",
+              "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+              "manifestNo": "MNF-VN-VSCU-010",
+              "shippingLineId": "5999064e-b726-475c-9637-11a51f543264",
+              "vesselName": "VOSCO VANGUARD 012W",
+              "voyageNo": "012W",
+              "eta": "2026-09-29T03:18:20.604Z",
+              "portOfLoading": "VNHPH (Hải Phòng Port)",
+              "portOfDischarge": "VNSGN (Cát Lái / Tân Cảng)",
+              "status": "SUBMITTED",
+              "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+              "createdAt": "2026-10-01T03:18:20.605Z",
+              "updatedAt": "2026-10-01T03:18:20.605Z",
+              "shippingLine": {
+                "id": "5999064e-b726-475c-9637-11a51f543264",
+                "name": "Công ty Cổ phần Vận tải biển Việt Nam (VOSCO)",
+                "scacCode": "VSCU",
+                "active": true,
+                "createdAt": "2026-10-01T03:18:19.889Z",
+                "updatedAt": "2026-10-01T03:18:19.889Z"
+              }
+            }
+          },
+          "consignee": {
+            "id": "99f5b24d-c2d9-4f72-a30c-aee2d66b68ba",
+            "name": "Công ty TNHH Gang Thép Hưng Nghiệp Formosa Hà Tĩnh",
+            "taxCode": "3001234567",
+            "phone": "02393722222",
+            "email": "import@fhs.com.vn",
+            "address": "Khu KT Vũng Áng, Kỳ Anh, Hà Tĩnh",
+            "active": true,
+            "createdAt": "2026-10-01T03:18:19.976Z",
+            "updatedAt": "2026-10-01T03:18:19.976Z"
+          }
+        }
+      },
+      {
+        "id": "6a324f12-ca09-40b5-94af-0e431574c414",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "containerId": "e9085ba0-6369-432e-8278-d7271e5f9608",
+        "manifestId": "61a0ae3b-118f-4fff-addd-501bc01792e3",
+        "masterBlId": "9cea64cb-99a6-4c48-9f9e-5785e2e58ca8",
+        "houseBlId": "cffb6fc3-eb3a-417b-b132-7f317d04e109",
+        "consigneeId": "f2bc243d-9dd9-4364-85d3-2b5fb22b4769",
+        "state": "IN_YARD",
+        "fullEmptyStatus": "FULL",
+        "sealNo": "TC-552819",
+        "cargoDescription": "Thanh long & Xoài tươi lạnh bảo quản nhiệt độ -18C",
+        "grossWeight": "27100",
+        "category": "IMPORT",
+        "isOverstay": false,
+        "dwellDays": 0,
+        "gateInAt": "2026-09-30T03:18:20.591Z",
+        "gateOutAt": null,
+        "createdAt": "2026-10-01T03:18:20.592Z",
+        "updatedAt": "2026-10-01T03:18:20.592Z",
+        "container": {
+          "id": "e9085ba0-6369-432e-8278-d7271e5f9608",
+          "containerNumber": "TCSU9283741",
+          "isoCode": "45R1",
+          "size": "SIZE_40",
+          "type": "REEFER",
+          "height": null,
+          "tareWeight": "3800",
+          "maxPayload": "26680",
+          "createdAt": "2026-10-01T03:18:20.574Z",
+          "updatedAt": "2026-10-01T03:18:20.574Z"
+        },
+        "reception": null,
+        "houseBl": {
+          "id": "cffb6fc3-eb3a-417b-b132-7f317d04e109",
+          "masterBlId": "9cea64cb-99a6-4c48-9f9e-5785e2e58ca8",
+          "hblNumber": "HBL-TCSU-VN09",
+          "consigneeId": "f2bc243d-9dd9-4364-85d3-2b5fb22b4769",
+          "clearingAgentId": "5f580bd1-8fa7-4932-9542-e478f2eac71f",
+          "cargoDescription": "Thanh long & Xoài tươi lạnh bảo quản nhiệt độ -18C",
+          "grossWeight": "27100",
+          "packageCount": 146,
+          "createdAt": "2026-10-01T03:18:20.587Z",
+          "updatedAt": "2026-10-01T03:18:20.587Z",
+          "masterBl": {
+            "id": "9cea64cb-99a6-4c48-9f9e-5785e2e58ca8",
+            "manifestId": "61a0ae3b-118f-4fff-addd-501bc01792e3",
+            "mblNumber": "MBL-TCSU-2026-009",
+            "shippingLineId": "84945425-629e-4fb4-8c15-ae8f9a2c4e0c",
+            "createdAt": "2026-10-01T03:18:20.583Z",
+            "updatedAt": "2026-10-01T03:18:20.583Z",
+            "manifest": {
+              "id": "61a0ae3b-118f-4fff-addd-501bc01792e3",
+              "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+              "manifestNo": "MNF-VN-TCSU-009",
+              "shippingLineId": "84945425-629e-4fb4-8c15-ae8f9a2c4e0c",
+              "vesselName": "TAN CANG OCEAN 021E",
+              "voyageNo": "021E",
+              "eta": "2026-09-29T03:18:20.577Z",
+              "portOfLoading": "VNHPH (Hải Phòng Port)",
+              "portOfDischarge": "VNSGN (Cát Lái / Tân Cảng)",
+              "status": "SUBMITTED",
+              "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+              "createdAt": "2026-10-01T03:18:20.579Z",
+              "updatedAt": "2026-10-01T03:18:20.579Z",
+              "shippingLine": {
+                "id": "84945425-629e-4fb4-8c15-ae8f9a2c4e0c",
+                "name": "Công ty CP Vận tải Thủy Tân Cảng (Tan Cang Shipping)",
+                "scacCode": "TCSU",
+                "active": true,
+                "createdAt": "2026-10-01T03:18:19.900Z",
+                "updatedAt": "2026-10-01T03:18:19.900Z"
+              }
+            }
+          },
+          "consignee": {
+            "id": "f2bc243d-9dd9-4364-85d3-2b5fb22b4769",
+            "name": "Công ty CP Thực phẩm Đông lạnh Sao Biển",
+            "taxCode": "0355667788",
+            "phone": "02838990011",
+            "email": "export@saobienseafood.vn",
+            "address": "KCN Hiệp Phước, Nhà Bè, TP.HCM",
+            "active": true,
+            "createdAt": "2026-10-01T03:18:19.984Z",
+            "updatedAt": "2026-10-01T03:18:19.984Z"
+          }
+        }
+      },
+      {
+        "id": "f16d4f13-0906-4ddb-b356-aaefe56a234a",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "containerId": "1ac95f80-cd48-42fe-915b-f4c313f6de24",
+        "manifestId": "79da1984-62dd-413c-a623-f028c8ad1a93",
+        "masterBlId": "07f46eaa-492f-48d3-af5e-6146da71dc5b",
+        "houseBlId": "8a5af091-22a9-454b-aaf8-7a01226617c0",
+        "consigneeId": "a7e16f46-4545-4e40-aae7-f0a09526aec9",
+        "state": "AUTHORIZED",
+        "fullEmptyStatus": "FULL",
+        "sealNo": "HAH-192837",
+        "cargoDescription": "Phụ tùng cabin xe tải lắp ráp CKD (Auto Parts)",
+        "grossWeight": "17500",
+        "category": "IMPORT",
+        "isOverstay": false,
+        "dwellDays": 0,
+        "gateInAt": null,
+        "gateOutAt": null,
+        "createdAt": "2026-10-01T03:18:20.569Z",
+        "updatedAt": "2026-10-01T03:18:20.569Z",
+        "container": {
+          "id": "1ac95f80-cd48-42fe-915b-f4c313f6de24",
+          "containerNumber": "HACU2938475",
+          "isoCode": "22G1",
+          "size": "SIZE_20",
+          "type": "DRY",
+          "height": null,
+          "tareWeight": "2200",
+          "maxPayload": "28280",
+          "createdAt": "2026-10-01T03:18:20.551Z",
+          "updatedAt": "2026-10-01T03:18:20.551Z"
+        },
+        "reception": null,
+        "houseBl": {
+          "id": "8a5af091-22a9-454b-aaf8-7a01226617c0",
+          "masterBlId": "07f46eaa-492f-48d3-af5e-6146da71dc5b",
+          "hblNumber": "HBL-HACU-VN08",
+          "consigneeId": "a7e16f46-4545-4e40-aae7-f0a09526aec9",
+          "clearingAgentId": "d3651490-93d1-4920-b979-ed78e3aa1bdc",
+          "cargoDescription": "Phụ tùng cabin xe tải lắp ráp CKD (Auto Parts)",
+          "grossWeight": "17500",
+          "packageCount": 134,
+          "createdAt": "2026-10-01T03:18:20.564Z",
+          "updatedAt": "2026-10-01T03:18:20.564Z",
+          "masterBl": {
+            "id": "07f46eaa-492f-48d3-af5e-6146da71dc5b",
+            "manifestId": "79da1984-62dd-413c-a623-f028c8ad1a93",
+            "mblNumber": "MBL-HACU-2026-008",
+            "shippingLineId": "0f2c0f99-df09-47f3-a354-64692185f716",
+            "createdAt": "2026-10-01T03:18:20.559Z",
+            "updatedAt": "2026-10-01T03:18:20.559Z",
+            "manifest": {
+              "id": "79da1984-62dd-413c-a623-f028c8ad1a93",
+              "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+              "manifestNo": "MNF-VN-HACU-008",
+              "shippingLineId": "0f2c0f99-df09-47f3-a354-64692185f716",
+              "vesselName": "HAIAN LINK 044S",
+              "voyageNo": "044S",
+              "eta": "2026-09-29T03:18:20.554Z",
+              "portOfLoading": "VNHPH (Hải Phòng Port)",
+              "portOfDischarge": "VNSGN (Cát Lái / Tân Cảng)",
+              "status": "SUBMITTED",
+              "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+              "createdAt": "2026-10-01T03:18:20.555Z",
+              "updatedAt": "2026-10-01T03:18:20.555Z",
+              "shippingLine": {
+                "id": "0f2c0f99-df09-47f3-a354-64692185f716",
+                "name": "Công ty CP Vận tải và Xếp dỡ Hải An (HATS / HAH)",
+                "scacCode": "HACU",
+                "active": true,
+                "createdAt": "2026-10-01T03:18:19.897Z",
+                "updatedAt": "2026-10-01T03:18:19.897Z"
+              }
+            }
+          },
+          "consignee": {
+            "id": "a7e16f46-4545-4e40-aae7-f0a09526aec9",
+            "name": "Công ty CP Ô tô Trường Hải (THACO Chu Lai)",
+            "taxCode": "4000345678",
+            "phone": "02353567890",
+            "email": "logistics@thaco.com.vn",
+            "address": "Khu KT Mở Chu Lai, Núi Thành, Quảng Nam",
+            "active": true,
+            "createdAt": "2026-10-01T03:18:19.972Z",
+            "updatedAt": "2026-10-01T03:18:19.972Z"
+          }
+        }
+      },
+      {
+        "id": "0d527b40-b88c-4242-8012-2be93c2e6656",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "containerId": "d6b60927-2b53-4f56-9f4d-4c603d98bc6d",
+        "manifestId": "999a8b82-9f8f-4ee4-8545-6b5d72560982",
+        "masterBlId": "55952b43-fec6-4acd-aa15-8d97d192f3c4",
+        "houseBlId": "f87c5bf2-6246-4173-adb3-25d3a4b36ce4",
+        "consigneeId": "0e5fccb4-e5f7-41e3-9ff0-6bcb7f3398f7",
+        "state": "IN_YARD",
+        "fullEmptyStatus": "FULL",
+        "sealNo": "VFC-882019",
+        "cargoDescription": "Camera Modules & Thiết bị cảm biến quang học",
+        "grossWeight": "18200",
+        "category": "IMPORT",
+        "isOverstay": false,
+        "dwellDays": 0,
+        "gateInAt": "2026-09-30T03:18:20.541Z",
+        "gateOutAt": null,
+        "createdAt": "2026-10-01T03:18:20.542Z",
+        "updatedAt": "2026-10-01T03:18:20.542Z",
+        "container": {
+          "id": "d6b60927-2b53-4f56-9f4d-4c603d98bc6d",
+          "containerNumber": "VFCU7482910",
+          "isoCode": "42G1",
+          "size": "SIZE_40",
+          "type": "DRY",
+          "height": null,
+          "tareWeight": "3800",
+          "maxPayload": "26680",
+          "createdAt": "2026-10-01T03:18:20.525Z",
+          "updatedAt": "2026-10-01T03:18:20.525Z"
+        },
+        "reception": null,
+        "houseBl": {
+          "id": "f87c5bf2-6246-4173-adb3-25d3a4b36ce4",
+          "masterBlId": "55952b43-fec6-4acd-aa15-8d97d192f3c4",
+          "hblNumber": "HBL-VFCU-VN07",
+          "consigneeId": "0e5fccb4-e5f7-41e3-9ff0-6bcb7f3398f7",
+          "clearingAgentId": "c746d993-433d-4f4c-945d-927694e5c33a",
+          "cargoDescription": "Camera Modules & Thiết bị cảm biến quang học",
+          "grossWeight": "18200",
+          "packageCount": 122,
+          "createdAt": "2026-10-01T03:18:20.537Z",
+          "updatedAt": "2026-10-01T03:18:20.537Z",
+          "masterBl": {
+            "id": "55952b43-fec6-4acd-aa15-8d97d192f3c4",
+            "manifestId": "999a8b82-9f8f-4ee4-8545-6b5d72560982",
+            "mblNumber": "MBL-VFCU-2026-007",
+            "shippingLineId": "1b6f1bd3-1f17-48c5-aad7-f1e816b56ffe",
+            "createdAt": "2026-10-01T03:18:20.533Z",
+            "updatedAt": "2026-10-01T03:18:20.533Z",
+            "manifest": {
+              "id": "999a8b82-9f8f-4ee4-8545-6b5d72560982",
+              "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+              "manifestNo": "MNF-VN-VFCU-007",
+              "shippingLineId": "1b6f1bd3-1f17-48c5-aad7-f1e816b56ffe",
+              "vesselName": "VINAFCO FORTUNE 018N",
+              "voyageNo": "018N",
+              "eta": "2026-09-29T03:18:20.528Z",
+              "portOfLoading": "VNHPH (Hải Phòng Port)",
+              "portOfDischarge": "VNSGN (Cát Lái / Tân Cảng)",
+              "status": "SUBMITTED",
+              "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+              "createdAt": "2026-10-01T03:18:20.530Z",
+              "updatedAt": "2026-10-01T03:18:20.530Z",
+              "shippingLine": {
+                "id": "1b6f1bd3-1f17-48c5-aad7-f1e816b56ffe",
+                "name": "Công ty Cổ phần Vinafco (Vinafco Shipping)",
+                "scacCode": "VFCU",
+                "active": true,
+                "createdAt": "2026-10-01T03:18:19.910Z",
+                "updatedAt": "2026-10-01T03:18:19.910Z"
+              }
+            }
+          },
+          "consignee": {
+            "id": "0e5fccb4-e5f7-41e3-9ff0-6bcb7f3398f7",
+            "name": "Công ty TNHH LG Innotek Việt Nam Hải Phòng",
+            "taxCode": "0201234567",
+            "phone": "02253888999",
+            "email": "supplychain@lginnotek.com",
+            "address": "KCN Tràng Duệ, Hải Phòng",
+            "active": true,
+            "createdAt": "2026-10-01T03:18:19.959Z",
+            "updatedAt": "2026-10-01T03:18:19.959Z"
+          }
+        }
+      },
+      {
+        "id": "fe47f578-6c29-4f63-ac55-175dbdcd6d6e",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "containerId": "310e1536-4641-4017-a88d-b41e5751964b",
+        "manifestId": "88c65cf7-5418-44af-9d03-92c9a648e1cf",
+        "masterBlId": "073c7793-4343-42f2-b40e-23f6aaa6df86",
+        "houseBlId": "7c4b25d9-2c09-47f6-a250-7847f4a1319b",
+        "consigneeId": "c83b8d93-5067-4ead-8675-b96f261e180d",
+        "state": "IN_YARD",
+        "fullEmptyStatus": "FULL",
+        "sealNo": "BDS-339102",
+        "cargoDescription": "Hạt nhựa nguyên sinh kỹ thuật cao (Polypropylene Resins)",
+        "grossWeight": "22000",
+        "category": "IMPORT",
+        "isOverstay": false,
+        "dwellDays": 0,
+        "gateInAt": "2026-09-30T03:18:20.517Z",
+        "gateOutAt": null,
+        "createdAt": "2026-10-01T03:18:20.519Z",
+        "updatedAt": "2026-10-01T03:18:20.519Z",
+        "container": {
+          "id": "310e1536-4641-4017-a88d-b41e5751964b",
+          "containerNumber": "BDCU3849102",
+          "isoCode": "22G1",
+          "size": "SIZE_20",
+          "type": "DRY",
+          "height": null,
+          "tareWeight": "2200",
+          "maxPayload": "28280",
+          "createdAt": "2026-10-01T03:18:20.501Z",
+          "updatedAt": "2026-10-01T03:18:20.501Z"
+        },
+        "reception": null,
+        "houseBl": {
+          "id": "7c4b25d9-2c09-47f6-a250-7847f4a1319b",
+          "masterBlId": "073c7793-4343-42f2-b40e-23f6aaa6df86",
+          "hblNumber": "HBL-BDCU-VN06",
+          "consigneeId": "c83b8d93-5067-4ead-8675-b96f261e180d",
+          "clearingAgentId": "79256ef4-a2b1-4d5c-8f89-071d35e15a59",
+          "cargoDescription": "Hạt nhựa nguyên sinh kỹ thuật cao (Polypropylene Resins)",
+          "grossWeight": "22000",
+          "packageCount": 110,
+          "createdAt": "2026-10-01T03:18:20.514Z",
+          "updatedAt": "2026-10-01T03:18:20.514Z",
+          "masterBl": {
+            "id": "073c7793-4343-42f2-b40e-23f6aaa6df86",
+            "manifestId": "88c65cf7-5418-44af-9d03-92c9a648e1cf",
+            "mblNumber": "MBL-BDCU-2026-006",
+            "shippingLineId": "e4dcfa8a-f263-49ae-a2fe-aedbc9b70a3a",
+            "createdAt": "2026-10-01T03:18:20.508Z",
+            "updatedAt": "2026-10-01T03:18:20.508Z",
+            "manifest": {
+              "id": "88c65cf7-5418-44af-9d03-92c9a648e1cf",
+              "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+              "manifestNo": "MNF-VN-BDCU-006",
+              "shippingLineId": "e4dcfa8a-f263-49ae-a2fe-aedbc9b70a3a",
+              "vesselName": "BIEN DONG STAR 033E",
+              "voyageNo": "033E",
+              "eta": "2026-09-29T03:18:20.504Z",
+              "portOfLoading": "VNHPH (Hải Phòng Port)",
+              "portOfDischarge": "VNSGN (Cát Lái / Tân Cảng)",
+              "status": "SUBMITTED",
+              "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+              "createdAt": "2026-10-01T03:18:20.505Z",
+              "updatedAt": "2026-10-01T03:18:20.505Z",
+              "shippingLine": {
+                "id": "e4dcfa8a-f263-49ae-a2fe-aedbc9b70a3a",
+                "name": "Công ty Vận tải Biển Đông (Bien Dong Shipping)",
+                "scacCode": "BDCU",
+                "active": true,
+                "createdAt": "2026-10-01T03:18:19.903Z",
+                "updatedAt": "2026-10-01T03:18:19.903Z"
+              }
+            }
+          },
+          "consignee": {
+            "id": "c83b8d93-5067-4ead-8675-b96f261e180d",
+            "name": "Công ty TNHH Hyosung Việt Nam (Đồng Nai)",
+            "taxCode": "3600876543",
+            "phone": "02513560000",
+            "email": "supply@hyosung.com",
+            "address": "KCN Nhơn Trạch 5, Nhơn Trạch, Đồng Nai",
+            "active": true,
+            "createdAt": "2026-10-01T03:18:19.988Z",
+            "updatedAt": "2026-10-01T03:18:19.988Z"
+          }
+        }
+      },
+      {
+        "id": "cb567507-f5fe-4c6f-bad9-04c3ef06ca49",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "containerId": "f238cb82-1739-4663-91ed-0b7668fc532e",
+        "manifestId": "49c74ee9-ba8f-4563-a57c-c651966ba273",
+        "masterBlId": "8a364660-6d17-49b0-a3d7-843a2df4cb2e",
+        "houseBlId": "1bea43d9-f17b-4ce3-9767-fad4c0f5b7cb",
+        "consigneeId": "981986b9-dedb-45d5-87c1-6b73c9ce6268",
+        "state": "IN_YARD",
+        "fullEmptyStatus": "FULL",
+        "sealNo": "VMC-445829",
+        "cargoDescription": "Sợi bông tự nhiên dệt may xuất khẩu (Cotton Yarn)",
+        "grossWeight": "19800",
+        "category": "IMPORT",
+        "isOverstay": false,
+        "dwellDays": 0,
+        "gateInAt": "2026-09-30T03:18:20.491Z",
+        "gateOutAt": null,
+        "createdAt": "2026-10-01T03:18:20.493Z",
+        "updatedAt": "2026-10-01T03:18:20.493Z",
+        "container": {
+          "id": "f238cb82-1739-4663-91ed-0b7668fc532e",
+          "containerNumber": "VMCU9284012",
+          "isoCode": "22G1",
+          "size": "SIZE_20",
+          "type": "DRY",
+          "height": null,
+          "tareWeight": "2200",
+          "maxPayload": "28280",
+          "createdAt": "2026-10-01T03:18:20.474Z",
+          "updatedAt": "2026-10-01T03:18:20.474Z"
+        },
+        "reception": null,
+        "houseBl": {
+          "id": "1bea43d9-f17b-4ce3-9767-fad4c0f5b7cb",
+          "masterBlId": "8a364660-6d17-49b0-a3d7-843a2df4cb2e",
+          "hblNumber": "HBL-VMCU-VN05",
+          "consigneeId": "981986b9-dedb-45d5-87c1-6b73c9ce6268",
+          "clearingAgentId": "5f580bd1-8fa7-4932-9542-e478f2eac71f",
+          "cargoDescription": "Sợi bông tự nhiên dệt may xuất khẩu (Cotton Yarn)",
+          "grossWeight": "19800",
+          "packageCount": 98,
+          "createdAt": "2026-10-01T03:18:20.487Z",
+          "updatedAt": "2026-10-01T03:18:20.487Z",
+          "masterBl": {
+            "id": "8a364660-6d17-49b0-a3d7-843a2df4cb2e",
+            "manifestId": "49c74ee9-ba8f-4563-a57c-c651966ba273",
+            "mblNumber": "MBL-VMCU-2026-005",
+            "shippingLineId": "2813af12-f962-4921-858f-ebf772a2cb1f",
+            "createdAt": "2026-10-01T03:18:20.482Z",
+            "updatedAt": "2026-10-01T03:18:20.482Z",
+            "manifest": {
+              "id": "49c74ee9-ba8f-4563-a57c-c651966ba273",
+              "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+              "manifestNo": "MNF-VN-VMCU-005",
+              "shippingLineId": "2813af12-f962-4921-858f-ebf772a2cb1f",
+              "vesselName": "VIMC PIONEER 005W",
+              "voyageNo": "005W",
+              "eta": "2026-09-29T03:18:20.477Z",
+              "portOfLoading": "VNHPH (Hải Phòng Port)",
+              "portOfDischarge": "VNSGN (Cát Lái / Tân Cảng)",
+              "status": "SUBMITTED",
+              "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+              "createdAt": "2026-10-01T03:18:20.478Z",
+              "updatedAt": "2026-10-01T03:18:20.478Z",
+              "shippingLine": {
+                "id": "2813af12-f962-4921-858f-ebf772a2cb1f",
+                "name": "Tổng công ty Hàng hải Việt Nam (VIMC / Vinalines)",
+                "scacCode": "VMCU",
+                "active": true,
+                "createdAt": "2026-10-01T03:18:19.893Z",
+                "updatedAt": "2026-10-01T03:18:19.893Z"
+              }
+            }
+          },
+          "consignee": {
+            "id": "981986b9-dedb-45d5-87c1-6b73c9ce6268",
+            "name": "Tổng Công ty Dệt May Việt Nam (Vinatex)",
+            "taxCode": "0900123456",
+            "phone": "02438257890",
+            "email": "ops@vinatex.com.vn",
+            "address": "41A Lý Thái Tổ, Hoàn Kiếm, Hà Nội",
+            "active": true,
+            "createdAt": "2026-10-01T03:18:19.981Z",
+            "updatedAt": "2026-10-01T03:18:19.981Z"
+          }
+        }
+      },
+      {
+        "id": "1e792509-4c88-4140-978f-87dc88230fca",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "containerId": "755f71f8-c733-44c3-ba85-32e9f7145b3b",
+        "manifestId": "13463a9a-7ec4-4dd6-aac1-8ed726cb9eac",
+        "masterBlId": "399048d1-8589-46f7-a59a-a871f06cb0ed",
+        "houseBlId": "193a7953-5f1d-410b-996f-f3023eb772c0",
+        "consigneeId": "1a668d3c-21d8-42a3-babc-4ee211acf0d3",
+        "state": "IN_YARD",
+        "fullEmptyStatus": "FULL",
+        "sealNo": "GMD-772810",
+        "cargoDescription": "Bộ linh kiện truyền động pin xe điện (EV Powertrain)",
+        "grossWeight": "24300",
+        "category": "IMPORT",
+        "isOverstay": false,
+        "dwellDays": 0,
+        "gateInAt": "2026-09-30T03:18:20.465Z",
+        "gateOutAt": null,
+        "createdAt": "2026-10-01T03:18:20.466Z",
+        "updatedAt": "2026-10-01T03:18:20.466Z",
+        "container": {
+          "id": "755f71f8-c733-44c3-ba85-32e9f7145b3b",
+          "containerNumber": "GLDU5739201",
+          "isoCode": "45G1",
+          "size": "SIZE_40",
+          "type": "DRY",
+          "height": null,
+          "tareWeight": "3800",
+          "maxPayload": "26680",
+          "createdAt": "2026-10-01T03:18:20.449Z",
+          "updatedAt": "2026-10-01T03:18:20.449Z"
+        },
+        "reception": null,
+        "houseBl": {
+          "id": "193a7953-5f1d-410b-996f-f3023eb772c0",
+          "masterBlId": "399048d1-8589-46f7-a59a-a871f06cb0ed",
+          "hblNumber": "HBL-GLDU-VN04",
+          "consigneeId": "1a668d3c-21d8-42a3-babc-4ee211acf0d3",
+          "clearingAgentId": "d3651490-93d1-4920-b979-ed78e3aa1bdc",
+          "cargoDescription": "Bộ linh kiện truyền động pin xe điện (EV Powertrain)",
+          "grossWeight": "24300",
+          "packageCount": 86,
+          "createdAt": "2026-10-01T03:18:20.461Z",
+          "updatedAt": "2026-10-01T03:18:20.461Z",
+          "masterBl": {
+            "id": "399048d1-8589-46f7-a59a-a871f06cb0ed",
+            "manifestId": "13463a9a-7ec4-4dd6-aac1-8ed726cb9eac",
+            "mblNumber": "MBL-GLDU-2026-004",
+            "shippingLineId": "f98a68ca-8a41-4593-a612-3829cc1928b8",
+            "createdAt": "2026-10-01T03:18:20.456Z",
+            "updatedAt": "2026-10-01T03:18:20.456Z",
+            "manifest": {
+              "id": "13463a9a-7ec4-4dd6-aac1-8ed726cb9eac",
+              "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+              "manifestNo": "MNF-VN-GLDU-004",
+              "shippingLineId": "f98a68ca-8a41-4593-a612-3829cc1928b8",
+              "vesselName": "GEMADEPT PROGRESS 092S",
+              "voyageNo": "092S",
+              "eta": "2026-09-29T03:18:20.451Z",
+              "portOfLoading": "VNHPH (Hải Phòng Port)",
+              "portOfDischarge": "VNSGN (Cát Lái / Tân Cảng)",
+              "status": "SUBMITTED",
+              "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+              "createdAt": "2026-10-01T03:18:20.452Z",
+              "updatedAt": "2026-10-01T03:18:20.452Z",
+              "shippingLine": {
+                "id": "f98a68ca-8a41-4593-a612-3829cc1928b8",
+                "name": "Công ty Cổ phần Gemadept (GMD Shipping)",
+                "scacCode": "GLDU",
+                "active": true,
+                "createdAt": "2026-10-01T03:18:19.907Z",
+                "updatedAt": "2026-10-01T03:18:19.907Z"
+              }
+            }
+          },
+          "consignee": {
+            "id": "1a668d3c-21d8-42a3-babc-4ee211acf0d3",
+            "name": "Công ty Cổ phần Sản xuất & Kinh doanh VinFast",
+            "taxCode": "0801234567",
+            "phone": "02253999888",
+            "email": "inbound@vinfast.vn",
+            "address": "Khu kinh tế Đình Vũ - Cát Hải, Hải Phòng",
+            "active": true,
+            "createdAt": "2026-10-01T03:18:19.964Z",
+            "updatedAt": "2026-10-01T03:18:19.964Z"
+          }
+        }
+      },
+      {
+        "id": "42d4f9cd-b38a-4cfe-94b7-6a755c601a52",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "containerId": "145c434c-94c0-4d33-81c2-e7c9b903d8be",
+        "manifestId": "ecfa9aba-a531-4c53-a27a-4935dfef4ac7",
+        "masterBlId": "acfb00f3-75b7-4069-9d61-d7dd771c8cb2",
+        "houseBlId": "77ca39f9-19e4-421f-bcc2-b57b04e91fd7",
+        "consigneeId": "72b4925f-8c49-479f-9a00-99e47c160b4e",
+        "state": "IN_YARD",
+        "fullEmptyStatus": "FULL",
+        "sealNo": "TC-994012",
+        "cargoDescription": "Màn hình & Linh kiện điện tử thông minh (Display Modules)",
+        "grossWeight": "21500",
+        "category": "IMPORT",
+        "isOverstay": false,
+        "dwellDays": 0,
+        "gateInAt": "2026-09-30T03:18:20.439Z",
+        "gateOutAt": null,
+        "createdAt": "2026-10-01T03:18:20.440Z",
+        "updatedAt": "2026-10-01T03:18:20.440Z",
+        "container": {
+          "id": "145c434c-94c0-4d33-81c2-e7c9b903d8be",
+          "containerNumber": "TCSU8849201",
+          "isoCode": "42G1",
+          "size": "SIZE_40",
+          "type": "DRY",
+          "height": null,
+          "tareWeight": "3800",
+          "maxPayload": "26680",
+          "createdAt": "2026-10-01T03:18:20.424Z",
+          "updatedAt": "2026-10-01T03:18:20.424Z"
+        },
+        "reception": null,
+        "houseBl": {
+          "id": "77ca39f9-19e4-421f-bcc2-b57b04e91fd7",
+          "masterBlId": "acfb00f3-75b7-4069-9d61-d7dd771c8cb2",
+          "hblNumber": "HBL-TCSU-VN03",
+          "consigneeId": "72b4925f-8c49-479f-9a00-99e47c160b4e",
+          "clearingAgentId": "c746d993-433d-4f4c-945d-927694e5c33a",
+          "cargoDescription": "Màn hình & Linh kiện điện tử thông minh (Display Modules)",
+          "grossWeight": "21500",
+          "packageCount": 74,
+          "createdAt": "2026-10-01T03:18:20.435Z",
+          "updatedAt": "2026-10-01T03:18:20.435Z",
+          "masterBl": {
+            "id": "acfb00f3-75b7-4069-9d61-d7dd771c8cb2",
+            "manifestId": "ecfa9aba-a531-4c53-a27a-4935dfef4ac7",
+            "mblNumber": "MBL-TCSU-2026-003",
+            "shippingLineId": "84945425-629e-4fb4-8c15-ae8f9a2c4e0c",
+            "createdAt": "2026-10-01T03:18:20.431Z",
+            "updatedAt": "2026-10-01T03:18:20.431Z",
+            "manifest": {
+              "id": "ecfa9aba-a531-4c53-a27a-4935dfef4ac7",
+              "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+              "manifestNo": "MNF-VN-TCSU-003",
+              "shippingLineId": "84945425-629e-4fb4-8c15-ae8f9a2c4e0c",
+              "vesselName": "TAN CANG GLORY 108E",
+              "voyageNo": "108E",
+              "eta": "2026-09-29T03:18:20.426Z",
+              "portOfLoading": "VNHPH (Hải Phòng Port)",
+              "portOfDischarge": "VNSGN (Cát Lái / Tân Cảng)",
+              "status": "SUBMITTED",
+              "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+              "createdAt": "2026-10-01T03:18:20.428Z",
+              "updatedAt": "2026-10-01T03:18:20.428Z",
+              "shippingLine": {
+                "id": "84945425-629e-4fb4-8c15-ae8f9a2c4e0c",
+                "name": "Công ty CP Vận tải Thủy Tân Cảng (Tan Cang Shipping)",
+                "scacCode": "TCSU",
+                "active": true,
+                "createdAt": "2026-10-01T03:18:19.900Z",
+                "updatedAt": "2026-10-01T03:18:19.900Z"
+              }
+            }
+          },
+          "consignee": {
+            "id": "72b4925f-8c49-479f-9a00-99e47c160b4e",
+            "name": "Công ty TNHH Samsung Electronics VN (SEVT)",
+            "taxCode": "0312345678",
+            "phone": "02437654321",
+            "email": "logistics.sevt@samsung.com",
+            "address": "KCN Yên Phong, Bắc Ninh",
+            "active": true,
+            "createdAt": "2026-10-01T03:18:19.954Z",
+            "updatedAt": "2026-10-01T03:18:19.954Z"
+          }
+        }
+      },
+      {
+        "id": "7e6110ce-bcae-4bb7-b6b5-0a2a6eb49477",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "containerId": "28038aac-0e7b-4299-bac2-a02266122461",
+        "manifestId": "86986eb4-63ac-41ff-977d-c2f0c2172623",
+        "masterBlId": "71b1acd8-88a3-457a-ab77-307a1194c94a",
+        "houseBlId": "4bfccf5e-6bff-4b5c-a906-e025214752ca",
+        "consigneeId": "47b1cbf5-b725-4a2f-85c9-a59bf9c52c4b",
+        "state": "IN_YARD",
+        "fullEmptyStatus": "FULL",
+        "sealNo": "VOS-112093",
+        "cargoDescription": "Thép cuộn mạ kẽm chất lượng cao (Galvanized Steel Coils)",
+        "grossWeight": "28400",
+        "category": "IMPORT",
+        "isOverstay": false,
+        "dwellDays": 0,
+        "gateInAt": "2026-09-30T03:18:20.415Z",
+        "gateOutAt": null,
+        "createdAt": "2026-10-01T03:18:20.416Z",
+        "updatedAt": "2026-10-01T03:18:20.416Z",
+        "container": {
+          "id": "28038aac-0e7b-4299-bac2-a02266122461",
+          "containerNumber": "VSCU1049281",
+          "isoCode": "22G1",
+          "size": "SIZE_20",
+          "type": "DRY",
+          "height": null,
+          "tareWeight": "2200",
+          "maxPayload": "28280",
+          "createdAt": "2026-10-01T03:18:20.398Z",
+          "updatedAt": "2026-10-01T03:18:20.398Z"
+        },
+        "reception": null,
+        "houseBl": {
+          "id": "4bfccf5e-6bff-4b5c-a906-e025214752ca",
+          "masterBlId": "71b1acd8-88a3-457a-ab77-307a1194c94a",
+          "hblNumber": "HBL-VSCU-VN02",
+          "consigneeId": "47b1cbf5-b725-4a2f-85c9-a59bf9c52c4b",
+          "clearingAgentId": "79256ef4-a2b1-4d5c-8f89-071d35e15a59",
+          "cargoDescription": "Thép cuộn mạ kẽm chất lượng cao (Galvanized Steel Coils)",
+          "grossWeight": "28400",
+          "packageCount": 62,
+          "createdAt": "2026-10-01T03:18:20.411Z",
+          "updatedAt": "2026-10-01T03:18:20.411Z",
+          "masterBl": {
+            "id": "71b1acd8-88a3-457a-ab77-307a1194c94a",
+            "manifestId": "86986eb4-63ac-41ff-977d-c2f0c2172623",
+            "mblNumber": "MBL-VSCU-2026-002",
+            "shippingLineId": "5999064e-b726-475c-9637-11a51f543264",
+            "createdAt": "2026-10-01T03:18:20.405Z",
+            "updatedAt": "2026-10-01T03:18:20.405Z",
+            "manifest": {
+              "id": "86986eb4-63ac-41ff-977d-c2f0c2172623",
+              "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+              "manifestNo": "MNF-VN-VSCU-002",
+              "shippingLineId": "5999064e-b726-475c-9637-11a51f543264",
+              "vesselName": "VOSCO SUNRISE 2026N",
+              "voyageNo": "2026N",
+              "eta": "2026-09-29T03:18:20.400Z",
+              "portOfLoading": "VNHPH (Hải Phòng Port)",
+              "portOfDischarge": "VNSGN (Cát Lái / Tân Cảng)",
+              "status": "SUBMITTED",
+              "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+              "createdAt": "2026-10-01T03:18:20.401Z",
+              "updatedAt": "2026-10-01T03:18:20.401Z",
+              "shippingLine": {
+                "id": "5999064e-b726-475c-9637-11a51f543264",
+                "name": "Công ty Cổ phần Vận tải biển Việt Nam (VOSCO)",
+                "scacCode": "VSCU",
+                "active": true,
+                "createdAt": "2026-10-01T03:18:19.889Z",
+                "updatedAt": "2026-10-01T03:18:19.889Z"
+              }
+            }
+          },
+          "consignee": {
+            "id": "47b1cbf5-b725-4a2f-85c9-a59bf9c52c4b",
+            "name": "Công ty Cổ phần Tập đoàn Hòa Phát",
+            "taxCode": "0101234567",
+            "phone": "02439876543",
+            "email": "shipping@hoaphat.com.vn",
+            "address": "KCN Phố Nối A, Hưng Yên",
+            "active": true,
+            "createdAt": "2026-10-01T03:18:19.967Z",
+            "updatedAt": "2026-10-01T03:18:19.967Z"
+          }
+        }
+      },
+      {
+        "id": "afc67ff0-0fe7-44a2-9a27-fd682d024731",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "containerId": "a8853d9e-05a3-482d-8f59-e1e3b872039f",
+        "manifestId": "68c29b60-f6bf-4a82-9143-87a4ec86085f",
+        "masterBlId": "05d53089-c03d-46dd-ad9b-132e0388edf1",
+        "houseBlId": "7e3d9eb7-c8f9-495b-b418-eadf8c68da4d",
+        "consigneeId": "f2bc243d-9dd9-4364-85d3-2b5fb22b4769",
+        "state": "IN_YARD",
+        "fullEmptyStatus": "FULL",
+        "sealNo": "HAH-883921",
+        "cargoDescription": "Thủy hải sản tôm đông lạnh xuất khẩu (Frozen Shrimp)",
+        "grossWeight": "26500",
+        "category": "IMPORT",
+        "isOverstay": false,
+        "dwellDays": 0,
+        "gateInAt": "2026-09-30T03:18:20.384Z",
+        "gateOutAt": null,
+        "createdAt": "2026-10-01T03:18:20.385Z",
+        "updatedAt": "2026-10-01T03:18:20.385Z",
+        "container": {
+          "id": "a8853d9e-05a3-482d-8f59-e1e3b872039f",
+          "containerNumber": "HACU4829103",
+          "isoCode": "45R1",
+          "size": "SIZE_40",
+          "type": "REEFER",
+          "height": null,
+          "tareWeight": "3800",
+          "maxPayload": "26680",
+          "createdAt": "2026-10-01T03:18:20.361Z",
+          "updatedAt": "2026-10-01T03:18:20.361Z"
+        },
+        "reception": null,
+        "houseBl": {
+          "id": "7e3d9eb7-c8f9-495b-b418-eadf8c68da4d",
+          "masterBlId": "05d53089-c03d-46dd-ad9b-132e0388edf1",
+          "hblNumber": "HBL-HACU-VN01",
+          "consigneeId": "f2bc243d-9dd9-4364-85d3-2b5fb22b4769",
+          "clearingAgentId": "5f580bd1-8fa7-4932-9542-e478f2eac71f",
+          "cargoDescription": "Thủy hải sản tôm đông lạnh xuất khẩu (Frozen Shrimp)",
+          "grossWeight": "26500",
+          "packageCount": 50,
+          "createdAt": "2026-10-01T03:18:20.379Z",
+          "updatedAt": "2026-10-01T03:18:20.379Z",
+          "masterBl": {
+            "id": "05d53089-c03d-46dd-ad9b-132e0388edf1",
+            "manifestId": "68c29b60-f6bf-4a82-9143-87a4ec86085f",
+            "mblNumber": "MBL-HACU-2026-001",
+            "shippingLineId": "0f2c0f99-df09-47f3-a354-64692185f716",
+            "createdAt": "2026-10-01T03:18:20.373Z",
+            "updatedAt": "2026-10-01T03:18:20.373Z",
+            "manifest": {
+              "id": "68c29b60-f6bf-4a82-9143-87a4ec86085f",
+              "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+              "manifestNo": "MNF-VN-HACU-001",
+              "shippingLineId": "0f2c0f99-df09-47f3-a354-64692185f716",
+              "vesselName": "HAIAN BELL 014W",
+              "voyageNo": "014W",
+              "eta": "2026-09-29T03:18:20.364Z",
+              "portOfLoading": "VNHPH (Hải Phòng Port)",
+              "portOfDischarge": "VNSGN (Cát Lái / Tân Cảng)",
+              "status": "SUBMITTED",
+              "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+              "createdAt": "2026-10-01T03:18:20.367Z",
+              "updatedAt": "2026-10-01T03:18:20.367Z",
+              "shippingLine": {
+                "id": "0f2c0f99-df09-47f3-a354-64692185f716",
+                "name": "Công ty CP Vận tải và Xếp dỡ Hải An (HATS / HAH)",
+                "scacCode": "HACU",
+                "active": true,
+                "createdAt": "2026-10-01T03:18:19.897Z",
+                "updatedAt": "2026-10-01T03:18:19.897Z"
+              }
+            }
+          },
+          "consignee": {
+            "id": "f2bc243d-9dd9-4364-85d3-2b5fb22b4769",
+            "name": "Công ty CP Thực phẩm Đông lạnh Sao Biển",
+            "taxCode": "0355667788",
+            "phone": "02838990011",
+            "email": "export@saobienseafood.vn",
+            "address": "KCN Hiệp Phước, Nhà Bè, TP.HCM",
+            "active": true,
+            "createdAt": "2026-10-01T03:18:19.984Z",
+            "updatedAt": "2026-10-01T03:18:19.984Z"
+          }
+        }
+      }
+    ],
+    "meta": {
+      "page": 1,
+      "pageSize": 20,
+      "total": 10,
+      "totalPages": 1
+    }
+  },
+  "/yard/slots": {
+    "data": [
+      {
+        "id": "16e20650-8393-4d21-a0da-d9e799d8e6bf",
+        "yardBlock": {
+          "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "A",
+          "name": "Khu A — Hàng khô Dry Cargo",
+          "operational": true
+        },
+        "rowNo": "1",
+        "bayNo": "1",
+        "tierNo": "1",
+        "slotCode": "A-01-01-1",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "OCCUPIED",
+        "currentContainer": {
+          "containerVisitId": "42d4f9cd-b38a-4cfe-94b7-6a755c601a52",
+          "containerNumber": "TCSU8849201",
+          "startedAt": "2026-10-01T03:18:20.446Z"
+        }
+      },
+      {
+        "id": "94ab8cfb-345f-407a-bc4f-e8e4ed8ed29f",
+        "yardBlock": {
+          "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "A",
+          "name": "Khu A — Hàng khô Dry Cargo",
+          "operational": true
+        },
+        "rowNo": "1",
+        "bayNo": "1",
+        "tierNo": "2",
+        "slotCode": "A-01-01-2",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "5641dff3-b978-4348-9371-bfdbf840d94d",
+        "yardBlock": {
+          "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "A",
+          "name": "Khu A — Hàng khô Dry Cargo",
+          "operational": true
+        },
+        "rowNo": "1",
+        "bayNo": "2",
+        "tierNo": "1",
+        "slotCode": "A-01-02-1",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "OCCUPIED",
+        "currentContainer": {
+          "containerVisitId": "1e792509-4c88-4140-978f-87dc88230fca",
+          "containerNumber": "GLDU5739201",
+          "startedAt": "2026-10-01T03:18:20.470Z"
+        }
+      },
+      {
+        "id": "eddc44df-8fbe-4346-8a9a-81fc0f110686",
+        "yardBlock": {
+          "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "A",
+          "name": "Khu A — Hàng khô Dry Cargo",
+          "operational": true
+        },
+        "rowNo": "1",
+        "bayNo": "2",
+        "tierNo": "2",
+        "slotCode": "A-01-02-2",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "f75cd3d9-c357-40d1-9aac-1101f9b1b2c5",
+        "yardBlock": {
+          "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "A",
+          "name": "Khu A — Hàng khô Dry Cargo",
+          "operational": true
+        },
+        "rowNo": "1",
+        "bayNo": "3",
+        "tierNo": "1",
+        "slotCode": "A-01-03-1",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "OCCUPIED",
+        "currentContainer": {
+          "containerVisitId": "0d527b40-b88c-4242-8012-2be93c2e6656",
+          "containerNumber": "VFCU7482910",
+          "startedAt": "2026-10-01T03:18:20.548Z"
+        }
+      },
+      {
+        "id": "0aa21460-e2cf-4b4d-9426-0216a24cba4f",
+        "yardBlock": {
+          "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "A",
+          "name": "Khu A — Hàng khô Dry Cargo",
+          "operational": true
+        },
+        "rowNo": "1",
+        "bayNo": "3",
+        "tierNo": "2",
+        "slotCode": "A-01-03-2",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "1b97d235-1b5b-461a-b202-77115df3abe2",
+        "yardBlock": {
+          "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "A",
+          "name": "Khu A — Hàng khô Dry Cargo",
+          "operational": true
+        },
+        "rowNo": "2",
+        "bayNo": "1",
+        "tierNo": "1",
+        "slotCode": "A-02-01-1",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "3c552f06-b3f6-4670-84b0-86c154231892",
+        "yardBlock": {
+          "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "A",
+          "name": "Khu A — Hàng khô Dry Cargo",
+          "operational": true
+        },
+        "rowNo": "2",
+        "bayNo": "1",
+        "tierNo": "2",
+        "slotCode": "A-02-01-2",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "ed2743c4-1ef8-43f7-9873-2fd11eee16b6",
+        "yardBlock": {
+          "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "A",
+          "name": "Khu A — Hàng khô Dry Cargo",
+          "operational": true
+        },
+        "rowNo": "2",
+        "bayNo": "2",
+        "tierNo": "1",
+        "slotCode": "A-02-02-1",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "fba66d3c-d356-4d60-a600-03a48e9c341e",
+        "yardBlock": {
+          "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "A",
+          "name": "Khu A — Hàng khô Dry Cargo",
+          "operational": true
+        },
+        "rowNo": "2",
+        "bayNo": "2",
+        "tierNo": "2",
+        "slotCode": "A-02-02-2",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "96cfe87e-1b4f-41c4-9b23-d64317f163c4",
+        "yardBlock": {
+          "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "A",
+          "name": "Khu A — Hàng khô Dry Cargo",
+          "operational": true
+        },
+        "rowNo": "2",
+        "bayNo": "3",
+        "tierNo": "1",
+        "slotCode": "A-02-03-1",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "7bd5497c-ba73-4b2e-8eca-ded185929c71",
+        "yardBlock": {
+          "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "A",
+          "name": "Khu A — Hàng khô Dry Cargo",
+          "operational": true
+        },
+        "rowNo": "2",
+        "bayNo": "3",
+        "tierNo": "2",
+        "slotCode": "A-02-03-2",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "686d8a8a-f660-4007-98a7-0c3e9323c629",
+        "yardBlock": {
+          "id": "8326c567-012f-48d4-b334-ae473a5952f0",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "B",
+          "name": "Khu B — Hàng xuất kiểm & Stripping",
+          "operational": true
+        },
+        "rowNo": "1",
+        "bayNo": "1",
+        "tierNo": "1",
+        "slotCode": "B-01-01-1",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "OCCUPIED",
+        "currentContainer": {
+          "containerVisitId": "cb567507-f5fe-4c6f-bad9-04c3ef06ca49",
+          "containerNumber": "VMCU9284012",
+          "startedAt": "2026-10-01T03:18:20.498Z"
+        }
+      },
+      {
+        "id": "89d96dec-0357-4f67-bd91-2db3e83289e7",
+        "yardBlock": {
+          "id": "8326c567-012f-48d4-b334-ae473a5952f0",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "B",
+          "name": "Khu B — Hàng xuất kiểm & Stripping",
+          "operational": true
+        },
+        "rowNo": "1",
+        "bayNo": "1",
+        "tierNo": "2",
+        "slotCode": "B-01-01-2",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "69edb7ba-48d1-49e9-91a5-526b3633d643",
+        "yardBlock": {
+          "id": "8326c567-012f-48d4-b334-ae473a5952f0",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "B",
+          "name": "Khu B — Hàng xuất kiểm & Stripping",
+          "operational": true
+        },
+        "rowNo": "1",
+        "bayNo": "2",
+        "tierNo": "1",
+        "slotCode": "B-01-02-1",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "OCCUPIED",
+        "currentContainer": {
+          "containerVisitId": "fe47f578-6c29-4f63-ac55-175dbdcd6d6e",
+          "containerNumber": "BDCU3849102",
+          "startedAt": "2026-10-01T03:18:20.522Z"
+        }
+      },
+      {
+        "id": "affd066c-3942-4e80-924a-df22ad4674e9",
+        "yardBlock": {
+          "id": "8326c567-012f-48d4-b334-ae473a5952f0",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "B",
+          "name": "Khu B — Hàng xuất kiểm & Stripping",
+          "operational": true
+        },
+        "rowNo": "1",
+        "bayNo": "2",
+        "tierNo": "2",
+        "slotCode": "B-01-02-2",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "883576e1-1553-486a-8012-a1c6979ba9da",
+        "yardBlock": {
+          "id": "8326c567-012f-48d4-b334-ae473a5952f0",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "B",
+          "name": "Khu B — Hàng xuất kiểm & Stripping",
+          "operational": true
+        },
+        "rowNo": "1",
+        "bayNo": "3",
+        "tierNo": "1",
+        "slotCode": "B-01-03-1",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "dbbaf3a4-6767-49ba-aa55-67a3462f6d6d",
+        "yardBlock": {
+          "id": "8326c567-012f-48d4-b334-ae473a5952f0",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "B",
+          "name": "Khu B — Hàng xuất kiểm & Stripping",
+          "operational": true
+        },
+        "rowNo": "1",
+        "bayNo": "3",
+        "tierNo": "2",
+        "slotCode": "B-01-03-2",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "c17e5bd6-bb18-4213-a2c5-84ea17b9d149",
+        "yardBlock": {
+          "id": "8326c567-012f-48d4-b334-ae473a5952f0",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "B",
+          "name": "Khu B — Hàng xuất kiểm & Stripping",
+          "operational": true
+        },
+        "rowNo": "2",
+        "bayNo": "1",
+        "tierNo": "1",
+        "slotCode": "B-02-01-1",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "78ea0837-9206-49e5-9fef-6d2e3838d382",
+        "yardBlock": {
+          "id": "8326c567-012f-48d4-b334-ae473a5952f0",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "B",
+          "name": "Khu B — Hàng xuất kiểm & Stripping",
+          "operational": true
+        },
+        "rowNo": "2",
+        "bayNo": "1",
+        "tierNo": "2",
+        "slotCode": "B-02-01-2",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "94b42f62-85ef-49ce-82df-a70dd8a9f9e2",
+        "yardBlock": {
+          "id": "8326c567-012f-48d4-b334-ae473a5952f0",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "B",
+          "name": "Khu B — Hàng xuất kiểm & Stripping",
+          "operational": true
+        },
+        "rowNo": "2",
+        "bayNo": "2",
+        "tierNo": "1",
+        "slotCode": "B-02-02-1",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "1dfcaa09-4229-4f07-9cc7-9955471bdccb",
+        "yardBlock": {
+          "id": "8326c567-012f-48d4-b334-ae473a5952f0",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "B",
+          "name": "Khu B — Hàng xuất kiểm & Stripping",
+          "operational": true
+        },
+        "rowNo": "2",
+        "bayNo": "2",
+        "tierNo": "2",
+        "slotCode": "B-02-02-2",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "169b61ff-c179-4bcb-b27d-65b09d50e87c",
+        "yardBlock": {
+          "id": "8326c567-012f-48d4-b334-ae473a5952f0",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "B",
+          "name": "Khu B — Hàng xuất kiểm & Stripping",
+          "operational": true
+        },
+        "rowNo": "2",
+        "bayNo": "3",
+        "tierNo": "1",
+        "slotCode": "B-02-03-1",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "b725622e-bbb4-417e-bb6a-c7cef0a5eda8",
+        "yardBlock": {
+          "id": "8326c567-012f-48d4-b334-ae473a5952f0",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "B",
+          "name": "Khu B — Hàng xuất kiểm & Stripping",
+          "operational": true
+        },
+        "rowNo": "2",
+        "bayNo": "3",
+        "tierNo": "2",
+        "slotCode": "B-02-03-2",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "9c9f4e22-f835-4802-aa54-a666bf0ba884",
+        "yardBlock": {
+          "id": "e767f9f9-7407-4970-9e5c-744c068236b8",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "C",
+          "name": "Khu C — Container nặng & Chờ xuất",
+          "operational": true
+        },
+        "rowNo": "1",
+        "bayNo": "1",
+        "tierNo": "1",
+        "slotCode": "C-01-01-1",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "OCCUPIED",
+        "currentContainer": {
+          "containerVisitId": "7e6110ce-bcae-4bb7-b6b5-0a2a6eb49477",
+          "containerNumber": "VSCU1049281",
+          "startedAt": "2026-10-01T03:18:20.420Z"
+        }
+      },
+      {
+        "id": "2a7605d4-54fd-4dff-ace5-55857ae7b441",
+        "yardBlock": {
+          "id": "e767f9f9-7407-4970-9e5c-744c068236b8",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "C",
+          "name": "Khu C — Container nặng & Chờ xuất",
+          "operational": true
+        },
+        "rowNo": "1",
+        "bayNo": "1",
+        "tierNo": "2",
+        "slotCode": "C-01-01-2",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "3306a934-3ea6-4374-8262-1fd6dd86be31",
+        "yardBlock": {
+          "id": "e767f9f9-7407-4970-9e5c-744c068236b8",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "C",
+          "name": "Khu C — Container nặng & Chờ xuất",
+          "operational": true
+        },
+        "rowNo": "1",
+        "bayNo": "2",
+        "tierNo": "1",
+        "slotCode": "C-01-02-1",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "OCCUPIED",
+        "currentContainer": {
+          "containerVisitId": "4d4d3c5b-8467-4582-ad74-21768b62163c",
+          "containerNumber": "VSCU6748392",
+          "startedAt": "2026-10-01T03:18:20.622Z"
+        }
+      },
+      {
+        "id": "b309b4b4-7ca1-4cc6-9f81-c31d9ea8a52b",
+        "yardBlock": {
+          "id": "e767f9f9-7407-4970-9e5c-744c068236b8",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "C",
+          "name": "Khu C — Container nặng & Chờ xuất",
+          "operational": true
+        },
+        "rowNo": "1",
+        "bayNo": "2",
+        "tierNo": "2",
+        "slotCode": "C-01-02-2",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "9ed26969-415c-4e1d-81b3-c06231cd89d3",
+        "yardBlock": {
+          "id": "e767f9f9-7407-4970-9e5c-744c068236b8",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "C",
+          "name": "Khu C — Container nặng & Chờ xuất",
+          "operational": true
+        },
+        "rowNo": "1",
+        "bayNo": "3",
+        "tierNo": "1",
+        "slotCode": "C-01-03-1",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "8f449ac8-cf87-4f62-af9f-068f313d8f1a",
+        "yardBlock": {
+          "id": "e767f9f9-7407-4970-9e5c-744c068236b8",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "C",
+          "name": "Khu C — Container nặng & Chờ xuất",
+          "operational": true
+        },
+        "rowNo": "1",
+        "bayNo": "3",
+        "tierNo": "2",
+        "slotCode": "C-01-03-2",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "f70262c6-2151-4f8b-aed8-9a3169ca8089",
+        "yardBlock": {
+          "id": "e767f9f9-7407-4970-9e5c-744c068236b8",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "C",
+          "name": "Khu C — Container nặng & Chờ xuất",
+          "operational": true
+        },
+        "rowNo": "2",
+        "bayNo": "1",
+        "tierNo": "1",
+        "slotCode": "C-02-01-1",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "ef282ea6-906b-4797-9d84-d0958ee519c8",
+        "yardBlock": {
+          "id": "e767f9f9-7407-4970-9e5c-744c068236b8",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "C",
+          "name": "Khu C — Container nặng & Chờ xuất",
+          "operational": true
+        },
+        "rowNo": "2",
+        "bayNo": "1",
+        "tierNo": "2",
+        "slotCode": "C-02-01-2",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "84494aa6-acad-4604-a71f-b0876744ca97",
+        "yardBlock": {
+          "id": "e767f9f9-7407-4970-9e5c-744c068236b8",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "C",
+          "name": "Khu C — Container nặng & Chờ xuất",
+          "operational": true
+        },
+        "rowNo": "2",
+        "bayNo": "2",
+        "tierNo": "1",
+        "slotCode": "C-02-02-1",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "47218002-c260-4bb8-a53a-7cb2ba4c55e3",
+        "yardBlock": {
+          "id": "e767f9f9-7407-4970-9e5c-744c068236b8",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "C",
+          "name": "Khu C — Container nặng & Chờ xuất",
+          "operational": true
+        },
+        "rowNo": "2",
+        "bayNo": "2",
+        "tierNo": "2",
+        "slotCode": "C-02-02-2",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "ef2cf202-16df-40d1-b580-796984c93cc7",
+        "yardBlock": {
+          "id": "e767f9f9-7407-4970-9e5c-744c068236b8",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "C",
+          "name": "Khu C — Container nặng & Chờ xuất",
+          "operational": true
+        },
+        "rowNo": "2",
+        "bayNo": "3",
+        "tierNo": "1",
+        "slotCode": "C-02-03-1",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "f77f5dc8-dedd-4568-831e-d43bb642168f",
+        "yardBlock": {
+          "id": "e767f9f9-7407-4970-9e5c-744c068236b8",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "C",
+          "name": "Khu C — Container nặng & Chờ xuất",
+          "operational": true
+        },
+        "rowNo": "2",
+        "bayNo": "3",
+        "tierNo": "2",
+        "slotCode": "C-02-03-2",
+        "supportedContainerType": null,
+        "reeferPower": false,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "13a771a2-4e5d-4fb6-86c1-d5ef82fd60d0",
+        "yardBlock": {
+          "id": "f43f3ef5-9be2-46b5-8131-adf454b1cba3",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "D",
+          "name": "Khu D — Container lạnh Reefer",
+          "operational": true
+        },
+        "rowNo": "1",
+        "bayNo": "1",
+        "tierNo": "1",
+        "slotCode": "D-01-01-1",
+        "supportedContainerType": null,
+        "reeferPower": true,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "OCCUPIED",
+        "currentContainer": {
+          "containerVisitId": "afc67ff0-0fe7-44a2-9a27-fd682d024731",
+          "containerNumber": "HACU4829103",
+          "startedAt": "2026-10-01T03:18:20.392Z"
+        }
+      },
+      {
+        "id": "97596a6b-d945-4402-ac4c-5065b71f38ac",
+        "yardBlock": {
+          "id": "f43f3ef5-9be2-46b5-8131-adf454b1cba3",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "D",
+          "name": "Khu D — Container lạnh Reefer",
+          "operational": true
+        },
+        "rowNo": "1",
+        "bayNo": "1",
+        "tierNo": "2",
+        "slotCode": "D-01-01-2",
+        "supportedContainerType": null,
+        "reeferPower": true,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "75388b0d-4edc-4e24-b25a-23d513c8f6a1",
+        "yardBlock": {
+          "id": "f43f3ef5-9be2-46b5-8131-adf454b1cba3",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "D",
+          "name": "Khu D — Container lạnh Reefer",
+          "operational": true
+        },
+        "rowNo": "1",
+        "bayNo": "2",
+        "tierNo": "1",
+        "slotCode": "D-01-02-1",
+        "supportedContainerType": null,
+        "reeferPower": true,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "OCCUPIED",
+        "currentContainer": {
+          "containerVisitId": "6a324f12-ca09-40b5-94af-0e431574c414",
+          "containerNumber": "TCSU9283741",
+          "startedAt": "2026-10-01T03:18:20.597Z"
+        }
+      },
+      {
+        "id": "701f3469-485b-45fd-959c-1f5399efd0e7",
+        "yardBlock": {
+          "id": "f43f3ef5-9be2-46b5-8131-adf454b1cba3",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "D",
+          "name": "Khu D — Container lạnh Reefer",
+          "operational": true
+        },
+        "rowNo": "1",
+        "bayNo": "2",
+        "tierNo": "2",
+        "slotCode": "D-01-02-2",
+        "supportedContainerType": null,
+        "reeferPower": true,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "52d5977c-e1d0-4b99-8541-48ccb51f2e1c",
+        "yardBlock": {
+          "id": "f43f3ef5-9be2-46b5-8131-adf454b1cba3",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "D",
+          "name": "Khu D — Container lạnh Reefer",
+          "operational": true
+        },
+        "rowNo": "1",
+        "bayNo": "3",
+        "tierNo": "1",
+        "slotCode": "D-01-03-1",
+        "supportedContainerType": null,
+        "reeferPower": true,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "2802d20a-0ab6-4e36-8925-dac9cd5ed43e",
+        "yardBlock": {
+          "id": "f43f3ef5-9be2-46b5-8131-adf454b1cba3",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "D",
+          "name": "Khu D — Container lạnh Reefer",
+          "operational": true
+        },
+        "rowNo": "1",
+        "bayNo": "3",
+        "tierNo": "2",
+        "slotCode": "D-01-03-2",
+        "supportedContainerType": null,
+        "reeferPower": true,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "fbb649dc-edc0-46cb-bf89-1ec52f22b26f",
+        "yardBlock": {
+          "id": "f43f3ef5-9be2-46b5-8131-adf454b1cba3",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "D",
+          "name": "Khu D — Container lạnh Reefer",
+          "operational": true
+        },
+        "rowNo": "2",
+        "bayNo": "1",
+        "tierNo": "1",
+        "slotCode": "D-02-01-1",
+        "supportedContainerType": null,
+        "reeferPower": true,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "8a2b40ca-c79f-4c4a-8420-3202f344ae05",
+        "yardBlock": {
+          "id": "f43f3ef5-9be2-46b5-8131-adf454b1cba3",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "D",
+          "name": "Khu D — Container lạnh Reefer",
+          "operational": true
+        },
+        "rowNo": "2",
+        "bayNo": "1",
+        "tierNo": "2",
+        "slotCode": "D-02-01-2",
+        "supportedContainerType": null,
+        "reeferPower": true,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "bb20aec9-bb71-44d2-ba47-1fe44a3eb1d4",
+        "yardBlock": {
+          "id": "f43f3ef5-9be2-46b5-8131-adf454b1cba3",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "D",
+          "name": "Khu D — Container lạnh Reefer",
+          "operational": true
+        },
+        "rowNo": "2",
+        "bayNo": "2",
+        "tierNo": "1",
+        "slotCode": "D-02-02-1",
+        "supportedContainerType": null,
+        "reeferPower": true,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "16510122-bd65-4497-bc7a-80d206518b29",
+        "yardBlock": {
+          "id": "f43f3ef5-9be2-46b5-8131-adf454b1cba3",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "D",
+          "name": "Khu D — Container lạnh Reefer",
+          "operational": true
+        },
+        "rowNo": "2",
+        "bayNo": "2",
+        "tierNo": "2",
+        "slotCode": "D-02-02-2",
+        "supportedContainerType": null,
+        "reeferPower": true,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "8cb5e504-3143-43bf-86b6-f285bbfedde5",
+        "yardBlock": {
+          "id": "f43f3ef5-9be2-46b5-8131-adf454b1cba3",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "D",
+          "name": "Khu D — Container lạnh Reefer",
+          "operational": true
+        },
+        "rowNo": "2",
+        "bayNo": "3",
+        "tierNo": "1",
+        "slotCode": "D-02-03-1",
+        "supportedContainerType": null,
+        "reeferPower": true,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      },
+      {
+        "id": "f80496cc-051d-4416-8db9-ecb596f59f8b",
+        "yardBlock": {
+          "id": "f43f3ef5-9be2-46b5-8131-adf454b1cba3",
+          "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+          "blockCode": "D",
+          "name": "Khu D — Container lạnh Reefer",
+          "operational": true
+        },
+        "rowNo": "2",
+        "bayNo": "3",
+        "tierNo": "2",
+        "slotCode": "D-02-03-2",
+        "supportedContainerType": null,
+        "reeferPower": true,
+        "maxWeight": "32000",
+        "operational": true,
+        "status": "AVAILABLE",
+        "currentContainer": null
+      }
+    ],
+    "meta": {
+      "page": 1,
+      "pageSize": 50,
+      "total": 48,
+      "totalPages": 1
+    }
+  },
+  "/yard/blocks": {
+    "data": [
+      {
+        "id": "a1509670-52af-4556-a1ac-7f2276086dc3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "A",
+        "name": "Khu A — Hàng khô Dry Cargo",
+        "operational": true,
+        "_count": {
+          "slots": 12
+        }
+      },
+      {
+        "id": "8326c567-012f-48d4-b334-ae473a5952f0",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "B",
+        "name": "Khu B — Hàng xuất kiểm & Stripping",
+        "operational": true,
+        "_count": {
+          "slots": 12
+        }
+      },
+      {
+        "id": "e767f9f9-7407-4970-9e5c-744c068236b8",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "C",
+        "name": "Khu C — Container nặng & Chờ xuất",
+        "operational": true,
+        "_count": {
+          "slots": 12
+        }
+      },
+      {
+        "id": "f43f3ef5-9be2-46b5-8131-adf454b1cba3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "blockCode": "D",
+        "name": "Khu D — Container lạnh Reefer",
+        "operational": true,
+        "_count": {
+          "slots": 12
+        }
+      }
+    ]
+  },
+  "/gate/truck-visits": {
+    "data": [],
+    "meta": {
+      "page": 1,
+      "pageSize": 20,
+      "total": 0,
+      "totalPages": 0
+    }
+  },
+  "/containers/work-queue": {
+    "data": [],
+    "meta": {
+      "page": 1,
+      "pageSize": 50,
+      "total": 0,
+      "totalPages": 0
+    },
+    "summary": {
+      "total": 0,
+      "overdue": 0,
+      "critical": 0,
+      "high": 0,
+      "normal": 0
+    }
+  },
+  "/manifests": {
+    "data": [
+      {
+        "id": "d488fc32-a771-4bbc-8def-5a88ee1b97ce",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "manifestNo": "MNF-VN-VSCU-010",
+        "shippingLineId": "5999064e-b726-475c-9637-11a51f543264",
+        "shippingLine": {
+          "id": "5999064e-b726-475c-9637-11a51f543264",
+          "name": "Công ty Cổ phần Vận tải biển Việt Nam (VOSCO)",
+          "scacCode": "VSCU"
+        },
+        "vesselName": "VOSCO VANGUARD 012W",
+        "voyageNo": "012W",
+        "eta": "2026-09-29T03:18:20.604Z",
+        "portOfLoading": "VNHPH (Hải Phòng Port)",
+        "portOfDischarge": "VNSGN (Cát Lái / Tân Cảng)",
+        "status": "SUBMITTED",
+        "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+        "createdByUser": {
+          "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "name": "System Administrator",
+          "email": "admin@icd.local"
+        },
+        "masterBlCount": 1,
+        "createdAt": "2026-10-01T03:18:20.605Z",
+        "updatedAt": "2026-10-01T03:18:20.605Z"
+      },
+      {
+        "id": "61a0ae3b-118f-4fff-addd-501bc01792e3",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "manifestNo": "MNF-VN-TCSU-009",
+        "shippingLineId": "84945425-629e-4fb4-8c15-ae8f9a2c4e0c",
+        "shippingLine": {
+          "id": "84945425-629e-4fb4-8c15-ae8f9a2c4e0c",
+          "name": "Công ty CP Vận tải Thủy Tân Cảng (Tan Cang Shipping)",
+          "scacCode": "TCSU"
+        },
+        "vesselName": "TAN CANG OCEAN 021E",
+        "voyageNo": "021E",
+        "eta": "2026-09-29T03:18:20.577Z",
+        "portOfLoading": "VNHPH (Hải Phòng Port)",
+        "portOfDischarge": "VNSGN (Cát Lái / Tân Cảng)",
+        "status": "SUBMITTED",
+        "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+        "createdByUser": {
+          "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "name": "System Administrator",
+          "email": "admin@icd.local"
+        },
+        "masterBlCount": 1,
+        "createdAt": "2026-10-01T03:18:20.579Z",
+        "updatedAt": "2026-10-01T03:18:20.579Z"
+      },
+      {
+        "id": "79da1984-62dd-413c-a623-f028c8ad1a93",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "manifestNo": "MNF-VN-HACU-008",
+        "shippingLineId": "0f2c0f99-df09-47f3-a354-64692185f716",
+        "shippingLine": {
+          "id": "0f2c0f99-df09-47f3-a354-64692185f716",
+          "name": "Công ty CP Vận tải và Xếp dỡ Hải An (HATS / HAH)",
+          "scacCode": "HACU"
+        },
+        "vesselName": "HAIAN LINK 044S",
+        "voyageNo": "044S",
+        "eta": "2026-09-29T03:18:20.554Z",
+        "portOfLoading": "VNHPH (Hải Phòng Port)",
+        "portOfDischarge": "VNSGN (Cát Lái / Tân Cảng)",
+        "status": "SUBMITTED",
+        "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+        "createdByUser": {
+          "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "name": "System Administrator",
+          "email": "admin@icd.local"
+        },
+        "masterBlCount": 1,
+        "createdAt": "2026-10-01T03:18:20.555Z",
+        "updatedAt": "2026-10-01T03:18:20.555Z"
+      },
+      {
+        "id": "999a8b82-9f8f-4ee4-8545-6b5d72560982",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "manifestNo": "MNF-VN-VFCU-007",
+        "shippingLineId": "1b6f1bd3-1f17-48c5-aad7-f1e816b56ffe",
+        "shippingLine": {
+          "id": "1b6f1bd3-1f17-48c5-aad7-f1e816b56ffe",
+          "name": "Công ty Cổ phần Vinafco (Vinafco Shipping)",
+          "scacCode": "VFCU"
+        },
+        "vesselName": "VINAFCO FORTUNE 018N",
+        "voyageNo": "018N",
+        "eta": "2026-09-29T03:18:20.528Z",
+        "portOfLoading": "VNHPH (Hải Phòng Port)",
+        "portOfDischarge": "VNSGN (Cát Lái / Tân Cảng)",
+        "status": "SUBMITTED",
+        "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+        "createdByUser": {
+          "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "name": "System Administrator",
+          "email": "admin@icd.local"
+        },
+        "masterBlCount": 1,
+        "createdAt": "2026-10-01T03:18:20.530Z",
+        "updatedAt": "2026-10-01T03:18:20.530Z"
+      },
+      {
+        "id": "88c65cf7-5418-44af-9d03-92c9a648e1cf",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "manifestNo": "MNF-VN-BDCU-006",
+        "shippingLineId": "e4dcfa8a-f263-49ae-a2fe-aedbc9b70a3a",
+        "shippingLine": {
+          "id": "e4dcfa8a-f263-49ae-a2fe-aedbc9b70a3a",
+          "name": "Công ty Vận tải Biển Đông (Bien Dong Shipping)",
+          "scacCode": "BDCU"
+        },
+        "vesselName": "BIEN DONG STAR 033E",
+        "voyageNo": "033E",
+        "eta": "2026-09-29T03:18:20.504Z",
+        "portOfLoading": "VNHPH (Hải Phòng Port)",
+        "portOfDischarge": "VNSGN (Cát Lái / Tân Cảng)",
+        "status": "SUBMITTED",
+        "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+        "createdByUser": {
+          "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "name": "System Administrator",
+          "email": "admin@icd.local"
+        },
+        "masterBlCount": 1,
+        "createdAt": "2026-10-01T03:18:20.505Z",
+        "updatedAt": "2026-10-01T03:18:20.505Z"
+      },
+      {
+        "id": "49c74ee9-ba8f-4563-a57c-c651966ba273",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "manifestNo": "MNF-VN-VMCU-005",
+        "shippingLineId": "2813af12-f962-4921-858f-ebf772a2cb1f",
+        "shippingLine": {
+          "id": "2813af12-f962-4921-858f-ebf772a2cb1f",
+          "name": "Tổng công ty Hàng hải Việt Nam (VIMC / Vinalines)",
+          "scacCode": "VMCU"
+        },
+        "vesselName": "VIMC PIONEER 005W",
+        "voyageNo": "005W",
+        "eta": "2026-09-29T03:18:20.477Z",
+        "portOfLoading": "VNHPH (Hải Phòng Port)",
+        "portOfDischarge": "VNSGN (Cát Lái / Tân Cảng)",
+        "status": "SUBMITTED",
+        "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+        "createdByUser": {
+          "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "name": "System Administrator",
+          "email": "admin@icd.local"
+        },
+        "masterBlCount": 1,
+        "createdAt": "2026-10-01T03:18:20.478Z",
+        "updatedAt": "2026-10-01T03:18:20.478Z"
+      },
+      {
+        "id": "13463a9a-7ec4-4dd6-aac1-8ed726cb9eac",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "manifestNo": "MNF-VN-GLDU-004",
+        "shippingLineId": "f98a68ca-8a41-4593-a612-3829cc1928b8",
+        "shippingLine": {
+          "id": "f98a68ca-8a41-4593-a612-3829cc1928b8",
+          "name": "Công ty Cổ phần Gemadept (GMD Shipping)",
+          "scacCode": "GLDU"
+        },
+        "vesselName": "GEMADEPT PROGRESS 092S",
+        "voyageNo": "092S",
+        "eta": "2026-09-29T03:18:20.451Z",
+        "portOfLoading": "VNHPH (Hải Phòng Port)",
+        "portOfDischarge": "VNSGN (Cát Lái / Tân Cảng)",
+        "status": "SUBMITTED",
+        "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+        "createdByUser": {
+          "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "name": "System Administrator",
+          "email": "admin@icd.local"
+        },
+        "masterBlCount": 1,
+        "createdAt": "2026-10-01T03:18:20.452Z",
+        "updatedAt": "2026-10-01T03:18:20.452Z"
+      },
+      {
+        "id": "ecfa9aba-a531-4c53-a27a-4935dfef4ac7",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "manifestNo": "MNF-VN-TCSU-003",
+        "shippingLineId": "84945425-629e-4fb4-8c15-ae8f9a2c4e0c",
+        "shippingLine": {
+          "id": "84945425-629e-4fb4-8c15-ae8f9a2c4e0c",
+          "name": "Công ty CP Vận tải Thủy Tân Cảng (Tan Cang Shipping)",
+          "scacCode": "TCSU"
+        },
+        "vesselName": "TAN CANG GLORY 108E",
+        "voyageNo": "108E",
+        "eta": "2026-09-29T03:18:20.426Z",
+        "portOfLoading": "VNHPH (Hải Phòng Port)",
+        "portOfDischarge": "VNSGN (Cát Lái / Tân Cảng)",
+        "status": "SUBMITTED",
+        "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+        "createdByUser": {
+          "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "name": "System Administrator",
+          "email": "admin@icd.local"
+        },
+        "masterBlCount": 1,
+        "createdAt": "2026-10-01T03:18:20.428Z",
+        "updatedAt": "2026-10-01T03:18:20.428Z"
+      },
+      {
+        "id": "86986eb4-63ac-41ff-977d-c2f0c2172623",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "manifestNo": "MNF-VN-VSCU-002",
+        "shippingLineId": "5999064e-b726-475c-9637-11a51f543264",
+        "shippingLine": {
+          "id": "5999064e-b726-475c-9637-11a51f543264",
+          "name": "Công ty Cổ phần Vận tải biển Việt Nam (VOSCO)",
+          "scacCode": "VSCU"
+        },
+        "vesselName": "VOSCO SUNRISE 2026N",
+        "voyageNo": "2026N",
+        "eta": "2026-09-29T03:18:20.400Z",
+        "portOfLoading": "VNHPH (Hải Phòng Port)",
+        "portOfDischarge": "VNSGN (Cát Lái / Tân Cảng)",
+        "status": "SUBMITTED",
+        "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+        "createdByUser": {
+          "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "name": "System Administrator",
+          "email": "admin@icd.local"
+        },
+        "masterBlCount": 1,
+        "createdAt": "2026-10-01T03:18:20.401Z",
+        "updatedAt": "2026-10-01T03:18:20.401Z"
+      },
+      {
+        "id": "68c29b60-f6bf-4a82-9143-87a4ec86085f",
+        "icdId": "841f0f4b-55c1-4c59-9165-d4eceea73c7e",
+        "manifestNo": "MNF-VN-HACU-001",
+        "shippingLineId": "0f2c0f99-df09-47f3-a354-64692185f716",
+        "shippingLine": {
+          "id": "0f2c0f99-df09-47f3-a354-64692185f716",
+          "name": "Công ty CP Vận tải và Xếp dỡ Hải An (HATS / HAH)",
+          "scacCode": "HACU"
+        },
+        "vesselName": "HAIAN BELL 014W",
+        "voyageNo": "014W",
+        "eta": "2026-09-29T03:18:20.364Z",
+        "portOfLoading": "VNHPH (Hải Phòng Port)",
+        "portOfDischarge": "VNSGN (Cát Lái / Tân Cảng)",
+        "status": "SUBMITTED",
+        "createdById": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+        "createdByUser": {
+          "id": "7edafc04-0f78-49f2-8f39-e2e74b687403",
+          "name": "System Administrator",
+          "email": "admin@icd.local"
+        },
+        "masterBlCount": 1,
+        "createdAt": "2026-10-01T03:18:20.367Z",
+        "updatedAt": "2026-10-01T03:18:20.367Z"
+      }
+    ],
+    "meta": {
+      "page": 1,
+      "pageSize": 20,
+      "total": 10,
+      "totalPages": 1
+    }
+  },
+  "/movement-orders": {
+    "data": [],
+    "meta": {
+      "page": 1,
+      "pageSize": 20,
+      "total": 0,
+      "totalPages": 0
+    }
+  },
+  "/service-orders": {
+    "data": [],
+    "meta": {
+      "page": 1,
+      "pageSize": 20,
+      "total": 0,
+      "totalPages": 0
+    }
+  },
+  "/invoices": {
+    "data": [],
+    "meta": {
+      "page": 1,
+      "pageSize": 20,
+      "total": 0,
+      "totalPages": 0
+    }
+  },
+  "/handovers": {
+    "data": [],
+    "meta": {
+      "page": 1,
+      "pageSize": 20,
+      "total": 0,
+      "totalPages": 0
+    }
+  },
+  "/admin/roles": {
+    "data": [
+      {
+        "id": "9c6bb320-de79-440b-9c42-192fdd67af4d",
+        "code": "ADMIN",
+        "name": "Quản trị viên",
+        "description": "Quản trị hệ thống, người dùng, cấu hình, tích hợp và dữ liệu nền.",
+        "active": true,
+        "userCount": 1,
+        "permissionCount": 56,
+        "createdAt": "2026-10-01T03:18:19.433Z",
+        "updatedAt": "2026-10-01T03:18:19.433Z"
+      },
+      {
+        "id": "ba8bd118-c284-436b-88cd-05437c676894",
+        "code": "AGENT",
+        "name": "Đại lý",
+        "description": "Tra cứu dữ liệu theo phạm vi được ICD cấp quyền.",
+        "active": true,
+        "userCount": 1,
+        "permissionCount": 5,
+        "createdAt": "2026-10-01T03:18:19.451Z",
+        "updatedAt": "2026-10-01T03:18:19.451Z"
+      },
+      {
+        "id": "dc637748-1b81-4876-b5a9-e3d377fbf250",
+        "code": "CONSIGNEE",
+        "name": "Chủ hàng",
+        "description": "Tra cứu dữ liệu theo phạm vi chủ hàng.",
+        "active": true,
+        "userCount": 1,
+        "permissionCount": 2,
+        "createdAt": "2026-10-01T03:18:19.455Z",
+        "updatedAt": "2026-10-01T03:18:19.455Z"
+      },
+      {
+        "id": "d40af801-b5fa-42d3-a942-8f0574dea9df",
+        "code": "GATE_STAFF",
+        "name": "Nhân viên cổng",
+        "description": "Thực hiện Truck Visit, Gate-in và Gate-out.",
+        "active": true,
+        "userCount": 1,
+        "permissionCount": 12,
+        "createdAt": "2026-10-01T03:18:19.444Z",
+        "updatedAt": "2026-10-01T03:18:19.444Z"
+      },
+      {
+        "id": "05ae9c17-cf5e-4053-abba-c4e98e8d626a",
+        "code": "MANAGER",
+        "name": "Quản lý",
+        "description": "Giám sát nghiệp vụ, báo cáo, audit, EDI và bàn giao vận chuyển.",
+        "active": true,
+        "userCount": 1,
+        "permissionCount": 25,
+        "createdAt": "2026-10-01T03:18:19.437Z",
+        "updatedAt": "2026-10-01T03:18:19.437Z"
+      },
+      {
+        "id": "949b5586-78b4-4c2e-96f6-257d618c66d2",
+        "code": "OPERATOR",
+        "name": "Nhân viên vận hành",
+        "description": "Thực hiện nghiệp vụ vận hành chính của ICD.",
+        "active": true,
+        "userCount": 2,
+        "permissionCount": 41,
+        "createdAt": "2026-10-01T03:18:19.441Z",
+        "updatedAt": "2026-10-01T03:18:19.441Z"
+      },
+      {
+        "id": "2c4c4f3b-bf26-41cd-9783-4cf6ef84b7f6",
+        "code": "YARD_STAFF",
+        "name": "Nhân viên bãi",
+        "description": "Thực hiện các nghiệp vụ tại bãi.",
+        "active": true,
+        "userCount": 1,
+        "permissionCount": 10,
+        "createdAt": "2026-10-01T03:18:19.448Z",
+        "updatedAt": "2026-10-01T03:18:19.448Z"
+      }
+    ]
+  },
+  "/notifications/history": {
+    "data": [],
+    "meta": {
+      "page": 1,
+      "pageSize": 20,
+      "total": 0,
+      "totalPages": 0,
+      "unreadCount": 0
+    }
+  }
+}

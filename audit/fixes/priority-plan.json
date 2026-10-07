@@ -1,0 +1,557 @@
+{
+  "date": "2026-10-03",
+  "phase5": "PENDING_USER_APPROVAL",
+  "requiredApproval": [
+    "W-S-020",
+    "M-001",
+    "M-002",
+    "M-003",
+    "W-S-001",
+    "W-S-002",
+    "W-S-003",
+    "W-S-005",
+    "W-S-016"
+  ],
+  "top10": [
+    {
+      "order": 1,
+      "id": "W-S-020",
+      "severity": "P0",
+      "approved": false,
+      "scope": [
+        "Partner API logs inspector",
+        "Entire web application when the failing record is selected"
+      ],
+      "dependency": [],
+      "steps": [
+        "Reproduce against current source snapshot; preserve unrelated changes",
+        "Apply minimal proposed fix only after approval",
+        "Save per-ID before/after diff underaudit/fixes",
+        "Run listed acceptance criteria and affected shared-screen checks",
+        "Mark VERIFIED only with new evidence; otherwise OPEN/REOPENED"
+      ],
+      "verify": [
+        "Render a log whose request/response bodies are objects, arrays, strings, null, false and zero: no crash, JSON text is readable.",
+        "The real affected runtime route and record open successfully with sidebar/header still present.",
+        "A forced view render exception shows local recovery while the application shell and navigation remain usable.",
+        "Confirm display still uses already-redacted fields and never exposes the unredacted request."
+      ]
+    },
+    {
+      "order": 2,
+      "id": "W-S-001",
+      "severity": "P1",
+      "approved": false,
+      "scope": [
+        "Manifest create/MBL/HBL",
+        "Container create/360",
+        "Truck Visit create",
+        "Billing tariff/rule/order/payment",
+        "Gate Pass issue",
+        "Handover create",
+        "Master Data create",
+        "Users create",
+        "Partner create"
+      ],
+      "dependency": [],
+      "steps": [
+        "Reproduce against current source snapshot; preserve unrelated changes",
+        "Apply minimal proposed fix only after approval",
+        "Save per-ID before/after diff underaudit/fixes",
+        "Run listed acceptance criteria and affected shared-screen checks",
+        "Mark VERIFIED only with new evidence; otherwise OPEN/REOPENED"
+      ],
+      "verify": [
+        "Open each overlay with keyboard; focus enters a meaningful enabled control.",
+        "Tab and Shift+Tab remain in the modal; Escape closes when no write is pending.",
+        "On close, focus returns to the opener; background neither scrolls nor receives clicks."
+      ]
+    },
+    {
+      "order": 3,
+      "id": "W-S-002",
+      "severity": "P1",
+      "approved": false,
+      "scope": [
+        "Truck Visit form",
+        "Master Data forms",
+        "User form",
+        "Billing forms",
+        "Handover form",
+        "Manifest/MBL/HBL forms",
+        "Container create/inline Gate Pass/Hold forms"
+      ],
+      "dependency": [],
+      "steps": [
+        "Reproduce against current source snapshot; preserve unrelated changes",
+        "Apply minimal proposed fix only after approval",
+        "Save per-ID before/after diff underaudit/fixes",
+        "Run listed acceptance criteria and affected shared-screen checks",
+        "Mark VERIFIED only with new evidence; otherwise OPEN/REOPENED"
+      ],
+      "verify": [
+        "Inspect accessible names for every visible input/select/textarea; each must match its visible label.",
+        "Click/tap a visible label and confirm the corresponding control receives focus.",
+        "Do not add redundant ARIA to already correctly labelled native fields."
+      ]
+    },
+    {
+      "order": 4,
+      "id": "W-S-003",
+      "severity": "P1",
+      "approved": false,
+      "scope": [
+        "Manifest list",
+        "Handover list",
+        "Gate Pass list",
+        "EDI Outbox list",
+        "Partner API log list"
+      ],
+      "dependency": [
+        "W-S-020"
+      ],
+      "steps": [
+        "Reproduce against current source snapshot; preserve unrelated changes",
+        "Apply minimal proposed fix only after approval",
+        "Save per-ID before/after diff underaudit/fixes",
+        "Run listed acceptance criteria and affected shared-screen checks",
+        "Mark VERIFIED only with new evidence; otherwise OPEN/REOPENED"
+      ],
+      "verify": [
+        "Every record selector appears in sequential keyboard order.",
+        "Enter and Space select the same record as a pointer click and expose selected state.",
+        "Focus is visible and selected detail identifies the chosen record."
+      ]
+    },
+    {
+      "order": 5,
+      "id": "W-S-005",
+      "severity": "P1",
+      "approved": false,
+      "scope": [
+        "Record Payment",
+        "Truck Visit create",
+        "Partner create/key rotation",
+        "Handover create/publish/confirm",
+        "EDI retry/dispatch"
+      ],
+      "dependency": [],
+      "steps": [
+        "Reproduce against current source snapshot; preserve unrelated changes",
+        "Apply minimal proposed fix only after approval",
+        "Save per-ID before/after diff underaudit/fixes",
+        "Run listed acceptance criteria and affected shared-screen checks",
+        "Mark VERIFIED only with new evidence; otherwise OPEN/REOPENED"
+      ],
+      "verify": [
+        "Use a delayed fixture, activate submit repeatedly, and observe exactly one command attempt.",
+        "The control acknowledges pending immediately and prevents edits/closure that would misidentify the request.",
+        "Failure restores enabled retry with preserved values; backend idempotency remains a separate contract."
+      ]
+    },
+    {
+      "order": 6,
+      "id": "W-S-016",
+      "severity": "P1",
+      "approved": false,
+      "scope": [
+        "Container Holds/Gate Pass",
+        "Yard HOLD appearance",
+        "Manifest MBL/HBL detail",
+        "Role permission detail",
+        "Handover review detail"
+      ],
+      "dependency": [],
+      "steps": [
+        "Reproduce against current source snapshot; preserve unrelated changes",
+        "Apply minimal proposed fix only after approval",
+        "Save per-ID before/after diff underaudit/fixes",
+        "Run listed acceptance criteria and affected shared-screen checks",
+        "Mark VERIFIED only with new evidence; otherwise OPEN/REOPENED"
+      ],
+      "verify": [
+        "Reject one nested GET in a fixture while top-level/health succeed: show partial/unavailable state and retry.",
+        "A failed holds request must not claim no holds or derive a reassuring no-HOLD appearance.",
+        "Distinguish permission restriction from transient failure without exposing unauthorized details."
+      ]
+    },
+    {
+      "order": 7,
+      "id": "M-001",
+      "severity": "P1",
+      "approved": false,
+      "scope": [
+        "apps/mobile/src/components/AppHeader.tsx",
+        "apps/mobile/src/components/PrimaryButton.tsx",
+        "apps/mobile/src/components/SelectField.tsx",
+        "apps/mobile/src/components/ActionDialog.tsx",
+        "apps/mobile/src/components/CodeScanner.tsx"
+      ],
+      "dependency": [
+        "M-004",
+        "M-005"
+      ],
+      "steps": [
+        "Reproduce against current source snapshot; preserve unrelated changes",
+        "Apply minimal proposed fix only after approval",
+        "Save per-ID before/after diff underaudit/fixes",
+        "Run listed acceptance criteria and affected shared-screen checks",
+        "Mark VERIFIED only with new evidence; otherwise OPEN/REOPENED"
+      ],
+      "verify": [
+        "Android hierarchy/hit-region measurement reports ≥48dp on both axes for every actionable control.",
+        "No target overlaps after enlarging it; 320dp/150% type remains usable."
+      ]
+    },
+    {
+      "order": 8,
+      "id": "M-002",
+      "severity": "P1",
+      "approved": false,
+      "scope": [
+        "apps/mobile/src/components/PrimaryButton.tsx",
+        "apps/mobile/src/theme/colors.ts",
+        "apps/mobile/src/components/StatusBadge.tsx"
+      ],
+      "dependency": [
+        "M-013"
+      ],
+      "steps": [
+        "Reproduce against current source snapshot; preserve unrelated changes",
+        "Apply minimal proposed fix only after approval",
+        "Save per-ID before/after diff underaudit/fixes",
+        "Run listed acceptance criteria and affected shared-screen checks",
+        "Mark VERIFIED only with new evidence; otherwise OPEN/REOPENED"
+      ],
+      "verify": [
+        "Re-measure exact rendered pairs in both themes: all normal labels≥4.5:1.",
+        "Verify semantic text, destructive confirmation labels and status badges separately."
+      ]
+    },
+    {
+      "order": 9,
+      "id": "M-003",
+      "severity": "P1",
+      "approved": false,
+      "scope": [
+        "apps/mobile/src/navigation/MainTabNavigator.tsx",
+        "apps/mobile/src/components/ForbiddenScreen.tsx",
+        "apps/mobile/src/navigation/RootNavigator.tsx"
+      ],
+      "dependency": [],
+      "steps": [
+        "Reproduce against current source snapshot; preserve unrelated changes",
+        "Apply minimal proposed fix only after approval",
+        "Save per-ID before/after diff underaudit/fixes",
+        "Run listed acceptance criteria and affected shared-screen checks",
+        "Mark VERIFIED only with new evidence; otherwise OPEN/REOPENED"
+      ],
+      "verify": [
+        "Use an existing authorized zero-tab account: fallback provides a reachable Account action.",
+        "User can review role and cancel/confirm logout without clearing app storage manually."
+      ]
+    },
+    {
+      "order": 10,
+      "id": "W-R-001",
+      "severity": "P2",
+      "approved": false,
+      "scope": [
+        "apps/web/src/components/ManifestsView.tsx",
+        "apps/web/src/components/EDIView.tsx",
+        "apps/web/src/components/DashboardView.tsx",
+        "apps/web/src/components/AuditsView.tsx"
+      ],
+      "dependency": [],
+      "steps": [
+        "Reproduce against current source snapshot; preserve unrelated changes",
+        "Apply minimal proposed fix only after approval",
+        "Save per-ID before/after diff underaudit/fixes",
+        "Run listed acceptance criteria and affected shared-screen checks",
+        "Mark VERIFIED only with new evidence; otherwise OPEN/REOPENED"
+      ],
+      "verify": [
+        "Recompute the four named pairs at 375/768/1440px; all >=4.5:1.",
+        "Validate representative rendered pixels and exclude decoration, obscured background content and unsupported effects."
+      ]
+    }
+  ],
+  "backlog": [
+    {
+      "id": "M-004",
+      "severity": "P2",
+      "title": "Khoảng cách giữa vùng chạm nhỏ hơn8dp",
+      "verify": [
+        "Measured external gaps are≥8dp in native screenshots/hierarchy.",
+        "320dp layout reflows without reducing target sizes or spacing."
+      ]
+    },
+    {
+      "id": "M-005",
+      "severity": "P2",
+      "title": "Màn hẹp/font lớn làm chồng và tràn header",
+      "verify": [
+        "At320dp width and150% type, full role is readable and no icon/text crosses its target.",
+        "All tab labels remain distinguishable; inspect at200% separately."
+      ]
+    },
+    {
+      "id": "M-006",
+      "severity": "P2",
+      "title": "Mã enum/tiếng Anh lẫn trong giao diện nghiệp vụ",
+      "verify": [
+        "Each currently observed enum renders a Vietnamese business label on list/detail/confirmation screens.",
+        "Known backend English notification templates are localized or clearly marked language-specific."
+      ]
+    },
+    {
+      "id": "M-007",
+      "severity": "P2",
+      "title": "Kiểm tra seal vẫn yêu cầu mức hư hỏng",
+      "verify": [
+        "Seal and condition checks show relevant fields/copy only.",
+        "Damage surveys retain their current severity choices and submitted notes."
+      ]
+    },
+    {
+      "id": "M-008",
+      "severity": "P2",
+      "title": "Lịch sử giám định hiển thị rỗng trước khi tải xong",
+      "verify": [
+        "Under a delayed GET, history shows loading rather than empty.",
+        "Under a failed GET, history shows a local retry; successful empty/populated results are distinct."
+      ]
+    },
+    {
+      "id": "M-009",
+      "severity": "P2",
+      "title": "Tổng số chưa đọc được truyền nhưng không hiển thị",
+      "verify": [
+        "Native header/content shows the server unread count for zero and nonzero states.",
+        "Mark-read actions update the displayed count; verify with authorized fixture state."
+      ]
+    },
+    {
+      "id": "M-010",
+      "severity": "P2",
+      "title": "Ngày booking cần nhập timestamp thủ công",
+      "verify": [
+        "User can enter a valid date/time without recalling separators.",
+        "Helper/timezone remains visible after entry and validation points to this field."
+      ]
+    },
+    {
+      "id": "M-011",
+      "severity": "P2",
+      "title": "Chế độ sáng/tối không được lưu khi mở lại app",
+      "verify": [
+        "Choose dark, close/reopen the app and retain dark with the existing auth session.",
+        "Initial unconfigured appearance follows the selected documented default/system preference."
+      ]
+    },
+    {
+      "id": "M-012",
+      "severity": "P2",
+      "title": "Lỗi thiếu input vẫn còn sau khi đã điền",
+      "verify": [
+        "Blank review produces clear field-specific messages.",
+        "Filling each required field removes its missing-field error before another submit; server failures remain visible."
+      ]
+    },
+    {
+      "id": "M-014",
+      "severity": "P2",
+      "title": "Tiêu đề card thiếu semantics heading",
+      "verify": [
+        "TalkBack heading navigation reaches each meaningful card/title once in logical order.",
+        "Ordinary content and controls remain individually reachable."
+      ]
+    },
+    {
+      "id": "W-R-001",
+      "severity": "P2",
+      "title": "Chữ thông tin phụ thiếu tương phản",
+      "verify": [
+        "Recompute the four named pairs at 375/768/1440px; all >=4.5:1.",
+        "Validate representative rendered pixels and exclude decoration, obscured background content and unsupported effects."
+      ]
+    },
+    {
+      "id": "W-R-002",
+      "severity": "P2",
+      "title": "Tìm kiếm bản đồ bãi thiếu chỉ báo focus",
+      "verify": [
+        "Shift+Tab then Tab into map search; a visible ring appears without layout shift.",
+        "Search remains keyboard usable and the ring is not clipped."
+      ]
+    },
+    {
+      "id": "W-S-004",
+      "severity": "P2",
+      "title": "Form đóng và xóa input trước khi biết kết quả lưu",
+      "verify": [
+        "Delay a save in a disposable fixture: keep panel and values until outcome.",
+        "Reject save: show actionable local error, preserve all input, allow retry.",
+        "Resolve save: reset/close only after success and show confirmation."
+      ]
+    },
+    {
+      "id": "W-S-006",
+      "severity": "P2",
+      "title": "Thiếu trường bắt buộc nhưng handler thoát mà không chỉ lỗi",
+      "verify": [
+        "Submit blank required values: visible error names each missing field and focus lands on first invalid field.",
+        "Invalid email uses type=email or equivalent accessible validation; phone uses type=tel where applicable.",
+        "Correcting input clears its stale error; error text is linked with aria-describedby and invalid state."
+      ]
+    },
+    {
+      "id": "W-S-007",
+      "severity": "P2",
+      "title": "Lựa chọn role/quyền chỉ thể hiện bằng màu",
+      "verify": [
+        "Accessibility tree exposes true/false selected state for every toggle.",
+        "Keyboard selection updates the state and visible styling together.",
+        "If a full tablist is adopted, implement its complete roles and keyboard behavior rather than roles alone."
+      ]
+    },
+    {
+      "id": "W-S-008",
+      "severity": "P2",
+      "title": "Chi tiết Gate Pass hiển thị sai trạng thái hết hạn/hủy",
+      "verify": [
+        "Fixture ACTIVE fresh/ACTIVE expired/USED/CANCELLED/EXPIRED cases: list and detail status agree.",
+        "Expired/cancelled passes have appropriate recovery text and no active Gate-out invitation.",
+        "Container 360 validity claim also considers expiry; backend remains authoritative."
+      ]
+    },
+    {
+      "id": "W-S-009",
+      "severity": "P2",
+      "title": "Container 360 dùng biểu tượng thay cho QR chứa token",
+      "verify": [
+        "Decode QR in both screens in a disposable fixture; decoded value equals the same qrToken.",
+        "No token/permission: display honest unavailable text and a route to dedicated Gate Pass.",
+        "Keep a readable code alternative and expiration guidance."
+      ]
+    },
+    {
+      "id": "W-S-010",
+      "severity": "P2",
+      "title": "Readiness chưa biết bị trình bày như điều kiện không đạt",
+      "verify": [
+        "Pending/read failure/no result/blockers/pass each produce distinct truthful content.",
+        "A network error never becomes a claimed failed business condition.",
+        "Issue remains unavailable until an explicit backend pass."
+      ]
+    },
+    {
+      "id": "W-S-011",
+      "severity": "P2",
+      "title": "Giờ hết hạn mặc định của lệnh lệch giờ địa phương",
+      "verify": [
+        "Freeze a clock in UTC+07 and inspect the default: exactly 24h later, not 17h.",
+        "Edit local datetime and verify serialized ISO denotes that local clock time.",
+        "Blank/invalid/past dates show a recoverable error and do not submit."
+      ]
+    },
+    {
+      "id": "W-S-012",
+      "severity": "P2",
+      "title": "Việc ca truyền sai loại ID khi mở handover",
+      "verify": [
+        "With two distinct handovers, opening the second review task selects the second correct handover.",
+        "No matching target displays a missing/unavailable-target state rather than silently selecting the first record.",
+        "Prefer retaining canonical entityId in work-queue mapping if a visit can have multiple handovers."
+      ]
+    },
+    {
+      "id": "W-S-013",
+      "severity": "P2",
+      "title": "Shortcut tạo chuyến xe mất ngữ cảnh container",
+      "verify": [
+        "Authorized Movement Order shortcut opens create with the correct container prefilled.",
+        "Gate-in shortcut selects the relevant visit and matching arrived truck when unambiguous.",
+        "Missing or multiple matching targets have explicit selection/recovery; no write occurs on navigation."
+      ]
+    },
+    {
+      "id": "W-S-014",
+      "severity": "P2",
+      "title": "Điều hướng trong bộ nhớ làm mất ngữ cảnh/form",
+      "verify": [
+        "Navigate A>B, use browser Back: A and its record/filter/scroll selection restore.",
+        "A copied URL or reload opens the requested authorized destination and record.",
+        "Leaving a dirty multi-field form preserves a draft or gives an explicit discard choice."
+      ]
+    },
+    {
+      "id": "W-S-015",
+      "severity": "P2",
+      "title": "Một số danh sách rỗng không hướng dẫn bước tiếp theo",
+      "verify": [
+        "Fixture 0 records and a nonempty collection filtered to 0 each render distinct messages.",
+        "No-results recovery clears the actual filters without initiating a write.",
+        "Loading/error/forbidden states are not described as an empty collection."
+      ]
+    },
+    {
+      "id": "W-S-017",
+      "severity": "P2",
+      "title": "EDI gọi dữ liệu ví dụ sinh sẵn là payload đã truyền",
+      "verify": [
+        "A generated preview is visibly and accessibly identified as illustrative before copying.",
+        "If raw payload becomes available, display exactly that payload and clearly identify its version/source.",
+        "A 20-foot/reefer fixture never labels a hardcoded 45G1 example as its transmitted raw data."
+      ]
+    },
+    {
+      "id": "W-S-018",
+      "severity": "P2",
+      "title": "Trang chỉ đọc vẫn hiển thị thao tác ghi",
+      "verify": [
+        "Read-only fixture users see viewing controls and clear permission context, no unusable write invitation.",
+        "Users/manage, roles/manage, billing/manage and tariff/manage controls follow exact separate permissions.",
+        "Backend authorization remains enforced on every command."
+      ]
+    },
+    {
+      "id": "W-S-019",
+      "severity": "P2",
+      "title": "Popover thông báo không đóng bằng Escape/click ngoài",
+      "verify": [
+        "Open panel: trigger again, real Escape and outside pointer each close.",
+        "Escape returns focus to trigger; a visible touch close route stays reachable.",
+        "Click inside keeps appropriate content interactions working and does not lock the main page."
+      ]
+    },
+    {
+      "id": "M-013",
+      "severity": "P3",
+      "title": "Header/layout dùng literal ngoài token hiện có",
+      "verify": [
+        "Affected consumers reference named tokens; literals are limited to token definitions and documented geometry.",
+        "Preserve existing layout and test both themes plus320dp/font scale1.5."
+      ]
+    },
+    {
+      "id": "W-R-003",
+      "severity": "P3",
+      "title": "Cỡ chữ metadata lặp lại ngoài hệ token",
+      "verify": [
+        "No repeated arbitrary font-size literals remain in the affected metadata roles.",
+        "Screenshots show equivalent hierarchy before/after; scale changes need separate review."
+      ]
+    },
+    {
+      "id": "W-R-004",
+      "severity": "P3",
+      "title": "Line-height heading chưa theo rubric của dự án",
+      "verify": [
+        "Heading computed line-height is1.1-1.3 where the role applies.",
+        "Long headings do not overlap or clip at all tested widths."
+      ]
+    }
+  ],
+  "p2p3Policy": "Not included in Phase5 unless explicitly approved. Same-file changes must remain scoped to approved P0/P1."
+}

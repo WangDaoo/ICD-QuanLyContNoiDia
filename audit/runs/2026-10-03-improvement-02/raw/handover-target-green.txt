@@ -1,0 +1,15 @@
+✔ an unavailable explicit handover target never exposes or publishes another record (325.6518ms)
+✔ unavailable explicit target has a safe recovery that clears the entity destination (37.5364ms)
+✔ a late handover target stays loading without opening the first record then resolves correctly (64.6639ms)
+✔ a failed target load offers retry without reporting a definitive missing entity (27.4524ms)
+✔ an explicit target can safely move to a user-selected entity through navigation (73.4788ms)
+✔ the unscoped list still initially selects its first record (44.247ms)
+✔ a missing target arriving by prop change immediately stops an existing entity write action (44.5307ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5713.2415

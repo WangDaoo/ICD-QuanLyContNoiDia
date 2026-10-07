@@ -1,0 +1,31 @@
+{
+  "appOverflow": "hidden",
+  "bodyOverflow": "hidden",
+  "dialog": "handovers-dialog-1-title",
+  "fields": [
+    {
+      "aria": null,
+      "id": "handovers-transport-code-input",
+      "label": "Mã chuyến vận chuyển*"
+    },
+    {
+      "aria": null,
+      "id": "handovers-selected-cont-visit-id",
+      "label": "Chọn Container cần bàn giao*"
+    },
+    {
+      "aria": null,
+      "id": "handovers-selected-partner-client-id",
+      "label": "Đối tác vận tải (Partner)*"
+    },
+    {
+      "aria": null,
+      "id": "handovers-selected-warehouse-id",
+      "label": "Kho nhận đích (Warehouse)*"
+    }
+  ],
+  "focus": "handovers-transport-code-input",
+  "inside": true,
+  "modal": true,
+  "name": "Tạo lệnh bàn giao vận chuyển ngoài"
+}

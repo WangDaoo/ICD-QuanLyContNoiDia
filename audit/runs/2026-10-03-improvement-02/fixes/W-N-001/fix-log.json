@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED",
+  "change": "Resource-gated metrics and explicit unavailable/stale notices; actual GATE_STAFF dashboard checked.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/CollectionState.tsx",
+      "line": 20,
+      "detail": "export function ResourceContent",
+      "snippet": "export function ResourceContent({ resource, count, children }: { resource: string; count: number; children: React.ReactNode }) {\n  const { resourceStatus = {}, isLoading } = useApp();\n  const state = resourceStatus[resource] ?? (isLoading ? 'loading' : 'ready');\n  return <>"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/dashboard-resource-green.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/header-availability-green.txt"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Meaningful RED/GREEN source regression; real API only if explicitly linked.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/CollectionState.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

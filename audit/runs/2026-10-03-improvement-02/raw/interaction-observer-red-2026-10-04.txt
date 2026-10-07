@@ -1,0 +1,46 @@
+✔ nearest-rank p95 keeps the nineteenth sample of twenty, not the mean (2.2566ms)
+✔ empty, nonfinite and negative timing values cannot become valid measurements (0.9657ms)
+✔ untrusted input, hidden document and unrelated event clocks are rejected (0.3175ms)
+✔ twenty verified samples produce p50/p95 for each measured group (0.8438ms)
+✔ nineteen samples cannot close the twenty-sample criterion (0.6305ms)
+✔ timeouts, untrusted or unpainted acknowledgements remain in the denominator (0.4546ms)
+✔ slow valid feedback is a failure instead of being excluded as an outlier (0.2223ms)
+✔ duplicate IDs and unknown groups cannot silently pad the sample count (0.2772ms)
+✔ navigation feedback rejects blank markup: blank (411.4978ms)
+✔ navigation feedback rejects blank markup: yard:Đang mở màn nghiệp vụ… (38.0424ms)
+✔ navigation feedback rejects blank markup: yard:Bãi (37.2102ms)
+✔ frame calibration reports idle cadence without subtracting it from interaction samples (1.5761ms)
+✖ diagnostic observers expose support and use event threshold16; unsupported is explicit (3.0704ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 12
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4545.3839
+
+✖ failing tests:
+
+test at audit\tools\runtime\interaction-metrics.test.mjs:92:1
+✖ diagnostic observers expose support and use event threshold16; unsupported is explicit (3.0704ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/interaction-metrics.test.mjs:93:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

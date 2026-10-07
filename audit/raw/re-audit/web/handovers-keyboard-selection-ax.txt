@@ -1,0 +1,85 @@
+Browser tab: 22, Title: "ICD Management System — Quản lý Kho bãi Container Nội địa", URL: "http://127.0.0.1:5173/".
+1 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/
+	2 container root
+		3 container
+			4 text ICD
+			5 heading ICD Management System, Value: 1
+				6 text ICD Management System
+			7 text Cảng cạn & kho bãi container nội địa 1 lệnh giữ Đã kết nối
+			8 button Tải lại dữ liệu
+			9 button (collapsed) Description: Thông báo (0 chưa đọc), Secondary Actions: Expand
+			10 text System Administrator ADMIN
+			11 button Đăng xuất
+		12 container Điều hướng nghiệp vụ
+			13 container
+				14 text TỔNG QUAN & ĐIỀU PHỐI
+				15 button Tổng quan vận hành
+				16 button Danh sách công việc
+				17 text QUẢN LÝ HÀNG HÓA & CỔNG
+				18 button Bản lược khai (Manifest)
+				19 button Quản lý Container
+				20 button Movement Order
+				21 button Chuyến xe ra/vào
+				22 button Tiếp nhận vào cổng (Gate-in)
+				23 button Vận hành Bãi (Yard)
+				24 text TÀI CHÍNH & RA CỔNG
+				25 button Dịch vụ & Thanh toán
+				26 button Phiếu ra cổng & Gate-out
+				27 button Vận hành EDI (CODECO)
+				28 text TÍCH HỢP ĐỐI TÁC
+				29 button Bàn giao vận chuyển
+				30 button Đối tác tích hợp API
+				31 button Nhật ký API đối tác
+				32 text HỆ THỐNG & QUẢN TRỊ
+				33 button Danh mục dùng chung
+				34 button Người dùng & Phân quyền
+				35 button Báo cáo vận hành
+				36 button Nhật ký kiểm toán
+			37 text System Administrator
+			38 text admin@icd.local
+			39 text ADMIN
+		40 container
+			41 text BÀN GIAO ĐỐI TÁC
+			42 heading Bàn giao Vận chuyển Ngoài ICD (Partner Handover), Value: 2
+				43 text Bàn giao Vận chuyển Ngoài ICD (Partner Handover)
+			44 text Quản lý quy trình ủy thác container cho đối tác vận tải ngoài, giao tiếp API và nghiệm thu biên bản giao nhận (POD)
+			45 link Description: Tài liệu API, Value: 127.0.0.1:3000/api/docs
+			46 button Tạo Lệnh Bàn giao mới
+			47 text field (settable)
+			48 pop up button (collapsed, settable) Value: Tất cả trạng thái, Secondary Actions: Expand
+				49 menu
+					50 (selected) Tất cả trạng thái
+					51 DRAFT (Nháp)
+					52 READY_FOR_HANDOVER (Chờ đối tác nhận)
+					53 PARTNER_ACCEPTED (Đã nhận)
+					54 IN_TRANSIT (Đang vận chuyển)
+					55 PARTNER_CONFIRMED (Chờ duyệt POD)
+					56 ICD_CONFIRMED (Đã nghiệm thu)
+					57 COMPLETED (Đã hoàn tất)
+			58 text Hiển thị  1  lệnh bàn giao
+			59 checkbox Value: 1, QA-VC-1790837623424 COMPLETED QATU2282957 (40HC) Đối tác: Local QA Transport Đích đến: Local QA Warehouse
+				60 text QA-VC-1790837623424
+				61 text COMPLETED
+				62 text QATU2282957
+				63 text (
+				64 text 40HC
+				65 text )
+				66 text Đối tác: 
+				67 text Local QA Transport
+				68 text Đích đến: 
+				69 text Local QA Warehouse
+			70 heading QA-VC-1790837623424, Value: 3
+				71 text QA-VC-1790837623424
+			72 text COMPLETED Hồ sơ Container: 
+			73 text QATU2282957
+			74 text  ( 40HC )
+			75 button Xem Hồ sơ Container
+			76 text TIẾN TRÌNH VÒNG ĐỜI BÀN GIAO (STATE MACHINE LIFECYCLE) 1. Bản nháp 2. Sẵn sàng 3. Đã nhận 4. Đang đi 5. Đã giao kho 6. Nghiệm thu Đối tác Vận tải ngoài Tên đối tác: 
+			77 text Local QA Transport
+			78 text Mã đối tác: 
+			79 text 8d6f057a-5ab1-4bb6-94fb-526af578eed0
+			80 text Ghi chú đơn:  Không có Kho nhận hàng đích Tên kho nhận: 
+			81 text Local QA Warehouse
+			82 text Địa chỉ kho:  Local test warehouse Dự kiến đến kho:  Chưa có lịch hẹn Trạng thái bàn giao: ICD đã xác nhận hoàn tất bàn giao. Xem lịch sử xác nhận bên dưới. Đã hoàn tất Biên bản & Lịch sử Xác nhận Bàn giao (Confirmations Timeline) ICD_CONFIRMED System Administrator 14:04:25 1/10/2026 ICD Nghiệm thu hoàn tất đối soát chứng từ và seal WAREHOUSE_RECEIVED Local QA Transport 13:53:43 1/10/2026 Local QA delivery received IN_TRANSIT Local QA Transport 13:53:43 1/10/2026 Xác nhận hợp lệ PARTNER_ACCEPTED Local QA Transport 13:53:43 1/10/2026 Local QA partner accepted
+
+The focused UI element is 59 checkbox Value: 1, QA-VC-1790837623424 COMPLETED QATU2282957 (40HC) Đối tác: Local QA Transport Đích đến: Local QA Warehouse

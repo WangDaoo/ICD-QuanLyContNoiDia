@@ -1,0 +1,157 @@
+✖ Master Data retains the draft and blocks a second submission while pending and after rejection (433.3322ms)
+✖ Users blank submit associates errors and focuses the first invalid field (47.3256ms)
+✖ read-only users never receive master-data or user write controls (26.777ms)
+✖ truck shortcut opens a create dialog with its linked container (32.0481ms)
+✖ expired and cancelled passes never offer exit or handover and explain their status (70.1639ms)
+✖ EDI inspector renders canonical payload snapshot without synthesized ISO type (48.3644ms)
+✖ failed and forbidden collections do not claim a settled empty result (23.7852ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 0
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6991.396
+
+✖ failing tests:
+
+test at audit\tools\improvement-web-business.test.mjs:39:1
+✖ Master Data retains the draft and blocks a second submission while pending and after rejection (433.3322ms)
+  AssertionError [ERR_ASSERTION]: draft stays open until saved
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:43:34)
+      at async withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:35:5)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:41:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\improvement-web-business.test.mjs:52:1
+✖ Users blank submit associates errors and focuses the first invalid field (47.3256ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  null !== 'true'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:56:12)
+      at async withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:35:5)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:53:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: 'true',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\improvement-web-business.test.mjs:62:1
+✖ read-only users never receive master-data or user write controls (26.777ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Thêm mới/. Input:
+  
+  'Danh mục dùng chung (Master Data)Catalog dùng chung cho Manifest/HBL/Truck Visit. Không hard-delete — chỉ khóa (active=false) để giữ lịch sử.Thêm mớiHãng tàu (Shipping Line)Chủ hàng (Consignee)Đại lý Hải quanĐơn vị Vận tảiTênMã sốTrạng tháiHành động'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:63:105)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:35:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:63:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Danh mục dùng chung (Master Data)Catalog dùng chung cho Manifest/HBL/Truck Visit. Không hard-delete — chỉ khóa (active=false) để giữ lịch sử.Thêm mớiHãng tàu (Shipping Line)Chủ hàng (Consignee)Đại lý Hải quanĐơn vị Vận tảiTênMã sốTrạng tháiHành động',
+    expected: /Thêm mới/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\improvement-web-business.test.mjs:67:1
+✖ truck shortcut opens a create dialog with its linked container (32.0481ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(document.querySelector('dialog'))
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:69:12)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:35:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:68:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\improvement-web-business.test.mjs:74:1
+✖ expired and cancelled passes never offer exit or handover and explain their status (70.1639ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Xác nhận Ra cổng|Tiến hành bàn giao vận chuyển/. Input:
+  
+  'Chưa thể kiểm tra phiếu ra cổng (Gate Pass). Dữ liệu đã tải trước chỉ để tham khảo, chưa xác nhận trạng thái hiện tại.Tải lại dữ liệu kiểm traPhiếu ra cổng (Gate Pass) & Kiểm soát Xuất khoPhát hành mã QR Code ra cổng có thời hạn 24 giờ, đối soát cổng Outbound và xác nhận Gate-outCấp Phiếu ra cổng mớiTra cứu phiếu ra cổngQuét mã QR từ app tài xế hoặc nhập mã GP-XXXX để xác thựcQuét mãGP-TESTEXPIREDTEST0000001Xe: TESTTài xế: ReceiverGP-TESTACTIVEPhát hành lúc: 07:00:00 1/1/2020Hiệu lực đến:07:00:00 1/1/2020TOKENTrình mã này tại cổng Outbound để nhân viên đối soát biển số xe và mở barie.Thông tin Phương tiệnBiển số đăng ký: TESTNgười nhận hàng: ReceiverSố CMND/CCCD: Hồ sơ ContainerSố container: TEST0000001Mã chuyến tiếp nhận: v1Điều kiện được backend kiểm tra lại khi xác nhận ra cổng.Nhân viên bảo vệ kiểm tra xong biển số và số chì có thể xác nhận cho xe ra.Hủy Gate PassXác nhận Ra cổng (Gate-out)'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:76:12)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:35:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:75:47)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Chưa thể kiểm tra phiếu ra cổng (Gate Pass). Dữ liệu đã tải trước chỉ để tham khảo, chưa xác nhận trạng thái hiện tại.Tải lại dữ liệu kiểm traPhiếu ra cổng (Gate Pass) & Kiểm soát Xuất khoPhát hành mã QR Code ra cổng có thời hạn 24 giờ, đối soát cổng Outbound và xác nhận Gate-outCấp Phiếu ra cổng mớiTra cứu phiếu ra cổngQuét mã QR từ app tài xế hoặc nhập mã GP-XXXX để xác thựcQuét mãGP-TESTEXPIREDTEST0000001Xe: TESTTài xế: ReceiverGP-TESTACTIVEPhát hành lúc: 07:00:00 1/1/2020Hiệu lực đến:07:00:00 1/1/2020TOKENTrình mã này tại cổng Outbound để nhân viên đối soát biển số xe và mở barie.Thông tin Phương tiệnBiển số đăng ký: TESTNgười nhận hàng: ReceiverSố CMND/CCCD: Hồ sơ ContainerSố container: TEST0000001Mã chuyến tiếp nhận: v1Điều kiện được backend kiểm tra lại khi xác nhận ra cổng.Nhân viên bảo vệ kiểm tra xong biển số và số chì có thể xác nhận cho xe ra.Hủy Gate PassXác nhận Ra cổng (Gate-out)',
+    expected: /Xác nhận Ra cổng|Tiến hành bàn giao vận chuyển/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\improvement-web-business.test.mjs:82:1
+✖ EDI inspector renders canonical payload snapshot without synthesized ISO type (48.3644ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /"containerType": "20GP"/. Input:
+  
+  "UNB+UNOA:2+VNICD+Fixture+20260101:0000+m1'\n" +
+    "UNH+m1+CODECO_GATE_IN:D:00B:UN:SMDG20'\n" +
+    "BGM+34+m1+9'\n" +
+    "NAD+MS+VNICD:160:ZZZ'\n" +
+    "NAD+MR+Fixture:160:ZZZ'\n" +
+    "EQD+CN+TEST0000001+45G1:102:5++2+5'\n" +
+    "LOC+11+VNICD:139:6'\n" +
+    "DTM+132:20260101:102'\n" +
+    "CNT+16:1'\n" +
+    "UNT+9+m1'\n" +
+    "UNZ+1+m1'"
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:84:12)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:35:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:83:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "UNB+UNOA:2+VNICD+Fixture+20260101:0000+m1'\nUNH+m1+CODECO_GATE_IN:D:00B:UN:SMDG20'\nBGM+34+m1+9'\nNAD+MS+VNICD:160:ZZZ'\nNAD+MR+Fixture:160:ZZZ'\nEQD+CN+TEST0000001+45G1:102:5++2+5'\nLOC+11+VNICD:139:6'\nDTM+132:20260101:102'\nCNT+16:1'\nUNT+9+m1'\nUNZ+1+m1'",
+    expected: /"containerType": "20GP"/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at audit\tools\improvement-web-business.test.mjs:89:1
+✖ failed and forbidden collections do not claim a settled empty result (23.7852ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Không thể tải|Chưa tải/i. Input:
+  
+  'Danh mục dùng chung (Master Data)Catalog dùng chung cho Manifest/HBL/Truck Visit. Không hard-delete — chỉ khóa (active=false) để giữ lịch sử.Thêm mớiHãng tàu (Shipping Line)Chủ hàng (Consignee)Đại lý Hải quanĐơn vị Vận tảiTênMã sốTrạng tháiHành động'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:91:12)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:35:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:90:46)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Danh mục dùng chung (Master Data)Catalog dùng chung cho Manifest/HBL/Truck Visit. Không hard-delete — chỉ khóa (active=false) để giữ lịch sử.Thêm mớiHãng tàu (Shipping Line)Chủ hàng (Consignee)Đại lý Hải quanĐơn vị Vận tảiTênMã sốTrạng tháiHành động',
+    expected: /Không thể tải|Chưa tải/i,
+    operator: 'match',
+    diff: 'simple'
+  }

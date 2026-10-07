@@ -1,0 +1,45 @@
+{
+  "status": "VERIFIED",
+  "change": "Chuẩn hóa281 utility spacing trên21file bằng đơn vị4px, giữ kích thước/icon/offset quang học. Đo72cấu hình main và28cấu hình form/tab: không có spacing ngoài grid trừ sr-only và auto centering có lý do; không tràn document. Không coi sampling này đã bao phủ mọi loại overlay.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/Header.tsx",
+      "line": 70,
+      "detail": "p-2 text-slate-500 hover:bg-slate-100",
+      "snippet": "        <button type=\"button\" onClick={() => void refreshData()} disabled={isLoading} aria-label=\"Tải lại dữ liệu\" title=\"Tải lại dữ liệu\" className=\"rounded-lg p-2 text-slate-500 hover:bg-slate-100 disabled:opacity-50\"><RefreshCw className={`h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} /></button>\n        <div className=\"relative\" ref={panelGroup}>\n          <button ref={notificationTrigger} type=\"button\" onClick={() => setShowNotifs((show) => !show)} aria-controls={panelId} aria-label={notificationLabel} aria-expanded={showNotifs} className=\"relative rounded-lg p-2 text-slate-500 hover:bg-slate-100\"><Bell aria-hidden=\"true\" className=\"h-4 w-4\" />{notificationsAvailable && unreadCount > 0 && <span aria-hidden=\"true\" className=\"absolute top-1 right-1 h-2 w-2 rounded-full bg-rose-500\" />}</button>\n          {showNotifs && <div id={panelId} role=\"region\" aria-label=\"Danh sách thông báo\" className=\"absolute right-0 mt-3 w-80 max-w-[calc(100vw-1rem)] rounded-xl border border-slate-200 bg-white shadow-xl text-xs overflow-hidden\">"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/ui-measurements-summary-2026-10-04.json",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/style-matrix-production-main18-2026-10-04.json",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/spacing-overlay-production-after-bounds-2026-10-04.json"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Actual computed styles, trusted native interaction/frame samples or geometry, as explicitly linked. Offline analysis preserves incomplete/excluded measurements; no implementation-mirroring style test.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/Header.tsx.diff"
+  ],
+  "isolated_review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/App.tsx.diff",
+    "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/BillingView.tsx.diff",
+    "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/ContainersView.tsx.diff",
+    "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/DashboardView.tsx.diff",
+    "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/EDIView.tsx.diff",
+    "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/GateInView.tsx.diff",
+    "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/GatePassView.tsx.diff",
+    "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/HandoversView.tsx.diff",
+    "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/Header.tsx.diff",
+    "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/ManifestsView.tsx.diff",
+    "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/MasterDataView.tsx.diff",
+    "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/MovementOrdersView.tsx.diff",
+    "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/PartnerManagementView.tsx.diff",
+    "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/Sidebar.tsx.diff",
+    "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/TruckVisitsView.tsx.diff",
+    "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/UsersRolesView.tsx.diff",
+    "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/WebLoginView.tsx.diff",
+    "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/WorkQueueView.tsx.diff",
+    "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/yard/YardOperations.tsx.diff",
+    "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/yard/YardSiteMap.tsx.diff",
+    "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/YardView.tsx.diff"
+  ]
+}

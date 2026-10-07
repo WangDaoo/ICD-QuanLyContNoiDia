@@ -1,0 +1,98 @@
+✖ gate-out requires explicit boolean true and rejects malformed scan flags without a write (226.412ms)
+✖ payment context rejects invalid amounts and methods before any request (19.2088ms)
+✖ Billing preserves edited two-decimal amounts and declares a matching numeric step (125.9981ms)
+✖ Billing invalid payment values show an error and never delegate a write (55.3435ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 0
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4336.9557
+
+✖ failing tests:
+
+test at audit\tools\gate-out-payment-boundary.test.mjs:53:1
+✖ gate-out requires explicit boolean true and rejects malformed scan flags without a write (226.412ms)
+  AssertionError [ERR_ASSERTION]: scan flag "false" must stay blocked
+  
+  true !== false
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\gate-out-payment-boundary.test.mjs:59:14)
+      at async <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\gate-out-payment-boundary.test.mjs:45:7)
+      at async withDom (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\gate-out-payment-boundary.test.mjs:27:9)
+      at async withContext (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\gate-out-payment-boundary.test.mjs:32:3)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\gate-out-payment-boundary.test.mjs:54:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\gate-out-payment-boundary.test.mjs:72:1
+✖ payment context rejects invalid amounts and methods before any request (19.2088ms)
+  AssertionError [ERR_ASSERTION]: invalid amount 0 must stay blocked
+  
+  true !== false
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\gate-out-payment-boundary.test.mjs:77:14)
+      at async <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\gate-out-payment-boundary.test.mjs:45:7)
+      at async withDom (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\gate-out-payment-boundary.test.mjs:27:9)
+      at async withContext (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\gate-out-payment-boundary.test.mjs:32:3)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\gate-out-payment-boundary.test.mjs:73:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\gate-out-payment-boundary.test.mjs:124:1
+✖ Billing preserves edited two-decimal amounts and declares a matching numeric step (125.9981ms)
+  AssertionError [ERR_ASSERTION]: 12.50 must never become 12
+  
+  12 !== 12.5
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\gate-out-payment-boundary.test.mjs:128:12)
+      at async <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\gate-out-payment-boundary.test.mjs:120:5)
+      at async withDom (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\gate-out-payment-boundary.test.mjs:27:9)
+      at async withBilling (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\gate-out-payment-boundary.test.mjs:99:3)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\gate-out-payment-boundary.test.mjs:125:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 12,
+    expected: 12.5,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\gate-out-payment-boundary.test.mjs:137:1
+✖ Billing invalid payment values show an error and never delegate a write (55.3435ms)
+  AssertionError [ERR_ASSERTION]: invalid input  must never reach recordPayment
+  
+  1 !== 0
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\gate-out-payment-boundary.test.mjs:142:14)
+      at async <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\gate-out-payment-boundary.test.mjs:120:5)
+      at async withDom (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\gate-out-payment-boundary.test.mjs:27:9)
+      at async withBilling (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\gate-out-payment-boundary.test.mjs:99:3)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\gate-out-payment-boundary.test.mjs:138:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

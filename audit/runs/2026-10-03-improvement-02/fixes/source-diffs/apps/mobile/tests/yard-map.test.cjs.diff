@@ -1,0 +1,10 @@
+--- before/apps/mobile/tests/yard-map.test.cjs
++++ after/apps/mobile/tests/yard-map.test.cjs
+@@ -241,6 +241,7 @@
+     if (specifier.endsWith('/ThemeProvider'))
+       return { useTheme: () => ({ theme: { colors }, mode: 'DARK' }) };
+     if (specifier.endsWith('/yard-map')) return model;
++    if (specifier.endsWith('/presentation/labels')) return require('./improvement-harness.cjs').load('src/presentation/labels.ts');
+     return module.require(specifier);
+   };
+   loaded._compile(

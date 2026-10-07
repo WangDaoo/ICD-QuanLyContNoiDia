@@ -1,0 +1,27 @@
+{
+  "status": "VERIFIED",
+  "change": "Canonical status/expiry helper and deadline-triggered updates; unknown state fails closed.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/useGatePassExpiry.ts",
+      "line": 4,
+      "detail": "export function",
+      "snippet": "export function useGatePassExpiry(passes: GatePass[]) {\n  const [tick, setTick] = useState(0);\n  useEffect(() => {\n    const current = Date.now();"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/web-fixtures-final.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/web-business/independent-green.txt"
+  ],
+  "limitations": "Expired/cancelled/used/boundary and refreshed-expired fixtures; Android scan pending.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [
+    "Fixture ACTIVE fresh/ACTIVE expired/USED/CANCELLED/EXPIRED cases: list and detail status agree.",
+    "Expired/cancelled passes have appropriate recovery text and no active Gate-out invitation.",
+    "Container 360 validity claim also considers expiry; backend remains authoritative."
+  ],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/useGatePassExpiry.ts.diff"
+  ],
+  "isolated_review_diffs": []
+}

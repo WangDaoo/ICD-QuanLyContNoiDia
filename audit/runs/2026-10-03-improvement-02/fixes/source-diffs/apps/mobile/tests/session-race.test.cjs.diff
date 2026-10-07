@@ -1,0 +1,85 @@
+--- before/apps/mobile/tests/session-race.test.cjs
++++ after/apps/mobile/tests/session-race.test.cjs
+@@ -0,0 +1,82 @@
++const assert = require('node:assert/strict');
++const { test } = require('node:test');
++const { load } = require('./improvement-harness.cjs');
++
++const response = (status, value) => ({ status, ok: status >= 200 && status < 300, text: async () => JSON.stringify(value), json: async () => value });
++
++test('a token refresh completing after session invalidation cannot restore credentials or accept the signed-out user', async () => {
++  const previousUrl = process.env.EXPO_PUBLIC_API_BASE_URL, previousFetch = global.fetch;
++  process.env.EXPO_PUBLIC_API_BASE_URL = 'https://session.test/api';
++  let accessToken = 'old-access', refreshToken = 'old-refresh', finishRefresh, reads = 0;
++  const acceptedUsers = [];
++  const storage = {
++    getAccessToken: async () => accessToken, getRefreshToken: async () => refreshToken,
++    setTokens: async (access, refresh) => { accessToken = access; refreshToken = refresh; },
++    clear: async () => { accessToken = null; refreshToken = null; },
++  };
++  global.fetch = async url => {
++    if (url.endsWith('/auth/refresh')) return new Promise(resolve => { finishRefresh = () => resolve(response(200, { accessToken: 'late-access', refreshToken: 'late-refresh', user: { id: 'signed-out-user' } })); });
++    return ++reads === 1 ? response(401, { message: 'Expired' }) : response(200, { data: [] });
++  };
++  try {
++    const api = load('src/services/api/api-client.ts', {
++      '../../storage/auth.storage': { authStorage: storage },
++      './connection-gate': { connectionGate: { reportRequest() {}, assertWriteAllowed() {} } },
++    });
++    api.setRefreshedUserHandler(user => acceptedUsers.push(user.id));
++    const request = api.apiClient.get('/containers');
++    await new Promise(resolve => setImmediate(resolve));
++    api.invalidateApiSession?.();
++    await storage.clear(); finishRefresh(); await assert.rejects(request);
++    assert.deepEqual({ accessToken, refreshToken }, { accessToken: null, refreshToken: null });
++    assert.deepEqual(acceptedUsers, []);
++    assert.equal(reads, 1, 'the old business request must not be replayed after logout');
++  } finally {
++    global.fetch = previousFetch;
++    if (previousUrl === undefined) delete process.env.EXPO_PUBLIC_API_BASE_URL; else process.env.EXPO_PUBLIC_API_BASE_URL = previousUrl;
++  }
++});
++
++test('token writes already in progress are removed before a new login is persisted', async () => {
++  const memory = new Map(); let finishOldAccess;
++  const storage = {
++    getItem: async key => memory.get(key) || null,
++    setItem: async (key, value) => {
++      if (value === 'old-access') await new Promise(resolve => { finishOldAccess = resolve; });
++      memory.set(key, value);
++    },
++    removeItem: async key => { memory.delete(key); },
++  };
++  const { authStorage } = load('src/storage/auth.storage.ts', {
++    'expo-secure-store': {},
++    '@react-native-async-storage/async-storage': { __esModule: true, default: storage },
++    'react-native': { Platform: { OS: 'web' } },
++  });
++  const oldSave = authStorage.setTokens('old-access', 'old-refresh');
++  await new Promise(resolve => setImmediate(resolve));
++  const logout = authStorage.clear();
++  const newSave = authStorage.setTokens('new-access', 'new-refresh');
++  await new Promise(resolve => setImmediate(resolve));
++  finishOldAccess(); await Promise.all([oldSave, logout, newSave]);
++  assert.deepEqual([await authStorage.getAccessToken(), await authStorage.getRefreshToken()], ['new-access', 'new-refresh']);
++});
++
++test('a command waiting on stored credentials is never sent after logout invalidates its session', async () => {
++  const previousUrl = process.env.EXPO_PUBLIC_API_BASE_URL, previousFetch = global.fetch;
++  process.env.EXPO_PUBLIC_API_BASE_URL = 'https://session.test/api';
++  let finishTokenRead, sends = 0;
++  global.fetch = async () => { sends++; return response(200, { data: {} }); };
++  try {
++    const api = load('src/services/api/api-client.ts', {
++      '../../storage/auth.storage': { authStorage: { getAccessToken: () => new Promise(resolve => { finishTokenRead = resolve; }) } },
++      './connection-gate': { connectionGate: { reportRequest() {}, assertWriteAllowed() {} } },
++    });
++    const command = api.apiClient.post('/yard/movements', { visitId: 'visit-1' });
++    api.invalidateApiSession(); finishTokenRead('old-access');
++    await assert.rejects(command, /Phiên đăng nhập/);
++    assert.equal(sends, 0);
++  } finally {
++    global.fetch = previousFetch;
++    if (previousUrl === undefined) delete process.env.EXPO_PUBLIC_API_BASE_URL; else process.env.EXPO_PUBLIC_API_BASE_URL = previousUrl;
++  }
++});

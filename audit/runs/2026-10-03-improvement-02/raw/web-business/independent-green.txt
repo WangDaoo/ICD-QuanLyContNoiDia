@@ -1,0 +1,19 @@
+✔ existing Gate Pass route wins over the linked visit and never opens another issue form (335.0624ms)
+✔ Container detail blocks navigation and explicit close while its inline Gate Pass is saving (179.6526ms)
+✔ Container inline Gate Pass rejection stays visible inside the retained detail dialog (120.847ms)
+✔ Container creation saved with failed refresh keeps the truthful outcome visible after its modal closes (142.1391ms)
+✔ Truck create destination does not reopen a dismissed form on an unrelated collection refresh (41.2074ms)
+✔ Truck create intent resolves a target arriving after its initial data load (34.2045ms)
+✔ a visit-only Gate Pass URL requires the explicit create intent before opening its form (35.5488ms)
+✔ explicit create intent opens the issue form unless an existing pass is the canonical destination (121.142ms)
+✔ loading a newly expired pass evaluates against the current clock rather than the initial render (22.7949ms)
+✔ an open role permission editor stops offering writes after a same-user permission downgrade (36.0736ms)
+✔ refreshed expired pass removes token QR and Gate-out action from its selected detail (37.5218ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5560.173

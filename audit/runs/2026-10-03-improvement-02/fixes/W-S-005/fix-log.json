@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED",
+  "method": "Prior accepted fix retained; fresh regression suite rechecked.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/BillingView.tsx",
+      "line": 84,
+      "detail": "const paymentPending",
+      "snippet": "  const paymentPending = useRef(false);\n  const [isPaying, setIsPaying] = useState(false);\n  const [paymentError, setPaymentError] = useState('');\n"
+    }
+  ],
+  "limitations": "4 fixture async component thật; không tạo thanh toán. Chỉ phần P1 thanh toán được duyệt; các action phi tài chính còn là việc P2 ngoài phạm vi.",
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/web-old-regressions-final.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/web-old-billing-final.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+  ],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/BillingView.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

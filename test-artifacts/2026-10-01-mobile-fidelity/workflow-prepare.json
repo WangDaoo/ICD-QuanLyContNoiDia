@@ -1,0 +1,93 @@
+{
+  "phase": "prepare",
+  "results": [
+    {
+      "method": "POST",
+      "path": "/auth/login",
+      "status": 200,
+      "expected": "2xx"
+    },
+    {
+      "method": "GET",
+      "path": "/admin/master-data/shipping-lines",
+      "status": 200,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/manifests",
+      "status": 201,
+      "expected": "2xx"
+    },
+    {
+      "method": "GET",
+      "path": "/admin/master-data/consignees",
+      "status": 200,
+      "expected": "2xx"
+    },
+    {
+      "method": "GET",
+      "path": "/admin/master-data/clearing-agents",
+      "status": 200,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/manifests/7456a740-d7ce-4b2b-9308-8154ccc1683e/master-bls",
+      "status": 201,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/manifests/7456a740-d7ce-4b2b-9308-8154ccc1683e/master-bls/75e587e8-cb2b-4413-a9f6-d85435540585/house-bls",
+      "status": 201,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/containers",
+      "status": 201,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/manifests/7456a740-d7ce-4b2b-9308-8154ccc1683e/submit",
+      "status": 200,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/containers/1b09f42d-a027-4522-928c-999ba655c3fe/movement-orders",
+      "status": 201,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/movement-orders/1258d0ed-1ae2-471d-8398-c3a3f20ab62c/authorize",
+      "status": 200,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/gate/truck-visits",
+      "status": 201,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/gate/truck-visits/00283376-0d6b-4f62-931c-fc452ef5f351/arrive",
+      "status": 200,
+      "expected": "2xx"
+    }
+  ],
+  "state": {
+    "manifestId": "7456a740-d7ce-4b2b-9308-8154ccc1683e",
+    "manifestNo": "MF-20261001-1E129E43",
+    "mblId": "75e587e8-cb2b-4413-a9f6-d85435540585",
+    "hblId": "51921b0f-a724-4262-b357-922fa3972042",
+    "visitId": "1b09f42d-a027-4522-928c-999ba655c3fe",
+    "containerNumber": "QAMU6102765",
+    "truckId": "00283376-0d6b-4f62-931c-fc452ef5f351",
+    "movementId": "1258d0ed-1ae2-471d-8398-c3a3f20ab62c"
+  }
+}

@@ -1,0 +1,116 @@
+- link "Đến nội dung nghiệp vụ":
+  - /url: "#main-content"
+- banner:
+  - button "Mở menu điều hướng":
+  - generic: ICD
+  - heading "ICD Management System" [level=1]
+  - button "Tải lại dữ liệu":
+  - button "Thông báo (0 chưa đọc)":
+  - button "Đăng xuất":
+- main:
+  - heading "Vận hành Bãi Container" [level=2]:
+    - text: Vận hành Bãi Container
+  - paragraph: Sơ đồ cảng demo, quản lý vị trí và công việc trong bãi
+  - navigation "Chế độ vận hành bãi":
+    - button "Sơ đồ 2D Bãi":
+      - text: Sơ đồ 2D Bãi
+    - button "Danh sách Vị trí":
+      - text: Danh sách Vị trí
+    - button "Xếp vị trí thủ công":
+      - text: Xếp vị trí thủ công
+    - button "Công việc trong bãi" [pressed]:
+      - text: Công việc trong bãi
+  - heading "Tác nghiệp bãi" [level=3]
+  - paragraph: 0 tác nghiệp đang chờ hoặc đang thực hiện. Trạng thái và vị trí được cập nhật từ hệ thống.
+  - button "Tạo lệnh đảo chuyển":
+    - text: Tạo lệnh đảo chuyển
+  - button "Đặt lịch trong bãi":
+    - text: Đặt lịch trong bãi
+  - button "Tạo yêu cầu kiểm định":
+    - text: Tạo yêu cầu kiểm định
+  - status: Đã hoàn tất di chuyển và cập nhật vị trí bãi. Đã lưu trên hệ thống.
+  - text: Tìm container
+  - searchbox "Tìm container trong tác nghiệp"
+  - text: Container
+  - combobox "Lọc tác nghiệp theo container":
+    - option "Tất cả container"
+    - option "QAOU6100040" [selected]
+    - option "QAOU4835930"
+    - option "QAOU6004067"
+    - option "QAOU1882075"
+    - option "QAOU5007570"
+    - option "QAOU5007565"
+    - option "QAOU5007550"
+    - option "QAMU6102765"
+    - option "QATU2282957"
+    - option "VSCU6748392"
+    - option "TCSU9283741"
+    - option "HACU2938475"
+    - option "VFCU7482910"
+    - option "BDCU3849102"
+    - option "VMCU9284012"
+    - option "GLDU5739201"
+    - option "TCSU8849201"
+    - option "VSCU1049281"
+    - option "HACU4829103"
+  - text: Trạng thái
+  - combobox "Lọc trạng thái tác nghiệp":
+    - option "Tất cả trạng thái" [selected]
+    - option "Đang chờ / Đang thực hiện"
+    - option "Chờ thực hiện"
+    - option "Đang thực hiện"
+    - option "Hoàn tất"
+    - option "Đã hủy"
+  - region "Di chuyển nội bãi":
+    - heading "Di chuyển nội bãi (1)" [level=4]:
+      - text: Di chuyển nội bãi
+      - generic: (1)
+    - table:
+      - rowgroup:
+        - row "Container Từ / Đến Trạng thái Lý do / Thời gian Thao tác":
+          - columnheader "Container"
+          - columnheader "Từ / Đến"
+          - columnheader "Trạng thái"
+          - columnheader "Lý do / Thời gian"
+          - columnheader "Thao tác"
+      - rowgroup:
+        - row "QAOU6100040 A-02-01-1 → B-02-01-1 Hoàn tất E2E-20261004-2147 đảo chuyển thử 21:52 4/10/26":
+          - cell "QAOU6100040"
+          - cell "A-02-01-1 → B-02-01-1":
+            - generic: A-02-01-1 → B-02-01-1
+          - cell "Hoàn tất":
+            - generic: Hoàn tất
+          - cell "E2E-20261004-2147 đảo chuyển thử 21:52 4/10/26":
+            - generic: E2E-20261004-2147 đảo chuyển thử
+            - generic: 21:52 4/10/26
+          - cell
+  - region "Lịch tác nghiệp bãi":
+    - heading "Lịch tác nghiệp bãi (0)" [level=4]:
+      - text: Lịch tác nghiệp bãi
+      - generic: (0)
+    - table:
+      - rowgroup:
+        - row "Container / Loại Lịch dự kiến Trạng thái Kết quả / Ghi chú Thao tác":
+          - columnheader "Container / Loại"
+          - columnheader "Lịch dự kiến"
+          - columnheader "Trạng thái"
+          - columnheader "Kết quả / Ghi chú"
+          - columnheader "Thao tác"
+      - rowgroup:
+        - row "Chưa có lịch tác nghiệp phù hợp bộ lọc.":
+          - cell "Chưa có lịch tác nghiệp phù hợp bộ lọc."
+  - region "Kiểm định container":
+    - heading "Kiểm định container (0)" [level=4]:
+      - text: Kiểm định container
+      - generic: (0)
+    - table:
+      - rowgroup:
+        - row "Container / Loại Trạng thái Kết quả / Ghi chú Nhân viên / Thời gian Thao tác":
+          - columnheader "Container / Loại"
+          - columnheader "Trạng thái"
+          - columnheader "Kết quả / Ghi chú"
+          - columnheader "Nhân viên / Thời gian"
+          - columnheader "Thao tác"
+      - rowgroup:
+        - row "Chưa có yêu cầu kiểm định phù hợp bộ lọc.":
+          - cell "Chưa có yêu cầu kiểm định phù hợp bộ lọc."

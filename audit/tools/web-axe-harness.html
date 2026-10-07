@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><title>ICD isolated accessibility audit</title>
+<style>body{margin:0;font:14px/1.5 system-ui}header{padding:8px;display:flex;gap:8px;align-items:center}iframe{width:100%;height:900px;border:0}pre{white-space:pre-wrap}button{padding:8px}input{min-width:200px}</style></head>
+<body><header><label for="route">Màn cần đo</label><input id="route" value="/app/dashboard"><button id="open">Mở màn</button><button id="run">Chạy axe</button><span id="state" role="status">Chưa đo</span></header>
+<iframe id="app" title="Ứng dụng ICD test" src="/app/dashboard"></iframe><pre id="result"></pre>
+<script type="module">
+// Audit-only file served by the test Vite server via /@fs. Never imported by the
+// application and never bundled into production. All UI actions use CUA.
+const frame = document.getElementById('app');
+const state = document.getElementById('state');
+document.getElementById('open').onclick = () => {
+  const route = document.getElementById('route').value;
+  if (!/^\/app\/[a-z-]+(?:\?[^#]*)?$/.test(route)) { state.textContent = 'Route không hợp lệ'; return; }
+  frame.src = route; state.textContent = 'Đã mở màn, chờ dữ liệu';
+};
+document.getElementById('run').onclick = async () => {
+  state.textContent = 'Đang đo';
+  try {
+    const documentToTest = frame.contentDocument;
+    if (documentToTest.querySelector('[aria-busy="true"]')) throw new Error('Dữ liệu vẫn đang tải, chạy lại sau khi ổn định.');
+    if (!frame.contentWindow.axe) {
+      await new Promise((resolve,reject) => {
+        const script = documentToTest.createElement('script');
+        script.src = '/@fs/' + new URL('./runtime/node_modules/axe-core/axe.min.js', location.href).pathname.replace(/^\/@fs\//,'');
+        script.onload = resolve; script.onerror = reject; documentToTest.head.append(script);
+      });
+    }
+    const result = await frame.contentWindow.axe.run(documentToTest, { runOnly: { type:'tag', values:['wcag2a','wcag2aa','wcag21aa','wcag22aa'] } });
+    document.getElementById('result').textContent = JSON.stringify({ url:frame.contentWindow.location.href, viewport:{width:frame.clientWidth,height:frame.clientHeight}, ...result }, null, 2);
+    state.textContent = 'Đã đo: ' + result.violations.length + ' rule lỗi, ' + result.incomplete.length + ' rule cần kiểm tay';
+  } catch(error) { state.textContent = 'Lỗi đo: ' + (error?.message || 'Không nạp được axe'); }
+};
+</script></body></html>

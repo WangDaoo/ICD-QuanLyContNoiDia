@@ -1,0 +1,27 @@
+{
+  "status": "VERIFIED",
+  "change": "Empty, no-match, loading, failure, forbidden and stale states are distinct with recovery.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/CollectionState.tsx",
+      "line": 29,
+      "detail": "export function CollectionState",
+      "snippet": "export function CollectionState({\n  resource,\n  count,\n  total = count,"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/web-fixtures-final.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/dashboard-resource-green.txt"
+  ],
+  "limitations": "Fixture zero/filter/error/403 plus measured main views; broader network matrix pending.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [
+    "Fixture 0 records and a nonempty collection filtered to 0 each render distinct messages.",
+    "No-results recovery clears the actual filters without initiating a write.",
+    "Loading/error/forbidden states are not described as an empty collection."
+  ],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/CollectionState.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

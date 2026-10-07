@@ -1,0 +1,27 @@
+{
+  "status": "VERIFIED",
+  "change": "Date-only/timestamp conversion uses Vietnam UTC+7 once, including tariff business dates.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/lib/time.ts",
+      "line": 19,
+      "detail": "vietnamBusinessDateToIso",
+      "snippet": "export function vietnamBusinessDateToIso(value: string): string | null {\n  if (/^\\d{4}-\\d{2}-\\d{2}$/.test(value)) return vietnamDateTimeToIso(`${value}T00:00`);\n  // Preserve instants from callers that already supply an explicit timezone.\n  if (!/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}(?::\\d{2}(?:\\.\\d{1,3})?)?(?:Z|[+-]\\d{2}:\\d{2})$/.test(value)) return null;"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/tariff-vietnam-date-green.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/web-source-tests-final.txt"
+  ],
+  "limitations": "Calendar, timezone and invalid date fixtures; API persisted dates inspected.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [
+    "Freeze a clock in UTC+07 and inspect the default: exactly 24h later, not 17h.",
+    "Edit local datetime and verify serialized ISO denotes that local clock time.",
+    "Blank/invalid/past dates show a recoverable error and do not submit."
+  ],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/lib/time.ts.diff"
+  ],
+  "isolated_review_diffs": []
+}

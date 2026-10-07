@@ -1,0 +1,17 @@
+Loaded Prisma config from test\prisma.ui-audit.config.ts.
+
+Prisma schema loaded from prisma\schema.prisma.
+Datasource "db": MySQL database "icd_ux_audit_20261003_e2e" at "127.0.0.1:3308"
+
+Your database is now in sync with your Prisma schema. Done in 12.28s
+┌─────────────────────────────────────────────────────────┐
+│  Update available 7.10.0 -> 8.0.0-rc.19                 │
+│                                                         │
+│  This is a major update - please follow the guide at    │
+│  https://pris.ly/d/major-version-upgrade                │
+│                                                         │
+│  Run the following to update                            │
+│    npm i --save-dev prisma@latest                       │
+│    npm i @prisma/client@latest                          │
+└─────────────────────────────────────────────────────────┘
+

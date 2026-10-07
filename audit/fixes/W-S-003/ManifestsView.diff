@@ -1,0 +1,48 @@
+diff --git "a/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-003\\before\\apps\\web\\src\\components\\ManifestsView.tsx" "b/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-003\\after\\apps\\web\\src\\components\\ManifestsView.tsx"
+index 4f5e8f9..c4d07ab 100644
+--- "a/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-003\\before\\apps\\web\\src\\components\\ManifestsView.tsx"	
++++ "b/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-003\\after\\apps\\web\\src\\components\\ManifestsView.tsx"	
+@@ -207,16 +207,16 @@ export const ManifestsView: React.FC = () => {
+               .map((m) => {
+                 const isSelected = selectedManifest?.id === m.id;
+                 return (
+-                  <div
++                  <button type="button" aria-pressed={isSelected}
+                     key={m.id}
+                     onClick={() => setSelectedManifestId(m.id)}
+-                    className={`p-4 rounded-xl border cursor-pointer transition ${
++                    className={`block w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 p-4 rounded-xl border cursor-pointer transition ${
+                       isSelected
+                         ? 'bg-blue-50/50 border-blue-500 shadow-xs'
+                         : 'bg-white border-slate-200 hover:border-slate-300'
+                     }`}
+                   >
+-                    <div className="flex items-center justify-between">
++                    <span className="block flex items-center justify-between">
+                       <span className="text-xs font-mono font-bold text-blue-700">{m.manifestNo}</span>
+                       <span className={`px-2 py-0.5 text-[10px] font-bold rounded-full ${
+                         m.status === 'SUBMITTED'
+@@ -227,17 +227,17 @@ export const ManifestsView: React.FC = () => {
+                       }`}>
+                         {m.status}
+                       </span>
+-                    </div>
+-                    <div className="text-xs font-bold text-slate-800 mt-1 flex items-center space-x-1.5">
++                    </span>
++                    <span className="block text-xs font-bold text-slate-800 mt-1 flex items-center space-x-1.5">
+                       <Ship className="w-3.5 h-3.5 text-slate-500" />
+                       <span>{m.vesselName}</span>
+                       <span className="text-slate-400 font-normal">({m.voyageNo})</span>
+-                    </div>
+-                    <div className="flex items-center justify-between mt-2 text-[11px] text-slate-500">
++                    </span>
++                    <span className="block flex items-center justify-between mt-2 text-[11px] text-slate-500">
+                       <span>Hãng: <strong className="text-slate-700">{m.shippingLine}</strong></span>
+                       <span>ETA: {new Date(m.eta).toLocaleDateString('vi-VN')}</span>
+-                    </div>
+-                  </div>
++                    </span>
++                  </button>
+                 );
+               })}
+           </div>

@@ -1,0 +1,26 @@
+{
+  "status": "VERIFIED",
+  "change": "Selection exposes aria-pressed and native checked state.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/UsersRolesView.tsx",
+      "line": 72,
+      "detail": "aria-pressed",
+      "snippet": "              aria-pressed={tab === 'USERS'}\n              onClick={() => setTab('USERS')}\n              className={`px-3 py-2 rounded-md text-xs font-bold ${tab === 'USERS' ? 'bg-white shadow-xs text-blue-700' : 'text-slate-500'}`}\n            >"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/web-old-regressions-final.txt"
+  ],
+  "limitations": "Actual component semantics; keyboard selection rechecked in retained regression suite.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [
+    "Accessibility tree exposes true/false selected state for every toggle.",
+    "Keyboard selection updates the state and visible styling together.",
+    "If a full tablist is adopted, implement its complete roles and keyboard behavior rather than roles alone."
+  ],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/UsersRolesView.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

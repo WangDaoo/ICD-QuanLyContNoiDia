@@ -1,0 +1,48 @@
+✔ dialog enters native modal mode, locks page scroll, and restores opener and original scroll on unmount (477.3434ms)
+✔ native cancel closes an idle dialog and is blocked while its write is pending (51.126ms)
+✖ Tab and Shift+Tab wrap between enabled visible controls instead of leaving the modal (42.4269ms)
+✖ Tab stays on the named dialog when it contains no enabled focusable control (28.593ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 2
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5488.1624
+
+✖ failing tests:
+
+test at audit\tools\runtime\modal-overlay.test.mjs:85:1
+✖ Tab and Shift+Tab wrap between enabled visible controls instead of leaving the modal (42.4269ms)
+  AssertionError [ERR_ASSERTION]: Shift+Tab must not reach browser chrome
+  
+  false !== true
+  
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\runtime\modal-overlay.test.mjs:100:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\modal-overlay.test.mjs:109:1
+✖ Tab stays on the named dialog when it contains no enabled focusable control (28.593ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\runtime\modal-overlay.test.mjs:116:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

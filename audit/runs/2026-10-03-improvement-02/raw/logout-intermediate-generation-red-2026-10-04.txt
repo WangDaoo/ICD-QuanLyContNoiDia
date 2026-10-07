@@ -1,0 +1,39 @@
+✔ auth service completed old logout cannot erase a completed new login (130.5137ms)
+✔ auth service rejected old logout cannot erase a completed new login (11.278ms)
+✔ same-session credential rotation during logout still permits definitive local cleanup (10.646ms)
+✔ same-session rejected logout clears local credentials while preserving the transport error (12.871ms)
+✔ provider completed old logout cannot replace a verified new login with signed-out state (51.5719ms)
+✔ provider rejected old logout cannot replace a verified new login with signed-out state (19.4895ms)
+✔ provider same-session rejected logout definitively removes protected data and loading state (16.9838ms)
+✖ provider old logout cannot erase new credentials before the new login continuation commits its actor (17.4351ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4367.504
+
+✖ failing tests:
+
+test at audit\tools\tests\logout-session-race.test.mjs:126:1
+✖ provider old logout cannot erase new credentials before the new login continuation commits its actor (17.4351ms)
+  AssertionError [ERR_ASSERTION]: credential generation must fence cleanup before the actor continuation advances provider generation
+  + actual - expected
+  
+  + null
+  - 'new-B-access'
+  
+      at file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/logout-session-race.test.mjs:140:14
+      at async fixture (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/logout-session-race.test.mjs:39:5)
+      at async TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/logout-session-race.test.mjs:127:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: 'new-B-access',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,356 @@
+Browser tab: 20, Title: "ICD Management System — Quản lý Kho bãi Container Nội địa", URL: "http://127.0.0.1:5173/".
+0 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/
+	1 container root
+		2 container
+			278 button Mở menu điều hướng
+			3 text ICD
+			4 heading ICD Management System, Value: 1
+				5 text ICD Management System
+			7 button Tải lại dữ liệu
+			8 button (collapsed) Description: Thông báo (0 chưa đọc), Secondary Actions: Expand
+			10 button Đăng xuất
+		39 container
+			279 heading Container 360 · Danh sách & vòng đời, Value: 2
+				280 text Container 360 · Danh sách & vòng đời
+			281 text Theo dõi trạng thái vòng đời, vị trí bãi Yard, thời gian lưu bãi (Dwell days), Holds và kiểm tra điều kiện ra cổng (Readiness) Tổng cộng:  18  containers
+			282 button Tạo Container Visit
+			283 text field (settable)
+			284 pop up button (collapsed, settable) Value: Tất cả trạng thái, Secondary Actions: Expand
+				285 menu
+					286 (selected) Tất cả trạng thái
+					287 Pending
+					288 Authorized (Chờ cổng)
+					289 In Yard (Trong bãi)
+					290 Under Inspection
+					291 Gate Pass Issued
+					292 Exited (Đã ra cổng)
+			293 checkbox (settable, integer) Description: Chỉ container có Blocker (Lệnh giữ / Chưa thanh toán / Chưa vị trí), Value: 0
+			294 text Chỉ container có Blocker (Lệnh giữ / Chưa thanh toán / Chưa vị trí) Hiển thị  18  containers
+			295 table
+				296 row
+					297 cell
+						298 text Số Container
+					299 cell
+						300 text Loại
+					301 cell
+						302 text Chủ hàng (Consignee)
+					303 cell
+						304 text Vị trí Bãi
+					305 cell
+						306 text Trạng thái
+					307 cell
+						308 text Vào cổng
+					309 cell
+						310 text Ngày lưu
+					311 cell
+						312 text Blockers
+					313 cell
+						314 text Thao tác
+				315 row
+					316 cell
+						317 text QAOU4835930
+					318 cell
+						319 text 40HC
+					320 cell
+						321 text Công ty Cổ phần Sản xuất & Kinh doanh VinFast
+					322 cell
+						323 text A-02-03-1
+					324 cell
+						325 text IN_YARD
+					326 cell
+						327 text 2/10/2026
+					328 cell
+						329 text 0  ngày
+					330 cell
+						331 button Chi tiết →
+				332 row
+					333 cell
+						334 text QAOU6004067
+					335 cell
+						336 text 40HC
+					337 cell
+						338 text Công ty Cổ phần Sản xuất & Kinh doanh VinFast
+					339 cell
+						340 text A-02-02-1
+					341 cell
+						342 text IN_YARD
+					343 cell
+						344 text 2/10/2026
+					345 cell
+						346 text 0  ngày
+					347 cell
+						348 button Chi tiết →
+				349 row
+					350 cell
+						351 text QAOU1882075
+					352 cell
+						353 text 40HC
+					354 cell
+						355 text Công ty Cổ phần Sản xuất & Kinh doanh VinFast
+					356 cell
+						357 text Chưa xếp
+					358 cell
+						359 text EXITED
+					360 cell
+						361 text 2/10/2026
+					362 cell
+						363 text 0  ngày
+					364 cell
+						365 button Chi tiết →
+				366 row
+					367 cell
+						368 text QAOU5007570
+					369 cell
+						370 text 40HC
+					371 cell
+						372 text Công ty Cổ phần Sản xuất & Kinh doanh VinFast
+					373 cell
+						374 text A-01-01-2
+					375 cell
+						376 text IN_YARD
+					377 cell
+						378 text 2/10/2026
+					379 cell
+						380 text 0  ngày
+					381 cell
+						382 button Chi tiết →
+				383 row
+					384 cell
+						385 text QAOU5007565
+					386 cell
+						387 text 40HC
+					388 cell
+						389 text Công ty Cổ phần Sản xuất & Kinh doanh VinFast
+					390 cell
+						391 text A-01-03-2
+					392 cell
+						393 text IN_YARD
+					394 cell
+						395 text 2/10/2026
+					396 cell
+						397 text 0  ngày
+					398 cell
+						399 button Chi tiết →
+				400 row
+					401 cell
+						402 text QAOU5007550
+					403 cell
+						404 text 40HC
+					405 cell
+						406 text Công ty Cổ phần Sản xuất & Kinh doanh VinFast
+					407 cell
+						408 text Chưa xếp
+					409 cell
+						410 text EXITED
+					411 cell
+						412 text 2/10/2026
+					413 cell
+						414 text 0  ngày
+					415 cell
+						416 button Chi tiết →
+				417 row
+					418 cell
+						419 text QAMU6102765
+					420 cell
+						421 text 40HC
+					422 cell
+						423 text Công ty Cổ phần Sản xuất & Kinh doanh VinFast
+					424 cell
+						425 text A-01-02-2
+					426 cell
+						427 text IN_YARD
+					428 cell
+						429 text 1/10/2026
+					430 cell
+						431 text 1  ngày
+					432 cell
+						433 button Chi tiết →
+				434 row
+					435 cell
+						436 text QATU2282957
+					437 cell
+						438 text 40HC
+					439 cell
+						440 text Công ty Cổ phần Sản xuất & Kinh doanh VinFast
+					441 cell
+						442 text Chưa xếp
+					443 cell
+						444 text EXITED
+					445 cell
+						446 text 1/10/2026
+					447 cell
+						448 text 1  ngày
+					449 cell
+						450 button Chi tiết →
+				451 row
+					452 cell
+						453 text VSCU6748392
+					454 cell
+						455 text 40GP
+					456 cell
+						457 text Công ty TNHH Gang Thép Hưng Nghiệp Formosa Hà Tĩnh
+					458 cell
+						459 text C-01-02-1
+					460 cell
+						461 text IN_YARD
+					462 cell
+						463 text 30/9/2026
+					464 cell
+						465 text 2  ngày
+					466 cell
+						467 button Chi tiết →
+				468 row
+					469 cell
+						470 text TCSU9283741
+					471 cell
+						472 text 45HC
+					473 cell
+						474 text Công ty CP Thực phẩm Đông lạnh Sao Biển
+					475 cell
+						476 text D-01-02-1
+					477 cell
+						478 text IN_YARD
+					479 cell
+						480 text 30/9/2026
+					481 cell
+						482 text 2  ngày
+					483 cell
+						484 button Chi tiết →
+				485 row
+					486 cell
+						487 text HACU2938475
+					488 cell
+						489 text 20GP
+					490 cell
+						491 text Công ty CP Ô tô Trường Hải (THACO Chu Lai)
+					492 cell
+						493 text Chưa xếp
+					494 cell
+						495 text AUTHORIZED
+					496 cell
+						497 text —
+					498 cell
+						499 text —
+					500 cell
+						501 button Chi tiết →
+				502 row
+					503 cell
+						504 text VFCU7482910
+					505 cell
+						506 text 40GP
+					507 cell
+						508 text Công ty TNHH LG Innotek Việt Nam Hải Phòng
+					509 cell
+						510 text A-01-03-1
+					511 cell
+						512 text IN_YARD
+					513 cell
+						514 text 30/9/2026
+					515 cell
+						516 text 2  ngày
+					517 cell
+						518 button Chi tiết →
+				519 row
+					520 cell
+						521 text BDCU3849102
+					522 cell
+						523 text 20GP
+					524 cell
+						525 text Công ty TNHH Hyosung Việt Nam (Đồng Nai)
+					526 cell
+						527 text B-01-02-1
+					528 cell
+						529 text IN_YARD
+					530 cell
+						531 text 30/9/2026
+					532 cell
+						533 text 2  ngày
+					534 cell
+						535 button Chi tiết →
+				536 row
+					537 cell
+						538 text VMCU9284012
+					539 cell
+						540 text 20GP
+					541 cell
+						542 text Tổng Công ty Dệt May Việt Nam (Vinatex)
+					543 cell
+						544 text B-01-01-1
+					545 cell
+						546 text IN_YARD
+					547 cell
+						548 text 30/9/2026
+					549 cell
+						550 text 2  ngày
+					551 cell
+						552 button Chi tiết →
+				553 row
+					554 cell
+						555 text GLDU5739201
+					556 cell
+						557 text 40HC
+					558 cell
+						559 text Công ty Cổ phần Sản xuất & Kinh doanh VinFast
+					560 cell
+						561 text A-01-02-1
+					562 cell
+						563 text IN_YARD
+					564 cell
+						565 text 30/9/2026
+					566 cell
+						567 text 2  ngày
+					568 cell
+						569 button Chi tiết →
+				570 row
+					571 cell
+						572 text TCSU8849201
+					573 cell
+						574 text 40GP
+					575 cell
+						576 text Công ty TNHH Samsung Electronics VN (SEVT)
+					577 cell
+						578 text A-01-01-1
+					579 cell
+						580 text IN_YARD
+					581 cell
+						582 text 30/9/2026
+					583 cell
+						584 text 2  ngày
+					585 cell
+						586 button Chi tiết →
+				587 row
+					588 cell
+						589 text VSCU1049281
+					590 cell
+						591 text 20GP
+					592 cell
+						593 text Công ty Cổ phần Tập đoàn Hòa Phát
+					594 cell
+						595 text C-01-01-1
+					596 cell
+						597 text IN_YARD
+					598 cell
+						599 text 30/9/2026
+					600 cell
+						601 text 2  ngày
+					602 cell
+						603 button Chi tiết →
+				604 row
+					605 cell
+						606 text HACU4829103
+					607 cell
+						608 text 45HC
+					609 cell
+						610 text Công ty CP Thực phẩm Đông lạnh Sao Biển
+					611 cell
+						612 text D-01-01-1
+					613 cell
+						614 text IN_YARD
+					615 cell
+						616 text 30/9/2026
+					617 cell
+						618 text 2  ngày
+					619 cell
+						620 button Chi tiết →
+
+The focused UI element is 0 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/

@@ -1,0 +1,39 @@
+- link "Đến nội dung nghiệp vụ":
+  - /url: "#main-content"
+- banner:
+  - button "Mở menu điều hướng":
+  - generic: ICD
+  - heading "ICD Management System" [level=1]
+  - button "Tải lại dữ liệu" [disabled]:
+  - button "Thông báo (0 chưa đọc)":
+  - button "Đăng xuất":
+- main:
+  - status:
+    - text: Đang tải dữ liệu vận hành…
+  - heading "Movement Order — Lệnh cho phép container di chuyển về ICD" [level=2]:
+    - generic: Movement Order — Lệnh cho phép container di chuyển về ICD
+  - paragraph: Mắt xích bắt buộc giữa Container Visit (PENDING) và Truck Visit/Gate-in. Chỉ khi Authorize thành công, container mới đủ điều kiện vào cổng.
+  - textbox "Tìm mã lệnh, số container...": QAOU6100040
+  - text: Thời hạn khi duyệt lệnh (giờ Việt Nam UTC+7)
+  - textbox "Thời hạn khi duyệt lệnh (giờ Việt Nam UTC+7)": 2026-10-05T21:48
+  - table:
+    - rowgroup:
+      - row "Mã lệnh Container Trạng thái Tạo lúc Hết hạn Duyệt bởi Hành động":
+        - columnheader "Mã lệnh"
+        - columnheader "Container"
+        - columnheader "Trạng thái"
+        - columnheader "Tạo lúc"
+        - columnheader "Hết hạn"
+        - columnheader "Duyệt bởi"
+        - columnheader "Hành động"
+    - rowgroup:
+      - row "a8a7c455-b2d8-4a8c-87fe-20ecd0190ec0 QAOU6100040 AUTHORIZED 21:49:03 4/10/2026 21:48:00 5/10/2026 System Administrator Tạo Truck Visit":
+        - cell "a8a7c455-b2d8-4a8c-87fe-20ecd0190ec0"
+        - cell "QAOU6100040"
+        - cell "AUTHORIZED"
+        - cell "21:49:03 4/10/2026"
+        - cell "21:48:00 5/10/2026"
+        - cell "System Administrator"
+        - cell "Tạo Truck Visit":
+          - button "Tạo Truck Visit":
+            - text: Tạo Truck Visit

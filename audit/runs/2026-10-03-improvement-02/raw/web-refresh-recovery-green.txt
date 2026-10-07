@@ -1,0 +1,40 @@
+✔ actual web refresh network failure preserves credentials and exposes a recoverable error (9.9145ms)
+✔ actual web refresh 500 failure preserves credentials and exposes a recoverable error (3.344ms)
+✔ actual web refresh json failure preserves credentials and exposes a recoverable error (1.3238ms)
+✔ actual web refresh tokens failure preserves credentials and exposes a recoverable error (1.369ms)
+✔ definitive web refresh 401 invalidates only its current credentials (1.1969ms)
+✔ definitive web refresh 403 invalidates only its current credentials (1.4526ms)
+✔ missing web refresh token is definitive and does not send another credential request (1.7896ms)
+✔ simultaneous actual web reads coalesce refresh and persist one valid rotated pair (2.8943ms)
+✔ late actual web refresh fulfill cannot overwrite logout (1.4188ms)
+✔ late actual web refresh network cannot overwrite logout (0.9891ms)
+✔ late actual web refresh 401 cannot overwrite logout (0.9401ms)
+✔ late actual web refresh fulfill cannot overwrite new-login (0.9272ms)
+✔ late actual web refresh network cannot overwrite new-login (0.6888ms)
+✔ late actual web refresh 401 cannot overwrite new-login (0.599ms)
+✔ late actual web refresh fulfill cannot overwrite same-token-new-login (0.5765ms)
+✔ late actual web refresh network cannot overwrite same-token-new-login (0.4822ms)
+✔ late actual web refresh 401 cannot overwrite same-token-new-login (0.5381ms)
+✔ late old web 401 cannot fetch refresh or clear a new login (0.6718ms)
+✔ transient refresh ApiError 0 reaches the caller without unauthorized callback (8.1194ms)
+✔ transient refresh ApiError 500 reaches the caller without unauthorized callback (1.0217ms)
+✔ simultaneous unauthorized reads share one refresh and retry with its token (2.2408ms)
+✔ a missing refresh result invalidates only the current session once (1.7759ms)
+✔ late old 401 does not refresh, replay or invalidate the new actor (1.7702ms)
+✔ version changes fence stale 401 even when new login has the same token fixture (1.1522ms)
+✔ late refresh fulfill cannot retry or clear a different actor (1.1167ms)
+✔ late refresh reject cannot retry or clear a different actor (0.6846ms)
+✔ an old refresh finally cannot release a newer session refresh slot (12.2416ms)
+✔ a retry denied by server invalidates the still-current refreshed session (4.8608ms)
+✔ a write queued before logout/login cannot acquire another actor token at dispatch (0.6537ms)
+✔ uncertain financial write 0 is not automatically retried (0.7744ms)
+✔ uncertain financial write 500 is not automatically retried (0.5455ms)
+✔ refresh callback can return a token without changing its getter contract (1.4966ms)
+ℹ tests 32
+ℹ suites 0
+ℹ pass 32
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 900.357

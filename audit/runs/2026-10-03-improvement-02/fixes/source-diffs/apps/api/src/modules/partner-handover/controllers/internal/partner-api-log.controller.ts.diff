@@ -1,0 +1,18 @@
+--- before/apps/api/src/modules/partner-handover/controllers/internal/partner-api-log.controller.ts
++++ after/apps/api/src/modules/partner-handover/controllers/internal/partner-api-log.controller.ts
+@@ -9,13 +9,13 @@
+   constructor(private readonly partnerApiLogService: PartnerApiLogService) {}
+ 
+   @Get()
+-  @Permissions(PERMISSION_CODES.PARTNER_CLIENT_MANAGE)
++  @Permissions(PERMISSION_CODES.PARTNER_API_LOG_READ)
+   findMany(@Query() query: QueryPartnerApiLogsDto) {
+     return this.partnerApiLogService.findMany(query);
+   }
+ 
+   @Get(':id')
+-  @Permissions(PERMISSION_CODES.PARTNER_CLIENT_MANAGE)
++  @Permissions(PERMISSION_CODES.PARTNER_API_LOG_READ)
+   findById(@Param('id') id: string) {
+     return this.partnerApiLogService.findById(id);
+   }

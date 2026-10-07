@@ -1,0 +1,27 @@
+{
+  "status": "VERIFIED",
+  "change": "Nonmodal notification panel has Escape, outside click, trigger, explicit close and route cleanup.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/Header.tsx",
+      "line": 42,
+      "detail": "notificationState",
+      "snippet": "  const notificationState = resourceStatus.notifications ?? (isLoading ? 'loading' : 'ready');\n  const notificationsAvailable = notificationState === 'ready' || notificationState === 'stale';\n  const notificationLabel = notificationState === 'ready' ? `Thông báo (${unreadCount} chưa đọc)`\n    : notificationState === 'stale' ? `Thông báo (${unreadCount} chưa đọc, chưa cập nhật)`"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/browser/notification-dismiss-final.json",
+    "audit/runs/2026-10-03-improvement-02/raw/header-availability-green.txt"
+  ],
+  "limitations": "Real browser four dismiss paths; asynchronous mark-read fixtures; unavailable count no longer announces zero.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [
+    "Open panel: trigger again, real Escape and outside pointer each close.",
+    "Escape returns focus to trigger; a visible touch close route stays reachable.",
+    "Click inside keeps appropriate content interactions working and does not lock the main page."
+  ],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/Header.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

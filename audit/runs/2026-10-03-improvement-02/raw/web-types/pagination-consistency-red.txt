@@ -1,0 +1,34 @@
+✔ canonical nested operation pages retain older active work after the first 100 rows (4.4584ms)
+✔ nested metadata governs paging even when a page has fewer rows than pageSize (0.5681ms)
+✔ flat data and items envelopes preserve their pagination behavior (0.7329ms)
+✔ arrays and unpaged envelopes return their rows without an extra request (0.6223ms)
+✔ a failed later page rejects instead of returning a silently truncated collection (0.9962ms)
+✔ malformed pagination does not permit an unbounded or truncated successful load (0.2614ms)
+✔ malformed collection data is reported as unavailable rather than an empty success (0.2179ms)
+✔ present pagination metadata cannot omit the number of pages (0.5547ms)
+✔ missing pagination on a later page cannot claim a completed collection (0.4057ms)
+✖ pagination contradicting its page, total or final rows is unavailable (1.8759ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 9
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 408.8024
+
+✖ failing tests:
+
+test at apps\web\src\services\api\load-list.test.ts:116:1
+✖ pagination contradicting its page, total or final rows is unavailable (1.8759ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\load-list.test.ts:125:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Invalid pagination metadata/,
+    operator: 'rejects',
+    diff: 'simple'
+  }

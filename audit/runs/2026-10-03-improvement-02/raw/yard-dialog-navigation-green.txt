@@ -1,0 +1,14 @@
+✔ dirty yard dialog participates in the navigation guard and retains the draft on cancel (367.5146ms)
+✔ accepted yard navigation suspends its modal layer and preserves draft for return (79.8788ms)
+✔ pending yard write blocks navigation and reload until the command settles (90.6034ms)
+✔ hidden yard drafts do not intercept another active page navigation (93.7915ms)
+✔ yard booking explicitly names the Vietnam timezone used by its input (46.1682ms)
+✔ operation timestamps display the Vietnam instant when the device timezone is UTC (201.6687ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6238.1967

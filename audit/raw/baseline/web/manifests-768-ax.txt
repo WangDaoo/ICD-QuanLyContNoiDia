@@ -1,0 +1,94 @@
+Browser tab: 20, Title: "ICD Management System — Quản lý Kho bãi Container Nội địa", URL: "http://127.0.0.1:5173/".
+0 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/
+	1 container root
+		2 container
+			3 text ICD
+			4 heading ICD Management System, Value: 1
+				5 text ICD Management System
+			6 text Cảng cạn & kho bãi container nội địa
+			7 button Tải lại dữ liệu
+			8 button (collapsed) Description: Thông báo (0 chưa đọc), Secondary Actions: Expand
+			10 button Đăng xuất
+		11 container Điều hướng nghiệp vụ
+			226 text TỔNG QUAN & ĐIỀU PHỐI
+			227 button Tổng quan vận hành
+			228 button Danh sách công việc
+			229 text QUẢN LÝ HÀNG HÓA & CỔNG
+			230 button Bản lược khai (Manifest)
+			231 button Quản lý Container
+			232 button Movement Order
+			233 button Chuyến xe ra/vào
+			234 button Tiếp nhận vào cổng (Gate-in)
+			235 button Vận hành Bãi (Yard)
+			236 text TÀI CHÍNH & RA CỔNG
+			237 button Dịch vụ & Thanh toán
+			238 button Phiếu ra cổng & Gate-out
+			239 button Vận hành EDI (CODECO)
+			240 text TÍCH HỢP ĐỐI TÁC
+			241 button Bàn giao vận chuyển
+			242 button Đối tác tích hợp API
+			243 button Nhật ký API đối tác
+			244 text HỆ THỐNG & QUẢN TRỊ
+			245 button Danh mục dùng chung
+			246 button Người dùng & Phân quyền
+			247 button Báo cáo vận hành
+			248 button Nhật ký kiểm toán
+			36 text System Administrator
+			37 text admin@icd.local
+			38 text ADMIN
+		39 container
+			249 heading Bản lược khai hàng hóa (Manifest) & Vận đơn, Value: 2
+				250 text Bản lược khai hàng hóa (Manifest) & Vận đơn
+			251 text Quản lý danh sách tàu cập, Master Bill (MBL), House Bill (HBL) và đối soát chuẩn container ISO 6346
+			252 button Tạo Manifest mới
+			253 text Công cụ đối soát nhanh chuẩn Container ISO 6346 Kiểm tra trọng số check-digit thời gian thực cho mã container 11 ký tự
+			254 text field (settable) CSQU3054383
+			255 text Chuẩn ISO 6346 hợp lệ
+			256 text field (settable)
+			257 text MF-20261002-84D4CE80 SUBMITTED LOCAL MOBILE YARD QA ( MOBILE-YARD-QA-1790953483505 ) Hãng: 
+			258 text CMA CGM Group
+			259 text ETA:  2/10/2026 MF-20261002-C9CC9579 SUBMITTED LOCAL WEB YARD QA ( WEB-YARD-QA-1790931600314 ) Hãng: 
+			260 text CMA CGM Group
+			261 text ETA:  2/10/2026 MF-20261002-7FAEDD4E SUBMITTED ICD MOBILE OPS-QA-1790901500518-FOLLOWUP-1790903187940 ( OPS-QA-1790901500518-FOLLOWUP-1790903187940 ) Hãng: 
+			262 text CMA CGM Group
+			263 text ETA:  2/10/2026 MF-20261002-A8140919 SUBMITTED ICD MOBILE OPS-QA-1790901500518 ( OPS-QA-1790901500518 ) Hãng: 
+			264 text CMA CGM Group
+			265 text ETA:  2/10/2026 MF-20261001-1E129E43 SUBMITTED MOBILE UI FIDELITY QA 1790844610153 ( UI-QA-1790844610153 ) Hãng: 
+			266 text CMA CGM Group
+			267 text ETA:  1/10/2026 MF-20261001-7B83BFFF SUBMITTED ICD LIVE QA 20261001 ( QA1001 ) Hãng: 
+			268 text MSC (Mediterranean Shipping Company)
+			269 text ETA:  1/10/2026 MNF-VN-VSCU-010 SUBMITTED VOSCO VANGUARD 012W ( 012W ) Hãng: 
+			270 text Công ty Cổ phần Vận tải biển Việt Nam (VOSCO)
+			271 text ETA:  29/9/2026 MNF-VN-TCSU-009 SUBMITTED TAN CANG OCEAN 021E ( 021E ) Hãng: 
+			272 text Công ty CP Vận tải Thủy Tân Cảng (Tan Cang Shipping)
+			273 text ETA:  29/9/2026 MNF-VN-HACU-008 SUBMITTED HAIAN LINK 044S ( 044S ) Hãng: 
+			274 text Công ty CP Vận tải và Xếp dỡ Hải An (HATS / HAH)
+			275 text ETA:  29/9/2026 MNF-VN-VFCU-007 SUBMITTED VINAFCO FORTUNE 018N ( 018N ) Hãng: 
+			276 text Công ty Cổ phần Vinafco (Vinafco Shipping)
+			277 text ETA:  29/9/2026 MNF-VN-BDCU-006 SUBMITTED BIEN DONG STAR 033E ( 033E ) Hãng: 
+			278 text Công ty Vận tải Biển Đông (Bien Dong Shipping)
+			279 text ETA:  29/9/2026 MNF-VN-VMCU-005 SUBMITTED VIMC PIONEER 005W ( 005W ) Hãng: 
+			280 text Tổng công ty Hàng hải Việt Nam (VIMC / Vinalines)
+			281 text ETA:  29/9/2026 MNF-VN-GLDU-004 SUBMITTED GEMADEPT PROGRESS 092S ( 092S ) Hãng: 
+			282 text Công ty Cổ phần Gemadept (GMD Shipping)
+			283 text ETA:  29/9/2026 MNF-VN-TCSU-003 SUBMITTED TAN CANG GLORY 108E ( 108E ) Hãng: 
+			284 text Công ty CP Vận tải Thủy Tân Cảng (Tan Cang Shipping)
+			285 text ETA:  29/9/2026 MNF-VN-VSCU-002 SUBMITTED VOSCO SUNRISE 2026N ( 2026N ) Hãng: 
+			286 text Công ty Cổ phần Vận tải biển Việt Nam (VOSCO)
+			287 text ETA:  29/9/2026 MNF-VN-HACU-001 SUBMITTED HAIAN BELL 014W ( 014W ) Hãng: 
+			288 text Công ty CP Vận tải và Xếp dỡ Hải An (HATS / HAH)
+			289 text ETA:  29/9/2026
+			290 heading MF-20261002-84D4CE80, Value: 3
+				291 text MF-20261002-84D4CE80
+			292 text Hãng tàu:  CMA CGM Group Tàu: 
+			293 text LOCAL MOBILE YARD QA
+			294 text  · Voyage: 
+			295 text MOBILE-YARD-QA-1790953483505
+			296 text ETA Ngày đến: 2/10/2026
+			297 heading DANH SÁCH MASTER BL & HOUSE BL LIÊN KẾT, Value: 4
+				298 text DANH SÁCH MASTER BL & HOUSE BL LIÊN KẾT
+			299 text Master BL MOBILE-YARD-QA-1790953483505-MBL Hãng:  CMA CGM Group MOBILE-YARD-QA-1790953483505-HBL 100  kiện ·  20,000  kg Chủ hàng (Consignee): 
+			300 text Công ty Cổ phần Sản xuất & Kinh doanh VinFast
+			301 text Mô tả hàng:  Dedicated local mobile yard assignment QA goods Đại lý thông quan:  Đại lý Hải quan Quốc tế Việt Thịnh
+
+The focused UI element is 230 button Bản lược khai (Manifest)

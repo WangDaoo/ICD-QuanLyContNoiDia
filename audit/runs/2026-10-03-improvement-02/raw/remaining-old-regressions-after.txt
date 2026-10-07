@@ -1,0 +1,18 @@
+✔ W-S-001/W-S-002 conditional fixture: manifest-draft-mbl (737.1663ms)
+✔ W-S-001/W-S-002 conditional fixture: manifest-draft-hbl (307.0581ms)
+✔ W-S-001/W-S-002 conditional fixture: unpaid-invoice-payment (97.6578ms)
+✔ W-S-001/W-S-002 conditional fixture: master-data-shipping-line (88.0431ms)
+✔ W-S-001/W-S-002 conditional fixture: master-data-consignee (98.3324ms)
+✔ W-S-001/W-S-002 conditional fixture: master-data-clearing-agent (97.0167ms)
+✔ W-S-001/W-S-002 conditional fixture: master-data-transporter (116.4768ms)
+✔ W-S-001/W-S-002 conditional fixture: container-inline-gate-pass-ready (177.9239ms)
+✔ W-S-001/W-S-002 conditional fixture: container-manifest-mbl-hbl-associations (258.1445ms)
+✔ failed critical GET preserves stale records, distinguishes unknown from empty and recovers on retry (267.1774ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7064.0149

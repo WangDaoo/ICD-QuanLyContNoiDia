@@ -1,0 +1,40 @@
+{
+  "role": "ADMIN",
+  "configId": "progressive-catalog-5s-oct04",
+  "slowResource": "GET /api/admin/master-data/shipping-lines",
+  "delayMs": 5000,
+  "series": [
+    {
+      "stage": "start",
+      "at": "2026-10-03T21:55:00.393Z"
+    },
+    {
+      "stage": "initial",
+      "at": "2026-10-03T21:55:00.598Z",
+      "snapshot": "- main:\n  - heading \"Khôi phục phiên làm việc\" [level=1]\n  - status:\n    - text: Đang kiểm tra phiên làm việc…"
+    },
+    {
+      "stage": "partial",
+      "at": "2026-10-03T21:55:01.003Z",
+      "proof": {
+        "globalPending": "true",
+        "knownRow": "AUDU4246647\t20GP\tAUD25157BF4 Audit Consignee\tChưa xếp\tIN_YARD\t3/10/2026\t0 ngày\t\nHolds chưa kiểm tra\n\tChi tiết →",
+        "readinessCopy": "ICD\nICD Management System\n\nCảng cạn & kho bãi container nội địa\n\nHolds chưa kiểm tra đủ\nĐã kết nối\nUI Audit ADMIN\nADMIN",
+        "rows": 21
+      }
+    },
+    {
+      "stage": "complete",
+      "at": "2026-10-03T21:56:22.065Z",
+      "proof": {
+        "globalPending": "false",
+        "knownRow": "AUDU4246647\t20GP\tAUD25157BF4 Audit Consignee\tAUD25157BF4/A/03/01\tIN_YARD\t3/10/2026\t0 ngày\t\n\tChi tiết →",
+        "rows": 21
+      }
+    }
+  ],
+  "status": "FAIL",
+  "finding": "W-N-022",
+  "issue": "Known assigned position is falsely presented as Chưa xếp in partial resource publication",
+  "timingMethod": "Host CUA observation timestamps, not input-to-paint latency"
+}

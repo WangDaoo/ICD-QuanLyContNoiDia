@@ -1,0 +1,154 @@
+{
+  "phase": "operations",
+  "results": [
+    {
+      "method": "POST",
+      "path": "/auth/login",
+      "status": 200,
+      "expected": "2xx"
+    },
+    {
+      "method": "GET",
+      "path": "/containers/0a6afd91-946f-47ab-a4c0-fcf2b69a032f",
+      "status": 200,
+      "expected": "2xx"
+    },
+    {
+      "method": "GET",
+      "path": "/containers/0a6afd91-946f-47ab-a4c0-fcf2b69a032f/yard/location",
+      "status": 200,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/containers/0a6afd91-946f-47ab-a4c0-fcf2b69a032f/gate-in",
+      "status": 409,
+      "expected": 409
+    },
+    {
+      "method": "GET",
+      "path": "/yard/slots?pageSize=100",
+      "status": 200,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/containers/0a6afd91-946f-47ab-a4c0-fcf2b69a032f/yard/movements",
+      "status": 201,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/yard/movements/778a0120-d1a4-4e9c-82ca-8c2ad7b8814d/start",
+      "status": 201,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/yard/movements/778a0120-d1a4-4e9c-82ca-8c2ad7b8814d/complete",
+      "status": 201,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/containers/0a6afd91-946f-47ab-a4c0-fcf2b69a032f/inspections",
+      "status": 201,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/inspections/bbd03d98-70fe-4813-b087-df102c85657e/start",
+      "status": 201,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/inspections/bbd03d98-70fe-4813-b087-df102c85657e/complete",
+      "status": 201,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/containers/0a6afd91-946f-47ab-a4c0-fcf2b69a032f/yard-bookings",
+      "status": 201,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/yard/bookings/69575308-055e-4875-838f-448b9ac05b40/start",
+      "status": 201,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/yard/bookings/69575308-055e-4875-838f-448b9ac05b40/complete",
+      "status": 201,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/containers/0a6afd91-946f-47ab-a4c0-fcf2b69a032f/holds",
+      "status": 201,
+      "expected": "2xx"
+    },
+    {
+      "method": "GET",
+      "path": "/containers/0a6afd91-946f-47ab-a4c0-fcf2b69a032f/gate-pass/readiness",
+      "status": 200,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/containers/0a6afd91-946f-47ab-a4c0-fcf2b69a032f/holds/a7ddd89f-57f0-4cec-bca3-dbfeb2806d0b/release",
+      "status": 201,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/service-orders/preview",
+      "status": 201,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/containers/0a6afd91-946f-47ab-a4c0-fcf2b69a032f/service-orders",
+      "status": 201,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/service-orders/df8a1c91-b34d-4ebd-b18b-baa9ffaa477d/confirm",
+      "status": 201,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/service-orders/df8a1c91-b34d-4ebd-b18b-baa9ffaa477d/invoice",
+      "status": 201,
+      "expected": "2xx"
+    },
+    {
+      "method": "POST",
+      "path": "/invoices/8dc511fd-c10d-4cb8-8b98-4733c60ad448/payments",
+      "status": 201,
+      "expected": "2xx"
+    },
+    {
+      "method": "GET",
+      "path": "/containers/0a6afd91-946f-47ab-a4c0-fcf2b69a032f/gate-pass/readiness",
+      "status": 200,
+      "expected": "2xx"
+    }
+  ],
+  "state": {
+    "manifestId": "8cda1937-ffb4-4b5c-8775-6bf105432fec",
+    "manifestNo": "MF-20261001-7B83BFFF",
+    "visitId": "0a6afd91-946f-47ab-a4c0-fcf2b69a032f",
+    "containerNumber": "QATU2282957",
+    "truckId": "3440fa09-b089-4ea3-9da3-bbf1c8cdf6b9",
+    "movementId": "2cccc430-133b-47e5-a765-149ed5f2ba06",
+    "orderId": "df8a1c91-b34d-4ebd-b18b-baa9ffaa477d",
+    "invoiceId": "8dc511fd-c10d-4cb8-8b98-4733c60ad448",
+    "locationSlot": "A-01-02-2"
+  }
+}

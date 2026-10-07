@@ -1,0 +1,35 @@
+{
+  "id": "master-data",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "table": {
+    "executionStatus": "EXECUTED",
+    "logs": [
+      {
+        "args": [
+          "%ctable check: 0 table(s) read - no failures",
+          "color:#1f7a4d;font-weight:700"
+        ],
+        "level": "log"
+      }
+    ],
+    "method": "Unchanged upstream IIFE with lexical console capture and native Number parser aliases; limited heuristic coverage",
+    "sourceSha256": "a495b3bf3008d23531df76c86dc99beeea5f982fa49370c09d2e1967fc5635da",
+    "upstreamResult": {
+      "advisory": [],
+      "failures": [],
+      "tables": 0
+    }
+  },
+  "layout": {
+    "executionStatus": "EXECUTED",
+    "logs": [],
+    "method": "Unchanged upstream IIFE with lexical console capture and native Number parser aliases; limited heuristic coverage",
+    "sourceSha256": "68ebba1d6076cf3228287130babc1fd38a55e96f62bef2edfd8916dc9d1a7776",
+    "upstreamResult": [
+      "clean"
+    ]
+  }
+}

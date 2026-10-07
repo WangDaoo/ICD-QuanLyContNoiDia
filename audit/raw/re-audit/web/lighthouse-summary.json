@@ -1,0 +1,586 @@
+{
+  "started_at_utc": "2026-10-03T02:16:55.221Z",
+  "status": "MEASURED",
+  "url": "http://127.0.0.1:4173/",
+  "scope": "Production unauthenticated Login; three fresh-profile mobile Lighthouse CLI navigation runs",
+  "artifacts_directory": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\raw\\re-audit\\web\\lighthouse-login-20261003T021655Z",
+  "driver": "Lighthouse CLI only; no CUA/Playwright/custom CDP driver",
+  "authenticated_routes": {
+    "status": "UNKNOWN",
+    "reason": "Not navigated or authenticated"
+  },
+  "field_INP": {
+    "status": "UNKNOWN",
+    "reason": "No real-user field data or interaction measurement; TBT is not INP"
+  },
+  "separate_axe_scan": {
+    "status": "NOT_RUN",
+    "reason": "Only Lighthouse's selected accessibility checks run in its dedicated browser"
+  },
+  "limitations": [
+    "Local production build, not deployed network/field performance",
+    "Simulated mobile throttling; device is not physical mobile",
+    "Automated accessibility score excludes required manual review",
+    "Lighthouse runs its normal gatherers, including isolated axe and scroll reset, in its own browser only"
+  ],
+  "baseline_summary": "audit/raw/baseline/web/lighthouse-summary.json",
+  "protected_files_before": {
+    "package.json": "9d2a29f03bb2504a60a3981e952af530bc7b72e3942d1c9021c3498105f68b46",
+    "pnpm-lock.yaml": "2aef6a846ae69392415ca3a663bbf82b5de3eaf87a42a9b0c0b662e633510f13",
+    "apps/web/package.json": "e4d806aabbf2b4d54178da6d443bf77a10d3f32141fe3342bc11ee72518a3107",
+    "apps/web/vite.config.ts": "159c6efb932b95f57f38d8c086d47ba55e4bb1066028147950a5db41dcb014ed",
+    "apps/web/dist/assets/index-1RcJoSxU.js": "95268b4e050721a82514d1c46f4f8946fa470f3778e89d68a536f31d30f55569",
+    "apps/web/dist/assets/index-BAtYUhBf.css": "3c047852902f97a82cc924ee39706997d3bdf5d8eb2657845c220a40a19224cd",
+    "apps/web/dist/assets/index-BavJl0-S.js": "889d93dea5865e8e5149bfd900ef561c9756b846559115d78b3ca1fc7d22a18c",
+    "apps/web/dist/assets/index-BJbpjmTF.js": "4d841b8c4864c7710a9e31609b602399133f6075675f9629610eb3cb570ade10",
+    "apps/web/dist/assets/index-BNx69PJS.css": "27eca2d9088d42909fb4daafad0034edd59ba9643eeb483e63a088a319d09c10",
+    "apps/web/dist/assets/index-Bqey1Bq8.js": "4b47569b0d90c07db05a5305f33317e17dc86f37d738fe07d9992e9a783c907c",
+    "apps/web/dist/assets/index-BrLx9-EZ.css": "f53b7d536f84362e77ca084a707104fddfba13c1986d95b30db34ab694887e7f",
+    "apps/web/dist/assets/index-BXeGJden.js": "d9d37c68ccef71f8b22de3fcbfdeed3cec247adc469b076a3583d0f1623073a8",
+    "apps/web/dist/assets/index-C-iRqVMj.css": "f44ac50d148eb65fb4e4e87f545e73ebf6926da35f30902a4cf04357aa96b659",
+    "apps/web/dist/assets/index-C93BXWCy.js": "520aae61e0c638968e62edfd8a01dc0e341ab4bf1fe21937f344729c44f32842",
+    "apps/web/dist/assets/index-CaAkf52B.js": "81270d4bf403d5ae145d171d3ec4a0cdf3800603db3cc7b19dff3487c4d43004",
+    "apps/web/dist/assets/index-CCUzEEnE.css": "d8d9b824bbd71ade91feee896550aa7f3951ca49862814fa778e494310838a2f",
+    "apps/web/dist/assets/index-Cg2WwkGs.js": "9bc0db7b8dd6ab1ad0b3d57cfa4e1e98f15dce490cc6d2aa567afb74ad720e7d",
+    "apps/web/dist/assets/index-CUlUBCFL.js": "280fdea854e328ddb0785796c73d61850b958a6467e0a1c6f0f4d8bf547962f1",
+    "apps/web/dist/assets/index-CWj7s7b4.js": "aa9290ae799b33e1e2a91c4c744127ba36c7866190ffebcfed87fb8e8dea3083",
+    "apps/web/dist/assets/index-DA-pjvmk.js": "b955430dfebf1c7f386a5bb4e12ef761d6e9b232aec46f99695deb2fe31d7dcc",
+    "apps/web/dist/assets/index-DAp_xD39.js": "f9563057efc0105850dfd02dc34b9a06030545fa88a0c2318c2788740c26a3cc",
+    "apps/web/dist/assets/index-DA_Z_IQP.js": "78bb4d3a2accbce7f4c95c4c806c1f169b14c8a40bae393b436e74e8b5024128",
+    "apps/web/dist/assets/index-DDtrFFMw.js": "9eb245cda40b71b8958b62a628fe284ee6be2385dfe7ca6e2aeacbe2dcd6ef80",
+    "apps/web/dist/assets/index-DMQCIKxv.js": "3e603df6b78e349c22369803ba2400a90ae2ac0ead9a16b6a2aaac3332e7726c",
+    "apps/web/dist/assets/index-DoGOzqna.js": "16328de5b1011b8db0afed52d98b2426cbfcf8a01b3639b7f01f9f5f89f9a39e",
+    "apps/web/dist/assets/index-DPBBsEvf.js": "d367fb13768913b7136d1bffe107ebf6548b4fc3fb0eb9d4213f03d32dd2fbb9",
+    "apps/web/dist/assets/index-DRLrPWzZ.js": "71f85a15e6719e182646166c26ed6c1e785a80eec2f6b793fcc44c045c054406",
+    "apps/web/dist/assets/index-Dwo2WQuf.css": "c8d88ee3d25ef8621621912f4d49f7ca62594bcebf8f7f523a67b5733409ed5c",
+    "apps/web/dist/assets/index-DZQ9GAly.css": "2c2d015b1c83340e10a2c129d1c02b57d5089b271edb17a7071b51912fd08c06",
+    "apps/web/dist/assets/index-DZYErtEs.js": "2f81639275bad09e964d54b70ed8c9f30b0c5f73301be3507062bd28cba2bc6e",
+    "apps/web/dist/assets/index-H_KVCk2x.js": "6b0b424c85dc1199a6a39b08448c560f7770d03332d2c064bbad69a542d0da26",
+    "apps/web/dist/assets/index-Mu82t6-h.js": "cfdefe91d25d5c89daad761f77548eb156d3e858fc705987d632fc561573aae4",
+    "apps/web/dist/assets/index-p6Ib3D6H.css": "abdafb07c81767cd6dd30343bbbdde9ccda3449b6e12c64a592c7015043b2389",
+    "apps/web/dist/assets/index-pJBioAPy.js": "19ee559bf3df32f83089aa7d27ea6f25c2390162ba000da9a5bced5339997328",
+    "apps/web/dist/assets/index-v9mvIsCV.js": "a8bb12efacb4007f69e6ead03a7577d6d0aef54eed8b92189e7d5d6b1d05c039",
+    "apps/web/dist/assets/index-X39mO7nF.css": "7e0bfca3266c199f2fffa4601ac90caf0a7e809cdc16b46fe5a31e4be7870899",
+    "apps/web/dist/index.html": "70b7c285de4b52ec39fcc01cef8c4d4751fec636b30dc7f73bc4687bdc3601ed"
+  },
+  "runs": [
+    {
+      "number": 1,
+      "started_at_utc": "2026-10-03T02:16:56.679Z",
+      "completed_at_utc": "2026-10-03T02:17:13.464Z",
+      "argv": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\runtime\\node_modules\\lighthouse\\cli\\index.js",
+        "http://127.0.0.1:4173/",
+        "--only-categories=performance,accessibility",
+        "--form-factor=mobile",
+        "--throttling-method=simulate",
+        "--locale=en-US",
+        "--output=json",
+        "--output=html",
+        "--chrome-flags=--headless=new --disable-gpu --no-first-run --no-default-browser-check",
+        "--no-enable-error-reporting",
+        "--output-path=D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\raw\\re-audit\\web\\lighthouse-login-20261003T021655Z\\run-1"
+      ],
+      "cwd": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\runtime",
+      "log": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\raw\\re-audit\\web\\lighthouse-login-20261003T021655Z\\run-1.log",
+      "exit_code": 0,
+      "json_report": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\raw\\re-audit\\web\\lighthouse-login-20261003T021655Z\\run-1.report.json",
+      "html_report": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\raw\\re-audit\\web\\lighthouse-login-20261003T021655Z\\run-1.report.html",
+      "status": "MEASURED",
+      "fetch_time": "2026-10-03T02:17:03.808Z",
+      "requested_url": "http://127.0.0.1:4173/",
+      "final_displayed_url": "http://127.0.0.1:4173/",
+      "final_url": "http://127.0.0.1:4173/",
+      "lighthouse_version": "13.5.0",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "benchmarkIndex": 1521.5,
+        "credits": {
+          "axe-core": "4.13.0"
+        }
+      },
+      "config_settings": {
+        "output": [
+          "json",
+          "html"
+        ],
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "cli",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": false,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": null,
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "performance",
+          "accessibility"
+        ],
+        "skipAudits": null
+      },
+      "credits": {
+        "axe-core": "4.13.0"
+      },
+      "embedded_axe_version": "4.13.0",
+      "metrics": {
+        "LCP_ms": 1826.1553,
+        "CLS": 0,
+        "TBT_ms": 12.5
+      },
+      "performance_score": 0.98,
+      "accessibility_score": 1,
+      "accessibility_failed_audits": [],
+      "accessibility_manual_audits": [
+        "focusable-controls",
+        "interactive-element-affordance",
+        "logical-tab-order",
+        "visual-order-follows-dom",
+        "focus-traps",
+        "managed-focus",
+        "use-landmarks",
+        "offscreen-content-hidden",
+        "custom-controls-labels",
+        "custom-controls-roles"
+      ],
+      "accessibility_unknown_audits": [],
+      "run_warnings": []
+    },
+    {
+      "number": 2,
+      "started_at_utc": "2026-10-03T02:17:13.467Z",
+      "completed_at_utc": "2026-10-03T02:17:30.876Z",
+      "argv": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\runtime\\node_modules\\lighthouse\\cli\\index.js",
+        "http://127.0.0.1:4173/",
+        "--only-categories=performance,accessibility",
+        "--form-factor=mobile",
+        "--throttling-method=simulate",
+        "--locale=en-US",
+        "--output=json",
+        "--output=html",
+        "--chrome-flags=--headless=new --disable-gpu --no-first-run --no-default-browser-check",
+        "--no-enable-error-reporting",
+        "--output-path=D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\raw\\re-audit\\web\\lighthouse-login-20261003T021655Z\\run-2"
+      ],
+      "cwd": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\runtime",
+      "log": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\raw\\re-audit\\web\\lighthouse-login-20261003T021655Z\\run-2.log",
+      "exit_code": 0,
+      "json_report": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\raw\\re-audit\\web\\lighthouse-login-20261003T021655Z\\run-2.report.json",
+      "html_report": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\raw\\re-audit\\web\\lighthouse-login-20261003T021655Z\\run-2.report.html",
+      "status": "MEASURED",
+      "fetch_time": "2026-10-03T02:17:21.298Z",
+      "requested_url": "http://127.0.0.1:4173/",
+      "final_displayed_url": "http://127.0.0.1:4173/",
+      "final_url": "http://127.0.0.1:4173/",
+      "lighthouse_version": "13.5.0",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "benchmarkIndex": 1506,
+        "credits": {
+          "axe-core": "4.13.0"
+        }
+      },
+      "config_settings": {
+        "output": [
+          "json",
+          "html"
+        ],
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "cli",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": false,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": null,
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "performance",
+          "accessibility"
+        ],
+        "skipAudits": null
+      },
+      "credits": {
+        "axe-core": "4.13.0"
+      },
+      "embedded_axe_version": "4.13.0",
+      "metrics": {
+        "LCP_ms": 1810.0652,
+        "CLS": 0,
+        "TBT_ms": 4
+      },
+      "performance_score": 0.98,
+      "accessibility_score": 1,
+      "accessibility_failed_audits": [],
+      "accessibility_manual_audits": [
+        "focusable-controls",
+        "interactive-element-affordance",
+        "logical-tab-order",
+        "visual-order-follows-dom",
+        "focus-traps",
+        "managed-focus",
+        "use-landmarks",
+        "offscreen-content-hidden",
+        "custom-controls-labels",
+        "custom-controls-roles"
+      ],
+      "accessibility_unknown_audits": [],
+      "run_warnings": []
+    },
+    {
+      "number": 3,
+      "started_at_utc": "2026-10-03T02:17:30.878Z",
+      "completed_at_utc": "2026-10-03T02:17:47.233Z",
+      "argv": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\runtime\\node_modules\\lighthouse\\cli\\index.js",
+        "http://127.0.0.1:4173/",
+        "--only-categories=performance,accessibility",
+        "--form-factor=mobile",
+        "--throttling-method=simulate",
+        "--locale=en-US",
+        "--output=json",
+        "--output=html",
+        "--chrome-flags=--headless=new --disable-gpu --no-first-run --no-default-browser-check",
+        "--no-enable-error-reporting",
+        "--output-path=D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\raw\\re-audit\\web\\lighthouse-login-20261003T021655Z\\run-3"
+      ],
+      "cwd": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\runtime",
+      "log": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\raw\\re-audit\\web\\lighthouse-login-20261003T021655Z\\run-3.log",
+      "exit_code": 0,
+      "json_report": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\raw\\re-audit\\web\\lighthouse-login-20261003T021655Z\\run-3.report.json",
+      "html_report": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\raw\\re-audit\\web\\lighthouse-login-20261003T021655Z\\run-3.report.html",
+      "status": "MEASURED",
+      "fetch_time": "2026-10-03T02:17:37.536Z",
+      "requested_url": "http://127.0.0.1:4173/",
+      "final_displayed_url": "http://127.0.0.1:4173/",
+      "final_url": "http://127.0.0.1:4173/",
+      "lighthouse_version": "13.5.0",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "benchmarkIndex": 1578,
+        "credits": {
+          "axe-core": "4.13.0"
+        }
+      },
+      "config_settings": {
+        "output": [
+          "json",
+          "html"
+        ],
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "cli",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": false,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": null,
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "performance",
+          "accessibility"
+        ],
+        "skipAudits": null
+      },
+      "credits": {
+        "axe-core": "4.13.0"
+      },
+      "embedded_axe_version": "4.13.0",
+      "metrics": {
+        "LCP_ms": 1807.3927,
+        "CLS": 0,
+        "TBT_ms": 10
+      },
+      "performance_score": 0.98,
+      "accessibility_score": 1,
+      "accessibility_failed_audits": [],
+      "accessibility_manual_audits": [
+        "focusable-controls",
+        "interactive-element-affordance",
+        "logical-tab-order",
+        "visual-order-follows-dom",
+        "focus-traps",
+        "managed-focus",
+        "use-landmarks",
+        "offscreen-content-hidden",
+        "custom-controls-labels",
+        "custom-controls-roles"
+      ],
+      "accessibility_unknown_audits": [],
+      "run_warnings": []
+    }
+  ],
+  "preview": {
+    "pid": 27764,
+    "hidden": true,
+    "listeners_before": [],
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\apps\\web\\node_modules\\vite\\bin\\vite.js",
+      "preview",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "4173",
+      "--strictPort"
+    ],
+    "cwd": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\apps\\web",
+    "stopped": true,
+    "http_status": 200,
+    "exit_code": null,
+    "listeners_after": [],
+    "pid_alive_after": false
+  },
+  "scope_verification": {
+    "status": "LOGIN_CONFIRMED_OFFLINE",
+    "method": "Lighthouse final-screenshot artifact only",
+    "screenshot": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\raw\\re-audit\\web\\lighthouse-login-20261003T021655Z\\run-1-final-screenshot.jpg",
+    "result": "Unauthenticated Login visible in generated Lighthouse screenshot; no authenticated screen audit claim."
+  },
+  "successful_runs": 3,
+  "statistics": {
+    "LCP_ms": {
+      "values": [
+        1826.1553,
+        1810.0652,
+        1807.3927
+      ],
+      "median": 1810.0652,
+      "range": [
+        1807.3927,
+        1826.1553
+      ],
+      "sample_count": 3
+    },
+    "CLS": {
+      "values": [
+        0,
+        0,
+        0
+      ],
+      "median": 0,
+      "range": [
+        0,
+        0
+      ],
+      "sample_count": 3
+    },
+    "TBT_ms": {
+      "values": [
+        12.5,
+        4,
+        10
+      ],
+      "median": 10,
+      "range": [
+        4,
+        12.5
+      ],
+      "sample_count": 3
+    },
+    "performance_score": {
+      "values": [
+        0.98,
+        0.98,
+        0.98
+      ],
+      "median": 0.98,
+      "range": [
+        0.98,
+        0.98
+      ],
+      "sample_count": 3
+    },
+    "accessibility_score": {
+      "values": [
+        1,
+        1,
+        1
+      ],
+      "median": 1,
+      "range": [
+        1,
+        1
+      ],
+      "sample_count": 3
+    }
+  },
+  "settings_identical": true,
+  "settings_match_baseline": true,
+  "pinned_versions_match_baseline": true,
+  "browser_version_matches_baseline": true,
+  "protected_files_after": {
+    "package.json": "9d2a29f03bb2504a60a3981e952af530bc7b72e3942d1c9021c3498105f68b46",
+    "pnpm-lock.yaml": "2aef6a846ae69392415ca3a663bbf82b5de3eaf87a42a9b0c0b662e633510f13",
+    "apps/web/package.json": "e4d806aabbf2b4d54178da6d443bf77a10d3f32141fe3342bc11ee72518a3107",
+    "apps/web/vite.config.ts": "159c6efb932b95f57f38d8c086d47ba55e4bb1066028147950a5db41dcb014ed",
+    "apps/web/dist/assets/index-1RcJoSxU.js": "95268b4e050721a82514d1c46f4f8946fa470f3778e89d68a536f31d30f55569",
+    "apps/web/dist/assets/index-BAtYUhBf.css": "3c047852902f97a82cc924ee39706997d3bdf5d8eb2657845c220a40a19224cd",
+    "apps/web/dist/assets/index-BavJl0-S.js": "889d93dea5865e8e5149bfd900ef561c9756b846559115d78b3ca1fc7d22a18c",
+    "apps/web/dist/assets/index-BJbpjmTF.js": "4d841b8c4864c7710a9e31609b602399133f6075675f9629610eb3cb570ade10",
+    "apps/web/dist/assets/index-BNx69PJS.css": "27eca2d9088d42909fb4daafad0034edd59ba9643eeb483e63a088a319d09c10",
+    "apps/web/dist/assets/index-Bqey1Bq8.js": "4b47569b0d90c07db05a5305f33317e17dc86f37d738fe07d9992e9a783c907c",
+    "apps/web/dist/assets/index-BrLx9-EZ.css": "f53b7d536f84362e77ca084a707104fddfba13c1986d95b30db34ab694887e7f",
+    "apps/web/dist/assets/index-BXeGJden.js": "d9d37c68ccef71f8b22de3fcbfdeed3cec247adc469b076a3583d0f1623073a8",
+    "apps/web/dist/assets/index-C-iRqVMj.css": "f44ac50d148eb65fb4e4e87f545e73ebf6926da35f30902a4cf04357aa96b659",
+    "apps/web/dist/assets/index-C93BXWCy.js": "520aae61e0c638968e62edfd8a01dc0e341ab4bf1fe21937f344729c44f32842",
+    "apps/web/dist/assets/index-CaAkf52B.js": "81270d4bf403d5ae145d171d3ec4a0cdf3800603db3cc7b19dff3487c4d43004",
+    "apps/web/dist/assets/index-CCUzEEnE.css": "d8d9b824bbd71ade91feee896550aa7f3951ca49862814fa778e494310838a2f",
+    "apps/web/dist/assets/index-Cg2WwkGs.js": "9bc0db7b8dd6ab1ad0b3d57cfa4e1e98f15dce490cc6d2aa567afb74ad720e7d",
+    "apps/web/dist/assets/index-CUlUBCFL.js": "280fdea854e328ddb0785796c73d61850b958a6467e0a1c6f0f4d8bf547962f1",
+    "apps/web/dist/assets/index-CWj7s7b4.js": "aa9290ae799b33e1e2a91c4c744127ba36c7866190ffebcfed87fb8e8dea3083",
+    "apps/web/dist/assets/index-DA-pjvmk.js": "b955430dfebf1c7f386a5bb4e12ef761d6e9b232aec46f99695deb2fe31d7dcc",
+    "apps/web/dist/assets/index-DAp_xD39.js": "f9563057efc0105850dfd02dc34b9a06030545fa88a0c2318c2788740c26a3cc",
+    "apps/web/dist/assets/index-DA_Z_IQP.js": "78bb4d3a2accbce7f4c95c4c806c1f169b14c8a40bae393b436e74e8b5024128",
+    "apps/web/dist/assets/index-DDtrFFMw.js": "9eb245cda40b71b8958b62a628fe284ee6be2385dfe7ca6e2aeacbe2dcd6ef80",
+    "apps/web/dist/assets/index-DMQCIKxv.js": "3e603df6b78e349c22369803ba2400a90ae2ac0ead9a16b6a2aaac3332e7726c",
+    "apps/web/dist/assets/index-DoGOzqna.js": "16328de5b1011b8db0afed52d98b2426cbfcf8a01b3639b7f01f9f5f89f9a39e",
+    "apps/web/dist/assets/index-DPBBsEvf.js": "d367fb13768913b7136d1bffe107ebf6548b4fc3fb0eb9d4213f03d32dd2fbb9",
+    "apps/web/dist/assets/index-DRLrPWzZ.js": "71f85a15e6719e182646166c26ed6c1e785a80eec2f6b793fcc44c045c054406",
+    "apps/web/dist/assets/index-Dwo2WQuf.css": "c8d88ee3d25ef8621621912f4d49f7ca62594bcebf8f7f523a67b5733409ed5c",
+    "apps/web/dist/assets/index-DZQ9GAly.css": "2c2d015b1c83340e10a2c129d1c02b57d5089b271edb17a7071b51912fd08c06",
+    "apps/web/dist/assets/index-DZYErtEs.js": "2f81639275bad09e964d54b70ed8c9f30b0c5f73301be3507062bd28cba2bc6e",
+    "apps/web/dist/assets/index-H_KVCk2x.js": "6b0b424c85dc1199a6a39b08448c560f7770d03332d2c064bbad69a542d0da26",
+    "apps/web/dist/assets/index-Mu82t6-h.js": "cfdefe91d25d5c89daad761f77548eb156d3e858fc705987d632fc561573aae4",
+    "apps/web/dist/assets/index-p6Ib3D6H.css": "abdafb07c81767cd6dd30343bbbdde9ccda3449b6e12c64a592c7015043b2389",
+    "apps/web/dist/assets/index-pJBioAPy.js": "19ee559bf3df32f83089aa7d27ea6f25c2390162ba000da9a5bced5339997328",
+    "apps/web/dist/assets/index-v9mvIsCV.js": "a8bb12efacb4007f69e6ead03a7577d6d0aef54eed8b92189e7d5d6b1d05c039",
+    "apps/web/dist/assets/index-X39mO7nF.css": "7e0bfca3266c199f2fffa4601ac90caf0a7e809cdc16b46fe5a31e4be7870899",
+    "apps/web/dist/index.html": "70b7c285de4b52ec39fcc01cef8c4d4751fec636b30dc7f73bc4687bdc3601ed"
+  },
+  "protected_files_unchanged": true,
+  "completed_at_utc": "2026-10-03T02:17:47.318Z",
+  "artifact_sha256": {
+    "preview.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "preview.stdout.log": "ecbd7eb35ac4acd913ff89a5390ee30069b6e910709e5626dc3f8fc34eadb53f",
+    "run-1-final-screenshot.jpg": "70d3529d0104191080c896d9ce76bed099f71c70576794c8f7efefbe943c2e64",
+    "run-1.log": "e11cc2ca838d95716bfbc88de0796d28ccb5f2b4becbc8ed4f82f77f320fc9bf",
+    "run-1.report.html": "87367edd7b0ebf303a117a9a3760c72403f6dbee62ced1995130ac111591a433",
+    "run-1.report.json": "bd5888e926174afbebc882c61c4eb5af9a31b4430ffc7146339f4712d9e7b504",
+    "run-2.log": "d9c6153d9e5ec99a0064eae74c6df2c7cb78148724f4320df32abacf275ee1d3",
+    "run-2.report.html": "34771ab5bc6d00ba6bf3a838f68141fced9bdcfc1e6c09d09c89c19369042d4f",
+    "run-2.report.json": "e732734009a1a35378532c727b6dc500e320cfa0d500f0de58c0e25e7f4e3bff",
+    "run-3.log": "5234bc6e167da8aee116723dd11e27764923bc6e0df2faf61bf1daed1f5c0ed1",
+    "run-3.report.html": "5e07f8cd95218afca4f4ddf938089cbfde5580ec83baa5534837ee1efdcf1236",
+    "run-3.report.json": "b70606d20fb5f8fb2c49c7acb02decdc90411e16d60e6dfa3149dfd7ff774442"
+  },
+  "earlier_reaudit_history": "audit/raw/re-audit/web/lighthouse-login-20261003T020817Z/lighthouse-summary.json"
+}

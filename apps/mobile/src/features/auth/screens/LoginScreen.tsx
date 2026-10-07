@@ -1,186 +1,40 @@
-import React, { useState } from 'react';
-import {
-  ActivityIndicator,
-  KeyboardAvoidingView,
-  Platform,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-
+import { useState } from 'react';
+import { KeyboardAvoidingView, Platform, ScrollView, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAuth } from '../hooks/useAuth';
-import { theme } from '../../../theme/theme';
+import { Card, Field, Notice, useFieldStyles } from '../../../components/ScreenLayout';
+import { PrimaryButton } from '../../../components/PrimaryButton';
+import { useTheme } from '../../../theme/ThemeProvider';
 
 export function LoginScreen() {
+  const { theme } = useTheme();
+  const fieldStyles = useFieldStyles();
   const { login } = useAuth();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
-
+  const [email, setEmail] = useState(''); const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false); const [error, setError] = useState<string | null>(null);
   const handleSubmit = async () => {
-    if (!email.trim() || !password.trim()) {
-      setErrorMessage('Vui lòng nhập đầy đủ email và mật khẩu');
-      return;
+    if (!email.trim() || !password) { setError('Vui lòng nhập email và mật khẩu.'); return; }
+    try { setLoading(true); setError(null); await login({ email: email.trim(), password }); }
+    catch (err) {
+      setError(err instanceof TypeError
+        ? 'Không kết nối được máy chủ. Kiểm tra mạng và thử đăng nhập lại.'
+        : err instanceof Error ? err.message : 'Không thể đăng nhập.');
     }
-
-    setLoading(true);
-    setErrorMessage(null);
-
-    try {
-      await login({
-        email: email.trim(),
-        password,
-      });
-    } catch (err: unknown) {
-      if (err instanceof Error) {
-        setErrorMessage(err.message || 'Đăng nhập thất bại');
-      } else {
-        setErrorMessage('Đăng nhập thất bại');
-      }
-    } finally {
-      setLoading(false);
-    }
+    finally { setLoading(false); }
   };
-
-  return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={styles.container}
-    >
-      <View style={styles.card}>
-        <Text style={styles.title}>ICD Management</Text>
-        <Text style={styles.subtitle}>Đăng nhập tài khoản tác nghiệp</Text>
-
-        {errorMessage ? (
-          <View style={styles.errorBox}>
-            <Text style={styles.errorText}>{errorMessage}</Text>
-          </View>
-        ) : null}
-
-        <View style={styles.inputGroup}>
-          <Text style={styles.label}>Email</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="admin@icd.local"
-            placeholderTextColor={theme.colors.textMuted}
-            value={email}
-            onChangeText={setEmail}
-            autoCapitalize="none"
-            keyboardType="email-address"
-            editable={!loading}
-          />
-        </View>
-
-        <View style={styles.inputGroup}>
-          <Text style={styles.label}>Mật khẩu</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="••••••••"
-            placeholderTextColor={theme.colors.textMuted}
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry
-            editable={!loading}
-          />
-        </View>
-
-        <TouchableOpacity
-          style={[styles.button, loading && styles.buttonDisabled]}
-          onPress={handleSubmit}
-          disabled={loading}
-          activeOpacity={0.8}
-        >
-          {loading ? (
-            <ActivityIndicator color={theme.colors.surface} />
-          ) : (
-            <Text style={styles.buttonText}>Đăng nhập</Text>
-          )}
-        </TouchableOpacity>
+  return <SafeAreaView style={fieldStyles.screen}><KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+    <ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', padding: 20 }}>
+      <View style={{ width: '100%', maxWidth: 440, alignSelf: 'center', gap: 24 }}>
+        <View style={{ gap: 12 }}><Text style={{ color: theme.colors.info, fontWeight: '800', letterSpacing: 2 }}>TOS-MOBILE / ICD FIELD</Text>
+          <Text accessibilityRole="header" style={{ ...theme.typography.h1, color: theme.colors.textPrimary }}>Tác nghiệp hiện trường</Text>
+          <Text style={fieldStyles.muted}>Tiếp nhận cổng, xếp bãi và kiểm định container.</Text></View>
+        <Card title="Đăng nhập tài khoản ICD">
+          {error ? <Notice message={error} /> : null}
+          <Field label="Email" value={email} onChangeText={setEmail} autoCapitalize="none" autoCorrect={false} keyboardType="email-address" autoComplete="email" placeholder="Nhập email được cấp" editable={!loading} />
+          <Field label="Mật khẩu" value={password} onChangeText={setPassword} secureTextEntry autoComplete="current-password" placeholder="Nhập mật khẩu" editable={!loading} onSubmitEditing={() => void handleSubmit()} />
+          <PrimaryButton title="Đăng nhập" loading={loading} onPress={() => void handleSubmit()} />
+        </Card>
       </View>
-    </KeyboardAvoidingView>
-  );
+    </ScrollView>
+  </KeyboardAvoidingView></SafeAreaView>;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: theme.colors.background,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: theme.spacing.lg,
-  },
-  card: {
-    width: '100%',
-    maxWidth: 400,
-    backgroundColor: theme.colors.surface,
-    borderRadius: theme.borderRadius.xl,
-    padding: theme.spacing.xl,
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.08,
-    shadowRadius: 8,
-    elevation: 4,
-  },
-  title: {
-    ...theme.typography.h1,
-    color: theme.colors.textPrimary,
-    textAlign: 'center',
-  },
-  subtitle: {
-    ...theme.typography.body,
-    color: theme.colors.textSecondary,
-    textAlign: 'center',
-    marginTop: theme.spacing.xs,
-    marginBottom: theme.spacing.xl,
-  },
-  errorBox: {
-    backgroundColor: theme.colors.dangerBackground,
-    borderColor: '#FECDCA',
-    borderWidth: 1,
-    borderRadius: theme.borderRadius.md,
-    padding: theme.spacing.md,
-    marginBottom: theme.spacing.lg,
-  },
-  errorText: {
-    ...theme.typography.captionBold,
-    color: theme.colors.danger,
-    textAlign: 'center',
-  },
-  inputGroup: {
-    marginBottom: theme.spacing.lg,
-  },
-  label: {
-    ...theme.typography.captionBold,
-    color: theme.colors.textSecondary,
-    marginBottom: theme.spacing.xs,
-  },
-  input: {
-    backgroundColor: theme.colors.surfaceSubtle,
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-    borderRadius: theme.borderRadius.md,
-    paddingHorizontal: theme.spacing.md,
-    paddingVertical: theme.spacing.md,
-    color: theme.colors.textPrimary,
-    ...theme.typography.body,
-  },
-  button: {
-    backgroundColor: theme.colors.primary,
-    borderRadius: theme.borderRadius.md,
-    paddingVertical: theme.spacing.md,
-    alignItems: 'center',
-    marginTop: theme.spacing.sm,
-  },
-  buttonDisabled: {
-    opacity: 0.6,
-  },
-  buttonText: {
-    ...theme.typography.bodyBold,
-    color: theme.colors.surface,
-  },
-});

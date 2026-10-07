@@ -1,0 +1,111 @@
+✖ dirty yard dialog participates in the navigation guard and retains the draft on cancel (885.0928ms)
+✖ accepted yard navigation suspends its modal layer and preserves draft for return (75.6992ms)
+✖ pending yard write blocks navigation and reload until the command settles (126.7892ms)
+✔ hidden yard drafts do not intercept another active page navigation (136.2006ms)
+✖ yard booking explicitly names the Vietnam timezone used by its input (212.8552ms)
+✖ operation timestamps display the Vietnam instant when the device timezone is UTC (47.7931ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 1
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 41365.9469
+
+✖ failing tests:
+
+test at audit\tools\tests\yard-dialog-navigation.test.mjs:45:1
+✖ dirty yard dialog participates in the navigation guard and retains the draft on cancel (885.0928ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\yard-dialog-navigation.test.mjs:49:12)
+      at async withYard (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\yard-dialog-navigation.test.mjs:41:5)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\yard-dialog-navigation.test.mjs:46:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\yard-dialog-navigation.test.mjs:55:1
+✖ accepted yard navigation suspends its modal layer and preserves draft for return (75.6992ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\yard-dialog-navigation.test.mjs:59:64)
+      at async withYard (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\yard-dialog-navigation.test.mjs:41:5)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\yard-dialog-navigation.test.mjs:56:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\yard-dialog-navigation.test.mjs:70:1
+✖ pending yard write blocks navigation and reload until the command settles (126.7892ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at withYard.createInspection (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\yard-dialog-navigation.test.mjs:76:39)
+      at async withYard (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\yard-dialog-navigation.test.mjs:41:5)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\yard-dialog-navigation.test.mjs:72:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\yard-dialog-navigation.test.mjs:97:1
+✖ yard booking explicitly names the Vietnam timezone used by its input (212.8552ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /UTC\+7/. Input:
+  
+  'Container *— Chọn container —TEST0000001Loại tác nghiệpRút hàng (STRIPPING)Đóng hàng (STUFFING)Kiểm định (INSPECTION)Thời gian dự kiến *Ngày giờ theo múi giờ thiết bị (Asia/Saigon).Ghi chúĐóngTạo tác nghiệp'
+  
+      at withYard.initialAction (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\yard-dialog-navigation.test.mjs:98:39)
+      at withYard (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\yard-dialog-navigation.test.mjs:41:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\yard-dialog-navigation.test.mjs:98:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Container *— Chọn container —TEST0000001Loại tác nghiệpRút hàng (STRIPPING)Đóng hàng (STUFFING)Kiểm định (INSPECTION)Thời gian dự kiến *Ngày giờ theo múi giờ thiết bị (Asia/Saigon).Ghi chúĐóngTạo tác nghiệp',
+    expected: /UTC\+7/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\yard-dialog-navigation.test.mjs:101:1
+✖ operation timestamps display the Vietnam instant when the device timezone is UTC (47.7931ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /07:15/. Input:
+  
+  'Di chuyển nội bãi (1)ContainerTừ / ĐếnTrạng tháiLý do / Thời gianThao tácTEST0000001A → BHoàn tất—00:15 4/10/26'
+  
+      at withYard.yardMovements.id (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\yard-dialog-navigation.test.mjs:105:14)
+      at withYard (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\yard-dialog-navigation.test.mjs:41:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\yard-dialog-navigation.test.mjs:104:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Di chuyển nội bãi (1)ContainerTừ / ĐếnTrạng tháiLý do / Thời gianThao tácTEST0000001A → BHoàn tất—00:15 4/10/26',
+    expected: /07:15/,
+    operator: 'match',
+    diff: 'simple'
+  }

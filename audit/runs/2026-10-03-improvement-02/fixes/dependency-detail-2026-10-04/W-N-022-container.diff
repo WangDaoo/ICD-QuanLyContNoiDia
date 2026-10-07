@@ -1,0 +1,99 @@
+--- audit/runs/2026-10-03-improvement-02/raw/location-before/ContainersView.tsx
++++ audit/runs/2026-10-03-improvement-02/raw/container-derived-sections-before-2026-10-04.tsx
+@@ -54,8 +54,23 @@
+     cancelContainerVisit,
+     createMovementOrder,
+     movementOrders,
++    resourceStatus = {},
++    isLoading,
+   } = useApp();
+   const can = (permission: string) => hasWebPermission(currentUser, permission);
++  const yardLocationStates = ['containerVisits', 'yardSlots'].map(
++    (resource) => resourceStatus[resource] ?? (isLoading ? 'loading' : 'ready'),
++  );
++  const yardLocationReady = yardLocationStates.every((state) => state === 'ready');
++  const yardLocationForbidden = yardLocationStates.includes('forbidden');
++  const yardLocationLabel = (visit: ContainerVisit, emptyLabel = 'Chưa xếp') => {
++    if (yardLocationReady) return visit.currentLocation || emptyLabel;
++    if (!yardLocationForbidden && visit.currentLocation)
++      return `${visit.currentLocation} (dữ liệu đã tải)`;
++    return yardLocationStates.includes('loading')
++      ? 'Đang xác minh vị trí bãi…'
++      : 'Chưa xác nhận vị trí bãi';
++  };
+ 
+   const action = useCommandAction();
+   const validation = useFormValidation();
+@@ -390,12 +405,12 @@
+                       {v.consigneeName}
+                     </td>
+                     <td className="py-3 px-4 font-mono font-semibold text-slate-900">
+-                      {v.currentLocation ? (
++                      {v.currentLocation && !yardLocationForbidden ? (
+                         <span className="px-2 py-0.5 bg-blue-50 text-blue-800 rounded border border-blue-200">
+-                          {v.currentLocation}
++                          {yardLocationLabel(v)}
+                         </span>
+                       ) : (
+-                        <span className="text-slate-400 italic">Chưa xếp</span>
++                        <span className="text-slate-400 italic">{yardLocationLabel(v)}</span>
+                       )}
+                     </td>
+                     <td className="py-3 px-4">{getStateBadge(v.state)}</td>
+@@ -439,7 +454,7 @@
+                             <Receipt className="w-3.5 h-3.5" />
+                           </span>
+                         )}
+-                        {!v.currentLocation && v.state === 'IN_YARD' && (
++                        {yardLocationReady && !v.currentLocation && v.state === 'IN_YARD' && (
+                           <span
+                             title="Chưa xếp vị trí bãi"
+                             className="p-1 bg-blue-100 text-blue-800 rounded-md inline-flex items-center"
+@@ -450,6 +465,7 @@
+                         {visitSafetyStatus[v.id]?.holds === 'ready' &&
+                           activeHoldsCount === 0 &&
+                           !hasUnpaid &&
++                          yardLocationReady &&
+                           v.currentLocation && (
+                             <span className="text-emerald-600 inline-flex items-center">
+                               <CheckCircle2 className="w-4 h-4" />
+@@ -866,7 +882,7 @@
+                       <div>
+                         Vị trí Bãi:{' '}
+                         <strong className="font-mono text-emerald-700">
+-                          {activeVisit.currentLocation || 'Chưa xếp'}
++                          {yardLocationLabel(activeVisit)}
+                         </strong>
+                       </div>
+                       <div>
+@@ -905,7 +921,7 @@
+                     <div>
+                       <div className="font-bold text-slate-800">Vị trí hiện tại trong bãi:</div>
+                       <div className="text-base font-mono font-bold text-blue-700">
+-                        {activeVisit.currentLocation || 'Chưa có vị trí'}
++                        {yardLocationLabel(activeVisit, 'Chưa có vị trí')}
+                       </div>
+                     </div>
+                     <button
+@@ -1277,13 +1293,17 @@
+                         </div>
+                       </div>
+                     )}
+-                    {activeVisit.currentLocation && (
++                    {activeVisit.currentLocation && !yardLocationForbidden && (
+                       <div className="relative">
+                         <div className="w-2.5 h-2.5 rounded-full bg-blue-600 absolute -left-[21px] top-1"></div>
+                         <div className="font-bold text-slate-800">
+-                          Xếp vị trí bãi {activeVisit.currentLocation}
+-                        </div>
+-                        <div className="text-slate-500">Đã lưu trữ an toàn trong khu vực bãi</div>
++                          Xếp vị trí bãi {yardLocationLabel(activeVisit)}
++                        </div>
++                        <div className="text-slate-500">
++                          {yardLocationReady
++                            ? 'Đã lưu trữ an toàn trong khu vực bãi'
++                            : 'Vị trí đã tải trước; chưa xác nhận hiện tại.'}
++                        </div>
+                       </div>
+                     )}
+                     {activeVisit.gateInAt && (

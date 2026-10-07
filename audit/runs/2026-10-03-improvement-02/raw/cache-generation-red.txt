@@ -1,0 +1,28 @@
+✖ a read-cache save from the previous session cannot erase the new session same-user record (91.8921ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 603.2366
+
+✖ failing tests:
+
+test at apps\mobile\tests\cache-generation-race.test.cjs:4:1
+✖ a read-cache save from the previous session cannot erase the new session same-user record (91.8921ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  undefined !== 'NEW'
+  
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\cache-generation-race.test.cjs:15:10)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'NEW',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,158 @@
+{
+  "method": "Exact RGB counts in native text rectangles and WCAG luminance",
+  "results": [
+    {
+      "name": "Light session success",
+      "capture": "02-gate-in-light",
+      "rect": [
+        808,
+        402,
+        1016,
+        451
+      ],
+      "foreground": "#047857",
+      "background": "#ECFDF5",
+      "foreground_pixels": 987,
+      "background_pixels": 8112,
+      "contrast": 5.2059,
+      "normal_threshold": 4.5,
+      "status": "PASS"
+    },
+    {
+      "name": "Dark session success",
+      "capture": "03-gate-in-dark",
+      "rect": [
+        808,
+        402,
+        1016,
+        451
+      ],
+      "foreground": "#34D399",
+      "background": "#063E33",
+      "foreground_pixels": 987,
+      "background_pixels": 8112,
+      "contrast": 6.2614,
+      "normal_threshold": 4.5,
+      "status": "PASS"
+    },
+    {
+      "name": "Light readiness warning",
+      "capture": "11-container-readiness-light",
+      "rect": [
+        99,
+        1422,
+        393,
+        1465
+      ],
+      "foreground": "#92400E",
+      "background": "#FFFBEB",
+      "foreground_pixels": 2102,
+      "background_pixels": 8966,
+      "contrast": 6.837,
+      "normal_threshold": 4.5,
+      "status": "PASS"
+    },
+    {
+      "name": "Dark readiness warning",
+      "capture": "12-container-readiness-dark",
+      "rect": [
+        99,
+        1422,
+        393,
+        1465
+      ],
+      "foreground": "#FBBF24",
+      "background": "#422F19",
+      "foreground_pixels": 2102,
+      "background_pixels": 8966,
+      "contrast": 7.6134,
+      "normal_threshold": 4.5,
+      "status": "PASS"
+    },
+    {
+      "name": "Dark logout fill",
+      "capture": "06-logout-dark",
+      "rect": [
+        460,
+        1006,
+        619,
+        1056
+      ],
+      "foreground": "#FFFFFF",
+      "background": "#BE123C",
+      "foreground_pixels": 1234,
+      "background_pixels": 5786,
+      "contrast": 6.2852,
+      "normal_threshold": 4.5,
+      "status": "PASS"
+    },
+    {
+      "name": "Light logout fill",
+      "capture": "07-logout-light",
+      "rect": [
+        460,
+        1006,
+        619,
+        1056
+      ],
+      "foreground": "#FFFFFF",
+      "background": "#BE123C",
+      "foreground_pixels": 1234,
+      "background_pixels": 5786,
+      "contrast": 6.2852,
+      "normal_threshold": 4.5,
+      "status": "PASS"
+    },
+    {
+      "name": "Light role danger text",
+      "capture": "02-gate-in-light",
+      "rect": [
+        277,
+        84,
+        362,
+        129
+      ],
+      "foreground": "#B91C1C",
+      "background": "#FEF2F2",
+      "foreground_pixels": 324,
+      "background_pixels": 3075,
+      "contrast": 5.9146,
+      "normal_threshold": 4.5,
+      "status": "PASS"
+    },
+    {
+      "name": "Dark role danger text",
+      "capture": "03-gate-in-dark",
+      "rect": [
+        277,
+        84,
+        362,
+        129
+      ],
+      "foreground": "#FB7185",
+      "background": "#431D2A",
+      "foreground_pixels": 324,
+      "background_pixels": 3067,
+      "contrast": 5.3891,
+      "normal_threshold": 4.5,
+      "status": "PASS"
+    },
+    {
+      "name": "Light selected Gate-Out",
+      "capture": "27-320-gate-out-light",
+      "rect": [
+        488,
+        763,
+        780,
+        864
+      ],
+      "foreground": "#FFFFFF",
+      "background": "#047857",
+      "foreground_pixels": 3276,
+      "background_pixels": 24346,
+      "contrast": 5.4839,
+      "normal_threshold": 4.5,
+      "status": "PASS"
+    }
+  ]
+}

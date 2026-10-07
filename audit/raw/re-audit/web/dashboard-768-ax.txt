@@ -1,0 +1,74 @@
+Browser tab: 22, Title: "ICD Management System — Quản lý Kho bãi Container Nội địa", URL: "http://127.0.0.1:5173/".
+1 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/
+	2 container root
+		41 container
+			42 text ICD
+			43 heading ICD Management System, Value: 1
+				44 text ICD Management System
+			45 text Cảng cạn & kho bãi container nội địa
+			46 button Tải lại dữ liệu
+			47 button (collapsed) Description: Thông báo (0 chưa đọc), Secondary Actions: Expand
+			49 button Đăng xuất
+		12 container Điều hướng nghiệp vụ
+			50 text TỔNG QUAN & ĐIỀU PHỐI
+			51 button Tổng quan vận hành
+			52 button Danh sách công việc
+			53 text QUẢN LÝ HÀNG HÓA & CỔNG
+			54 button Bản lược khai (Manifest)
+			55 button Quản lý Container
+			56 button Movement Order
+			57 button Chuyến xe ra/vào
+			58 button Tiếp nhận vào cổng (Gate-in)
+			59 button Vận hành Bãi (Yard)
+			60 text TÀI CHÍNH & RA CỔNG
+			61 button Dịch vụ & Thanh toán
+			62 button Phiếu ra cổng & Gate-out
+			63 button Vận hành EDI (CODECO)
+			64 text TÍCH HỢP ĐỐI TÁC
+			65 button Bàn giao vận chuyển
+			66 button Đối tác tích hợp API
+			67 button Nhật ký API đối tác
+			68 text HỆ THỐNG & QUẢN TRỊ
+			69 button Danh mục dùng chung
+			70 button Người dùng & Phân quyền
+			71 button Báo cáo vận hành
+			72 button Nhật ký kiểm toán
+			37 text System Administrator
+			38 text admin@icd.local
+			39 text ADMIN
+		40 container
+			73 text CONTAINER TRONG BÃI 14 /  48  vị trí Sức chứa bãi: 29 % CẦN XỬ LÝ (WORK QUEUE) 0 0  Quá hạn SLA Độ ưu tiên cao: 0  tác vụ
+			74 button Xem danh sách công việc →
+			75 text DOANH THU & CÔNG NỢ 2.6  tr₫ đã thu Công nợ chưa thu: 0.0  tr₫ PHIẾU RA CỔNG & XUẤT BÃI 0 3  đã xuất cổng Sẵn sàng ra cổng: Kiểm tra phiếu & điều kiện
+			76 button Quản lý Phiếu ra cổng & Gate-out →
+			77 heading Hoạt động Cổng & Chuyến xe (Truck Visits), Value: 3
+				78 text Hoạt động Cổng & Chuyến xe (Truck Visits)
+			79 text Lịch hẹn Gate Appointment và tình trạng tiếp nhận
+			80 button Xem tất cả
+			81 text 51C-MYQA930 · Local mobile yard QA driver -  · Cont:  QAOU4835930 COMPLETED QA-MOBILE-YARD 51C-WYQA067 · Local web yard QA driver -  · Cont:  QAOU6004067 COMPLETED QA-WEB-YARD 51C-FQA2075 · Local followup mobile QA driver -  · Cont:  QAOU1882075 COMPLETED QA-FOLLOWUP 51C-YQA755 · Local yard QA driver -  · Cont:  QAOU5007570 COMPLETED QA-02 51C-QA0755 · Local mobile QA driver -  · Cont:  QAOU5007550, QAOU5007565 COMPLETED QA-LANE-01 51C-UIQA · Local QA Driver -  · Cont:  QAMU6102765 COMPLETED 51C-QA1001 · Local QA Driver -  · Cont:  QATU2282957 COMPLETED
+			82 heading Cảnh báo thời gian lưu bãi 0 container, Value: 3
+				83 text Cảnh báo thời gian lưu bãi 0  container
+			84 text Container gần hoặc vượt ngưỡng cảnh báo từ backend. Phí thực tế xem tại Dịch vụ & Thanh toán.
+			85 button Tính phí lưu kho
+			86 table
+				87 row
+					88 cell
+						89 text Số Container
+					90 cell
+						91 text Chủ hàng (Consignee)
+					92 cell
+						93 text Vị trí
+					94 cell
+						95 text Ngày vào cổng
+					96 cell
+						97 text Tình trạng
+			98 heading Kiểm soát Lệnh Giữ (Operational Holds), Value: 3
+				99 text Kiểm soát Lệnh Giữ (Operational Holds)
+			100 text 1 đang khóa Các chốt chặn kiểm soát pháp lý, hải quan, cước hãng tàu và hư hỏng trước khi cho phép ra cổng. QAOU5007570 CUSTOMS OPS-QA-1790901500518 – Giữ kiểm tra hải quan, dữ liệu QA cục bộ Đang giữ QATU2282957 CUSTOMS QA hold test Đã gỡ
+			101 button Kiểm tra điều kiện xuất cổng (Readiness) →
+			102 heading Vận hành EDI (CODECO), Value: 3
+				103 text Vận hành EDI (CODECO)
+			104 text Shipping Lines Thông điệp gửi tự động cho hãng tàu khi Gate-in và Gate-out thành công. QAOU4835930 CODECO_GATE_IN  · Hãng:  CMA CGM Group PENDING QAOU6004067 CODECO_GATE_IN  · Hãng:  CMA CGM Group PENDING QAOU1882075 CODECO_GATE_OUT  · Hãng:  CMA CGM Group PENDING QAOU1882075 CODECO_GATE_IN  · Hãng:  CMA CGM Group PENDING QAOU5007550 CODECO_GATE_OUT  · Hãng:  CMA CGM Group PENDING QAOU5007565 CODECO_GATE_IN  · Hãng:  CMA CGM Group PENDING QAOU5007550 CODECO_GATE_IN  · Hãng:  CMA CGM Group PENDING QAOU5007570 CODECO_GATE_IN  · Hãng:  CMA CGM Group PENDING QAMU6102765 CODECO_GATE_IN  · Hãng:  CMA CGM Group PENDING QATU2282957 CODECO_GATE_OUT  · Hãng:  MSC (Mediterranean Shipping Company) PENDING QATU2282957 CODECO_GATE_IN  · Hãng:  MSC (Mediterranean Shipping Company) PENDING
+			105 button Xem toàn bộ Outbox EDI →
+
+The focused UI element is 51 button Tổng quan vận hành

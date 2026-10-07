@@ -1,0 +1,45 @@
+- link "Đến nội dung nghiệp vụ":
+  - /url: "#main-content"
+- banner:
+  - button "Mở menu điều hướng":
+  - generic: ICD
+  - heading "ICD Management System" [level=1]
+  - button "Tải lại dữ liệu":
+  - button "Thông báo (0 chưa đọc)":
+  - button "Đăng xuất":
+- main:
+  - status: Đã lưu trên hệ thống.
+  - heading "Bản lược khai hàng hóa (Manifest) & Vận đơn" [level=2]:
+    - generic: Bản lược khai hàng hóa (Manifest) & Vận đơn
+  - paragraph: Quản lý danh sách tàu cập, Master Bill (MBL), House Bill (HBL) và đối soát chuẩn container ISO 6346
+  - button "Tạo Manifest mới":
+    - generic: Tạo Manifest mới
+  - generic: Công cụ đối soát nhanh chuẩn Container ISO 6346
+  - generic: Kiểm tra trọng số check-digit thời gian thực cho mã container 11 ký tự
+  - 'textbox "Ví dụ: CSQU3054383"': CSQU3054383
+  - generic: Chuẩn ISO 6346 hợp lệ
+  - textbox "Tìm Manifest" [active]:
+    - /placeholder: Tìm mã Manifest, tên tàu, voyage...
+    - text: E2E-20261004-2147
+  - 'button "MF-20261004-1D16A185 DRAFT E2E-20261004-2147 (E2E-20261004-2147) Hãng: CMA CGM Group ETA: 4/10/2026" [pressed]':
+    - generic: MF-20261004-1D16A185
+    - generic: DRAFT
+    - generic: E2E-20261004-2147
+    - generic: (E2E-20261004-2147)
+    - text: "Hãng:"
+    - strong: CMA CGM Group
+    - generic: "ETA: 4/10/2026"
+  - heading "MF-20261004-1D16A185" [level=3]
+  - generic: "Hãng tàu: CMA CGM Group"
+  - paragraph:
+    - text: "Tàu:"
+    - strong: E2E-20261004-2147
+    - text: "· Voyage:"
+    - strong: E2E-20261004-2147
+  - generic: "ETA Ngày đến:"
+  - generic: 4/10/2026
+  - button "+ Master BL"
+  - button "Submit Manifest"
+  - button "Hủy"
+  - heading "Danh sách Master BL & House BL liên kết" [level=4]:
+    - generic: Danh sách Master BL & House BL liên kết

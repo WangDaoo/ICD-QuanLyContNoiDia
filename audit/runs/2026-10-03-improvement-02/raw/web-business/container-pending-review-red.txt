@@ -1,0 +1,25 @@
+✖ Container detail blocks navigation and explicit close while its inline Gate Pass is saving (227.1047ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4253.7091
+
+✖ failing tests:
+
+test at audit\tools\improvement-web-business-independent.test.mjs:69:1
+✖ Container detail blocks navigation and explicit close while its inline Gate Pass is saving (227.1047ms)
+  TypeError: Cannot read properties of undefined (reading 'find')
+      at ContainersView (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\ContainersView.tsx:146:17)
+      at Object.react_stack_bottom_frame (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:25904:20)
+      at renderWithHooks (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:7662:22)
+      at updateFunctionComponent (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:10166:19)
+      at beginWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:11778:18)
+      at runWithFiberInDEV (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:871:30)
+      at performUnitOfWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17641:22)
+      at workLoopSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17469:41)
+      at renderRootSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17450:11)
+      at performWorkOnRoot (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:16583:35)

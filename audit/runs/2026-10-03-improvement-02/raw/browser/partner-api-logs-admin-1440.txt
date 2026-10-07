@@ -1,0 +1,94 @@
+- link "Đến nội dung nghiệp vụ":
+  - /url: "#main-content"
+- banner:
+  - generic: ICD
+  - heading "ICD Management System" [level=1]
+  - paragraph: Cảng cạn & kho bãi container nội địa
+  - text: Đã kết nối
+  - button "Tải lại dữ liệu":
+  - button "Thông báo (0 chưa đọc)":
+  - generic: UI Audit ADMIN
+  - generic: ADMIN
+  - button "Đăng xuất":
+- complementary "Điều hướng nghiệp vụ":
+  - generic: Tổng quan & Điều phối
+  - button "Tổng quan vận hành":
+    - generic: Tổng quan vận hành
+  - button "Danh sách công việc":
+    - generic: Danh sách công việc
+  - generic: Quản lý Hàng hóa & Cổng
+  - button "Bản lược khai (Manifest)":
+    - generic: Bản lược khai (Manifest)
+  - button "Quản lý Container":
+    - generic: Quản lý Container
+  - button "Movement Order":
+    - generic: Movement Order
+  - button "Chuyến xe ra/vào":
+    - generic: Chuyến xe ra/vào
+  - button "Tiếp nhận vào cổng (Gate-in)":
+    - generic: Tiếp nhận vào cổng (Gate-in)
+  - button "Vận hành Bãi (Yard)":
+    - generic: Vận hành Bãi (Yard)
+  - generic: Tài chính & Ra cổng
+  - button "Dịch vụ & Thanh toán":
+    - generic: Dịch vụ & Thanh toán
+  - button "Phiếu ra cổng & Gate-out":
+    - generic: Phiếu ra cổng & Gate-out
+  - button "Vận hành EDI (CODECO)":
+    - generic: Vận hành EDI (CODECO)
+  - generic: Tích hợp đối tác
+  - button "Bàn giao vận chuyển":
+    - generic: Bàn giao vận chuyển
+  - button "Đối tác tích hợp API":
+    - generic: Đối tác tích hợp API
+  - button "Nhật ký API đối tác" [active]:
+    - generic: Nhật ký API đối tác
+  - generic: Hệ thống & Quản trị
+  - button "Danh mục dùng chung":
+    - generic: Danh mục dùng chung
+  - button "Người dùng & Phân quyền":
+    - generic: Người dùng & Phân quyền
+  - button "Báo cáo vận hành":
+    - generic: Báo cáo vận hành
+  - button "Nhật ký kiểm toán":
+    - generic: Nhật ký kiểm toán
+  - generic: UI Audit ADMIN
+  - generic: ui-admin@audit.icd.test
+  - generic: ADMIN
+- main:
+  - heading "Đối tác Tích hợp API Vận chuyển (Mô đun 13)" [level=2]:
+    - generic: Đối tác Tích hợp API Vận chuyển (Mô đun 13)
+  - paragraph: Quản lý API Key, phân quyền phạm vi (Scopes), cơ chế xoay vòng khóa bí mật (Rotation) và mã băm SHA-256 an toàn
+  - button "Thêm Đối tác API mới":
+    - generic: Thêm Đối tác API mới
+  - generic: Tổng Công ty Giao nhận Kho vận VinaTrans
+  - text: VINATRANS_EXPRESS
+  - generic: ACTIVE
+  - generic: "Masked API Key:"
+  - generic: icd_live_••••••••••••3F88
+  - generic: "Băm SHA-256:"
+  - generic: "Quyền (Scopes):"
+  - generic: handover.read
+  - generic: handover.accept
+  - generic: handover.transit
+  - generic: handover.confirm_warehouse
+  - generic: handover.failure
+  - generic: "Yêu cầu gần nhất:"
+  - generic: Chưa có cuộc gọi nào
+  - button "Xoay vòng Khóa (Rotate Key)":
+    - generic: Xoay vòng Khóa (Rotate Key)
+  - generic: Công ty Cổ phần Vận tải & Tiếp vận ABC
+  - text: ABC_LOGISTICS
+  - generic: ACTIVE
+  - generic: "Masked API Key:"
+  - generic: icd_live_••••••••••••9A4F
+  - generic: "Băm SHA-256:"
+  - generic: "Quyền (Scopes):"
+  - generic: handover.read
+  - generic: handover.accept
+  - generic: handover.transit
+  - generic: handover.confirm_warehouse
+  - generic: "Yêu cầu gần nhất:"
+  - generic: Chưa có cuộc gọi nào
+  - button "Xoay vòng Khóa (Rotate Key)":
+    - generic: Xoay vòng Khóa (Rotate Key)

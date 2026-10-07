@@ -1,0 +1,28 @@
+✔ CLI builder creates a bounded exact GET control for the pinned run (6.0803ms)
+✔ CLI builder supports five-second delay and connection abort without widening the route (0.609ms)
+✔ CLI rejects credentials, writes, unknown flags and ambiguous or excessive values (3.7967ms)
+✔ recursive cleanup guard rejects the tmpdir itself and arbitrary directories (18.3829ms)
+✔ control file accepts only the current run private path (0.9962ms)
+✔ valid bounded delay and response configurations are accepted (3.2455ms)
+✔ config rejects wrong run, credentials, timestamps and excessive global budget (0.6283ms)
+✔ only exact GET routes and constrained effects can be injected (1.6453ms)
+✔ existing container, Holds, Gate Pass, notification and catalog read routes are permitted (0.6188ms)
+✔ no-effect, duplicate and over-budget rule collections are rejected atomically (2.5118ms)
+✔ controller matches the method and pathname exactly and ignores sensitive query values (0.6561ms)
+✔ controller enforces the total budget across multiple routes (0.4353ms)
+✔ expiry and removal never refill counters for a reused config ID (0.8591ms)
+✔ changed configuration under the same ID cannot silently inject another effect (0.4816ms)
+✔ file-controlled middleware returns standard error envelope without calling read service (124.6474ms)
+✔ missing, invalid or deleted controls pass through; writes always pass through (55.0072ms)
+✔ delay allows the actual read only after the configured wait (1027.1345ms)
+✔ connection abort destroys only the selected GET socket (55.0226ms)
+✔ oversized control documents are ignored without applying a fault (26.6624ms)
+✔ a junction parent cannot redirect control reads outside the exact private folder (39.6298ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1927.744

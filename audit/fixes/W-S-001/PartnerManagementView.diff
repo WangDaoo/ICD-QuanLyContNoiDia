@@ -1,0 +1,30 @@
+diff --git "a/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-001\\before\\apps\\web\\src\\components\\PartnerManagementView.tsx" "b/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-001\\after\\apps\\web\\src\\components\\PartnerManagementView.tsx"
+index 4a3b315..9453ccc 100644
+--- "a/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-001\\before\\apps\\web\\src\\components\\PartnerManagementView.tsx"	
++++ "b/D:\\Project\\\304\220\341\273\223 \303\201n 4 +Mobile\\icd-management\\audit\\fixes\\W-S-001\\after\\apps\\web\\src\\components\\PartnerManagementView.tsx"	
+@@ -1,3 +1,4 @@
++import { ModalOverlay } from './ModalOverlay';
+ import React, { useState } from 'react';
+ import { useApp } from '../context/AppContext';
+ import { PartnerApiClient, PartnerApiLog } from '../types';
+@@ -149,9 +150,9 @@ export const PartnerManagementView: React.FC<PartnerManagementViewProps> = ({ mo
+         </div>
+ 
+         {showAddModal && (
+-          <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center z-50 p-4">
++          <ModalOverlay aria-labelledby="partner-management-dialog-1-title" onClose={() => setShowAddModal(false)} className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center z-50 p-4">
+             <div className="bg-white rounded-xl max-w-md w-full p-6 shadow-xl border border-slate-200 text-xs">
+-              <h3 className="text-base font-bold text-slate-900 mb-2">Đăng ký Đối tác Tích hợp API mới</h3>
++              <h3 id="partner-management-dialog-1-title" className="text-base font-bold text-slate-900 mb-2">Đăng ký Đối tác Tích hợp API mới</h3>
+ 
+               {newApiKeyResult ? (
+                 <div className="space-y-4">
+@@ -214,7 +215,7 @@ export const PartnerManagementView: React.FC<PartnerManagementViewProps> = ({ mo
+                 </form>
+               )}
+             </div>
+-          </div>
++          </ModalOverlay>
+         )}
+       </div>
+     );

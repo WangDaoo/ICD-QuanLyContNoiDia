@@ -1,0 +1,49 @@
+export type ConnectionSnapshot = { online: boolean | null; confirmedOffline: boolean; writesReady: boolean; verifyingPermissions: boolean; permissionError: string };
+export function createConnectionGate() {
+  let active = false, generation = 0;
+  let state: ConnectionSnapshot = { online: null, confirmedOffline: false, writesReady: false, verifyingPermissions: false, permissionError: '' };
+  let revalidate: (() => Promise<void>) | null = null;
+  let pending: Promise<void> | null = null;
+  const listeners = new Set<(snapshot: ConnectionSnapshot) => void>();
+  const emit = () => listeners.forEach(listener => listener({ ...state }));
+  const verify = () => {
+    if (pending || state.online !== true || !revalidate) return;
+    const ticket = generation;
+    state = { ...state, writesReady: false, verifyingPermissions: true, permissionError: '' }; emit();
+    // Start immediately, so callers observe the pending verification before any command.
+    pending = revalidate().then(() => {
+      if (ticket === generation && state.online === true) state = { ...state, writesReady: true };
+    }).catch(() => {
+      if (ticket === generation) state = { ...state, writesReady: false, permissionError: 'Chưa xác minh được quyền hiện tại. Kiểm tra lại kết nối để thử lại.' };
+    }).finally(() => {
+      pending = null;
+      if (ticket === generation) { state = { ...state, verifyingPermissions: false }; emit(); }
+      else if (state.online === true && revalidate) verify();
+    });
+  };
+  return {
+    snapshot: () => ({ ...state }),
+    activate() { active = true; },
+    subscribe(listener: (snapshot: ConnectionSnapshot) => void) { listeners.add(listener); return () => { listeners.delete(listener); }; },
+    setRevalidator(next: (() => Promise<void>) | null) {
+      generation++; revalidate = next; state = { ...state, writesReady: false, verifyingPermissions: false, permissionError: '' }; emit();
+      if (next) verify();
+    },
+    reportHealth(available: boolean) {
+      // A readiness failure cannot prove the device has lost internet access.
+      if (!available) { generation++; state = { ...state, online: null, writesReady: false, verifyingPermissions: false }; emit(); return; }
+      state = { ...state, online: true, confirmedOffline: false }; emit();
+      if (!state.writesReady) verify();
+    },
+    reportRequest(reachedServer: boolean) {
+      if (!reachedServer) { generation++; state = { ...state, online: false, confirmedOffline: true, writesReady: false, verifyingPermissions: false }; emit(); }
+      else if (state.online !== true) { state = { ...state, online: true, confirmedOffline: false }; emit(); verify(); }
+    },
+    assertWriteAllowed() {
+      if (!active) return;
+      if (state.online !== true) throw new TypeError('Chưa kết nối được máy chủ. Thao tác chưa gửi; hãy kết nối lại rồi thử lại.');
+      if (!state.writesReady) throw new Error(state.permissionError || 'Đang xác minh quyền hiện tại. Thử lại khi xác minh hoàn tất.');
+    },
+  };
+}
+export const connectionGate = createConnectionGate();

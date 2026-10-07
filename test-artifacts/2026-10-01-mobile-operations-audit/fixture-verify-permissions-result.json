@@ -1,0 +1,43 @@
+{
+  "phase": "verify-permissions",
+  "checkedAt": "2026-10-02T01:31:23.625Z",
+  "admin": {
+    "billingPermissionVerified": true,
+    "readinessReadable": true,
+    "nonemptyReadinessFinancialRowsVerified": true,
+    "invoiceFinancialDetailVisible": true,
+    "note": "Nonempty readiness financial rows verified live"
+  },
+  "staff": [
+    {
+      "email": "gate@icd.local",
+      "readinessReadable": true,
+      "financialFieldsExposed": false,
+      "blockersMatchAdmin": true,
+      "invoiceDetailsDenied": true
+    },
+    {
+      "email": "yard@icd.local",
+      "readinessReadable": true,
+      "financialFieldsExposed": false,
+      "blockersMatchAdmin": true,
+      "invoiceDetailsDenied": true
+    }
+  ],
+  "externalUsers": [
+    {
+      "email": "consignee@icd.local",
+      "authMeStatus": 200,
+      "containersStatus": 403,
+      "queueStatus": 403,
+      "errorCode": "CUSTOMER_SCOPE_NOT_CONFIGURED"
+    },
+    {
+      "email": "agent@icd.local",
+      "authMeStatus": 200,
+      "containersStatus": 403,
+      "queueStatus": 403,
+      "errorCode": "CUSTOMER_SCOPE_NOT_CONFIGURED"
+    }
+  ]
+}

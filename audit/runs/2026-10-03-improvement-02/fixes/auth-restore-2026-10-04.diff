@@ -1,0 +1,119 @@
+--- before/apps/web/src/context/AppContext.tsx
++++ after/apps/web/src/context/AppContext.tsx
+@@ -70,6 +70,8 @@
+   isLoading: boolean;
+   apiReady: boolean;
+   apiError: string;
++  sessionRestoreError?: string;
++  retrySessionRestore?: () => Promise<void>;
+   refreshData: () => Promise<void>;
+   resourceStatus?: ResourceStatus;
+   detailStatus?: DetailStatus;
+@@ -330,6 +332,7 @@
+   const [isLoading, setIsLoading] = useState(true);
+   const [apiReady, setApiReady] = useState(false);
+   const [apiError, setApiError] = useState('');
++  const [sessionRestoreError, setSessionRestoreError] = useState('');
+   const [data, setData] = useState(emptyData);
+   const [resourceStatus, setResourceStatus] = useState<ResourceStatus>({});
+   const [detailStatus, setDetailStatus] = useState<DetailStatus>({ manifests: {}, roles: {}, handovers: {} });
+@@ -339,6 +342,9 @@
+   const sessionVersion = useRef(0);
+   const pendingRefresh = useRef<Promise<void> | null>(null);
+   const latestActor = useRef<User>(DEFAULT_USER);
++  const restoreMounted = useRef(false);
++  const restoreAttempt = useRef(0);
++  const pendingSessionRestore = useRef<{ version: number; promise: Promise<void> } | null>(null);
+ 
+   const refreshData = useCallback(async () => {
+     if (!tokenStorage.getAccessToken()) return;
+@@ -481,23 +487,60 @@
+     return pending;
+   }, []);
+ 
++  const retrySessionRestore = useCallback((): Promise<void> => {
++    if (!restoreMounted.current) return Promise.resolve();
++    if (pendingSessionRestore.current?.version === sessionVersion.current)
++      return pendingSessionRestore.current.promise;
++    const version = ++sessionVersion.current;
++    const attempt = ++restoreAttempt.current;
++    pendingRefresh.current = null;
++    const active = () => restoreMounted.current && version === sessionVersion.current && attempt === restoreAttempt.current;
++    const restore = async () => {
++      setSessionRestoreError(''); setIsAuthenticated(false); setData(emptyData());
++      setResourceStatus({}); setDetailStatus({ manifests: {}, roles: {}, handovers: {} });
++      setApiReady(false); setApiError(''); setIsLoading(true);
++      if (!tokenStorage.getAccessToken()) { setIsLoading(false); return; }
++      try {
++        const user = await authService.me();
++        if (!active()) return;
++        const actor = mapAuthUserToView(user);
++        latestActor.current = actor; setCurrentUser(actor); setIsAuthenticated(true);
++        await refreshData();
++      } catch (error: unknown) {
++        if (!active()) return;
++        latestActor.current = DEFAULT_USER; setIsAuthenticated(false); setData(emptyData());
++        setResourceStatus({}); setDetailStatus({ manifests: {}, roles: {}, handovers: {} });
++        setApiReady(false);
++        if ([401, 403].includes(errorStatus(error) ?? 0) || !tokenStorage.getAccessToken()) {
++          tokenStorage.clear(); setSessionRestoreError('');
++        } else {
++          // Unreachable or malformed responses do not prove that the retained credentials expired.
++          setSessionRestoreError('Chưa thể xác minh phiên đăng nhập. Kiểm tra kết nối rồi thử lại.');
++        }
++      } finally {
++        if (active()) setIsLoading(false);
++      }
++    };
++    const pending = restore().finally(() => {
++      if (pendingSessionRestore.current?.promise === pending) pendingSessionRestore.current = null;
++    });
++    pendingSessionRestore.current = { version, promise: pending };
++    return pending;
++  }, [refreshData]);
++
+   useEffect(() => {
+-    let active = true;
+-    const version = sessionVersion.current;
+-    if (!tokenStorage.getAccessToken()) { setIsLoading(false); return; }
+-    authService.me().then(async user => {
+-      if (!active || version !== sessionVersion.current) return;
+-      const actor = mapAuthUserToView(user); latestActor.current = actor; setCurrentUser(actor); setIsAuthenticated(true);
+-      await refreshData();
+-    }).catch(() => { if (active && version === sessionVersion.current) { tokenStorage.clear(); setIsAuthenticated(false); setData(emptyData()); } })
+-      .finally(() => { if (active && version === sessionVersion.current) setIsLoading(false); });
+-    return () => { active = false; };
+-  }, [refreshData]);
++    restoreMounted.current = true;
++    void retrySessionRestore();
++    return () => {
++      restoreMounted.current = false; restoreAttempt.current++; pendingSessionRestore.current = null;
++    };
++  }, [retrySessionRestore]);
+ 
+   const login = async (email: string, password: string): Promise<CommandResult> => {
+     try {
+       const response = await authService.login({ email, password });
+       sessionVersion.current++; pendingRefresh.current = null; setData(emptyData());
++      setSessionRestoreError('');
+       setResourceStatus({}); setDetailStatus({ manifests: {}, roles: {}, handovers: {} });
+       setApiReady(false); setApiError('');
+       const actor = mapAuthUserToView(response.user); latestActor.current = actor; setCurrentUser(actor); setIsAuthenticated(true);
+@@ -508,7 +551,7 @@
+   const logout = async () => {
+     sessionVersion.current++; pendingRefresh.current = null;
+     try { await authService.logout(); } finally {
+-      tokenStorage.clear(); latestActor.current = DEFAULT_USER; setIsAuthenticated(false); setData(emptyData()); setResourceStatus({}); setDetailStatus({ manifests: {}, roles: {}, handovers: {} }); setApiReady(false); setApiError('');
++      tokenStorage.clear(); latestActor.current = DEFAULT_USER; setIsAuthenticated(false); setData(emptyData()); setResourceStatus({}); setDetailStatus({ manifests: {}, roles: {}, handovers: {} }); setApiReady(false); setApiError(''); setSessionRestoreError(''); setIsLoading(false);
+     }
+   };
+   const write = async (path: string, payload?: unknown, method: 'POST' | 'PATCH' | 'PUT' = 'POST') =>
+@@ -531,7 +574,7 @@
+   const unsupportedPartner = async () => ({ success: false, message: 'Xác nhận đối tác phải được gửi qua API của đối tác. Web ICD chỉ tiếp nhận và xác nhận cuối.' });
+ 
+   const value: AppContextType = {
+-    ...data, currentUser, isAuthenticated, isLoading, apiReady, apiError, resourceStatus, detailStatus, refreshData, login, logout,
++    ...data, currentUser, isAuthenticated, isLoading, apiReady, apiError, sessionRestoreError, retrySessionRestore, resourceStatus, detailStatus, refreshData, login, logout,
+     gateInContainer: async p => {
+       const visit = data.containerVisits.find((v) => v.id === p.visitId);
+       const truck = visit && data.truckVisits.find((t) => t.status === 'ARRIVED' && t.containerNumbers.includes(visit.containerNumber) && (p.truckVisitId ? t.id === p.truckVisitId : !p.vehiclePlate || t.vehiclePlate === p.vehiclePlate));

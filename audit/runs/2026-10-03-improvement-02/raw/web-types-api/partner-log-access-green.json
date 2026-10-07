@@ -1,0 +1,114 @@
+{
+  "run": "2026-10-03-improvement-02",
+  "target": {
+    "apiPort": 3001,
+    "mysqlPort": 3308,
+    "database": "icd_ux_audit_20261003_e2e"
+  },
+  "completed": true,
+  "results": [
+    {
+      "name": "POST /auth/login",
+      "status": 200,
+      "expected": [
+        200
+      ],
+      "passed": true
+    },
+    {
+      "name": "GET /admin/partner-api-logs?pageSize=100",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "GET /admin/partner-api-logs/bc316268-5629-411f-b68c-8e833fdc8033",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /admin/partner-clients",
+      "status": 403,
+      "expected": [
+        403
+      ],
+      "passed": true,
+      "errorCode": "AUTH_PERMISSION_DENIED"
+    },
+    {
+      "name": "MANAGER reads logs while partner credential management remains forbidden",
+      "passed": true,
+      "evidence": {
+        "role": "MANAGER",
+        "logCount": 4
+      }
+    },
+    {
+      "name": "POST /auth/login",
+      "status": 200,
+      "expected": [
+        200
+      ],
+      "passed": true
+    },
+    {
+      "name": "GET /admin/partner-api-logs?pageSize=100",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "GET /admin/partner-api-logs/bc316268-5629-411f-b68c-8e833fdc8033",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /admin/partner-clients",
+      "status": 403,
+      "expected": [
+        403
+      ],
+      "passed": true,
+      "errorCode": "AUTH_PERMISSION_DENIED"
+    },
+    {
+      "name": "AUDIT_READ_ONLY reads logs while partner credential management remains forbidden",
+      "passed": true,
+      "evidence": {
+        "role": "AUDIT_READ_ONLY",
+        "logCount": 4
+      }
+    },
+    {
+      "name": "POST /auth/login",
+      "status": 200,
+      "expected": [
+        200
+      ],
+      "passed": true
+    },
+    {
+      "name": "GET /admin/partner-api-logs",
+      "status": 403,
+      "expected": [
+        403
+      ],
+      "passed": true,
+      "errorCode": "AUTH_PERMISSION_DENIED"
+    }
+  ]
+}

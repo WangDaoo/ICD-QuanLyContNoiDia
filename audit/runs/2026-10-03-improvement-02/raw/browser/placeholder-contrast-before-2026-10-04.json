@@ -1,0 +1,242 @@
+{
+  "source": {
+    "parser": "colorjs.io 0.7.1",
+    "colorApi": "https://colorjs.io/docs/the-color-object.html",
+    "contrastApi": "https://colorjs.io/docs/contrast.html",
+    "criterion": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html"
+  },
+  "method": "nearest-to-outer background chain; CSS Color4 to sRGB; alpha source-over; WCAG21; no browser access",
+  "caveats": [
+    "Gradients, images, group opacity, blend/filter effects, unresolved colors, and out-of-sRGB colors are UNKNOWN.",
+    "Missing background layers never default to white; canvasRaw must be a measured opaque canvas.",
+    "ratioRange is a singleton for measured solid colors; UNKNOWN has no numerical range.",
+    "This is offline evidence analysis, not a complete WCAG conformity audit."
+  ],
+  "counts": {
+    "PASS": 0,
+    "FAIL": 9,
+    "UNKNOWN": 1,
+    "EXEMPT": 0
+  },
+  "results": [
+    {
+      "id": "manifests:Ví dụ: CSQU3054383",
+      "requiredRatio": 4.5,
+      "textClass": "normal",
+      "thresholdAssumption": null,
+      "ratio": 3.0568498037146647,
+      "ratioRange": [
+        3.0568498037146647,
+        3.0568498037146647
+      ],
+      "foregroundSrgb": [
+        0.5560638504342262,
+        0.5800219861847786,
+        0.619336278355253
+      ],
+      "backgroundSrgb": [
+        1,
+        1,
+        1
+      ],
+      "status": "FAIL",
+      "reason": "solid measured backgrounds; CSS source-over in encoded sRGB; WCAG21 on composited colors"
+    },
+    {
+      "id": "manifests:Tìm Manifest",
+      "requiredRatio": 4.5,
+      "textClass": "normal",
+      "thresholdAssumption": null,
+      "ratio": 3.4131182204094666,
+      "ratioRange": [
+        3.4131182204094666,
+        3.4131182204094666
+      ],
+      "foregroundSrgb": [
+        0.5285921678966168,
+        0.5450212262114271,
+        0.5843980154600518
+      ],
+      "backgroundSrgb": [
+        1,
+        1,
+        1
+      ],
+      "status": "FAIL",
+      "reason": "solid measured backgrounds; CSS source-over in encoded sRGB; WCAG21 on composited colors"
+    },
+    {
+      "id": "containers:Tìm container",
+      "requiredRatio": 4.5,
+      "textClass": "normal",
+      "thresholdAssumption": null,
+      "ratio": 3.3769361460500242,
+      "ratioRange": [
+        3.3769361460500242,
+        3.3769361460500242
+      ],
+      "foregroundSrgb": [
+        0.515166594023639,
+        0.5350425289445625,
+        0.5778667764332327
+      ],
+      "backgroundSrgb": [
+        0.9731488522540445,
+        0.9800426054662709,
+        0.9869375219463618
+      ],
+      "status": "FAIL",
+      "reason": "solid measured backgrounds; CSS source-over in encoded sRGB; WCAG21 on composited colors"
+    },
+    {
+      "id": "movement-orders:Tìm mã lệnh, số container...",
+      "requiredRatio": 4.5,
+      "textClass": "normal",
+      "thresholdAssumption": null,
+      "ratio": 3.4131182204094666,
+      "ratioRange": [
+        3.4131182204094666,
+        3.4131182204094666
+      ],
+      "foregroundSrgb": [
+        0.5285921678966168,
+        0.5450212262114271,
+        0.5843980154600518
+      ],
+      "backgroundSrgb": [
+        1,
+        1,
+        1
+      ],
+      "status": "FAIL",
+      "reason": "solid measured backgrounds; CSS source-over in encoded sRGB; WCAG21 on composited colors"
+    },
+    {
+      "id": "truck-visits:Tìm chuyến xe",
+      "requiredRatio": 4.5,
+      "textClass": "normal",
+      "thresholdAssumption": null,
+      "ratio": 3.3769361460500242,
+      "ratioRange": [
+        3.3769361460500242,
+        3.3769361460500242
+      ],
+      "foregroundSrgb": [
+        0.515166594023639,
+        0.5350425289445625,
+        0.5778667764332327
+      ],
+      "backgroundSrgb": [
+        0.9731488522540445,
+        0.9800426054662709,
+        0.9869375219463618
+      ],
+      "status": "FAIL",
+      "reason": "solid measured backgrounds; CSS source-over in encoded sRGB; WCAG21 on composited colors"
+    },
+    {
+      "id": "yard:Tìm vị trí hoặc container trên bản đồ",
+      "requiredRatio": 4.5,
+      "textClass": "normal",
+      "thresholdAssumption": null,
+      "ratio": 3.4131182204094666,
+      "ratioRange": [
+        3.4131182204094666,
+        3.4131182204094666
+      ],
+      "foregroundSrgb": [
+        0.5285921678966168,
+        0.5450212262114271,
+        0.5843980154600518
+      ],
+      "backgroundSrgb": [
+        1,
+        1,
+        1
+      ],
+      "status": "FAIL",
+      "reason": "solid measured backgrounds; CSS source-over in encoded sRGB; WCAG21 on composited colors"
+    },
+    {
+      "id": "gate-pass:Mã QR hoặc mã Gate Pass",
+      "requiredRatio": 4.5,
+      "textClass": "normal",
+      "thresholdAssumption": null,
+      "ratio": null,
+      "ratioRange": null,
+      "foregroundSrgb": null,
+      "backgroundSrgb": null,
+      "status": "UNKNOWN",
+      "reason": "foreground: outside sRGB gamut; display gamut or mapping is unmeasured"
+    },
+    {
+      "id": "gate-pass:Tìm Gate Pass",
+      "requiredRatio": 4.5,
+      "textClass": "normal",
+      "thresholdAssumption": null,
+      "ratio": 3.4131182204094666,
+      "ratioRange": [
+        3.4131182204094666,
+        3.4131182204094666
+      ],
+      "foregroundSrgb": [
+        0.5285921678966168,
+        0.5450212262114271,
+        0.5843980154600518
+      ],
+      "backgroundSrgb": [
+        1,
+        1,
+        1
+      ],
+      "status": "FAIL",
+      "reason": "solid measured backgrounds; CSS source-over in encoded sRGB; WCAG21 on composited colors"
+    },
+    {
+      "id": "handovers:Tìm lệnh bàn giao",
+      "requiredRatio": 4.5,
+      "textClass": "normal",
+      "thresholdAssumption": null,
+      "ratio": 3.3769361460500242,
+      "ratioRange": [
+        3.3769361460500242,
+        3.3769361460500242
+      ],
+      "foregroundSrgb": [
+        0.515166594023639,
+        0.5350425289445625,
+        0.5778667764332327
+      ],
+      "backgroundSrgb": [
+        0.9731488522540445,
+        0.9800426054662709,
+        0.9869375219463618
+      ],
+      "status": "FAIL",
+      "reason": "solid measured backgrounds; CSS source-over in encoded sRGB; WCAG21 on composited colors"
+    },
+    {
+      "id": "activity:Tìm nhật ký kiểm toán",
+      "requiredRatio": 4.5,
+      "textClass": "normal",
+      "thresholdAssumption": null,
+      "ratio": 3.3769361460500242,
+      "ratioRange": [
+        3.3769361460500242,
+        3.3769361460500242
+      ],
+      "foregroundSrgb": [
+        0.515166594023639,
+        0.5350425289445625,
+        0.5778667764332327
+      ],
+      "backgroundSrgb": [
+        0.9731488522540445,
+        0.9800426054662709,
+        0.9869375219463618
+      ],
+      "status": "FAIL",
+      "reason": "solid measured backgrounds; CSS source-over in encoded sRGB; WCAG21 on composited colors"
+    }
+  ]
+}

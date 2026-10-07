@@ -1,0 +1,115 @@
+{
+  "at": "2026-10-04T05:08:39.737Z",
+  "target": {
+    "database": "icd_ux_audit_20261003_e2e",
+    "apiPort": 3001,
+    "mysqlPort": 3308,
+    "guardedRuntime": true
+  },
+  "scope": "Read-only database verification of twenty synthetic records created through UI",
+  "prefix": "UXT1004A",
+  "status": "PASS",
+  "count": 20,
+  "rows": [
+    {
+      "id": "adf8da7a-11cd-421a-a7ec-44b5bbd21d4b",
+      "name": "UXT1004A timing Shipping01",
+      "scacCode": "UXT1004A01"
+    },
+    {
+      "id": "b3d53a2e-4fd5-4225-95f6-f50422ec6339",
+      "name": "UXT1004A timing Shipping02",
+      "scacCode": "UXT1004A02"
+    },
+    {
+      "id": "0fa7b3a8-d25b-408b-9abe-bb483a962e03",
+      "name": "UXT1004A timing Shipping03",
+      "scacCode": "UXT1004A03"
+    },
+    {
+      "id": "3e380369-abe9-4332-89c6-39a942937ce1",
+      "name": "UXT1004A timing Shipping04",
+      "scacCode": "UXT1004A04"
+    },
+    {
+      "id": "707aa35c-a536-4eef-bf8f-eed9e052ccdd",
+      "name": "UXT1004A timing Shipping05",
+      "scacCode": "UXT1004A05"
+    },
+    {
+      "id": "85ae48ef-8d63-4682-a012-a67300cbe75d",
+      "name": "UXT1004A timing Shipping06",
+      "scacCode": "UXT1004A06"
+    },
+    {
+      "id": "f137a4af-0050-4154-909d-9919d78bf02c",
+      "name": "UXT1004A timing Shipping07",
+      "scacCode": "UXT1004A07"
+    },
+    {
+      "id": "8a0ef3ae-0e21-469e-a85f-440876940c2a",
+      "name": "UXT1004A timing Shipping08",
+      "scacCode": "UXT1004A08"
+    },
+    {
+      "id": "46f7dab9-da4c-487e-8b9e-792369ff54d9",
+      "name": "UXT1004A timing Shipping09",
+      "scacCode": "UXT1004A09"
+    },
+    {
+      "id": "c058f331-58f4-4d45-8589-b5f965f42d01",
+      "name": "UXT1004A timing Shipping10",
+      "scacCode": "UXT1004A10"
+    },
+    {
+      "id": "47ad7933-71d1-439b-a3e9-d1bfa9e99fa0",
+      "name": "UXT1004A timing Shipping11",
+      "scacCode": "UXT1004A11"
+    },
+    {
+      "id": "c45bb792-be0a-4d75-9be7-46497ae8e707",
+      "name": "UXT1004A timing Shipping12",
+      "scacCode": "UXT1004A12"
+    },
+    {
+      "id": "d6d764fe-167d-4fac-8a93-4882ad21dc8f",
+      "name": "UXT1004A timing Shipping13",
+      "scacCode": "UXT1004A13"
+    },
+    {
+      "id": "6dd3ecc3-c778-4230-8960-294077143a19",
+      "name": "UXT1004A timing Shipping14",
+      "scacCode": "UXT1004A14"
+    },
+    {
+      "id": "25e954d3-0a74-4b1c-b093-e89f4a38c852",
+      "name": "UXT1004A timing Shipping15",
+      "scacCode": "UXT1004A15"
+    },
+    {
+      "id": "d4dd03fe-18a5-444d-b8a1-2ddef835d43a",
+      "name": "UXT1004A timing Shipping16",
+      "scacCode": "UXT1004A16"
+    },
+    {
+      "id": "42dbcffa-25df-424b-9bb4-908834c46a5f",
+      "name": "UXT1004A timing Shipping17",
+      "scacCode": "UXT1004A17"
+    },
+    {
+      "id": "954d29ff-09e9-4a46-bd92-9440cd35006e",
+      "name": "UXT1004A timing Shipping18",
+      "scacCode": "UXT1004A18"
+    },
+    {
+      "id": "35c5942c-4808-4391-b51e-2077001e73f6",
+      "name": "UXT1004A timing Shipping19",
+      "scacCode": "UXT1004A19"
+    },
+    {
+      "id": "41da7163-6b7a-436a-b0c8-ab068b8766d7",
+      "name": "UXT1004A timing Shipping20",
+      "scacCode": "UXT1004A20"
+    }
+  ]
+}

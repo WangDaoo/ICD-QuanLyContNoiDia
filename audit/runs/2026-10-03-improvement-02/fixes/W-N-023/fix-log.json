@@ -1,0 +1,32 @@
+{
+  "status": "VERIFIED",
+  "change": "CollectionState và count trung tính theo resource; chặn tạo từ absence chưa xác minh, kiểm handover.create riêng. Không lọc record chưa xác nhận thanh toán như blocker-free. GATE_STAFF thực tế không thấy số0/empty giả hoặc giá trị tài chính khi403; trạng thái khác có regression.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/ContainersView.tsx",
+      "line": 62,
+      "detail": "const collectionState",
+      "snippet": "  const collectionState = (resource: string) => resourceStatus[resource] ?? (isLoading ? 'loading' : 'ready');\n  const invoiceState = collectionState('invoices');\n  const movementOrderState = collectionState('movementOrders');\n  const handoverState = collectionState('handovers');"
+    },
+    {
+      "file": "apps/web/src/components/ContainersView.tsx",
+      "line": 854,
+      "detail": "'handover.create'",
+      "snippet": "                          hidden={!can('handover.create')}\n                          disabled={action.pending}\n                          onClick={() => {\n                            setActiveModalVisitId(null);"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/container-derived-sections-red-2026-10-04.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/container-derived-sections-green-2026-10-04.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/dependency-detail-checkpoint-2026-10-04.md",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/container-billing-role-forbidden-2026-10-04.json"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Meaningful RED/GREEN source regression; real API only if explicitly linked.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/ContainersView.tsx.diff"
+  ],
+  "isolated_review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/dependency-detail-2026-10-04/W-N-023.diff"
+  ]
+}

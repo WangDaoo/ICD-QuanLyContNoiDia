@@ -1,0 +1,85 @@
+import assert from 'node:assert/strict';
+import test from 'node:test';
+import { mapLiveCollections } from './live-view.mapper';
+import { mapReadinessDto, mapTransportHandoverDto } from './icd-view.mapper';
+import { executeOperation } from '../api/operation';
+
+test('gate-out tasks resolve their canonical gate-pass entity to a visit', () => {
+  const result = mapLiveCollections(
+    {
+      gatePasses: [{ id: 'pass-1', containerVisitId: 'visit-1' }],
+      workQueue: [
+        {
+          id: 'task-1',
+          type: 'GATE_OUT',
+          entityType: 'GATE_PASS',
+          entityId: 'pass-1',
+          urgency: 'HIGH',
+        },
+      ],
+    },
+    'ADMIN',
+  );
+  assert.equal(result.workQueue[0].containerVisitId, 'visit-1');
+  assert.equal(result.workQueue[0].entityId, 'pass-1');
+});
+
+test('unsupported payment methods are never displayed as bank transfer', () => {
+  const result = mapLiveCollections(
+    { payments: [{ id: 'p', method: 'CARD', amount: '12.50' }] },
+    'ADMIN',
+  );
+  assert.equal(result.payments[0].method, 'UNKNOWN');
+});
+
+test('malformed nested API collections cannot crash view mapping', () => {
+  const result = mapLiveCollections(
+    { manifests: [{ masterBls: 'unexpected' }], roles: [{ permissions: {} }] },
+    'ADMIN',
+  );
+  assert.deepEqual(result.manifests[0].masterBills, []);
+  assert.deepEqual(result.roles[0].permissionCodes, []);
+  assert.deepEqual(mapTransportHandoverDto({ confirmations: ['unexpected'] }).confirmations, []);
+});
+
+test('non-boolean readiness flags cannot grant financial readiness', () => {
+  assert.equal(
+    mapReadinessDto({ ready: false, details: { billing: { isReady: 'false' } } })
+      .isBillingCompleted,
+    false,
+  );
+});
+
+test('a saved command whose refresh fails reports an explicit refresh outcome', async () => {
+  const saved = await executeOperation(
+    async () => ({ id: 'saved' }),
+    async () => {
+      throw new Error('unavailable');
+    },
+  );
+  assert.equal(saved.success, true);
+  assert.equal(saved.refreshStatus, 'failed');
+  assert.deepEqual(saved.data, { id: 'saved' });
+});
+
+test('non-string thrown messages do not escape the command result boundary', async () => {
+  const failed = await executeOperation(
+    async () => {
+      throw { message: { secret: 'bad response' } };
+    },
+    async () => {},
+  );
+  assert.equal(failed.success, false);
+  assert.equal(typeof failed.message, 'string');
+});
+
+test('invalid invoice totals cannot be presented as a zero balance', () => {
+  assert.throws(
+    () =>
+      mapLiveCollections(
+        { invoices: [{ id: 'invoice', totalAmount: 'unavailable', paidAmount: 0 }] },
+        'ADMIN',
+      ),
+    /Invalid financial amount/,
+  );
+});

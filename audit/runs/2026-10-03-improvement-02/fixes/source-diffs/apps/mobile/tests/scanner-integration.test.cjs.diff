@@ -1,0 +1,14 @@
+--- before/apps/mobile/tests/scanner-integration.test.cjs
++++ after/apps/mobile/tests/scanner-integration.test.cjs
+@@ -71,8 +71,10 @@
+     if (dependency.endsWith('/useAuth'))
+       return { useAuth: () => ({ user: { roleCodes: ['ADMIN'] } }) };
+     if (dependency.endsWith('/ThemeProvider'))
+-      return { useTheme: () => ({ theme: { colors: {} }, mode: 'LIGHT', toggleTheme() {} }) };
++      return { useTheme: () => ({ theme: { colors: {}, spacing: { xs: 4, sm: 8, md: 12 }, borderRadius: { xs: 4, sm: 6, full: 9999 }, typography: { bodyBold: {}, caption: {}, captionBold: {} } }, mode: 'LIGHT', toggleTheme() {} }) };
+     if (dependency.endsWith('/permissions')) return { canAccessMobileScreen: () => true };
++    if (dependency.endsWith('/presentation/labels')) return require('./improvement-harness.cjs').load('src/presentation/labels.ts');
++    if (dependency.endsWith('/theme/layout')) return require('./improvement-harness.cjs').load('src/theme/layout.ts');
+     if (dependency.endsWith('/gate-out.api'))
+       return {
+         gateOutApi: {

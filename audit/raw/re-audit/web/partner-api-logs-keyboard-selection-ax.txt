@@ -1,0 +1,81 @@
+Browser tab: 22, Title: "ICD Management System — Quản lý Kho bãi Container Nội địa", URL: "http://127.0.0.1:5173/".
+1 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/
+	2 container root
+		3 container
+			4 text ICD
+			5 heading ICD Management System, Value: 1
+				6 text ICD Management System
+			7 text Cảng cạn & kho bãi container nội địa 1 lệnh giữ Đã kết nối
+			8 button Tải lại dữ liệu
+			9 button (collapsed) Description: Thông báo (0 chưa đọc), Secondary Actions: Expand
+			10 text System Administrator ADMIN
+			11 button Đăng xuất
+		12 container Điều hướng nghiệp vụ
+			13 container
+				14 text TỔNG QUAN & ĐIỀU PHỐI
+				15 button Tổng quan vận hành
+				16 button Danh sách công việc
+				17 text QUẢN LÝ HÀNG HÓA & CỔNG
+				18 button Bản lược khai (Manifest)
+				19 button Quản lý Container
+				20 button Movement Order
+				21 button Chuyến xe ra/vào
+				22 button Tiếp nhận vào cổng (Gate-in)
+				23 button Vận hành Bãi (Yard)
+				24 text TÀI CHÍNH & RA CỔNG
+				25 button Dịch vụ & Thanh toán
+				26 button Phiếu ra cổng & Gate-out
+				27 button Vận hành EDI (CODECO)
+				28 text TÍCH HỢP ĐỐI TÁC
+				29 button Bàn giao vận chuyển
+				30 button Đối tác tích hợp API
+				31 button Nhật ký API đối tác
+				32 text HỆ THỐNG & QUẢN TRỊ
+				33 button Danh mục dùng chung
+				34 button Người dùng & Phân quyền
+				35 button Báo cáo vận hành
+				36 button Nhật ký kiểm toán
+			37 text System Administrator
+			38 text admin@icd.local
+			39 text ADMIN
+		40 container
+			41 heading Nhật ký API Đối tác (Partner Integration Logs), Value: 2
+				42 text Nhật ký API Đối tác (Partner Integration Logs)
+			43 text Giám sát thời gian thực các cuộc gọi API từ đối tác: Accept chuyến, Xác nhận giao kho, Upload POD, Tọa độ GPS 3  cuộc gọi API đã ghi nhận
+			44 checkbox Value: 0, POST HTTP 200 /api/v1/external/handovers/b3fe3d3b-039d-4c41-9976-141d9cd8327d/warehouse-received Đối tác: Local QA Transport 13:53:43
+				45 text POST
+				46 text HTTP 
+				47 text 200
+				48 text /api/v1/external/handovers/b3fe3d3b-039d-4c41-9976-141d9cd8327d/warehouse-received
+				49 text Đối tác: 
+				50 text Local QA Transport
+				51 text 13:53:43
+			52 checkbox Value: 1, POST HTTP 200 /api/v1/external/handovers/b3fe3d3b-039d-4c41-9976-141d9cd8327d/in-transit Đối tác: Local QA Transport 13:53:43
+				53 text POST
+				54 text HTTP 
+				55 text 200
+				56 text /api/v1/external/handovers/b3fe3d3b-039d-4c41-9976-141d9cd8327d/in-transit
+				57 text Đối tác: 
+				58 text Local QA Transport
+				59 text 13:53:43
+			60 checkbox Value: 0, POST HTTP 200 /api/v1/external/handovers/b3fe3d3b-039d-4c41-9976-141d9cd8327d/accept Đối tác: Local QA Transport 13:53:43
+				61 text POST
+				62 text HTTP 
+				63 text 200
+				64 text /api/v1/external/handovers/b3fe3d3b-039d-4c41-9976-141d9cd8327d/accept
+				65 text Đối tác: 
+				66 text Local QA Transport
+				67 text 13:53:43
+			68 text POST /api/v1/external/handovers/b3fe3d3b-039d-4c41-9976-141d9cd8327d/in-transit Độ trễ:  27 ms REQUEST BODY (ĐÃ CHE GIẤU THÔNG TIN NHẠY CẢM) {
+  "departed_at": "2026-10-01T06:53:43.547Z",
+  "driver_name": "Local QA Driver",
+  "driver_phone": "[REDACTED]",
+  "vehicle_plate": "51C-QA1001"
+} RESPONSE BODY {
+  "status": "IN_TRANSIT",
+  "departed_at": {},
+  "handover_id": "b3fe3d3b-039d-4c41-9976-141d9cd8327d",
+  "transport_code": "QA-VC-1790837623424"
+}
+
+The focused UI element is 52 checkbox Value: 1, POST HTTP 200 /api/v1/external/handovers/b3fe3d3b-039d-4c41-9976-141d9cd8327d/in-transit Đối tác: Local QA Transport 13:53:43

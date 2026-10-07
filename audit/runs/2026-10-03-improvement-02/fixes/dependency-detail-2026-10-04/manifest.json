@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-04T10:35:44.639315+07:00",
+  "policy": "Adjacent source snapshots isolate each fix; original source-before and reports preserved.",
+  "files": [
+    {
+      "finding": "W-N-022-provider",
+      "before": "audit/runs/2026-10-03-improvement-02/raw/progressive-dependencies-AppContext-before-2026-10-04.tsx",
+      "after": "apps/web/src/context/AppContext.tsx",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/dependency-detail-2026-10-04/W-N-022-provider.diff",
+      "before_sha256": "18a9fde9b75550459b22d9962ada738922a42330b4c83f6fda64a43fc213b710",
+      "after_sha256": "01218d66941a6e07fa15c49a03acd9860df76ca595fda91afdf12cdc74ff8201"
+    },
+    {
+      "finding": "W-N-022-container",
+      "before": "audit/runs/2026-10-03-improvement-02/raw/location-before/ContainersView.tsx",
+      "after": "audit/runs/2026-10-03-improvement-02/raw/container-derived-sections-before-2026-10-04.tsx",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/dependency-detail-2026-10-04/W-N-022-container.diff",
+      "before_sha256": "ad91005f472e7093295b51fa80cd9cc08763170b05b3fac15795754cf83f27d6",
+      "after_sha256": "8e713df37d3964b9b397e62dfa0989be78ddd68e445090f90b42db3b6f974788"
+    },
+    {
+      "finding": "W-N-023",
+      "before": "audit/runs/2026-10-03-improvement-02/raw/container-derived-sections-before-2026-10-04.tsx",
+      "after": "audit/runs/2026-10-03-improvement-02/raw/container-narrow-header-before-2026-10-04.tsx",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/dependency-detail-2026-10-04/W-N-023.diff",
+      "before_sha256": "8e713df37d3964b9b397e62dfa0989be78ddd68e445090f90b42db3b6f974788",
+      "after_sha256": "372f61670e7864e42d6c623c6d649755b67306e0e1ebfa25929d8f20ec481db5"
+    },
+    {
+      "finding": "W-N-024",
+      "before": "audit/runs/2026-10-03-improvement-02/raw/movement-identity-mapper-before-2026-10-04.ts",
+      "after": "apps/web/src/services/mappers/live-view.mapper.ts",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/dependency-detail-2026-10-04/W-N-024.diff",
+      "before_sha256": "ca99d2887e223e835c24744cdb1231ee2920c19fac62effa870a6f065d049516",
+      "after_sha256": "6b708631236666ecdbac3cf8f275ded266e933d45ecf8a4dfc0c2315759df99d"
+    },
+    {
+      "finding": "W-N-025",
+      "before": "audit/runs/2026-10-03-improvement-02/raw/container-narrow-header-before-2026-10-04.tsx",
+      "after": "audit/runs/2026-10-03-improvement-02/raw/container-detail-selection-before-2026-10-04.tsx",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/dependency-detail-2026-10-04/W-N-025.diff",
+      "before_sha256": "372f61670e7864e42d6c623c6d649755b67306e0e1ebfa25929d8f20ec481db5",
+      "after_sha256": "1131701d44ce67bf43d0b7a617d13b815a01059d29fb07807f3cf5251c9b76fc"
+    },
+    {
+      "finding": "W-N-026",
+      "before": "audit/runs/2026-10-03-improvement-02/raw/container-detail-selection-before-2026-10-04.tsx",
+      "after": "apps/web/src/components/ContainersView.tsx",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/dependency-detail-2026-10-04/W-N-026.diff",
+      "before_sha256": "1131701d44ce67bf43d0b7a617d13b815a01059d29fb07807f3cf5251c9b76fc",
+      "after_sha256": "0e26f8d8c080d00680e179543ad77a168522b0341ae052f4f345795c0f1c9428"
+    }
+  ]
+}

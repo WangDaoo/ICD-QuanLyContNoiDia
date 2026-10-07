@@ -1,0 +1,26 @@
+export function parseVietnamBookingDate(value: string): Date | null {
+  if (!/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/.test(value)) return null;
+  const date = new Date(value.replace(' ', 'T') + ':00+07:00');
+  if (!Number.isFinite(date.getTime()) || formatVietnamBookingDate(date) !== value) return null;
+  return date;
+}
+
+export function formatVietnamBookingDate(date: Date): string {
+  return new Date(date.getTime() + 7 * 3600000).toISOString().slice(0, 16).replace('T', ' ');
+}
+
+// Native pickers use the device zone. This bridge keeps the chosen wall-clock values
+// in Vietnam time even when the device is configured in another zone.
+export function bookingPickerDate(value: string): Date {
+  const wall = value || formatVietnamBookingDate(new Date());
+  const [year, month, day, hour, minute] = wall.split(/[- :]/).map(Number);
+  return new Date(year, month - 1, day, hour, minute);
+}
+
+export function applyBookingPicker(value: string, chosen: Date, mode: 'date' | 'time'): string {
+  const next = bookingPickerDate(value);
+  if (mode === 'date') next.setFullYear(chosen.getFullYear(), chosen.getMonth(), chosen.getDate());
+  else next.setHours(chosen.getHours(), chosen.getMinutes());
+  const pad = (part: number) => String(part).padStart(2, '0');
+  return `${next.getFullYear()}-${pad(next.getMonth() + 1)}-${pad(next.getDate())} ${pad(next.getHours())}:${pad(next.getMinutes())}`;
+}

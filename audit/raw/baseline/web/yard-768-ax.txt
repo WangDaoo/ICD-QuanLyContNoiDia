@@ -1,0 +1,356 @@
+Browser tab: 20, Title: "ICD Management System — Quản lý Kho bãi Container Nội địa", URL: "http://127.0.0.1:5173/".
+0 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/
+	1 container root
+		2 container
+			3 text ICD
+			4 heading ICD Management System, Value: 1
+				5 text ICD Management System
+			6 text Cảng cạn & kho bãi container nội địa
+			7 button Tải lại dữ liệu
+			8 button (collapsed) Description: Thông báo (0 chưa đọc), Secondary Actions: Expand
+			10 button Đăng xuất
+		11 container Điều hướng nghiệp vụ
+			226 text TỔNG QUAN & ĐIỀU PHỐI
+			227 button Tổng quan vận hành
+			228 button Danh sách công việc
+			229 text QUẢN LÝ HÀNG HÓA & CỔNG
+			230 button Bản lược khai (Manifest)
+			231 button Quản lý Container
+			232 button Movement Order
+			233 button Chuyến xe ra/vào
+			234 button Tiếp nhận vào cổng (Gate-in)
+			235 button Vận hành Bãi (Yard)
+			236 text TÀI CHÍNH & RA CỔNG
+			237 button Dịch vụ & Thanh toán
+			238 button Phiếu ra cổng & Gate-out
+			239 button Vận hành EDI (CODECO)
+			240 text TÍCH HỢP ĐỐI TÁC
+			241 button Bàn giao vận chuyển
+			242 button Đối tác tích hợp API
+			243 button Nhật ký API đối tác
+			244 text HỆ THỐNG & QUẢN TRỊ
+			245 button Danh mục dùng chung
+			246 button Người dùng & Phân quyền
+			247 button Báo cáo vận hành
+			248 button Nhật ký kiểm toán
+			36 text System Administrator
+			37 text admin@icd.local
+			38 text ADMIN
+		39 container
+			249 heading Vận hành Bãi Container, Value: 2
+				250 text Vận hành Bãi Container
+			251 text Sơ đồ cảng demo, quản lý vị trí và công việc trong bãi
+			252 container Chế độ vận hành bãi
+				253 checkbox Sơ đồ 2D Bãi, Value: 1
+				254 checkbox Danh sách Vị trí, Value: 0
+				255 checkbox Xếp vị trí thủ công, Value: 0
+				256 checkbox Công việc trong bãi, Value: 0
+			257 text Thuật toán xếp vị trí:
+			258 text  Đang trong quá trình phát triển
+			259 button Chọn vị trí thủ công
+			260 text Đang sử dụng 14/48 Vị trí có container Vị trí khả dụng 34 Trống và đang hoạt động Container Hold 1 Lệnh giữ hoặc kết quả giám định Công việc đang mở 0 Đảo chuyển, booking, giám định
+			261 heading Sơ đồ tổng thể ICD, Value: 3
+				262 text Sơ đồ tổng thể ICD
+			263 text Khung cảng demo · Block và vị trí lấy từ backend · Chọn ô để xem chi tiết
+			264 checkbox Loại vị trí, Value: 1
+			265 checkbox Trạng thái container, Value: 0
+			266 container Legend bản đồ
+				267 text Legend
+				268 text Slot trống Có container Bảo trì / Ngưng dùng Slot lạnh trống (Reefer) HOLD: huy hiệu lệnh giữ / giám định
+			269 text ICD DEMO · RANH GIỚI KHU ĐẤT ↑ Bắc · Sơ đồ minh họa, không theo tỷ lệ địa lý CỔNG VÀO · Gate-in
+			270 text Hạ tầng minh họa
+			271 text Khu đệm & trạm cân
+			272 text Hạ tầng minh họa
+			273 text Điều hành / chứng từ
+			274 text Hạ tầng minh họa
+			275 text CỔNG RA · Gate-out
+			276 text Hạ tầng minh họa
+			277 text ĐƯỜNG NỘI BỘ · LÀN TIẾP NHẬN LỐI RA →
+			278 container
+				279 checkbox Block A 8/12 vị trí Khu A — Hàng khô Dry Cargo, Value: 1
+					280 container
+						281 text Block  A
+					282 text 8
+					283 text /
+					284 text 12
+					285 text  vị trí
+					286 text Khu A — Hàng khô Dry Cargo
+				287 text Bay  1 Bay  2 Bay  3 1
+				288 button Description: Vị trí A-01-01-1, Có container, TCSU8849201, Help: A-01-01-1 · Có container · TCSU8849201
+					289 text Tầng 1
+					290 text TCSU8849201
+				291 button Description: Vị trí A-01-01-2, Có container, QAOU5007570, Hold, Help: A-01-01-2 · Có container · QAOU5007570
+					292 text Tầng 2
+					293 text QAOU5007570
+					294 text HOLD
+				295 button Description: Vị trí A-01-02-1, Có container, GLDU5739201, Help: A-01-02-1 · Có container · GLDU5739201
+					296 text Tầng 1
+					297 text GLDU5739201
+				298 button Description: Vị trí A-01-02-2, Có container, QAMU6102765, Help: A-01-02-2 · Có container · QAMU6102765
+					299 text Tầng 2
+					300 text QAMU6102765
+				301 button Description: Vị trí A-01-03-1, Có container, VFCU7482910, Help: A-01-03-1 · Có container · VFCU7482910
+					302 text Tầng 1
+					303 text VFCU7482910
+				304 button Description: Vị trí A-01-03-2, Có container, QAOU5007565, Help: A-01-03-2 · Có container · QAOU5007565
+					305 text Tầng 2
+					306 text QAOU5007565
+				307 text 2
+				308 button Description: Vị trí A-02-01-1, Slot trống, Help: A-02-01-1 · Slot trống
+					309 text Tầng 1
+					310 text Slot trống
+				311 button Description: Vị trí A-02-01-2, Slot trống, Help: A-02-01-2 · Slot trống
+					312 text Tầng 2
+					313 text Slot trống
+				314 button Description: Vị trí A-02-02-1, Có container, QAOU6004067, Help: A-02-02-1 · Có container · QAOU6004067
+					315 text Tầng 1
+					316 text QAOU6004067
+				317 button Description: Vị trí A-02-02-2, Slot trống, Help: A-02-02-2 · Slot trống
+					318 text Tầng 2
+					319 text Slot trống
+				320 button Description: Vị trí A-02-03-1, Có container, QAOU4835930, Help: A-02-03-1 · Có container · QAOU4835930
+					321 text Tầng 1
+					322 text QAOU4835930
+				323 button Description: Vị trí A-02-03-2, Slot trống, Help: A-02-03-2 · Slot trống
+					324 text Tầng 2
+					325 text Slot trống
+			326 container
+				327 checkbox Block B 2/12 vị trí Khu B — Hàng xuất kiểm & Stripping, Value: 0
+					328 container
+						329 text Block  B
+					330 text 2
+					331 text /
+					332 text 12
+					333 text  vị trí
+					334 text Khu B — Hàng xuất kiểm & Stripping
+				335 text Bay  1 Bay  2 Bay  3 1
+				336 button Description: Vị trí B-01-01-1, Có container, VMCU9284012, Help: B-01-01-1 · Có container · VMCU9284012
+					337 text Tầng 1
+					338 text VMCU9284012
+				339 button Description: Vị trí B-01-01-2, Slot trống, Help: B-01-01-2 · Slot trống
+					340 text Tầng 2
+					341 text Slot trống
+				342 button Description: Vị trí B-01-02-1, Có container, BDCU3849102, Help: B-01-02-1 · Có container · BDCU3849102
+					343 text Tầng 1
+					344 text BDCU3849102
+				345 button Description: Vị trí B-01-02-2, Slot trống, Help: B-01-02-2 · Slot trống
+					346 text Tầng 2
+					347 text Slot trống
+				348 button Description: Vị trí B-01-03-1, Slot trống, Help: B-01-03-1 · Slot trống
+					349 text Tầng 1
+					350 text Slot trống
+				351 button Description: Vị trí B-01-03-2, Slot trống, Help: B-01-03-2 · Slot trống
+					352 text Tầng 2
+					353 text Slot trống
+				354 text 2
+				355 button Description: Vị trí B-02-01-1, Slot trống, Help: B-02-01-1 · Slot trống
+					356 text Tầng 1
+					357 text Slot trống
+				358 button Description: Vị trí B-02-01-2, Slot trống, Help: B-02-01-2 · Slot trống
+					359 text Tầng 2
+					360 text Slot trống
+				361 button Description: Vị trí B-02-02-1, Slot trống, Help: B-02-02-1 · Slot trống
+					362 text Tầng 1
+					363 text Slot trống
+				364 button Description: Vị trí B-02-02-2, Slot trống, Help: B-02-02-2 · Slot trống
+					365 text Tầng 2
+					366 text Slot trống
+				367 button Description: Vị trí B-02-03-1, Slot trống, Help: B-02-03-1 · Slot trống
+					368 text Tầng 1
+					369 text Slot trống
+				370 button Description: Vị trí B-02-03-2, Slot trống, Help: B-02-03-2 · Slot trống
+					371 text Tầng 2
+					372 text Slot trống
+			373 container
+				374 checkbox Block C 2/12 vị trí Khu C — Container nặng & Chờ xuất, Value: 0
+					375 container
+						376 text Block  C
+					377 text 2
+					378 text /
+					379 text 12
+					380 text  vị trí
+					381 text Khu C — Container nặng & Chờ xuất
+				382 text Bay  1 Bay  2 Bay  3 1
+				383 button Description: Vị trí C-01-01-1, Có container, VSCU1049281, Help: C-01-01-1 · Có container · VSCU1049281
+					384 text Tầng 1
+					385 text VSCU1049281
+				386 button Description: Vị trí C-01-01-2, Slot trống, Help: C-01-01-2 · Slot trống
+					387 text Tầng 2
+					388 text Slot trống
+				389 button Description: Vị trí C-01-02-1, Có container, VSCU6748392, Help: C-01-02-1 · Có container · VSCU6748392
+					390 text Tầng 1
+					391 text VSCU6748392
+				392 button Description: Vị trí C-01-02-2, Slot trống, Help: C-01-02-2 · Slot trống
+					393 text Tầng 2
+					394 text Slot trống
+				395 button Description: Vị trí C-01-03-1, Slot trống, Help: C-01-03-1 · Slot trống
+					396 text Tầng 1
+					397 text Slot trống
+				398 button Description: Vị trí C-01-03-2, Slot trống, Help: C-01-03-2 · Slot trống
+					399 text Tầng 2
+					400 text Slot trống
+				401 text 2
+				402 button Description: Vị trí C-02-01-1, Slot trống, Help: C-02-01-1 · Slot trống
+					403 text Tầng 1
+					404 text Slot trống
+				405 button Description: Vị trí C-02-01-2, Slot trống, Help: C-02-01-2 · Slot trống
+					406 text Tầng 2
+					407 text Slot trống
+				408 button Description: Vị trí C-02-02-1, Slot trống, Help: C-02-02-1 · Slot trống
+					409 text Tầng 1
+					410 text Slot trống
+				411 button Description: Vị trí C-02-02-2, Slot trống, Help: C-02-02-2 · Slot trống
+					412 text Tầng 2
+					413 text Slot trống
+				414 button Description: Vị trí C-02-03-1, Slot trống, Help: C-02-03-1 · Slot trống
+					415 text Tầng 1
+					416 text Slot trống
+				417 button Description: Vị trí C-02-03-2, Slot trống, Help: C-02-03-2 · Slot trống
+					418 text Tầng 2
+					419 text Slot trống
+			420 container
+				421 checkbox Block D 2/12 vị trí Khu D — Container lạnh Reefer, Value: 0
+					422 container
+						423 text Block  D
+					424 text 2
+					425 text /
+					426 text 12
+					427 text  vị trí
+					428 text Khu D — Container lạnh Reefer
+				429 text Bay  1 Bay  2 Bay  3 1
+				430 button Description: Vị trí D-01-01-1, Có container, HACU4829103, Help: D-01-01-1 · Có container · HACU4829103
+					431 text Tầng 1
+					432 image Có nguồn điện lạnh
+					433 text HACU4829103
+				434 button Description: Vị trí D-01-01-2, Slot lạnh trống (Reefer), Help: D-01-01-2 · Slot lạnh trống (Reefer)
+					435 text Tầng 2
+					436 image Có nguồn điện lạnh
+					437 text Slot lạnh trống (Reefer)
+				438 button Description: Vị trí D-01-02-1, Có container, TCSU9283741, Help: D-01-02-1 · Có container · TCSU9283741
+					439 text Tầng 1
+					440 image Có nguồn điện lạnh
+					441 text TCSU9283741
+				442 button Description: Vị trí D-01-02-2, Slot lạnh trống (Reefer), Help: D-01-02-2 · Slot lạnh trống (Reefer)
+					443 text Tầng 2
+					444 image Có nguồn điện lạnh
+					445 text Slot lạnh trống (Reefer)
+				446 button Description: Vị trí D-01-03-1, Slot lạnh trống (Reefer), Help: D-01-03-1 · Slot lạnh trống (Reefer)
+					447 text Tầng 1
+					448 image Có nguồn điện lạnh
+					449 text Slot lạnh trống (Reefer)
+				450 button Description: Vị trí D-01-03-2, Slot lạnh trống (Reefer), Help: D-01-03-2 · Slot lạnh trống (Reefer)
+					451 text Tầng 2
+					452 image Có nguồn điện lạnh
+					453 text Slot lạnh trống (Reefer)
+				454 text 2
+				455 button Description: Vị trí D-02-01-1, Slot lạnh trống (Reefer), Help: D-02-01-1 · Slot lạnh trống (Reefer)
+					456 text Tầng 1
+					457 image Có nguồn điện lạnh
+					458 text Slot lạnh trống (Reefer)
+				459 button Description: Vị trí D-02-01-2, Slot lạnh trống (Reefer), Help: D-02-01-2 · Slot lạnh trống (Reefer)
+					460 text Tầng 2
+					461 image Có nguồn điện lạnh
+					462 text Slot lạnh trống (Reefer)
+				463 button Description: Vị trí D-02-02-1, Slot lạnh trống (Reefer), Help: D-02-02-1 · Slot lạnh trống (Reefer)
+					464 text Tầng 1
+					465 image Có nguồn điện lạnh
+					466 text Slot lạnh trống (Reefer)
+				467 button Description: Vị trí D-02-02-2, Slot lạnh trống (Reefer), Help: D-02-02-2 · Slot lạnh trống (Reefer)
+					468 text Tầng 2
+					469 image Có nguồn điện lạnh
+					470 text Slot lạnh trống (Reefer)
+				471 button Description: Vị trí D-02-03-1, Slot lạnh trống (Reefer), Help: D-02-03-1 · Slot lạnh trống (Reefer)
+					472 text Tầng 1
+					473 image Có nguồn điện lạnh
+					474 text Slot lạnh trống (Reefer)
+				475 button Description: Vị trí D-02-03-2, Slot lạnh trống (Reefer), Help: D-02-03-2 · Slot lạnh trống (Reefer)
+					476 text Tầng 2
+					477 image Có nguồn điện lạnh
+					478 text Slot lạnh trống (Reefer)
+			479 container
+				480 text Kho CFS Rút / đóng hàng
+				481 text Hạ tầng minh họa Khu kiểm tra Giám định / kiểm hóa
+				482 text Hạ tầng minh họa
+			483 text ĐƯỜNG ĐẢO CHUYỂN & PHÒNG CHÁY KẾT NỐI KHO / BÃI
+			484 heading Chi tiết Block A, Value: 3
+				485 text Chi tiết Block  A
+			486 container
+				487 text 8  có container ·  4  khả dụng ·  0  ngưng dùng
+			488 pop up button (collapsed, settable) Description: Chọn block chi tiết, Value: Block A, Secondary Actions: Expand
+				489 menu
+					490 (selected) Block A
+					491 Block B
+					492 Block C
+					493 Block D
+			494 pop up button (collapsed, settable) Description: Chọn tầng hiển thị, Value: Tất cả tầng, Secondary Actions: Expand
+				495 menu
+					496 (selected) Tất cả tầng
+					497 Tầng 1
+					498 Tầng 2
+			499 text field (settable) Tìm vị trí hoặc container trên bản đồ
+			500 container
+				501 text Bay  1 Bay  2 Bay  3 Row  1
+				502 button Description: Vị trí A-01-01-1, Có container, TCSU8849201, Help: A-01-01-1 · Có container · TCSU8849201
+					503 text A-01-01-1
+					504 text TCSU8849201
+					505 container
+						506 text 40GP  ·  Có container
+				507 button Description: Vị trí A-01-01-2, Có container, QAOU5007570, Hold, Help: A-01-01-2 · Có container · QAOU5007570
+					508 text A-01-01-2
+					509 text QAOU5007570
+					510 container
+						511 text 40HC  ·  Có container
+					512 text HOLD
+				513 button Description: Vị trí A-01-02-1, Có container, GLDU5739201, Help: A-01-02-1 · Có container · GLDU5739201
+					514 text A-01-02-1
+					515 text GLDU5739201
+					516 container
+						517 text 40HC  ·  Có container
+				518 button Description: Vị trí A-01-02-2, Có container, QAMU6102765, Help: A-01-02-2 · Có container · QAMU6102765
+					519 text A-01-02-2
+					520 text QAMU6102765
+					521 container
+						522 text 40HC  ·  Có container
+				523 button Description: Vị trí A-01-03-1, Có container, VFCU7482910, Help: A-01-03-1 · Có container · VFCU7482910
+					524 text A-01-03-1
+					525 text VFCU7482910
+					526 container
+						527 text 40GP  ·  Có container
+				528 button Description: Vị trí A-01-03-2, Có container, QAOU5007565, Help: A-01-03-2 · Có container · QAOU5007565
+					529 text A-01-03-2
+					530 text QAOU5007565
+					531 container
+						532 text 40HC  ·  Có container
+				533 text Row  2
+				534 button Description: Vị trí A-02-01-1, Slot trống, Help: A-02-01-1 · Slot trống
+					535 text A-02-01-1
+					536 text Slot trống
+					537 container
+						538 text ALL  ·  Slot trống
+				539 button Description: Vị trí A-02-01-2, Slot trống, Help: A-02-01-2 · Slot trống
+					540 text A-02-01-2
+					541 text Slot trống
+					542 container
+						543 text ALL  ·  Slot trống
+				544 button Description: Vị trí A-02-02-1, Có container, QAOU6004067, Help: A-02-02-1 · Có container · QAOU6004067
+					545 text A-02-02-1
+					546 text QAOU6004067
+					547 container
+						548 text 40HC  ·  Có container
+				549 button Description: Vị trí A-02-02-2, Slot trống, Help: A-02-02-2 · Slot trống
+					550 text A-02-02-2
+					551 text Slot trống
+					552 container
+						553 text ALL  ·  Slot trống
+				554 button Description: Vị trí A-02-03-1, Có container, QAOU4835930, Help: A-02-03-1 · Có container · QAOU4835930
+					555 text A-02-03-1
+					556 text QAOU4835930
+					557 container
+						558 text 40HC  ·  Có container
+				559 button Description: Vị trí A-02-03-2, Slot trống, Help: A-02-03-2 · Slot trống
+					560 text A-02-03-2
+					561 text Slot trống
+					562 container
+						563 text ALL  ·  Slot trống
+
+The focused UI element is 235 button Vận hành Bãi (Yard)

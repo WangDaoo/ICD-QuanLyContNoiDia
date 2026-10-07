@@ -1,0 +1,44 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { createReadCache, type ReadCacheScope } from './read-cache';
+import type { AuthUser } from '../features/auth/auth.types';
+export const readCache = createReadCache(AsyncStorage);
+const apiBaseUrl = (process.env.EXPO_PUBLIC_API_BASE_URL || '').replace(/\/+$/, '');
+const ACTIVE_PROFILE = 'icd.mobile.active-profile.v1.' + encodeURIComponent(apiBaseUrl);
+export const cacheScope = (user: AuthUser): ReadCacheScope => ({ userId: user.id, icdId: user.icdId, apiBaseUrl });
+let profileGeneration = 0;
+// AsyncStorage has no compare-and-set. Order complete profile saves and cleanup
+// so an old session cannot erase either the newer marker or its cached record.
+let profileMutation: Promise<void> = Promise.resolve();
+function mutateProfile(mutate: () => Promise<void>): Promise<void> {
+  const next = profileMutation.then(mutate, mutate);
+  profileMutation = next.catch(() => {});
+  return next;
+}
+export async function rememberProfile(user: AuthUser): Promise<void> {
+  const generation = profileGeneration;
+  const scope = cacheScope(user);
+  await mutateProfile(async () => {
+    if (generation !== profileGeneration) return;
+    await readCache.write(scope, 'profile', 'me', user);
+    if (generation === profileGeneration) await AsyncStorage.setItem(ACTIVE_PROFILE, JSON.stringify(scope));
+  });
+}
+export async function restoreCachedProfile(): Promise<AuthUser | null> {
+  try {
+    const raw = await AsyncStorage.getItem(ACTIVE_PROFILE);
+    if (!raw) return null;
+    const scope = JSON.parse(raw) as ReadCacheScope;
+    if (scope.apiBaseUrl !== apiBaseUrl || !scope.userId || !scope.icdId) return null;
+    const cached = await readCache.read<AuthUser>(scope, 'profile', 'me');
+    if (cached?.data.id !== scope.userId || cached.data.icdId !== scope.icdId || !Array.isArray(cached.data.permissionCodes) || !Array.isArray(cached.data.roleCodes)) return null;
+    return cached.data;
+  } catch { return null; }
+}
+export async function clearCachedSession(user: AuthUser | null): Promise<void> {
+  profileGeneration++;
+  await mutateProfile(async () => {
+    const cachedUser = user || await restoreCachedProfile();
+    await AsyncStorage.removeItem(ACTIVE_PROFILE);
+    if (cachedUser) await readCache.clearUser(cacheScope(cachedUser));
+  });
+}

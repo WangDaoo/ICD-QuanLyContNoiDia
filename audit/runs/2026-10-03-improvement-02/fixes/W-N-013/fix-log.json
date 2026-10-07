@@ -1,0 +1,24 @@
+{
+  "status": "VERIFIED",
+  "change": "Dùng ModalOverlay hiện có: chặn rời khi pending, xác nhận giữ draft, suspend lớp modal của màn ẩn. Browser Back/cancel giữ bản nháp; Back/accept rồi Forward mở lại đúng popup và giá trị chưa gửi.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/yard/YardOperations.tsx",
+      "line": 102,
+      "detail": "<ModalOverlay pending=",
+      "snippet": "    <ModalOverlay pending={pending} onClose={onClose} aria-labelledby={titleId}>\n    <div\n      className=\"fixed inset-0 z-50 flex items-center justify-center bg-slate-900/45 p-4\"\n      onMouseDown={(event) => {"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/yard-dialog-navigation-red.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/yard-dialog-navigation-green.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/yard-back-cancel-draft-2026-10-04.json",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/yard-back-forward-retained-draft-2026-10-04.json"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Meaningful RED/GREEN source regression; real API only if explicitly linked.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/yard/YardOperations.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

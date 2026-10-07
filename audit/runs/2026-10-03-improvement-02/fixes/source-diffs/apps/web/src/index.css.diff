@@ -1,0 +1,57 @@
+--- before/apps/web/src/index.css
++++ after/apps/web/src/index.css
+@@ -1,12 +1,52 @@
+ @import "tailwindcss";
+ 
++@theme {
++  --text-caption: .75rem;
++  --text-caption--line-height: 1rem;
++  --text-body: .875rem;
++  --text-body--line-height: 1.25rem;
++  --text-section: 1.125rem;
++  --text-section--line-height: 1.40625rem;
++  --text-page: 1.5rem;
++  --text-page--line-height: 1.875rem;
++}
++:root {
++  --icd-text-primary: #0f172a;
++  --icd-text-secondary: #475569;
++  --icd-text-on-dark-secondary: #cbd5e1;
++  --icd-focus: #2563eb;
++  --icd-state-hover: #eff6ff;
++  --icd-space-unit: .25rem;
++  --icd-motion-feedback: 150ms;
++  --icd-control-hover-brightness: .97;
++  --icd-login-grid: #1e3a8a;
++  --icd-yard-empty: #f8fafc;
++  --icd-yard-site: #eef2f6;
++  --icd-yard-block: #dce3ea;
++  --icd-yard-infrastructure: #e5eaf0;
++  --icd-yard-selection: #111827;
++}
++
+ html, body, #root { min-width: 320px; min-height: 100%; }
+-body { margin: 0; }
++body { margin: 0; line-height: 1.5; color: var(--icd-text-primary); }
++h1, h2, h3, h4, h5, h6 { line-height: 1.25; overflow-wrap: anywhere; }
++.text-slate-400, .text-slate-500 { color: var(--icd-text-secondary); }
++aside .text-slate-400, aside .text-slate-500 { color: var(--icd-text-on-dark-secondary); }
++.bg-slate-900 .text-slate-400, .bg-slate-900 .text-slate-500,
++.bg-slate-950 .text-slate-400, .bg-slate-950 .text-slate-500 { color: var(--icd-text-on-dark-secondary); }
++button, a, input, select, textarea { transition-property: background-color, color, border-color, opacity, filter; transition-duration: var(--icd-motion-feedback); transition-timing-function: ease-out; }
++:where(button, a, input, select, textarea, [role="button"]):hover:not(:disabled, [aria-disabled="true"]) { filter: brightness(var(--icd-control-hover-brightness)); }
++button:active:not(:disabled), a:active:not([aria-disabled="true"]) { filter: brightness(.92); }
++button:disabled { cursor: not-allowed; }
+ button, input, select, textarea { font: inherit; }
++input::placeholder, textarea::placeholder { color: var(--icd-text-secondary); opacity: 1; }
++:is(input, textarea):is(.bg-slate-800, .bg-slate-900, .bg-slate-950)::placeholder { color: var(--icd-text-on-dark-secondary); }
+ button:not(:disabled), [role="button"] { cursor: pointer; }
+-button:focus-visible, a:focus-visible { outline: 2px solid #2563eb; outline-offset: 3px; }
++button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--icd-focus); outline-offset: 3px; }
++[role="region"][tabindex="0"]:focus-visible { outline: 2px solid var(--icd-focus); outline-offset: 3px; }
+ .app-shell { display: flex; flex-direction: column; height: 100dvh; overflow: hidden; }
+ .app-content table { white-space: nowrap; }
++.app-view[hidden] { display: none; }
+ .app-content :is(input, select, textarea) { max-width: 100%; }
+ .app-content .overflow-hidden:has(> table) { overflow-x: auto; }
+ .app-content .fixed > div { max-height: calc(100dvh - 2rem); overflow-y: auto; }

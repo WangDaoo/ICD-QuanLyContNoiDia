@@ -1,0 +1,30 @@
+✖ Dashboard distinguishes successful dispatch from pending partner acknowledgement (235.357ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6317.7584
+
+✖ failing tests:
+
+test at audit\tools\dashboard-edi-regression.test.mjs:8:1
+✖ Dashboard distinguishes successful dispatch from pending partner acknowledgement (235.357ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Gửi: SENT/. Input:
+  
+  'Vận hành EDI (CODECO)Shipping LinesThông điệp gửi tự động cho hãng tàu khi Gate-in và Gate-out thành công.AUDU0000000CODECO_GATE_IN · Hãng: TestPENDINGXem toàn bộ Outbox EDI →'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/dashboard-edi-regression.test.mjs:13:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Vận hành EDI (CODECO)Shipping LinesThông điệp gửi tự động cho hãng tàu khi Gate-in và Gate-out thành công.AUDU0000000CODECO_GATE_IN · Hãng: TestPENDINGXem toàn bộ Outbox EDI →',
+    expected: /Gửi: SENT/,
+    operator: 'match',
+    diff: 'simple'
+  }

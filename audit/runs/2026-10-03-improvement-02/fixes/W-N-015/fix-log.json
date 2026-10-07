@@ -1,0 +1,21 @@
+{
+  "status": "VERIFIED",
+  "change": "URL docs dùng cùng API_BASE_URL với HTTP client; kiểm chứng đúng API3001 trong môi trường test.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/HandoversView.tsx",
+      "line": 223,
+      "detail": "API_BASE_URL.replace",
+      "snippet": "            href={`${API_BASE_URL.replace(/\\/$/, '')}/docs`}\n            target=\"_blank\"\n            rel=\"noreferrer\"\n            className=\"px-4 py-2 rounded-lg border border-slate-300 text-sm font-semibold\""
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/browser/handover-docs-link-runtime.json"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Meaningful RED/GREEN source regression; real API only if explicitly linked.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/HandoversView.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

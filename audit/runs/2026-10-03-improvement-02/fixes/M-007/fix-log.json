@@ -1,0 +1,22 @@
+{
+  "status": "FIXED",
+  "change": "Seal/condition checks omit damage severity; damage surveys retain canonical severity.",
+  "source_evidence": [
+    {
+      "file": "apps/mobile/src/features/yard/screens/SurveyHomeScreen.tsx",
+      "line": 35,
+      "detail": "DAMAGE_SURVEY",
+      "snippet": "  const [inspectionType, setInspectionType] = useState('DAMAGE_SURVEY');\n  const [confirm, setConfirm] = useState(false);\n  const [severity, setSeverity] = useState('Nhẹ');\n  const [rows, setRows] = useState<InspectionRecord[]>([]);"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+  ],
+  "limitations": "Mode-switch payload fixture; native flow/popup pending.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/features/yard/screens/SurveyHomeScreen.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

@@ -1,0 +1,174 @@
+--- before/apps/web/src/types.ts
++++ after/apps/web/src/types.ts
+@@ -2,26 +2,21 @@
+  * ICD Management System v1.7 — Types & Interfaces
+  */
+ 
+-export type UserRole = 
+-  | 'ADMIN'
+-  | 'MANAGER'
+-  | 'OPERATOR'
+-  | 'GATE_STAFF'
+-  | 'YARD_STAFF'
+-  | 'AGENT'
+-  | 'CONSIGNEE';
++// Role codes are configurable in the backend catalog.
++export type UserRole = string;
+ 
+ export interface User {
+   id: string;
+   name: string;
+   email: string;
+   role: UserRole;
++  roleCodes?: string[];
+   active: boolean;
+   consigneeId?: string;
+   permissionCodes?: string[];
+ }
+ 
+-export type ContainerState = 
++export type ContainerState =
+   | 'PENDING'
+   | 'AUTHORIZED'
+   | 'IN_YARD'
+@@ -34,13 +29,7 @@
+ 
+ export type ContainerType = '20GP' | '40GP' | '40HC' | '20RF' | '45HC';
+ 
+-export type HoldType = 
+-  | 'CUSTOMS'
+-  | 'SHIPPING_LINE'
+-  | 'DAMAGE'
+-  | 'SECURITY'
+-  | 'DOCUMENT'
+-  | 'OTHER';
++export type HoldType = 'CUSTOMS' | 'SHIPPING_LINE' | 'DAMAGE' | 'SECURITY' | 'DOCUMENT' | 'OTHER';
+ 
+ export interface OperationalHold {
+   id: string;
+@@ -143,7 +132,7 @@
+   bayNo: number | string;
+   tierNo: number | string;
+   slotCode: string; // e.g. A-02-03-1
+-  supportedType?: ContainerType | 'ALL';
++  supportedType?: string;
+   reeferPower: boolean;
+   maxWeightKg: number;
+   operational: boolean;
+@@ -177,7 +166,7 @@
+   containerVisitId: string;
+   containerNumber: string;
+   inspectionType: 'Hải quan' | 'Nội bộ' | 'Kiểm dịch';
+-  status: 'PENDING' | 'IN_PROGRESS' | 'COMPLETED';
++  status: 'PENDING' | 'IN_PROGRESS' | 'COMPLETED' | 'CANCELLED';
+   result?: 'PASS' | 'FAIL' | 'HOLD';
+   notes?: string;
+   inspectorName?: string;
+@@ -195,17 +184,20 @@
+   status: 'PENDING' | 'IN_PROGRESS' | 'COMPLETED' | 'CANCELLED';
+   actualPackages?: number;
+   actualWeightKg?: number;
++  conditionNotes?: string;
+   notes?: string;
+ }
+ 
+ // Module 5: Billing
++export interface ServiceType { id: string; code: string; name: string; unit: string; }
+ export interface TariffRule {
+   id: string;
+-  serviceType: 'RECEPTION' | 'STORAGE' | 'STRIPPING' | 'INSPECTION' | 'MOVEMENT';
++  serviceType: string;
+   serviceName: string;
+-  containerType?: ContainerType | 'ALL';
++  containerType?: string;
++  containerSize?: string;
+   unitPriceVnd: number;
+-  unit: 'lần' | 'ngày' | 'container';
++  unit: string;
+   freeDays?: number;
+ }
+ 
+@@ -250,7 +242,7 @@
+   paymentRef: string;
+   invoiceId: string;
+   amountVnd: number;
+-  method: 'CHUYEN_KHOAN' | 'TIEN_MAT' | 'THE';
++  method: 'CHUYEN_KHOAN' | 'TIEN_MAT' | 'THE' | 'UNKNOWN';
+   paidAt: string;
+   recordedBy: string;
+   notes?: string;
+@@ -276,7 +268,7 @@
+   consigneeName: string;
+   issuedAt: string;
+   expiresAt: string;
+-  status: 'ACTIVE' | 'USED' | 'EXPIRED' | 'CANCELLED';
++  status: 'ACTIVE' | 'USED' | 'EXPIRED' | 'CANCELLED' | 'UNKNOWN';
+   vehiclePlate: string;
+   receiverName: string;
+   receiverIdNumber: string;
+@@ -286,13 +278,8 @@
+ 
+ // Module 10: Smart Work Queue
+ export type TaskUrgency = 'OVERDUE' | 'HIGH' | 'MEDIUM' | 'NORMAL';
+-export type TaskType = 
+-  | 'GATE_IN'
+-  | 'YARD_ASSIGN'
+-  | 'YARD_OPERATIONS'
+-  | 'BILLING'
+-  | 'GATE_OUT'
+-  | 'HANDOVER_REVIEW';
++export type TaskType =
++  'GATE_IN' | 'YARD_ASSIGN' | 'YARD_OPERATIONS' | 'BILLING' | 'GATE_OUT' | 'HANDOVER_REVIEW';
+ 
+ export interface WorkQueueTask {
+   id: string;
+@@ -302,6 +289,8 @@
+   subtitle: string;
+   containerNumber: string;
+   containerVisitId: string;
++  entityType?: string;
++  entityId?: string;
+   assignedRoles: UserRole[];
+   deadline: string;
+   timeRemainingText: string;
+@@ -319,12 +308,13 @@
+   lastError?: string;
+   createdAt: string;
+   sentAt?: string;
+-  ackStatus?: 'ACCEPTED' | 'REJECTED' | 'PENDING';
++  ackStatus?: 'ACCEPTED' | 'REJECTED' | 'ERROR' | 'UNMATCHED';
+   ackReference?: string;
++  payloadSnapshot?: JsonValue;
+ }
+ 
+ // Module 13: Partner Handover
+-export type HandoverStatus = 
++export type HandoverStatus =
+   | 'DRAFT'
+   | 'READY_FOR_HANDOVER'
+   | 'PARTNER_ACCEPTED'
+@@ -366,7 +356,13 @@
+ export interface TransportConfirmation {
+   id: string;
+   handoverId: string;
+-  confirmationType: 'PARTNER_ACCEPTED' | 'IN_TRANSIT' | 'WAREHOUSE_RECEIVED' | 'DELIVERY_FAILED' | 'ICD_CONFIRMED' | 'DISPUTE';
++  confirmationType:
++    | 'PARTNER_ACCEPTED'
++    | 'IN_TRANSIT'
++    | 'WAREHOUSE_RECEIVED'
++    | 'DELIVERY_FAILED'
++    | 'ICD_CONFIRMED'
++    | 'DISPUTE';
+   confirmedAt: string;
+   receiverName?: string;
+   receiverPhone?: string;
+@@ -411,7 +407,8 @@
+   disputeNote?: string;
+ }
+ 
+-export type JsonValue = string | number | boolean | null | JsonValue[] | { [key: string]: JsonValue };
++export type JsonValue =
++  string | number | boolean | null | JsonValue[] | { [key: string]: JsonValue };
+ 
+ export interface PartnerApiLog {
+   id: string;

@@ -1,0 +1,66 @@
+✖ existing Gate Pass route wins over the linked visit and never opens another issue form (457.2437ms)
+✖ loading a newly expired pass evaluates against the current clock rather than the initial render (19.8696ms)
+✖ an open role permission editor stops offering writes after a same-user permission downgrade (38.8559ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 0
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4847.702
+
+✖ failing tests:
+
+test at audit\tools\improvement-web-business-independent.test.mjs:50:1
+✖ existing Gate Pass route wins over the linked visit and never opens another issue form (457.2437ms)
+  AssertionError [ERR_ASSERTION]: existing pass destination must not open issue dialog
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:53:12)
+      at async withFixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:46:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:51:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\improvement-web-business-independent.test.mjs:59:1
+✖ loading a newly expired pass evaluates against the current clock rather than the initial render (19.8696ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'ACTIVE'
+  - 'EXPIRED'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:71:14)
+      at async withFixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:46:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:67:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'ACTIVE',
+    expected: 'EXPIRED',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\improvement-web-business-independent.test.mjs:76:1
+✖ an open role permission editor stops offering writes after a same-user permission downgrade (38.8559ms)
+  AssertionError [ERR_ASSERTION]: read-only user must not retain an enabled permission command
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:85:12)
+      at async withFixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:46:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:77:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

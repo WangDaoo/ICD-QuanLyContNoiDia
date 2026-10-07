@@ -1,0 +1,74 @@
+✖ an unavailable notification read never announces a verified zero unread (169.6939ms)
+✖ a stale notification count identifies that it has not been refreshed (24.7495ms)
+✖ failed container read leaves the global Holds check explicitly incomplete (20.9817ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 0
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4538.3692
+
+✖ failing tests:
+
+test at audit\tools\header-availability-regression.test.mjs:16:1
+✖ an unavailable notification read never announces a verified zero unread (169.6939ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /0 chưa đọc/. Input:
+  
+  'Thông báo (0 chưa đọc)'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/header-availability-regression.test.mjs:17:62)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Thông báo (0 chưa đọc)',
+    expected: /0 chưa đọc/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\header-availability-regression.test.mjs:20:1
+✖ a stale notification count identifies that it has not been refreshed (24.7495ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /chưa cập nhật/i. Input:
+  
+  'Thông báo (1 chưa đọc)'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/header-availability-regression.test.mjs:22:50)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Thông báo (1 chưa đọc)',
+    expected: /chưa cập nhật/i,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at audit\tools\header-availability-regression.test.mjs:24:1
+✖ failed container read leaves the global Holds check explicitly incomplete (20.9817ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Holds chưa kiểm tra đủ/. Input:
+  
+  'ICDICD Management SystemCảng cạn & kho bãi container nội địaĐã kết nốiFixtureVIEWER'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/header-availability-regression.test.mjs:25:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'ICDICD Management SystemCảng cạn & kho bãi container nội địaĐã kết nốiFixtureVIEWER',
+    expected: /Holds chưa kiểm tra đủ/,
+    operator: 'match',
+    diff: 'simple'
+  }

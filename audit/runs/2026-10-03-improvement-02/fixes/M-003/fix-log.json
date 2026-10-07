@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED",
+  "method": "Prior accepted fix retained; fresh regression suite rechecked.",
+  "source_evidence": [
+    {
+      "file": "apps/mobile/src/navigation/MainTabNavigator.tsx",
+      "line": 27,
+      "detail": "if (!tabs.length)",
+      "snippet": "  if (!tabs.length) return <ForbiddenScreen message=\"Tài khoản chưa được cấp quyền sử dụng chức năng hiện trường. Liên hệ quản trị viên để được cấp quyền.\" onOpenAccount={() => navigation.navigate('Account')} />;\n  return <Tab.Navigator tabBar={props => <ResponsiveTabBar {...props} visibleTabs={tabs} />} screenOptions={{ headerShown: false,\n    tabBarStyle: { backgroundColor: theme.colors.chrome, borderTopColor: theme.colors.border, height: 62 + insets.bottom, paddingTop: 5, paddingBottom: Math.max(insets.bottom, 5) },\n    tabBarActiveTintColor: theme.colors.info, tabBarInactiveTintColor: theme.colors.textMuted,"
+    }
+  ],
+  "limitations": "Điều hướng zero-tab và hủy/xác nhận đăng xuất được kiểm bằng fixture. Native zero-tab UNKNOWN vì không có tài khoản tương ứng; native ADMIN chỉ mở/hủy đăng xuất, không đăng xuất thật.",
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/web-old-regressions-final.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/web-old-billing-final.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+  ],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/navigation/MainTabNavigator.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

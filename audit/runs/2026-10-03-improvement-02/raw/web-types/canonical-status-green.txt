@@ -1,0 +1,24 @@
+✔ canonical nested operation pages retain older active work after the first 100 rows (4.1784ms)
+✔ nested metadata governs paging even when a page has fewer rows than pageSize (0.327ms)
+✔ flat data and items envelopes preserve their pagination behavior (0.4975ms)
+✔ arrays and unpaged envelopes return their rows without an extra request (0.4615ms)
+✔ a failed later page rejects instead of returning a silently truncated collection (1.5556ms)
+✔ malformed pagination does not permit an unbounded or truncated successful load (0.2795ms)
+✔ malformed collection data is reported as unavailable rather than an empty success (0.2063ms)
+✔ present pagination metadata cannot omit the number of pages (0.3476ms)
+✔ missing pagination on a later page cannot claim a completed collection (0.3088ms)
+✔ cancelled inspections retain their terminal backend status (2.3868ms)
+✔ tariff rules preserve service codes and units from the backend catalogue (0.498ms)
+✔ unrecognized and absent gate-pass states never grant an active pass (0.3611ms)
+✔ whitespace cannot be presented as a known zero financial balance (1.1654ms)
+✔ outbox without acknowledgement data does not invent a pending acknowledgement (0.4808ms)
+✔ acknowledgement errors and unmatched statuses retain the backend status (0.443ms)
+✔ yard slot restrictions preserve canonical type codes rather than becoming ALL (0.4644ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 641.1359

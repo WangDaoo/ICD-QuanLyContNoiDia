@@ -1,0 +1,11 @@
+--- before/apps/mobile/src/components/EmptyState.tsx
++++ after/apps/mobile/src/components/EmptyState.tsx
+@@ -21,7 +21,7 @@
+   return (
+     <View style={styles.container}>
+       {iconText ? <Text style={styles.icon}>{iconText}</Text> : <ClipboardList size={24} strokeWidth={1.5} color={theme.colors.textMuted} style={{ marginBottom: 10 }} />}
+-      <Text style={styles.title}>{title}</Text>
++      <Text accessibilityRole="header" style={styles.title}>{title}</Text>
+       <Text style={styles.description}>{description}</Text>
+     </View>
+   );

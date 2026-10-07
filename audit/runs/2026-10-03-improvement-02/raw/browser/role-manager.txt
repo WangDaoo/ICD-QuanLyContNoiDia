@@ -1,0 +1,151 @@
+- link "Đến nội dung nghiệp vụ":
+  - /url: "#main-content"
+- banner:
+  - generic: ICD
+  - heading "ICD Management System" [level=1]
+  - paragraph: Cảng cạn & kho bãi container nội địa
+  - text: 2 lệnh giữ
+  - text: Đã kết nối
+  - button "Tải lại dữ liệu":
+  - button "Thông báo (0 chưa đọc)":
+  - generic: UI Audit MANAGER
+  - generic: MANAGER
+  - button "Đăng xuất":
+- complementary "Điều hướng nghiệp vụ":
+  - generic: Tổng quan & Điều phối
+  - button "Tổng quan vận hành":
+    - generic: Tổng quan vận hành
+  - button "Danh sách công việc 12":
+    - generic: Danh sách công việc
+    - generic: "12"
+  - generic: Quản lý Hàng hóa & Cổng
+  - button "Bản lược khai (Manifest)":
+    - generic: Bản lược khai (Manifest)
+  - button "Quản lý Container":
+    - generic: Quản lý Container
+  - button "Movement Order":
+    - generic: Movement Order
+  - button "Chuyến xe ra/vào":
+    - generic: Chuyến xe ra/vào
+  - button "Vận hành Bãi (Yard)":
+    - generic: Vận hành Bãi (Yard)
+  - generic: Tài chính & Ra cổng
+  - button "Dịch vụ & Thanh toán":
+    - generic: Dịch vụ & Thanh toán
+  - button "Vận hành EDI (CODECO)":
+    - generic: Vận hành EDI (CODECO)
+  - generic: Tích hợp đối tác
+  - button "Bàn giao vận chuyển":
+    - generic: Bàn giao vận chuyển
+  - button "Nhật ký API đối tác":
+    - generic: Nhật ký API đối tác
+  - generic: Hệ thống & Quản trị
+  - button "Danh mục dùng chung":
+    - generic: Danh mục dùng chung
+  - button "Người dùng & Phân quyền":
+    - generic: Người dùng & Phân quyền
+  - button "Báo cáo vận hành":
+    - generic: Báo cáo vận hành
+  - button "Nhật ký kiểm toán":
+    - generic: Nhật ký kiểm toán
+  - generic: UI Audit MANAGER
+  - generic: ui-manager@audit.icd.test
+  - generic: MANAGER
+- main:
+  - heading "Có 10 tác vụ QUÁ HẠN SLA trong Danh sách công việc!" [level=2]
+  - paragraph: "Đóng hàng tại bãi: AUDU0424930 | Đóng hàng tại bãi: AUDU2384570 | Đảo chuyển bãi: AUDU0424930 | Đảo chuyển bãi: AUDU2384570 | Tiếp nhận cổng cho container AUDU0424946 | Giám định bãi: AUDU0424930 | Tiếp nhận cổng cho container AUDU2384586 | Giám định bãi: AUDU2384570 | Xác nhận Service Order SO-20261003-E2BC16E87603 | Xác nhận Service Order SO-20261003-14A0E6507D53"
+  - button "Xử lý ngay →"
+  - generic: Container trong Bãi
+  - generic: "11"
+  - generic: / 56 vị trí
+  - generic: "Sức chứa bãi:"
+  - generic: 20%
+  - generic: Cần xử lý (Work Queue)
+  - generic: "12"
+  - generic: 10 Quá hạn SLA
+  - generic: "Độ ưu tiên cao:"
+  - generic: 0 tác vụ
+  - button "Xem danh sách công việc →"
+  - generic: Doanh thu & Công nợ
+  - generic: 1.1 tr₫
+  - generic: đã thu
+  - generic: "Công nợ chưa thu:"
+  - generic: 0.0 tr₫
+  - generic: Phiếu Ra Cổng & Xuất Bãi
+  - generic: "0"
+  - generic: 2 đã xuất cổng
+  - generic: "Sẵn sàng ra cổng:"
+  - generic: Kiểm tra phiếu & điều kiện
+  - heading "Hoạt động Cổng & Chuyến xe (Truck Visits)" [level=2]
+  - paragraph: Lịch hẹn Gate Appointment và tình trạng tiếp nhận
+  - button "Xem tất cả":
+    - generic: Xem tất cả
+  - generic: AUD25157BF4
+  - generic: ·
+  - generic: Synthetic Audit Driver
+  - generic: "AUD25157BF4 Audit Transporter · Cont: AUDU2384565, AUDU2384570, AUDU2384586"
+  - generic: IN_PROGRESS
+  - generic: AUDIT
+  - generic: AUDD174DD12
+  - generic: ·
+  - generic: Synthetic Audit Driver
+  - generic: "AUDD174DD12 Audit Transporter · Cont: AUDU0424925, AUDU0424930, AUDU0424946"
+  - generic: IN_PROGRESS
+  - generic: AUDIT
+  - heading "Cảnh báo thời gian lưu bãi 0 container" [level=2]:
+    - generic: Cảnh báo thời gian lưu bãi
+    - generic: 0 container
+  - paragraph: Container gần hoặc vượt ngưỡng cảnh báo từ backend. Phí thực tế xem tại Dịch vụ & Thanh toán.
+  - button "Tính phí lưu kho":
+    - generic: Tính phí lưu kho
+  - status:
+    - paragraph: Chưa có dữ liệu trong danh sách này.
+  - region "Cảnh báo thời gian lưu bãi":
+    - table:
+      - rowgroup:
+        - row "Số Container Chủ hàng (Consignee) Vị trí Ngày vào cổng Tình trạng":
+          - columnheader "Số Container"
+          - columnheader "Chủ hàng (Consignee)"
+          - columnheader "Vị trí"
+          - columnheader "Ngày vào cổng"
+          - columnheader "Tình trạng"
+      - rowgroup
+  - heading "Kiểm soát Lệnh Giữ (Operational Holds)" [level=2]:
+    - generic: Kiểm soát Lệnh Giữ (Operational Holds)
+  - generic: 2 đang khóa
+  - paragraph: Các chốt chặn kiểm soát pháp lý, hải quan, cước hãng tàu và hư hỏng trước khi cho phép ra cổng.
+  - generic: AUDU2384570
+  - generic: CUSTOMS
+  - generic: Synthetic active UI fixture
+  - generic: Đang giữ
+  - generic: AUDU2384565
+  - generic: DOCUMENT
+  - generic: Synthetic audit hold
+  - generic: Đã gỡ
+  - generic: AUDU0424930
+  - generic: CUSTOMS
+  - generic: Synthetic active UI fixture
+  - generic: Đang giữ
+  - heading "Vận hành EDI (CODECO)" [level=2]:
+    - generic: Vận hành EDI (CODECO)
+  - generic: Shipping Lines
+  - paragraph: Thông điệp gửi tự động cho hãng tàu khi Gate-in và Gate-out thành công.
+  - generic: AUDU2384565
+  - generic: "CODECO_GATE_OUT · Hãng: AUD25157BF4 Audit Shipping"
+  - generic: "Gửi: SENT"
+  - generic: AUDU2384570
+  - generic: "CODECO_GATE_IN · Hãng: AUD25157BF4 Audit Shipping"
+  - generic: "Gửi: SENT"
+  - generic: AUDU2384565
+  - generic: "CODECO_GATE_IN · Hãng: AUD25157BF4 Audit Shipping"
+  - generic: "Gửi: SENT"
+  - generic: AUDU0424925
+  - generic: "CODECO_GATE_OUT · Hãng: AUDD174DD12 Audit Shipping"
+  - generic: "Gửi: SENT"
+  - generic: AUDU0424930
+  - generic: "CODECO_GATE_IN · Hãng: AUDD174DD12 Audit Shipping"
+  - generic: "Gửi: SENT"
+  - generic: AUDU0424925
+  - generic: "CODECO_GATE_IN · Hãng: AUDD174DD12 Audit Shipping"
+  - generic: "Gửi: SENT"
+  - button "Xem toàn bộ Outbox EDI →"

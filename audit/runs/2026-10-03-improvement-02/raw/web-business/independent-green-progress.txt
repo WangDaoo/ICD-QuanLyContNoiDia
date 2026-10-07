@@ -1,0 +1,14 @@
+✔ existing Gate Pass route wins over the linked visit and never opens another issue form (305.195ms)
+✔ a visit-only Gate Pass URL requires the explicit create intent before opening its form (32.7774ms)
+✔ explicit create intent opens the issue form unless an existing pass is the canonical destination (109.1231ms)
+✔ loading a newly expired pass evaluates against the current clock rather than the initial render (16.9031ms)
+✔ an open role permission editor stops offering writes after a same-user permission downgrade (37.9272ms)
+✔ refreshed expired pass removes token QR and Gate-out action from its selected detail (35.7702ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5048.4621

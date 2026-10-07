@@ -1,0 +1,146 @@
+✖ M-001 header actions retain 48dp targets at 320dp and 150% text (183.1048ms)
+✖ M-001 shared buttons, fields and chips enforce 48dp minima (35.508ms)
+✖ M-001 picker rows and close have 48dp targets and close without selecting (98.8368ms)
+✖ M-001 dialog preserves busy dismissal protection and 48dp controls (32.8146ms)
+✖ M-001 scanner and yard block/tier/detail controls meet 48dp (207.5908ms)
+✖ M-002 semantic labels and danger confirmation satisfy 4.5:1 in both themes (27.7005ms)
+✖ M-003 zero-tab fixture reaches Account and existing controlled logout (38.9787ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 0
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1176.6845
+
+✖ failing tests:
+
+test at apps\mobile\tests\priority-accessibility.test.cjs:111:1
+✖ M-001 header actions retain 48dp targets at 320dp and 150% text (183.1048ms)
+  AssertionError [ERR_ASSERTION]: Quay lại: target height below 48dp
+      at target (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\priority-accessibility.test.cjs:99:10)
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\priority-accessibility.test.cjs:115:41)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at apps\mobile\tests\priority-accessibility.test.cjs:120:1
+✖ M-001 shared buttons, fields and chips enforce 48dp minima (35.508ms)
+  AssertionError [ERR_ASSERTION]: Save: target height below 48dp
+      at target (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\priority-accessibility.test.cjs:99:10)
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\priority-accessibility.test.cjs:122:3)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at apps\mobile\tests\priority-accessibility.test.cjs:129:1
+✖ M-001 picker rows and close have 48dp targets and close without selecting (98.8368ms)
+  AssertionError [ERR_ASSERTION]: Chọn…: target height below 48dp
+      at target (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\priority-accessibility.test.cjs:99:10)
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\priority-accessibility.test.cjs:136:41)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at apps\mobile\tests\priority-accessibility.test.cjs:142:1
+✖ M-001 dialog preserves busy dismissal protection and 48dp controls (32.8146ms)
+  AssertionError [ERR_ASSERTION]: : target height below 48dp
+      at target (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\priority-accessibility.test.cjs:99:10)
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\priority-accessibility.test.cjs:148:39)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at apps\mobile\tests\priority-accessibility.test.cjs:155:1
+✖ M-001 scanner and yard block/tier/detail controls meet 48dp (207.5908ms)
+  AssertionError [ERR_ASSERTION]: : target height below 48dp
+      at target (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\priority-accessibility.test.cjs:99:10)
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\priority-accessibility.test.cjs:158:132)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at apps\mobile\tests\priority-accessibility.test.cjs:168:1
+✖ M-002 semantic labels and danger confirmation satisfy 4.5:1 in both themes (27.7005ms)
+  AssertionError [ERR_ASSERTION]: light success: 3.5771194308164076
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\priority-accessibility.test.cjs:175:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at apps\mobile\tests\priority-accessibility.test.cjs:192:1
+✖ M-003 zero-tab fixture reaches Account and existing controlled logout (38.9787ms)
+  AssertionError [ERR_ASSERTION]: zero-tab fallback must offer Account
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\priority-accessibility.test.cjs:197:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

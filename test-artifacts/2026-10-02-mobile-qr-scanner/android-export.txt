@@ -1,0 +1,23 @@
+env: load .env
+env: export EXPO_PUBLIC_API_BASE_URL
+Expo Autolinking module resolution enabled
+Starting Metro Bundler
+
+| (node:35216) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+| (Use `node --trace-warnings ...` to show where the warning was created)
+Android Bundled 30012ms apps\mobile\index.ts (2676 modules)
+
+› Assets (17):
+..\..\node_modules\.pnpm\@react-navigation+elements@_e637549d52f3b4396f51ee6f2827a286\node_modules\@react-navigation\elements\lib\module\assets\back-icon-mask.png (653B)
+..\..\node_modules\.pnpm\@react-navigation+elements@_e637549d52f3b4396f51ee6f2827a286\node_modules\@react-navigation\elements\lib\module\assets\back-icon.png (4 variations | 152B)
+..\..\node_modules\.pnpm\@react-navigation+elements@_e637549d52f3b4396f51ee6f2827a286\node_modules\@react-navigation\elements\lib\module\assets\clear-icon.png (4 variations | 425B)
+..\..\node_modules\.pnpm\@react-navigation+elements@_e637549d52f3b4396f51ee6f2827a286\node_modules\@react-navigation\elements\lib\module\assets\close-icon.png (4 variations | 235B)
+..\..\node_modules\.pnpm\@react-navigation+elements@_e637549d52f3b4396f51ee6f2827a286\node_modules\@react-navigation\elements\lib\module\assets\search-icon.png (4 variations | 599B)
+
+› android bundles (1):
+_expo/static/js/android/index-3d24005e604be445ff249dee8bbbce3f.hbc (4.3MB)
+
+› Files (1):
+metadata.json (1.2KB)
+
+Exported: ../../test-artifacts/2026-10-02-mobile-qr-scanner/android-export

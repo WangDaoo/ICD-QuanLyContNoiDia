@@ -1,0 +1,29 @@
+--- before/apps/web/src/components/TruckVisitsView.tsx
++++ after/apps/web/src/components/TruckVisitsView.tsx
+@@ -95,7 +95,7 @@
+               action.clear();
+               setShowCreateModal(true);
+             }}
+-            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-lg transition shadow-xs flex items-center space-x-1.5"
++            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-lg transition shadow-xs flex items-center space-x-2"
+           >
+             <Plus className="w-4 h-4" />
+             <span>Tạo Chuyến xe mới</span>
+@@ -136,7 +136,7 @@
+             <div className="flex items-center justify-between">
+               <div className="flex items-center space-x-2">
+                 <span
+-                  className={`p-1.5 rounded-lg ${tv.visitType === 'GATE_IN' ? 'bg-emerald-100 text-emerald-800' : 'bg-blue-100 text-blue-800'}`}
++                  className={`p-2 rounded-lg ${tv.visitType === 'GATE_IN' ? 'bg-emerald-100 text-emerald-800' : 'bg-blue-100 text-blue-800'}`}
+                 >
+                   {tv.visitType === 'GATE_IN' ? (
+                     <LogIn className="w-4 h-4" />
+@@ -147,7 +147,7 @@
+                 <span className="font-mono font-bold text-sm text-slate-900">{tv.visitCode}</span>
+               </div>
+               <span
+-                className={`px-2.5 py-0.5 rounded-full text-xs font-bold ${
++                className={`px-3 py-1 rounded-full text-xs font-bold ${
+                   tv.status === 'ARRIVED'
+                     ? 'bg-amber-100 text-amber-800 border border-amber-300'
+                     : tv.status === 'COMPLETED'

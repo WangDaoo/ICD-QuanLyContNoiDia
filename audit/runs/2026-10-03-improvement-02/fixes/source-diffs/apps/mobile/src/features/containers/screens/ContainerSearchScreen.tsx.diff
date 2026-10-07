@@ -1,0 +1,16 @@
+--- before/apps/mobile/src/features/containers/screens/ContainerSearchScreen.tsx
++++ after/apps/mobile/src/features/containers/screens/ContainerSearchScreen.tsx
+@@ -1,3 +1,4 @@
++import { displayCode } from '../../../presentation/labels';
+ import { useCallback, useRef, useState } from 'react';
+ import { Text, TouchableOpacity } from 'react-native';
+ import { useFocusEffect, useNavigation } from '@react-navigation/native';
+@@ -33,7 +34,7 @@
+     {error ? <Notice message={error} /> : null}
+     {searched && !loading && rows.length === 0 ? <EmptyState title="Không tìm thấy container" description="Kiểm tra số container hoặc thử từ khóa khác." /> : null}
+     {rows.map(row => <TouchableOpacity key={row.id} accessibilityRole="button" onPress={() => navigation.navigate('ContainerDetail',{visitId:row.id,containerNo:row.container.containerNumber})}>
+-      <Card title={row.container.containerNumber}><StatusBadge label={row.state} variant="info" /><Text style={fieldStyles.value}>{row.container.isoCode} · {row.houseBl?.consignee?.name || 'Chưa có chủ hàng'}</Text></Card>
++      <Card title={row.container.containerNumber}><StatusBadge label={displayCode(row.state)} variant="info" /><Text style={fieldStyles.value}>{row.container.isoCode} · {row.houseBl?.consignee?.name || 'Chưa có chủ hàng'}</Text></Card>
+     </TouchableOpacity>)}
+   </ScreenLayout>;
+ }

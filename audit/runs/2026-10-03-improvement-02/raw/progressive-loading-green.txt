@@ -1,0 +1,15 @@
+✔ a completed resource is published while an unrelated read remains pending (178.3064ms)
+✔ publication waits for complete and valid pagination without waiting on unrelated reads (22.7148ms)
+✔ a malformed financial response becomes unavailable before any false zero is published (19.0618ms)
+✔ a late previous-session resource cannot replace a progressively published new-session resource (31.2388ms)
+✔ transient read failure preserves stale rows and a forbidden read removes them immediately (30.3177ms)
+✔ refresh invalidates old safety readiness until both authoritative safety reads finish (30.9981ms)
+✔ early manifest role and handover lists expose pending detail availability (19.8249ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6208.8718

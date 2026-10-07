@@ -1,0 +1,52 @@
+--- before/apps/mobile/src/features/yard/components/YardSlotGrid.tsx
++++ after/apps/mobile/src/features/yard/components/YardSlotGrid.tsx
+@@ -1,3 +1,4 @@
++import { displayCode } from '../../../presentation/labels';
+ import { useMemo, useState } from 'react';
+ import { Modal, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+ import { useTheme } from '../../../theme/ThemeProvider';
+@@ -22,7 +23,7 @@
+ };
+ 
+ const CELL_WIDTH = 104;
+-const CELL_GAP = 6;
++const CELL_GAP = 8;
+ const ROW_LABEL_WIDTH = 64;
+ const INSPECTION_STATUS_LABELS: Record<string, string> = {
+   REQUESTED: 'Chờ kiểm định',
+@@ -162,7 +163,7 @@
+             <ScrollView
+               horizontal
+               showsHorizontalScrollIndicator
+-              contentContainerStyle={{ gap: 6 }}
++              contentContainerStyle={{ gap: 8 }}
+               accessibilityLabel="Chọn Block"
+             >
+               {blocks.map((item) => (
+@@ -213,7 +214,7 @@
+               <ScrollView
+                 horizontal
+                 showsHorizontalScrollIndicator
+-                contentContainerStyle={{ gap: 6 }}
++                contentContainerStyle={{ gap: 8 }}
+                 accessibilityLabel="Chọn Tier"
+               >
+                 {block.tiers.map((item) => (
+@@ -447,7 +448,7 @@
+                   {renderDetail('Tier · Tầng', selectedSlot.tierNo)}
+                 </View>
+                 {selectedSlot.supportedContainerType
+-                  ? renderDetail('Loại container hỗ trợ', selectedSlot.supportedContainerType)
++                  ? renderDetail('Loại container hỗ trợ', displayCode(selectedSlot.supportedContainerType))
+                   : null}
+                 {selectedSlot.reeferPower !== undefined
+                   ? renderDetail('Nguồn điện lạnh', selectedSlot.reeferPower ? 'Có' : 'Không')
+@@ -466,7 +467,7 @@
+                     <Text
+                       style={{ fontSize: 12, fontWeight: '700', color: theme.colors.textPrimary }}
+                     >
+-                      Hold đang hiệu lực{hold.holdType ? ` · ${hold.holdType}` : ''}
++                      Hold đang hiệu lực{hold.holdType ? ` · ${displayCode(hold.holdType)}` : ''}
+                     </Text>
+                     <Text style={{ fontSize: 12, color: theme.colors.textSecondary }}>
+                       {hold.reason || 'Chưa có lý do giữ container.'}

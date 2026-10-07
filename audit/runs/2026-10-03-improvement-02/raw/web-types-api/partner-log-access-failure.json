@@ -1,0 +1,30 @@
+{
+  "run": "2026-10-03-improvement-02",
+  "target": {
+    "apiPort": 3001,
+    "mysqlPort": 3308,
+    "database": "icd_ux_audit_20261003_e2e"
+  },
+  "completed": false,
+  "failure": "GET /admin/partner-api-logs?pageSize=100 unexpected HTTP 403; code AUTH_PERMISSION_DENIED",
+  "results": [
+    {
+      "name": "POST /auth/login",
+      "status": 200,
+      "expected": [
+        200
+      ],
+      "passed": true
+    },
+    {
+      "name": "GET /admin/partner-api-logs?pageSize=100",
+      "status": 403,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": false,
+      "errorCode": "AUTH_PERMISSION_DENIED"
+    }
+  ]
+}

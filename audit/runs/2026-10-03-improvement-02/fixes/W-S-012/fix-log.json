@@ -1,0 +1,27 @@
+{
+  "status": "VERIFIED",
+  "change": "Navigation carries visit/handover/pass/truck IDs and explicit action independently.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/navigation.ts",
+      "line": 5,
+      "detail": "export function",
+      "snippet": "export function makeDestination(tab: NavTabId, id?: string, explicit: NavigationContext = {}): string {\n  const context: NavigationContext = { ...explicit };\n  if (id) context[tab === 'handovers' ? 'handoverId' : 'visitId'] = id;\n  if (tab === 'truck-visits' && context.visitId) context.action = 'create';"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/web-source-tests-final.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/web-fixtures-final.txt"
+  ],
+  "limitations": "Backend does not currently produce HANDOVER_REVIEW; no invented producer.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [
+    "With two distinct handovers, opening the second review task selects the second correct handover.",
+    "No matching target displays a missing/unavailable-target state rather than silently selecting the first record.",
+    "Prefer retaining canonical entityId in work-queue mapping if a visit can have multiple handovers."
+  ],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/navigation.ts.diff"
+  ],
+  "isolated_review_diffs": []
+}

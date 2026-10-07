@@ -1,0 +1,73 @@
+--- before/apps/mobile/src/features/work-queue/screens/WorkQueueScreen.tsx
++++ after/apps/mobile/src/features/work-queue/screens/WorkQueueScreen.tsx
+@@ -15,12 +15,15 @@
+ import { ErrorState } from '../../../components/ErrorState';
+ import { useTheme } from '../../../theme/ThemeProvider';
+ import { PrimaryButton } from '../../../components/PrimaryButton';
++import { readCache, cacheScope } from '../../../storage/read-cache-store';
++import { useApiConnection } from '../../../services/api/ApiConnectionProvider';
+ import type { MainTabParamList, RootStackParamList, WorkQueueTask } from '../../../navigation/types';
+ 
+ export function WorkQueueScreen() {
+   const { theme } = useTheme();
+   const fieldStyles = useFieldStyles();
+   const { user } = useAuth();
++  const { online } = useApiConnection();
+   const navigation = useNavigation<BottomTabNavigationProp<MainTabParamList>>();
+   const [items, setItems] = useState<WorkQueueTask[]>([]);
+   const [loading, setLoading] = useState(true);
+@@ -33,20 +36,37 @@
+   const [feedback, setFeedback] = useState('');
+   const request = useRef(0);
+   const [stats, setStats] = useState<{ total: number; overdue: number } | null>(null);
++  const [cachedAt, setCachedAt] = useState<number | null>(null);
++  const currentQuery = useRef('');
++  type QueueResponse = { data: ApiWorkQueueItem[]; meta: { totalPages: number }; summary?: { total: number; overdue: number } };
+ 
+   const fetchData = useCallback(async () => {
+     const ticket = ++request.current;
++    if (!user) return;
++    const scope = cacheScope(user);
++    const query = JSON.stringify([page, filter, urgency, [...user.permissionCodes].sort()]);
++    if (currentQuery.current !== query) { setItems([]); setStats(null); setPages(0); setCachedAt(null); currentQuery.current = query; }
+     setError(null); setLoading(true);
++    const apply = (response: QueueResponse) => {
++      setPages(response.meta.totalPages);
++      setItems(response.data.map(mapWorkQueueItem).filter((task): task is WorkQueueTask => !!task));
++      setStats(response.summary ?? null);
++    };
+     try {
+-      const response = await apiClient.get<{ data: ApiWorkQueueItem[]; meta: { totalPages: number }; summary?: { total: number; overdue: number } }>(`/containers/work-queue?pageSize=20&page=${page}${filter ? '&type=' + filter : ''}${urgency ? '&urgency=' + urgency : ''}`);
++      const response = await apiClient.get<QueueResponse>(`/containers/work-queue?pageSize=20&page=${page}${filter ? '&type=' + filter : ''}${urgency ? '&urgency=' + urgency : ''}`);
+       if (ticket !== request.current) return;
+-      setPages(response.meta.totalPages);
+-      const tasks = response.data.map(mapWorkQueueItem).filter((task): task is WorkQueueTask => !!task);
+-      setItems(tasks);
+-      setStats(response.summary ?? { total: tasks.length, overdue: tasks.filter(t => t.urgency === 'OVERDUE').length });
+-    } catch (err) { if (ticket === request.current) setError(err instanceof Error ? err.message : 'Không thể tải công việc.'); }
++      apply(response); setCachedAt(null);
++      void readCache.write(scope, 'work-queue', query, response).catch(() => {});
++    } catch (err) {
++      if (ticket !== request.current) return;
++      const cached = err instanceof TypeError ? await readCache.read<QueueResponse>(scope, 'work-queue', query) : null;
++      if (ticket !== request.current) return;
++      if (cached) { apply(cached.data); setCachedAt(cached.savedAt); }
++      else { setItems([]); setStats(null); setPages(0); setCachedAt(null); }
++      setError(err instanceof Error ? err.message : 'Không thể tải công việc.');
++    }
+     finally { if (ticket === request.current) { setLoading(false); setRefreshing(false); } }
+-  }, [page, filter, urgency]);
++  }, [page, filter, urgency, user, online]);
+   useFocusEffect(useCallback(() => { void fetchData(); return () => { request.current++; }; }, [fetchData]));
+ 
+   const handleOpenTask = (task: WorkQueueTask) => {
+@@ -67,7 +87,8 @@
+       <TouchableOpacity key={key} accessibilityRole="button" accessibilityState={{ selected: filter === key }} onPress={() => { setFilter(key); setPage(1); }} style={[fieldStyles.chip, { alignItems: 'center', backgroundColor: filter === key ? theme.colors.infoBackground : theme.colors.surface }]}><Text style={fieldStyles.value}>{label}</Text></TouchableOpacity>)}</View>
+     <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>{([['', 'Mọi ưu tiên'], ['OVERDUE', 'Quá hạn'], ['CRITICAL', 'Sắp đến hạn'], ['HIGH', 'Ưu tiên cao'], ['NORMAL', 'Bình thường']] as const).map(([key,label]) => <TouchableOpacity key={key} accessibilityRole="button" accessibilityState={{selected:urgency === key}} style={fieldStyles.chip} onPress={() => {setUrgency(key);setPage(1);}}><Text style={fieldStyles.value}>{urgency === key ? '✓ ' : ''}{label}</Text></TouchableOpacity>)}</View>
+     {feedback ? <Notice message={feedback} /> : null}
+-    {loading ? <LoadingState /> : error ? <ErrorState message={error} onRetry={() => void fetchData()} /> : visibleItems.length === 0 ? <Card><EmptyState title="Không có tác vụ cần xử lý" description="Không có việc phù hợp với bộ lọc và quyền trong ca trực." /></Card> : visibleItems.map(task =>
++    {cachedAt !== null ? <><Text accessibilityLiveRegion="polite" style={fieldStyles.muted}>Dữ liệu đã lưu lúc {new Date(cachedAt).toLocaleString('vi-VN')} có thể đã cũ. Chỉ dùng để xem; kết nối lại và tải mới trước khi thao tác.</Text><PrimaryButton title="Tải lại dữ liệu" variant="secondary" onPress={() => void fetchData()} /></> : null}
++    {loading && !items.length ? <LoadingState /> : error && cachedAt === null ? <ErrorState message={error} onRetry={() => void fetchData()} /> : visibleItems.length === 0 ? <Card><EmptyState title="Không có tác vụ cần xử lý" description="Không có việc phù hợp với bộ lọc và quyền trong ca trực." /></Card> : visibleItems.map(task =>
+       <TouchableOpacity accessibilityRole="button" key={`${task.type}-${task.entityId}-${task.visitId ?? ''}`} onPress={() => handleOpenTask(task)}>
+         <Card><View style={{ flexDirection: 'row', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8 }}><StatusBadge label={task.urgency === 'OVERDUE' ? 'QUÁ HẠN' : task.urgency === 'HIGH' ? 'ƯU TIÊN CAO' : 'CHỜ XỬ LÝ'} variant={task.urgency === 'OVERDUE' ? 'danger' : 'info'} /><Text style={fieldStyles.muted}>{task.timeInfo}</Text></View>
+           <Text style={{ color: theme.colors.info, fontSize: 12, fontWeight: '700' }}>{task.containerNo}</Text>

@@ -1,0 +1,277 @@
+{
+  "phase": "verify-durable",
+  "alias": "yard",
+  "checkedAt": "2026-10-02T01:54:06.066Z",
+  "checks": [
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/eca87bd1-901a-4f38-b5ec-d7e32cb8639c/yard/location",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/movements?containerVisitId=eca87bd1-901a-4f38-b5ec-d7e32cb8639c&page=1&pageSize=100",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/inspections?containerVisitId=eca87bd1-901a-4f38-b5ec-d7e32cb8639c&page=1&pageSize=100",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/bookings?containerVisitId=eca87bd1-901a-4f38-b5ec-d7e32cb8639c&page=1&pageSize=100",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/eca87bd1-901a-4f38-b5ec-d7e32cb8639c/holds",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/eca87bd1-901a-4f38-b5ec-d7e32cb8639c/gate-passes",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/eca87bd1-901a-4f38-b5ec-d7e32cb8639c/events",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/eca87bd1-901a-4f38-b5ec-d7e32cb8639c/yard/operations/active-summary",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/eca87bd1-901a-4f38-b5ec-d7e32cb8639c/gate-pass/readiness",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/cac4e8ca-967b-4fbc-a845-ec844c6a263f/yard/location",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/movements?containerVisitId=cac4e8ca-967b-4fbc-a845-ec844c6a263f&page=1&pageSize=100",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/inspections?containerVisitId=cac4e8ca-967b-4fbc-a845-ec844c6a263f&page=1&pageSize=100",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/bookings?containerVisitId=cac4e8ca-967b-4fbc-a845-ec844c6a263f&page=1&pageSize=100",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/cac4e8ca-967b-4fbc-a845-ec844c6a263f/holds",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/cac4e8ca-967b-4fbc-a845-ec844c6a263f/gate-passes",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/cac4e8ca-967b-4fbc-a845-ec844c6a263f/events",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/cac4e8ca-967b-4fbc-a845-ec844c6a263f/yard/operations/active-summary",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/cac4e8ca-967b-4fbc-a845-ec844c6a263f/gate-pass/readiness",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c/yard/location",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/movements?containerVisitId=2a1ee6c4-b438-495c-8b35-14df04f6403c&page=1&pageSize=100",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/inspections?containerVisitId=2a1ee6c4-b438-495c-8b35-14df04f6403c&page=1&pageSize=100",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/bookings?containerVisitId=2a1ee6c4-b438-495c-8b35-14df04f6403c&page=1&pageSize=100",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c/holds",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c/gate-passes",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c/events",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c/yard/operations/active-summary",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c/gate-pass/readiness",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947/yard/location",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/movements?containerVisitId=f6482365-ae79-4ae3-9dec-efecd8f04947&page=1&pageSize=100",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/inspections?containerVisitId=f6482365-ae79-4ae3-9dec-efecd8f04947&page=1&pageSize=100",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/bookings?containerVisitId=f6482365-ae79-4ae3-9dec-efecd8f04947&page=1&pageSize=100",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947/holds",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947/gate-passes",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947/events",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947/yard/operations/active-summary",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947/gate-pass/readiness",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/yard/slots?page=1&pageSize=100",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/gate/truck-visits/fc525ccc-ba8e-49f2-8831-62eadd0ae0e3",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/gate/truck-visits/4d582342-e97e-4a32-aaee-406690b2d6b6",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/gate/truck-visits/950be735-d6ca-455d-9e2c-072023a053d7",
+      "status": 200,
+      "expectedStatus": "2xx"
+    }
+  ]
+}

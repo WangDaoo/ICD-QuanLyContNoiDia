@@ -1,0 +1,111 @@
+--- before/App.tsx
++++ after/App.tsx
+@@ -21,6 +21,7 @@
+ import { MovementOrdersView } from './components/MovementOrdersView';
+ import { MasterDataView } from './components/MasterDataView';
+ import { UsersRolesView } from './components/UsersRolesView';
++import { ViewErrorBoundary } from './components/ViewErrorBoundary';
+ import { AlertCircle, RefreshCw } from 'lucide-react';
+ 
+ const MainLayout: React.FC = () => {
+@@ -74,7 +75,9 @@
+               <button type="button" disabled={isLoading} onClick={() => void refreshData()} className="inline-flex items-center gap-1.5 rounded-lg border border-rose-200 bg-white px-3 py-2 font-semibold disabled:opacity-50"><RefreshCw className="h-3.5 w-3.5" />Tải lại</button>
+             </div>}
+             {isLoading && <div role="status" className="flex items-center gap-2 text-xs text-slate-500"><RefreshCw className="h-3.5 w-3.5 animate-spin" />Đang tải dữ liệu vận hành…</div>}
+-            {renderContent()}
++            <ViewErrorBoundary key={`${activeTab}:${activeContextId ?? ''}`} onRecover={() => handleNavigate('dashboard')}>
++              {renderContent()}
++            </ViewErrorBoundary>
+           </div>
+         </main>
+       </div>
+
+--- before/types.ts
++++ after/types.ts
+@@ -411,6 +411,8 @@
+   disputeNote?: string;
+ }
+ 
++export type JsonValue = string | number | boolean | null | JsonValue[] | { [key: string]: JsonValue };
++
+ export interface PartnerApiLog {
+   id: string;
+   partnerClientId: string;
+@@ -421,8 +423,8 @@
+   endpoint: string;
+   method: 'GET' | 'POST' | 'PUT' | 'DELETE';
+   idempotencyKey?: string;
+-  requestBodyRedacted?: string;
+-  responseBodyRedacted?: string;
++  requestBodyRedacted?: JsonValue;
++  responseBodyRedacted?: JsonValue;
+   httpStatus: number;
+   businessStatus: string;
+   errorCode?: string;
+
+--- before/PartnerManagementView.tsx
++++ after/PartnerManagementView.tsx
+@@ -1,6 +1,7 @@
+ import React, { useState } from 'react';
+ import { useApp } from '../context/AppContext';
+ import { PartnerApiClient, PartnerApiLog } from '../types';
++import { formatRedactedLogBody } from '../services/redacted-log-body';
+ import {
+   KeyRound,
+   FileCode,
+@@ -294,7 +295,7 @@
+                     Request Body (Đã che giấu thông tin nhạy cảm)
+                   </div>
+                   <pre className="p-3 bg-slate-900 text-emerald-400 font-mono text-[11px] rounded-lg overflow-x-auto max-h-64 whitespace-pre-wrap">
+-                    {selectedLog.requestBodyRedacted || '// Empty or Redacted'}
++                    {formatRedactedLogBody(selectedLog.requestBodyRedacted)}
+                   </pre>
+                 </div>
+ 
+@@ -303,7 +304,7 @@
+                     Response Body
+                   </div>
+                   <pre className="p-3 bg-slate-900 text-blue-300 font-mono text-[11px] rounded-lg overflow-x-auto max-h-64 whitespace-pre-wrap">
+-                    {selectedLog.responseBodyRedacted || '// Empty or Redacted'}
++                    {formatRedactedLogBody(selectedLog.responseBodyRedacted)}
+                   </pre>
+                 </div>
+               </div>
+
+--- before/apps/web/src/services/redacted-log-body.ts
++++ after/apps/web/src/services/redacted-log-body.ts
+@@ -0,0 +1,6 @@
++import type { JsonValue } from '../types';
++
++export function formatRedactedLogBody(value?: JsonValue): string {
++  if (value == null) return '// Empty or Redacted';
++  return typeof value === 'string' ? value : JSON.stringify(value, null, 2);
++}
+
+--- before/apps/web/src/components/ViewErrorBoundary.tsx
++++ after/apps/web/src/components/ViewErrorBoundary.tsx
+@@ -0,0 +1,24 @@
++import React from 'react';
++
++interface Props {
++  children: React.ReactNode;
++  onRecover: () => void;
++}
++
++export class ViewErrorBoundary extends React.Component<Props, { hasError: boolean }> {
++  state = { hasError: false };
++
++  static getDerivedStateFromError() {
++    return { hasError: true };
++  }
++
++  render() {
++    if (this.state.hasError) {
++      return <div role="alert" className="rounded-xl border border-rose-200 bg-rose-50 p-5 text-sm text-rose-800">
++        <p>Không thể hiển thị màn hình này. Về Tổng quan rồi mở lại để thử lại.</p>
++        <button type="button" onClick={this.props.onRecover} className="mt-3 rounded-lg border border-rose-300 bg-white px-4 py-2 font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-700">Về Tổng quan</button>
++      </div>;
++    }
++    return this.props.children;
++  }
++}

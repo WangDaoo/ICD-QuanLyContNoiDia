@@ -1,0 +1,52 @@
+--- before/apps/web/src/components/WebLoginView.tsx
++++ after/apps/web/src/components/WebLoginView.tsx
+@@ -47,12 +47,12 @@
+         </div>
+         <div>
+           <h1 className="font-bold text-sm sm:text-base">ICD-TOS · Vận hành cảng cạn</h1>
+-          <p className="text-xs text-slate-400 mt-0.5">Cổng quản trị & điều hành</p>
++          <p className="text-xs text-slate-400 mt-1">Cổng quản trị & điều hành</p>
+         </div>
+       </header>
+       <main className="relative flex-1 mx-auto w-full max-w-6xl px-5 py-8 sm:py-12 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16">
+         <div className="max-w-lg flex-1 space-y-5">
+-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1.5 text-xs font-semibold text-blue-300">
++          <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-2 text-xs font-semibold text-blue-300">
+             <ShieldCheck className="h-4 w-4" />
+             Không gian vận hành tập trung
+           </div>
+@@ -67,14 +67,14 @@
+             <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-4">
+               <Boxes className="h-5 w-5 text-sky-400 mb-3" />
+               <p className="font-semibold text-sm">Vận hành cổng & bãi</p>
+-              <p className="text-xs text-slate-400 mt-1.5 leading-relaxed">
++              <p className="text-xs text-slate-400 mt-2 leading-relaxed">
+                 Điều phối vị trí, tác nghiệp và công việc của ca.
+               </p>
+             </div>
+             <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-4">
+               <FileCheck className="h-5 w-5 text-emerald-400 mb-3" />
+               <p className="font-semibold text-sm">Kiểm soát ra cổng</p>
+-              <p className="text-xs text-slate-400 mt-1.5 leading-relaxed">
++              <p className="text-xs text-slate-400 mt-2 leading-relaxed">
+                 Đối soát hồ sơ, thanh toán và phiếu ra cổng.
+               </p>
+             </div>
+@@ -98,7 +98,7 @@
+             <div>
+               <label
+                 htmlFor="login-email"
+-                className="mb-1.5 block text-xs font-semibold text-slate-300"
++                className="mb-2 block text-xs font-semibold text-slate-300"
+               >
+                 Email
+               </label>
+@@ -119,7 +119,7 @@
+             <div>
+               <label
+                 htmlFor="login-password"
+-                className="mb-1.5 block text-xs font-semibold text-slate-300"
++                className="mb-2 block text-xs font-semibold text-slate-300"
+               >
+                 Mật khẩu
+               </label>

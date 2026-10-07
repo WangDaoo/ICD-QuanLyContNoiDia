@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED",
+  "method": "Prior accepted fix retained; fresh regression suite rechecked.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/ManifestsView.tsx",
+      "line": 308,
+      "detail": "aria-pressed=",
+      "snippet": "                    aria-pressed={isSelected}\n                    key={m.id}\n                    onClick={() => setSelectedManifestId(m.id)}\n                    className={`block w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 p-4 rounded-xl border cursor-pointer transition ${"
+    }
+  ],
+  "limitations": "Đã thao tác keyboard cả 5 danh sách bằng dữ liệu hiện có; không ghi giao dịch.",
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/web-old-regressions-final.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/web-old-billing-final.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+  ],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/ManifestsView.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

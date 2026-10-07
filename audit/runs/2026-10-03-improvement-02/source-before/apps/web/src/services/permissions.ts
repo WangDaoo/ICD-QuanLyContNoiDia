@@ -1,0 +1,13 @@
+const TAB_PERMISSIONS: Record<string,string[]> = {
+  dashboard: [], 'work-queue':['truck_visit.read','yard.read','gate_in.create','gate_pass.use','billing.read','handover.read'],
+  manifests:['manifest.read'],containers:['container.read'],'movement-orders':['movement_order.read'],
+  'truck-visits':['truck_visit.read'],'gate-in':['gate_in.create'],yard:['yard.read'],billing:['billing.read'],
+  'gate-pass':['gate_pass.create','gate_pass.use'],'edi':['edi.read'],handovers:['handover.read'],
+  'partner-clients':['partner_client.manage'],'partner-api-logs':['partner_api_log.read'],
+  'master-data':['master_data.read'],'users-roles':['users.read','roles.read'],admin:['reports.read'],activity:['audit.read'],
+};
+export function canAccessWebTab(user: {permissionCodes?:string[];role?:string},tab:string) {
+  const required = TAB_PERMISSIONS[tab];
+  if (!required) return false;
+  return required.length === 0 || required.some(p => user.permissionCodes?.includes(p)) || !!user.permissionCodes?.includes('*');
+}

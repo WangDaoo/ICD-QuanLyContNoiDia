@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "scope": "Approved Phase5 P1 mobile fixes only; P0 gate verified by root before source changes",
+  "baseline_preserved": true,
+  "business_submissions": 0,
+  "new_real_accounts": 0,
+  "shared_diff_note": "Each diff compares the complete related files with that ID before snapshot. Shared files include both approved M-001/M-002 edits; source anchors above identify each finding responsibility. The new regression file is shared by all three IDs.",
+  "verification": {
+    "regression_red": "audit/raw/re-audit/mobile/regression-red.txt",
+    "full_mobile_tests": "audit/raw/re-audit/mobile/mobile-tests-green.txt",
+    "typecheck": "audit/raw/re-audit/mobile/mobile-typecheck.txt",
+    "diff_check": "audit/raw/re-audit/mobile/mobile-diff-check.txt",
+    "native_hit_areas": "audit/raw/re-audit/mobile/hit-area-measurements.json",
+    "native_contrast": "audit/raw/re-audit/mobile/contrast-measurements.json",
+    "device_restore": "audit/raw/re-audit/mobile/device-restored.json"
+  },
+  "fixes": [
+    {
+      "change": "Enforce 48dp control minima; wrap existing header actions below identity at narrow widths; shrink gate mode labels within their target.",
+      "anchors": [
+        "apps/mobile/src/components/AppHeader.tsx:24",
+        "apps/mobile/src/components/PrimaryButton.tsx:94",
+        "apps/mobile/src/components/ScreenLayout.tsx:57",
+        "apps/mobile/src/components/SelectField.tsx:20",
+        "apps/mobile/src/components/ActionDialog.tsx:19",
+        "apps/mobile/src/components/CodeScanner.tsx:442",
+        "apps/mobile/src/features/yard/components/YardSlotGrid.tsx:180"
+      ],
+      "native_status": "PASS",
+      "evidence": [
+        "audit/raw/re-audit/mobile/hit-area-measurements.json",
+        "audit/screenshots/re-audit/mobile/26-320-gate-light.png",
+        "audit/screenshots/re-audit/mobile/30-320-picker-light.png",
+        "audit/screenshots/re-audit/mobile/34-320-logout-dark.png"
+      ],
+      "limits": [
+        "UIAutomator reports clipped boxes at ScrollView boundaries; these are explicitly PARTIAL_VIEWPORT, not silently counted as target passes. Full boxes are measured in the corresponding scrolled view."
+      ],
+      "id": "M-001",
+      "severity": "P1",
+      "source_status": "FIXED",
+      "before_snapshots": [
+        {
+          "file": "apps/mobile/src/components/ActionDialog.tsx",
+          "before_sha256": "daefc71ebf3202adbabe8ef8ffb563f1c0ba7ed349ce3f2b22c7261112c2e5b6",
+          "after_sha256": "2f2016323408739df4eb90081ec9da7b9ce30d46cf870c65e0cd308f44e74483"
+        },
+        {
+          "file": "apps/mobile/src/components/AppHeader.tsx",
+          "before_sha256": "cd89fe44a3674e9c8f16ef515f9609d40321f41576e6fb58911221d3f67b6730",
+          "after_sha256": "a257dbf847ac6980d902e123c5b26fa9af5cd98e1741d0286aa99a5c746de2bd"
+        },
+        {
+          "file": "apps/mobile/src/components/CodeScanner.tsx",
+          "before_sha256": "4402e7d6af5c7716d5793359c512832e357fed3072e3703dba965119568b11c5",
+          "after_sha256": "5916cdb654dfef7e704dbaefebb997ba9b20cdb6acd57377f73755090a5f851a"
+        },
+        {
+          "file": "apps/mobile/src/components/ConnectionBanner.tsx",
+          "before_sha256": "d0186c49833a9dca9e6ac2c6ebacf4cc4ed5cd6014cd1592512ff3b78481ce53",
+          "after_sha256": "01a67dc567cfdaf29ed9a4e24fc579704c62fb6929c7d34f259a720da5136eda"
+        },
+        {
+          "file": "apps/mobile/src/components/ErrorState.tsx",
+          "before_sha256": "3239d2d4aa32687c6f8f1e3ab1080f8167a63414827bc92188073cc2398b0fbd",
+          "after_sha256": "495f22c417c6e4d00281aa736ab5fbfe5f7048c3d24dd330c0f385f447378632"
+        },
+        {
+          "file": "apps/mobile/src/components/GateModeSwitch.tsx",
+          "before_sha256": "8d4b4901719eb26ba7dfdd60794bbc37b8bd8b7a79807c792147d7d2a4bc794e",
+          "after_sha256": "388c4049a41d92b76c5fc613ba5a4a086038dc81c3f3f9e9e15335c2031e5673"
+        },
+        {
+          "file": "apps/mobile/src/components/PrimaryButton.tsx",
+          "before_sha256": "fd635b3b0520ff6a73c9c996539684661fedd339ede58bea72a4a04c38e59a6e",
+          "after_sha256": "09486a9fdda2a81afc316665e63a03970ebbc371de96c9114df5df7e8eec09e5"
+        },
+        {
+          "file": "apps/mobile/src/components/ScreenLayout.tsx",
+          "before_sha256": "2d507fa4523bc17def7ee370618b6566ad0344502def5fde88d5b3dedd6855f8",
+          "after_sha256": "c13a73bbee1d4fc48c0e9233a2858df352c9c62e674f1122e8ee125e3760b9a2"
+        },
+        {
+          "file": "apps/mobile/src/components/SelectField.tsx",
+          "before_sha256": "74c088863a934f85bbf8279e40c6d943f91084933d0123caacb9d8833911a301",
+          "after_sha256": "a64a243fbc184895a0d6040a252a74822757d05b68273c8f4d65289587f4205b"
+        },
+        {
+          "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+          "before_sha256": "efcca2cd48675a5e375382ce6ce644a566ce52992380b33417fbd5b20c66d79b",
+          "after_sha256": "a4063ce141370a19dda714c84c218a047d346fe25d7933969abb99c7646bb74d"
+        },
+        {
+          "file": "apps/mobile/tests/scanner-integration.test.cjs",
+          "before_sha256": "96848bd13eb0f32d13f18a6ba83e52bddf02746a58f233efbecbef0982f80f5a",
+          "after_sha256": "7aae2b5cc72838765a81df54f347516e34a9f641681ee2edcc74246efe7185cb"
+        }
+      ],
+      "diff": "audit/fixes/M-001/fix.diff",
+      "tests": "7 new component fixtures red before production changes; 132/132 total mobile tests pass; mobile typecheck exit0.",
+      "acceptance": "Source, regression fixture and native measurements pass"
+    },
+    {
+      "change": "Separate semantic foregrounds and danger/success button fills; keep dark status foregrounds bright while white destructive labels use a darker fill.",
+      "anchors": [
+        "apps/mobile/src/theme/colors.ts:7",
+        "apps/mobile/src/theme/colors.ts:18",
+        "apps/mobile/src/components/PrimaryButton.tsx:42",
+        "apps/mobile/src/components/StatusBadge.tsx:32",
+        "apps/mobile/src/components/SessionCard.tsx:14",
+        "apps/mobile/src/components/ScreenLayout.tsx:42"
+      ],
+      "native_status": "PASS",
+      "evidence": [
+        "audit/raw/re-audit/mobile/contrast-measurements.json",
+        "audit/screenshots/re-audit/mobile/06-logout-dark.png",
+        "audit/screenshots/re-audit/mobile/11-container-readiness-light.png"
+      ],
+      "limits": [
+        "Exact rendered native pairs are measured for success, readiness warning, danger role text and logout fill in both themes. All six StatusBadge variants and selected Gate-Out fill are additionally tested as component fixtures."
+      ],
+      "id": "M-002",
+      "severity": "P1",
+      "source_status": "FIXED",
+      "before_snapshots": [
+        {
+          "file": "apps/mobile/src/components/AppHeader.tsx",
+          "before_sha256": "cd89fe44a3674e9c8f16ef515f9609d40321f41576e6fb58911221d3f67b6730",
+          "after_sha256": "a257dbf847ac6980d902e123c5b26fa9af5cd98e1741d0286aa99a5c746de2bd"
+        },
+        {
+          "file": "apps/mobile/src/components/ErrorState.tsx",
+          "before_sha256": "3239d2d4aa32687c6f8f1e3ab1080f8167a63414827bc92188073cc2398b0fbd",
+          "after_sha256": "495f22c417c6e4d00281aa736ab5fbfe5f7048c3d24dd330c0f385f447378632"
+        },
+        {
+          "file": "apps/mobile/src/components/GateModeSwitch.tsx",
+          "before_sha256": "8d4b4901719eb26ba7dfdd60794bbc37b8bd8b7a79807c792147d7d2a4bc794e",
+          "after_sha256": "388c4049a41d92b76c5fc613ba5a4a086038dc81c3f3f9e9e15335c2031e5673"
+        },
+        {
+          "file": "apps/mobile/src/components/PrimaryButton.tsx",
+          "before_sha256": "fd635b3b0520ff6a73c9c996539684661fedd339ede58bea72a4a04c38e59a6e",
+          "after_sha256": "09486a9fdda2a81afc316665e63a03970ebbc371de96c9114df5df7e8eec09e5"
+        },
+        {
+          "file": "apps/mobile/src/components/ScreenLayout.tsx",
+          "before_sha256": "2d507fa4523bc17def7ee370618b6566ad0344502def5fde88d5b3dedd6855f8",
+          "after_sha256": "c13a73bbee1d4fc48c0e9233a2858df352c9c62e674f1122e8ee125e3760b9a2"
+        },
+        {
+          "file": "apps/mobile/src/components/SessionCard.tsx",
+          "before_sha256": "89de7c7ae95774b773892606837541b041d3812876be9bfc20df5b465af4e35c",
+          "after_sha256": "483447180ec0c62478b15501c0026d799beb8295d793c0e925ce288defdfbe73"
+        },
+        {
+          "file": "apps/mobile/src/components/StatusBadge.tsx",
+          "before_sha256": "4c78d467140f08b6ea309e8c8ffb86ef494e74d98e0435e2046b5fc10ad794ab",
+          "after_sha256": "d54ba251c4e05bdfbcf114409a6cb317f8f4fe3b63b6b0c4d89589486b4d6374"
+        },
+        {
+          "file": "apps/mobile/src/theme/colors.ts",
+          "before_sha256": "f6ef16f4f126cbfc70b918f2dffb04afcb9f41757f0feee13b140f5de8b6b608",
+          "after_sha256": "6421fa90e4be11caabcd8173846a0dcc48cb4735a248a6b7a626673e7864e16b"
+        }
+      ],
+      "diff": "audit/fixes/M-002/fix.diff",
+      "tests": "7 new component fixtures red before production changes; 132/132 total mobile tests pass; mobile typecheck exit0.",
+      "acceptance": "Source, regression fixture and native measurements pass"
+    },
+    {
+      "change": "The zero-tab permission fallback explains administrator access and opens the existing authenticated Account route; existing logout confirmation remains in Account.",
+      "anchors": [
+        "apps/mobile/src/navigation/MainTabNavigator.tsx:26",
+        "apps/mobile/src/components/ForbiddenScreen.tsx:26",
+        "apps/mobile/src/navigation/RootNavigator.tsx:52",
+        "apps/mobile/tests/priority-accessibility.test.cjs:196"
+      ],
+      "native_status": "UNKNOWN_ZERO_TAB_ACCOUNT_UNAVAILABLE",
+      "evidence": [
+        "audit/raw/re-audit/mobile/mobile-tests-green.txt",
+        "audit/screenshots/re-audit/mobile/06-logout-dark.png",
+        "audit/screenshots/re-audit/mobile/07-logout-light.png"
+      ],
+      "limits": [
+        "No authorized existing zero-tab account was available. The synthetic permission fixture reaches Account and verifies cancel/confirm logout without network or account creation. Native Account opens and both logout cancel/close paths are verified using the existing account; real logout confirmation was not submitted."
+      ],
+      "id": "M-003",
+      "severity": "P1",
+      "source_status": "FIXED",
+      "before_snapshots": [
+        {
+          "file": "apps/mobile/src/components/ForbiddenScreen.tsx",
+          "before_sha256": "d16d106e160734673e05ee1908abf48940a2b19ae9baa17f1c70d94bb9ed450f",
+          "after_sha256": "544504893cdffbfa1339c09626cae44408803d1cef7fbcf78ff0aa8026cf8114"
+        },
+        {
+          "file": "apps/mobile/src/navigation/MainTabNavigator.tsx",
+          "before_sha256": "941d63c2cec7378f6ee4a7446fd01f06af45f8c8e373b765519e8cd0d405d4c4",
+          "after_sha256": "d7429e6d6d88a5621ed18f558e719ccd1204d191927b556fdd18e10f231e4f09"
+        }
+      ],
+      "diff": "audit/fixes/M-003/fix.diff",
+      "tests": "7 new component fixtures red before production changes; 132/132 total mobile tests pass; mobile typecheck exit0.",
+      "acceptance": "Verified with disclosed native limitation"
+    }
+  ]
+}

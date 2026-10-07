@@ -1,0 +1,11 @@
+# Duplicate payment reference regression
+
+- Original live failure: `fixture-billing-ready-failure.json`, 2026-10-02 01:31:24 UTC, followup QA invoice `b14c74b7-0275-41fc-be2e-94db54fc734d`, `POST /api/invoices/:invoiceId/payments` returned 500 `INTERNAL_SERVER_ERROR`.
+- Cause observed before the runtime log was rotated: Prisma P2002 for `payment_payment_ref_key`. The QA helper reused the first payment reference for the followup invoice. `paymentRef` is unique; this valid input conflict leaked through the generic exception handler.
+- Production repair: `PaymentService.create` catches only the unique-reference error from `tx.payment.create` and returns 409 `PAYMENT_REFERENCE_DUPLICATE` with a Vietnamese message. Prisma target metadata and the installed Prisma 7 MariaDB adapter's `driverAdapterError.cause.constraint.index` shape are supported. Unrelated errors are rethrown unchanged. Allocation, invoice update and event writes remain after payment creation and are unchanged.
+- QA helper repair: references include the fixture alias; a paid invoice is not paid again on retry. This remains separate from the production conflict mapping.
+- TDD: four reference-conflict cases failed before the fix, then all seven focused cases passed. The other three cases prove unrelated database/primary-key errors are preserved. The single final aggregate run passed 78 tests in 16 suites, including these seven cases; see `api-regression-final.json`.
+- Independent read-only review found no actionable issue and confirmed the MariaDB adapter normalizes its index name to `payment_payment_ref_key`.
+- Live retest limitation: the public controller only creates invoice-bound payments; the DTO requires at least one allocation and a positive amount. All dedicated QA invoices are now PAID, so the existing invoice-state guard runs before payment creation. No new invoice or financial record will be created to force a duplicate constraint. `fixture-verify-payment-duplicate-result.json` records the live 400 state refusal and unchanged payment IDs/invoice amounts when that probe has run. The 409 branch is covered by the focused Prisma-error tests, not claimed as live verification.
+
+No migration, seed, payment policy, permission or financial amount was changed by this repair.

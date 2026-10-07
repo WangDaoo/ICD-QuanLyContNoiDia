@@ -1,0 +1,162 @@
+import assert from 'node:assert/strict';
+import { randomBytes } from 'node:crypto';
+import { writeFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { tsImport } from './runtime/node_modules/tsx/dist/esm/api/index.mjs';
+const { Iso6346Validator } = await tsImport('../../apps/api/src/modules/containers/utils/iso-6346.validator.ts', import.meta.url);
+import { env, artifactDir, guardAuditRuntime, login, requestApi, proof, saveResults, closeConnection } from './audit-api-client.mjs';
+
+const prefix = 'AUD' + randomBytes(4).toString('hex').toUpperCase();
+const ids = { prefix };
+const states = {};
+const now = () => new Date().toISOString();
+const future = days => new Date(Date.now() + days * 86400000).toISOString();
+let serial = Date.now() % 10000000;
+function syntheticContainerNumber() {
+  const first10 = 'AUDU' + String(serial++ % 1000000).padStart(6, '0');
+  return first10 + Iso6346Validator.calculateCheckDigit(first10);
+}
+const list = data => Array.isArray(data) ? data : data.data ?? data.items ?? [];
+function checkpoint() { writeFileSync(resolve(artifactDir, 'workflow-fixtures.json'), JSON.stringify({ ids, states }, null, 2)); }
+function remember(key, data) { assert.equal(typeof data.id, 'string', key + ' requires canonical id'); ids[key] = data.id; if (data.state ?? data.status) states[key] = data.state ?? data.status; checkpoint(); return data; }
+
+try {
+  await guardAuditRuntime();
+  const auth = await login(env.AUDIT_USER_ADMIN_EMAIL, env.AUDIT_USER_PASSWORD);
+  const token = auth.accessToken;
+  const api = (method, path, payload, expected) => requestApi(method, path, payload, token, expected);
+  const post = (path, payload = {}, expected) => api('POST', path, payload, expected);
+  const get = path => api('GET', path);
+  await requestApi('GET', '/containers', undefined, undefined, [401]);
+  await post('/containers', { containerNumber: 'INVALID' }, [400]);
+  const shipping = remember('shippingLine', await post('/admin/master-data/shipping-lines', { name: prefix + ' Audit Shipping', scacCode: prefix.slice(0, 10) }));
+  const consignee = remember('consignee', await post('/admin/master-data/consignees', { name: prefix + ' Audit Consignee', taxCode: prefix + 'TAX', email: 'synthetic@audit.icd.test', address: 'Synthetic audit address' }));
+  const agent = remember('clearingAgent', await post('/admin/master-data/clearing-agents', { name: prefix + ' Audit Agent', licenseNo: prefix + 'LIC' }));
+  const transporter = remember('transporter', await post('/admin/master-data/transporters', { name: prefix + ' Audit Transporter', taxCode: prefix + 'TRANS' }));
+  await api('PUT', '/integrations/edi/routes/' + shipping.id, { enabled: true, transport: 'MOCK', outboundFormat: 'CODECO_CANONICAL_JSON_V1', partnerTarget: 'mock://audit-local', timeoutMs: 1000 });
+  const manifest = remember('manifest', await post('/manifests', { shippingLineId: shipping.id, vesselName: prefix + ' Audit Vessel', voyageNo: prefix, eta: now(), portOfLoading: 'SGSIN', portOfDischarge: 'VNHPH' }));
+  const mbl = remember('masterBl', await post(`/manifests/${manifest.id}/master-bls`, { mblNumber: prefix + 'MBL', shippingLineId: shipping.id }));
+  const hbl = remember('houseBl', await post(`/manifests/${manifest.id}/master-bls/${mbl.id}/house-bls`, { hblNumber: prefix + 'HBL', consigneeId: consignee.id, clearingAgentId: agent.id, cargoDescription: 'Synthetic audit cargo', grossWeight: 12000, packageCount: 100 }));
+  await post(`/manifests/${manifest.id}/submit`);
+  await post(`/manifests/${manifest.id}/submit`, {}, [400, 409]);
+  const createVisit = async key => remember(key, await post('/containers', { containerNumber: syntheticContainerNumber(), isoCode: '22G1', size: 'SIZE_20', type: 'DRY', houseBlId: hbl.id, sealNo: prefix + 'SEAL', cargoDescription: 'Synthetic audit cargo', grossWeight: 12000, category: 'IMPORT', fullEmptyStatus: 'FULL' }));
+  const main = await createVisit('mainVisit');
+  const yard = await createVisit('yardVisit');
+  const authorized = await createVisit('authorizedVisit');
+  await createVisit('pendingVisit');
+  const cancelled = await createVisit('cancelledVisit');
+  await post(`/containers/${cancelled.id}/cancel`, { reason: 'Synthetic audit cancellation' }); states.cancelledVisit = 'CANCELLED';
+  await post(`/containers/${main.id}/gate-in`, { truckVisitId: main.id, actualSeal: prefix + 'SEAL' }, [400, 409]);
+  for (const [key, visit] of [['mainMovementOrder', main], ['yardMovementOrder', yard], ['authorizedMovementOrder', authorized]]) {
+    const order = remember(key, await post(`/containers/${visit.id}/movement-orders`, { expiresAt: future(1) }));
+    await post(`/movement-orders/${order.id}/authorize`); states[key] = 'AUTHORIZED';
+  }
+  const truck = remember('truckVisit', await post('/gate/truck-visits', { visitType: 'GATE_IN', vehiclePlate: prefix, driverName: 'Synthetic Audit Driver', driverPhone: '0900000001', transporterId: transporter.id, appointmentAt: now(), gateLane: 'AUDIT', containerVisitIds: [main.id, yard.id, authorized.id] }));
+  await post(`/gate/truck-visits/${truck.id}/arrive`, { gateLane: 'AUDIT' });
+  const gateContext = await get(`/containers/${main.id}/gate-in-context`); assert.equal(gateContext.alreadyReceived, false);
+  for (const visit of [main, yard]) {
+    const gateIn = await post(`/containers/${visit.id}/gate-in`, { truckVisitId: truck.id, actualSeal: prefix + 'SEAL', actualWeight: 12000, conditionCode: 'GOOD', conditionNotes: 'Synthetic audit reception' });
+    assert.equal(gateIn.nextAction, 'YARD_ASSIGN'); assert.equal(typeof gateIn.reception.id, 'string');
+  }
+  states.mainVisit = states.yardVisit = 'IN_YARD'; states.authorizedVisit = 'AUTHORIZED'; states.truckVisit = 'IN_PROGRESS'; checkpoint();
+  await post(`/containers/${main.id}/gate-in`, { truckVisitId: truck.id, actualSeal: prefix + 'SEAL' }, [400, 409]);
+  const block = remember('yardBlock', await post('/yard/blocks', { blockCode: prefix, name: prefix + ' Audit Block' }));
+  const slots = [];
+  for (let index = 1; index <= 4; index++) slots.push(remember('slot' + index, await post(`/yard/blocks/${block.id}/slots`, { rowNo: 'A', bayNo: String(index).padStart(2, '0'), tierNo: '01', supportedContainerType: 'DRY', maxWeight: 30000, reeferPower: false })));
+  const checked = await post(`/containers/${main.id}/yard/check`, { yardSlotId: slots[0].id }); assert.equal(checked.eligible, true);
+  await post(`/containers/${main.id}/yard/assign`, { yardSlotId: slots[0].id, source: 'MANUAL' });
+  const occupiedCheck = await post(`/containers/${yard.id}/yard/check`, { yardSlotId: slots[0].id }); assert.equal(occupiedCheck.eligible, false);
+  await post(`/containers/${yard.id}/yard/assign`, { yardSlotId: slots[0].id, source: 'MANUAL' }, [400, 409]);
+  await post(`/containers/${yard.id}/yard/assign`, { yardSlotId: slots[1].id, source: 'MANUAL' });
+  const movement = remember('completedMovement', await post(`/containers/${main.id}/yard/movements`, { toSlotId: slots[2].id, reason: 'Synthetic audit movement' }));
+  await post(`/yard/movements/${movement.id}/start`); await post(`/yard/movements/${movement.id}/complete`); states.completedMovement = 'COMPLETED';
+  await post(`/yard/movements/${movement.id}/complete`, {}, [400, 409]);
+  const cancelledMovement = remember('cancelledMovement', await post(`/containers/${main.id}/yard/movements`, { toSlotId: slots[0].id, reason: 'Synthetic cancel branch' }));
+  await post(`/yard/movements/${cancelledMovement.id}/cancel`, { reason: 'Synthetic audit cancellation' }); states.cancelledMovement = 'CANCELLED';
+  const inspection = remember('completedInspection', await post(`/containers/${main.id}/inspections`, { inspectionType: 'CUSTOMS', notes: 'Synthetic audit inspection' }));
+  await post(`/inspections/${inspection.id}/start`);
+  await post(`/inspections/${inspection.id}/complete`, { result: 'HOLD' }, [400]);
+  await post(`/inspections/${inspection.id}/complete`, { result: 'PASS', notes: 'Synthetic audit passed' }); states.completedInspection = 'COMPLETED';
+  const cancelInspection = remember('cancelledInspection', await post(`/containers/${main.id}/inspections`, { inspectionType: 'INTERNAL', notes: 'Synthetic cancel branch' }));
+  await post(`/inspections/${cancelInspection.id}/cancel`, { reason: 'Synthetic audit cancellation' }); states.cancelledInspection = 'CANCELLED';
+  const booking = remember('completedBooking', await post(`/containers/${main.id}/yard-bookings`, { bookingType: 'STRIPPING', scheduledAt: now(), conditionNotes: 'Synthetic completed branch' }));
+  await post(`/yard/bookings/${booking.id}/start`); await post(`/yard/bookings/${booking.id}/complete`, { actualPackageCount: 100, actualWeight: 12000, conditionNotes: 'Synthetic audit completion' }); states.completedBooking = 'COMPLETED';
+  const cancelledBooking = remember('cancelledBooking', await post(`/containers/${main.id}/yard-bookings`, { bookingType: 'STUFFING', scheduledAt: now() }));
+  await post(`/yard/bookings/${cancelledBooking.id}/cancel`, { reason: 'Synthetic audit cancellation' }); states.cancelledBooking = 'CANCELLED';
+  const hold = remember('releasedHold', await post(`/containers/${main.id}/holds`, { holdType: 'DOCUMENT', reason: 'Synthetic audit hold' }));
+  const held = await get(`/containers/${main.id}/gate-pass/readiness`); assert.equal(held.ready, false); assert.ok(held.blockers.includes('OPERATIONAL_HOLD'));
+  await post(`/containers/${main.id}/holds/${hold.id}/release`, { releaseReason: 'Synthetic audit release' }); states.releasedHold = 'RELEASED';
+  await post(`/containers/${main.id}/gate-pass`, {}, [400, 409]);
+  const serviceTypes = list(await get('/admin/service-types'));
+  const tariff = remember('activeTariff', await post('/admin/tariffs', { name: prefix + ' Audit Tariff', effectiveFrom: future(-1), effectiveTo: future(30) }));
+  for (const serviceType of serviceTypes) await post(`/admin/tariffs/${tariff.id}/rules`, { serviceTypeId: serviceType.id, unitPrice: 100000, currency: 'VND' });
+  await post(`/admin/tariffs/${tariff.id}/activate`); states.activeTariff = 'ACTIVE';
+  remember('draftTariff', await post('/admin/tariffs', { name: prefix + ' Audit Draft Tariff', effectiveFrom: future(1), effectiveTo: future(30) }));
+  const preview = await post('/service-orders/preview', { containerVisitId: main.id }); assert.ok(preview.items.length > 0); assert.ok(Number(preview.totalAmount) > 0);
+  const serviceOrder = remember('invoicedServiceOrder', await post(`/containers/${main.id}/service-orders`, { containerVisitId: main.id, notes: 'Synthetic audit billing' }));
+  await post(`/service-orders/${serviceOrder.id}/confirm`); const invoice = remember('paidInvoice', await post(`/service-orders/${serviceOrder.id}/invoice`, { dueAt: future(7) })); states.invoicedServiceOrder = 'INVOICED';
+  const total = Number(invoice.totalAmount); assert.ok(total > 0 && Number.isFinite(total));
+  await post(`/invoices/${invoice.id}/payments`, { amount: 0, method: 'BANK_TRANSFER', paidAt: now() }, [400]);
+  await post(`/invoices/${invoice.id}/payments`, { amount: total, method: 'CARD', paidAt: now() }, [400]);
+  await post(`/invoices/${invoice.id}/payments`, { amount: total + 1, method: 'BANK_TRANSFER', paidAt: now() }, [400, 409]);
+  const part = Math.floor(total / 2 * 100) / 100;
+  await post(`/invoices/${invoice.id}/payments`, { amount: part, method: 'BANK_TRANSFER', paidAt: now(), referenceNo: prefix + 'PART' });
+  const partialInvoice = await get('/invoices/' + invoice.id); assert.equal(partialInvoice.status, 'PARTIALLY_PAID');
+  const partiallyBlocked = await get(`/containers/${main.id}/gate-pass/readiness`); assert.equal(partiallyBlocked.ready, false); assert.ok(partiallyBlocked.blockers.includes('BILLING_INCOMPLETE'));
+  proof('Partial payment cannot release container', { invoiceId: invoice.id, status: partialInvoice.status, ready: partiallyBlocked.ready });
+  await post(`/invoices/${invoice.id}/payments`, { amount: total - part, method: 'CASH', paidAt: now(), referenceNo: prefix + 'FINAL' });
+  assert.equal((await get('/invoices/' + invoice.id)).status, 'PAID'); states.paidInvoice = 'PAID';
+  const ready = await get(`/containers/${main.id}/gate-pass/readiness`); assert.equal(ready.ready, true); assert.deepEqual(ready.blockers, []);
+  const issuePayload = { ttlHours: 24, vehiclePlate: prefix, receiverName: 'Synthetic Audit Receiver', receiverIdNumber: prefix + 'ID', note: 'Synthetic audit pass' };
+  const cancelledPass = remember('cancelledGatePass', await post(`/containers/${main.id}/gate-pass`, issuePayload));
+  await post('/gate-passes/' + cancelledPass.id + '/cancel', { cancelReason: 'Synthetic audit cancellation' }); states.cancelledGatePass = 'CANCELLED';
+  const cancelledScan = await post('/gate-pass/scan', { qrToken: cancelledPass.qrToken }); assert.equal(cancelledScan.canGateOut, false);
+  const pass = remember('usedGatePass', await post(`/containers/${main.id}/gate-pass`, issuePayload)); assert.equal(typeof pass.qrToken, 'string');
+  const scan = await post('/gate-pass/scan', { qrToken: pass.qrToken }); assert.equal(scan.canGateOut, true); assert.equal(scan.visitId, main.id);
+  await post('/gate-out', { visitId: yard.id, qrToken: pass.qrToken }, [400, 409]);
+  const exited = await post('/gate-out', { visitId: main.id, qrToken: pass.qrToken }); assert.equal(exited.status, 'EXITED'); states.mainVisit = 'EXITED'; states.usedGatePass = 'USED';
+  await post('/gate-out', { visitId: main.id, qrToken: pass.qrToken }, [400, 409]);
+  assert.equal((await get('/containers/' + main.id)).state, 'EXITED');
+  proof('Canonical complete lifecycle', { containerVisitId: main.id, state: 'EXITED', invoiceId: invoice.id, invoiceStatus: 'PAID', gatePassId: pass.id, gatePassStatus: 'USED' });
+  process.stdout.write('Core lifecycle, payment rejection and gate-out proofs captured.\n');
+  const pendingMovement = remember('pendingMovement', await post(`/containers/${yard.id}/yard/movements`, { toSlotId: slots[0].id, reason: 'Synthetic pending UI fixture' }));
+  const pendingInspection = remember('pendingInspection', await post(`/containers/${yard.id}/inspections`, { inspectionType: 'QUARANTINE', notes: 'Synthetic pending UI fixture' }));
+  const pendingBooking = remember('pendingBooking', await post(`/containers/${yard.id}/yard-bookings`, { bookingType: 'STRIPPING', scheduledAt: future(1), conditionNotes: 'Synthetic pending UI fixture' }));
+  const progressBooking = remember('progressBooking', await post(`/containers/${yard.id}/yard-bookings`, { bookingType: 'STUFFING', scheduledAt: now() })); await post(`/yard/bookings/${progressBooking.id}/start`); states.progressBooking = 'IN_PROGRESS';
+  remember('activeHold', await post(`/containers/${yard.id}/holds`, { holdType: 'CUSTOMS', reason: 'Synthetic active UI fixture' }));
+  remember('draftServiceOrder', await post(`/containers/${yard.id}/service-orders`, { containerVisitId: yard.id, notes: 'Synthetic draft UI fixture' }));
+  proof('Durable UI operation fixtures', { pendingMovementId: pendingMovement.id, pendingInspectionId: pendingInspection.id, pendingBookingId: pendingBooking.id, progressBookingId: progressBooking.id });
+  const dispatch = await post('/integrations/edi/dispatch'); assert.ok(dispatch.sent >= 2);
+  const messages = list(await get('/integrations/edi/outbox?containerVisitId=' + main.id)); assert.equal(messages.length, 2); assert.ok(messages.every(m => m.status === 'SENT' && typeof m.payloadSnapshot === 'object' && m.payloadSnapshot !== null));
+  proof('Actual canonical EDI snapshots persisted and sent via MOCK', { ids: messages.map(m => m.id), statuses: messages.map(m => m.status), messageTypes: messages.map(m => m.messageType) });
+  const ack = await post('/integrations/edi/acks/ingest', { shippingLineId: shipping.id, ackType: 'CONTRL', status: 'REJECTED', outboxMessageId: messages[0].id, dedupeKey: prefix + 'ACK', parsedPayload: { audit: true } });
+  if (ack.id) ids.rejectedAck = ack.id;
+  await post('/integrations/edi/alerts/sync');
+  const alerts = list(await get('/integrations/edi/alerts')); const alert = alerts.find(a => a.sourceId === ack.id || a.outboxMessageId === messages[0].id || a.message?.includes(messages[0].id));
+  if (alert) { ids.resolvedEdiAlert = alert.id; await post(`/integrations/edi/alerts/${alert.id}/acknowledge`); await post(`/integrations/edi/alerts/${alert.id}/resolve`, { resolutionNote: 'Synthetic audit resolved' }); states.resolvedEdiAlert = 'RESOLVED'; }
+  const partner = await post('/admin/partner-clients', { partnerCode: prefix, partnerName: prefix + ' Audit Partner', scopes: ['handover.read', 'handover.accept', 'handover.transit', 'handover.confirm_warehouse', 'handover.failure'] }); ids.partnerClient = partner.client.id; assert.equal(typeof partner.rawApiKey, 'string');
+  const warehouse = remember('warehouse', await post('/customer-warehouses', { code: prefix, name: prefix + ' Audit Warehouse', consigneeId: consignee.id, address: 'Synthetic audit warehouse', contactName: 'Synthetic Receiver', contactPhone: '0900000002' }));
+  const handover = remember('completedHandover', await post('/handovers', { containerVisitId: main.id, partnerApiClientId: partner.client.id, warehouseId: warehouse.id, transportCode: prefix + 'HO', expectedDeliveryAt: future(1) }));
+  await post(`/handovers/${handover.id}/icd-confirm`, { note: 'Synthetic premature confirm' }, [400, 409]); await post(`/handovers/${handover.id}/publish`);
+  const partnerApi = (path, payload, idempotencyKey, expected) => requestApi('POST', '/v1/external/handovers/' + handover.id + '/' + path, payload, undefined, expected, { 'X-API-Key': partner.rawApiKey, 'Idempotency-Key': idempotencyKey });
+  const acceptedPayload = { accepted_at: now(), partner_reference: prefix, note: 'Synthetic audit accept' };
+  const accepted = await partnerApi('accept', acceptedPayload, prefix + ':ACCEPT'); assert.equal(accepted.status, 'PARTNER_ACCEPTED');
+  const replay = await partnerApi('accept', acceptedPayload, prefix + ':ACCEPT'); assert.equal(replay.status, accepted.status);
+  await partnerApi('accept', { ...acceptedPayload, partner_reference: prefix + 'DIFFERENT' }, prefix + ':ACCEPT', [409]);
+  const transit = await partnerApi('in-transit', { departed_at: now(), vehicle_plate: prefix, driver_name: 'Synthetic Audit Partner Driver', driver_phone: '0900000003' }, prefix + ':TRANSIT'); assert.equal(transit.status, 'IN_TRANSIT');
+  await partnerApi('warehouse-received', { received_at: now(), receiver_name: 'Synthetic Receiver', warehouse_code: 'WRONG-AUDIT-CODE' }, prefix + ':WRONGWH', [400, 409]);
+  const received = await partnerApi('warehouse-received', { received_at: now(), receiver_name: 'Synthetic Receiver', receiver_phone: '0900000002', warehouse_code: warehouse.code, condition: 'INTACT_SEAL', note: 'Synthetic audit receipt' }, prefix + ':WAREHOUSE'); assert.equal(received.status, 'PARTNER_CONFIRMED');
+  const completed = await post(`/handovers/${handover.id}/icd-confirm`, { note: 'Synthetic audit ICD verified' }); assert.equal(completed.status, 'COMPLETED'); states.completedHandover = 'COMPLETED';
+  const partnerLogs = list(await get('/admin/partner-api-logs?partnerApiClientId=' + partner.client.id));
+  // Idempotent replay/conflict do not create duplicate command log records.
+  for (const action of ['accept', 'in-transit', 'warehouse-received']) assert.ok(partnerLogs.some(log => log.endpoint.endsWith('/' + action) && log.httpStatus === 200), action + ' durable success log');
+  assert.ok(partnerLogs.some(log => log.httpStatus === 400 && log.errorCode === 'WAREHOUSE_MISMATCH'), 'durable warehouse rejection log');
+  assert.ok(partnerLogs.every(log => !JSON.stringify(log.requestBodyRedacted).includes(partner.rawApiKey)));
+  proof('Partner idempotency and complete handover', { handoverId: handover.id, status: completed.status, redactedLogCount: partnerLogs.length });
+  const draftHandover = remember('draftHandover', await post('/handovers', { containerVisitId: main.id, partnerApiClientId: partner.client.id, warehouseId: warehouse.id, transportCode: prefix + 'DRAFT' }));
+  states.draftHandover = draftHandover.status;
+  checkpoint(); saveResults('workflows.json', { ids, states, completed: true });
+  process.stdout.write(JSON.stringify({ completed: true, fixtureCount: Object.keys(ids).length - 1, target: 'isolated API3001 / MySQL3308', scenarios: ['canonical lifecycle', 'state rejection', 'partial/full payment', 'holds', 'yard operations', 'gate-pass cancel/scan/use', 'EDI actual snapshots', 'partner idempotency'] }) + '\n');
+} catch (error) {
+  checkpoint(); saveResults('workflows.json', { ids, states, completed: false, failure: error.message }); process.stderr.write(error.message + '\n'); process.exitCode = 1;
+} finally { await closeConnection(); }

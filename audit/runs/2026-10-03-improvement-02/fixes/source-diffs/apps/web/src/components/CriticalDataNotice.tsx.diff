@@ -1,0 +1,49 @@
+--- before/apps/web/src/components/CriticalDataNotice.tsx
++++ after/apps/web/src/components/CriticalDataNotice.tsx
+@@ -1,14 +1,38 @@
+ import React from 'react';
+ import { useApp } from '../context/AppContext';
+ 
+-export function CriticalDataNotice({ kind, visitId }: { kind: 'holds' | 'gatePasses'; visitId?: string }) {
++export function CriticalDataNotice({
++  kind,
++  visitId,
++}: {
++  kind: 'holds' | 'gatePasses';
++  visitId?: string;
++}) {
+   const { containerVisits, visitSafetyStatus = {}, refreshData, isLoading } = useApp();
+-  const statuses = (visitId ? [visitId] : containerVisits.map(v => v.id)).map(id => visitSafetyStatus[id]?.[kind]);
+-  if (statuses.every(status => status === 'ready')) return null;
+-  const forbidden = statuses.some(status => status === 'forbidden');
++  const statuses = (visitId ? [visitId] : containerVisits.map((v) => v.id)).map(
++    (id) => visitSafetyStatus[id]?.[kind],
++  );
++  if (statuses.every((status) => status === 'ready')) return null;
++  const forbidden = statuses.some((status) => status === 'forbidden');
+   const name = kind === 'holds' ? 'lệnh giữ (Holds)' : 'phiếu ra cổng (Gate Pass)';
+-  return <div role="alert" className="rounded-lg border border-amber-300 bg-amber-50 p-3 text-xs text-amber-900">
+-    <p>{forbidden ? `Không có quyền đọc một số ${name}. Liên hệ quản trị viên để kiểm tra quyền truy cập.` : `Chưa thể kiểm tra ${name}. Dữ liệu đã tải trước chỉ để tham khảo, chưa xác nhận trạng thái hiện tại.`}</p>
+-    <button type="button" disabled={isLoading} onClick={() => void refreshData()} className="mt-2 font-semibold underline disabled:opacity-50">{isLoading ? 'Đang tải lại…' : 'Tải lại dữ liệu kiểm tra'}</button>
+-  </div>;
++  return (
++    <div
++      role="alert"
++      className="rounded-lg border border-amber-300 bg-amber-50 p-3 text-xs text-amber-900"
++    >
++      <p>
++        {forbidden
++          ? `Không có quyền đọc một số ${name}. Liên hệ quản trị viên để kiểm tra quyền truy cập.`
++          : `Chưa thể kiểm tra ${name}. Dữ liệu đã tải trước chỉ để tham khảo, chưa xác nhận trạng thái hiện tại.`}
++      </p>
++      <button
++        type="button"
++        disabled={isLoading}
++        onClick={() => void refreshData()}
++        className="mt-2 font-semibold underline disabled:opacity-50"
++      >
++        {isLoading ? 'Đang tải lại…' : 'Tải lại dữ liệu kiểm tra'}
++      </button>
++    </div>
++  );
+ }

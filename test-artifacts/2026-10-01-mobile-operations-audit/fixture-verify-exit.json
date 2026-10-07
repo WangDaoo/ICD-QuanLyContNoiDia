@@ -1,0 +1,31 @@
+{
+  "phase": "verify-exit",
+  "alias": "followup",
+  "checkedAt": "2026-10-02T01:37:48.427Z",
+  "checks": [
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947/gate-passes",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947/yard/location",
+      "status": 200,
+      "expectedStatus": "2xx"
+    }
+  ]
+}

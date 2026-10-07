@@ -1,0 +1,38 @@
+✔ a read-cache save from the previous session cannot erase the new session same-user record (170.9484ms)
+✔ header preserves independent 8dp target gaps and wraps actual screen title at 320dp and font200% (356.858ms)
+✔ seal and condition inspections do not ask for damage severity (150.5651ms)
+✔ survey missing-field errors clear per edited field without discarding server messages (46.0099ms)
+✔ survey history shows loading until successful response and ignores completion after blur (63.2819ms)
+✔ survey history failure has local retry and retains labelled previous successful rows (52.2667ms)
+✔ notification screen shows backend unread total and invalidates it on failed filter reload (45.3935ms)
+✔ Vietnamese enum labels preserve unknown codes with an explicit unknown presentation (4.9708ms)
+✔ Vietnam booking values reject impossible dates and serialize UTC+7 independently of device timezone (52.7011ms)
+✔ appearance resolves persisted override and system default before rendering children (4.6589ms)
+✔ read cache partitions user, API and ICD, expires by feature TTL and clears a signed-out user (20.3066ms)
+✔ read cache profile and container expire at their separate approved limits and reject malformed storage (20.4309ms)
+✔ connection gate distinguishes health failure from offline and verifies fresh server permissions before allowing a reconnected write (20.3154ms)
+✔ connection gate never authorizes writes after a failed permission revalidation (12.4315ms)
+✔ a permission response started before connection loss cannot authorize a later reconnect (13.0637ms)
+✔ native booking picker cancellation keeps the value and acceptance preserves Vietnam wall time (74.5469ms)
+✔ work queue uses scoped recent read cache only for network failure and visibly labels it stale (111.4634ms)
+✔ work queue does not restore cached privileged rows after a server403 (40.7601ms)
+✔ viewed container detail restores only the exact scoped visit after network failure and never presents cached readiness as current (53.3004ms)
+✔ guarded Expo Go links accept only supported entity routes and reject credentials or permissionless destinations (19.4958ms)
+✔ read cache clearing prevents an already pending write from restoring signed-out data (10.4889ms)
+✔ native tab bar wraps complete labels with48dp targets and8dp independent gaps at200% text (40.6373ms)
+✔ appearance bootstrap withholds app content until persisted selection is loaded and system reset is persisted (80.3899ms)
+✔ guarded link subscription waits for both auth and navigation readiness and uses current permissions (109.0813ms)
+✔ failed notification filter cannot display rows or pagination from the previous filter (400.4507ms)
+✔ booking detail presents the promised Vietnam schedule on a UTC device (84.6339ms)
+✔ late profile marker save cannot remove a newer session after logout and login (70.9219ms)
+✔ cache cleanup before restoring a new login is ordered even when the old current user is unavailable (31.3448ms)
+✔ canonical notifications present Vietnamese business text without losing entity, deadline, amount, or reason (10.4076ms)
+✔ notification localization leaves custom and unknown content intact and applies in list and detail (59.4826ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1915.5168

@@ -1,0 +1,11 @@
+--- audit/runs/2026-10-03-improvement-02/raw/movement-identity-mapper-before-2026-10-04.ts
++++ apps/web/src/services/mappers/live-view.mapper.ts
+@@ -179,7 +179,7 @@
+     })),
+     movementOrders: rows('movementOrders').map((d) => ({
+       id: asString(d.id),
+-      orderCode: asString(d.orderCode ?? d.orderNumber),
++      orderCode: asString(d.orderCode ?? d.orderNumber ?? d.id),
+       containerVisitId: asString(d.containerVisitId),
+       containerNumber: containerNumber(enrich(d)),
+       status: asEnum(d.status, ['DRAFT', 'AUTHORIZED', 'EXPIRED', 'CANCELLED'], 'DRAFT'),

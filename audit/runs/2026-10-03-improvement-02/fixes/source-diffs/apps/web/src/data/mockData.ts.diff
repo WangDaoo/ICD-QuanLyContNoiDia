@@ -1,0 +1,17 @@
+--- before/apps/web/src/data/mockData.ts
++++ after/apps/web/src/data/mockData.ts
+@@ -9,14 +9,10 @@
+   TruckVisit,
+   YardBlock,
+   YardSlot,
+-  YardMovement,
+-  ContainerInspection,
+-  InYardBooking,
+   OperationalHold,
+   TariffRule,
+   ServiceOrder,
+   Invoice,
+-  Payment,
+   GatePass,
+   WorkQueueTask,
+   EdiOutboxMessage,

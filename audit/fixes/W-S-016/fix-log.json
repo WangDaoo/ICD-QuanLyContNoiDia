@@ -1,0 +1,103 @@
+{
+  "id": "W-S-016",
+  "verification_status": "VERIFIED_IN_APPROVED_SCOPE",
+  "source_files": [
+    {
+      "file": "apps/web/src/context/AppContext.tsx",
+      "before_snapshot": "audit/fixes/W-S-016/before/AppContext.tsx",
+      "review_after_snapshot": "audit/fixes/W-S-016/review-after/AppContext.tsx",
+      "before_sha256": "09AA6525BE0EED80BF2F09549978D6CF9BEB148438965E13FE4C35A3E555288D",
+      "review_after_sha256": "A324C2437B8BBF7A5F78B08DAE692C660BF64BB6832E462CF9F49E206A67A0D8",
+      "current_sha256": "14888988148A632DFDE42311D7EC2C836A93ADE4DB23B8D6F4B7E776F95EF656",
+      "diff_scope": "FINAL_SOURCE_ONLY_THIS_FIX",
+      "overlapping_approved_ids": []
+    },
+    {
+      "file": "apps/web/src/components/ContainersView.tsx",
+      "before_snapshot": "audit/fixes/W-S-016/before/ContainersView.tsx",
+      "review_after_snapshot": "audit/fixes/W-S-016/review-after/ContainersView.tsx",
+      "before_sha256": "B733A90FBDFD3D22E93A060371ACFF7676A2D42852B1436D38A0A5272919472C",
+      "review_after_sha256": "A5646BF2A944D33F98D6B89BF76015C79D0AF7BCD2FAFCE0896FE8AED1FF0F8D",
+      "current_sha256": "C5E4E46D9EF6DF76ECE16E106D0BE38996A1FA161546CA75816E2F8178853755",
+      "diff_scope": "COMBINED_APPROVED_FIXES_FINAL_SOURCE",
+      "overlapping_approved_ids": [
+        "W-S-001",
+        "W-S-002"
+      ]
+    },
+    {
+      "file": "apps/web/src/components/GatePassView.tsx",
+      "before_snapshot": "audit/fixes/W-S-016/before/GatePassView.tsx",
+      "review_after_snapshot": "audit/fixes/W-S-016/review-after/GatePassView.tsx",
+      "before_sha256": "656D2CE83555AC15A680B4352449D4E0D9A9A5971AFF5B4EBAB4B347D306DA3E",
+      "review_after_sha256": "887FCD565C66B167CDC8C302468A9C36F2727D1A90EBE52DCF16D16FDAD13A02",
+      "current_sha256": "97B9DB84C0B44F7CF50008CBA743B3458AAC7D980CA95D046FE6AFE1EF6E034A",
+      "diff_scope": "COMBINED_APPROVED_FIXES_FINAL_SOURCE",
+      "overlapping_approved_ids": [
+        "W-S-001",
+        "W-S-002",
+        "W-S-003"
+      ]
+    },
+    {
+      "file": "apps/web/src/components/Header.tsx",
+      "before_snapshot": "audit/fixes/W-S-016/before/Header.tsx",
+      "review_after_snapshot": "audit/fixes/W-S-016/review-after/Header.tsx",
+      "before_sha256": "FF4ECFBB7A7933527904AB3AC37A1CFF84FCA2FC906B67907A266B092EA043F0",
+      "review_after_sha256": "4832BBCA8AC1C15884CA1CC91F07C79E9A2FD99D65DC1F3D356DB6D638E9BDF2",
+      "current_sha256": "176E92AC603AA5E26CDD3FAC4C35BE18CFCA165A55C0F9D5A2F28CB331959266",
+      "diff_scope": "FINAL_SOURCE_ONLY_THIS_FIX",
+      "overlapping_approved_ids": []
+    },
+    {
+      "file": "apps/web/src/components/DashboardView.tsx",
+      "before_snapshot": "audit/fixes/W-S-016/before/DashboardView.tsx",
+      "review_after_snapshot": "audit/fixes/W-S-016/review-after/DashboardView.tsx",
+      "before_sha256": "4466465E281D787015C74934CC5A53160F3CE3D441F5E547CA1C37262C10FA5B",
+      "review_after_sha256": "6F1656C52C1AF6E5BECCAF9251D491B3F5DAC6F3BDF2C80B12336F3491FE57CA",
+      "current_sha256": "C419952BED2EB6460C3EF297AD027777A93B1E3E468CEA0332FE39F75F9AF1D1",
+      "diff_scope": "FINAL_SOURCE_ONLY_THIS_FIX",
+      "overlapping_approved_ids": []
+    },
+    {
+      "file": "apps/web/src/components/yard/YardSiteMap.tsx",
+      "before_snapshot": "audit/fixes/W-S-016/before/YardSiteMap.tsx",
+      "review_after_snapshot": "audit/fixes/W-S-016/review-after/YardSiteMap.tsx",
+      "before_sha256": "AF1869181F79F31F96216B32AE8B443941E9B4600C7D3C74FB07483AAEFF18FF",
+      "review_after_sha256": "CD62B47183E280DB4CABE94A9AA251E309B6E7D214F56B5A253BF53F2746B7FB",
+      "current_sha256": "F2C21D706B1DB9079A15A28A3F35142A64CAB3688F7E360F3BB4A576E411ED2F",
+      "diff_scope": "FINAL_SOURCE_ONLY_THIS_FIX",
+      "overlapping_approved_ids": []
+    },
+    {
+      "file": "apps/web/src/components/yard/yard-model.ts",
+      "before_snapshot": "audit/fixes/W-S-016/before/yard-model.ts",
+      "review_after_snapshot": "audit/fixes/W-S-016/review-after/yard-model.ts",
+      "before_sha256": "0E5F9B6BCC90910E6F731B3714790917DC5736CF23ED0C8C23B3C1CAA69D8B36",
+      "review_after_sha256": "5248B055CA66B9AA91076A0204C34AC34EC2D0F3AFD85E7CA83085A908508852",
+      "current_sha256": "57D7346C0F2A08B1CC875912E18D7AB0C6F191C8C822982C4A16FA806C88D41B",
+      "diff_scope": "FINAL_SOURCE_ONLY_THIS_FIX",
+      "overlapping_approved_ids": []
+    },
+    {
+      "file": "apps/web/src/services/visit-safety-data.ts",
+      "new_file": true,
+      "snapshot": "audit/fixes/W-S-016/new-files/visit-safety-data.ts",
+      "current_sha256": "19F5D6290D080F6469F4C37842702F79DC6611322F9B56DBECA921FDF5DDF958",
+      "diff_scope": "NEW_FILE_THIS_FIX"
+    },
+    {
+      "file": "apps/web/src/components/CriticalDataNotice.tsx",
+      "new_file": true,
+      "snapshot": "audit/fixes/W-S-016/new-files/CriticalDataNotice.tsx",
+      "current_sha256": "A857871CB64B804C1A568B92AE91C01E0F49E4C3A669C9B87C9FFEE9C2F23D78",
+      "diff_scope": "NEW_FILE_THIS_FIX"
+    }
+  ],
+  "diff": "audit/fixes/W-S-016/fix.diff",
+  "diff_policy": "Review artifact, not a standalone patch to apply. W-S-020 Partner diff uses recorded P0-only stage. W-S-016 Containers/GatePass final diffs explicitly include other approved shared-file semantics. All source files remain unchanged while generating artifacts.",
+  "evidence": [
+    "audit/raw/re-audit/approved-fix-fixtures-final.txt",
+    "audit/raw/re-audit/web-safety/independent-review-tests.txt"
+  ]
+}

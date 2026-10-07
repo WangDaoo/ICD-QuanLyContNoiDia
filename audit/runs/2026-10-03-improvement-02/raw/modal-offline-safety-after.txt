@@ -1,0 +1,32 @@
+✔ offline Color4 contrast tool is present (1.4043ms)
+✔ known black/white WCAG contrast is 21 (4.3692ms)
+✔ OKLCH neutral L=.5 parses and has white contrast six (2.3224ms)
+✔ half-transparent black is composited over the measured white surface (0.705ms)
+✔ nearest transparent surface composites over opaque outer surface (0.8551ms)
+✔ invalid and unresolved colors never silently become white (0.7483ms)
+✔ gradient and image background remains unknown (1.9296ms)
+✔ missing opaque canvas remains unknown (0.4ms)
+✔ disabled text is exempt and does not produce a failure (2.4563ms)
+✔ large bold text uses the three-to-one contrast threshold (0.8399ms)
+✔ CSS group opacity is unknown without rendered pixel evidence (0.1953ms)
+✔ dialog enters native modal mode, locks page scroll, and restores opener and original scroll on unmount (161.8069ms)
+✔ native cancel closes an idle dialog and is blocked while its write is pending (23.0777ms)
+✔ Tab and Shift+Tab wrap between enabled visible controls instead of leaving the modal (91.5379ms)
+✔ Tab stays on the named dialog when it contains no enabled focusable control (14.8074ms)
+✔ W-S-016 review: initial failed holds and passes retain unavailable markers rather than verified absence (111.8935ms)
+✔ W-S-016 review: successful empty reads are ready and show no critical-data warning (13.4264ms)
+✔ W-S-016 review: failed gate-pass reload preserves stale row, forbidden reload removes it, and retry recovers (15.2421ms)
+✔ W-S-016 review: later-page hold rejection discards incomplete fresh rows and marks retained records stale (12.2424ms)
+✔ W-S-016 review: unknown per-visit key and failed hold data cannot produce a green state appearance (0.7294ms)
+✔ W-S-016 review: an existing visit missing its status must produce a global warning (0.6555ms)
+✔ W-S-016 review: an existing visit missing its status must not reassure with zero holds (111.0754ms)
+✔ Code-only observation, UI reachability unknown: direct re-login clears protected rows and manual refresh recovers (21.8098ms)
+✔ W-S-020 independent review: raw request and response remain hidden and redacted text cannot become markup (27.9884ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3310.174

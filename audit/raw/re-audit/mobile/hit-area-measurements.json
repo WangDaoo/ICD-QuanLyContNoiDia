@@ -1,0 +1,4589 @@
+{
+  "method": "Android UIAutomator clickable rectangles; density420; partial viewport clips disclosed separately",
+  "results": [
+    {
+      "capture": "02-gate-in-light",
+      "density_dpi": 420,
+      "width_dp": 411.42857142857144,
+      "font_scale": 1.0,
+      "actions": [
+        {
+          "label": "Chuyển sang nền tối",
+          "bounds": [
+            500,
+            187,
+            626,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã",
+          "bounds": [
+            637,
+            187,
+            777,
+            313
+          ],
+          "width_dp": 53.333,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Thông báo",
+          "bounds": [
+            787,
+            187,
+            913,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tài khoản và kết thúc ca",
+          "bounds": [
+            923,
+            187,
+            1049,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tiếp nhận Vào (Gate-In)",
+          "bounds": [
+            50,
+            589,
+            532,
+            715
+          ],
+          "width_dp": 183.619,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét Ra (Gate-Out)",
+          "bounds": [
+            548,
+            589,
+            1030,
+            715
+          ],
+          "width_dp": 183.619,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Số Container*",
+          "bounds": [
+            76,
+            963,
+            721,
+            1089
+          ],
+          "width_dp": 245.714,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tìm hồ sơ container",
+          "bounds": [
+            736,
+            963,
+            862,
+            1089
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã container",
+          "bounds": [
+            878,
+            963,
+            1004,
+            1089
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tình trạng vỏ container",
+          "bounds": [
+            76,
+            1600,
+            1004,
+            1694
+          ],
+          "width_dp": 353.524,
+          "height_dp": 35.81,
+          "status": "PARTIAL_VIEWPORT"
+        },
+        {
+          "label": "Cổng",
+          "bounds": [
+            0,
+            1708,
+            216,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Bãi",
+          "bounds": [
+            216,
+            1708,
+            432,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Giám định",
+          "bounds": [
+            432,
+            1708,
+            648,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Tra cứu",
+          "bounds": [
+            648,
+            1708,
+            864,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Việc ca",
+          "bounds": [
+            864,
+            1708,
+            1080,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "03-gate-in-dark",
+      "density_dpi": 420,
+      "width_dp": 411.42857142857144,
+      "font_scale": 1.0,
+      "actions": [
+        {
+          "label": "Chuyển sang nền sáng",
+          "bounds": [
+            500,
+            187,
+            626,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã",
+          "bounds": [
+            637,
+            187,
+            777,
+            313
+          ],
+          "width_dp": 53.333,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Thông báo",
+          "bounds": [
+            787,
+            187,
+            913,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tài khoản và kết thúc ca",
+          "bounds": [
+            923,
+            187,
+            1049,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tiếp nhận Vào (Gate-In)",
+          "bounds": [
+            50,
+            589,
+            532,
+            715
+          ],
+          "width_dp": 183.619,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét Ra (Gate-Out)",
+          "bounds": [
+            548,
+            589,
+            1030,
+            715
+          ],
+          "width_dp": 183.619,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Số Container*",
+          "bounds": [
+            76,
+            963,
+            721,
+            1089
+          ],
+          "width_dp": 245.714,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tìm hồ sơ container",
+          "bounds": [
+            736,
+            963,
+            862,
+            1089
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã container",
+          "bounds": [
+            878,
+            963,
+            1004,
+            1089
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tình trạng vỏ container",
+          "bounds": [
+            76,
+            1600,
+            1004,
+            1694
+          ],
+          "width_dp": 353.524,
+          "height_dp": 35.81,
+          "status": "PARTIAL_VIEWPORT"
+        },
+        {
+          "label": "Cổng",
+          "bounds": [
+            0,
+            1708,
+            216,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Bãi",
+          "bounds": [
+            216,
+            1708,
+            432,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Giám định",
+          "bounds": [
+            432,
+            1708,
+            648,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Tra cứu",
+          "bounds": [
+            648,
+            1708,
+            864,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Việc ca",
+          "bounds": [
+            864,
+            1708,
+            1080,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "04-account-dark",
+      "density_dpi": 420,
+      "width_dp": 411.42857142857144,
+      "font_scale": 1.0,
+      "actions": [
+        {
+          "label": "Quay lại",
+          "bounds": [
+            32,
+            84,
+            158,
+            210
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Chuyển sang nền sáng",
+          "bounds": [
+            500,
+            226,
+            626,
+            352
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã",
+          "bounds": [
+            637,
+            226,
+            777,
+            352
+          ],
+          "width_dp": 53.333,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Thông báo",
+          "bounds": [
+            787,
+            226,
+            913,
+            352
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tài khoản và kết thúc ca",
+          "bounds": [
+            923,
+            226,
+            1049,
+            352
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Xem quyền được cấp",
+          "bounds": [
+            76,
+            931,
+            1004,
+            1057
+          ],
+          "width_dp": 353.524,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Kiểm tra kết nối máy chủ",
+          "bounds": [
+            76,
+            1601,
+            1004,
+            1727
+          ],
+          "width_dp": 353.524,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Đổi sang nền sáng",
+          "bounds": [
+            76,
+            1758,
+            1004,
+            1884
+          ],
+          "width_dp": 353.524,
+          "height_dp": 48.0,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "05-account-bottom-dark",
+      "density_dpi": 420,
+      "width_dp": 411.42857142857144,
+      "font_scale": 1.0,
+      "actions": [
+        {
+          "label": "Quay lại",
+          "bounds": [
+            32,
+            84,
+            158,
+            210
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Chuyển sang nền sáng",
+          "bounds": [
+            500,
+            226,
+            626,
+            352
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã",
+          "bounds": [
+            637,
+            226,
+            777,
+            352
+          ],
+          "width_dp": 53.333,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Thông báo",
+          "bounds": [
+            787,
+            226,
+            913,
+            352
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tài khoản và kết thúc ca",
+          "bounds": [
+            923,
+            226,
+            1049,
+            352
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Xem quyền được cấp",
+          "bounds": [
+            76,
+            701,
+            1004,
+            827
+          ],
+          "width_dp": 353.524,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Kiểm tra kết nối máy chủ",
+          "bounds": [
+            76,
+            1371,
+            1004,
+            1497
+          ],
+          "width_dp": 353.524,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Đổi sang nền sáng",
+          "bounds": [
+            76,
+            1528,
+            1004,
+            1654
+          ],
+          "width_dp": 353.524,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Đăng xuất tài khoản",
+          "bounds": [
+            37,
+            1731,
+            1043,
+            1857
+          ],
+          "width_dp": 383.238,
+          "height_dp": 48.0,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "06-logout-dark",
+      "density_dpi": 420,
+      "width_dp": 411.42857142857144,
+      "font_scale": 1.0,
+      "actions": [
+        {
+          "label": "Đóng hộp thoại",
+          "bounds": [
+            868,
+            663,
+            994,
+            789
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Đăng xuất",
+          "bounds": [
+            87,
+            968,
+            993,
+            1094
+          ],
+          "width_dp": 345.143,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quay lại",
+          "bounds": [
+            87,
+            1131,
+            993,
+            1257
+          ],
+          "width_dp": 345.143,
+          "height_dp": 48.0,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "07-logout-light",
+      "density_dpi": 420,
+      "width_dp": 411.42857142857144,
+      "font_scale": 1.0,
+      "actions": [
+        {
+          "label": "Đóng hộp thoại",
+          "bounds": [
+            868,
+            663,
+            994,
+            789
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Đăng xuất",
+          "bounds": [
+            87,
+            968,
+            993,
+            1094
+          ],
+          "width_dp": 345.143,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quay lại",
+          "bounds": [
+            87,
+            1131,
+            993,
+            1257
+          ],
+          "width_dp": 345.143,
+          "height_dp": 48.0,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "08-lookup-light",
+      "density_dpi": 420,
+      "width_dp": 411.42857142857144,
+      "font_scale": 1.0,
+      "actions": [
+        {
+          "label": "Chuyển sang nền tối",
+          "bounds": [
+            500,
+            187,
+            626,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã",
+          "bounds": [
+            637,
+            187,
+            777,
+            313
+          ],
+          "width_dp": 53.333,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Thông báo",
+          "bounds": [
+            787,
+            187,
+            913,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tài khoản và kết thúc ca",
+          "bounds": [
+            923,
+            187,
+            1049,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Số container",
+          "bounds": [
+            76,
+            670,
+            1004,
+            796
+          ],
+          "width_dp": 353.524,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tìm kiếm container",
+          "bounds": [
+            76,
+            828,
+            1004,
+            954
+          ],
+          "width_dp": 353.524,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Cổng",
+          "bounds": [
+            0,
+            1708,
+            216,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Bãi",
+          "bounds": [
+            216,
+            1708,
+            432,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Giám định",
+          "bounds": [
+            432,
+            1708,
+            648,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Tra cứu",
+          "bounds": [
+            648,
+            1708,
+            864,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Việc ca",
+          "bounds": [
+            864,
+            1708,
+            1080,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "09-lookup-results-light",
+      "density_dpi": 420,
+      "width_dp": 411.42857142857144,
+      "font_scale": 1.0,
+      "actions": [
+        {
+          "label": "Chuyển sang nền tối",
+          "bounds": [
+            500,
+            187,
+            626,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã",
+          "bounds": [
+            637,
+            187,
+            777,
+            313
+          ],
+          "width_dp": 53.333,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Thông báo",
+          "bounds": [
+            787,
+            187,
+            913,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tài khoản và kết thúc ca",
+          "bounds": [
+            923,
+            187,
+            1049,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Số container",
+          "bounds": [
+            76,
+            670,
+            1004,
+            796
+          ],
+          "width_dp": 353.524,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "busy",
+          "bounds": [
+            76,
+            828,
+            1004,
+            954
+          ],
+          "width_dp": 353.524,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "QAOU4835930, IN_YARD, 45G1 · Công ty Cổ phần Sản xuất & Kinh doanh VinFast",
+          "bounds": [
+            37,
+            1030,
+            1043,
+            1362
+          ],
+          "width_dp": 383.238,
+          "height_dp": 126.476,
+          "status": "PASS"
+        },
+        {
+          "label": "Cổng",
+          "bounds": [
+            0,
+            1708,
+            216,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Bãi",
+          "bounds": [
+            216,
+            1708,
+            432,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Giám định",
+          "bounds": [
+            432,
+            1708,
+            648,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Tra cứu",
+          "bounds": [
+            648,
+            1708,
+            864,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Việc ca",
+          "bounds": [
+            864,
+            1708,
+            1080,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "10-container-detail-light",
+      "density_dpi": 420,
+      "width_dp": 411.42857142857144,
+      "font_scale": 1.0,
+      "actions": [
+        {
+          "label": "Quay lại",
+          "bounds": [
+            32,
+            84,
+            158,
+            210
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Chuyển sang nền tối",
+          "bounds": [
+            500,
+            226,
+            626,
+            352
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã",
+          "bounds": [
+            637,
+            226,
+            777,
+            352
+          ],
+          "width_dp": 53.333,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Thông báo",
+          "bounds": [
+            787,
+            226,
+            913,
+            352
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tài khoản và kết thúc ca",
+          "bounds": [
+            923,
+            226,
+            1049,
+            352
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Cổng",
+          "bounds": [
+            0,
+            1708,
+            216,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Bãi",
+          "bounds": [
+            216,
+            1708,
+            432,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Giám định",
+          "bounds": [
+            432,
+            1708,
+            648,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Tra cứu",
+          "bounds": [
+            648,
+            1708,
+            864,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Việc ca",
+          "bounds": [
+            864,
+            1708,
+            1080,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "11-container-readiness-light",
+      "density_dpi": 420,
+      "width_dp": 411.42857142857144,
+      "font_scale": 1.0,
+      "actions": [
+        {
+          "label": "Quay lại",
+          "bounds": [
+            32,
+            84,
+            158,
+            210
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Chuyển sang nền tối",
+          "bounds": [
+            500,
+            226,
+            626,
+            352
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã",
+          "bounds": [
+            637,
+            226,
+            777,
+            352
+          ],
+          "width_dp": 53.333,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Thông báo",
+          "bounds": [
+            787,
+            226,
+            913,
+            352
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tài khoản và kết thúc ca",
+          "bounds": [
+            923,
+            226,
+            1049,
+            352
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Cổng",
+          "bounds": [
+            0,
+            1708,
+            216,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Bãi",
+          "bounds": [
+            216,
+            1708,
+            432,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Giám định",
+          "bounds": [
+            432,
+            1708,
+            648,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Tra cứu",
+          "bounds": [
+            648,
+            1708,
+            864,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Việc ca",
+          "bounds": [
+            864,
+            1708,
+            1080,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "12-container-readiness-dark",
+      "density_dpi": 420,
+      "width_dp": 411.42857142857144,
+      "font_scale": 1.0,
+      "actions": [
+        {
+          "label": "Quay lại",
+          "bounds": [
+            32,
+            84,
+            158,
+            210
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Chuyển sang nền sáng",
+          "bounds": [
+            500,
+            226,
+            626,
+            352
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã",
+          "bounds": [
+            637,
+            226,
+            777,
+            352
+          ],
+          "width_dp": 53.333,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Thông báo",
+          "bounds": [
+            787,
+            226,
+            913,
+            352
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tài khoản và kết thúc ca",
+          "bounds": [
+            923,
+            226,
+            1049,
+            352
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Cổng",
+          "bounds": [
+            0,
+            1708,
+            216,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Bãi",
+          "bounds": [
+            216,
+            1708,
+            432,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Giám định",
+          "bounds": [
+            432,
+            1708,
+            648,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Tra cứu",
+          "bounds": [
+            648,
+            1708,
+            864,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Việc ca",
+          "bounds": [
+            864,
+            1708,
+            1080,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "13-survey-dark",
+      "density_dpi": 420,
+      "width_dp": 411.42857142857144,
+      "font_scale": 1.0,
+      "actions": [
+        {
+          "label": "Chuyển sang nền sáng",
+          "bounds": [
+            500,
+            187,
+            626,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã",
+          "bounds": [
+            637,
+            187,
+            777,
+            313
+          ],
+          "width_dp": 53.333,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Thông báo",
+          "bounds": [
+            787,
+            187,
+            913,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tài khoản và kết thúc ca",
+          "bounds": [
+            923,
+            187,
+            1049,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Loại giám định",
+          "bounds": [
+            76,
+            847,
+            1004,
+            973
+          ],
+          "width_dp": 353.524,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Số Container*",
+          "bounds": [
+            76,
+            1060,
+            1004,
+            1186
+          ],
+          "width_dp": 353.524,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Nội dung ghi nhận*",
+          "bounds": [
+            76,
+            1272,
+            1004,
+            1467
+          ],
+          "width_dp": 353.524,
+          "height_dp": 74.286,
+          "status": "PASS"
+        },
+        {
+          "label": "Nhẹ",
+          "bounds": [
+            76,
+            1572,
+            375,
+            1694
+          ],
+          "width_dp": 113.905,
+          "height_dp": 46.476,
+          "status": "PARTIAL_VIEWPORT"
+        },
+        {
+          "label": "Trung bình",
+          "bounds": [
+            391,
+            1572,
+            689,
+            1694
+          ],
+          "width_dp": 113.524,
+          "height_dp": 46.476,
+          "status": "PARTIAL_VIEWPORT"
+        },
+        {
+          "label": "Nặng",
+          "bounds": [
+            705,
+            1572,
+            1004,
+            1694
+          ],
+          "width_dp": 113.905,
+          "height_dp": 46.476,
+          "status": "PARTIAL_VIEWPORT"
+        },
+        {
+          "label": "Cổng",
+          "bounds": [
+            0,
+            1708,
+            216,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Bãi",
+          "bounds": [
+            216,
+            1708,
+            432,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Giám định",
+          "bounds": [
+            432,
+            1708,
+            648,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Tra cứu",
+          "bounds": [
+            648,
+            1708,
+            864,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Việc ca",
+          "bounds": [
+            864,
+            1708,
+            1080,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "14-picker-dark",
+      "density_dpi": 420,
+      "width_dp": 411.42857142857144,
+      "font_scale": 1.0,
+      "actions": [
+        {
+          "label": "Đóng danh sách",
+          "bounds": [
+            866,
+            695,
+            992,
+            821
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Giám định hư hỏng",
+          "bounds": [
+            90,
+            847,
+            992,
+            973
+          ],
+          "width_dp": 343.619,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Kiểm tra seal",
+          "bounds": [
+            90,
+            973,
+            992,
+            1099
+          ],
+          "width_dp": 343.619,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Kiểm tra tình trạng",
+          "bounds": [
+            90,
+            1099,
+            992,
+            1225
+          ],
+          "width_dp": 343.619,
+          "height_dp": 48.0,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "15-picker-light",
+      "density_dpi": 420,
+      "width_dp": 411.42857142857144,
+      "font_scale": 1.0,
+      "actions": [
+        {
+          "label": "Đóng danh sách",
+          "bounds": [
+            866,
+            695,
+            992,
+            821
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Giám định hư hỏng",
+          "bounds": [
+            90,
+            847,
+            992,
+            973
+          ],
+          "width_dp": 343.619,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Kiểm tra seal",
+          "bounds": [
+            90,
+            973,
+            992,
+            1099
+          ],
+          "width_dp": 343.619,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Kiểm tra tình trạng",
+          "bounds": [
+            90,
+            1099,
+            992,
+            1225
+          ],
+          "width_dp": 343.619,
+          "height_dp": 48.0,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "16-survey-bottom-light",
+      "density_dpi": 420,
+      "width_dp": 411.42857142857144,
+      "font_scale": 1.0,
+      "actions": [
+        {
+          "label": "Chuyển sang nền tối",
+          "bounds": [
+            500,
+            187,
+            626,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã",
+          "bounds": [
+            637,
+            187,
+            777,
+            313
+          ],
+          "width_dp": 53.333,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Thông báo",
+          "bounds": [
+            787,
+            187,
+            913,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tài khoản và kết thúc ca",
+          "bounds": [
+            923,
+            187,
+            1049,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Loại giám định",
+          "bounds": [
+            76,
+            847,
+            1004,
+            973
+          ],
+          "width_dp": 353.524,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Số Container*",
+          "bounds": [
+            76,
+            1060,
+            1004,
+            1186
+          ],
+          "width_dp": 353.524,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Nội dung ghi nhận*",
+          "bounds": [
+            76,
+            1272,
+            1004,
+            1467
+          ],
+          "width_dp": 353.524,
+          "height_dp": 74.286,
+          "status": "PASS"
+        },
+        {
+          "label": "Nhẹ",
+          "bounds": [
+            76,
+            1572,
+            375,
+            1694
+          ],
+          "width_dp": 113.905,
+          "height_dp": 46.476,
+          "status": "PARTIAL_VIEWPORT"
+        },
+        {
+          "label": "Trung bình",
+          "bounds": [
+            391,
+            1572,
+            689,
+            1694
+          ],
+          "width_dp": 113.524,
+          "height_dp": 46.476,
+          "status": "PARTIAL_VIEWPORT"
+        },
+        {
+          "label": "Nặng",
+          "bounds": [
+            705,
+            1572,
+            1004,
+            1694
+          ],
+          "width_dp": 113.905,
+          "height_dp": 46.476,
+          "status": "PARTIAL_VIEWPORT"
+        },
+        {
+          "label": "Cổng",
+          "bounds": [
+            0,
+            1708,
+            216,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Bãi",
+          "bounds": [
+            216,
+            1708,
+            432,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Giám định",
+          "bounds": [
+            432,
+            1708,
+            648,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Tra cứu",
+          "bounds": [
+            648,
+            1708,
+            864,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Việc ca",
+          "bounds": [
+            864,
+            1708,
+            1080,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "17-survey-scrolled-light",
+      "density_dpi": 420,
+      "width_dp": 411.42857142857144,
+      "font_scale": 1.0,
+      "actions": [
+        {
+          "label": "Chuyển sang nền tối",
+          "bounds": [
+            500,
+            187,
+            626,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã",
+          "bounds": [
+            637,
+            187,
+            777,
+            313
+          ],
+          "width_dp": 53.333,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Thông báo",
+          "bounds": [
+            787,
+            187,
+            913,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tài khoản và kết thúc ca",
+          "bounds": [
+            923,
+            187,
+            1049,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Loại giám định",
+          "bounds": [
+            76,
+            336,
+            1004,
+            184
+          ],
+          "width_dp": 353.524,
+          "height_dp": -57.905,
+          "status": "PARTIAL_VIEWPORT"
+        },
+        {
+          "label": "Số Container*",
+          "bounds": [
+            76,
+            336,
+            1004,
+            397
+          ],
+          "width_dp": 353.524,
+          "height_dp": 23.238,
+          "status": "PARTIAL_VIEWPORT"
+        },
+        {
+          "label": "Nội dung ghi nhận*",
+          "bounds": [
+            76,
+            483,
+            1004,
+            678
+          ],
+          "width_dp": 353.524,
+          "height_dp": 74.286,
+          "status": "PASS"
+        },
+        {
+          "label": "Nhẹ",
+          "bounds": [
+            76,
+            783,
+            375,
+            909
+          ],
+          "width_dp": 113.905,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Trung bình",
+          "bounds": [
+            391,
+            783,
+            689,
+            909
+          ],
+          "width_dp": 113.524,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Nặng",
+          "bounds": [
+            705,
+            783,
+            1004,
+            909
+          ],
+          "width_dp": 113.905,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Gửi biên bản Giám định",
+          "bounds": [
+            76,
+            940,
+            1004,
+            1066
+          ],
+          "width_dp": 353.524,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "QAOU4835930, Hoàn tất, Kết quả: PASS · Đạt giám định., MOBILE-YARD-QA: Kiểm tra tình trạng container QA cục bộ, seal nguyên và vỏ không hư hỏng.\nKết quả kiểm định: MOBILE-YARD-QA: PASS, seal nguyên và vỏ đạt sau kiểm tra trực tiếp.",
+          "bounds": [
+            76,
+            1285,
+            1004,
+            1637
+          ],
+          "width_dp": 353.524,
+          "height_dp": 134.095,
+          "status": "PASS"
+        },
+        {
+          "label": "QAOU5007565, Hoàn tất, Kết quả: PASS · Đạt giám định., WEB-YARD-QA: PASS sau kiểm tra màu vàng, không còn việc đang mở",
+          "bounds": [
+            76,
+            1667,
+            1004,
+            1694
+          ],
+          "width_dp": 353.524,
+          "height_dp": 10.286,
+          "status": "PARTIAL_VIEWPORT"
+        },
+        {
+          "label": "Cổng",
+          "bounds": [
+            0,
+            1708,
+            216,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Bãi",
+          "bounds": [
+            216,
+            1708,
+            432,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Giám định",
+          "bounds": [
+            432,
+            1708,
+            648,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Tra cứu",
+          "bounds": [
+            648,
+            1708,
+            864,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Việc ca",
+          "bounds": [
+            864,
+            1708,
+            1080,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "18-scanner-light",
+      "density_dpi": 420,
+      "width_dp": 411.42857142857144,
+      "font_scale": 1.0,
+      "actions": [
+        {
+          "label": "Đóng màn quét",
+          "bounds": [
+            902,
+            105,
+            1028,
+            231
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Bật đèn",
+          "bounds": [
+            53,
+            1623,
+            322,
+            1749
+          ],
+          "width_dp": 102.476,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Nhập mã thủ công",
+          "bounds": [
+            354,
+            1623,
+            1028,
+            1749
+          ],
+          "width_dp": 256.762,
+          "height_dp": 48.0,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "19-scanner-dark",
+      "density_dpi": 420,
+      "width_dp": 411.42857142857144,
+      "font_scale": 1.0,
+      "actions": [
+        {
+          "label": "Đóng màn quét",
+          "bounds": [
+            902,
+            105,
+            1028,
+            231
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Bật đèn",
+          "bounds": [
+            53,
+            1623,
+            322,
+            1749
+          ],
+          "width_dp": 102.476,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Nhập mã thủ công",
+          "bounds": [
+            354,
+            1623,
+            1028,
+            1749
+          ],
+          "width_dp": 256.762,
+          "height_dp": 48.0,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "20-yard-dark",
+      "density_dpi": 420,
+      "width_dp": 411.42857142857144,
+      "font_scale": 1.0,
+      "actions": [
+        {
+          "label": "Chuyển sang nền sáng",
+          "bounds": [
+            500,
+            187,
+            626,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã",
+          "bounds": [
+            637,
+            187,
+            777,
+            313
+          ],
+          "width_dp": 53.333,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Thông báo",
+          "bounds": [
+            787,
+            187,
+            913,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tài khoản và kết thúc ca",
+          "bounds": [
+            923,
+            187,
+            1049,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Chọn Container cần xếp/dời vị trí",
+          "bounds": [
+            76,
+            774,
+            1004,
+            900
+          ],
+          "width_dp": 353.524,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Gợi ý vị trí trống",
+          "bounds": [
+            76,
+            1144,
+            1004,
+            1270
+          ],
+          "width_dp": 353.524,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Kiểm tra vị trí nhập tay",
+          "bounds": [
+            76,
+            1301,
+            1004,
+            1427
+          ],
+          "width_dp": 353.524,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Danh sách tác nghiệp và đặt lịch",
+          "bounds": [
+            37,
+            1577,
+            1043,
+            1694
+          ],
+          "width_dp": 383.238,
+          "height_dp": 44.571,
+          "status": "PARTIAL_VIEWPORT"
+        },
+        {
+          "label": "Cổng",
+          "bounds": [
+            0,
+            1708,
+            216,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Bãi",
+          "bounds": [
+            216,
+            1708,
+            432,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Giám định",
+          "bounds": [
+            432,
+            1708,
+            648,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Tra cứu",
+          "bounds": [
+            648,
+            1708,
+            864,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Việc ca",
+          "bounds": [
+            864,
+            1708,
+            1080,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "21-yard-map-dark",
+      "density_dpi": 420,
+      "width_dp": 411.42857142857144,
+      "font_scale": 1.0,
+      "actions": [
+        {
+          "label": "Chuyển sang nền sáng",
+          "bounds": [
+            500,
+            187,
+            626,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã",
+          "bounds": [
+            637,
+            187,
+            777,
+            313
+          ],
+          "width_dp": 53.333,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Thông báo",
+          "bounds": [
+            787,
+            187,
+            913,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tài khoản và kết thúc ca",
+          "bounds": [
+            923,
+            187,
+            1049,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Kiểm tra vị trí nhập tay",
+          "bounds": [
+            76,
+            336,
+            1004,
+            346
+          ],
+          "width_dp": 353.524,
+          "height_dp": 3.81,
+          "status": "PARTIAL_VIEWPORT"
+        },
+        {
+          "label": "Danh sách tác nghiệp và đặt lịch",
+          "bounds": [
+            37,
+            496,
+            1043,
+            622
+          ],
+          "width_dp": 383.238,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Block A",
+          "bounds": [
+            76,
+            1111,
+            244,
+            1237
+          ],
+          "width_dp": 64.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Block B",
+          "bounds": [
+            260,
+            1111,
+            428,
+            1237
+          ],
+          "width_dp": 64.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Block C",
+          "bounds": [
+            444,
+            1111,
+            612,
+            1237
+          ],
+          "width_dp": 64.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Block D",
+          "bounds": [
+            627,
+            1111,
+            795,
+            1237
+          ],
+          "width_dp": 64.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tier 1",
+          "bounds": [
+            76,
+            1373,
+            213,
+            1499
+          ],
+          "width_dp": 52.19,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tier 2",
+          "bounds": [
+            228,
+            1373,
+            365,
+            1499
+          ],
+          "width_dp": 52.19,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Slot A-01-01-1, Có container, TCSU8849201",
+          "bounds": [
+            260,
+            1641,
+            533,
+            1694
+          ],
+          "width_dp": 104.0,
+          "height_dp": 20.19,
+          "status": "PARTIAL_VIEWPORT"
+        },
+        {
+          "label": "Slot A-01-02-1, Có container, GLDU5739201",
+          "bounds": [
+            549,
+            1641,
+            822,
+            1694
+          ],
+          "width_dp": 104.0,
+          "height_dp": 20.19,
+          "status": "PARTIAL_VIEWPORT"
+        },
+        {
+          "label": "Slot A-01-03-1, Có container, VFCU7482910",
+          "bounds": [
+            837,
+            1641,
+            1004,
+            1694
+          ],
+          "width_dp": 63.619,
+          "height_dp": 20.19,
+          "status": "PARTIAL_VIEWPORT"
+        },
+        {
+          "label": "Cổng",
+          "bounds": [
+            0,
+            1708,
+            216,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Bãi",
+          "bounds": [
+            216,
+            1708,
+            432,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Giám định",
+          "bounds": [
+            432,
+            1708,
+            648,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Tra cứu",
+          "bounds": [
+            648,
+            1708,
+            864,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Việc ca",
+          "bounds": [
+            864,
+            1708,
+            1080,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "22-yard-grid-dark",
+      "density_dpi": 420,
+      "width_dp": 411.42857142857144,
+      "font_scale": 1.0,
+      "actions": [
+        {
+          "label": "Chuyển sang nền sáng",
+          "bounds": [
+            500,
+            187,
+            626,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã",
+          "bounds": [
+            637,
+            187,
+            777,
+            313
+          ],
+          "width_dp": 53.333,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Thông báo",
+          "bounds": [
+            787,
+            187,
+            913,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tài khoản và kết thúc ca",
+          "bounds": [
+            923,
+            187,
+            1049,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Block A",
+          "bounds": [
+            76,
+            645,
+            244,
+            771
+          ],
+          "width_dp": 64.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Block B",
+          "bounds": [
+            260,
+            645,
+            428,
+            771
+          ],
+          "width_dp": 64.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Block C",
+          "bounds": [
+            444,
+            645,
+            612,
+            771
+          ],
+          "width_dp": 64.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Block D",
+          "bounds": [
+            627,
+            645,
+            795,
+            771
+          ],
+          "width_dp": 64.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tier 1",
+          "bounds": [
+            76,
+            907,
+            213,
+            1033
+          ],
+          "width_dp": 52.19,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tier 2",
+          "bounds": [
+            228,
+            907,
+            365,
+            1033
+          ],
+          "width_dp": 52.19,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Slot A-01-01-1, Có container, TCSU8849201",
+          "bounds": [
+            260,
+            1175,
+            533,
+            1343
+          ],
+          "width_dp": 104.0,
+          "height_dp": 64.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Slot A-01-02-1, Có container, GLDU5739201",
+          "bounds": [
+            549,
+            1175,
+            822,
+            1343
+          ],
+          "width_dp": 104.0,
+          "height_dp": 64.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Slot A-01-03-1, Có container, VFCU7482910",
+          "bounds": [
+            837,
+            1175,
+            1004,
+            1343
+          ],
+          "width_dp": 63.619,
+          "height_dp": 64.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Slot A-02-01-1, Slot trống",
+          "bounds": [
+            260,
+            1359,
+            533,
+            1527
+          ],
+          "width_dp": 104.0,
+          "height_dp": 64.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Slot A-02-02-1, Có container, QAOU6004067",
+          "bounds": [
+            549,
+            1359,
+            822,
+            1527
+          ],
+          "width_dp": 104.0,
+          "height_dp": 64.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Slot A-02-03-1, Có container, QAOU4835930",
+          "bounds": [
+            837,
+            1359,
+            1004,
+            1527
+          ],
+          "width_dp": 63.619,
+          "height_dp": 64.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Cổng",
+          "bounds": [
+            0,
+            1708,
+            216,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Bãi",
+          "bounds": [
+            216,
+            1708,
+            432,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Giám định",
+          "bounds": [
+            432,
+            1708,
+            648,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Tra cứu",
+          "bounds": [
+            648,
+            1708,
+            864,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Việc ca",
+          "bounds": [
+            864,
+            1708,
+            1080,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "23-yard-slot-dark",
+      "density_dpi": 420,
+      "width_dp": 411.42857142857144,
+      "font_scale": 1.0,
+      "actions": [
+        {
+          "label": "Đóng chi tiết slot",
+          "bounds": [
+            868,
+            450,
+            994,
+            576
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Mở chi tiết container",
+          "bounds": [
+            87,
+            1345,
+            994,
+            1471
+          ],
+          "width_dp": 345.524,
+          "height_dp": 48.0,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "24-yard-grid-light",
+      "density_dpi": 420,
+      "width_dp": 411.42857142857144,
+      "font_scale": 1.0,
+      "actions": [
+        {
+          "label": "Chuyển sang nền sáng",
+          "bounds": [
+            500,
+            187,
+            626,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã",
+          "bounds": [
+            637,
+            187,
+            777,
+            313
+          ],
+          "width_dp": 53.333,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Thông báo",
+          "bounds": [
+            787,
+            187,
+            913,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tài khoản và kết thúc ca",
+          "bounds": [
+            923,
+            187,
+            1049,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Block A",
+          "bounds": [
+            76,
+            645,
+            244,
+            771
+          ],
+          "width_dp": 64.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Block B",
+          "bounds": [
+            260,
+            645,
+            428,
+            771
+          ],
+          "width_dp": 64.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Block C",
+          "bounds": [
+            444,
+            645,
+            612,
+            771
+          ],
+          "width_dp": 64.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Block D",
+          "bounds": [
+            627,
+            645,
+            795,
+            771
+          ],
+          "width_dp": 64.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tier 1",
+          "bounds": [
+            76,
+            907,
+            213,
+            1033
+          ],
+          "width_dp": 52.19,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tier 2",
+          "bounds": [
+            228,
+            907,
+            365,
+            1033
+          ],
+          "width_dp": 52.19,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Slot A-01-01-1, Có container, TCSU8849201",
+          "bounds": [
+            260,
+            1175,
+            533,
+            1343
+          ],
+          "width_dp": 104.0,
+          "height_dp": 64.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Slot A-01-02-1, Có container, GLDU5739201",
+          "bounds": [
+            549,
+            1175,
+            822,
+            1343
+          ],
+          "width_dp": 104.0,
+          "height_dp": 64.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Slot A-01-03-1, Có container, VFCU7482910",
+          "bounds": [
+            837,
+            1175,
+            1004,
+            1343
+          ],
+          "width_dp": 63.619,
+          "height_dp": 64.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Slot A-02-01-1, Slot trống",
+          "bounds": [
+            260,
+            1359,
+            533,
+            1527
+          ],
+          "width_dp": 104.0,
+          "height_dp": 64.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Slot A-02-02-1, Có container, QAOU6004067",
+          "bounds": [
+            549,
+            1359,
+            822,
+            1527
+          ],
+          "width_dp": 104.0,
+          "height_dp": 64.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Slot A-02-03-1, Có container, QAOU4835930",
+          "bounds": [
+            837,
+            1359,
+            1004,
+            1527
+          ],
+          "width_dp": 63.619,
+          "height_dp": 64.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Cổng",
+          "bounds": [
+            0,
+            1708,
+            216,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Bãi",
+          "bounds": [
+            216,
+            1708,
+            432,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Giám định",
+          "bounds": [
+            432,
+            1708,
+            648,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Tra cứu",
+          "bounds": [
+            648,
+            1708,
+            864,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Việc ca",
+          "bounds": [
+            864,
+            1708,
+            1080,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "25-yard-slot-light",
+      "density_dpi": 420,
+      "width_dp": 411.42857142857144,
+      "font_scale": 1.0,
+      "actions": [
+        {
+          "label": "Đóng chi tiết slot",
+          "bounds": [
+            868,
+            450,
+            994,
+            576
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Mở chi tiết container",
+          "bounds": [
+            87,
+            1345,
+            994,
+            1471
+          ],
+          "width_dp": 345.524,
+          "height_dp": 48.0,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "26-320-gate-light",
+      "density_dpi": 420,
+      "width_dp": 320,
+      "font_scale": 1.5,
+      "actions": [
+        {
+          "label": "Chuyển sang nền tối",
+          "bounds": [
+            232,
+            224,
+            358,
+            350
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã",
+          "bounds": [
+            369,
+            224,
+            537,
+            350
+          ],
+          "width_dp": 64.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Thông báo",
+          "bounds": [
+            547,
+            224,
+            673,
+            350
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tài khoản và kết thúc ca",
+          "bounds": [
+            683,
+            224,
+            809,
+            350
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tiếp nhận Vào (Gate-In)",
+          "bounds": [
+            50,
+            751,
+            412,
+            877
+          ],
+          "width_dp": 137.905,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét Ra (Gate-Out)",
+          "bounds": [
+            428,
+            751,
+            790,
+            877
+          ],
+          "width_dp": 137.905,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Số Container*",
+          "bounds": [
+            76,
+            1222,
+            481,
+            1348
+          ],
+          "width_dp": 154.286,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tìm hồ sơ container",
+          "bounds": [
+            496,
+            1222,
+            622,
+            1348
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã container",
+          "bounds": [
+            638,
+            1222,
+            764,
+            1348
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Cổng",
+          "bounds": [
+            0,
+            1708,
+            168,
+            1857
+          ],
+          "width_dp": 64.0,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Bãi",
+          "bounds": [
+            168,
+            1708,
+            336,
+            1857
+          ],
+          "width_dp": 64.0,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Giám định",
+          "bounds": [
+            336,
+            1708,
+            504,
+            1857
+          ],
+          "width_dp": 64.0,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Tra cứu",
+          "bounds": [
+            504,
+            1708,
+            672,
+            1857
+          ],
+          "width_dp": 64.0,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Việc ca",
+          "bounds": [
+            672,
+            1708,
+            840,
+            1857
+          ],
+          "width_dp": 64.0,
+          "height_dp": 56.762,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "26-pre-narrow-current",
+      "density_dpi": 420,
+      "width_dp": 411.42857142857144,
+      "font_scale": 1.0,
+      "actions": [
+        {
+          "label": "Chuyển sang nền tối",
+          "bounds": [
+            500,
+            187,
+            626,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã",
+          "bounds": [
+            637,
+            187,
+            777,
+            313
+          ],
+          "width_dp": 53.333,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Thông báo",
+          "bounds": [
+            787,
+            187,
+            913,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tài khoản và kết thúc ca",
+          "bounds": [
+            923,
+            187,
+            1049,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tiếp nhận Vào (Gate-In)",
+          "bounds": [
+            50,
+            589,
+            532,
+            715
+          ],
+          "width_dp": 183.619,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét Ra (Gate-Out)",
+          "bounds": [
+            548,
+            589,
+            1030,
+            715
+          ],
+          "width_dp": 183.619,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Số Container*",
+          "bounds": [
+            76,
+            963,
+            721,
+            1089
+          ],
+          "width_dp": 245.714,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tìm hồ sơ container",
+          "bounds": [
+            736,
+            963,
+            862,
+            1089
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã container",
+          "bounds": [
+            878,
+            963,
+            1004,
+            1089
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tình trạng vỏ container",
+          "bounds": [
+            76,
+            1600,
+            1004,
+            1694
+          ],
+          "width_dp": 353.524,
+          "height_dp": 35.81,
+          "status": "PARTIAL_VIEWPORT"
+        },
+        {
+          "label": "Cổng",
+          "bounds": [
+            0,
+            1708,
+            216,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Bãi",
+          "bounds": [
+            216,
+            1708,
+            432,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Giám định",
+          "bounds": [
+            432,
+            1708,
+            648,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Tra cứu",
+          "bounds": [
+            648,
+            1708,
+            864,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Việc ca",
+          "bounds": [
+            864,
+            1708,
+            1080,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "27-320-gate-out-light",
+      "density_dpi": 420,
+      "width_dp": 320,
+      "font_scale": 1.5,
+      "actions": [
+        {
+          "label": "Chuyển sang nền tối",
+          "bounds": [
+            232,
+            224,
+            358,
+            350
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã",
+          "bounds": [
+            369,
+            224,
+            537,
+            350
+          ],
+          "width_dp": 64.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Thông báo",
+          "bounds": [
+            547,
+            224,
+            673,
+            350
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tài khoản và kết thúc ca",
+          "bounds": [
+            683,
+            224,
+            809,
+            350
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tiếp nhận Vào (Gate-In)",
+          "bounds": [
+            50,
+            751,
+            412,
+            877
+          ],
+          "width_dp": 137.905,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét Ra (Gate-Out)",
+          "bounds": [
+            428,
+            751,
+            790,
+            877
+          ],
+          "width_dp": 137.905,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Nội dung QR đầy đủ *",
+          "bounds": [
+            76,
+            1159,
+            764,
+            1354
+          ],
+          "width_dp": 262.095,
+          "height_dp": 74.286,
+          "status": "PASS"
+        },
+        {
+          "label": "Kiểm tra phiếu & readiness",
+          "bounds": [
+            76,
+            1384,
+            764,
+            1569
+          ],
+          "width_dp": 262.095,
+          "height_dp": 70.476,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét QR bằng camera",
+          "bounds": [
+            76,
+            1600,
+            764,
+            1694
+          ],
+          "width_dp": 262.095,
+          "height_dp": 35.81,
+          "status": "PARTIAL_VIEWPORT"
+        },
+        {
+          "label": "Cổng",
+          "bounds": [
+            0,
+            1708,
+            168,
+            1857
+          ],
+          "width_dp": 64.0,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Bãi",
+          "bounds": [
+            168,
+            1708,
+            336,
+            1857
+          ],
+          "width_dp": 64.0,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Giám định",
+          "bounds": [
+            336,
+            1708,
+            504,
+            1857
+          ],
+          "width_dp": 64.0,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Tra cứu",
+          "bounds": [
+            504,
+            1708,
+            672,
+            1857
+          ],
+          "width_dp": 64.0,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Việc ca",
+          "bounds": [
+            672,
+            1708,
+            840,
+            1857
+          ],
+          "width_dp": 64.0,
+          "height_dp": 56.762,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "28-320-scanner-light",
+      "density_dpi": 420,
+      "width_dp": 320,
+      "font_scale": 1.5,
+      "actions": [
+        {
+          "label": "Đóng màn quét",
+          "bounds": [
+            662,
+            152,
+            788,
+            278
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Bật đèn",
+          "bounds": [
+            53,
+            1678,
+            377,
+            1804
+          ],
+          "width_dp": 123.429,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Nhập mã thủ công",
+          "bounds": [
+            409,
+            1678,
+            788,
+            1804
+          ],
+          "width_dp": 144.381,
+          "height_dp": 48.0,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "29-320-survey-light",
+      "density_dpi": 420,
+      "width_dp": 320,
+      "font_scale": 1.5,
+      "actions": [
+        {
+          "label": "Chuyển sang nền tối",
+          "bounds": [
+            232,
+            224,
+            358,
+            350
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã",
+          "bounds": [
+            369,
+            224,
+            537,
+            350
+          ],
+          "width_dp": 64.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Thông báo",
+          "bounds": [
+            547,
+            224,
+            673,
+            350
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tài khoản và kết thúc ca",
+          "bounds": [
+            683,
+            224,
+            809,
+            350
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Loại giám định",
+          "bounds": [
+            76,
+            1125,
+            764,
+            1251
+          ],
+          "width_dp": 262.095,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Số Container*",
+          "bounds": [
+            76,
+            1357,
+            764,
+            1483
+          ],
+          "width_dp": 262.095,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Nội dung ghi nhận*",
+          "bounds": [
+            76,
+            1588,
+            764,
+            1694
+          ],
+          "width_dp": 262.095,
+          "height_dp": 40.381,
+          "status": "PARTIAL_VIEWPORT"
+        },
+        {
+          "label": "Cổng",
+          "bounds": [
+            0,
+            1708,
+            168,
+            1857
+          ],
+          "width_dp": 64.0,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Bãi",
+          "bounds": [
+            168,
+            1708,
+            336,
+            1857
+          ],
+          "width_dp": 64.0,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Giám định",
+          "bounds": [
+            336,
+            1708,
+            504,
+            1857
+          ],
+          "width_dp": 64.0,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Tra cứu",
+          "bounds": [
+            504,
+            1708,
+            672,
+            1857
+          ],
+          "width_dp": 64.0,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Việc ca",
+          "bounds": [
+            672,
+            1708,
+            840,
+            1857
+          ],
+          "width_dp": 64.0,
+          "height_dp": 56.762,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "30-320-picker-light",
+      "density_dpi": 420,
+      "width_dp": 320,
+      "font_scale": 1.5,
+      "actions": [
+        {
+          "label": "Đóng danh sách",
+          "bounds": [
+            626,
+            695,
+            752,
+            821
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Giám định hư hỏng",
+          "bounds": [
+            90,
+            847,
+            752,
+            973
+          ],
+          "width_dp": 252.19,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Kiểm tra seal",
+          "bounds": [
+            90,
+            973,
+            752,
+            1099
+          ],
+          "width_dp": 252.19,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Kiểm tra tình trạng",
+          "bounds": [
+            90,
+            1099,
+            752,
+            1225
+          ],
+          "width_dp": 252.19,
+          "height_dp": 48.0,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "31-320-survey-dark",
+      "density_dpi": 420,
+      "width_dp": 320,
+      "font_scale": 1.5,
+      "actions": [
+        {
+          "label": "Chuyển sang nền sáng",
+          "bounds": [
+            232,
+            224,
+            358,
+            350
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã",
+          "bounds": [
+            369,
+            224,
+            537,
+            350
+          ],
+          "width_dp": 64.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Thông báo",
+          "bounds": [
+            547,
+            224,
+            673,
+            350
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tài khoản và kết thúc ca",
+          "bounds": [
+            683,
+            224,
+            809,
+            350
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Loại giám định",
+          "bounds": [
+            76,
+            1125,
+            764,
+            1251
+          ],
+          "width_dp": 262.095,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Số Container*",
+          "bounds": [
+            76,
+            1357,
+            764,
+            1483
+          ],
+          "width_dp": 262.095,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Nội dung ghi nhận*",
+          "bounds": [
+            76,
+            1588,
+            764,
+            1694
+          ],
+          "width_dp": 262.095,
+          "height_dp": 40.381,
+          "status": "PARTIAL_VIEWPORT"
+        },
+        {
+          "label": "Cổng",
+          "bounds": [
+            0,
+            1708,
+            168,
+            1857
+          ],
+          "width_dp": 64.0,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Bãi",
+          "bounds": [
+            168,
+            1708,
+            336,
+            1857
+          ],
+          "width_dp": 64.0,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Giám định",
+          "bounds": [
+            336,
+            1708,
+            504,
+            1857
+          ],
+          "width_dp": 64.0,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Tra cứu",
+          "bounds": [
+            504,
+            1708,
+            672,
+            1857
+          ],
+          "width_dp": 64.0,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Việc ca",
+          "bounds": [
+            672,
+            1708,
+            840,
+            1857
+          ],
+          "width_dp": 64.0,
+          "height_dp": 56.762,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "32-320-picker-dark",
+      "density_dpi": 420,
+      "width_dp": 320,
+      "font_scale": 1.5,
+      "actions": [
+        {
+          "label": "Đóng danh sách",
+          "bounds": [
+            626,
+            695,
+            752,
+            821
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Giám định hư hỏng",
+          "bounds": [
+            90,
+            847,
+            752,
+            973
+          ],
+          "width_dp": 252.19,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Kiểm tra seal",
+          "bounds": [
+            90,
+            973,
+            752,
+            1099
+          ],
+          "width_dp": 252.19,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Kiểm tra tình trạng",
+          "bounds": [
+            90,
+            1099,
+            752,
+            1225
+          ],
+          "width_dp": 252.19,
+          "height_dp": 48.0,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "33-320-account-dark",
+      "density_dpi": 420,
+      "width_dp": 320,
+      "font_scale": 1.5,
+      "actions": [
+        {
+          "label": "Quay lại",
+          "bounds": [
+            32,
+            84,
+            158,
+            210
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Chuyển sang nền sáng",
+          "bounds": [
+            232,
+            226,
+            358,
+            352
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã",
+          "bounds": [
+            369,
+            226,
+            537,
+            352
+          ],
+          "width_dp": 64.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Thông báo",
+          "bounds": [
+            547,
+            226,
+            673,
+            352
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tài khoản và kết thúc ca",
+          "bounds": [
+            683,
+            226,
+            809,
+            352
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Xem quyền được cấp",
+          "bounds": [
+            76,
+            1290,
+            764,
+            1416
+          ],
+          "width_dp": 262.095,
+          "height_dp": 48.0,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "34-320-logout-dark",
+      "density_dpi": 420,
+      "width_dp": 320,
+      "font_scale": 1.5,
+      "actions": [
+        {
+          "label": "Đóng hộp thoại",
+          "bounds": [
+            628,
+            578,
+            754,
+            704
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Đăng xuất",
+          "bounds": [
+            87,
+            1067,
+            753,
+            1193
+          ],
+          "width_dp": 253.714,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quay lại",
+          "bounds": [
+            87,
+            1230,
+            753,
+            1356
+          ],
+          "width_dp": 253.714,
+          "height_dp": 48.0,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "35-320-logout-light",
+      "density_dpi": 420,
+      "width_dp": 320,
+      "font_scale": 1.5,
+      "actions": [
+        {
+          "label": "Đóng hộp thoại",
+          "bounds": [
+            628,
+            578,
+            754,
+            704
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Đăng xuất",
+          "bounds": [
+            87,
+            1067,
+            753,
+            1193
+          ],
+          "width_dp": 253.714,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quay lại",
+          "bounds": [
+            87,
+            1230,
+            753,
+            1356
+          ],
+          "width_dp": 253.714,
+          "height_dp": 48.0,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    },
+    {
+      "capture": "36-restored-final-light",
+      "density_dpi": 420,
+      "width_dp": 411.42857142857144,
+      "font_scale": 1.0,
+      "actions": [
+        {
+          "label": "Chuyển sang nền tối",
+          "bounds": [
+            500,
+            187,
+            626,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã",
+          "bounds": [
+            637,
+            187,
+            777,
+            313
+          ],
+          "width_dp": 53.333,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Thông báo",
+          "bounds": [
+            787,
+            187,
+            913,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tài khoản và kết thúc ca",
+          "bounds": [
+            923,
+            187,
+            1049,
+            313
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tiếp nhận Vào (Gate-In)",
+          "bounds": [
+            50,
+            589,
+            532,
+            715
+          ],
+          "width_dp": 183.619,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét Ra (Gate-Out)",
+          "bounds": [
+            548,
+            589,
+            1030,
+            715
+          ],
+          "width_dp": 183.619,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Số Container*",
+          "bounds": [
+            76,
+            963,
+            721,
+            1089
+          ],
+          "width_dp": 245.714,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tìm hồ sơ container",
+          "bounds": [
+            736,
+            963,
+            862,
+            1089
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Quét mã container",
+          "bounds": [
+            878,
+            963,
+            1004,
+            1089
+          ],
+          "width_dp": 48.0,
+          "height_dp": 48.0,
+          "status": "PASS"
+        },
+        {
+          "label": "Tình trạng vỏ container",
+          "bounds": [
+            76,
+            1600,
+            1004,
+            1694
+          ],
+          "width_dp": 353.524,
+          "height_dp": 35.81,
+          "status": "PARTIAL_VIEWPORT"
+        },
+        {
+          "label": "Cổng",
+          "bounds": [
+            0,
+            1708,
+            216,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Bãi",
+          "bounds": [
+            216,
+            1708,
+            432,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Giám định",
+          "bounds": [
+            432,
+            1708,
+            648,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Tra cứu",
+          "bounds": [
+            648,
+            1708,
+            864,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        },
+        {
+          "label": "Việc ca",
+          "bounds": [
+            864,
+            1708,
+            1080,
+            1857
+          ],
+          "width_dp": 82.286,
+          "height_dp": 56.762,
+          "status": "PASS"
+        }
+      ],
+      "overlaps": [],
+      "status": "PASS"
+    }
+  ]
+}

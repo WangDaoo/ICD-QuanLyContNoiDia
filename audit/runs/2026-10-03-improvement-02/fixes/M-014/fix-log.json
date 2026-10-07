@@ -1,0 +1,22 @@
+{
+  "status": "FIXED",
+  "change": "Card/header titles expose accessibilityRole header without duplicate accessible labels.",
+  "source_evidence": [
+    {
+      "file": "apps/mobile/src/components/ScreenLayout.tsx",
+      "line": 29,
+      "detail": "accessibilityRole=\"header\"",
+      "snippet": "  return <View style={fieldStyles.card}>{title ? <Text accessibilityRole=\"header\" style={fieldStyles.cardTitle}>{title}</Text> : null}{children}</View>;\n}\n\nexport function Field({ label, error, ...props }: TextInputProps & { label: string; error?: string }) {"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+  ],
+  "limitations": "Static/component semantics verified; actual TalkBack traversal and spoken output UNKNOWN.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/components/ScreenLayout.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

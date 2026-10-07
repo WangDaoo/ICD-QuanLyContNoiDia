@@ -1,0 +1,62 @@
+{
+  "id": "W-S-003",
+  "updated_at": "2026-10-03T02:05:08.148Z",
+  "implementation_status": "SOURCE_FIXED",
+  "verification_status": "STATIC_VERIFIED_RUNTIME_PENDING",
+  "scope": "Native button record selectors with aria-pressed, focus ring, phrasing content, no nested buttons",
+  "count": 5,
+  "checks": {
+    "source_regression": {
+      "pass": 23,
+      "fail": 0,
+      "baseline_pass": 0,
+      "baseline_fail": 23,
+      "green": "audit/raw/re-audit/web-semantics/green.txt",
+      "red": "audit/raw/re-audit/web-semantics/red.txt"
+    },
+    "modal_lifecycle": {
+      "pass": 4,
+      "fail": 0,
+      "native_browser_tab_check_required": true,
+      "green": "audit/raw/re-audit/web-semantics/modal-green.txt",
+      "red": "audit/raw/re-audit/web-semantics/modal-trap-red.txt"
+    },
+    "web_source_suite": {
+      "pass": 54,
+      "fail": 0,
+      "path": "audit/raw/re-audit/web-semantics/web-source-tests.txt"
+    },
+    "typecheck": {
+      "command": "rtk tsc --noEmit --project apps/web/tsconfig.json",
+      "result": "No errors found",
+      "runtime_claim": false
+    }
+  },
+  "runtime_owner": "root",
+  "runtime_status": "UNKNOWN_PENDING_PARENT_NATIVE_CHECKS",
+  "preserved": [
+    "Existing source work and write handlers",
+    "Existing panel styles and information",
+    "P2/P3 scope",
+    "Yard dialog behavior"
+  ],
+  "baseline_policy": "Each before snapshot is the current dirty source immediately before this ID was applied; no Git HEAD reset and no overwrite of audit/raw/baseline.",
+  "notes": [],
+  "parent_final_verification": {
+    "id": "W-S-003",
+    "status": "VERIFIED_IN_APPROVED_SCOPE",
+    "change": "5 danh sách master/detail dùng button type=button, aria-pressed và focus ring; Enter/Space chọn đúng bản ghi.",
+    "evidence": [
+      "audit/fixes/W-S-003/inventory.json",
+      "audit/raw/re-audit/web/keyboard-selectors.json"
+    ],
+    "source_evidence": [
+      {
+        "file": "apps/web/src/components/ManifestsView.tsx",
+        "line": 210,
+        "detail": "aria-pressed={"
+      }
+    ],
+    "limitations": "Đã thao tác keyboard cả 5 danh sách bằng dữ liệu hiện có; không ghi giao dịch."
+  }
+}

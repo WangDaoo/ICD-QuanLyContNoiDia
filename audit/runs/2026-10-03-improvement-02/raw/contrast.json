@@ -1,0 +1,991 @@
+{
+  "method": "Computed Color4 converted to sRGB; ancestor background alpha composition; WCAG relative luminance. Opacity/filter/image backgrounds require separate pixel verification.",
+  "cases": [
+    {
+      "file": "activity-admin-1440-r2.json",
+      "checked": 43,
+      "minimum": 5.091,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "activity-admin-320.json",
+      "checked": 13,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "activity-admin-375.json",
+      "checked": 13,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "activity-admin-768.json",
+      "checked": 40,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "billing-admin-1440-r2.json",
+      "checked": 57,
+      "minimum": 3.665,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "billing-admin-320.json",
+      "checked": 27,
+      "minimum": 3.665,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "billing-admin-375.json",
+      "checked": 27,
+      "minimum": 3.665,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "billing-admin-768.json",
+      "checked": 54,
+      "minimum": 3.665,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "containers-admin-1440-r2.json",
+      "checked": 128,
+      "minimum": 5.091,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "containers-admin-320.json",
+      "checked": 98,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "containers-admin-375.json",
+      "checked": 98,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "containers-admin-768.json",
+      "checked": 125,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "dashboard-admin-1440-r2.json",
+      "checked": 75,
+      "minimum": 3.665,
+      "violations": [
+        {
+          "text": "0 đã xuất cổng",
+          "selector": "SPAN.text-xs.text-emerald-600.font-semibold",
+          "ratio": 3.665,
+          "threshold": 4.5,
+          "fontSize": "12px",
+          "color": "oklch(0.596 0.145 163.225)"
+        }
+      ],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "dashboard-admin-320.json",
+      "checked": 45,
+      "minimum": 3.665,
+      "violations": [
+        {
+          "text": "0 đã xuất cổng",
+          "selector": "SPAN.text-xs.text-emerald-600.font-semibold",
+          "ratio": 3.665,
+          "threshold": 4.5,
+          "fontSize": "12px",
+          "color": "oklch(0.596 0.145 163.225)"
+        }
+      ],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "dashboard-admin-375.json",
+      "checked": 45,
+      "minimum": 3.665,
+      "violations": [
+        {
+          "text": "0 đã xuất cổng",
+          "selector": "SPAN.text-xs.text-emerald-600.font-semibold",
+          "ratio": 3.665,
+          "threshold": 4.5,
+          "fontSize": "12px",
+          "color": "oklch(0.596 0.145 163.225)"
+        }
+      ],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "dashboard-admin-768.json",
+      "checked": 72,
+      "minimum": 3.665,
+      "violations": [
+        {
+          "text": "0 đã xuất cổng",
+          "selector": "SPAN.text-xs.text-emerald-600.font-semibold",
+          "ratio": 3.665,
+          "threshold": 4.5,
+          "fontSize": "12px",
+          "color": "oklch(0.596 0.145 163.225)"
+        }
+      ],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "edi-admin-1440-r2.json",
+      "checked": 41,
+      "minimum": 5.091,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "edi-admin-320-overflow-fixed.json",
+      "checked": 11,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "edi-admin-320.json",
+      "checked": 11,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": true
+      }
+    },
+    {
+      "file": "edi-admin-375-overflow-fixed.json",
+      "checked": 11,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "edi-admin-375.json",
+      "checked": 11,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": true
+      }
+    },
+    {
+      "file": "edi-admin-768-overflow-fixed.json",
+      "checked": 38,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "edi-admin-768.json",
+      "checked": 38,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": true
+      }
+    },
+    {
+      "file": "gate-in-admin-1440-r2.json",
+      "checked": 42,
+      "minimum": 3.665,
+      "violations": [
+        {
+          "text": "Xác nhận gate-in",
+          "selector": "BUTTON.rounded-lg.bg-emerald-600.px-5.py-3.font-semibold.text-white.disabled:opacity-50",
+          "ratio": 3.665,
+          "threshold": 4.5,
+          "fontSize": "16px",
+          "color": "rgb(255, 255, 255)"
+        }
+      ],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "gate-in-admin-320.json",
+      "checked": 12,
+      "minimum": 3.665,
+      "violations": [
+        {
+          "text": "Xác nhận gate-in",
+          "selector": "BUTTON.rounded-lg.bg-emerald-600.px-5.py-3.font-semibold.text-white.disabled:opacity-50",
+          "ratio": 3.665,
+          "threshold": 4.5,
+          "fontSize": "16px",
+          "color": "rgb(255, 255, 255)"
+        }
+      ],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "gate-in-admin-375.json",
+      "checked": 12,
+      "minimum": 3.665,
+      "violations": [
+        {
+          "text": "Xác nhận gate-in",
+          "selector": "BUTTON.rounded-lg.bg-emerald-600.px-5.py-3.font-semibold.text-white.disabled:opacity-50",
+          "ratio": 3.665,
+          "threshold": 4.5,
+          "fontSize": "16px",
+          "color": "rgb(255, 255, 255)"
+        }
+      ],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "gate-in-admin-768.json",
+      "checked": 39,
+      "minimum": 3.665,
+      "violations": [
+        {
+          "text": "Xác nhận gate-in",
+          "selector": "BUTTON.rounded-lg.bg-emerald-600.px-5.py-3.font-semibold.text-white.disabled:opacity-50",
+          "ratio": 3.665,
+          "threshold": 4.5,
+          "fontSize": "16px",
+          "color": "rgb(255, 255, 255)"
+        }
+      ],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "gate-pass-admin-1440-r2.json",
+      "checked": 41,
+      "minimum": 2.355,
+      "violations": [
+        {
+          "text": "Quét mã QR từ app tài xế hoặc nhập mã GP-XXXX để xác thực",
+          "selector": "DIV.text-slate-400.text-caption",
+          "ratio": 2.355,
+          "threshold": 4.5,
+          "fontSize": "12px",
+          "color": "rgb(71, 85, 105)"
+        }
+      ],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "gate-pass-admin-320.json",
+      "checked": 11,
+      "minimum": 2.355,
+      "violations": [
+        {
+          "text": "Quét mã QR từ app tài xế hoặc nhập mã GP-XXXX để xác thực",
+          "selector": "DIV.text-slate-400.text-caption",
+          "ratio": 2.355,
+          "threshold": 4.5,
+          "fontSize": "12px",
+          "color": "rgb(71, 85, 105)"
+        }
+      ],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "gate-pass-admin-375.json",
+      "checked": 11,
+      "minimum": 2.355,
+      "violations": [
+        {
+          "text": "Quét mã QR từ app tài xế hoặc nhập mã GP-XXXX để xác thực",
+          "selector": "DIV.text-slate-400.text-caption",
+          "ratio": 2.355,
+          "threshold": 4.5,
+          "fontSize": "12px",
+          "color": "rgb(71, 85, 105)"
+        }
+      ],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "gate-pass-admin-768.json",
+      "checked": 38,
+      "minimum": 2.355,
+      "violations": [
+        {
+          "text": "Quét mã QR từ app tài xế hoặc nhập mã GP-XXXX để xác thực",
+          "selector": "DIV.text-slate-400.text-caption",
+          "ratio": 2.355,
+          "threshold": 4.5,
+          "fontSize": "12px",
+          "color": "rgb(71, 85, 105)"
+        }
+      ],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "handovers-admin-1440-r2.json",
+      "checked": 41,
+      "minimum": 5.091,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "handovers-admin-320.json",
+      "checked": 11,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "handovers-admin-375.json",
+      "checked": 11,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "handovers-admin-768.json",
+      "checked": 38,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "manifests-admin-1440-r2.json",
+      "checked": 127,
+      "minimum": 5.091,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "manifests-admin-320.json",
+      "checked": 97,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "manifests-admin-375.json",
+      "checked": 97,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "manifests-admin-768.json",
+      "checked": 124,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "master-data-admin-1440-r2.json",
+      "checked": 116,
+      "minimum": 5.091,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "master-data-admin-320-overflow-fixed.json",
+      "checked": 86,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "master-data-admin-320.json",
+      "checked": 86,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": true
+      }
+    },
+    {
+      "file": "master-data-admin-375-overflow-fixed.json",
+      "checked": 86,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "master-data-admin-375.json",
+      "checked": 86,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": true
+      }
+    },
+    {
+      "file": "master-data-admin-768-overflow-fixed.json",
+      "checked": 113,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "master-data-admin-768.json",
+      "checked": 113,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "movement-orders-admin-1440-r2.json",
+      "checked": 44,
+      "minimum": 5.091,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "movement-orders-admin-320.json",
+      "checked": 14,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "movement-orders-admin-375.json",
+      "checked": 14,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "movement-orders-admin-768.json",
+      "checked": 41,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "partner-api-logs-admin-1440-r2.json",
+      "checked": 38,
+      "minimum": 5.091,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "partner-api-logs-admin-320.json",
+      "checked": 8,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "partner-api-logs-admin-375.json",
+      "checked": 8,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "partner-api-logs-admin-768.json",
+      "checked": 35,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "partner-clients-admin-1440-r2.json",
+      "checked": 65,
+      "minimum": 5.091,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "partner-clients-admin-320-overflow-fixed.json",
+      "checked": 35,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "partner-clients-admin-320.json",
+      "checked": 35,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "partner-clients-admin-375-overflow-fixed.json",
+      "checked": 35,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "partner-clients-admin-375.json",
+      "checked": 35,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "partner-clients-admin-768-overflow-fixed.json",
+      "checked": 62,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "partner-clients-admin-768.json",
+      "checked": 62,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": true
+      }
+    },
+    {
+      "file": "reports-admin-1440-r2.json",
+      "checked": 70,
+      "minimum": 3.665,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "reports-admin-320.json",
+      "checked": 40,
+      "minimum": 3.665,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "reports-admin-375.json",
+      "checked": 40,
+      "minimum": 3.665,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "reports-admin-768.json",
+      "checked": 67,
+      "minimum": 3.665,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "truck-visits-admin-1440-r2.json",
+      "checked": 38,
+      "minimum": 5.091,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "truck-visits-admin-320.json",
+      "checked": 8,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "truck-visits-admin-375.json",
+      "checked": 8,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "truck-visits-admin-768.json",
+      "checked": 35,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "users-roles-admin-1440-r2.json",
+      "checked": 153,
+      "minimum": 5.091,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "users-roles-admin-320.json",
+      "checked": 123,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "users-roles-admin-375.json",
+      "checked": 123,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "users-roles-admin-768.json",
+      "checked": 150,
+      "minimum": 5.256,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "work-queue-admin-1440-r2.json",
+      "checked": 47,
+      "minimum": 3.079,
+      "violations": [
+        {
+          "text": "0",
+          "selector": "SPAN.text-rose-600.font-bold",
+          "ratio": 4.101,
+          "threshold": 4.5,
+          "fontSize": "12px",
+          "color": "oklch(0.586 0.253 17.585)"
+        },
+        {
+          "text": "0",
+          "selector": "SPAN.text-amber-600.font-bold",
+          "ratio": 3.079,
+          "threshold": 4.5,
+          "fontSize": "12px",
+          "color": "oklch(0.666 0.179 58.318)"
+        }
+      ],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "work-queue-admin-320.json",
+      "checked": 17,
+      "minimum": 3.079,
+      "violations": [
+        {
+          "text": "0",
+          "selector": "SPAN.text-rose-600.font-bold",
+          "ratio": 4.101,
+          "threshold": 4.5,
+          "fontSize": "12px",
+          "color": "oklch(0.586 0.253 17.585)"
+        },
+        {
+          "text": "0",
+          "selector": "SPAN.text-amber-600.font-bold",
+          "ratio": 3.079,
+          "threshold": 4.5,
+          "fontSize": "12px",
+          "color": "oklch(0.666 0.179 58.318)"
+        }
+      ],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "work-queue-admin-375.json",
+      "checked": 17,
+      "minimum": 3.079,
+      "violations": [
+        {
+          "text": "0",
+          "selector": "SPAN.text-rose-600.font-bold",
+          "ratio": 4.101,
+          "threshold": 4.5,
+          "fontSize": "12px",
+          "color": "oklch(0.586 0.253 17.585)"
+        },
+        {
+          "text": "0",
+          "selector": "SPAN.text-amber-600.font-bold",
+          "ratio": 3.079,
+          "threshold": 4.5,
+          "fontSize": "12px",
+          "color": "oklch(0.666 0.179 58.318)"
+        }
+      ],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "work-queue-admin-768.json",
+      "checked": 44,
+      "minimum": 3.079,
+      "violations": [
+        {
+          "text": "0",
+          "selector": "SPAN.text-rose-600.font-bold",
+          "ratio": 4.101,
+          "threshold": 4.5,
+          "fontSize": "12px",
+          "color": "oklch(0.586 0.253 17.585)"
+        },
+        {
+          "text": "0",
+          "selector": "SPAN.text-amber-600.font-bold",
+          "ratio": 3.079,
+          "threshold": 4.5,
+          "fontSize": "12px",
+          "color": "oklch(0.666 0.179 58.318)"
+        }
+      ],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "yard-admin-1440-r2.json",
+      "checked": 253,
+      "minimum": 5.091,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "yard-admin-320.json",
+      "checked": 223,
+      "minimum": 5.169,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "yard-admin-375.json",
+      "checked": 223,
+      "minimum": 5.169,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    },
+    {
+      "file": "yard-admin-768.json",
+      "checked": 250,
+      "minimum": 5.169,
+      "violations": [],
+      "overflow": {
+        "document": false,
+        "main": false
+      }
+    }
+  ]
+}

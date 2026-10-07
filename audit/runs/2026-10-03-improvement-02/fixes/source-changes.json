@@ -1,0 +1,930 @@
+{
+  "generated_at": "2026-10-04T14:48:19.642289+07:00",
+  "files": [
+    {
+      "file": "apps/web/src/types.ts",
+      "before_sha256": "FE74BA1D3167A70B4DFE11ED83C35869AC095E9A6C06288C5AEFA46D8F06EC35",
+      "after_sha256": "9BB5A08462147CA57EDD79BFFEB501A9B66ECDDB4F692AA22A7ED6BCFB28F0D1",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/types.ts.diff"
+    },
+    {
+      "file": "apps/mobile/app.json",
+      "before_sha256": "FBA1B744E89EE666FF12C09EED8F9C451B239506166F359D1458B28BBD881EC5",
+      "after_sha256": "AA526CE775E2A6CCF0D24F3A966DBD20F06DB58E73548232B535B74C84756C80",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/app.json.diff"
+    },
+    {
+      "file": "apps/mobile/App.tsx",
+      "before_sha256": "F74BF993F412A974A2917F69912541AABD433823BEE48DB4D86FFE4514D1C989",
+      "after_sha256": "E681E0728936FC09817C347304F6D577844CD5D3B4CEACF5A7AFEDCFDC7A4D03",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/App.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/package.json",
+      "before_sha256": "36FAC00561114A6B89EACA45A0EF6ECD9CA65DA179FB3816082F0E475A44792E",
+      "after_sha256": "FB3564EDCA0E17EF75E9CF6C610D6A9E154D755BD8AAC3723EABFE41F206144B",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/package.json.diff"
+    },
+    {
+      "file": "apps/web/src/services/visit-safety-data.ts",
+      "before_sha256": "19F5D6290D080F6469F4C37842702F79DC6611322F9B56DBECA921FDF5DDF958",
+      "after_sha256": "ADA2986D3C53E4C3A4E07C29B45D2ED90FEBC75DF379F2DD0B44C33170E750CA",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/visit-safety-data.ts.diff"
+    },
+    {
+      "file": "apps/web/src/services/report-metrics.ts",
+      "before_sha256": "34E2912011BD331224764E9AC91BFEECCEAB123C1154FB344E273F9329676A10",
+      "after_sha256": "BC8ED8464CFB2983D9002BD20534E271D82548CC51269D43BA9E2C2B6D2C9C56",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/report-metrics.ts.diff"
+    },
+    {
+      "file": "apps/web/src/services/report-metrics.test.ts",
+      "before_sha256": "BA9D40545FF66F4BB8AE80D3308B2CF0FCBE49B8A1771179B48BD7270466AA72",
+      "after_sha256": "06DD2F902AAF504881FAEA999AA32FE07E824F4702E6A56C4E0CB42CD98BE943",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/report-metrics.test.ts.diff"
+    },
+    {
+      "file": "apps/web/src/services/readiness-labels.ts",
+      "before_sha256": "CF73BC8791E3E0D78B22133777C3DF314F058AE75A18AB3E20BFDCFBF483C673",
+      "after_sha256": "524547659F821C8585FA327E9AC73E44F0EBBCF4B41B4F8352D3060E8FE3BA09",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/readiness-labels.ts.diff"
+    },
+    {
+      "file": "apps/web/src/services/permissions.ts",
+      "before_sha256": "1F410AF9122DC7373D6CF5E2E7101A5351DBA831CABE622D54C03BF456C59BB9",
+      "after_sha256": "A3B4CF1A49798ACF574EC36C0B3A0A89553B82A6768DF13BACDCD0EAE654E0D6",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/permissions.ts.diff"
+    },
+    {
+      "file": "apps/web/src/services/permissions.test.ts",
+      "before_sha256": "493474363FD1EBA078FC0B0658BF4371F6151D99AB89A7E2499CA3B1C3D4492F",
+      "after_sha256": "86B479B2C46B6381BA2BD90DCB9D5E3938691B0A9A3AFC0A6B054DA52AF91FB4",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/permissions.test.ts.diff"
+    },
+    {
+      "file": "apps/mobile/tests/auth-restore.test.cjs",
+      "before_sha256": "F8B1B59A525EE4D818352782ED8B2F71409704F1D30451A31EE8BD7C3BBBF3E1",
+      "after_sha256": "155B7E796304D9FBB59971F91BA4A69E2F6F4262B18E87E6E52825D197EB0705",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/tests/auth-restore.test.cjs.diff"
+    },
+    {
+      "file": "apps/mobile/tests/api-network.test.cjs",
+      "before_sha256": "CE12449D333E5C1B20D53A8EFA6EC191A13BA5A4A650B6806FB782F633B90396",
+      "after_sha256": "56FC8D6B542D58929425439A27772060AECF635BFB38E66D4766956C68D138D1",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/tests/api-network.test.cjs.diff"
+    },
+    {
+      "file": "apps/web/src/index.css",
+      "before_sha256": "A6A1570F644D71C2624C002BCB24EA7FC1EAFDA8D71F15C90A3F8A4304983F42",
+      "after_sha256": "4A29BC3520F361B1A113E78026016CF5DCAC94DB9F1D30609153B5BB6DA0DF7E",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/index.css.diff"
+    },
+    {
+      "file": "apps/mobile/tests/yard-map.test.cjs",
+      "before_sha256": "1A089D304BA98084B0AEE45E6E58B3549C853A93F949E7EF6E278900EF2B79AA",
+      "after_sha256": "61BAB80CCF59B199F3D68D10C7FEFA4C138142E928DB749DC8BA69CADD586737",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/tests/yard-map.test.cjs.diff"
+    },
+    {
+      "file": "apps/mobile/tests/support-contracts.test.cjs",
+      "before_sha256": "AE2270C9551585C96D2698F526EBA434C64BBB7B48DCB258CA6185AF5622BBF6",
+      "after_sha256": "A6257D942C114FA2620CD024C8C31222CAAE0FCA485401FBBEE6E303412052BB",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/tests/support-contracts.test.cjs.diff"
+    },
+    {
+      "file": "apps/mobile/tests/scanner-integration.test.cjs",
+      "before_sha256": "7AAE2B5CC72838765A81DF54F347516E34A9F641681EE2EDCC74246EFE7185CB",
+      "after_sha256": "93E8D3C6CDF6EABCBBFCD0D36DF3DFEB19F57E93C2144F628CAF1C68EEFA1B6E",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/tests/scanner-integration.test.cjs.diff"
+    },
+    {
+      "file": "apps/web/src/services/mappers/yard-contract.test.ts",
+      "before_sha256": "2523172F683AA85AF7A9B342F54153873458054549BD6F8983D60541F62E97A3",
+      "after_sha256": "96D9DA36F1B9543D8B5DFF177F5EC5D9F59B23B5885F4C582063945225C130B8",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/mappers/yard-contract.test.ts.diff"
+    },
+    {
+      "file": "apps/web/src/services/mappers/mappers.smoke.test.ts",
+      "before_sha256": "65D1E7A9099D49FEBFAFFC85BA609F86BD497A1B8870F95918DA39A9619DD7A2",
+      "after_sha256": "7458714AA386A59AA479BD3D53E5375D69164FC784D1B4668B50F560D56B68EC",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/mappers/mappers.smoke.test.ts.diff"
+    },
+    {
+      "file": "apps/web/src/services/mappers/live-view.mapper.ts",
+      "before_sha256": "568425D4D88E294804814C6C3D0503DF62F0A6D8C521C5F0D953132BA2248D3D",
+      "after_sha256": "6B708631236666ECDBAC3CF8F275DED266E933D45ECF8A4DFC0C2315759DF99D",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/mappers/live-view.mapper.ts.diff"
+    },
+    {
+      "file": "apps/web/src/services/mappers/live-contract.test.ts",
+      "before_sha256": "2AF70B3E8589323E6E87EF173A6EF19F44F6A9BC0BE6E1A7B984A70BBA3C8EC0",
+      "after_sha256": "990AF2A070305D8EE85E40ED2F1CD2D2D7D2B749FD5149DB5687A611C4135B33",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/mappers/live-contract.test.ts.diff"
+    },
+    {
+      "file": "apps/web/src/services/mappers/icd-view.mapper.ts",
+      "before_sha256": "CD7052B3F0CCCA829AE47B7E02B0CCA7BF4BB02EE4D092DF4AA2382818CEADB9",
+      "after_sha256": "EDF31C4C715497F4AE74DA00D79F4755DE1CA59CAF229B1BAC0CE569E8AB5F34",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/mappers/icd-view.mapper.ts.diff"
+    },
+    {
+      "file": "apps/web/src/services/mappers/api-response.mapper.ts",
+      "before_sha256": "12B53F2053E13808B584C9A04E2EB0932AF8DB1051A0062350661A8695C4B0E7",
+      "after_sha256": "3412BA50634AA560DAC3F20B54CA742C2DFC53FE7C74F0266B4287D0E681D5CD",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/mappers/api-response.mapper.ts.diff"
+    },
+    {
+      "file": "apps/web/src/App.tsx",
+      "before_sha256": "579389C027B6F51A8C035776E4A86B53C536960DF60A273F3886600C3AF05E6D",
+      "after_sha256": "1D293DB9452A36E4DEBA183C5AB429093406A7F91D981AC4EB073F60689A080E",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/App.tsx.diff"
+    },
+    {
+      "file": "packages/api-client/src/index.ts",
+      "before_sha256": "B15DB47B40373CBE63D19BB32D36E5C13241637D09B5CD96B25932D2F347033C",
+      "after_sha256": "BBB5D3EE1FF74662994DD55604088DC15FA2EEFDED4D48BBE47D07833C0A30E7",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/packages/api-client/src/index.ts.diff"
+    },
+    {
+      "file": "apps/web/src/components/BillingView.tsx",
+      "before_sha256": "1EE586F9FD387F416FED51E155477AF2C402125976E6C762F081C6555912CAC9",
+      "after_sha256": "D75AC01BB2540E0C2D2D0878CF6A6FC022E97244005A632E841AF10C9E7EBBD1",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/BillingView.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/components/AuditsView.tsx",
+      "before_sha256": "DB9795928A1EFFC43465D98BDEBDBD1EB70C60E000B741FAC0687B8D3ADC41E2",
+      "after_sha256": "554D7EC89A4E01C180EFE1CBF879ECAD410B7EFF9995DF514D26404F352AC0CB",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/AuditsView.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/components/CriticalDataNotice.tsx",
+      "before_sha256": "A857871CB64B804C1A568B92AE91C01E0F49E4C3A669C9B87C9FFEE9C2F23D78",
+      "after_sha256": "43C42D920194C89FE67723DE71F7276531FCDF3F560F4155E296445BAF70640B",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/CriticalDataNotice.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/components/ContainersView.tsx",
+      "before_sha256": "C5E4E46D9EF6DF76ECE16E106D0BE38996A1FA161546CA75816E2F8178853755",
+      "after_sha256": "7C2372F99337A23DEAB202112DE8AB5D7CDC8C2164885F19F3BF956434515202",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/ContainersView.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/components/DashboardView.tsx",
+      "before_sha256": "C419952BED2EB6460C3EF297AD027777A93B1E3E468CEA0332FE39F75F9AF1D1",
+      "after_sha256": "98E7A9C73A606A2D52A18D027709D0C0D37338428AB3F27834365A2DAD5AB32C",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/DashboardView.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/components/EDIView.tsx",
+      "before_sha256": "960030A0E4C45DBEF58439606BA8D801B50720BA579A25116AD3A4429E15E02B",
+      "after_sha256": "70C9DF24680034A6B3206823245D7FBE2162FBC7CD9CA7D1AAFB5AC3B6D08E34",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/EDIView.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/services/api/yard.service.ts",
+      "before_sha256": "6774F14231971106360AAC7F0AD360E74BDB9AC045E9D4D7DE52D218CD0D0EF1",
+      "after_sha256": "41E12931B7F52EBA62B58A9853F243C72CAC03FBEAE144480EE00C5EAB285044",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/api/yard.service.ts.diff"
+    },
+    {
+      "file": "apps/web/src/services/api/partner-handover.service.ts",
+      "before_sha256": "942B7B6164FB9CC8922720E006B6BFB181852DA1E50249B82C7CB7910F20C5ED",
+      "after_sha256": "8AE1BB65319B28268AD19826BC521C410201319656EA72A84652E351AFFFC28E",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/api/partner-handover.service.ts.diff"
+    },
+    {
+      "file": "apps/web/src/services/api/operation.ts",
+      "before_sha256": "5D0AF1045C0F567082BE5888C751894A86A09BC9520E5633323D13FD26AA0ABE",
+      "after_sha256": "07C3392851386015FFF3B2C1A05CA6ACD961132015CE226FD95F726490351CB1",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/api/operation.ts.diff"
+    },
+    {
+      "file": "apps/web/src/services/api/operation.test.ts",
+      "before_sha256": "4A18927ED97B05BC8B2F3E70BF062C5FDAC05863F00361BEF5418C5D5DAD4715",
+      "after_sha256": "179ACC56148EEA9176CB2E9A615BADDDBE76176D60CF91C3F6F08261FDE02E55",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/api/operation.test.ts.diff"
+    },
+    {
+      "file": "apps/web/src/services/api/master-data.service.ts",
+      "before_sha256": "A8A96497A72AC477DD8F6C2AE2C3CEB7B09857A267ABF75BABAF978482A5A03A",
+      "after_sha256": "3909E1273729AAE95BFACC2D53489E7130527CDC9127FE3673DFA0E3BDEF17A7",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/api/master-data.service.ts.diff"
+    },
+    {
+      "file": "apps/web/src/services/api/load-list.ts",
+      "before_sha256": "0CB5A7F0B64BA5BC63A01111CC8CF3B4FCAD4BB674BCD67CF7E01EABD5E74507",
+      "after_sha256": "1184F2D3BC184209DA58EF23F1761A114DDCD3FAA576496F85BBDA8C4DB9353B",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/api/load-list.ts.diff"
+    },
+    {
+      "file": "apps/web/src/data/mockData.ts",
+      "before_sha256": "068449673C175552846FCFC217C9F838B9CCAECC326E1EE699CD924B723AA3BA",
+      "after_sha256": "BECE25E61E0DAF3BA71BF13CB8822E67E4DF42EF1AAB28EEBD8D4AF0A2A82095",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/data/mockData.ts.diff"
+    },
+    {
+      "file": "apps/web/src/services/api/load-list.test.ts",
+      "before_sha256": "B05D0A3E0D6F98767EBF65639F4E48F4FF0EFE42E64B4D29E13533D709F398FD",
+      "after_sha256": "7255BDD59E06EF942AD811A4B170D9BDCEA000BC4545C9B345650338021BC5BA",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/api/load-list.test.ts.diff"
+    },
+    {
+      "file": "apps/web/src/services/api/gate-pass.service.ts",
+      "before_sha256": "D8F4BB690366244E441D2BB3F8D742496322E311725B72E19420BEEEAD9B41E3",
+      "after_sha256": "FF56EEAF5C036E7FC321334FB540D8DD24F5B5D6914A8542A901BB4A61CEFEF9",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/api/gate-pass.service.ts.diff"
+    },
+    {
+      "file": "apps/web/src/services/api/gate-in.service.ts",
+      "before_sha256": "BFB118607B1E1C8252A3C378F9776499E521F6B56DC4E8658B6FE64636E904DD",
+      "after_sha256": "AD8DDE8EB529140F13DFA31C2E3DEF3553739212495091DC30CF278836641BC9",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/api/gate-in.service.ts.diff"
+    },
+    {
+      "file": "apps/web/src/services/api/edi.service.ts",
+      "before_sha256": "12F18C430E58BD28561E069809DA0ABF54944078812BFFA079264E649863283B",
+      "after_sha256": "CA2D3ABA8B0B186061713E56DABC3B3B426D6419FB120EB03686380E962472BF",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/api/edi.service.ts.diff"
+    },
+    {
+      "file": "apps/web/src/services/api/containers.service.ts",
+      "before_sha256": "8048F85E5BFFBC8B603924850EAC09E37C0731590201E735C2BF3F9AF0D3730B",
+      "after_sha256": "16450F6C4552306D591C23687EBAD2F415975BEDE04997E691236DA3154BEB58",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/api/containers.service.ts.diff"
+    },
+    {
+      "file": "apps/web/src/services/api/client.ts",
+      "before_sha256": "A5F6D678D99DC0A5E6F87C14CF3DE3691D093AA0F3520DAD78182DDA958E1F12",
+      "after_sha256": "19B7CC105AAF93F08022D3FFB17F766A79FFCDC4F22BCB6788E2659CEA03ED77",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/api/client.ts.diff"
+    },
+    {
+      "file": "apps/web/src/services/api/billing.service.ts",
+      "before_sha256": "B384CD32472519D634EC7996DB4E86C8964E9B393BAEBBA0E856921C6B856023",
+      "after_sha256": "E01583FADC98C41C0D3C1D25DD8E9FDA2E4A15136AB4C2783596A3BED7B64A6D",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/api/billing.service.ts.diff"
+    },
+    {
+      "file": "apps/web/src/services/api/auth.service.ts",
+      "before_sha256": "8B1AA1577B0EACCA19E35B2965D2A22EC2ADEC2DF75C341CEDB848A7CCC591A1",
+      "after_sha256": "541598B675853CA747E53F89701460E0487AC38F3372BBEF36BA81E63BA79E61",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/api/auth.service.ts.diff"
+    },
+    {
+      "file": "apps/web/src/components/MasterDataView.tsx",
+      "before_sha256": "5A3CF2F3B1924A9A95D6FB384E79647E3E2C40D10C735C011B2FA2AB0D8719BD",
+      "after_sha256": "62EF005E7639350EA1C568A51550E80144AD249779AD81CDCE455B19316798BB",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/MasterDataView.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/components/ManifestsView.tsx",
+      "before_sha256": "C907DD395122C263300AC177D92A7FFF582E616791958EAB6F81210455EDAB8E",
+      "after_sha256": "9EC04350132A4B55E937265AA284C00509B00EA8F604E30E063B158B571CF886",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/ManifestsView.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/components/Header.tsx",
+      "before_sha256": "176E92AC603AA5E26CDD3FAC4C35BE18CFCA165A55C0F9D5A2F28CB331959266",
+      "after_sha256": "137B0D059B9785D0FEE1576CC97ECAA95931F8752FA93439AE945AD3D8738A84",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/Header.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/components/HandoversView.tsx",
+      "before_sha256": "9BEAEC3734DD6BEF0B9D735FE8200CAB1B0D18DABF9940847BFD89EB83B85A35",
+      "after_sha256": "09E52FE6F42659C36A2B842F736FF77EBA3D12D1534974CB358C54BF30928E91",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/HandoversView.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/components/GatePassView.tsx",
+      "before_sha256": "97B9DB84C0B44F7CF50008CBA743B3458AAC7D980CA95D046FE6AFE1EF6E034A",
+      "after_sha256": "5C82C9D53ED7384C7C71BD538D7EA4AF250F0D4A127E8A8B23940C5A4801A20E",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/GatePassView.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/components/GateInView.tsx",
+      "before_sha256": "4350C7D2A81988B30470DD51AFBA84948282FF26FED592EAD16AA74675AB4741",
+      "after_sha256": "1536DA577D72E496AD4467601BFBB8226CC3EEAC6014CC85E009A3F72437DBBF",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/GateInView.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/components/ReportsView.tsx",
+      "before_sha256": "3DD1DCC2EEE41A0860CE4D7EF565EF4E7BE58AE1E4CE3757F2D4DC38F84741F0",
+      "after_sha256": "F36ECCBC5815A8D8FFDDB55EC8BE655B70A4D8063363C9D5FCA90B53C7401FEA",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/ReportsView.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/components/PartnerManagementView.tsx",
+      "before_sha256": "3E6345ED9811068BA53E2FF7AE5EBA54CD81263B0BF5B702CA4C8FE1C9A7DBD6",
+      "after_sha256": "4D4F23BA79301631DFE74E0C9435683D08C2DC73BE71B320630FE3D6CFC327D5",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/PartnerManagementView.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/components/MovementOrdersView.tsx",
+      "before_sha256": "3B3652E33E1F2CDDBB90F73A162BB90F75A7B2800C4A738FE5A7F6F6FC175CB3",
+      "after_sha256": "8B7A0058EFF70AFB9AC1E81306B4B64A2E889311FDB05411D5678B552252EB1B",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/MovementOrdersView.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/components/ModalOverlay.tsx",
+      "before_sha256": "B6B48A220642097FD9B82F87F3A144889729C961179EF6397818298AD961331D",
+      "after_sha256": "59B49106237EDBEB81D6F8C55F00B8046483122463A86E9793F118C9BBE101D4",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/ModalOverlay.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/components/TruckVisitsView.tsx",
+      "before_sha256": "30297BD40FD29FD088A3AAB589DA332E535C02421E56CAA26E7FBE3C1C741804",
+      "after_sha256": "17A333BE941F5ADA562CF4C091A6877ECC907919E300B02BF9BB63332782D6CE",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/TruckVisitsView.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/components/Sidebar.tsx",
+      "before_sha256": "AD10456A4F3B2E662461BC9DA660FD6A18EE3F5B5DA0E37E36F24EB82F30EA66",
+      "after_sha256": "CF8F13B37EDD0D3A379988158B8581A72A5F3389270E0632CC7E91A2B1B0E210",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/Sidebar.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/components/UsersRolesView.tsx",
+      "before_sha256": "AEE654822AE554AB5C7B93AEC2A1D36250EAF5C1BA04288D186B745702889FAB",
+      "after_sha256": "0750B0EEBEBDA03686AC6E983C9F2F04D3AE4B2863B3427929464F6A053144BF",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/UsersRolesView.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/components/useBackendReadiness.ts",
+      "before_sha256": "D340CB288E590DE2FBF9F44D039C772EEEF3E6902E883B74D88B657CCCEBBE37",
+      "after_sha256": "E425D4B1A6200A5CF71B33E2E9EC519848C3A7A872163933FFFC408968AD60E3",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/useBackendReadiness.ts.diff"
+    },
+    {
+      "file": "apps/web/src/components/ViewErrorBoundary.tsx",
+      "before_sha256": "2F8363E53A1728CF4379669CEFA42B5FC8E5A685F2F6E6D4E3FFB4C264A0FE07",
+      "after_sha256": "1320BA97D80224A940A31A6BF7DE434C64072A392FDD7C91A1C61045C9EA05C7",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/ViewErrorBoundary.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/components/YardView.tsx",
+      "before_sha256": "500883BBD8D639BDADCB35AED59342BDFCFC6D631D1EEEE9477D5507C1C1AF21",
+      "after_sha256": "792F4226459360C43CB7D58BAD7A0BF364935A87782E53FA421003ACA54763D3",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/YardView.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/components/WebLoginView.tsx",
+      "before_sha256": "12B960A94C9D60853BC429CCBB5F719A1E88FC2A385199DABE59C964DE093987",
+      "after_sha256": "9F1AF227E74E448DFBD4CE33CC89611F0FF1C2708DA9580CBEE89AB29C4E5B5C",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/WebLoginView.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/components/WorkQueueView.tsx",
+      "before_sha256": "B776F10FD6A2B5962BCC221722467A61DFA847635781738F044D9B75B7836439",
+      "after_sha256": "AD857CD17DC545D2DD3FA51A07E4401DF86F113A6DAF5A7CA3E45D85A1E7DE72",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/WorkQueueView.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/navigation/MainTabNavigator.tsx",
+      "before_sha256": "D7429E6D6D88A5621ED18F558E719CCD1204D191927B556FDD18E10F231E4F09",
+      "after_sha256": "0CC4085D5B73C05B62DC9B1E57EB6483F332F22232FB89C06FEFB59D5473B2AF",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/navigation/MainTabNavigator.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/components/yard/YardSiteMap.tsx",
+      "before_sha256": "F2C21D706B1DB9079A15A28A3F35142A64CAB3688F7E360F3BB4A576E411ED2F",
+      "after_sha256": "84EFE17E5289BF3ED06E2066EDF761405C72D217558E85FC275252638E7C6130",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/yard/YardSiteMap.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/components/yard/YardOperations.tsx",
+      "before_sha256": "F2CD7D6D6397BDF5EE830EC3B03AD7DF682D9140D99A55084255C0559B980F72",
+      "after_sha256": "014CC5EA9CDA2395D1598D041A2B8812087823F66EE75F68FF61A5265B31F160",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/yard/YardOperations.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/components/yard/YardOperations.render.test.tsx",
+      "before_sha256": "F3CFBCEB2C8CEF28B52B01FA53A80CFAC4903310FED0B07F05F71E390E50E86B",
+      "after_sha256": "ABDC43823FDD4A5AE669BA9454C52D9C8371D588D1781C739DE36EE34EFF17AE",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/yard/YardOperations.render.test.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/components/yard/YardAssignment.tsx",
+      "before_sha256": "BEFF5C5C3808FEB120ADDD8705CA671D77033E8F11BB569535F1D0FF6CFC594E",
+      "after_sha256": "E6DA9D850EEAE0C602A868F59E1198CDF1B63764FD0A39AB6A125876F7533C8B",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/yard/YardAssignment.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/components/yard/yard-operation-form.ts",
+      "before_sha256": "621966599591EE7BD692D23F707D7E8013F09E7CAF21B03C2083B966B34D5318",
+      "after_sha256": "A3ECC6754A0938F6672B74205523E63FCBE86AC4BC9D2CE72DA8BBE7664A0CF6",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/yard/yard-operation-form.ts.diff"
+    },
+    {
+      "file": "apps/web/src/components/yard/yard-operation-form.test.ts",
+      "before_sha256": "9FBBA7349354DEB5C04DCF7A41021C77BBCF423A0A6B36532045263CD4F4CAFB",
+      "after_sha256": "AA93A9A04CCF975A58FB7007CA6879E9087282D8050813F2908D46ABC2A2ACD7",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/yard/yard-operation-form.test.ts.diff"
+    },
+    {
+      "file": "apps/web/src/components/yard/yard-model.ts",
+      "before_sha256": "57D7346C0F2A08B1CC875912E18D7AB0C6F191C8C822982C4A16FA806C88D41B",
+      "after_sha256": "C06547DBCCE59450D8CD30A9110A53B19E1CF3547E50E79AF89AAAC9B08064F8",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/yard/yard-model.ts.diff"
+    },
+    {
+      "file": "apps/web/src/components/yard/useYardDialogFocus.ts",
+      "before_sha256": "57691D56F325952FB81F698621BCC3580D3B187A9F2A313AA801110B5214193A",
+      "after_sha256": "071D1EA8ED515D19CC7AC1FE9E92B751312B4E0FE24D037A7CF953E3A0DD6628",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/yard/useYardDialogFocus.ts.diff"
+    },
+    {
+      "file": "apps/mobile/src/storage/auth.storage.ts",
+      "before_sha256": "DD5B13C0348980B749384C6E5D94F52A0D25A611D3F09955EA187065DA815294",
+      "after_sha256": "A109B1B063425AE9691AD53100565D12C54F3E9702EFED2A03203944923C4317",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/storage/auth.storage.ts.diff"
+    },
+    {
+      "file": "apps/mobile/src/theme/typography.ts",
+      "before_sha256": "87A723208971C2296450EE22F5EA86CE2AFDCE81341AB9F932A3D3D12930D7E3",
+      "after_sha256": "0D1BBFAD55D1729F1F19217AE97CB9FA623D0B869AFE76874F42C85E33880CAF",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/theme/typography.ts.diff"
+    },
+    {
+      "file": "apps/mobile/src/services/api/ApiConnectionProvider.tsx",
+      "before_sha256": "697EC27EB01EDD4B7FC93CF24DD5D48C7D72298E527558A891C811FE8AA5AFE7",
+      "after_sha256": "CC6DF184B84875984D908D5B17AC206DDF5C6217697F9A0506DAEB52BE1CCDB3",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/services/api/ApiConnectionProvider.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/services/api/api-client.ts",
+      "before_sha256": "0D0ADE02E6379BA114FB71E3ADAE6000C3B96DD9FCA720F78D6226AA591A7CF0",
+      "after_sha256": "FC1916C91CA3A886648C6A6D949584B848F5F2D23BB0991C178503FD9673B650",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/services/api/api-client.ts.diff"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/screens/YardOperationsScreen.tsx",
+      "before_sha256": "E5F1B5F166820D2A67A8499316D3DC1FFEC7987698061E58DF0C50BCE98FF227",
+      "after_sha256": "1077CFAE9348659BCC654939AC1D5E7E001276E641D75FA93645056C3182797E",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/features/yard/screens/YardOperationsScreen.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/screens/YardOperationDetailScreen.tsx",
+      "before_sha256": "DB6EC1F3EEA1EAFDFA88AD0886C028059A1F5C7DFBDF99C46C2614F048DECAED",
+      "after_sha256": "42131175CCA9F720620A08E8692ADA7E03DE6FAE5F8AB145B773413A88285D40",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/features/yard/screens/YardOperationDetailScreen.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/screens/SurveyHomeScreen.tsx",
+      "before_sha256": "79854B1CA17AA35703C124C9048032A1A40F35E8A68B0ACA84F17A0A5963F8F6",
+      "after_sha256": "C8A76012209B097BD156D8B61F6A41A42B9EFAB10488782F7E1F13F1BFBCE109",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/features/yard/screens/SurveyHomeScreen.tsx.diff"
+    },
+    {
+      "file": "apps/web/src/context/AppContext.tsx",
+      "before_sha256": "14888988148A632DFDE42311D7EC2C836A93ADE4DB23B8D6F4B7E776F95EF656",
+      "after_sha256": "01218D66941A6E07FA15C49A03ACD9860DF76CA595FDA91AFDF12CDC74FF8201",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/context/AppContext.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "before_sha256": "A4063CE141370A19DDA714C84C218A047D346FE25D7933969ABB99C7646BB74D",
+      "after_sha256": "DBEF3A1C5470CFFBE0ADBAD6ABB3AE0594C5EDDBB5B52F0B7BDEEDB1F7AD317F",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/features/yard/components/YardSlotGrid.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/features/gate-out/screens/GatePassScanScreen.tsx",
+      "before_sha256": "772889F9288A5B4B83E52B39F9272D9312F8546EBBD08BA288494EDEB7A70048",
+      "after_sha256": "BC93B65246C737DA1AAE4594E851658A95113FE5C6630760E96C40BD64333C03",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/features/gate-out/screens/GatePassScanScreen.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/features/gate-out/screens/GateOutConfirmScreen.tsx",
+      "before_sha256": "76786B151DB22D8F5E3EE81D2D78DDA6A309415A20DDB3FC038333A8FA4E0E02",
+      "after_sha256": "629B9F5580952577479AB723B9DBBA6AD8BE1F831D7A0890AF58B111EB84BED5",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/features/gate-out/screens/GateOutConfirmScreen.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/theme/ThemeProvider.tsx",
+      "before_sha256": "7F71ABEAFD9EE8CE2AAA7ECB678403BD708134CC515A4170C2CF7972E4C6D2AB",
+      "after_sha256": "5CFA9F4F5CCAE79EB74B48E3B23DCCE6DB4424396B2DBCA0F0AD9D7045FD8F3E",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/theme/ThemeProvider.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/features/gate-in/components/GateInReceipt.tsx",
+      "before_sha256": "38F5B17C27C03369A0ACC1041035402D6B1D4BC0F6F1B5B5031320AF785C083D",
+      "after_sha256": "C5BC58F538A714D50820D304C7F1B3250F5AF941D7718DA9AC6FB154497C500E",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/features/gate-in/components/GateInReceipt.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/features/notifications/screens/NotificationsScreen.tsx",
+      "before_sha256": "3E14E0EDA211682D0B8D92437617FA9DA6C6D0CCFDE3CC3184CC88F38379549D",
+      "after_sha256": "14EF67AABC18510E3CCB095A99A0942C9375DF22FECF1AADAE8396211450E35B",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/features/notifications/screens/NotificationsScreen.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/features/work-queue/screens/WorkQueueScreen.tsx",
+      "before_sha256": "9F80864AEE94DE59D19DA31FA1426DEFE47F9C4E42490876280E594EA51D6021",
+      "after_sha256": "882868821B2B849A552E5A11607B172D46AA8122E4AB5CADAB4144175AB2A9B8",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/features/work-queue/screens/WorkQueueScreen.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/components/SessionCard.tsx",
+      "before_sha256": "483447180EC0C62478B15501C0026D799BEB8295D793C0E925CE288DEFDFBE73",
+      "after_sha256": "F1C9E0DFDFC546C90D28107A614DB0559E3E6B0A0D09A4E87419B2BE05DCD456",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/components/SessionCard.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/components/SelectField.tsx",
+      "before_sha256": "A64A243FBC184895A0D6040A252A74822757D05B68273C8F4D65289587F4205B",
+      "after_sha256": "AC09784D5657CA64E7CDE2EF3C575710FBC9EE5F388974BB820FD9997ED288FE",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/components/SelectField.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/components/ScreenLayout.tsx",
+      "before_sha256": "C13A73BBEE1D4FC48C0E9233A2858DF352C9C62E674F1122E8EE125E3760B9A2",
+      "after_sha256": "801DBC7C51EE9DE07BB7D1871EBE97E631289E8FD77059EF4FC214194413C090",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/components/ScreenLayout.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/components/PrimaryButton.tsx",
+      "before_sha256": "09486A9FDDA2A81AFC316665E63A03970EBBC371DE96C9114DF5DF7E8EEC09E5",
+      "after_sha256": "2B134FB06A4872732830A323C31013DAD8997B6B8F6AAE43366DBA2B7E7DDA95",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/components/PrimaryButton.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/components/GateModeSwitch.tsx",
+      "before_sha256": "388C4049A41D92B76C5FC613BA5A4A086038DC81C3F3F9E9E15335C2031E5673",
+      "after_sha256": "684A8248C45DDBF50CF4C49FD78EDDE3B5D5CF67AE8F9A8BEA72F859CA32EAA3",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/components/GateModeSwitch.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/components/ForbiddenScreen.tsx",
+      "before_sha256": "544504893CDFFBFA1339C09626CAE44408803D1CEF7FBCF78FF0AA8026CF8114",
+      "after_sha256": "91997AE19C7CA980B6751CD96A97C084CA8649F15F1AFF647DB21F69FE6900E9",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/components/ForbiddenScreen.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/components/ErrorState.tsx",
+      "before_sha256": "495F22C417C6E4D00281AA736AB5FBFE5F7048C3D24DD330C0F385F447378632",
+      "after_sha256": "24D3B53EC6E138E74D29D5C13EA4F39EC480FC2ECA50923D426CD1C5E391957D",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/components/ErrorState.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/components/EmptyState.tsx",
+      "before_sha256": "A0CFEA0D2EEAB9A5EE9D98C84CF9AD0693F90E46F87A1B43C5A9AC38F0C4BA38",
+      "after_sha256": "BDE7F07342E63F9B47A008FF32365F7DE29CACBEF93262732D35BADB06BDD515",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/components/EmptyState.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/components/ConnectionBanner.tsx",
+      "before_sha256": "01A67DC567CFDAF29ED9A4E24FC579704C62FB6929C7D34F259A720DA5136EDA",
+      "after_sha256": "B88B8570FDB2DAC2DC671B0C52F19A5AD5B5BDBD8ECD0D5A67C0F60BB167FDB8",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/components/ConnectionBanner.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/components/AppHeader.tsx",
+      "before_sha256": "A257DBF847AC6980D902E123C5B26FA9AF5CD98E1741D0286AA99A5C746DE2BD",
+      "after_sha256": "A928701615027DFA9522B1066863EE7056B01D424629B882EFB31C3B8EF3D4FC",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/components/AppHeader.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/features/more/screens/MoreScreen.tsx",
+      "before_sha256": "68A711322473ED72C283E0FECF559C6B3C4875A2E4DED50F054A94ADFA137F4C",
+      "after_sha256": "E59BBF2B464ACA4C56CEB01C0D93D5E15A89BF855E000FAE8B59CDCEFCC45497",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/features/more/screens/MoreScreen.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/features/containers/screens/ContainerSearchScreen.tsx",
+      "before_sha256": "B2463D01ABA2BD4B4B6661910707977B21BA29D387C6207DCE5F942861C394FD",
+      "after_sha256": "F81789A9A39B3EA4FEB2CAF662553E51002A2B5D7F28C7CDD8672C7A352E0794",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/features/containers/screens/ContainerSearchScreen.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/features/containers/screens/ContainerDetailScreen.tsx",
+      "before_sha256": "407F9F8DDDD68E802EE30D62D856FFCDE1794EF6233F693C2093F2D31C74D294",
+      "after_sha256": "6E6881D3D2682D0C84252F4309B95C38C18FE9A9C65D0E1796ADB2A0F32C551D",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/features/containers/screens/ContainerDetailScreen.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/features/handover/components/HandoverSummary.tsx",
+      "before_sha256": "2712253FF1E45C69AEB46873AA0F88B016689BCEFFD0285D471A5242CB44A4B5",
+      "after_sha256": "8CC8F2F1E95279042AA6FE62D76B481A28EC31E9CEC9AD1E5E6B3B043E685A6D",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/features/handover/components/HandoverSummary.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/features/auth/screens/LoginScreen.tsx",
+      "before_sha256": "28C49D5DC83491077FCD61F165BA9D114CD54B264378D5244A5DE068BEBE43B2",
+      "after_sha256": "1E0B1C439400F35AB6FED5DF082C876C92AC3CAA516FF9AA9F1C243D164C3B1E",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/features/auth/screens/LoginScreen.tsx.diff"
+    },
+    {
+      "file": "apps/mobile/src/features/auth/context/AuthProvider.tsx",
+      "before_sha256": "DF18FC32147430DD916C0EBAD8695AB954F19DDBC3B95AAF22F2D7AEF9D27D8F",
+      "after_sha256": "276CACA730895901392C5124946ED1D2B2757D496A43EC27661E1C23007BECF2",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/features/auth/context/AuthProvider.tsx.diff"
+    },
+    {
+      "file": "apps/api/src/modules/partner-handover/controllers/internal/partner-api-log.controller.ts",
+      "before_sha256": "D4B9062F17B8C4EE7F66E9CDDFFB615D4E186673BC1A3FD45D3B7D3FFEC0B2E7",
+      "after_sha256": "BBFAD75EBF17636C6BBD8951CCE4713CCB0B11AD51D0322F3B47D32D08CDF46A",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/api/src/modules/partner-handover/controllers/internal/partner-api-log.controller.ts.diff"
+    },
+    {
+      "file": "pnpm-lock.yaml",
+      "before_sha256": "2AEF6A846AE69392415CA3A663BBF82B5DE3EAF87A42A9B0C0B662E633510F13",
+      "after_sha256": "1E2640C9460145A796EC4076ED918804642DBE647CD31449D766271FAFF846DD",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/pnpm-lock.yaml.diff"
+    },
+    {
+      "file": "apps/web/src/navigation.test.ts",
+      "before_sha256": null,
+      "after_sha256": "E3E40E8FFAE8BC89FA05FAF20E04B38AE806F2E8097D4B1DF610CD85E37336D0",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/navigation.test.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/web/src/navigation.ts",
+      "before_sha256": null,
+      "after_sha256": "3D217F1BD359B4C28AFF6F427BDFFCD08F2C2F97C77E646399A0DEAE18FD02B1",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/navigation.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/web/src/components/CollectionState.tsx",
+      "before_sha256": null,
+      "after_sha256": "B0E756A14F1F9512F5DD34285C68B2BC3A7C08F5B40BE83FBB237E3A2239999E",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/CollectionState.tsx.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/web/src/components/ReadinessNotice.tsx",
+      "before_sha256": null,
+      "after_sha256": "76F902596494A2EEDD8270B4FA66DA68EFF482FE380A0CF8E58B30D068B5674D",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/ReadinessNotice.tsx.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/web/src/components/ReadOnlyNotice.tsx",
+      "before_sha256": null,
+      "after_sha256": "BBE817FF6083F2C01055E7F3BDB91792EB654A9C76C8464302D20F13F2C39827",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/ReadOnlyNotice.tsx.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/web/src/components/useCommandAction.tsx",
+      "before_sha256": null,
+      "after_sha256": "DA20AC976B16FFDF966ACBA55BEE3F4A86C4904D91AB1B215AB96A372BEFA400",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/useCommandAction.tsx.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/web/src/components/useFormValidation.tsx",
+      "before_sha256": null,
+      "after_sha256": "A189B0D577FE2E1440C7A1DBE485FAF5197B4C47F2A7FAA0FE3D0D9601CAB536",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/useFormValidation.tsx.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/web/src/components/useGatePassExpiry.ts",
+      "before_sha256": null,
+      "after_sha256": "F3EEB2FDD6150B0A729679CBBE8B7F3A8504241A6195751BBF4FCA91F4129479",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/useGatePassExpiry.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/web/src/context/resource-data.test.ts",
+      "before_sha256": null,
+      "after_sha256": "F8F739D8F749084C156FD3918A63089C597253550DFF115FC18225915FA11CE8",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/context/resource-data.test.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/web/src/context/resource-data.ts",
+      "before_sha256": null,
+      "after_sha256": "887A13DF0358DC3A970EE5CD0C5EA26E6E23FF4E852CB8FFD4EAE138A518C118",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/context/resource-data.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/web/src/context/useViewQueryState.ts",
+      "before_sha256": null,
+      "after_sha256": "3CB6E66A7B29EA9AF3EBD3C17A81ACF4BD604373506ACB98C05633000980DA47",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/context/useViewQueryState.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/web/src/lib/gate-pass.ts",
+      "before_sha256": null,
+      "after_sha256": "97A97E1FA4E68D90F9859C0754CCD8811F833FA58CB2A5A213AB63C8E2657F62",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/lib/gate-pass.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/web/src/lib/time.ts",
+      "before_sha256": null,
+      "after_sha256": "866B7A1BA60C3821FCA5A6A8AA51F1521D3E8A4DCB5CB2FE0C7B803C5FFC8931",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/lib/time.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/web/src/services/payment-amount.ts",
+      "before_sha256": null,
+      "after_sha256": "A8A049CAC5626039C2337E28A689C59C0561B428922F8DA2ADA0F84442094FB9",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/payment-amount.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/web/src/services/write-permissions.ts",
+      "before_sha256": null,
+      "after_sha256": "B40EBED79E67DCBA18A4056FC060FE7EE0472A270565598E77225B9CE3D5F6BC",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/write-permissions.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/web/src/services/api/auth-boundary.test.ts",
+      "before_sha256": null,
+      "after_sha256": "3B53DDBF72CFB02912E24F48E87B286CFE7E79C154ABB7FB3BE6A1932C360296",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/api/auth-boundary.test.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/web/src/services/api/auth-response.ts",
+      "before_sha256": null,
+      "after_sha256": "D87FA869A61C2D7AD567EFA2EBEFA6D6D603D262C658EB8F45A3D9DABD9FB61E",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/api/auth-response.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/web/src/services/api/dto.ts",
+      "before_sha256": null,
+      "after_sha256": "F937ECC0BE14E7715FA641FBA1D640CA8D08CED60CABD2207A0E8AE2FE5495DD",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/api/dto.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/web/src/services/api/refresh-recovery.test.ts",
+      "before_sha256": null,
+      "after_sha256": "F4607C8B34F21526F3662B5F23311E1EDCC69DD825EEBF6CF3FF8486B17581E7",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/api/refresh-recovery.test.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/web/src/services/api/vite-env.d.ts",
+      "before_sha256": null,
+      "after_sha256": "EC488A7AFB6A1B50D652944AE3ED52004E9986B451F6462765B55973BD877196",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/api/vite-env.d.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/web/src/services/mappers/boundary-contract.test.ts",
+      "before_sha256": null,
+      "after_sha256": "7010FD00FF31D71BF4551037D68F1EA46E1A067F11AF7768F0CF47DD31C8F096",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/mappers/boundary-contract.test.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/web/src/services/mappers/canonical-status.test.ts",
+      "before_sha256": null,
+      "after_sha256": "8C4A26C9045CDE08AB01823F625554ED66FCE04E062419466F0CA11490DE47AC",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/mappers/canonical-status.test.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/mobile/src/components/booking-date.ts",
+      "before_sha256": null,
+      "after_sha256": "C4C4249E5E3EE5DADB13BF8F7631BA99AEA3032E12238ADD24AB4E456454969C",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/components/booking-date.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/mobile/src/components/BookingDateField.tsx",
+      "before_sha256": null,
+      "after_sha256": "1AF80942CBA152C263A618A75DE60F1FDA4E243930E7C373FDBA3F9064114122",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/components/BookingDateField.tsx.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/mobile/src/components/BookingDateField.web.tsx",
+      "before_sha256": null,
+      "after_sha256": "9A4F2D679DD0184259E9F0AC0EFC76175D6EA348E6063B7F36F53B43C21191A0",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/components/BookingDateField.web.tsx.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/mobile/src/navigation/deep-links.ts",
+      "before_sha256": null,
+      "after_sha256": "E39F9DE11EBAB2DB490D74DA20A8E67A226FF3120E8753190F9EF2BFA0479D59",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/navigation/deep-links.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/mobile/src/navigation/ResponsiveTabBar.tsx",
+      "before_sha256": null,
+      "after_sha256": "102B245D134D0A35CA4607B9F6F92025B9E817A03D96565488C48D8581D79BF8",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/navigation/ResponsiveTabBar.tsx.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/mobile/src/navigation/useGuardedDeepLinks.ts",
+      "before_sha256": null,
+      "after_sha256": "5FAC38147B1B2F642EA3286F4080148BF051E56CA60F9E5A15DD5D53AE7B32BC",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/navigation/useGuardedDeepLinks.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/mobile/src/presentation/labels.ts",
+      "before_sha256": null,
+      "after_sha256": "00E3A46FBDF43EB01DB77D4D9105ABDC1B9AA5ADC7EE7169B69442DB9ECB0F68",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/presentation/labels.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/mobile/src/storage/read-cache-store.ts",
+      "before_sha256": null,
+      "after_sha256": "C223961FD3CFDE6A5F0CADE4435FF6AFA707BDE578ECCFB003486225B269C0C8",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/storage/read-cache-store.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/mobile/src/storage/read-cache.ts",
+      "before_sha256": null,
+      "after_sha256": "8F5A703562706B77B76E172423BFB5E50C7B3F9CBC76AD85F6DD00A41AD68C8F",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/storage/read-cache.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/mobile/src/theme/appearance.ts",
+      "before_sha256": null,
+      "after_sha256": "85D8F68B35C001BDB40F6658C6F13464E4D5FDDEEDB5C43FE1B67E87FA653AAA",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/theme/appearance.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/mobile/src/theme/layout.ts",
+      "before_sha256": null,
+      "after_sha256": "745B1F929CD2997892255BF9F0741DB0C04443F4DB43BD78A59BA88DAC5F85F8",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/theme/layout.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/mobile/src/features/notifications/notification-presentation.ts",
+      "before_sha256": null,
+      "after_sha256": "45948AF4E7F96144DD375B3C0CE4658AC396C3B8A4711A0C647A9E6D248CDB7F",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/features/notifications/notification-presentation.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/mobile/src/services/api/connection-gate.ts",
+      "before_sha256": null,
+      "after_sha256": "603FD7739B1663C62F7480E9EE95763D54B1DE7CA5B598C71B95E6D1A96A1896",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/services/api/connection-gate.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/mobile/tests/cache-generation-race.test.cjs",
+      "before_sha256": null,
+      "after_sha256": "833C784DE046F9561663EAFC566D8341B4F4F95974CFA03B6FA7E4D3C0EC6FBA",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/tests/cache-generation-race.test.cjs.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/mobile/tests/improvement-behavior.test.cjs",
+      "before_sha256": null,
+      "after_sha256": "CFBE91008E59FF06170E8DDCBDD78D00A5F6326BBACAA5DBF89C4EC53EFB041D",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/tests/improvement-behavior.test.cjs.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/mobile/tests/improvement-checkpoint.test.cjs",
+      "before_sha256": null,
+      "after_sha256": "DB0FCFE268CED36589C20EEA1C90ABE9E6EC4BAA5E18B75E8E23FCE0833D954D",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/tests/improvement-checkpoint.test.cjs.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/mobile/tests/improvement-harness.cjs",
+      "before_sha256": null,
+      "after_sha256": "ACC9E749B86CDE1475E9923D1EDFCF3D87F8C84BF67828E47FE274AD450E5FD6",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/tests/improvement-harness.cjs.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/mobile/tests/mobile-static-measure.cjs",
+      "before_sha256": null,
+      "after_sha256": "DA2CF6F8A79C43757F6DC3E7311C604DB5067717F1FD27A5C21344F5FBFCBBC5",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/tests/mobile-static-measure.cjs.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "apps/mobile/tests/session-race.test.cjs",
+      "before_sha256": null,
+      "after_sha256": "163CDA7D71C0FD545523ADA75596808B5F7C58DE0B4A3A618452AC82C3171C8E",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/tests/session-race.test.cjs.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    },
+    {
+      "file": "packages/api-client/src/refresh-recovery.test.ts",
+      "before_sha256": null,
+      "after_sha256": "8203E7079FA8B6D8F73376AE8B5F52305DB4A79E01BFBB13E502A7A0A8712180",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/packages/api-client/src/refresh-recovery.test.ts.diff",
+      "kind": "NEW_SINCE_APPROVED_SNAPSHOT"
+    }
+  ],
+  "policy": "Shared-file review diffs explicitly include multiple approved findings; not standalone per-finding patches."
+}

@@ -1,0 +1,23 @@
+{
+  "status": "VERIFIED",
+  "change": "Count chỉ hiện khi các resource phụ thuộc đã ready/stale; stale được gắn nhãn. Browser403 đã xóa toàn bộ hàng cũ và hiển thị hai nhãn chưa xác nhận, không giả danh sách rỗng.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/CollectionState.tsx",
+      "line": 4,
+      "detail": "export function ConfirmedResourceValue",
+      "snippet": "export function ConfirmedResourceValue({\n  resource,\n  children,\n  unavailable = 'Chưa xác nhận số lượng',"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/count-consumers-green.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/web-observation-review.md",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/network-containers-forbidden-counts-after.json"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Meaningful RED/GREEN source regression; real API only if explicitly linked.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/CollectionState.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

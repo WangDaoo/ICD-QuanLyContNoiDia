@@ -1,0 +1,100 @@
+--- before/apps/mobile/src/services/api/api-client.ts
++++ after/apps/mobile/src/services/api/api-client.ts
+@@ -1,6 +1,7 @@
+ import { authStorage } from '../../storage/auth.storage';
+ import { getApiPayload, getApiErrorMessage, isGatePassTokenError } from './api-protocol';
+ import type { AuthUser } from '../../features/auth/auth.types';
++import { connectionGate } from './connection-gate';
+ 
+ const apiBaseUrl = process.env.EXPO_PUBLIC_API_BASE_URL;
+ 
+@@ -33,6 +34,12 @@
+ };
+ 
+ let refreshPromise: Promise<string | null> | null = null;
++let sessionGeneration = 0;
++
++export function invalidateApiSession(): void {
++  sessionGeneration++;
++  refreshPromise = null;
++}
+ 
+ let unauthorizedHandler: (() => void) | null = null;
+ let refreshedUserHandler: ((user: AuthUser) => void) | null = null;
+@@ -61,8 +68,11 @@
+ 
+ async function fetchApiResponse(url: string, options: RequestInit): Promise<Response> {
+   try {
+-    return await fetch(url, options);
++    const response = await fetch(url, options);
++    connectionGate.reportRequest(true);
++    return response;
+   } catch {
++    connectionGate.reportRequest(false);
+     throw new TypeError('Không kết nối được máy chủ. Kiểm tra mạng và thử lại.');
+   }
+ }
+@@ -72,8 +82,10 @@
+     return refreshPromise;
+   }
+ 
+-  refreshPromise = (async () => {
++  const generation = sessionGeneration;
++  const refreshing = (async () => {
+     const refreshToken = await authStorage.getRefreshToken();
++    if (generation !== sessionGeneration) return null;
+ 
+     if (!refreshToken) {
+       await authStorage.clear();
+@@ -90,6 +102,7 @@
+         refreshToken,
+       }),
+     });
++    if (generation !== sessionGeneration) return null;
+ 
+     if (!response.ok) {
+       if (response.status === 401 || response.status === 403) {
+@@ -101,20 +114,25 @@
+     }
+ 
+     const result = getApiPayload<RefreshResponse>(await response.json());
++    if (generation !== sessionGeneration) return null;
+ 
+     await authStorage.setTokens(result.accessToken, result.refreshToken);
++    if (generation !== sessionGeneration) return null;
+     if (result.user) refreshedUserHandler?.(result.user);
+ 
+     return result.accessToken;
+   })().finally(() => {
+-    refreshPromise = null;
++    if (refreshPromise === refreshing) refreshPromise = null;
+   });
+ 
+-  return refreshPromise;
++  refreshPromise = refreshing;
++  return refreshing;
+ }
+ 
+ export async function apiRequest<T>(path: string, options: RequestOptions = {}): Promise<T> {
++  const generation = sessionGeneration;
+   const { method = 'GET', body, auth = true, retryUnauthorized = true } = options;
++  if (method !== 'GET' && auth && !path.startsWith('/auth/')) connectionGate.assertWriteAllowed();
+ 
+   const headers: Record<string, string> = {
+     Accept: 'application/json',
+@@ -131,6 +149,7 @@
+       headers.Authorization = `Bearer ${accessToken}`;
+     }
+   }
++  if (auth && generation !== sessionGeneration) throw new Error('Phiên đăng nhập đã kết thúc.');
+ 
+   const response = await fetchApiResponse(`${API_BASE_URL}${path}`, {
+     method,
+@@ -139,6 +158,7 @@
+   });
+ 
+   const responseBody = await parseResponse(response);
++  if (auth && generation !== sessionGeneration) throw new Error('Phiên đăng nhập đã kết thúc.');
+   // A signed Gate Pass is a business credential, separate from the user's session.
+   const invalidGatePass = isGatePassTokenError(responseBody);
+   if (response.status === 401 && auth && retryUnauthorized && !invalidGatePass) {

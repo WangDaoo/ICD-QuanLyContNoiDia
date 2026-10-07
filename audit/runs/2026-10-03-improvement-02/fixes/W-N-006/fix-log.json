@@ -1,0 +1,21 @@
+{
+  "status": "VERIFIED",
+  "change": "Finite positive Number, maximum2decimals, input step0.01; preserve12.50 and0.29 without rounding; invalid direct command blocked.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/services/payment-amount.ts",
+      "line": 1,
+      "detail": "export",
+      "snippet": "export const PAYMENT_AMOUNT_ERROR =\n  'Số tiền phải lớn hơn 0 và có tối đa 2 chữ số thập phân.';\n\nexport function isValidPaymentAmount(amount: unknown): amount is number {"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/web-types-independent-checkpoint.md"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Meaningful RED/GREEN source regression; real API only if explicitly linked.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/payment-amount.ts.diff"
+  ],
+  "isolated_review_diffs": []
+}

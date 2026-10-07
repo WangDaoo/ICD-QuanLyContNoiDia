@@ -1,0 +1,36 @@
+{
+  "appOverflow": "hidden",
+  "bodyOverflow": "hidden",
+  "dialog": "master-data-dialog-1-title",
+  "fields": [
+    {
+      "aria": null,
+      "id": "master-data-form-name",
+      "label": "Tên*"
+    },
+    {
+      "aria": null,
+      "id": "master-data-form-tax-code",
+      "label": "Mã số thuế"
+    },
+    {
+      "aria": null,
+      "id": "master-data-form-phone",
+      "label": "Điện thoại"
+    },
+    {
+      "aria": null,
+      "id": "master-data-form-address",
+      "label": "Địa chỉ"
+    },
+    {
+      "aria": null,
+      "id": "master-data-form-email",
+      "label": "Email"
+    }
+  ],
+  "focus": "master-data-form-name",
+  "inside": true,
+  "modal": true,
+  "name": "Thêm Chủ hàng (Consignee)"
+}

@@ -1,0 +1,181 @@
+{
+  "phase": "verify-permissions",
+  "alias": "yard",
+  "checkedAt": "2026-10-02T01:31:23.623Z",
+  "checks": [
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/auth/me",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/eca87bd1-901a-4f38-b5ec-d7e32cb8639c/gate-pass/readiness",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/cac4e8ca-967b-4fbc-a845-ec844c6a263f/gate-pass/readiness",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c/gate-pass/readiness",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947/gate-pass/readiness",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/invoices/dcdc6ac9-f18b-44b5-b8f3-5290d879e6ef",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/auth/me",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/eca87bd1-901a-4f38-b5ec-d7e32cb8639c/gate-pass/readiness",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/cac4e8ca-967b-4fbc-a845-ec844c6a263f/gate-pass/readiness",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c/gate-pass/readiness",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947/gate-pass/readiness",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/invoices/dcdc6ac9-f18b-44b5-b8f3-5290d879e6ef",
+      "status": 403,
+      "expectedStatus": 403
+    },
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/auth/me",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/eca87bd1-901a-4f38-b5ec-d7e32cb8639c/gate-pass/readiness",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/cac4e8ca-967b-4fbc-a845-ec844c6a263f/gate-pass/readiness",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c/gate-pass/readiness",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947/gate-pass/readiness",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/invoices/dcdc6ac9-f18b-44b5-b8f3-5290d879e6ef",
+      "status": 403,
+      "expectedStatus": 403
+    },
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/auth/me",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers?pageSize=1",
+      "status": 403,
+      "expectedStatus": 403
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/work-queue?pageSize=1",
+      "status": 403,
+      "expectedStatus": 403
+    },
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/auth/me",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers?pageSize=1",
+      "status": 403,
+      "expectedStatus": 403
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/work-queue?pageSize=1",
+      "status": 403,
+      "expectedStatus": 403
+    }
+  ]
+}

@@ -1,0 +1,275 @@
+const assert = require('node:assert/strict');
+const { test } = require('node:test');
+const { load, screenFixture, nodes, text } = require('./improvement-harness.cjs');
+const surveyFile = 'src/features/yard/screens/SurveyHomeScreen.tsx';
+const surveyFixture = api => screenFixture(surveyFile, {
+  '../api/yard.api': { yardApi: { inspections: api, requestInspection: async () => ({}) } },
+  '../../containers/api/container.api': { containerApi: { search: async () => ({ data: [] }) } },
+});
+
+test('header preserves independent 8dp target gaps and wraps actual screen title at 320dp and font200%', () => {
+  const f = screenFixture('src/components/AppHeader.tsx');
+  const tree = f.render({ title: 'Danh sách tác nghiệp bãi và container', subtitle: 'Giờ Việt Nam UTC+7', onBack() {} });
+  const row = nodes(tree, n => n.type === 'View' && nodes(n, c => c.type === 'TouchableOpacity').length === 4).at(-1);
+  assert.ok(row.props.style.gap >= 8, 'independent header actions need 8dp clearance');
+  const heading = nodes(tree, n => n.type === 'Text' && n.props.accessibilityRole === 'header')[0];
+  assert.ok(heading);
+  assert.match(text(heading), /Danh sách tác nghiệp/);
+  assert.equal(heading.props.numberOfLines, undefined);
+  assert.match(text(tree), /UTC\+7/);
+});
+
+test('seal and condition inspections do not ask for damage severity', () => {
+  for (const kind of ['SEAL_CHECK', 'CONDITION_SURVEY']) {
+    const f = surveyFixture(async () => []);
+    nodes(f.render(), n => n.type === 'SelectField')[0].props.onChange(kind);
+    assert.doesNotMatch(text(f.render()), /Mức độ hư hỏng|Hư hỏng Hiện trường/);
+    assert.ok(nodes(f.render(), n => n.type === 'Field' && /Nội dung/.test(n.props.label))[0].props.placeholder.includes('ghi nhận'));
+  }
+});
+test('survey missing-field errors clear per edited field without discarding server messages', () => {
+  const f = surveyFixture(async () => []);
+  nodes(f.render(), n => n.type === 'PrimaryButton')[0].props.onPress();
+  let fields = nodes(f.render(), n => n.type === 'Field');
+  assert.match(fields[0].props.error, /container/i);
+  assert.match(fields[1].props.error, /ghi nhận/i);
+  fields[0].props.onChangeText('MSCU6639870');
+  fields = nodes(f.render(), n => n.type === 'Field');
+  assert.equal(fields[0].props.error, undefined);
+  assert.match(fields[1].props.error, /ghi nhận/i);
+  fields[1].props.onChangeText('Seal đúng khai báo');
+  assert.equal(nodes(f.render(), n => n.type === 'Field')[1].props.error, undefined);
+});
+test('survey history shows loading until successful response and ignores completion after blur', async () => {
+  let resolve;
+  const f = surveyFixture(() => new Promise(done => { resolve = done; }));
+  f.render();
+  assert.ok(nodes(f.render(), n => n.type === 'LoadingState').length);
+  assert.doesNotMatch(text(f.render()), /Chưa có biên bản/);
+  f.blur(); resolve([{ id: 'old', status: 'PENDING', inspectionType: 'SEAL_CHECK', notes: 'LATE RESPONSE' }]);
+  assert.doesNotMatch(text(await f.settle()), /LATE RESPONSE/);
+});
+test('survey history failure has local retry and retains labelled previous successful rows', async () => {
+  let reject = false;
+  const f = surveyFixture(async () => { if (reject) throw new Error('history unavailable'); return [{ id: 'a', status: 'PENDING', inspectionType: 'SEAL_CHECK', notes: 'Seen record' }]; });
+  f.render(); await f.settle();
+  reject = true;
+  const layout = f.render();
+  assert.equal(typeof layout.props.onRefresh, 'function');
+  await layout.props.onRefresh();
+  const failed = f.render();
+  assert.match(text(failed), /Seen record/);
+  assert.match(text(failed), /cũ|lần tải trước/i);
+  assert.ok(nodes(failed, n => n.type === 'ErrorState' && typeof n.props.onRetry === 'function').length);
+});
+test('notification screen shows backend unread total and invalidates it on failed filter reload', async () => {
+  let fail = false;
+  const f = screenFixture('src/features/notifications/screens/NotificationsScreen.tsx', {
+    '../../../services/api/api-client': { apiClient: { get: async () => { if (fail) throw new Error('failed'); return { data: [], meta: { totalPages: 0, unreadCount: 7 } }; } } },
+  });
+  f.render(); assert.match(text(await f.settle()), /Chưa đọc: 7/);
+  fail = true;
+  nodes(f.render(), n => n.type === 'TouchableOpacity')[1].props.onPress();
+  await f.settle();
+  assert.doesNotMatch(text(f.render()), /Chưa đọc: 7/);
+});
+test('Vietnamese enum labels preserve unknown codes with an explicit unknown presentation', () => {
+  const labels = load('src/presentation/labels.ts');
+  assert.equal(typeof labels.displayCode, 'function');
+  assert.equal(labels.displayCode('IN_YARD'), 'Đang ở bãi');
+  assert.equal(labels.displayCode('SEAL_CHECK'), 'Kiểm tra seal');
+  assert.equal(labels.displayCode('STRIPPING'), 'Rút hàng');
+  assert.match(labels.displayCode('FUTURE_STATUS'), /Chưa xác định/);
+});
+test('Vietnam booking values reject impossible dates and serialize UTC+7 independently of device timezone', () => {
+  const dates = load('src/components/booking-date.ts');
+  assert.equal(typeof dates.parseVietnamBookingDate, 'function');
+  assert.equal(dates.parseVietnamBookingDate('2026-02-30 09:30'), null);
+  assert.equal(dates.parseVietnamBookingDate('2026-10-03 09:30').toISOString(), '2026-10-03T02:30:00.000Z');
+  assert.equal(dates.formatVietnamBookingDate(new Date('2026-10-03T02:30:00Z')), '2026-10-03 09:30');
+});
+test('appearance resolves persisted override and system default before rendering children', async () => {
+  const preference = load('src/theme/appearance.ts');
+  assert.equal(typeof preference.resolveAppearance, 'function');
+  assert.equal(preference.resolveAppearance(null, 'dark'), 'DARK');
+  assert.equal(preference.resolveAppearance('LIGHT', 'dark'), 'LIGHT');
+  assert.equal(preference.resolveAppearance('invalid', 'light'), 'LIGHT');
+});
+test('read cache partitions user, API and ICD, expires by feature TTL and clears a signed-out user', async () => {
+  const cacheModule = load('src/storage/read-cache.ts');
+  assert.equal(typeof cacheModule.createReadCache, 'function');
+  const memory = new Map();
+  const store = { getItem: async key => memory.get(key) || null, setItem: async (key, value) => { memory.set(key, value); }, removeItem: async key => { memory.delete(key); }, getAllKeys: async () => [...memory.keys()], multiRemove: async keys => { keys.forEach(key => memory.delete(key)); } };
+  let now = 0;
+  const cache = cacheModule.createReadCache(store, () => now);
+  const scope = { userId: 'u', apiBaseUrl: 'https://api.example.test/api', icdId: 'i' };
+  await cache.write(scope, 'work-queue', 'page=1', { data: [1] });
+  assert.deepEqual((await cache.read(scope, 'work-queue', 'page=1')).data, { data: [1] });
+  for (const different of [{ ...scope, userId: 'other' }, { ...scope, icdId: 'other' }, { ...scope, apiBaseUrl: 'https://another.test/api' }]) assert.equal(await cache.read(different, 'work-queue', 'page=1'), null);
+  now = 5 * 60000 + 1; assert.equal(await cache.read(scope, 'work-queue', 'page=1'), null);
+  now = 0; await cache.write(scope, 'profile', 'me', { name: 'User' }); await cache.clearUser(scope); assert.equal(await cache.read(scope, 'profile', 'me'), null);
+});
+test('read cache profile and container expire at their separate approved limits and reject malformed storage', async () => {
+  const { createReadCache } = load('src/storage/read-cache.ts');
+  const memory = new Map();
+  let now = 0;
+  const cache = createReadCache({ getItem: async key => memory.get(key), setItem: async (key, value) => memory.set(key, value), removeItem: async key => memory.delete(key), getAllKeys: async () => [...memory.keys()], multiRemove: async () => {} }, () => now);
+  const scope = { userId: 'u', apiBaseUrl: 'https://api.test', icdId: 'i' };
+  await cache.write(scope, 'container', 'visit', { id: 'visit' });
+  await cache.write(scope, 'profile', 'me', { id: 'u' });
+  now = 10 * 60000 + 1;
+  assert.equal(await cache.read(scope, 'container', 'visit'), null);
+  assert.ok(await cache.read(scope, 'profile', 'me'));
+  now = 30 * 60000 + 1; assert.equal(await cache.read(scope, 'profile', 'me'), null);
+});
+test('connection gate distinguishes health failure from offline and verifies fresh server permissions before allowing a reconnected write', async () => {
+  const gateModule = load('src/services/api/connection-gate.ts');
+  assert.equal(typeof gateModule.createConnectionGate, 'function');
+  const gate = gateModule.createConnectionGate(); gate.activate();
+  gate.reportHealth(false);
+  assert.equal(gate.snapshot().confirmedOffline, false);
+  assert.equal(gate.snapshot().writesReady, false);
+  gate.reportRequest(false);
+  assert.equal(gate.snapshot().confirmedOffline, true);
+  let done;
+  gate.setRevalidator(() => new Promise(resolve => { done = resolve; }));
+  gate.reportHealth(true);
+  assert.equal(gate.snapshot().writesReady, false);
+  done(); await new Promise(resolve => setImmediate(resolve));
+  assert.equal(gate.snapshot().writesReady, true);
+  gate.reportRequest(false);
+  assert.throws(() => gate.assertWriteAllowed(), /kết nối/);
+});
+test('connection gate never authorizes writes after a failed permission revalidation', async () => {
+  const { createConnectionGate } = load('src/services/api/connection-gate.ts');
+  assert.equal(typeof createConnectionGate, 'function');
+  const gate = createConnectionGate(); gate.activate();
+  gate.setRevalidator(async () => { throw new Error('permission validation refused'); });
+  gate.reportHealth(true);
+  await new Promise(resolve => setImmediate(resolve));
+  assert.equal(gate.snapshot().writesReady, false);
+  assert.throws(() => gate.assertWriteAllowed(), /quyền/);
+});
+test('a permission response started before connection loss cannot authorize a later reconnect', async () => {
+  const { createConnectionGate } = load('src/services/api/connection-gate.ts');
+  const gate = createConnectionGate(); gate.activate();
+  const completions = [];
+  gate.setRevalidator(() => new Promise(resolve => completions.push(resolve)));
+  gate.reportHealth(true); gate.reportRequest(false); gate.reportHealth(true);
+  completions[0](); await new Promise(resolve => setImmediate(resolve));
+  assert.equal(gate.snapshot().writesReady, false);
+  assert.equal(completions.length, 2);
+  completions[1](); await new Promise(resolve => setImmediate(resolve));
+  assert.equal(gate.snapshot().writesReady, true);
+});
+test('native booking picker cancellation keeps the value and acceptance preserves Vietnam wall time', () => {
+  const changes = [];
+  const f = screenFixture('src/components/BookingDateField.tsx', {
+    '@react-native-community/datetimepicker': { __esModule: true, default: 'DateTimePicker' },
+    './ScreenLayout': { Field: 'Field', useFieldStyles: () => ({ label: {}, value: {}, muted: {}, chip: {} }) },
+  });
+  const props = { value: '2026-10-03 09:30', onChange: value => changes.push(value) };
+  nodes(f.render(props), n => n.type === 'TouchableOpacity')[0].props.onPress();
+  nodes(f.render(props), n => n.type === 'DateTimePicker')[0].props.onChange({ type: 'dismissed' }, new Date(2026, 9, 5));
+  assert.deepEqual(changes, []);
+  nodes(f.render(props), n => n.type === 'TouchableOpacity')[0].props.onPress();
+  nodes(f.render(props), n => n.type === 'DateTimePicker')[0].props.onChange({ type: 'set' }, new Date(2026, 9, 5));
+  assert.equal(changes[0], '2026-10-05 09:30');
+});
+test('work queue uses scoped recent read cache only for network failure and visibly labels it stale', async () => {
+  let cachedScope;
+  const f = screenFixture('src/features/work-queue/screens/WorkQueueScreen.tsx', {
+    '../../../services/api/api-client': { apiClient: { get: async () => { throw new TypeError('network unavailable'); } } },
+    '../../../storage/read-cache-store': { cacheScope: user => ({ userId: user.id, icdId: user.icdId, apiBaseUrl: 'https://api.test' }), readCache: { read: async (scope, kind) => { cachedScope = scope; assert.equal(kind, 'work-queue'); return { savedAt: Date.now(), data: { data: [{ type: 'GATE_IN', entityId: 'visit', entityType: 'CONTAINER_VISIT', urgency: 'NORMAL', title: 'Cached queue record' }], meta: { totalPages: 1 }, summary: { total: 1, overdue: 0 } } }; } } },
+  });
+  f.render(); const tree = await f.settle();
+  assert.match(text(tree), /Cached queue record/);
+  assert.match(text(tree), /Dữ liệu đã lưu|dữ liệu cũ/i);
+  assert.deepEqual(cachedScope, { userId: 'u', icdId: 'i', apiBaseUrl: 'https://api.test' });
+});
+test('work queue does not restore cached privileged rows after a server403', async () => {
+  let reads = 0;
+  const f = screenFixture('src/features/work-queue/screens/WorkQueueScreen.tsx', {
+    '../../../services/api/api-client': { apiClient: { get: async () => { const err = new Error('forbidden'); err.status = 403; throw err; } } },
+    '../../../storage/read-cache-store': { cacheScope: user => user, readCache: { read: async () => { reads++; return null; } } },
+  });
+  f.render(); await f.settle(); assert.equal(reads, 0);
+});
+test('viewed container detail restores only the exact scoped visit after network failure and never presents cached readiness as current', async () => {
+  const f = screenFixture('src/features/containers/screens/ContainerDetailScreen.tsx', {
+    '@react-navigation/native': { useFocusEffect: () => {}, useNavigation: () => ({ goBack() {} }), useRoute: () => ({ params: { visitId: 'visit-1' } }) },
+    '../api/container.api': { containerApi: { detail: async () => { throw new TypeError('offline'); } } },
+    '../../handover/api/handover.api': { handoverApi: {} },
+    '../../handover/components/HandoverSummary': { HandoverSummary: 'HandoverSummary' },
+    '../../../storage/read-cache-store': { cacheScope: user => ({ userId: user.id, icdId: user.icdId }), readCache: { read: async (_scope, kind, query) => { assert.equal(kind, 'container'); assert.match(query, /visit-1/); return { savedAt: Date.now(), data: { record: { id: 'visit-1', state: 'IN_YARD', container: { containerNumber: 'MSCU6639870', isoCode: '22G1', size: '20', type: 'DRY' } }, sections: { readiness: { ready: true } } } }; } } },
+  });
+  const first = f.render(); first.props.onRefresh();
+  const tree = await f.settle();
+  assert.match(text(tree), /MSCU6639870/);
+  assert.match(text(tree), /Dữ liệu đã lưu|dữ liệu cũ/i);
+  assert.doesNotMatch(text(tree), /ĐỦ ĐIỀU KIỆN CẤP PHIẾU/);
+});
+test('guarded Expo Go links accept only supported entity routes and reject credentials or permissionless destinations', () => {
+  const links = load('src/navigation/deep-links.ts');
+  assert.equal(typeof links.resolveMobileLink, 'function');
+  const user = { id: 'u', permissionCodes: ['container.read', 'yard.read'], roleCodes: ['ADMIN'] };
+  assert.deepEqual(links.resolveMobileLink('exp://192.168.1.1:8081/--/container/visit-1', user), { screen: 'LookupTab', params: { screen: 'ContainerDetail', params: { visitId: 'visit-1' } } });
+  assert.equal(links.resolveMobileLink('exp://host:8081/--/container/visit-1?token=secret', user), null);
+  assert.equal(links.resolveMobileLink('exp://host:8081/--/gate-out/secret', user), null);
+  assert.equal(links.resolveMobileLink('https://external.test/container/visit-1', user), null);
+  assert.equal(links.resolveMobileLink('exp://host:8081/--/container/visit-1', { ...user, permissionCodes: [] }), null);
+});
+test('read cache clearing prevents an already pending write from restoring signed-out data', async () => {
+  const { createReadCache } = load('src/storage/read-cache.ts');
+  const memory = new Map(); let complete;
+  const cache = createReadCache({ getItem: async key => memory.get(key), setItem: (key, value) => new Promise(resolve => { complete = () => { memory.set(key, value); resolve(); }; }), removeItem: async key => memory.delete(key), getAllKeys: async () => [...memory.keys()], multiRemove: async keys => keys.forEach(key => memory.delete(key)) });
+  const scope = { userId: 'u', icdId: 'i', apiBaseUrl: 'https://api.test' };
+  const saving = cache.write(scope, 'profile', 'me', { id: 'u' });
+  await new Promise(resolve => setImmediate(resolve));
+  const clearing = cache.clearUser(scope);
+  complete(); await Promise.all([saving, clearing]);
+  assert.equal(await cache.read(scope, 'profile', 'me'), null);
+});
+test('native tab bar wraps complete labels with48dp targets and8dp independent gaps at200% text', () => {
+  const component = load('src/navigation/ResponsiveTabBar.tsx', { react: {}, 'react-native': {}, 'react-native-safe-area-context': {}, '../theme/ThemeProvider': {} });
+  assert.equal(typeof component.ResponsiveTabBar, 'function');
+  const f = screenFixture('src/navigation/ResponsiveTabBar.tsx', {
+    'react-native': { Text: 'Text', View: 'View', TouchableOpacity: 'TouchableOpacity', useWindowDimensions: () => ({ width: 320, fontScale: 2 }), Keyboard: { addListener: () => ({ remove() {} }) } },
+  });
+  const routes = ['GateTab', 'YardTab', 'SurveyTab', 'LookupTab', 'WorkQueueTab'].map(name => ({ key: name, name }));
+  const tree = f.render({ state: { index: 2, routes }, descriptors: Object.fromEntries(routes.map(route => [route.key, { options: {} }])), navigation: { emit: () => ({}), navigate() {} }, visibleTabs: routes.map(route => route.name) });
+  const actions = nodes(tree, node => node.type === 'TouchableOpacity');
+  assert.equal(actions.length, 5);
+  for (const action of actions) { assert.ok(action.props.style.minWidth >= 48); assert.ok(action.props.style.minHeight >= 48); }
+  for (const label of nodes(tree, node => node.type === 'Text')) assert.equal(label.props.numberOfLines, undefined);
+  assert.match(text(tree), /Giám định/);
+  assert.ok(tree.props.style.gap >= 8);
+});
+test('appearance bootstrap withholds app content until persisted selection is loaded and system reset is persisted', async () => {
+  let restore; const saves = [];
+  const f = screenFixture('src/theme/ThemeProvider.tsx', {
+    '@react-native-async-storage/async-storage': { __esModule: true, default: { getItem: () => new Promise(resolve => { restore = resolve; }), setItem: async (key, value) => saves.push([key, value]) } },
+  }, 'ThemeProvider');
+  assert.doesNotMatch(text(f.render({ children: 'Protected app content' })), /Protected app content/);
+  restore('LIGHT'); await new Promise(resolve => setImmediate(resolve));
+  const loaded = f.render({ children: 'Protected app content' });
+  assert.equal(loaded.props.value.mode, 'LIGHT'); assert.match(text(loaded), /Protected app content/);
+  loaded.props.value.useSystemTheme(); await new Promise(resolve => setImmediate(resolve));
+  assert.equal(f.render().props.value.mode, 'DARK'); assert.equal(saves.at(-1)[1], 'SYSTEM');
+});
+test('guarded link subscription waits for both auth and navigation readiness and uses current permissions', async () => {
+  let auth = { user: null, status: 'loading' }, receive, ready = false;
+  const opened = [];
+  const navigation = { isReady: () => ready, navigate: (...args) => opened.push(args) };
+  const f = screenFixture('src/navigation/useGuardedDeepLinks.ts', {
+    '../features/auth/hooks/useAuth': { useAuth: () => auth },
+    'react-native': { Linking: { getInitialURL: async () => 'exp://host:8081/--/container/visit-1', addEventListener: (_name, fn) => { receive = fn; return { remove() {} }; } } },
+  });
+  f.render(navigation); await new Promise(resolve => setImmediate(resolve)); assert.equal(opened.length, 0);
+  auth = { status: 'authenticated', user: { id: 'u', roleCodes: [], permissionCodes: ['container.read'] } };
+  const onReady = f.render(navigation); assert.equal(opened.length, 0);
+  ready = true; onReady(); assert.equal(opened.length, 1);
+  auth = { ...auth, user: { ...auth.user, permissionCodes: [] } }; f.render(navigation);
+  receive({ url: 'exp://host:8081/--/container/visit-2' }); assert.equal(opened.length, 1);
+  receive({ url: 'exp://host:8081/--/container/visit-2?accessToken=secret' }); assert.equal(opened.length, 1);
+});

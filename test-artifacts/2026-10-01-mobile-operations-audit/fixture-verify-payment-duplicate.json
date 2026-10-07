@@ -1,0 +1,43 @@
+{
+  "phase": "verify-payment-duplicate",
+  "alias": "yard",
+  "checkedAt": "2026-10-02T01:54:18.819Z",
+  "checks": [
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/invoices/b14c74b7-0275-41fc-be2e-94db54fc734d",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/payments?consigneeId=1a668d3c-21d8-42a3-babc-4ee211acf0d3&page=1&pageSize=100",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/invoices/b14c74b7-0275-41fc-be2e-94db54fc734d/payments",
+      "status": 400,
+      "expectedStatus": 400
+    },
+    {
+      "method": "GET",
+      "endpoint": "/payments?consigneeId=1a668d3c-21d8-42a3-babc-4ee211acf0d3&page=1&pageSize=100",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/invoices/b14c74b7-0275-41fc-be2e-94db54fc734d",
+      "status": 200,
+      "expectedStatus": "2xx"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+const fs = require('node:fs');
+const path = require('node:path');
+const ts = require('typescript');
+
+function load(file, mocks = {}) {
+  const filename = path.resolve(__dirname, '..', file);
+  if (!fs.existsSync(filename)) return {};
+  const compiled = ts.transpileModule(fs.readFileSync(filename, 'utf8'), {
+    compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022, jsx: ts.JsxEmit.ReactJSX, esModuleInterop: true },
+  }).outputText;
+  const mod = { exports: {} };
+  new Function('require', 'module', 'exports', compiled)(name => {
+    if (name in mocks) return mocks[name];
+    if (name.startsWith('.')) {
+      const base = path.resolve(path.dirname(filename), name);
+      const found = ['.ts', '.tsx', '.cjs', ''].map(ext => base + ext).find(candidate => fs.existsSync(candidate) && fs.statSync(candidate).isFile());
+      return load(path.relative(path.resolve(__dirname, '..'), found), mocks);
+    }
+    return require(name);
+  }, mod, mod.exports);
+  return mod.exports;
+}
+
+function screenFixture(file, overrides = {}, exportName) {
+  const hooks = [], effects = [];
+  let cursor = 0;
+  const react = {
+    useState(initial) {
+      const index = cursor++;
+      if (!(index in hooks)) hooks[index] = { value: typeof initial === 'function' ? initial() : initial };
+      return [hooks[index].value, next => { hooks[index].value = typeof next === 'function' ? next(hooks[index].value) : next; }];
+    },
+    useRef(value) { const index = cursor++; return hooks[index] ?? (hooks[index] = { current: value }); },
+    useMemo(fn, deps) {
+      const index = cursor++, previous = hooks[index];
+      if (!previous || deps.some((dep, i) => dep !== previous.deps[i])) hooks[index] = { deps, value: fn() };
+      return hooks[index].value;
+    },
+    useCallback(fn, deps) { return react.useMemo(() => fn, deps); },
+    useEffect(fn, deps) {
+      const index = cursor++, previous = hooks[index];
+      if (!previous || !deps || deps.some((dep, i) => dep !== previous.deps[i])) {
+        previous?.cleanup?.(); hooks[index] = { deps };
+        effects.push(() => { hooks[index].cleanup = fn(); });
+      }
+    },
+    createContext: () => ({ Provider: 'Provider' }),
+    useContext: () => ({}),
+  };
+  react.default = react;
+  const jsx = (type, props) => ({ type, props: props || {} });
+  const user = { id: 'u', icdId: 'i', permissionCodes: ['*'], roleCodes: ['ADMIN'] };
+  const native = new Proxy({ Platform: { OS: 'android' }, StyleSheet: { create: value => value }, useWindowDimensions: () => ({ width: 320, height: 640, fontScale: 2 }), useColorScheme: () => 'dark', AppState: { currentState: 'active', addEventListener: () => ({ remove() {} }) } }, { get: (target, name) => target[name] ?? name });
+  const theme = { colors: new Proxy({}, { get: () => '#111111' }), typography: load('src/theme/typography.ts', { 'react-native': native }).typography, spacing: { xs: 4, sm: 8, md: 12, lg: 16, xl: 20, xxl: 24 }, borderRadius: { xs: 4, sm: 6, md: 8, lg: 12 } };
+  const components = { ScreenLayout: 'ScreenLayout', Card: 'Card', Field: 'Field', Notice: 'Notice', DetailRow: 'DetailRow', useFieldStyles: () => ({ chip: {}, value: {}, muted: {}, label: {}, cardTitle: {} }) };
+  const mocks = {
+    react, 'react/jsx-runtime': { jsx, jsxs: jsx, Fragment: 'Fragment' }, 'react-native': native,
+    'lucide-react-native': new Proxy({}, { get: (_, name) => name }),
+    '@react-navigation/native': { useFocusEffect: fn => react.useEffect(fn, [fn]), useNavigation: () => ({ navigate() {}, goBack() {} }), useRoute: () => ({ params: {} }) },
+    'react-native-safe-area-context': { useSafeAreaInsets: () => ({ top: 20, bottom: 0 }) },
+    '../../../theme/ThemeProvider': { useTheme: () => ({ theme }) },
+    '../theme/ThemeProvider': { useTheme: () => ({ theme, mode: 'LIGHT', toggleTheme() {} }) },
+    '../features/auth/hooks/useAuth': { useAuth: () => ({ user }) },
+    '../../../components/ScreenLayout': components,
+    '../../../components/SelectField': { SelectField: 'SelectField' },
+    '../../../components/PrimaryButton': { PrimaryButton: 'PrimaryButton' },
+    '../../../components/ActionDialog': { ActionDialog: 'ActionDialog' },
+    '../../../components/StatusBadge': { StatusBadge: 'StatusBadge' },
+    '../../../components/LoadingState': { LoadingState: 'LoadingState' },
+    '../../../components/ErrorState': { ErrorState: 'ErrorState' },
+    '../../../components/EmptyState': { EmptyState: 'EmptyState' },
+    '../../auth/hooks/useAuth': { useAuth: () => ({ user }) },
+    '../../../services/api/ApiConnectionProvider': { useApiConnection: () => ({ online: true, writesReady: true }) },
+    ...overrides,
+  };
+  const exports = load(file, mocks);
+  const Component = exportName ? exports[exportName] : Object.values(exports).find(value => typeof value === 'function');
+  return {
+    user, hooks, theme,
+    render(props = {}, renderComponent = Component) { cursor = 0; const tree = renderComponent(props); while (effects.length) effects.shift()(); return tree; },
+    renderChild(child, props = {}) { return this.render(props, child); },
+    async settleChild(child, props = {}) { await new Promise(resolve => setImmediate(resolve)); return this.render(props, child); },
+    async settle() { await new Promise(resolve => setImmediate(resolve)); return this.render(); },
+    blur() { for (const hook of hooks) hook?.cleanup?.(); },
+  };
+}
+function nodes(tree, predicate = () => true) {
+  if (Array.isArray(tree)) return tree.flatMap(child => nodes(child, predicate));
+  if (!tree || typeof tree !== 'object') return [];
+  if ((tree.type === 'ActionDialog' || tree.type === 'Modal') && !tree.props.visible) return [];
+  return [...(predicate(tree) ? [tree] : []), ...nodes(tree.props.children, predicate)];
+}
+function text(tree) {
+  if (typeof tree === 'string' || typeof tree === 'number') return String(tree);
+  if (Array.isArray(tree)) return tree.map(text).join('');
+  if (!tree || typeof tree !== 'object') return '';
+  if ((tree.type === 'ActionDialog' || tree.type === 'Modal') && !tree.props.visible) return '';
+  return text(tree.props.children) + (tree.props.message || '') + (tree.props.title || '');
+}
+module.exports = { load, screenFixture, nodes, text };

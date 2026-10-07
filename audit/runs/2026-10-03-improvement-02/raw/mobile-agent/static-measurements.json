@@ -1,0 +1,2392 @@
+{
+  "schemaVersion": 1,
+  "measuredAt": "2026-10-03T16:04:47.636Z",
+  "sourceSnapshot": "audit/runs/2026-10-03-improvement-02/source-before",
+  "method": "TypeScriptAST_source_measurement_and_SHA256_snapshot_comparison",
+  "limits": [
+    "No fresh native runtime layout available: approval review blocked Metro/env/reopen command.",
+    "Native touch bounds, keyboard clipping, TalkBack announcements and focus order remain unverified.",
+    "A missing explicit label prop is not automatically a defect: visible text can provide an accessible name."
+  ],
+  "testedSourceMeasurements": [
+    {
+      "surface": "AppHeader",
+      "fixtureWidthDp": 320,
+      "fixtureFontScale": 2,
+      "independentActionGapDp": 8,
+      "minimumControlWidthDp": 48,
+      "minimumControlHeightDp": 48,
+      "result": "SOURCE_FIXTURE_PASS"
+    },
+    {
+      "surface": "ResponsiveTabBar",
+      "fixtureWidthDp": 320,
+      "fixtureFontScale": 2,
+      "controlCount": 5,
+      "independentActionGapDp": 8,
+      "minimumControlWidthDp": 48,
+      "minimumControlHeightDp": 48,
+      "fullLabelsWrap": true,
+      "result": "SOURCE_FIXTURE_PASS"
+    },
+    {
+      "surface": "GateModeSwitch/SelectField/YardSlotGrid",
+      "independentTargetGapDp": 8,
+      "result": "SOURCE_ONLY_NATIVE_VERIFY_PENDING"
+    },
+    {
+      "surface": "Card/AppHeader/Dialogs/Empty/Error/Forbidden/Login",
+      "headingProps": true,
+      "result": "SOURCE_SEMANTICS_ONLY_TALKBACK_UNKNOWN"
+    }
+  ],
+  "summary": {
+    "changedFileCount": 58,
+    "headingDeclarationCount": 11,
+    "nativeControlDeclarationCount": 42,
+    "remainingStyleLiteralCount": 216
+  },
+  "sourceChanges": [
+    {
+      "file": "apps/mobile/app.json",
+      "change": "MODIFIED",
+      "beforeSha256": "fba1b744e89ee666ff12c09eed8f9c451b239506166f359d1458b28bbd881ec5",
+      "afterSha256": "aa526ce775e2a6ccf0d24f3a966dbd20f06db58e73548232b535b74c84756c80"
+    },
+    {
+      "file": "apps/mobile/App.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "f74bf993f412a974a2917f69912541aabd433823bee48db4d86ffe4514d1c989",
+      "afterSha256": "e681e0728936fc09817c347304f6d577844cd5d3b4ceacf5a7afedcfdc7a4d03"
+    },
+    {
+      "file": "apps/mobile/package.json",
+      "change": "MODIFIED",
+      "beforeSha256": "36fac00561114a6b89eaca45a0ef6ecd9ca65da179fb3816082f0e475a44792e",
+      "afterSha256": "fb3564edca0e17ef75e9cf6c610d6a9e154d755bd8aac3723eabfe41f206144b"
+    },
+    {
+      "file": "apps/mobile/src/components/AppHeader.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "a257dbf847ac6980d902e123c5b26fa9af5cd98e1741d0286aa99a5c746de2bd",
+      "afterSha256": "a928701615027dfa9522b1066863ee7056b01d424629b882efb31c3b8ef3d4fc"
+    },
+    {
+      "file": "apps/mobile/src/components/booking-date.ts",
+      "change": "ADDED",
+      "beforeSha256": null,
+      "afterSha256": "c4c4249e5e3ee5dadb13bf8f7631ba99aea3032e12238add24ab4e456454969c"
+    },
+    {
+      "file": "apps/mobile/src/components/BookingDateField.tsx",
+      "change": "ADDED",
+      "beforeSha256": null,
+      "afterSha256": "1af80942cba152c263a618a75de60f1fda4e243930e7c373fdba3f9064114122"
+    },
+    {
+      "file": "apps/mobile/src/components/BookingDateField.web.tsx",
+      "change": "ADDED",
+      "beforeSha256": null,
+      "afterSha256": "9a4f2d679dd0184259e9f0ac0efc76175d6ea348e6063b7f36f53b43c21191a0"
+    },
+    {
+      "file": "apps/mobile/src/components/ConnectionBanner.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "01a67dc567cfdaf29ed9a4e24fc579704c62fb6929c7d34f259a720da5136eda",
+      "afterSha256": "b88b8570fdb2dac2dc671b0c52f19a5ad5b5bdbd8ecd0d5a67c0f60bb167fdb8"
+    },
+    {
+      "file": "apps/mobile/src/components/EmptyState.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "a0cfea0d2eeab9a5ee9d98c84cf9ad0693f90e46f87a1b43c5a9ac38f0c4ba38",
+      "afterSha256": "bde7f07342e63f9b47a008ff32365f7de29cacbef93262732d35badb06bdd515"
+    },
+    {
+      "file": "apps/mobile/src/components/ErrorState.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "495f22c417c6e4d00281aa736ab5fbfe5f7048c3d24dd330c0f385f447378632",
+      "afterSha256": "24d3b53ec6e138e74d29d5c13ea4f39ec480fc2eca50923d426cd1c5e391957d"
+    },
+    {
+      "file": "apps/mobile/src/components/ForbiddenScreen.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "544504893cdffbfa1339c09626cae44408803d1cef7fbcf78ff0aa8026cf8114",
+      "afterSha256": "91997ae19c7ca980b6751cd96a97c084ca8649f15f1aff647db21f69fe6900e9"
+    },
+    {
+      "file": "apps/mobile/src/components/GateModeSwitch.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "388c4049a41d92b76c5fc613ba5a4a086038dc81c3f3f9e9e15335c2031e5673",
+      "afterSha256": "684a8248c45ddbf50cf4c49fd78edde3b5d5cf67ae8f9a8bea72f859ca32eaa3"
+    },
+    {
+      "file": "apps/mobile/src/components/PrimaryButton.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "09486a9fdda2a81afc316665e63a03970ebbc371de96c9114df5df7e8eec09e5",
+      "afterSha256": "2b134fb06a4872732830a323c31013dad8997b6b8f6aae43366dba2b7e7dda95"
+    },
+    {
+      "file": "apps/mobile/src/components/ScreenLayout.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "c13a73bbee1d4fc48c0e9233a2858df352c9c62e674f1122e8ee125e3760b9a2",
+      "afterSha256": "801dbc7c51ee9de07bb7d1871ebe97e631289e8fd77059ef4fc214194413c090"
+    },
+    {
+      "file": "apps/mobile/src/components/SelectField.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "a64a243fbc184895a0d6040a252a74822757d05b68273c8f4d65289587f4205b",
+      "afterSha256": "ac09784d5657ca64e7cde2ef3c575710fbc9ee5f388974bb820fd9997ed288fe"
+    },
+    {
+      "file": "apps/mobile/src/components/SessionCard.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "483447180ec0c62478b15501c0026d799beb8295d793c0e925ce288defdfbe73",
+      "afterSha256": "f1c9e0dfdfc546c90d28107a614db0559e3e6b0a0d09a4e87419b2be05dcd456"
+    },
+    {
+      "file": "apps/mobile/src/features/auth/context/AuthProvider.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "df18fc32147430dd916c0ebad8695ab954f19ddbc3b95aaf22f2d7aef9d27d8f",
+      "afterSha256": "276caca730895901392c5124946ed1d2b2757d496a43ec27661e1c23007becf2"
+    },
+    {
+      "file": "apps/mobile/src/features/auth/screens/LoginScreen.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "28c49d5dc83491077fcd61f165ba9d114cd54b264378d5244a5de068bebe43b2",
+      "afterSha256": "1e0b1c439400f35ab6fed5df082c876c92ac3caa516ff9aa9f1c243d164c3b1e"
+    },
+    {
+      "file": "apps/mobile/src/features/containers/screens/ContainerDetailScreen.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "407f9f8dddd68e802ee30d62d856ffcde1794ef6233f693c2093f2d31c74d294",
+      "afterSha256": "6e6881d3d2682d0c84252f4309b95c38c18fe9a9c65d0e1796adb2a0f32c551d"
+    },
+    {
+      "file": "apps/mobile/src/features/containers/screens/ContainerSearchScreen.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "b2463d01aba2bd4b4b6661910707977b21ba29d387c6207dce5f942861c394fd",
+      "afterSha256": "f81789a9a39b3ea4feb2caf662553e51002a2b5d7f28c7cdd8672c7a352e0794"
+    },
+    {
+      "file": "apps/mobile/src/features/gate-in/components/GateInReceipt.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "38f5b17c27c03369a0acc1041035402d6b1d4bc0f6f1b5b5031320af785c083d",
+      "afterSha256": "c5bc58f538a714d50820d304c7f1b3250f5af941d7718da9ac6fb154497c500e"
+    },
+    {
+      "file": "apps/mobile/src/features/gate-out/screens/GateOutConfirmScreen.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "76786b151db22d8f5e3ee81d2d78dda6a309415a20ddb3fc038333a8fa4e0e02",
+      "afterSha256": "629b9f5580952577479ab723b9dbba6ad8be1f831d7a0890af58b111eb84bed5"
+    },
+    {
+      "file": "apps/mobile/src/features/gate-out/screens/GatePassScanScreen.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "772889f9288a5b4b83e52b39f9272d9312f8546ebbd08ba288494edeb7a70048",
+      "afterSha256": "bc93b65246c737da1aae4594e851658a95113fe5c6630760e96c40bd64333c03"
+    },
+    {
+      "file": "apps/mobile/src/features/handover/components/HandoverSummary.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "2712253ff1e45c69aeb46873aa0f88b016689bceffd0285d471a5242cb44a4b5",
+      "afterSha256": "8cc8f2f1e95279042aa6fe62d76b481a28ec31e9cec9ad1e5e6b3b043e685a6d"
+    },
+    {
+      "file": "apps/mobile/src/features/more/screens/MoreScreen.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "68a711322473ed72c283e0fecf559c6b3c4875a2e4ded50f054a94adfa137f4c",
+      "afterSha256": "e59bbf2b464aca4c56ceb01c0d93d5e15a89bf855e000fae8b59cdcefcc45497"
+    },
+    {
+      "file": "apps/mobile/src/features/notifications/notification-presentation.ts",
+      "change": "ADDED",
+      "beforeSha256": null,
+      "afterSha256": "45948af4e7f96144dd375b3c0ce4658ac396c3b8a4711a0c647a9e6d248cdb7f"
+    },
+    {
+      "file": "apps/mobile/src/features/notifications/screens/NotificationsScreen.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "3e14e0eda211682d0b8d92437617fa9da6c6d0ccfde3cc3184cc88f38379549d",
+      "afterSha256": "14ef67aabc18510e3ccb095a99a0942c9375df22fecf1aadae8396211450e35b"
+    },
+    {
+      "file": "apps/mobile/src/features/work-queue/screens/WorkQueueScreen.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "9f80864aee94de59d19da31fa1426defe47f9c4e42490876280e594ea51d6021",
+      "afterSha256": "882868821b2b849a552e5a11607b172d46aa8122e4ab5cadab4144175ab2a9b8"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "a4063ce141370a19dda714c84c218a047d346fe25d7933969abb99c7646bb74d",
+      "afterSha256": "dbef3a1c5470cffbe0adbad6abb3ae0594c5eddbb5b52f0b7bdeedb1f7ad317f"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/screens/SurveyHomeScreen.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "79854b1ca17aa35703c124c9048032a1a40f35e8a68b0aca84f17a0a5963f8f6",
+      "afterSha256": "c8a76012209b097bd156d8b61f6a41a42b9efab10488782f7e1f13f1bfbce109"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/screens/YardOperationDetailScreen.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "db6ec1f3eea1eafdfa88ad0886c028059a1f5c7dfbdf99c46c2614f048decaed",
+      "afterSha256": "42131175cca9f720620a08e8692ada7e03de6fae5f8ab145b773413a88285d40"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/screens/YardOperationsScreen.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "e5f1b5f166820d2a67a8499316d3dc1ffec7987698061e58df0c50bce98ff227",
+      "afterSha256": "1077cfae9348659bcc654939ac1d5e7e001276e641d75fa93645056c3182797e"
+    },
+    {
+      "file": "apps/mobile/src/navigation/deep-links.ts",
+      "change": "ADDED",
+      "beforeSha256": null,
+      "afterSha256": "e39f9de11ebab2db490d74da20a8e67a226ff3120e8753190f9ef2bfa0479d59"
+    },
+    {
+      "file": "apps/mobile/src/navigation/MainTabNavigator.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "d7429e6d6d88a5621ed18f558e719ccd1204d191927b556fdd18e10f231e4f09",
+      "afterSha256": "0cc4085d5b73c05b62dc9b1e57eb6483f332f22232fb89c06fefb59d5473b2af"
+    },
+    {
+      "file": "apps/mobile/src/navigation/ResponsiveTabBar.tsx",
+      "change": "ADDED",
+      "beforeSha256": null,
+      "afterSha256": "102b245d134d0a35ca4607b9f6f92025b9e817a03d96565488c48d8581d79bf8"
+    },
+    {
+      "file": "apps/mobile/src/navigation/useGuardedDeepLinks.ts",
+      "change": "ADDED",
+      "beforeSha256": null,
+      "afterSha256": "5fac38147b1b2f642ea3286f4080148bf051e56ca60f9e5a15dd5d53ae7b32bc"
+    },
+    {
+      "file": "apps/mobile/src/presentation/labels.ts",
+      "change": "ADDED",
+      "beforeSha256": null,
+      "afterSha256": "00e3a46fbdf43eb01db77d4d9105abdc1b9aa5adc7ee7169b69442db9ecb0f68"
+    },
+    {
+      "file": "apps/mobile/src/services/api/api-client.ts",
+      "change": "MODIFIED",
+      "beforeSha256": "0d0ade02e6379ba114fb71e3adae6000c3b96dd9fca720f78d6226aa591a7cf0",
+      "afterSha256": "fc1916c91ca3a886648c6a6d949584b848f5f2d23bb0991c178503fd9673b650"
+    },
+    {
+      "file": "apps/mobile/src/services/api/ApiConnectionProvider.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "697ec27eb01edd4b7fc93cf24dd5d48c7d72298e527558a891c811fe8aa5afe7",
+      "afterSha256": "cc6df184b84875984d908d5b17ac206ddf5c6217697f9a0506daeb52be1ccdb3"
+    },
+    {
+      "file": "apps/mobile/src/services/api/connection-gate.ts",
+      "change": "ADDED",
+      "beforeSha256": null,
+      "afterSha256": "603fd7739b1663c62f7480e9ee95763d54b1de7ca5b598c71b95e6d1a96a1896"
+    },
+    {
+      "file": "apps/mobile/src/storage/auth.storage.ts",
+      "change": "MODIFIED",
+      "beforeSha256": "dd5b13c0348980b749384c6e5d94f52a0d25a611d3f09955ea187065da815294",
+      "afterSha256": "a109b1b063425ae9691ad53100565d12c54f3e9702efed2a03203944923c4317"
+    },
+    {
+      "file": "apps/mobile/src/storage/read-cache-store.ts",
+      "change": "ADDED",
+      "beforeSha256": null,
+      "afterSha256": "c223961fd3cfde6a5f0cade4435ff6afa707bde578eccfb003486225b269c0c8"
+    },
+    {
+      "file": "apps/mobile/src/storage/read-cache.ts",
+      "change": "ADDED",
+      "beforeSha256": null,
+      "afterSha256": "8f5a703562706b77b76e172423bfb5e50c7b3f9cbc76ad85f6dd00a41ad68c8f"
+    },
+    {
+      "file": "apps/mobile/src/theme/appearance.ts",
+      "change": "ADDED",
+      "beforeSha256": null,
+      "afterSha256": "85d8f68b35c001bdb40f6658c6f13464e4d5fddeedb5c43fe1b67e87fa653aaa"
+    },
+    {
+      "file": "apps/mobile/src/theme/layout.ts",
+      "change": "ADDED",
+      "beforeSha256": null,
+      "afterSha256": "745b1f929cd2997892255bf9f0741db0c04443f4db43bd78a59ba88dac5f85f8"
+    },
+    {
+      "file": "apps/mobile/src/theme/ThemeProvider.tsx",
+      "change": "MODIFIED",
+      "beforeSha256": "7f71abeafd9ee8ce2aaa7ecb678403bd708134cc515a4170c2cf7972e4c6d2ab",
+      "afterSha256": "5cfa9f4f5ccae79eb74b48e3b23dcce6db4424396b2dbca0f0ad9d7045fd8f3e"
+    },
+    {
+      "file": "apps/mobile/src/theme/typography.ts",
+      "change": "MODIFIED",
+      "beforeSha256": "87a723208971c2296450ee22f5ea86ce2afdce81341ab9f932a3d3d12930d7e3",
+      "afterSha256": "0d1bbfad55d1729f1f19217ae97cb9fa623d0b869afe76874f42c85e33880caf"
+    },
+    {
+      "file": "apps/mobile/tests/api-network.test.cjs",
+      "change": "MODIFIED",
+      "beforeSha256": "ce12449d333e5c1b20d53a8efa6ec191a13ba5a4a650b6806fb782f633b90396",
+      "afterSha256": "56fc8d6b542d58929425439a27772060aecf635bfb38e66d4766956c68d138d1"
+    },
+    {
+      "file": "apps/mobile/tests/auth-restore.test.cjs",
+      "change": "MODIFIED",
+      "beforeSha256": "f8b1b59a525ee4d818352782ed8b2f71409704f1d30451a31ee8bd7c3bbbf3e1",
+      "afterSha256": "155b7e796304d9fbb59971f91ba4a69e2f6f4262b18e87e6e52825d197eb0705"
+    },
+    {
+      "file": "apps/mobile/tests/cache-generation-race.test.cjs",
+      "change": "ADDED",
+      "beforeSha256": null,
+      "afterSha256": "833c784de046f9561663eafc566d8341b4f4f95974cfa03b6fa7e4d3c0ec6fba"
+    },
+    {
+      "file": "apps/mobile/tests/improvement-behavior.test.cjs",
+      "change": "ADDED",
+      "beforeSha256": null,
+      "afterSha256": "cfbe91008e59ff06170e8ddcbdd78d00a5f6326bbacaa5dbf89c4ec53efb041d"
+    },
+    {
+      "file": "apps/mobile/tests/improvement-checkpoint.test.cjs",
+      "change": "ADDED",
+      "beforeSha256": null,
+      "afterSha256": "db0fcfe268ced36589c20eea1c90abe9e6ec4baa5e18b75e8e23fce0833d954d"
+    },
+    {
+      "file": "apps/mobile/tests/improvement-harness.cjs",
+      "change": "ADDED",
+      "beforeSha256": null,
+      "afterSha256": "acc9e749b86cde1475e9923d1edfcf3d87f8c84bf67828e47fe274ad450e5fd6"
+    },
+    {
+      "file": "apps/mobile/tests/mobile-static-measure.cjs",
+      "change": "ADDED",
+      "beforeSha256": null,
+      "afterSha256": "da2cf6f8a79c43757f6dc3e7311c604db5067717f1fd27a5c21344f5fbfcbbc5"
+    },
+    {
+      "file": "apps/mobile/tests/scanner-integration.test.cjs",
+      "change": "MODIFIED",
+      "beforeSha256": "7aae2b5cc72838765a81df54f347516e34a9f641681ee2edcc74246efe7185cb",
+      "afterSha256": "93e8d3c6cdf6eabcbbfcd0d36df3dfeb19f57e93c2144f628caf1c68eefa1b6e"
+    },
+    {
+      "file": "apps/mobile/tests/session-race.test.cjs",
+      "change": "ADDED",
+      "beforeSha256": null,
+      "afterSha256": "163cda7d71c0fd545523ada75596808b5f7c58de0b4a3a618452ac82c3171c8e"
+    },
+    {
+      "file": "apps/mobile/tests/support-contracts.test.cjs",
+      "change": "MODIFIED",
+      "beforeSha256": "ae2270c9551585c96d2698f526eba434c64bbb7b48dcb258ca6185af5622bbf6",
+      "afterSha256": "a6257d942c114fa2620cd024c8c31222caae0fca485401fbbee6e303412052bb"
+    },
+    {
+      "file": "apps/mobile/tests/yard-map.test.cjs",
+      "change": "MODIFIED",
+      "beforeSha256": "1a089d304ba98084b0aee45e6e58b3549c853a93f949e7ef6e278900ef2b79aa",
+      "afterSha256": "61bab80ccf59b199f3d68d10c7fefa4c138142e928db749dc8ba69cadd586737"
+    }
+  ],
+  "headingDeclarations": [
+    {
+      "file": "apps/mobile/src/components/ActionDialog.tsx",
+      "line": 18,
+      "tag": "Text"
+    },
+    {
+      "file": "apps/mobile/src/components/AppHeader.tsx",
+      "line": 119,
+      "tag": "Text"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 181,
+      "tag": "Text"
+    },
+    {
+      "file": "apps/mobile/src/components/EmptyState.tsx",
+      "line": 24,
+      "tag": "Text"
+    },
+    {
+      "file": "apps/mobile/src/components/ErrorState.tsx",
+      "line": 30,
+      "tag": "Text"
+    },
+    {
+      "file": "apps/mobile/src/components/ForbiddenScreen.tsx",
+      "line": 24,
+      "tag": "Text"
+    },
+    {
+      "file": "apps/mobile/src/components/ScreenLayout.tsx",
+      "line": 29,
+      "tag": "Text"
+    },
+    {
+      "file": "apps/mobile/src/components/SelectField.tsx",
+      "line": 20,
+      "tag": "Text"
+    },
+    {
+      "file": "apps/mobile/src/components/SessionCard.tsx",
+      "line": 14,
+      "tag": "Text"
+    },
+    {
+      "file": "apps/mobile/src/features/auth/screens/LoginScreen.tsx",
+      "line": 29,
+      "tag": "Text"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 393,
+      "tag": "Text"
+    }
+  ],
+  "controls": [
+    {
+      "file": "apps/mobile/src/components/ActionDialog.tsx",
+      "line": 19,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": "\"Đóng hộp thoại\"",
+      "stateProp": null,
+      "styleExpression": "{{ minWidth: 48, minHeight: 48, justifyContent: 'center', alignItems: 'center' }}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/components/AppHeader.tsx",
+      "line": 79,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": "\"Quay lại\"",
+      "stateProp": null,
+      "styleExpression": "{{ minWidth: layout.touchTarget, minHeight: layout.touchTarget, justifyContent: 'center', alignItems: 'center' }}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/components/AppHeader.tsx",
+      "line": 129,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": "{mode === 'LIGHT' ? 'Chuyển sang nền tối' : 'Chuyển sang nền sáng'}",
+      "stateProp": null,
+      "styleExpression": "{[\n              iconButton,\n              {\n                borderColor: theme.colors.warning,\n                backgroundColor: theme.colors.warningBackground,\n              },\n            ]}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/components/AppHeader.tsx",
+      "line": 150,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": "\"Quét mã\"",
+      "stateProp": null,
+      "styleExpression": "{{\n                minWidth: layout.touchTarget,\n                minHeight: layout.touchTarget,\n                paddingHorizontal: theme.spacing.sm,\n                borderRadius: theme.borderRadius.sm,\n                backgroundColor: theme.colors.dangerButton,\n                flexDirection: 'row',\n                gap: theme.spacing.xs,\n                alignItems: 'center',\n              }}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/components/AppHeader.tsx",
+      "line": 169,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": "\"Thông báo\"",
+      "stateProp": null,
+      "styleExpression": "{iconButton}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/components/AppHeader.tsx",
+      "line": 177,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": "\"Tài khoản và kết thúc ca\"",
+      "stateProp": null,
+      "styleExpression": "{[iconButton, { backgroundColor: theme.colors.dangerBackground }]}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/components/BookingDateField.tsx",
+      "line": 20,
+      "tag": "DateTimePicker",
+      "roleProp": null,
+      "labelProp": null,
+      "stateProp": null,
+      "styleExpression": null,
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/components/BookingDateField.tsx",
+      "line": 24,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": "\"Chọn ngày thực hiện\"",
+      "stateProp": null,
+      "styleExpression": "{[styles.chip, { flex: 1, minWidth: 100, paddingVertical: theme.spacing.sm }]}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/components/BookingDateField.tsx",
+      "line": 25,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": "\"Chọn giờ thực hiện\"",
+      "stateProp": null,
+      "styleExpression": "{[styles.chip, { flex: 1, minWidth: 100, paddingVertical: theme.spacing.sm }]}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 186,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": "\"Đóng màn quét\"",
+      "stateProp": null,
+      "styleExpression": "{styles.iconButton}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 321,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": "{\n                      cameraError\n                        ? 'Thử lại camera'\n                        : permission?.canAskAgain === false\n                          ? 'Mở cài đặt camera'\n                          : 'Cấp quyền camera'\n                    }",
+      "stateProp": null,
+      "styleExpression": "{styles.permissionButton}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 394,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": "{torch ? 'Tắt đèn' : 'Bật đèn'}",
+      "stateProp": "{{ disabled: !canUseTorch, selected: torch }}",
+      "styleExpression": "{[\n                  styles.footerButton,\n                  {\n                    opacity: canUseTorch ? 1 : 0.45,\n                    backgroundColor: torch ? '#164E63' : '#182235',\n                  },\n                ]}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 411,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": "\"Nhập mã thủ công\"",
+      "stateProp": null,
+      "styleExpression": "{[styles.footerButton, { flex: 1 }]}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/components/ConnectionBanner.tsx",
+      "line": 10,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": "\"Kiểm tra lại kết nối\"",
+      "stateProp": null,
+      "styleExpression": "{{ minWidth: 48, minHeight: 48, justifyContent: 'center' }}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/components/ErrorState.tsx",
+      "line": 33,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": "{retryText}",
+      "stateProp": null,
+      "styleExpression": "{styles.button}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/components/GateModeSwitch.tsx",
+      "line": 17,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": null,
+      "stateProp": "{{ selected: mode === key }}",
+      "styleExpression": "{{ flex: 1, minWidth: 48, minHeight: 48, paddingHorizontal: 4, borderRadius: 8, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 4, backgroundColor: mode === key ? key === 'IN' ? '#2563EB' : theme.colors.successButton : 'transparent' }}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/components/PrimaryButton.tsx",
+      "line": 59,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": null,
+      "stateProp": "{{ disabled: isActionDisabled, busy: loading }}",
+      "styleExpression": "{[\r\n        styles.button,\r\n        {\r\n          backgroundColor: getBackgroundColor(),\r\n          borderWidth: variant === 'secondary' ? 1 : 0,\r\n          borderColor: theme.colors.borderDark,\r\n        },\r\n        style,\r\n      ]}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/components/ScreenLayout.tsx",
+      "line": 35,
+      "tag": "TextInput",
+      "roleProp": null,
+      "labelProp": "{label}",
+      "stateProp": null,
+      "styleExpression": "{[fieldStyles.input, props.multiline && { minHeight: layout.multilineInputMinHeight, textAlignVertical: 'top' }, error && { borderColor: theme.colors.danger }, props.style]}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/components/SelectField.tsx",
+      "line": 14,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": "{label}",
+      "stateProp": null,
+      "styleExpression": "{[styles.input, { flexDirection: 'row', alignItems: 'center', gap: 6, opacity: disabled ? 0.5 : 1 }]}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/components/SelectField.tsx",
+      "line": 20,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": "\"Đóng danh sách\"",
+      "stateProp": null,
+      "styleExpression": "{{ minWidth: 48, minHeight: 48, alignItems: 'center', justifyContent: 'center' }}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/components/SelectField.tsx",
+      "line": 21,
+      "tag": "TextInput",
+      "roleProp": null,
+      "labelProp": "\"Tìm trong danh sách\"",
+      "stateProp": null,
+      "styleExpression": "{styles.input}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/components/SelectField.tsx",
+      "line": 22,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": null,
+      "stateProp": "{{ selected: value === option.value }}",
+      "styleExpression": "{{ minWidth: 48, minHeight: 48, paddingVertical: 10, borderBottomWidth: 1, borderBottomColor: theme.colors.border, flexDirection: 'row', gap: 8 }}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/features/containers/screens/ContainerSearchScreen.tsx",
+      "line": 36,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": null,
+      "stateProp": null,
+      "styleExpression": null,
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/features/gate-in/components/GateInReceipt.tsx",
+      "line": 223,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": "\"Tìm hồ sơ container\"",
+      "stateProp": null,
+      "styleExpression": "{[\n            styles.chip,\n            {\n              width: 40,\n              alignItems: 'center',\n              paddingHorizontal: 0,\n              backgroundColor: theme.colors.infoBackground,\n            },\n          ]}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/features/gate-in/components/GateInReceipt.tsx",
+      "line": 240,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": "\"Quét mã container\"",
+      "stateProp": null,
+      "styleExpression": "{[styles.chip, { width: 40, alignItems: 'center', paddingHorizontal: 0 }]}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/features/gate-out/screens/GateOutConfirmScreen.tsx",
+      "line": 166,
+      "tag": "Pressable",
+      "roleProp": "\"button\"",
+      "labelProp": "\"Giữ 2 giây để mở xác nhận gate-out\"",
+      "stateProp": "{{ disabled: !eligible || busy }}",
+      "styleExpression": "{{\n                minHeight: 56,\n                justifyContent: 'center',\n                alignItems: 'center',\n                padding: 16,\n                borderRadius: 10,\n                backgroundColor:\n                  !eligible || busy\n                    ? theme.colors.borderDark\n                    : holding\n                      ? theme.colors.primaryDark\n                      : theme.colors.primary,\n              }}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/features/notifications/screens/NotificationsScreen.tsx",
+      "line": 66,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": null,
+      "stateProp": "{{selected:type === value}}",
+      "styleExpression": "{styles.chip}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/features/work-queue/screens/WorkQueueScreen.tsx",
+      "line": 87,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": null,
+      "stateProp": "{{ selected: filter === key }}",
+      "styleExpression": "{[fieldStyles.chip, { alignItems: 'center', backgroundColor: filter === key ? theme.colors.infoBackground : theme.colors.surface }]}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/features/work-queue/screens/WorkQueueScreen.tsx",
+      "line": 88,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": null,
+      "stateProp": "{{selected:urgency === key}}",
+      "styleExpression": "{fieldStyles.chip}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/features/work-queue/screens/WorkQueueScreen.tsx",
+      "line": 92,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": null,
+      "stateProp": null,
+      "styleExpression": null,
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 79,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": "{`Slot ${slot.slotCode}, ${appearance.label}${slot.currentContainer ? `, ${slot.currentContainer.containerNumber}` : ''}`}",
+      "stateProp": null,
+      "styleExpression": "{{\n          width: CELL_WIDTH,\n          minWidth: 48,\n          minHeight: 64,\n          borderRadius: 7,\n          borderWidth: 1,\n          borderColor: appearance.border,\n          backgroundColor: appearance.background,\n          padding: 7,\n          justifyContent: 'center',\n          gap: 3,\n        }}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 170,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": "{`Block ${item.code}`}",
+      "stateProp": "{{ selected: item.code === block.code }}",
+      "styleExpression": "{{\n                    minWidth: 64,\n                    minHeight: 48,\n                    paddingHorizontal: 12,\n                    justifyContent: 'center',\n                    borderRadius: 7,\n                    borderWidth: 1,\n                    borderColor:\n                      item.code === block.code ? theme.colors.primary : theme.colors.borderDark,\n                    backgroundColor:\n                      item.code === block.code ? theme.colors.primary : theme.colors.surface,\n                  }}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 221,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": "{`Tier ${item}`}",
+      "stateProp": "{{ selected: item === tier }}",
+      "styleExpression": "{{\n                      minWidth: 52,\n                      minHeight: 48,\n                      paddingHorizontal: 12,\n                      justifyContent: 'center',\n                      borderRadius: 7,\n                      borderWidth: 1,\n                      borderColor: item === tier ? theme.colors.primary : theme.colors.borderDark,\n                      backgroundColor: item === tier ? theme.colors.primary : theme.colors.surface,\n                    }}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 404,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": "\"Đóng chi tiết slot\"",
+      "stateProp": null,
+      "styleExpression": "{{\n                  minWidth: 48,\n                  minHeight: 48,\n                  justifyContent: 'center',\n                  alignItems: 'center',\n                }}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 495,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": "\"Mở chi tiết container\"",
+      "stateProp": null,
+      "styleExpression": "{{\n                      minWidth: 48,\n                      minHeight: 48,\n                      borderRadius: 7,\n                      borderWidth: 1,\n                      borderColor: theme.colors.borderDark,\n                      alignItems: 'center',\n                      justifyContent: 'center',\n                    }}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 517,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": "\"Chọn slot làm vị trí đích\"",
+      "stateProp": null,
+      "styleExpression": "{{\n                      minWidth: 48,\n                      minHeight: 48,\n                      borderRadius: 7,\n                      backgroundColor: theme.colors.primary,\n                      alignItems: 'center',\n                      justifyContent: 'center',\n                      padding: 10,\n                    }}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/screens/SurveyHomeScreen.tsx",
+      "line": 140,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"radio\"",
+      "labelProp": "{'Mức độ hư hỏng: ' + label}",
+      "stateProp": "{{ checked: severity === label }}",
+      "styleExpression": "{[\n                styles.chip,\n                {\n                  flex: 1,\n                  minWidth: 80,\n                  alignItems: 'center',\n                  borderColor: severity === label ? theme.colors.warning : theme.colors.borderDark,\n                  backgroundColor:\n                    severity === label\n                      ? theme.colors.warningBackground\n                      : theme.colors.surfaceSubtle,\n                },\n              ]}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/screens/SurveyHomeScreen.tsx",
+      "line": 202,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": null,
+      "stateProp": null,
+      "styleExpression": "{{\n                  paddingVertical: 10,\n                  minHeight: 48,\n                  minWidth: 48,\n                  marginBottom: theme.spacing.sm,\n                  borderBottomWidth: 1,\n                  borderBottomColor: theme.colors.border,\n                  gap: 6,\n                }}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/screens/YardAssignmentScreen.tsx",
+      "line": 306,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": null,
+      "stateProp": "{{ selected: selected === row.yardSlotId }}",
+      "styleExpression": null,
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/screens/YardOperationDetailScreen.tsx",
+      "line": 70,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": null,
+      "stateProp": null,
+      "styleExpression": "{[fieldStyles.chip,{flex:1}]}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/screens/YardOperationsScreen.tsx",
+      "line": 69,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"button\"",
+      "labelProp": null,
+      "stateProp": null,
+      "styleExpression": "{{ minWidth:48, minHeight:48, paddingVertical:12, gap:8, marginBottom:8 }}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    },
+    {
+      "file": "apps/mobile/src/navigation/ResponsiveTabBar.tsx",
+      "line": 24,
+      "tag": "TouchableOpacity",
+      "roleProp": "\"tab\"",
+      "labelProp": "{labels[route.name as keyof MainTabParamList]}",
+      "stateProp": "{{ selected: focused }}",
+      "styleExpression": "{{ flex: 1, minWidth: 48, minHeight: 48, alignItems: 'center', justifyContent: 'center', gap: theme.spacing.xs, paddingVertical: theme.spacing.xs }}",
+      "interpretation": "PROPS_ONLY_NOT_NATIVE_BOUNDS_OR_SPOKEN_LABEL"
+    }
+  ],
+  "remainingStyleLiterals": [
+    {
+      "file": "apps/mobile/src/components/ActionDialog.tsx",
+      "line": 15,
+      "property": "padding",
+      "value": 16,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/ActionDialog.tsx",
+      "line": 16,
+      "property": "maxWidth",
+      "value": 480,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/ActionDialog.tsx",
+      "line": 16,
+      "property": "borderRadius",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/ActionDialog.tsx",
+      "line": 16,
+      "property": "padding",
+      "value": 16,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/ActionDialog.tsx",
+      "line": 16,
+      "property": "gap",
+      "value": 14,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/ActionDialog.tsx",
+      "line": 17,
+      "property": "gap",
+      "value": 8,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/ActionDialog.tsx",
+      "line": 18,
+      "property": "fontSize",
+      "value": 16,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/ActionDialog.tsx",
+      "line": 19,
+      "property": "minWidth",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/ActionDialog.tsx",
+      "line": 19,
+      "property": "minHeight",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/ActionDialog.tsx",
+      "line": 21,
+      "property": "gap",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/ActionDialog.tsx",
+      "line": 22,
+      "property": "fontSize",
+      "value": 13,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/ActionDialog.tsx",
+      "line": 22,
+      "property": "lineHeight",
+      "value": 20,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/AppHeader.tsx",
+      "line": 77,
+      "property": "minWidth",
+      "value": 0,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/AppHeader.tsx",
+      "line": 88,
+      "property": "minWidth",
+      "value": 0,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/BookingDateField.tsx",
+      "line": 24,
+      "property": "minWidth",
+      "value": 100,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/BookingDateField.tsx",
+      "line": 25,
+      "property": "minWidth",
+      "value": 100,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 180,
+      "property": "gap",
+      "value": 4,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 290,
+      "property": "height",
+      "value": 2,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 308,
+      "property": "paddingHorizontal",
+      "value": 38,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 309,
+      "property": "gap",
+      "value": 14,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 314,
+      "property": "fontSize",
+      "value": 14,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 348,
+      "property": "fontSize",
+      "value": 13,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 361,
+      "property": "gap",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 373,
+      "property": "paddingVertical",
+      "value": 7,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 374,
+      "property": "paddingHorizontal",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 375,
+      "property": "borderRadius",
+      "value": 20,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 379,
+      "property": "gap",
+      "value": 6,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 383,
+      "property": "fontSize",
+      "value": 11,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 393,
+      "property": "gap",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 393,
+      "property": "marginTop",
+      "value": 6,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 421,
+      "property": "fontSize",
+      "value": 10,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 433,
+      "property": "paddingHorizontal",
+      "value": 20,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 434,
+      "property": "paddingVertical",
+      "value": 16,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 437,
+      "property": "gap",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 439,
+      "property": "fontSize",
+      "value": 18,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 440,
+      "property": "fontSize",
+      "value": 11,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 440,
+      "property": "lineHeight",
+      "value": 17,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 442,
+      "property": "minWidth",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 443,
+      "property": "minHeight",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 446,
+      "property": "borderRadius",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 449,
+      "property": "width",
+      "value": 36,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 449,
+      "property": "height",
+      "value": 36,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 450,
+      "property": "fontSize",
+      "value": 13,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 450,
+      "property": "lineHeight",
+      "value": 20,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 452,
+      "property": "minWidth",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 453,
+      "property": "minHeight",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 454,
+      "property": "borderRadius",
+      "value": 10,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 455,
+      "property": "paddingHorizontal",
+      "value": 14,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 458,
+      "property": "gap",
+      "value": 8,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 462,
+      "property": "paddingHorizontal",
+      "value": 20,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 462,
+      "property": "paddingTop",
+      "value": 18,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 462,
+      "property": "paddingBottom",
+      "value": 16,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 462,
+      "property": "gap",
+      "value": 8,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 464,
+      "property": "minWidth",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 465,
+      "property": "minHeight",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 466,
+      "property": "paddingHorizontal",
+      "value": 16,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 467,
+      "property": "borderRadius",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 472,
+      "property": "gap",
+      "value": 8,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/CodeScanner.tsx",
+      "line": 474,
+      "property": "fontSize",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/ConnectionBanner.tsx",
+      "line": 10,
+      "property": "minWidth",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/ConnectionBanner.tsx",
+      "line": 10,
+      "property": "minHeight",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/EmptyState.tsx",
+      "line": 23,
+      "property": "marginBottom",
+      "value": 10,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/EmptyState.tsx",
+      "line": 32,
+      "property": "padding",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/EmptyState.tsx",
+      "line": 37,
+      "property": "fontSize",
+      "value": 40,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/ErrorState.tsx",
+      "line": 48,
+      "property": "fontSize",
+      "value": 40,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/ErrorState.tsx",
+      "line": 64,
+      "property": "minWidth",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/ErrorState.tsx",
+      "line": 65,
+      "property": "minHeight",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/ForbiddenScreen.tsx",
+      "line": 42,
+      "property": "maxWidth",
+      "value": 360,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/ForbiddenScreen.tsx",
+      "line": 51,
+      "property": "fontSize",
+      "value": 36,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/GateModeSwitch.tsx",
+      "line": 17,
+      "property": "minWidth",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/GateModeSwitch.tsx",
+      "line": 17,
+      "property": "minHeight",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/GateModeSwitch.tsx",
+      "line": 17,
+      "property": "paddingHorizontal",
+      "value": 4,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/GateModeSwitch.tsx",
+      "line": 17,
+      "property": "borderRadius",
+      "value": 8,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/GateModeSwitch.tsx",
+      "line": 17,
+      "property": "gap",
+      "value": 4,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/PrimaryButton.tsx",
+      "line": 90,
+      "property": "paddingVertical",
+      "value": 10,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/PrimaryButton.tsx",
+      "line": 94,
+      "property": "minWidth",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/PrimaryButton.tsx",
+      "line": 95,
+      "property": "minHeight",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/ScreenLayout.tsx",
+      "line": 35,
+      "property": "minWidth",
+      "value": 0,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/SelectField.tsx",
+      "line": 14,
+      "property": "gap",
+      "value": 6,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/SelectField.tsx",
+      "line": 18,
+      "property": "padding",
+      "value": 20,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/SelectField.tsx",
+      "line": 19,
+      "property": "maxWidth",
+      "value": 480,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/SelectField.tsx",
+      "line": 19,
+      "property": "borderRadius",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/SelectField.tsx",
+      "line": 19,
+      "property": "padding",
+      "value": 14,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/SelectField.tsx",
+      "line": 19,
+      "property": "gap",
+      "value": 10,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/SelectField.tsx",
+      "line": 20,
+      "property": "minWidth",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/SelectField.tsx",
+      "line": 20,
+      "property": "minHeight",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/SelectField.tsx",
+      "line": 22,
+      "property": "minWidth",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/SelectField.tsx",
+      "line": 22,
+      "property": "minHeight",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/SelectField.tsx",
+      "line": 22,
+      "property": "paddingVertical",
+      "value": 10,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/components/SelectField.tsx",
+      "line": 22,
+      "property": "gap",
+      "value": 8,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/auth/screens/LoginScreen.tsx",
+      "line": 26,
+      "property": "padding",
+      "value": 20,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/auth/screens/LoginScreen.tsx",
+      "line": 27,
+      "property": "maxWidth",
+      "value": 440,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/auth/screens/LoginScreen.tsx",
+      "line": 27,
+      "property": "gap",
+      "value": 24,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/auth/screens/LoginScreen.tsx",
+      "line": 28,
+      "property": "gap",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/auth/screens/LoginScreen.tsx",
+      "line": 28,
+      "property": "letterSpacing",
+      "value": 2,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/containers/screens/ContainerDetailScreen.tsx",
+      "line": 102,
+      "property": "gap",
+      "value": 6,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/containers/screens/ContainerDetailScreen.tsx",
+      "line": 103,
+      "property": "gap",
+      "value": 6,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/containers/screens/ContainerDetailScreen.tsx",
+      "line": 105,
+      "property": "gap",
+      "value": 5,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/gate-in/components/GateInReceipt.tsx",
+      "line": 231,
+      "property": "width",
+      "value": 40,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/gate-in/components/GateInReceipt.tsx",
+      "line": 233,
+      "property": "paddingHorizontal",
+      "value": 0,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/gate-in/components/GateInReceipt.tsx",
+      "line": 245,
+      "property": "width",
+      "value": 40,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/gate-in/components/GateInReceipt.tsx",
+      "line": 245,
+      "property": "paddingHorizontal",
+      "value": 0,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/gate-in/components/GateInReceipt.tsx",
+      "line": 285,
+      "property": "gap",
+      "value": 8,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/gate-in/components/GateInReceipt.tsx",
+      "line": 311,
+      "property": "gap",
+      "value": 8,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/gate-in/components/TruckArrival.tsx",
+      "line": 70,
+      "property": "gap",
+      "value": 8,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/gate-in/components/TruckArrival.tsx",
+      "line": 94,
+      "property": "gap",
+      "value": 4,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/gate-out/screens/GateOutConfirmScreen.tsx",
+      "line": 176,
+      "property": "minHeight",
+      "value": 56,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/gate-out/screens/GateOutConfirmScreen.tsx",
+      "line": 179,
+      "property": "padding",
+      "value": 16,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/gate-out/screens/GateOutConfirmScreen.tsx",
+      "line": 180,
+      "property": "borderRadius",
+      "value": 10,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/gate-out/screens/GateOutConfirmScreen.tsx",
+      "line": 189,
+      "property": "fontSize",
+      "value": 16,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/handover/components/HandoverSummary.tsx",
+      "line": 27,
+      "property": "gap",
+      "value": 6,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/notifications/screens/NotificationsScreen.tsx",
+      "line": 66,
+      "property": "gap",
+      "value": 8,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/notifications/screens/NotificationsScreen.tsx",
+      "line": 74,
+      "property": "gap",
+      "value": 8,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/work-queue/screens/WorkQueueScreen.tsx",
+      "line": 82,
+      "property": "gap",
+      "value": 8,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/work-queue/screens/WorkQueueScreen.tsx",
+      "line": 86,
+      "property": "gap",
+      "value": 8,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/work-queue/screens/WorkQueueScreen.tsx",
+      "line": 88,
+      "property": "gap",
+      "value": 8,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/work-queue/screens/WorkQueueScreen.tsx",
+      "line": 93,
+      "property": "gap",
+      "value": 8,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/work-queue/screens/WorkQueueScreen.tsx",
+      "line": 94,
+      "property": "fontSize",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/work-queue/screens/WorkQueueScreen.tsx",
+      "line": 99,
+      "property": "gap",
+      "value": 8,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 88,
+      "property": "minWidth",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 89,
+      "property": "minHeight",
+      "value": 64,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 90,
+      "property": "borderRadius",
+      "value": 7,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 94,
+      "property": "padding",
+      "value": 7,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 96,
+      "property": "gap",
+      "value": 3,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 101,
+      "property": "fontSize",
+      "value": 11,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 105,
+      "property": "fontSize",
+      "value": 10,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 111,
+      "property": "fontSize",
+      "value": 10,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 120,
+      "property": "gap",
+      "value": 3,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 121,
+      "property": "fontSize",
+      "value": 11,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 122,
+      "property": "fontSize",
+      "value": 13,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 129,
+      "property": "gap",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 132,
+      "property": "gap",
+      "value": 6,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 138,
+      "property": "borderRadius",
+      "value": 6,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 142,
+      "property": "paddingVertical",
+      "value": 5,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 143,
+      "property": "paddingHorizontal",
+      "value": 7,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 146,
+      "property": "fontSize",
+      "value": 10,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 154,
+      "property": "fontSize",
+      "value": 13,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 159,
+      "property": "gap",
+      "value": 5,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 160,
+      "property": "fontSize",
+      "value": 11,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 166,
+      "property": "gap",
+      "value": 8,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 180,
+      "property": "minWidth",
+      "value": 64,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 181,
+      "property": "minHeight",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 182,
+      "property": "paddingHorizontal",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 184,
+      "property": "borderRadius",
+      "value": 7,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 194,
+      "property": "fontSize",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 205,
+      "property": "fontSize",
+      "value": 11,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 210,
+      "property": "gap",
+      "value": 5,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 211,
+      "property": "fontSize",
+      "value": 11,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 217,
+      "property": "gap",
+      "value": 8,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 228,
+      "property": "minWidth",
+      "value": 52,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 229,
+      "property": "minHeight",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 230,
+      "property": "paddingHorizontal",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 232,
+      "property": "borderRadius",
+      "value": 7,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 240,
+      "property": "fontSize",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 254,
+      "property": "gap",
+      "value": 6,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 255,
+      "property": "fontSize",
+      "value": 11,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 263,
+      "property": "paddingBottom",
+      "value": 5,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 270,
+      "property": "fontSize",
+      "value": 10,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 283,
+      "property": "fontSize",
+      "value": 11,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 300,
+      "property": "fontSize",
+      "value": 11,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 313,
+      "property": "minHeight",
+      "value": 64,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 323,
+      "property": "minHeight",
+      "value": 64,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 326,
+      "property": "borderRadius",
+      "value": 7,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 332,
+      "property": "fontSize",
+      "value": 14,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 344,
+      "property": "fontSize",
+      "value": 10,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 351,
+      "property": "gap",
+      "value": 6,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 352,
+      "property": "fontSize",
+      "value": 11,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 373,
+      "property": "padding",
+      "value": 16,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 382,
+      "property": "maxWidth",
+      "value": 480,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 384,
+      "property": "borderRadius",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 388,
+      "property": "padding",
+      "value": 16,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 389,
+      "property": "gap",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 392,
+      "property": "gap",
+      "value": 8,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 397,
+      "property": "fontSize",
+      "value": 16,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 409,
+      "property": "minWidth",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 410,
+      "property": "minHeight",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 416,
+      "property": "fontSize",
+      "value": 14,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 423,
+      "property": "gap",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 427,
+      "property": "borderRadius",
+      "value": 6,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 431,
+      "property": "paddingHorizontal",
+      "value": 8,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 432,
+      "property": "paddingVertical",
+      "value": 6,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 436,
+      "property": "fontSize",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 445,
+      "property": "gap",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 466,
+      "property": "gap",
+      "value": 3,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 468,
+      "property": "fontSize",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 472,
+      "property": "fontSize",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 478,
+      "property": "gap",
+      "value": 3,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 480,
+      "property": "fontSize",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 488,
+      "property": "fontSize",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 500,
+      "property": "minWidth",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 501,
+      "property": "minHeight",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 502,
+      "property": "borderRadius",
+      "value": 7,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 510,
+      "property": "fontSize",
+      "value": 13,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 522,
+      "property": "minWidth",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 523,
+      "property": "minHeight",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 524,
+      "property": "borderRadius",
+      "value": 7,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 528,
+      "property": "padding",
+      "value": 10,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "line": 531,
+      "property": "fontSize",
+      "value": 13,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/screens/SurveyHomeScreen.tsx",
+      "line": 104,
+      "property": "gap",
+      "value": 6,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/screens/SurveyHomeScreen.tsx",
+      "line": 151,
+      "property": "minWidth",
+      "value": 80,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/screens/SurveyHomeScreen.tsx",
+      "line": 213,
+      "property": "paddingVertical",
+      "value": 10,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/screens/SurveyHomeScreen.tsx",
+      "line": 214,
+      "property": "minHeight",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/screens/SurveyHomeScreen.tsx",
+      "line": 215,
+      "property": "minWidth",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/screens/SurveyHomeScreen.tsx",
+      "line": 219,
+      "property": "gap",
+      "value": 6,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/screens/SurveyHomeScreen.tsx",
+      "line": 222,
+      "property": "gap",
+      "value": 6,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/screens/YardOperationDetailScreen.tsx",
+      "line": 70,
+      "property": "gap",
+      "value": 8,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/screens/YardOperationsScreen.tsx",
+      "line": 69,
+      "property": "minWidth",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/screens/YardOperationsScreen.tsx",
+      "line": 69,
+      "property": "minHeight",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/screens/YardOperationsScreen.tsx",
+      "line": 69,
+      "property": "paddingVertical",
+      "value": 12,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/screens/YardOperationsScreen.tsx",
+      "line": 69,
+      "property": "gap",
+      "value": 8,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/features/yard/screens/YardOperationsScreen.tsx",
+      "line": 69,
+      "property": "marginBottom",
+      "value": 8,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/navigation/MainTabNavigator.tsx",
+      "line": 29,
+      "property": "paddingTop",
+      "value": 5,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/navigation/MainTabNavigator.tsx",
+      "line": 31,
+      "property": "fontSize",
+      "value": 10,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/navigation/MainTabNavigator.tsx",
+      "line": 31,
+      "property": "lineHeight",
+      "value": 15,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/navigation/ResponsiveTabBar.tsx",
+      "line": 27,
+      "property": "minWidth",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    },
+    {
+      "file": "apps/mobile/src/navigation/ResponsiveTabBar.tsx",
+      "line": 27,
+      "property": "minHeight",
+      "value": 48,
+      "interpretation": "REMAINING_LITERAL_REQUIRES_CONTEXT_STANDARD_TARGETS_AND_ICON_GEOMETRY_MAY_BE_INTENTIONAL"
+    }
+  ]
+}

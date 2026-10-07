@@ -1,0 +1,352 @@
+- generic: TOS-MOBILE
+- generic: Quản trị viên
+- heading [level=1]: Cổng
+- generic: Quản trị viên Hệ thống
+- button:
+- button:
+  - generic: Quét
+- button:
+- button:
+- heading [level=1]: PHIÊN ĐĂNG NHẬP CA TRỰC
+- generic: ĐÃ ĐĂNG NHẬP
+- generic: "Tài khoản: UI Audit ADMIN"
+- generic: Quản trị viên
+- button:
+  - generic: Tiếp nhận vào cổng
+- button:
+  - generic: Quét phiếu ra cổng
+- heading [level=1]: Biên nhận Cổng vào (Gate-In EIR)
+- generic: Số Container*
+- textbox:
+  - /placeholder: "VD: TEMU8829104"
+- button:
+- button:
+- generic: Biển số đầu kéo*
+- textbox:
+  - /placeholder: Theo lượt xe
+- generic: Số Seal thực tế*
+- textbox:
+  - /placeholder: Seal đã kiểm tra
+- generic: Tài xế nhận hàng*
+- textbox:
+  - /placeholder: Theo lượt xe
+- generic: Cân Gross (kg)
+- textbox:
+  - /placeholder: Kết quả cân
+- generic: Tình trạng vỏ container
+- button [disabled]:
+  - generic: Vỏ tốt, seal nguyên
+- generic: Ghi chú hiện trường
+- textbox:
+  - /placeholder: Ghi nhận bất thường / seal lệch hồ sơ
+- button [disabled]:
+  - generic: Xác nhận tiếp nhận Gate-In
+- button:
+  - generic: Ghi nhận xe đến cổng
+- button "Quay lại":
+- generic: TOS-MOBILE
+- generic: Quản trị viên
+- heading "Danh sách tác nghiệp bãi" [level=1]
+- button "Chuyển sang nền tối":
+- button "Quét mã":
+  - generic: Quét
+- button "Thông báo":
+- button "Tài khoản và kết thúc ca":
+- heading "Tra cứu lệnh" [level=1]
+- generic: Loại tác nghiệp
+- button "Loại tác nghiệp":
+  - generic: Đảo chuyển
+- generic: Trạng thái
+- button "Trạng thái":
+  - generic: Tất cả
+- button "AUDU2384570 Chờ thực hiện AUD25157BF4/A/02/01 -> AUD25157BF4/A/01/01":
+  - generic: AUDU2384570
+  - generic: Chờ thực hiện
+  - generic: AUD25157BF4/A/02/01 -> AUD25157BF4/A/01/01
+- button "AUDU2384565 Đã hủy AUD25157BF4/A/03/01 -> AUD25157BF4/A/01/01":
+  - generic: AUDU2384565
+  - generic: Đã hủy
+  - generic: AUD25157BF4/A/03/01 -> AUD25157BF4/A/01/01
+- button "AUDU2384565 Hoàn tất AUD25157BF4/A/01/01 -> AUD25157BF4/A/03/01":
+  - generic: AUDU2384565
+  - generic: Hoàn tất
+  - generic: AUD25157BF4/A/01/01 -> AUD25157BF4/A/03/01
+- button "AUDU0424930 Chờ thực hiện AUDD174DD12/A/02/01 -> AUDD174DD12/A/01/01":
+  - generic: AUDU0424930
+  - generic: Chờ thực hiện
+  - generic: AUDD174DD12/A/02/01 -> AUDD174DD12/A/01/01
+- button "AUDU0424925 Đã hủy AUDD174DD12/A/03/01 -> AUDD174DD12/A/01/01":
+  - generic: AUDU0424925
+  - generic: Đã hủy
+  - generic: AUDD174DD12/A/03/01 -> AUDD174DD12/A/01/01
+- button "AUDU0424925 Hoàn tất AUDD174DD12/A/01/01 -> AUDD174DD12/A/03/01":
+  - generic: AUDU0424925
+  - generic: Hoàn tất
+  - generic: AUDD174DD12/A/01/01 -> AUDD174DD12/A/03/01
+- heading "Đặt lịch dịch vụ tại bãi" [level=1]
+- generic: Container đang ở bãi*
+- button "Container đang ở bãi*":
+  - generic: Chọn…
+- generic: Dịch vụ*
+- button "Dịch vụ*":
+  - generic: Rút hàng
+- generic: Lịch thực hiện (giờ Việt Nam)*
+- textbox "Lịch thực hiện (giờ Việt Nam)*":
+  - /placeholder: YYYY-MM-DD HH:mm
+- generic: Nhập YYYY-MM-DD HH:mm, ví dụ 2026-10-03 09:30. Giờ Việt Nam (UTC+7). Trên Android/iOS dùng bộ chọn ngày và giờ.
+- generic: Ghi chú điều kiện
+- textbox "Ghi chú điều kiện"
+- button "Tạo lịch tác nghiệp" [disabled]:
+  - generic: Tạo lịch tác nghiệp
+- generic: TOS-MOBILE
+- generic: Quản trị viên
+- heading [level=1]: Giám định hiện trường
+- generic: Quản trị viên Hệ thống
+- button:
+- button:
+  - generic: Quét
+- button:
+- button:
+- heading [level=1]: PHIÊN ĐĂNG NHẬP CA TRỰC
+- generic: ĐÃ ĐĂNG NHẬP
+- generic: "Tài khoản: UI Audit ADMIN"
+- generic: Quản trị viên
+- heading [level=1]: Biên bản giám định hiện trường
+- generic: Ghi nhận tình trạng thực tế của container và seal
+- generic: Loại giám định
+- button:
+  - generic: Giám định hư hỏng
+- generic: Số Container*
+- textbox:
+  - /placeholder: "VD: MSCU6639870"
+- generic: Nội dung ghi nhận*
+- textbox:
+  - /placeholder: Nhập nội dung ghi nhận thực tế...
+- generic: Mức độ hư hỏng
+- radio:
+  - generic: Nhẹ
+- radio:
+  - generic: Trung bình
+- radio:
+  - generic: Nặng
+- button:
+  - generic: Gửi biên bản Giám định
+- heading [level=1]: Biên bản giám định trong ICD
+- button:
+  - generic: AUDU2384570
+  - generic: Chờ giám định
+  - generic: Synthetic pending UI fixture
+- button:
+  - generic: AUDU2384565
+  - generic: Đã hủy
+  - generic: "Synthetic cancel branch [Hủy: Synthetic audit cancellation]"
+- button:
+  - generic: AUDU2384565
+  - generic: Hoàn tất
+  - generic: "Kết quả: PASS · Đạt giám định."
+  - generic: Synthetic audit passed
+- button:
+  - generic: AUDU0424930
+  - generic: Chờ giám định
+  - generic: Synthetic pending UI fixture
+- button:
+  - generic: AUDU0424925
+  - generic: Đã hủy
+  - generic: "Synthetic cancel branch [Hủy: Synthetic audit cancellation]"
+- button:
+  - generic: AUDU0424925
+  - generic: Hoàn tất
+  - generic: "Kết quả: PASS · Đạt giám định."
+  - generic: Synthetic audit passed
+- button:
+- generic: TOS-MOBILE
+- generic: Quản trị viên
+- heading [level=1]: Chi tiết container
+- generic: TCSU8849201
+- button:
+- button:
+  - generic: Quét
+- button:
+- button:
+- heading [level=1]: TCSU8849201
+- generic: Nhấn giữ số container để sao chép
+- generic: TCSU8849201
+- generic: Đang ở bãi
+- generic: ISO / Kích thước / Loại
+- generic: 42G1 · SIZE_40 · Container khô
+- generic: Seal khai báo
+- generic: TC-994012
+- generic: Trọng lượng (kg)
+- generic: "21500"
+- generic: Vị trí bãi
+- generic: A-01-01-1
+- generic: Chủ hàng
+- generic: Công ty TNHH Samsung Electronics VN (SEVT)
+- generic: HBL
+- generic: HBL-TCSU-VN03
+- generic: Vào cổng
+- generic: 12:33:20 2/10/2026
+- generic: Ra cổng
+- generic: —
+- heading [level=1]: Điều kiện cấp phiếu ra cổng
+- generic: CHƯA ĐỦ ĐIỀU KIỆN
+- generic: Kết quả kiểm tra cấp phiếu. Xuất cổng cần quét phiếu và kiểm tra lại tại cổng.
+- generic: • Chưa có hồ sơ tính phí.
+- generic: • Còn dịch vụ chưa được tính phí.
+- generic: Đảo chuyển đang mở
+- generic: "0"
+- generic: Giám định đang mở
+- generic: "0"
+- generic: Booking đang mở
+- generic: "0"
+- generic: Giám định giữ hàng
+- generic: "0"
+- heading [level=1]: Tình trạng phí
+- generic: Đơn phí chưa hoàn tất
+- generic: "0"
+- generic: Hóa đơn chưa thanh toán
+- generic: "0"
+- generic: Dịch vụ chưa tính phí
+- generic: "2"
+- generic: Chưa có hồ sơ tính phí.
+- heading [level=1]: Lệnh giữ nghiệp vụ
+- generic: Không có lệnh giữ.
+- heading [level=1]: Phiếu ra cổng
+- generic: Chưa cấp phiếu ra cổng.
+- heading [level=1]: Bàn giao vận tải
+- generic: Chưa có hồ sơ bàn giao.
+- heading [level=1]: Lịch sử container
+- generic: Chưa có sự kiện.
+- generic: TOS-MOBILE
+- generic: Quản trị viên
+- heading [level=1]: Công việc trong ca
+- generic: UI Audit ADMIN
+- button:
+- button:
+  - generic: Quét
+- button:
+- button:
+- heading [level=1]: PHIÊN ĐĂNG NHẬP CA TRỰC
+- generic: ĐÃ ĐĂNG NHẬP
+- generic: "Tài khoản: UI Audit ADMIN"
+- generic: Quản trị viên
+- generic: "Việc ca trực: 12 tác vụ"
+- generic: "Quá hạn: 10"
+- button:
+  - generic: Tất cả
+- button:
+  - generic: Nhập cổng
+- button:
+  - generic: Xuất cổng
+- button:
+  - generic: Xếp bãi
+- button:
+  - generic: Tác nghiệp bãi
+- button:
+  - generic: Phí
+- button:
+  - generic: ✓ Mọi ưu tiên
+- button:
+  - generic: Quá hạn
+- button:
+  - generic: Sắp đến hạn
+- button:
+  - generic: Ưu tiên cao
+- button:
+  - generic: Bình thường
+- button:
+  - generic: QUÁ HẠN
+  - generic: Quá hạn 1323 phút
+  - generic: AUDU0424930
+  - generic: "Đóng hàng tại bãi: AUDU0424930"
+  - generic: "Booking STUFFING cho container AUDU0424930 - Trạng thái: IN_PROGRESS."
+  - generic: Mở công việc →
+- button:
+  - generic: QUÁ HẠN
+  - generic: Quá hạn 1319 phút
+  - generic: AUDU2384570
+  - generic: "Đóng hàng tại bãi: AUDU2384570"
+  - generic: "Booking STUFFING cho container AUDU2384570 - Trạng thái: IN_PROGRESS."
+  - generic: Mở công việc →
+- button:
+  - generic: QUÁ HẠN
+  - generic: Quá hạn 1263 phút
+  - generic: AUDU0424930
+  - generic: "Đảo chuyển bãi: AUDU0424930"
+  - generic: "Đảo chuyển container AUDU0424930 - Trạng thái: PENDING. Lý do: Synthetic pending UI fixture."
+  - generic: Mở công việc →
+- button:
+  - generic: QUÁ HẠN
+  - generic: Quá hạn 1259 phút
+  - generic: AUDU2384570
+  - generic: "Đảo chuyển bãi: AUDU2384570"
+  - generic: "Đảo chuyển container AUDU2384570 - Trạng thái: PENDING. Lý do: Synthetic pending UI fixture."
+  - generic: Mở công việc →
+- button:
+  - generic: QUÁ HẠN
+  - generic: Quá hạn 1203 phút
+  - generic: AUDU0424946
+  - generic: Tiếp nhận cổng cho container AUDU0424946
+  - generic: "Xe: AUDD174DD12"
+  - generic: Xe AUDD174DD12 đã đến cổng lúc 2026-10-03T10:07:32.405Z. Cần hoàn tất tiếp nhận hạ bãi/nhập cổng.
+  - generic: Mở công việc →
+- button:
+  - generic: QUÁ HẠN
+  - generic: Quá hạn 1203 phút
+  - generic: AUDU0424930
+  - generic: "Giám định bãi: AUDU0424930"
+  - generic: "Giám định container AUDU0424930 (QUARANTINE) - Trạng thái: PENDING."
+  - generic: Mở công việc →
+- button:
+  - generic: QUÁ HẠN
+  - generic: Quá hạn 1200 phút
+  - generic: AUDU2384586
+  - generic: Tiếp nhận cổng cho container AUDU2384586
+  - generic: "Xe: AUD25157BF4"
+  - generic: Xe AUD25157BF4 đã đến cổng lúc 2026-10-03T10:10:48.438Z. Cần hoàn tất tiếp nhận hạ bãi/nhập cổng.
+  - generic: Mở công việc →
+- button:
+  - generic: QUÁ HẠN
+  - generic: Quá hạn 1199 phút
+  - generic: AUDU2384570
+  - generic: "Giám định bãi: AUDU2384570"
+  - generic: "Giám định container AUDU2384570 (QUARANTINE) - Trạng thái: PENDING."
+  - generic: Mở công việc →
+- button:
+  - generic: QUÁ HẠN
+  - generic: Quá hạn 1143 phút
+  - generic: AUDU0424930
+  - generic: Xác nhận Service Order SO-20261003-E2BC16E87603
+  - generic: Service Order SO-20261003-E2BC16E87603 cho container AUDU0424930 đang ở trạng thái DRAFT. Cần hoàn tất tính cước.
+  - generic: Mở công việc →
+- button:
+  - generic: QUÁ HẠN
+  - generic: Quá hạn 1139 phút
+  - generic: AUDU2384570
+  - generic: Xác nhận Service Order SO-20261003-14A0E6507D53
+  - generic: Service Order SO-20261003-14A0E6507D53 cho container AUDU2384570 đang ở trạng thái DRAFT. Cần hoàn tất tính cước.
+  - generic: Mở công việc →
+- button:
+  - generic: CHỜ XỬ LÝ
+  - generic: Còn 117 phút
+  - generic: AUDU0424930
+  - generic: "Rút hàng tại bãi: AUDU0424930"
+  - generic: "Booking STRIPPING cho container AUDU0424930 - Trạng thái: PENDING."
+  - generic: Mở công việc →
+- button:
+  - generic: CHỜ XỬ LÝ
+  - generic: Còn 121 phút
+  - generic: AUDU2384570
+  - generic: "Rút hàng tại bãi: AUDU2384570"
+  - generic: "Booking STRIPPING cho container AUDU2384570 - Trạng thái: PENDING."
+  - generic: Mở công việc →
+- tab "Cổng":
+  - generic: Cổng
+- tab "Bãi":
+  - generic: Bãi
+- tab "Giám định":
+  - generic: Giám định
+- tab "Tra cứu":
+  - generic: Tra cứu
+- tab "Việc ca":
+  - generic: Việc ca

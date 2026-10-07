@@ -1,0 +1,31 @@
+{
+  "at": "2026-10-04T03:51:01.496Z",
+  "report": "audit/2026-10-04-report.md",
+  "source": "frozen after W-N-026",
+  "tests": {
+    "webSdk": 122,
+    "fixtures": 257,
+    "previousUi": 39,
+    "mobileSource": 175,
+    "total": 593
+  },
+  "faultControl": "CLEARED",
+  "temporaryAxePage": "removed after exact path and SHA256 check",
+  "runtime": "Audit MySQL3308/API3001/web5174 retained; unrelated user runtime preserved",
+  "viewportCleanup": {
+    "documentedResetCalled": true,
+    "observedMain": {
+      "height": 1000,
+      "width": 1440
+    },
+    "exactOriginalGeometry": "UNKNOWN; no pre-audit geometry for this retained tab"
+  },
+  "pending": [
+    "Native latest-source Expo Go on test API3001 after denied reload/intent; no workaround",
+    "Spoken screen reader and actual zoom200%",
+    "Full role/form/network matrix",
+    "Supported transient hover/pressed input and timing p95",
+    "Authenticated production route performance and final re-audit"
+  ],
+  "targetMet": false
+}

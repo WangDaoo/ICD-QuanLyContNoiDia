@@ -5,7 +5,8 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
+    "scheme": "icd-field",
     "ios": {
       "supportsTablet": true
     },
@@ -33,7 +34,8 @@
         {
           "cameraPermission": "Cho phép ICD Field dùng camera để chụp ảnh container và seal."
         }
-      ]
+      ],
+      "@react-native-community/datetimepicker"
     ]
   }
 }

@@ -1,0 +1,135 @@
+[
+  {
+    "name": "Light session success text",
+    "screenshot": "audit/screenshots/baseline/mobile/01-gate-out-light.png",
+    "rect": [
+      808,
+      261,
+      1016,
+      310
+    ],
+    "foreground": "#059669",
+    "background": "#ECFDF5",
+    "exactForegroundPixels": 987,
+    "exactBackgroundPixels": 8112,
+    "contrast": 3.5771,
+    "normalThreshold": 4.5,
+    "largeThreshold": 3,
+    "nativeVerified": true,
+    "status": "FAIL"
+  },
+  {
+    "name": "Dark logout text",
+    "screenshot": "audit/screenshots/baseline/mobile/54-logout-confirm-dark.png",
+    "rect": [
+      87,
+      973,
+      993,
+      1078
+    ],
+    "foreground": "#FFFFFF",
+    "background": "#FB7185",
+    "exactForegroundPixels": 1234,
+    "exactBackgroundPixels": 92506,
+    "contrast": 2.6914,
+    "normalThreshold": 4.5,
+    "largeThreshold": 3,
+    "nativeVerified": true,
+    "status": "FAIL"
+  },
+  {
+    "name": "Light logout text",
+    "screenshot": "audit/screenshots/baseline/mobile/52-logout-confirm-light.png",
+    "rect": [
+      87,
+      973,
+      993,
+      1078
+    ],
+    "foreground": "#FFFFFF",
+    "background": "#DC2626",
+    "exactForegroundPixels": 1562,
+    "exactBackgroundPixels": 92506,
+    "contrast": 4.8294,
+    "normalThreshold": 4.5,
+    "largeThreshold": 3,
+    "nativeVerified": true,
+    "status": "PASS"
+  },
+  {
+    "name": "Light readiness warning text",
+    "screenshot": "audit/screenshots/baseline/mobile/07-container-detail-light.png",
+    "rect": [
+      76,
+      1510,
+      450,
+      1600
+    ],
+    "foreground": "#D97706",
+    "background": "#FFFBEB",
+    "exactForegroundPixels": 2102,
+    "exactBackgroundPixels": 17285,
+    "contrast": 3.0721,
+    "normalThreshold": 4.5,
+    "largeThreshold": 3,
+    "nativeVerified": true,
+    "status": "FAIL"
+  },
+  {
+    "name": "Dark session success text",
+    "screenshot": "audit/screenshots/baseline/mobile/37-workqueue-dark.png",
+    "rect": [
+      808,
+      261,
+      1016,
+      310
+    ],
+    "foreground": "#34D399",
+    "background": "#063E33",
+    "exactForegroundPixels": 987,
+    "exactBackgroundPixels": 8112,
+    "contrast": 6.2614,
+    "normalThreshold": 4.5,
+    "largeThreshold": 3,
+    "nativeVerified": true,
+    "status": "PASS"
+  },
+  {
+    "name": "Light body text",
+    "screenshot": "audit/screenshots/baseline/mobile/03-yard-light.png",
+    "rect": [
+      76,
+      474,
+      1004,
+      546
+    ],
+    "foreground": "#0F172A",
+    "background": "#FFFFFF",
+    "exactForegroundPixels": 3731,
+    "exactBackgroundPixels": 57438,
+    "contrast": 17.8525,
+    "normalThreshold": 4.5,
+    "largeThreshold": 3,
+    "nativeVerified": true,
+    "status": "PASS"
+  },
+  {
+    "name": "Dark body text",
+    "screenshot": "audit/screenshots/baseline/mobile/19-survey-dark.png",
+    "rect": [
+      76,
+      474,
+      1004,
+      546
+    ],
+    "foreground": "#F8FAFC",
+    "background": "#172033",
+    "exactForegroundPixels": 4299,
+    "exactBackgroundPixels": 56713,
+    "contrast": 15.5489,
+    "normalThreshold": 4.5,
+    "largeThreshold": 3,
+    "nativeVerified": true,
+    "status": "PASS"
+  }
+]

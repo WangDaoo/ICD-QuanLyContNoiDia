@@ -1,0 +1,30 @@
+✖ Billing read-only page keeps invoice balances without offering billing or tariff writes (364.3349ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6007.5668
+
+✖ failing tests:
+
+test at audit\tools\improvement-web-business.test.mjs:147:1
+✖ Billing read-only page keeps invoice balances without offering billing or tariff writes (364.3349ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Tạo Đơn dịch vụ|Ghi nhận Thanh toán/. Input:
+  
+  'Dịch vụ & Thanh toán (Billing & Invoices)Tính toán biểu phí lưu bãi, tiếp nhận, rút ruột (Stripping), kiểm định và xuất hóa đơn đối soátTạo Đơn dịch vụ (Service Order)Tổng phí đã xuất Hóa đơn1.000₫1 hóa đơn phát hànhĐã thu thực tế0₫0 lượt giao dịch đã ghi nhậnCông nợ chưa thu1.000₫Ảnh hưởng trực tiếp đến điều kiện cấp Gate PassHóa đơn phát hành (1)Đơn dịch vụ (Service Orders) (0)Biểu phí dịch vụ (Tariffs) (0)Số Hóa đơnContainerChủ hàng (Consignee)Ngày xuấtHạn TTTổng tiềnĐã thanh toánTrạng tháiThao tácINVTEST00000011/1/20262/1/20261.000₫0₫UNPAIDGhi nhận Thanh toán'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:149:12)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:41:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:148:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Dịch vụ & Thanh toán (Billing & Invoices)Tính toán biểu phí lưu bãi, tiếp nhận, rút ruột (Stripping), kiểm định và xuất hóa đơn đối soátTạo Đơn dịch vụ (Service Order)Tổng phí đã xuất Hóa đơn1.000₫1 hóa đơn phát hànhĐã thu thực tế0₫0 lượt giao dịch đã ghi nhậnCông nợ chưa thu1.000₫Ảnh hưởng trực tiếp đến điều kiện cấp Gate PassHóa đơn phát hành (1)Đơn dịch vụ (Service Orders) (0)Biểu phí dịch vụ (Tariffs) (0)Số Hóa đơnContainerChủ hàng (Consignee)Ngày xuấtHạn TTTổng tiềnĐã thanh toánTrạng tháiThao tácINVTEST00000011/1/20262/1/20261.000₫0₫UNPAIDGhi nhận Thanh toán',
+    expected: /Tạo Đơn dịch vụ|Ghi nhận Thanh toán/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }

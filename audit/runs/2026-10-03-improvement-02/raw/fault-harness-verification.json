@@ -1,0 +1,41 @@
+{
+  "generatedAt": "2026-10-03T21:22:04.2280168Z",
+  "run": "2026-10-03-improvement-02",
+  "scope": "Audit-only GET fault harness; no product source or DB changes",
+  "tests": {
+    "log": "raw/fault-harness-green.txt",
+    "failed": 0,
+    "passed": 20
+  },
+  "helperTypecheck": {
+    "exitCode": 0,
+    "log": "raw/fault-harness-typecheck.txt"
+  },
+  "serverTypecheck": {
+    "exitCode": 0,
+    "log": "raw/fault-server-typecheck.txt"
+  },
+  "lint": {
+    "log": "raw/fault-harness-lint.txt",
+    "warnings": 0,
+    "exitCode": 0,
+    "errors": 0
+  },
+  "review": "Independent read-only reviewer found no verified actionable defects",
+  "sourceHashes": [
+    {
+      "sha256": "ADE6D4F3597D1A1BDE3D420BA2859EC9E35CE3A27ADD66D016173E3834210FDA",
+      "path": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\apps\\api\\test\\helpers\\ui-audit-faults.ts"
+    },
+    {
+      "sha256": "8DD570217CCF7C8797696880F628AA1E75D980C6AC46A9340BBEAE76DAEBC65F",
+      "path": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\apps\\api\\test\\ui-audit-server.e2e-spec.ts"
+    },
+    {
+      "sha256": "5C0CA0D6177E43FBBC9C96DFE0238536E5959424C774AE22B175F8F7EF85329D",
+      "path": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\audit-set-fault.mjs"
+    }
+  ],
+  "runtimeRestarted": false,
+  "databaseMutated": false
+}

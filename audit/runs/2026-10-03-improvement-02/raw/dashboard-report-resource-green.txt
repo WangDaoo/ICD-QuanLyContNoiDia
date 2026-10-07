@@ -1,0 +1,12 @@
+✔ Dashboard distinguishes successful dispatch from pending partner acknowledgement (274.3329ms)
+✔ forbidden dashboard metrics never pretend zero revenue or zero yard capacity (264.3602ms)
+✔ report sections distinguish unavailable source data from real zero totals (19.7993ms)
+✔ loading dashboard metrics do not show numeric zero; stale values are explicitly labelled (63.1534ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6444.4506

@@ -1,0 +1,12 @@
+✔ W-S-005: duplicate submits before React commits invoke one delayed command (555.6535ms)
+✔ W-S-005: pending payment locks fields and synchronous cancellation (226.2892ms)
+✔ W-S-005: recoverable command result preserves values and permits a deliberate retry (176.24ms)
+✔ W-S-005: rejected command keeps values, reports failure, and releases the guard (160.084ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7255.0002

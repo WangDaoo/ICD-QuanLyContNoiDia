@@ -1,0 +1,21 @@
+{
+  "status": "FIXED",
+  "change": "Generation-fenced auth/response acceptance and serialized token/cache cleanup. Source regression PASS; native session transitions pending.",
+  "source_evidence": [
+    {
+      "file": "apps/mobile/src/services/api/api-client.ts",
+      "line": 39,
+      "detail": "invalidate",
+      "snippet": "export function invalidateApiSession(): void {\n  sessionGeneration++;\n  refreshPromise = null;\n}"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Meaningful RED/GREEN source regression; real API only if explicitly linked.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/services/api/api-client.ts.diff"
+  ],
+  "isolated_review_diffs": []
+}

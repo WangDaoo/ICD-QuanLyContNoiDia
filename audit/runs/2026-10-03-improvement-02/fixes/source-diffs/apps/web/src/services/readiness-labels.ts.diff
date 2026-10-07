@@ -1,0 +1,14 @@
+--- before/apps/web/src/services/readiness-labels.ts
++++ after/apps/web/src/services/readiness-labels.ts
+@@ -1,4 +1,4 @@
+-const labels: Record<string,string> = {
++const labels: Record<string, string> = {
+   CONTAINER_NOT_IN_YARD: 'Container không ở trạng thái trong bãi.',
+   NO_YARD_POSITION: 'Container chưa có vị trí trong bãi.',
+   NO_BILLING: 'Chưa có hồ sơ tính phí.',
+@@ -9,4 +9,4 @@
+   INSPECTION_HOLD: 'Container đang bị giữ để kiểm định.',
+   OPERATIONAL_HOLD: 'Container đang bị giữ theo nghiệp vụ.',
+ };
+-export const readinessLabel = (code:string) => labels[code] ?? code;
++export const readinessLabel = (code: string) => labels[code] ?? code;

@@ -1,0 +1,21 @@
+{
+  "status": "VERIFIED",
+  "change": "Existing pass takes priority; auto-issue requires explicit create intent and permission.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/GatePassView.tsx",
+      "line": 22,
+      "detail": "targetAction",
+      "snippet": "  targetAction?: 'create';\n  onNavigate: (tab: NavTabId, contextId?: string) => void;\n  targetVisitId?: string;\n}"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/web-business/independent-green.txt"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Meaningful RED/GREEN source regression; real API only if explicitly linked.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/GatePassView.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

@@ -1,0 +1,31 @@
+--- before/apps/mobile/src/features/more/screens/MoreScreen.tsx
++++ after/apps/mobile/src/features/more/screens/MoreScreen.tsx
+@@ -11,8 +11,8 @@
+ export function MoreScreen() {
+   const navigation = useNavigation();
+   const { user, logout } = useAuth();
+-  const { online, checkedAt, checking, retry } = useApiConnection();
+-  const { mode, toggleTheme } = useTheme();
++  const { online, writesReady, checkedAt, checking, retry } = useApiConnection();
++  const { mode, preference, appearanceError, toggleTheme, useSystemTheme } = useTheme();
+   const styles = useFieldStyles();
+   const [permissions, setPermissions] = useState(false);
+   const [confirmLogout, setConfirmLogout] = useState(false);
+@@ -26,6 +26,7 @@
+   };
+   return <ScreenLayout title="Tài khoản và ca trực" onBack={() => navigation.goBack()}>
+     <Card title="Thông tin tài khoản">
++      {writesReady === false ? <Text accessibilityLiveRegion="polite" style={styles.muted}>Hồ sơ và quyền đã lưu chỉ dùng để xem. Kết nối lại để xác minh quyền hiện tại.</Text> : null}
+       <DetailRow label="Họ tên" value={user?.name} /><DetailRow label="Email" value={user?.email} />
+       <DetailRow label="Vai trò" value={user?.roleCodes.join(', ')} /><DetailRow label="Mã ICD" value={user?.icdId} />
+       <PrimaryButton title="Xem quyền được cấp" variant="secondary" onPress={() => setPermissions(true)} />
+@@ -37,6 +38,9 @@
+       <DetailRow label="Phiên bản" value="0.1.0" />
+       <PrimaryButton title="Kiểm tra kết nối máy chủ" loading={checking} variant="secondary" onPress={() => void retry()} />
+       <PrimaryButton title={mode === 'LIGHT' ? 'Đổi sang nền tối' : 'Đổi sang nền sáng'} variant="secondary" onPress={toggleTheme} />
++      <DetailRow label="Tùy chọn giao diện" value={preference === 'SYSTEM' ? 'Theo hệ thống' : mode === 'DARK' ? 'Nền tối' : 'Nền sáng'} />
++      <PrimaryButton title="Dùng giao diện hệ thống" variant="secondary" disabled={preference === 'SYSTEM'} onPress={useSystemTheme} />
++      {appearanceError ? <Notice message={appearanceError} /> : null}
+     </Card>
+     {error ? <Notice message={error} /> : null}
+     <PrimaryButton title="Đăng xuất tài khoản" variant="danger" onPress={() => setConfirmLogout(true)} />

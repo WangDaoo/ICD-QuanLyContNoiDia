@@ -1,0 +1,170 @@
+--- before/apps/web/src/components/DashboardView.tsx
++++ after/apps/web/src/components/DashboardView.tsx
+@@ -84,7 +84,7 @@
+           <button
+             hidden={!canAccessWebTab(currentUser, 'work-queue')}
+             onClick={() => onNavigate('work-queue')}
+-            className="px-3.5 py-1.5 bg-rose-600 text-white text-xs font-semibold rounded-lg hover:bg-rose-700 transition shadow-xs"
++            className="px-4 py-2 bg-rose-600 text-white text-xs font-semibold rounded-lg hover:bg-rose-700 transition shadow-xs"
+           >
+             Xử lý ngay →
+           </button>
+@@ -216,12 +216,12 @@
+                 className="text-xs font-semibold text-blue-600 hover:text-blue-800 flex items-center"
+               >
+                 <span>Xem tất cả</span>
+-                <ArrowUpRight className="w-3.5 h-3.5 ml-0.5" />
++                <ArrowUpRight className="w-3.5 h-3.5 ml-1" />
+               </button>
+             </div>
+ 
+             <DashboardResource resource="truckVisits" count={truckVisits.length}>
+-            <div className="space-y-2.5">
++            <div className="space-y-3">
+               {truckVisits.map((tv) => (
+                 <div
+                   key={tv.id}
+@@ -246,13 +246,13 @@
+                     </div>
+                   </div>
+                   <div className="text-right">
+-                    <span className={`inline-block px-2 py-0.5 text-caption font-bold rounded-full ${
++                    <span className={`inline-block px-2 py-1 text-caption font-bold rounded-full ${
+                       tv.status === 'ARRIVED' ? 'bg-amber-100 text-amber-800 border border-amber-300' :
+                       tv.status === 'COMPLETED' ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-200 text-slate-700'
+                     }`}>
+                       {tv.status}
+                     </span>
+-                    {tv.gateLane && <div className="text-caption text-slate-400 mt-0.5">{tv.gateLane}</div>}
++                    {tv.gateLane && <div className="text-caption text-slate-400 mt-1">{tv.gateLane}</div>}
+                   </div>
+                 </div>
+               ))}
+@@ -266,7 +266,7 @@
+               <div>
+                 <h2 className="text-sm font-bold text-slate-800 flex items-center space-x-2">
+                   <span>Cảnh báo thời gian lưu bãi</span>
+-                  <span className="px-2 py-0.5 bg-amber-100 text-amber-800 text-caption font-bold rounded-full">
++                  <span className="px-2 py-1 bg-amber-100 text-amber-800 text-caption font-bold rounded-full">
+                     {(resourceStatus.freeDayWarnings ?? (isLoading ? 'loading' : 'ready')) === 'ready' ? `${nearFreeDaysEnd.length} container` : 'Chưa kiểm tra'}
+                   </span>
+                 </h2>
+@@ -278,7 +278,7 @@
+                 className="text-xs font-semibold text-blue-600 hover:text-blue-800 flex items-center"
+               >
+                 <span>Tính phí lưu kho</span>
+-                <ArrowUpRight className="w-3.5 h-3.5 ml-0.5" />
++                <ArrowUpRight className="w-3.5 h-3.5 ml-1" />
+               </button>
+             </div>
+ 
+@@ -297,14 +297,14 @@
+                 <tbody className="divide-y divide-slate-100">
+                   {nearFreeDaysEnd.map((c) => (
+                     <tr key={c.id} className="hover:bg-slate-50">
+-                      <td className="py-2.5 font-mono font-bold text-slate-900">{c.containerNumber}</td>
+-                      <td className="py-2.5 text-slate-700">{c.consigneeName}</td>
+-                      <td className="py-2.5 font-mono text-blue-600 font-semibold">{c.currentLocation || 'Chưa xếp'}</td>
+-                      <td className="py-2.5 text-slate-500">
++                      <td className="py-3 font-mono font-bold text-slate-900">{c.containerNumber}</td>
++                      <td className="py-3 text-slate-700">{c.consigneeName}</td>
++                      <td className="py-3 font-mono text-blue-600 font-semibold">{c.currentLocation || 'Chưa xếp'}</td>
++                      <td className="py-3 text-slate-500">
+                         {c.gateInAt ? new Date(c.gateInAt).toLocaleDateString('vi-VN') : '—'}
+                       </td>
+-                      <td className="py-2.5 text-right">
+-                        <span className="px-2 py-0.5 text-caption font-bold rounded-full bg-rose-50 text-rose-700 border border-rose-200">
++                      <td className="py-3 text-right">
++                        <span className="px-2 py-1 text-caption font-bold rounded-full bg-rose-50 text-rose-700 border border-rose-200">
+                           Sắp tính phí lưu bãi
+                         </span>
+                       </td>
+@@ -322,11 +322,11 @@
+           {/* Active Operational Holds Card */}
+           <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs">
+             <div className="flex items-center justify-between mb-3">
+-              <h2 className="text-sm font-bold text-slate-800 flex items-center space-x-1.5">
++              <h2 className="text-sm font-bold text-slate-800 flex items-center space-x-2">
+                 <ShieldAlert className="w-4 h-4 text-rose-600" />
+                 <span>Kiểm soát Lệnh Giữ (Operational Holds)</span>
+               </h2>
+-              <span className={`px-2 py-0.5 text-caption font-bold rounded-full ${
++              <span className={`px-2 py-1 text-caption font-bold rounded-full ${
+                 holdsIncomplete || holds.filter(h => h.status === 'ACTIVE').length > 0
+                   ? 'bg-rose-100 text-rose-800'
+                   : 'bg-emerald-100 text-emerald-800'
+@@ -343,20 +343,20 @@
+               {holds.slice(0, 3).map((hold) => (
+                 <div
+                   key={hold.id}
+-                  className="p-2.5 rounded-lg border border-slate-100 bg-slate-50 flex items-center justify-between text-xs"
++                  className="p-3 rounded-lg border border-slate-100 bg-slate-50 flex items-center justify-between text-xs"
+                 >
+                   <div>
+                     <div className="flex items-center space-x-2">
+                       <span className="font-mono font-bold text-slate-800">
+                         {containerVisits.find((v) => v.id === hold.containerVisitId)?.containerNumber || '—'}
+                       </span>
+-                      <span className="px-1.5 py-0.5 text-caption font-bold rounded bg-slate-200 text-slate-700">
++                      <span className="px-2 py-1 text-caption font-bold rounded bg-slate-200 text-slate-700">
+                         {hold.holdType}
+                       </span>
+                     </div>
+-                    <div className="text-caption text-slate-500 mt-0.5 line-clamp-1">{hold.reason}</div>
++                    <div className="text-caption text-slate-500 mt-1 line-clamp-1">{hold.reason}</div>
+                   </div>
+-                  <span className={`px-2 py-0.5 text-caption font-bold rounded-full shrink-0 ${
++                  <span className={`px-2 py-1 text-caption font-bold rounded-full shrink-0 ${
+                     hold.status === 'ACTIVE'
+                       ? 'bg-rose-100 text-rose-700 border border-rose-200'
+                       : 'bg-emerald-100 text-emerald-700'
+@@ -370,7 +370,7 @@
+             <button
+               hidden={!canAccessWebTab(currentUser, 'gate-pass')}
+               onClick={() => onNavigate('gate-pass')}
+-              className="w-full mt-3 py-1.5 text-center text-xs font-semibold text-blue-600 hover:text-blue-800 transition"
++              className="w-full mt-3 py-2 text-center text-xs font-semibold text-blue-600 hover:text-blue-800 transition"
+             >
+               Kiểm tra điều kiện xuất cổng (Readiness) →
+             </button>
+@@ -379,7 +379,7 @@
+           {/* EDI Operations Outbox Snapshot */}
+           <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs">
+             <div className="flex items-center justify-between mb-3">
+-              <h2 className="text-sm font-bold text-slate-800 flex items-center space-x-1.5">
++              <h2 className="text-sm font-bold text-slate-800 flex items-center space-x-2">
+                 <Radio className="w-4 h-4 text-blue-600" />
+                 <span>Vận hành EDI (CODECO)</span>
+               </h2>
+@@ -394,7 +394,7 @@
+               {ediMessages.map((edi) => (
+                 <div
+                   key={edi.id}
+-                  className="flex items-center justify-between p-2.5 rounded-lg border border-slate-100 bg-slate-50 text-xs"
++                  className="flex items-center justify-between p-3 rounded-lg border border-slate-100 bg-slate-50 text-xs"
+                 >
+                   <div>
+                     <div className="font-semibold text-slate-800 font-mono">{edi.containerNumber}</div>
+@@ -403,11 +403,11 @@
+                     </div>
+                   </div>
+                   <div className="text-right">
+-                    <span className={`px-2 py-0.5 text-caption font-bold rounded-full ${edi.status === 'SENT' ? 'bg-emerald-100 text-emerald-800' : edi.status === 'FAILED' || edi.status === 'DEAD' ? 'bg-rose-100 text-rose-800' : 'bg-slate-200 text-slate-800'}`}>
++                    <span className={`px-2 py-1 text-caption font-bold rounded-full ${edi.status === 'SENT' ? 'bg-emerald-100 text-emerald-800' : edi.status === 'FAILED' || edi.status === 'DEAD' ? 'bg-rose-100 text-rose-800' : 'bg-slate-200 text-slate-800'}`}>
+                       Gửi: {edi.status}
+                     </span>
+                     {edi.ackStatus && <div className="text-caption text-slate-600 mt-1">ACK: {edi.ackStatus}</div>}
+-                    <div className="text-caption font-mono text-slate-400 mt-0.5">{edi.ackReference}</div>
++                    <div className="text-caption font-mono text-slate-400 mt-1">{edi.ackReference}</div>
+                   </div>
+                 </div>
+               ))}
+@@ -417,7 +417,7 @@
+             <button
+               hidden={!canAccessWebTab(currentUser, 'edi')}
+               onClick={() => onNavigate('edi')}
+-              className="w-full mt-3 py-1.5 text-center text-xs font-semibold text-blue-600 hover:text-blue-800 transition"
++              className="w-full mt-3 py-2 text-center text-xs font-semibold text-blue-600 hover:text-blue-800 transition"
+             >
+               Xem toàn bộ Outbox EDI →
+             </button>

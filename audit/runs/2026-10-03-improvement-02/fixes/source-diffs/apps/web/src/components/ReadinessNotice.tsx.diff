@@ -1,0 +1,60 @@
+--- before/apps/web/src/components/ReadinessNotice.tsx
++++ after/apps/web/src/components/ReadinessNotice.tsx
+@@ -0,0 +1,57 @@
++import React from 'react';
++import { readinessLabel } from '../services/readiness-labels';
++import type { useBackendReadiness } from './useBackendReadiness';
++
++export function ReadinessNotice({
++  evaluation,
++}: {
++  evaluation: ReturnType<typeof useBackendReadiness>;
++}) {
++  const { status, readiness, readinessError, retryReadiness } = evaluation;
++  if (status === 'checking')
++    return (
++      <p role="status" className="text-slate-700">
++        Đang kiểm tra điều kiện ra cổng…
++      </p>
++    );
++  if (status === 'error')
++    return (
++      <div role="alert" className="text-rose-800">
++        <p>{readinessError} Chưa xác định điều kiện ra cổng.</p>
++        <button type="button" onClick={retryReadiness} className="mt-2 underline font-semibold">
++          Kiểm tra lại
++        </button>
++      </div>
++    );
++  if (status === 'unavailable')
++    return (
++      <div role="status" className="text-slate-700">
++        <p>
++          {readiness
++            ? 'Backend chưa xác nhận đủ điều kiện ra cổng.'
++            : 'Chưa có kết quả kiểm tra. Chọn container để kiểm tra điều kiện.'}
++        </p>
++        {readiness && (
++          <button type="button" onClick={retryReadiness} className="mt-2 underline font-semibold">
++            Kiểm tra lại
++          </button>
++        )}
++      </div>
++    );
++  if (status === 'blocked')
++    return (
++      <div className="text-amber-900">
++        <p>Điều kiện chưa đạt:</p>
++        <ul className="list-disc pl-5">
++          {readiness?.blockers.map((blocker, index) => (
++            <li key={index}>{readinessLabel(blocker)}</li>
++          ))}
++        </ul>
++      </div>
++    );
++  return (
++    <p role="status" className="text-emerald-800">
++      Đạt điều kiện từ backend. Hệ thống sẽ kiểm tra lại khi phát hành.
++    </p>
++  );
++}

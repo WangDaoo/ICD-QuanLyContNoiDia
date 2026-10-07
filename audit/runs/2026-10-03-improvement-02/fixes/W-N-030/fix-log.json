@@ -1,0 +1,25 @@
+{
+  "status": "VERIFIED",
+  "change": "Dùng semantic token chữ phụ hiện có và opacity1, token riêng trên nền tối của chính ô nhập. Giữ label và nội dung gợi ý. Giữ kết quả RED của ô QR sau sửa đầu để chứng minh ngoại lệ đã được xử lý; không coi đây là chứng nhận WCAG toàn ứng dụng.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/index.css",
+      "line": 42,
+      "detail": "input::placeholder, textarea::placeholder",
+      "snippet": "input::placeholder, textarea::placeholder { color: var(--icd-text-secondary); opacity: 1; }\n:is(input, textarea):is(.bg-slate-800, .bg-slate-900, .bg-slate-950)::placeholder { color: var(--icd-text-on-dark-secondary); }\nbutton:not(:disabled), [role=\"button\"] { cursor: pointer; }\nbutton:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--icd-focus); outline-offset: 3px; }"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/browser/placeholder-contrast-before-2026-10-04.json",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/placeholder-contrast-after-2026-10-04.json",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/placeholder-contrast-final-2026-10-04.json"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Actual computed styles, trusted native interaction/frame samples or geometry, as explicitly linked. Offline analysis preserves incomplete/excluded measurements; no implementation-mirroring style test.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/index.css.diff"
+  ],
+  "isolated_review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/placeholder-contrast-2026-10-04/W-N-030.diff"
+  ]
+}

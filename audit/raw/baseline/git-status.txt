@@ -1,0 +1,525 @@
+ M .gitignore
+ M PROJECT_STRUCTURE.md
+ M apps/api/README.md
+ M apps/api/prisma/schema.prisma
+ M apps/api/prisma/seed/seed.ts
+ M apps/api/src/app.module.ts
+ M apps/api/src/bootstrap/configure-app.ts
+ M apps/api/src/common/interceptors/response.interceptor.ts
+ M apps/api/src/common/types/pagination.types.ts
+ M apps/api/src/config/env.validation.ts
+ M apps/api/src/modules/audit/audit.service.ts
+ M apps/api/src/modules/audit/dto/query-audit-log.dto.ts
+ D apps/api/src/modules/audit/dto/query-audit.dto.ts
+ M apps/api/src/modules/auth/guards/permissions.guard.ts
+ M apps/api/src/modules/billing/billing-readiness.controller.ts
+ M apps/api/src/modules/billing/billing.controller.ts
+ M apps/api/src/modules/billing/constants/billing-error-codes.constants.ts
+ M apps/api/src/modules/billing/dto/invoice/query-invoices.dto.ts
+ M apps/api/src/modules/billing/dto/payment/create-payment.dto.ts
+ M apps/api/src/modules/billing/dto/payment/query-payments.dto.ts
+ M apps/api/src/modules/billing/dto/query-service-orders.dto.ts
+ M apps/api/src/modules/billing/dto/query-tariffs.dto.ts
+ M apps/api/src/modules/billing/invoices.controller.ts
+ D apps/api/src/modules/billing/invoices/invoice.service.ts
+ M apps/api/src/modules/billing/payments.controller.ts
+ D apps/api/src/modules/billing/payments/payment.service.ts
+ M apps/api/src/modules/billing/policies/service-order.policy.ts
+ D apps/api/src/modules/billing/service-orders/service-order.service.ts
+ M apps/api/src/modules/billing/services/invoice.service.ts
+ M apps/api/src/modules/billing/services/payment.service.ts
+ M apps/api/src/modules/billing/services/service-order.service.ts
+ M apps/api/src/modules/billing/services/tariff.service.ts
+ M apps/api/src/modules/billing/tariff.controller.ts
+ M apps/api/src/modules/containers/containers.service.ts
+ D apps/api/src/modules/containers/dto/query-containers.dto.ts
+ M apps/api/src/modules/containers/dtos/create-container-visit.dto.ts
+ M apps/api/src/modules/containers/dtos/query-container-visits.dto.ts
+ M apps/api/src/modules/containers/dtos/update-container-visit.dto.ts
+ M apps/api/src/modules/containers/policies/container-state.policy.ts
+ M apps/api/src/modules/containers/services/container-event.service.ts
+ M apps/api/src/modules/containers/services/container-visit-transition.service.ts
+ M apps/api/src/modules/edi/dto/query-edi-ack.dto.ts
+ M apps/api/src/modules/edi/dto/query-edi-alert.dto.ts
+ M apps/api/src/modules/edi/dto/query-edi-outbox.dto.ts
+ M apps/api/src/modules/edi/edi.controller.ts
+ M apps/api/src/modules/edi/services/edi-ack.service.ts
+ M apps/api/src/modules/edi/services/edi-alert.service.ts
+ M apps/api/src/modules/edi/services/edi-codeco-snapshot.service.ts
+ M apps/api/src/modules/edi/services/edi-outbox.service.ts
+ M apps/api/src/modules/gate-in/gate-in.service.ts
+ D apps/api/src/modules/gate-out/gate-out.service.ts
+ M apps/api/src/modules/gate-out/services/gate-out.service.ts
+ M apps/api/src/modules/gate-pass/gate-pass.controller.ts
+ D apps/api/src/modules/gate-pass/gate-pass.service.ts
+ M apps/api/src/modules/gate-pass/services/gate-pass-readiness.service.ts
+ M apps/api/src/modules/gate-pass/services/gate-pass-scan.service.ts
+ M apps/api/src/modules/gate-pass/services/gate-pass.service.ts
+ M apps/api/src/modules/manifests/dto/house-bl/query-house-bls.dto.ts
+ M apps/api/src/modules/manifests/dto/manifest/query-manifests.dto.ts
+ M apps/api/src/modules/manifests/dto/master-bl/query-master-bls.dto.ts
+ D apps/api/src/modules/manifests/dto/query-manifests.dto.ts
+ D apps/api/src/modules/manifests/manifest.service.ts
+ M apps/api/src/modules/manifests/services/house-bl.service.ts
+ M apps/api/src/modules/manifests/services/manifest.service.ts
+ M apps/api/src/modules/manifests/services/master-bl.service.ts
+ M apps/api/src/modules/master-data/controllers/clearing-agents.controller.ts
+ M apps/api/src/modules/master-data/controllers/consignees.controller.ts
+ M apps/api/src/modules/master-data/controllers/shipping-lines.controller.ts
+ M apps/api/src/modules/master-data/controllers/transporters.controller.ts
+ M apps/api/src/modules/master-data/dto/create-master-data.dto.ts
+ M apps/api/src/modules/master-data/dto/query-master-data.dto.ts
+ M apps/api/src/modules/master-data/dto/update-master-data.dto.ts
+ M apps/api/src/modules/master-data/master-data.module.ts
+ M apps/api/src/modules/master-data/services/clearing-agent.service.ts
+ M apps/api/src/modules/master-data/services/consignee.service.ts
+ M apps/api/src/modules/master-data/services/shipping-line.service.ts
+ M apps/api/src/modules/master-data/services/transporter.service.ts
+ M apps/api/src/modules/movement-orders/dto/query-movement-orders.dto.ts
+ M apps/api/src/modules/movement-orders/movement-orders.controller.ts
+ M apps/api/src/modules/movement-orders/movement-orders.service.ts
+ M apps/api/src/modules/notifications/dto/notification-history-query.dto.ts
+ D apps/api/src/modules/notifications/notification.service.ts
+ M apps/api/src/modules/notifications/services/notification-cron.service.ts
+ M apps/api/src/modules/notifications/services/notification-trigger.service.spec.ts
+ M apps/api/src/modules/notifications/services/notification-trigger.service.ts
+ M apps/api/src/modules/notifications/services/notification.service.spec.ts
+ M apps/api/src/modules/notifications/services/notification.service.ts
+ M apps/api/src/modules/operational-holds/operational-holds.controller.ts
+ M apps/api/src/modules/operational-holds/services/operational-hold.service.ts
+ D apps/api/src/modules/partner-handover/controllers/internal/handovers.controller.ts
+ D apps/api/src/modules/partner-handover/controllers/internal/partner-api-logs.controller.ts
+ M apps/api/src/modules/partner-handover/controllers/internal/partner-client.controller.ts
+ D apps/api/src/modules/partner-handover/controllers/internal/partner-clients.controller.ts
+ M apps/api/src/modules/partner-handover/controllers/internal/transport-handover.controller.ts
+ M apps/api/src/modules/partner-handover/dto/query-customer-warehouse.dto.ts
+ M apps/api/src/modules/partner-handover/dto/query-partner-client.dto.ts
+ M apps/api/src/modules/partner-handover/dto/query-transport-handover.dto.ts
+ M apps/api/src/modules/partner-handover/external/dto/external-handover-query.dto.ts
+ M apps/api/src/modules/partner-handover/external/services/external-handover-query.service.spec.ts
+ M apps/api/src/modules/partner-handover/external/services/external-handover-query.service.ts
+ M apps/api/src/modules/partner-handover/partner-handover.module.ts
+ M apps/api/src/modules/partner-handover/services/customer-warehouse.service.ts
+ M apps/api/src/modules/partner-handover/services/handover.service.spec.ts
+ M apps/api/src/modules/partner-handover/services/handover.service.ts
+ M apps/api/src/modules/partner-handover/services/partner-api-log.service.ts
+ M apps/api/src/modules/partner-handover/services/partner-client.service.ts
+ M apps/api/src/modules/partner-handover/services/transport-handover-review.service.ts
+ M apps/api/src/modules/reports/reports.controller.ts
+ M apps/api/src/modules/reports/services/container-turnover-report.service.ts
+ M apps/api/src/modules/reports/services/report-summary.service.ts
+ M apps/api/src/modules/reports/services/yard-inventory-report.service.spec.ts
+ M apps/api/src/modules/reports/services/yard-inventory-report.service.ts
+ M apps/api/src/modules/roles/permissions.controller.ts
+ M apps/api/src/modules/roles/roles.controller.ts
+ M apps/api/src/modules/settings/dto/update-setting.dto.ts
+ M apps/api/src/modules/settings/setting.service.ts
+ M apps/api/src/modules/settings/settings.controller.ts
+ M apps/api/src/modules/settings/settings.module.ts
+ M apps/api/src/modules/truck-visits/dto/query-truck-visits.dto.ts
+ M apps/api/src/modules/truck-visits/services/truck-visit-transition.service.ts
+ M apps/api/src/modules/truck-visits/truck-visit.service.ts
+ M apps/api/src/modules/truck-visits/truck-visits.controller.ts
+ M apps/api/src/modules/truck-visits/truck-visits.module.ts
+ M apps/api/src/modules/users/dto/query-users.dto.ts
+ M apps/api/src/modules/users/user.service.ts
+ M apps/api/src/modules/users/users.controller.ts
+ M apps/api/src/modules/work-queue/dto/query-work-queue.dto.ts
+ M apps/api/src/modules/work-queue/work-queue.controller.ts
+ M apps/api/src/modules/work-queue/work-queue.service.ts
+ D apps/api/src/modules/yard/assignment/yard-assignment.service.ts
+ D apps/api/src/modules/yard/booking/yard-booking.service.ts
+ M apps/api/src/modules/yard/dto/query-container-inspections.dto.ts
+ M apps/api/src/modules/yard/dto/query-in-yard-bookings.dto.ts
+ M apps/api/src/modules/yard/dto/query-yard-movements.dto.ts
+ M apps/api/src/modules/yard/dto/query-yard-slots.dto.ts
+ D apps/api/src/modules/yard/inspection/inspection.service.ts
+ D apps/api/src/modules/yard/movement/yard-movement.service.ts
+ M apps/api/src/modules/yard/policies/yard-movement.policy.ts
+ M apps/api/src/modules/yard/recommendation/yard-recommendation.service.spec.ts
+ M apps/api/src/modules/yard/recommendation/yard-recommendation.service.ts
+ M apps/api/src/modules/yard/services/container-inspection.service.ts
+ M apps/api/src/modules/yard/services/in-yard-booking.service.ts
+ M apps/api/src/modules/yard/services/yard-assignment.service.spec.ts
+ M apps/api/src/modules/yard/services/yard-assignment.service.ts
+ M apps/api/src/modules/yard/services/yard-movement.service.ts
+ M apps/api/src/modules/yard/yard.controller.ts
+ M apps/api/src/modules/yard/yard.module.ts
+ M apps/api/test/auth.e2e-spec.ts
+ M apps/api/test/core-lifecycle-failures.e2e-spec.ts
+ M apps/api/test/core-lifecycle.e2e-spec.ts
+ M apps/api/test/edi.e2e-spec.ts
+ M apps/api/test/health.e2e-spec.ts
+ M apps/api/test/helpers/core-lifecycle-fixture.ts
+ M apps/api/test/notifications.e2e-spec.ts
+ M apps/api/test/partner-handover.e2e-spec.ts
+ M apps/api/test/rbac.e2e-spec.ts
+ M apps/api/test/reports.e2e-spec.ts
+ M apps/mobile/App.tsx
+ M apps/mobile/app.json
+ M apps/mobile/package.json
+ M apps/mobile/src/components/AppHeader.tsx
+ M apps/mobile/src/components/EmptyState.tsx
+ M apps/mobile/src/components/ErrorState.tsx
+ M apps/mobile/src/components/LoadingState.tsx
+ M apps/mobile/src/components/PrimaryButton.tsx
+ M apps/mobile/src/components/StatusBadge.tsx
+ M apps/mobile/src/features/auth/context/AuthProvider.tsx
+ M apps/mobile/src/features/auth/screens/LoginScreen.tsx
+ M apps/mobile/src/features/containers/api/container.api.ts
+ M apps/mobile/src/features/containers/screens/ContainerDetailScreen.tsx
+ M apps/mobile/src/features/containers/screens/ContainerSearchScreen.tsx
+ M apps/mobile/src/features/gate-in/api/gate-in.api.ts
+ M apps/mobile/src/features/gate-in/screens/GateInFormScreen.tsx
+ M apps/mobile/src/features/gate-in/screens/GateInScanScreen.tsx
+ M apps/mobile/src/features/gate-in/screens/GateInSuccessScreen.tsx
+ M apps/mobile/src/features/gate-out/api/gate-out.api.ts
+ M apps/mobile/src/features/gate-out/screens/GateOutConfirmScreen.tsx
+ M apps/mobile/src/features/gate-out/screens/GatePassScanScreen.tsx
+ M apps/mobile/src/features/handover/api/handover.api.ts
+ M apps/mobile/src/features/handover/components/HandoverSummary.tsx
+ M apps/mobile/src/features/more/screens/MoreScreen.tsx
+ M apps/mobile/src/features/notifications/screens/NotificationsScreen.tsx
+ M apps/mobile/src/features/work-queue/screens/WorkQueueScreen.tsx
+ M apps/mobile/src/features/yard/api/yard.api.ts
+ M apps/mobile/src/features/yard/screens/YardAssignmentScreen.tsx
+ M apps/mobile/src/features/yard/screens/YardOperationDetailScreen.tsx
+ M apps/mobile/src/navigation/GateNavigator.tsx
+ M apps/mobile/src/navigation/MainTabNavigator.tsx
+ M apps/mobile/src/navigation/RootNavigator.tsx
+ M apps/mobile/src/navigation/YardNavigator.tsx
+ M apps/mobile/src/navigation/types.ts
+ M apps/mobile/src/services/api/api-client.ts
+ M apps/mobile/src/storage/auth.storage.ts
+ M apps/mobile/src/theme/colors.ts
+ M apps/mobile/src/theme/typography.ts
+ M apps/mobile/tsconfig.json
+ M apps/web/index.html
+ M apps/web/package.json
+ M apps/web/src/App.tsx
+ D apps/web/src/app/providers.tsx
+ D apps/web/src/app/router.tsx
+ D apps/web/src/components/common/AppButton.tsx
+ D apps/web/src/components/common/StatusBadge.tsx
+ D apps/web/src/components/feedback/ErrorState.tsx
+ D apps/web/src/components/layout/AppSidebar.tsx
+ D apps/web/src/components/layout/AppTopBar.tsx
+ D apps/web/src/components/layout/Breadcrumbs.tsx
+ D apps/web/src/components/layout/UserMenu.tsx
+ D apps/web/src/features/RULES.md
+ D apps/web/src/features/admin/access/admin-access.types.ts
+ D apps/web/src/features/admin/access/api/admin-access.api.ts
+ D apps/web/src/features/admin/access/pages/AccessMatrixPage.tsx
+ D apps/web/src/features/admin/access/pages/AdminAccess.css
+ D apps/web/src/features/admin/access/pages/AdminUsersPage.tsx
+ D apps/web/src/features/admin/master-data/RULES.md
+ D apps/web/src/features/admin/master-data/api/master-data.api.ts
+ D apps/web/src/features/admin/master-data/components/MasterDataModal.tsx
+ D apps/web/src/features/admin/master-data/master-data.config.ts
+ D apps/web/src/features/admin/master-data/master-data.types.ts
+ D apps/web/src/features/admin/master-data/pages/MasterData.css
+ D apps/web/src/features/admin/master-data/pages/MasterDataPage.tsx
+ D apps/web/src/features/admin/partner-api-logs/RULES.md
+ D apps/web/src/features/admin/partner-api-logs/api/partner-api-log.api.ts
+ D apps/web/src/features/admin/partner-api-logs/api/partner-api-logs.api.ts
+ D apps/web/src/features/admin/partner-api-logs/components/PartnerApiLogTable.tsx
+ D apps/web/src/features/admin/partner-api-logs/pages/PartnerApiLogDetailPage.tsx
+ D apps/web/src/features/admin/partner-api-logs/pages/PartnerApiLogListPage.tsx
+ D apps/web/src/features/admin/partner-api-logs/pages/PartnerApiLogPage.tsx
+ D apps/web/src/features/admin/partner-api-logs/partner-api-log.types.ts
+ D apps/web/src/features/admin/partner-clients/RULES.md
+ D apps/web/src/features/admin/partner-clients/api/partner-client.api.ts
+ D apps/web/src/features/admin/partner-clients/api/partner-clients.api.ts
+ D apps/web/src/features/admin/partner-clients/components/ApiKeyRevealModal.tsx
+ D apps/web/src/features/admin/partner-clients/components/CreatePartnerClientDialog.tsx
+ D apps/web/src/features/admin/partner-clients/pages/PartnerClientDetailPage.tsx
+ D apps/web/src/features/admin/partner-clients/pages/PartnerClientListPage.tsx
+ D apps/web/src/features/admin/partner-clients/pages/PartnerClientPage.tsx
+ D apps/web/src/features/admin/partner-clients/partner-client.types.ts
+ D apps/web/src/features/admin/partner-gateway/PartnerGatewayAdmin.css
+ D apps/web/src/features/admin/roles/RULES.md
+ D apps/web/src/features/admin/roles/api/roles.api.ts
+ D apps/web/src/features/admin/roles/components/PermissionMatrix.tsx
+ D apps/web/src/features/admin/roles/pages/RoleManagementPage.tsx
+ D apps/web/src/features/admin/settings/RULES.md
+ D apps/web/src/features/admin/settings/api/operational-settings.api.ts
+ D apps/web/src/features/admin/settings/api/settings.api.ts
+ D apps/web/src/features/admin/settings/operational-setting.types.ts
+ D apps/web/src/features/admin/settings/pages/OperationalSettings.css
+ D apps/web/src/features/admin/settings/pages/OperationalSettingsPage.tsx
+ D apps/web/src/features/admin/settings/pages/SettingsPage.tsx
+ D apps/web/src/features/admin/tariffs/RULES.md
+ D apps/web/src/features/admin/tariffs/api/tariff.api.ts
+ D apps/web/src/features/admin/tariffs/api/tariffs.api.ts
+ D apps/web/src/features/admin/tariffs/components/TariffActivationReadiness.tsx
+ D apps/web/src/features/admin/tariffs/components/TariffRuleEditor.tsx
+ D apps/web/src/features/admin/tariffs/pages/Tariff.css
+ D apps/web/src/features/admin/tariffs/pages/TariffManagementPage.tsx
+ D apps/web/src/features/admin/tariffs/pages/TariffPage.tsx
+ D apps/web/src/features/admin/tariffs/tariff.constants.ts
+ D apps/web/src/features/admin/tariffs/tariff.types.ts
+ D apps/web/src/features/admin/users/RULES.md
+ D apps/web/src/features/admin/users/api/users.api.ts
+ D apps/web/src/features/admin/users/components/UserForm.tsx
+ D apps/web/src/features/admin/users/pages/UserManagementPage.tsx
+ D apps/web/src/features/audit/RULES.md
+ D apps/web/src/features/audit/api/audit-log.api.ts
+ D apps/web/src/features/audit/api/audit.api.ts
+ D apps/web/src/features/audit/audit-log.types.ts
+ D apps/web/src/features/audit/components/AuditDiffDrawer.tsx
+ D apps/web/src/features/audit/pages/AuditLog.css
+ D apps/web/src/features/audit/pages/AuditLogPage.tsx
+ D apps/web/src/features/audit/utils/audit-redaction.ts
+ D apps/web/src/features/auth/RULES.md
+ D apps/web/src/features/auth/api/auth.api.ts
+ D apps/web/src/features/auth/hooks/useAuth.tsx
+ D apps/web/src/features/auth/pages/LoginPage.css
+ D apps/web/src/features/auth/pages/LoginPage.tsx
+ D apps/web/src/features/auth/schemas/login.schema.ts
+ D apps/web/src/features/billing/RULES.md
+ D apps/web/src/features/billing/api/billing.api.ts
+ D apps/web/src/features/billing/billing.types.ts
+ D apps/web/src/features/billing/components/PaymentForm.tsx
+ D apps/web/src/features/billing/components/ServiceOrderForm.tsx
+ D apps/web/src/features/billing/pages/Billing.css
+ D apps/web/src/features/billing/pages/BillingDetailPage.tsx
+ D apps/web/src/features/billing/pages/BillingListPage.tsx
+ D apps/web/src/features/billing/pages/InvoiceDetailPage.tsx
+ D apps/web/src/features/billing/pages/ServiceOrderCreatePage.tsx
+ D apps/web/src/features/containers/RULES.md
+ D apps/web/src/features/containers/api/container.api.ts
+ D apps/web/src/features/containers/components/ContainerTimeline.tsx
+ D apps/web/src/features/containers/components/HandoverSummary.tsx
+ D apps/web/src/features/containers/container.types.ts
+ D apps/web/src/features/containers/pages/ContainerDetailPage.tsx
+ D apps/web/src/features/containers/pages/ContainerListPage.tsx
+ D apps/web/src/features/containers/pages/Containers.css
+ D apps/web/src/features/dashboard/RULES.md
+ D apps/web/src/features/dashboard/api/dashboard.api.ts
+ D apps/web/src/features/dashboard/components/OperationsSummary.tsx
+ D apps/web/src/features/dashboard/dashboard.types.ts
+ D apps/web/src/features/dashboard/pages/DashboardPage.css
+ D apps/web/src/features/dashboard/pages/DashboardPage.tsx
+ D apps/web/src/features/edi/RULES.md
+ D apps/web/src/features/edi/api/edi.api.ts
+ D apps/web/src/features/edi/components/EdiLogTable.tsx
+ D apps/web/src/features/edi/edi.types.ts
+ D apps/web/src/features/edi/pages/EdiOperations.css
+ D apps/web/src/features/edi/pages/EdiOperationsPage.tsx
+ D apps/web/src/features/gate-in/RULES.md
+ D apps/web/src/features/gate-in/api/gate-in.api.ts
+ D apps/web/src/features/gate-in/components/GateInForm.tsx
+ D apps/web/src/features/gate-in/gate-in.types.ts
+ D apps/web/src/features/gate-in/pages/GateInPage.css
+ D apps/web/src/features/gate-in/pages/GateInPage.tsx
+ D apps/web/src/features/gate-pass/RULES.md
+ D apps/web/src/features/gate-pass/api/gate-pass.api.ts
+ D apps/web/src/features/gate-pass/components/GatePassReadinessPanel.tsx
+ D apps/web/src/features/gate-pass/components/GateReadinessPanel.tsx
+ D apps/web/src/features/gate-pass/gate-pass.types.ts
+ D apps/web/src/features/gate-pass/pages/GateOutPage.tsx
+ D apps/web/src/features/gate-pass/pages/GatePass.css
+ D apps/web/src/features/gate-pass/pages/GatePassPage.tsx
+ D apps/web/src/features/manifests/RULES.md
+ D apps/web/src/features/manifests/api/manifest.api.ts
+ D apps/web/src/features/manifests/components/ManifestForm.tsx
+ D apps/web/src/features/manifests/components/ManifestTree.tsx
+ D apps/web/src/features/manifests/manifest.types.ts
+ D apps/web/src/features/manifests/pages/ManifestDetailPage.tsx
+ D apps/web/src/features/manifests/pages/ManifestListPage.tsx
+ D apps/web/src/features/manifests/pages/Manifests.css
+ D apps/web/src/features/movement-orders/api/movement-order.api.ts
+ D apps/web/src/features/movement-orders/movement-order.types.ts
+ D apps/web/src/features/movement-orders/pages/MovementOrderPage.css
+ D apps/web/src/features/movement-orders/pages/MovementOrderPage.tsx
+ D apps/web/src/features/partner-handover/RULES.md
+ D apps/web/src/features/partner-handover/api/handover.api.ts
+ D apps/web/src/features/partner-handover/components/HandoverTimeline.tsx
+ D apps/web/src/features/partner-handover/components/PartnerConfirmationPanel.tsx
+ D apps/web/src/features/partner-handover/handover.types.ts
+ D apps/web/src/features/partner-handover/pages/CreateHandoverPage.tsx
+ D apps/web/src/features/partner-handover/pages/HandoverCreatePage.tsx
+ D apps/web/src/features/partner-handover/pages/HandoverDetailPage.tsx
+ D apps/web/src/features/partner-handover/pages/HandoverListPage.tsx
+ D apps/web/src/features/partner-handover/pages/Handovers.css
+ D apps/web/src/features/reports/RULES.md
+ D apps/web/src/features/reports/api/report.api.ts
+ D apps/web/src/features/reports/api/reports.api.ts
+ D apps/web/src/features/reports/components/ContainerTurnoverTable.tsx
+ D apps/web/src/features/reports/components/GateActivityTable.tsx
+ D apps/web/src/features/reports/components/OutstandingDebtTable.tsx
+ D apps/web/src/features/reports/components/ReportFilters.tsx
+ D apps/web/src/features/reports/components/ReportKpiGrid.tsx
+ D apps/web/src/features/reports/components/RevenueTable.tsx
+ D apps/web/src/features/reports/components/YardInventoryTable.tsx
+ D apps/web/src/features/reports/pages/Reports.css
+ D apps/web/src/features/reports/pages/ReportsPage.tsx
+ D apps/web/src/features/reports/report.types.ts
+ D apps/web/src/features/system/pages/NotFoundPage.tsx
+ D apps/web/src/features/system/pages/SystemPages.css
+ D apps/web/src/features/truck-visits/RULES.md
+ D apps/web/src/features/truck-visits/api/truck-visit.api.ts
+ D apps/web/src/features/truck-visits/components/TruckVisitForm.tsx
+ D apps/web/src/features/truck-visits/pages/TruckVisitCreatePage.tsx
+ D apps/web/src/features/truck-visits/pages/TruckVisitDetailPage.tsx
+ D apps/web/src/features/truck-visits/pages/TruckVisitListPage.tsx
+ D apps/web/src/features/truck-visits/pages/TruckVisits.css
+ D apps/web/src/features/truck-visits/truck-visit.types.ts
+ D apps/web/src/features/work-queue/RULES.md
+ D apps/web/src/features/work-queue/api/work-queue.api.ts
+ D apps/web/src/features/work-queue/components/WorkQueueTable.tsx
+ D apps/web/src/features/work-queue/pages/WorkQueuePage.css
+ D apps/web/src/features/work-queue/pages/WorkQueuePage.tsx
+ D apps/web/src/features/work-queue/work-queue.types.ts
+ D apps/web/src/features/yard/RULES.md
+ D apps/web/src/features/yard/api/yard-operations.api.ts
+ D apps/web/src/features/yard/api/yard.api.ts
+ D apps/web/src/features/yard/components/YardOperationCard.tsx
+ D apps/web/src/features/yard/components/YardOperationModal.tsx
+ D apps/web/src/features/yard/components/YardRecommendationList.tsx
+ D apps/web/src/features/yard/components/YardSlotGrid.tsx
+ D apps/web/src/features/yard/pages/Yard.css
+ D apps/web/src/features/yard/pages/YardAssignmentPage.tsx
+ D apps/web/src/features/yard/pages/YardOperations.css
+ D apps/web/src/features/yard/pages/YardOperationsPage.tsx
+ D apps/web/src/features/yard/pages/YardOverviewPage.tsx
+ D apps/web/src/features/yard/yard-operation.types.ts
+ D apps/web/src/features/yard/yard.types.ts
+ D apps/web/src/hooks/usePagination.ts
+ D apps/web/src/layouts/AppLayout.css
+ D apps/web/src/layouts/AppLayout.tsx
+ M apps/web/src/main.tsx
+ D apps/web/src/navigation/navigation.config.ts
+ D apps/web/src/services/api/api-client.ts
+ D apps/web/src/theme/theme.ts
+ D apps/web/src/types/api.types.ts
+ D apps/web/src/vite-env.d.ts
+ M apps/web/tsconfig.json
+ M apps/web/vite.config.ts
+ M packages/api-client/src/index.ts
+ M pnpm-lock.yaml
+ M scripts/README.md
+ M swagger.json
+?? apps/api/prisma/migrations/20260921154655_canonical_container_visit_v17/
+?? apps/api/src/common/dto/
+?? apps/api/src/common/interceptors/response.interceptor.spec.ts
+?? apps/api/src/modules/auth/guards/permissions.guard.spec.ts
+?? apps/api/src/modules/billing/dto/payment/record-invoice-payment.dto.ts
+?? apps/api/src/modules/billing/services/payment.service.spec.ts
+?? apps/api/src/modules/containers/policies/container-state.policy.spec.ts
+?? apps/api/src/modules/gate-out/services/gate-out.service.spec.ts
+?? apps/api/src/modules/gate-pass/gate-pass.controller.spec.ts
+?? apps/api/src/modules/gate-pass/services/gate-pass-qr.service.spec.ts
+?? apps/api/src/modules/gate-pass/services/gate-pass-readiness.service.spec.ts
+?? apps/api/src/modules/gate-pass/services/gate-pass-scan.service.spec.ts
+?? apps/api/src/modules/health/RULES.md
+?? apps/api/src/modules/master-data/controllers/master-data.controller.ts
+?? apps/api/src/modules/master-data/services/transporter.service.spec.ts
+?? apps/api/src/modules/operational-holds/RULES.md
+?? apps/api/src/modules/partner-handover/controllers/internal/partner-api-log.controller.ts
+?? apps/api/src/modules/partner-handover/controllers/internal/transport-handover.controller.spec.ts
+?? apps/api/src/modules/partner-handover/dto/query-partner-api-logs.dto.ts
+?? apps/api/src/modules/partner-handover/services/partner-api-log.service.spec.ts
+?? apps/api/src/modules/partner-handover/services/transport-handover-read.service.spec.ts
+?? apps/api/src/modules/partner-handover/services/transport-handover-read.service.ts
+?? apps/api/src/modules/settings/setting.service.spec.ts
+?? apps/api/src/modules/truck-visits/truck-visit-notifications.spec.ts
+?? apps/api/src/modules/work-queue/work-queue.service.spec.ts
+?? apps/api/src/modules/yard/services/container-inspection.service.spec.ts
+?? apps/api/src/modules/yard/services/inspection-notifications.spec.ts
+?? apps/api/src/modules/yard/services/yard-movement.service.spec.ts
+?? apps/api/src/modules/yard/services/yard-operation-serialization.spec.ts
+?? apps/api/test/helpers/disable-e2e-notification-triggers.ts
+?? apps/api/test/helpers/stop-e2e-cron-jobs.ts
+?? apps/mobile/src/components/ActionDialog.tsx
+?? apps/mobile/src/components/CodeScanner.tsx
+?? apps/mobile/src/components/ConnectionBanner.tsx
+?? apps/mobile/src/components/ForbiddenScreen.tsx
+?? apps/mobile/src/components/GateModeSwitch.tsx
+?? apps/mobile/src/components/ScreenLayout.tsx
+?? apps/mobile/src/components/SelectField.tsx
+?? apps/mobile/src/components/SessionCard.tsx
+?? apps/mobile/src/components/scanner-code.ts
+?? apps/mobile/src/features/auth/permissions.spec.ts
+?? apps/mobile/src/features/auth/permissions.ts
+?? apps/mobile/src/features/gate-in/api/gate-in.validation.ts
+?? apps/mobile/src/features/gate-in/components/
+?? apps/mobile/src/features/gate-out/gate-out-confirmation.ts
+?? apps/mobile/src/features/gate-out/gate-readiness.ts
+?? apps/mobile/src/features/notifications/api/
+?? apps/mobile/src/features/notifications/notification-target.ts
+?? apps/mobile/src/features/work-queue/api/work-queue.mapper.ts
+?? apps/mobile/src/features/work-queue/work-queue-target.ts
+?? apps/mobile/src/features/yard/api/inspection-notes.ts
+?? apps/mobile/src/features/yard/api/yard-assignment.ts
+?? apps/mobile/src/features/yard/api/yard-map.ts
+?? apps/mobile/src/features/yard/api/yard-snapshot.ts
+?? apps/mobile/src/features/yard/components/YardSlotGrid.tsx
+?? apps/mobile/src/features/yard/inspection-display.ts
+?? apps/mobile/src/features/yard/screens/MonitorScreen.tsx
+?? apps/mobile/src/features/yard/screens/SurveyHomeScreen.tsx
+?? apps/mobile/src/features/yard/screens/YardHomeScreen.tsx
+?? apps/mobile/src/features/yard/screens/YardOperationsScreen.tsx
+?? apps/mobile/src/services/api/ApiConnectionProvider.tsx
+?? apps/mobile/src/services/api/api-connection.ts
+?? apps/mobile/src/services/api/api-protocol.ts
+?? apps/mobile/src/storage/auth.storage.web.ts
+?? apps/mobile/src/theme/ThemeProvider.tsx
+?? apps/mobile/tests/
+?? apps/web/src/components/AuditsView.tsx
+?? apps/web/src/components/BillingView.tsx
+?? apps/web/src/components/ContainersView.tsx
+?? apps/web/src/components/DashboardView.tsx
+?? apps/web/src/components/EDIView.tsx
+?? apps/web/src/components/GateInView.tsx
+?? apps/web/src/components/GatePassView.tsx
+?? apps/web/src/components/HandoversView.tsx
+?? apps/web/src/components/Header.tsx
+?? apps/web/src/components/ManifestsView.tsx
+?? apps/web/src/components/MasterDataView.tsx
+?? apps/web/src/components/MovementOrdersView.tsx
+?? apps/web/src/components/PartnerManagementView.tsx
+?? apps/web/src/components/ReportsView.tsx
+?? apps/web/src/components/Sidebar.tsx
+?? apps/web/src/components/TruckVisitsView.tsx
+?? apps/web/src/components/UsersRolesView.tsx
+?? apps/web/src/components/WebLoginView.tsx
+?? apps/web/src/components/WorkQueueView.tsx
+?? apps/web/src/components/YardView.tsx
+?? apps/web/src/components/useBackendReadiness.ts
+?? apps/web/src/components/yard/
+?? apps/web/src/context/
+?? apps/web/src/data/
+?? apps/web/src/index.css
+?? apps/web/src/services/api/auth.service.ts
+?? apps/web/src/services/api/billing.service.ts
+?? apps/web/src/services/api/client.ts
+?? apps/web/src/services/api/containers.service.ts
+?? apps/web/src/services/api/edi.service.ts
+?? apps/web/src/services/api/gate-in.service.ts
+?? apps/web/src/services/api/gate-pass.service.ts
+?? apps/web/src/services/api/index.ts
+?? apps/web/src/services/api/load-list.test.ts
+?? apps/web/src/services/api/load-list.ts
+?? apps/web/src/services/api/master-data.service.ts
+?? apps/web/src/services/api/operation.test.ts
+?? apps/web/src/services/api/operation.ts
+?? apps/web/src/services/api/partner-handover.service.ts
+?? apps/web/src/services/api/yard.service.ts
+?? apps/web/src/services/mappers/
+?? apps/web/src/services/permissions.test.ts
+?? apps/web/src/services/permissions.ts
+?? apps/web/src/services/readiness-labels.ts
+?? apps/web/src/services/report-metrics.test.ts
+?? apps/web/src/services/report-metrics.ts
+?? apps/web/src/types.ts
+?? audit/
+?? docs/api/current-backend-frontend-json-structure-summary.md
+?? docs/api/v1.7-backend-canonical-contract-review.md
+?? docs/frontend/
+?? docs/mobile/
+?? docs/superpowers/
+?? packages/api-client/src/api-error.test.ts
+?? scripts/start-local-runtime.ps1
+?? scripts/start-mobile-preview.ps1
+?? test-artifacts/

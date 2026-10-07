@@ -1,0 +1,336 @@
+{
+  "meta": {
+    "project": "ICD",
+    "flow": "MasterData create Shipping Line; re-audit partial evidence",
+    "auditor": "Codex",
+    "notes": "Measured target height and source/runtime form behavior only; timing/completion/motion/simplicity are omitted UNKNOWN. Diagnostic44px target threshold is not WCAG2.2 AA target minimum."
+  },
+  "score": 38.42,
+  "gate_results": [
+    {
+      "key": "one-primary-cta",
+      "title": "Single dominant primary CTA",
+      "status": "unknown",
+      "evidence": "Missing numeric metric: primary_cta_count",
+      "fix": "Keep one dominant primary action and demote secondary actions."
+    },
+    {
+      "key": "touch-target-size",
+      "title": "Critical touch targets >= 44px",
+      "status": "fail",
+      "evidence": "Target size below threshold. (min_target_size_px=33.3333, lower=44)",
+      "fix": "Increase hit area (padding/wrapper) for critical controls."
+    },
+    {
+      "key": "task-end-action-placement",
+      "title": "Primary completion action at task endpoint",
+      "status": "pass",
+      "evidence": "Completion action aligns with task endpoint.",
+      "fix": "Place submit/continue where user naturally finishes the task."
+    },
+    {
+      "key": "choice-density",
+      "title": "Choice density <= 7 visible options",
+      "status": "unknown",
+      "evidence": "Missing numeric metric: screen_choice_count",
+      "fix": "Reduce options and defer advanced paths with progressive disclosure."
+    },
+    {
+      "key": "progress-visible",
+      "title": "Progress visible on multi-step flows",
+      "status": "unknown",
+      "evidence": "Missing boolean metric: progress_visible",
+      "fix": "Add stepper/progress bar/counter for staged tasks."
+    },
+    {
+      "key": "fast-feedback",
+      "title": "Interaction feedback <= 400ms p95",
+      "status": "unknown",
+      "evidence": "Missing numeric metric: feedback_ms_p95",
+      "fix": "Show immediate pressed/loading feedback and reduce response latency."
+    },
+    {
+      "key": "inline-validation",
+      "title": "Validation rules visible with inline recovery",
+      "status": "fail",
+      "evidence": "Validation guidance is hidden or vague.",
+      "fix": "Show requirements before submit and field-level actionable errors."
+    },
+    {
+      "key": "input-tolerant",
+      "title": "Input tolerance and normalization",
+      "status": "unknown",
+      "evidence": "Missing boolean metric: input_tolerant_parsing",
+      "fix": "Accept common formats and normalize internally."
+    },
+    {
+      "key": "boundary-placement",
+      "title": "Critical actions are at list/menu boundaries",
+      "status": "unknown",
+      "evidence": "Missing boolean metric: critical_actions_boundary_placement",
+      "fix": "Move high-priority actions to beginning or end positions."
+    },
+    {
+      "key": "clear-ending",
+      "title": "Explicit positive ending/closure",
+      "status": "unknown",
+      "evidence": "Missing boolean metric: positive_end_state",
+      "fix": "Add success/failure confirmation and next-step guidance."
+    }
+  ],
+  "principle_results": [
+    {
+      "key": "fitts",
+      "name": "Fitts's Law",
+      "weight": 5,
+      "status": "unknown",
+      "diagnosis": "Missing required metrics: primary_action_reach",
+      "mechanism": "Movement time is shaped by target distance and size.",
+      "requirement": "Critical actions must be large and easy to reach.",
+      "signal": "Target size and reachability improve hit accuracy and speed.",
+      "fix": "Increase target size/padding and move high-value actions closer to task endpoints.",
+      "rule_file": "rules/fitts-law.md"
+    },
+    {
+      "key": "hick",
+      "name": "Hick's Law",
+      "weight": 5,
+      "status": "unknown",
+      "diagnosis": "Missing required metrics: screen_choice_count, progressive_disclosure",
+      "mechanism": "Decision time rises as visible choices increase.",
+      "requirement": "Limit concurrent choices and defer advanced options.",
+      "signal": "Lower first-action latency and reduced decision stall.",
+      "fix": "Reduce choice density and introduce progressive disclosure.",
+      "rule_file": "rules/hicks-law.md"
+    },
+    {
+      "key": "gestalt-proximity",
+      "name": "Gestalt: Proximity",
+      "weight": 4,
+      "status": "unknown",
+      "diagnosis": "Missing numeric metric: group_spacing_ratio",
+      "mechanism": "Spatial closeness signals conceptual grouping.",
+      "requirement": "Related items stay close, unrelated groups stay apart.",
+      "signal": "Fewer label-field association errors.",
+      "fix": "Increase intra-group cohesion and inter-group separation.",
+      "rule_file": "rules/gestalt-proximity.md"
+    },
+    {
+      "key": "gestalt-similarity",
+      "name": "Gestalt: Similarity",
+      "weight": 4,
+      "status": "unknown",
+      "diagnosis": "Missing boolean metric: role_style_consistency",
+      "mechanism": "Shared appearance implies shared function.",
+      "requirement": "Same component role must keep consistent styling.",
+      "signal": "Reduced functional misclassification.",
+      "fix": "Unify role-based tokens for color, shape, and typography.",
+      "rule_file": "rules/gestalt-similarity.md"
+    },
+    {
+      "key": "gestalt-continuity",
+      "name": "Gestalt: Continuity",
+      "weight": 3,
+      "status": "unknown",
+      "diagnosis": "Missing boolean metric: continuity_cue",
+      "mechanism": "Eyes follow uninterrupted visual paths.",
+      "requirement": "Flow and continuation cues should be explicit.",
+      "signal": "Better discovery of next steps and off-screen content.",
+      "fix": "Align paths and expose continuation hints (peeking cards, steppers).",
+      "rule_file": "rules/gestalt-continuity.md"
+    },
+    {
+      "key": "gestalt-closure",
+      "name": "Gestalt: Closure",
+      "weight": 2,
+      "status": "unknown",
+      "diagnosis": "Missing boolean metric: closure_support",
+      "mechanism": "Users mentally complete incomplete shapes/structures.",
+      "requirement": "Partial visual structures must remain interpretable.",
+      "signal": "Cleaner UI with intact comprehension.",
+      "fix": "Use simplified structure only when completion remains obvious.",
+      "rule_file": "rules/gestalt-closure.md"
+    },
+    {
+      "key": "gestalt-figure-ground",
+      "name": "Gestalt: Figure/Ground",
+      "weight": 4,
+      "status": "unknown",
+      "diagnosis": "Missing boolean metric: figure_ground_contrast",
+      "mechanism": "Attention depends on clear foreground/background separation.",
+      "requirement": "Focus context should dominate via layering and contrast.",
+      "signal": "Lower context-loss in modal/sheet flows.",
+      "fix": "Strengthen scrim/layer contrast and focus hierarchy.",
+      "rule_file": "rules/gestalt-figure-ground.md"
+    },
+    {
+      "key": "gestalt-common-fate",
+      "name": "Gestalt: Common Fate",
+      "weight": 3,
+      "status": "unknown",
+      "diagnosis": "Missing boolean metric: motion_group_consistency",
+      "mechanism": "Synchronized motion implies grouping.",
+      "requirement": "Related elements should animate in coordinated direction/timing.",
+      "signal": "Improved grouping comprehension in motion states.",
+      "fix": "Unify motion curves/directions for grouped elements.",
+      "rule_file": "rules/gestalt-common-fate.md"
+    },
+    {
+      "key": "gestalt-focal-point",
+      "name": "Gestalt: Focal Point",
+      "weight": 4,
+      "status": "unknown",
+      "diagnosis": "Missing numeric metric: focal_points",
+      "mechanism": "Contrast directs first attention.",
+      "requirement": "Each screen should have one dominant attention anchor.",
+      "signal": "Higher primary action discoverability.",
+      "fix": "Converge to one visual priority and demote competing accents.",
+      "rule_file": "rules/gestalt-focal-point.md"
+    },
+    {
+      "key": "von-restorff",
+      "name": "Von Restorff Effect",
+      "weight": 3,
+      "status": "unknown",
+      "diagnosis": "Missing numeric metric: isolated_key_element_count",
+      "mechanism": "Distinct items are more memorable than uniform items.",
+      "requirement": "Isolate one key action/info node from a stable baseline.",
+      "signal": "Higher recall and click concentration on key target.",
+      "fix": "Use selective contrast for one key choice, not all choices.",
+      "rule_file": "rules/von-restorff-effect.md"
+    },
+    {
+      "key": "jakob",
+      "name": "Jakob's Law",
+      "weight": 4,
+      "status": "unknown",
+      "diagnosis": "Missing boolean metric: pattern_familiarity",
+      "mechanism": "Users expect familiar interaction patterns from prior products.",
+      "requirement": "Trust-critical flows should follow established conventions.",
+      "signal": "Lower navigation and auth confusion.",
+      "fix": "Align navigation/search/auth/checkout patterns with common standards.",
+      "rule_file": "rules/jakobs-law.md"
+    },
+    {
+      "key": "miller",
+      "name": "Miller's Law",
+      "weight": 4,
+      "status": "unknown",
+      "diagnosis": "Missing numeric metric: chunk_count",
+      "mechanism": "Working memory handles limited chunks concurrently.",
+      "requirement": "Chunk content and stage long tasks.",
+      "signal": "Improved completion on long forms and flows.",
+      "fix": "Split dense screens into smaller chunked steps.",
+      "rule_file": "rules/millers-law.md"
+    },
+    {
+      "key": "goal-gradient",
+      "name": "Goal-Gradient Hypothesis",
+      "weight": 3,
+      "status": "unknown",
+      "diagnosis": "Missing boolean metric: progress_visible",
+      "mechanism": "Motivation rises as users approach completion.",
+      "requirement": "Progress and milestones should remain visible.",
+      "signal": "Completion acceleration in later steps.",
+      "fix": "Expose progress counters and milestone reinforcement.",
+      "rule_file": "rules/goal-gradient-hypothesis.md"
+    },
+    {
+      "key": "zeigarnik",
+      "name": "Zeigarnik Effect",
+      "weight": 3,
+      "status": "fail",
+      "diagnosis": "No clear resume path for interrupted tasks.",
+      "mechanism": "Incomplete tasks persist in memory and drive return behavior.",
+      "requirement": "Unfinished states must be visible with a resume path.",
+      "signal": "Higher interrupted-flow recovery.",
+      "fix": "Expose completion status and one-click resume mechanisms.",
+      "rule_file": "rules/zeigarnik-effect.md"
+    },
+    {
+      "key": "tesler",
+      "name": "Tesler's Law",
+      "weight": 4,
+      "status": "unknown",
+      "diagnosis": "Missing boolean metric: system_handles_complexity",
+      "mechanism": "Complexity cannot be removed, only redistributed.",
+      "requirement": "System should absorb complexity from users.",
+      "signal": "Lower entry friction and cleaner structured data.",
+      "fix": "Use smart defaults, autocomplete, masks, and structured controls.",
+      "rule_file": "rules/teslers-law.md"
+    },
+    {
+      "key": "peak-end",
+      "name": "Peak-End Rule",
+      "weight": 4,
+      "status": "unknown",
+      "diagnosis": "Missing boolean metric: positive_end_state",
+      "mechanism": "Users remember the peak and the ending disproportionately.",
+      "requirement": "Final states should be explicit and confidence-building.",
+      "signal": "Higher satisfaction and reduced uncertainty after submit.",
+      "fix": "Add clear success/failure closure with next-step guidance.",
+      "rule_file": "rules/peak-end-rule.md"
+    },
+    {
+      "key": "postel",
+      "name": "Postel's Law",
+      "weight": 4,
+      "status": "unknown",
+      "diagnosis": "Missing boolean metric: input_tolerant_parsing",
+      "mechanism": "Robust systems accept varied input but emit consistent output.",
+      "requirement": "Input parsing should tolerate common human variations.",
+      "signal": "Fewer avoidable validation dead-ends.",
+      "fix": "Support tolerant parsing and provide precise recovery guidance.",
+      "rule_file": "rules/postels-law.md"
+    },
+    {
+      "key": "doherty",
+      "name": "Doherty Threshold",
+      "weight": 5,
+      "status": "unknown",
+      "diagnosis": "Missing numeric metric: feedback_ms_p95",
+      "mechanism": "Fast feedback preserves cognitive flow and productivity.",
+      "requirement": "Interactions should acknowledge user intent rapidly.",
+      "signal": "Reduced duplicate taps and waiting confusion.",
+      "fix": "Provide immediate visual acknowledgment and optimize perceived speed.",
+      "rule_file": "rules/doherty-threshold.md"
+    },
+    {
+      "key": "serial-position",
+      "name": "Serial Position Effect",
+      "weight": 3,
+      "status": "unknown",
+      "diagnosis": "Missing boolean metric: critical_actions_boundary_placement",
+      "mechanism": "First and last sequence items are recalled best.",
+      "requirement": "Place critical actions/info at sequence boundaries.",
+      "signal": "Higher discovery/recall of key actions.",
+      "fix": "Move top-priority actions to start/end positions.",
+      "rule_file": "rules/serial-position-effect.md"
+    },
+    {
+      "key": "occam",
+      "name": "Occam's Razor",
+      "weight": 3,
+      "status": "unknown",
+      "diagnosis": "Missing numeric metric: simplicity_score",
+      "mechanism": "Simpler sufficient solutions reduce cognitive load.",
+      "requirement": "Remove non-essential UI and interaction burden.",
+      "signal": "Faster task completion and fewer distractions.",
+      "fix": "Trim unnecessary states/features and simplify task path.",
+      "rule_file": "rules/occams-razor.md"
+    },
+    {
+      "key": "parkinson",
+      "name": "Parkinson's Law",
+      "weight": 2,
+      "status": "unknown",
+      "diagnosis": "Missing boolean metric: scope_creep_signals",
+      "mechanism": "Work expands without explicit constraints.",
+      "requirement": "Guard against feature creep in delivery scope.",
+      "signal": "Lean implementation aligned to user goal.",
+      "fix": "Enforce MVP boundaries and defer non-critical additions.",
+      "rule_file": "rules/parkinsons-law.md"
+    }
+  ],
+  "strict_threshold": 85.0
+}

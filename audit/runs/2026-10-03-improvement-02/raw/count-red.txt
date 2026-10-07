@@ -1,0 +1,507 @@
+✖ ContainersView does not present a confirmed zero when containerVisits is loading (195.2506ms)
+✖ ContainersView does not present a confirmed zero when containerVisits is error (25.3501ms)
+✖ ContainersView does not present a confirmed zero when containerVisits is forbidden (21.2322ms)
+✔ ContainersView preserves real ready zero (34.4802ms)
+✔ ContainersView can display previously confirmed stale zero with its existing stale notice (34.967ms)
+✖ TruckVisitsView does not present a confirmed zero when truckVisits is loading (21.2293ms)
+✖ TruckVisitsView does not present a confirmed zero when truckVisits is error (28.9463ms)
+✖ TruckVisitsView does not present a confirmed zero when truckVisits is forbidden (28.3302ms)
+✔ TruckVisitsView preserves real ready zero (22.9741ms)
+✔ TruckVisitsView can display previously confirmed stale zero with its existing stale notice (23.6413ms)
+✖ HandoversView does not present a confirmed zero when handovers is loading (17.5364ms)
+✖ HandoversView does not present a confirmed zero when handovers is error (20.6589ms)
+✖ HandoversView does not present a confirmed zero when handovers is forbidden (29.654ms)
+✔ HandoversView preserves real ready zero (35.7812ms)
+✔ HandoversView can display previously confirmed stale zero with its existing stale notice (51.6425ms)
+✖ AuditsView does not present a confirmed zero when auditLogs is loading (34.2858ms)
+✖ AuditsView does not present a confirmed zero when auditLogs is error (16.1187ms)
+✖ AuditsView does not present a confirmed zero when auditLogs is forbidden (10.9126ms)
+✔ AuditsView preserves real ready zero (13.0704ms)
+✔ AuditsView can display previously confirmed stale zero with its existing stale notice (13.7845ms)
+✖ PartnerManagementView does not present a confirmed zero when partnerApiLogs is loading (14.3068ms)
+✖ PartnerManagementView does not present a confirmed zero when partnerApiLogs is error (16.7483ms)
+✖ PartnerManagementView does not present a confirmed zero when partnerApiLogs is forbidden (9.7202ms)
+✔ PartnerManagementView preserves real ready zero (12.5521ms)
+✔ PartnerManagementView can display previously confirmed stale zero with its existing stale notice (11.9053ms)
+✖ WorkQueueView does not present a confirmed zero when workQueue is loading (18.4334ms)
+✖ WorkQueueView does not present a confirmed zero when workQueue is error (19.0075ms)
+✖ WorkQueueView does not present a confirmed zero when workQueue is forbidden (15.9504ms)
+✔ WorkQueueView preserves real ready zero (16.1653ms)
+✔ WorkQueueView can display previously confirmed stale zero with its existing stale notice (16.4735ms)
+✖ BillingView does not present a confirmed zero when invoices is loading (42.2624ms)
+✖ BillingView does not present a confirmed zero when invoices is error (16.2696ms)
+✖ BillingView does not present a confirmed zero when invoices is forbidden (13.2087ms)
+✔ BillingView preserves real ready zero (34.6841ms)
+✔ BillingView can display previously confirmed stale zero with its existing stale notice (15.2648ms)
+✔ Containers retains truthful filter zero when one ready container does not match the current state filter (17.0244ms)
+✖ Work Queue does not imply every task is resolved when the server refused the list (15.6621ms)
+ℹ tests 37
+ℹ suites 0
+ℹ pass 15
+ℹ fail 22
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6673.5799
+
+✖ failing tests:
+
+test at audit\tools\tests\resource-count.test.mjs:41:5
+✖ ContainersView does not present a confirmed zero when containerVisits is loading (195.2506ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /(?:Tổng cộng:|Hiển thị)\s*0\s*containers/. Input:
+  
+  'Container 360 · Danh sách & vòng đờiTheo dõi trạng thái vòng đời, vị trí bãi Yard, thời gian lưu bãi (Dwell days), Holds và kiểm tra điều kiện ra cổng (Readiness)Tổng cộng: 0 containersTạo Container VisitTất cả trạng tháiPendingAuthorized (Chờ cổng)In Yard (Trong bãi)Under InspectionGate Pass IssuedExited (Đã ra cổng)Chỉ container có Blocker (Lệnh giữ / Chưa thanh toán / Chưa vị trí)Hiển thị 0 containersĐang tải dữ liệu…Số ContainerLoạiChủ hàng (Consignee)Vị trí BãiTrạng tháiVào cổngNgày lưuBlockersThao tác'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/resource-count.test.mjs:43:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Container 360 · Danh sách & vòng đờiTheo dõi trạng thái vòng đời, vị trí bãi Yard, thời gian lưu bãi (Dwell days), Holds và kiểm tra điều kiện ra cổng (Readiness)Tổng cộng: 0 containersTạo Container VisitTất cả trạng tháiPendingAuthorized (Chờ cổng)In Yard (Trong bãi)Under InspectionGate Pass IssuedExited (Đã ra cổng)Chỉ container có Blocker (Lệnh giữ / Chưa thanh toán / Chưa vị trí)Hiển thị 0 containersĐang tải dữ liệu…Số ContainerLoạiChủ hàng (Consignee)Vị trí BãiTrạng tháiVào cổngNgày lưuBlockersThao tác',
+    expected: /(?:Tổng cộng:|Hiển thị)\s*0\s*containers/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\resource-count.test.mjs:41:5
+✖ ContainersView does not present a confirmed zero when containerVisits is error (25.3501ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /(?:Tổng cộng:|Hiển thị)\s*0\s*containers/. Input:
+  
+  'Container 360 · Danh sách & vòng đờiTheo dõi trạng thái vòng đời, vị trí bãi Yard, thời gian lưu bãi (Dwell days), Holds và kiểm tra điều kiện ra cổng (Readiness)Tổng cộng: 0 containersTạo Container VisitTất cả trạng tháiPendingAuthorized (Chờ cổng)In Yard (Trong bãi)Under InspectionGate Pass IssuedExited (Đã ra cổng)Chỉ container có Blocker (Lệnh giữ / Chưa thanh toán / Chưa vị trí)Hiển thị 0 containersKhông thể tải dữ liệu. Chưa xác nhận danh sách hiện tại.Tải lại dữ liệuSố ContainerLoạiChủ hàng (Consignee)Vị trí BãiTrạng tháiVào cổngNgày lưuBlockersThao tác'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/resource-count.test.mjs:43:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Container 360 · Danh sách & vòng đờiTheo dõi trạng thái vòng đời, vị trí bãi Yard, thời gian lưu bãi (Dwell days), Holds và kiểm tra điều kiện ra cổng (Readiness)Tổng cộng: 0 containersTạo Container VisitTất cả trạng tháiPendingAuthorized (Chờ cổng)In Yard (Trong bãi)Under InspectionGate Pass IssuedExited (Đã ra cổng)Chỉ container có Blocker (Lệnh giữ / Chưa thanh toán / Chưa vị trí)Hiển thị 0 containersKhông thể tải dữ liệu. Chưa xác nhận danh sách hiện tại.Tải lại dữ liệuSố ContainerLoạiChủ hàng (Consignee)Vị trí BãiTrạng tháiVào cổngNgày lưuBlockersThao tác',
+    expected: /(?:Tổng cộng:|Hiển thị)\s*0\s*containers/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\resource-count.test.mjs:41:5
+✖ ContainersView does not present a confirmed zero when containerVisits is forbidden (21.2322ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /(?:Tổng cộng:|Hiển thị)\s*0\s*containers/. Input:
+  
+  'Container 360 · Danh sách & vòng đờiTheo dõi trạng thái vòng đời, vị trí bãi Yard, thời gian lưu bãi (Dwell days), Holds và kiểm tra điều kiện ra cổng (Readiness)Tổng cộng: 0 containersTạo Container VisitTất cả trạng tháiPendingAuthorized (Chờ cổng)In Yard (Trong bãi)Under InspectionGate Pass IssuedExited (Đã ra cổng)Chỉ container có Blocker (Lệnh giữ / Chưa thanh toán / Chưa vị trí)Hiển thị 0 containersBạn không có quyền xem dữ liệu này.Số ContainerLoạiChủ hàng (Consignee)Vị trí BãiTrạng tháiVào cổngNgày lưuBlockersThao tác'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/resource-count.test.mjs:43:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Container 360 · Danh sách & vòng đờiTheo dõi trạng thái vòng đời, vị trí bãi Yard, thời gian lưu bãi (Dwell days), Holds và kiểm tra điều kiện ra cổng (Readiness)Tổng cộng: 0 containersTạo Container VisitTất cả trạng tháiPendingAuthorized (Chờ cổng)In Yard (Trong bãi)Under InspectionGate Pass IssuedExited (Đã ra cổng)Chỉ container có Blocker (Lệnh giữ / Chưa thanh toán / Chưa vị trí)Hiển thị 0 containersBạn không có quyền xem dữ liệu này.Số ContainerLoạiChủ hàng (Consignee)Vị trí BãiTrạng tháiVào cổngNgày lưuBlockersThao tác',
+    expected: /(?:Tổng cộng:|Hiển thị)\s*0\s*containers/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\resource-count.test.mjs:41:5
+✖ TruckVisitsView does not present a confirmed zero when truckVisits is loading (21.2293ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Hiển thị\s*0\s*chuyến xe/. Input:
+  
+  'Quản lý Chuyến xe ra/vào (Truck Visits)Đặt lịch hẹn trước tại cổng (Gate Appointment) nhằm rút ngắn thời gian xếp dỡ và tránh ùn tắc luồng xeTạo Chuyến xe mớiHiển thị 0 chuyến xeĐang tải dữ liệu…'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/resource-count.test.mjs:43:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Quản lý Chuyến xe ra/vào (Truck Visits)Đặt lịch hẹn trước tại cổng (Gate Appointment) nhằm rút ngắn thời gian xếp dỡ và tránh ùn tắc luồng xeTạo Chuyến xe mớiHiển thị 0 chuyến xeĐang tải dữ liệu…',
+    expected: /Hiển thị\s*0\s*chuyến xe/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\resource-count.test.mjs:41:5
+✖ TruckVisitsView does not present a confirmed zero when truckVisits is error (28.9463ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Hiển thị\s*0\s*chuyến xe/. Input:
+  
+  'Quản lý Chuyến xe ra/vào (Truck Visits)Đặt lịch hẹn trước tại cổng (Gate Appointment) nhằm rút ngắn thời gian xếp dỡ và tránh ùn tắc luồng xeTạo Chuyến xe mớiHiển thị 0 chuyến xeKhông thể tải dữ liệu. Chưa xác nhận danh sách hiện tại.Tải lại dữ liệu'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/resource-count.test.mjs:43:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Quản lý Chuyến xe ra/vào (Truck Visits)Đặt lịch hẹn trước tại cổng (Gate Appointment) nhằm rút ngắn thời gian xếp dỡ và tránh ùn tắc luồng xeTạo Chuyến xe mớiHiển thị 0 chuyến xeKhông thể tải dữ liệu. Chưa xác nhận danh sách hiện tại.Tải lại dữ liệu',
+    expected: /Hiển thị\s*0\s*chuyến xe/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\resource-count.test.mjs:41:5
+✖ TruckVisitsView does not present a confirmed zero when truckVisits is forbidden (28.3302ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Hiển thị\s*0\s*chuyến xe/. Input:
+  
+  'Quản lý Chuyến xe ra/vào (Truck Visits)Đặt lịch hẹn trước tại cổng (Gate Appointment) nhằm rút ngắn thời gian xếp dỡ và tránh ùn tắc luồng xeTạo Chuyến xe mớiHiển thị 0 chuyến xeBạn không có quyền xem dữ liệu này.'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/resource-count.test.mjs:43:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Quản lý Chuyến xe ra/vào (Truck Visits)Đặt lịch hẹn trước tại cổng (Gate Appointment) nhằm rút ngắn thời gian xếp dỡ và tránh ùn tắc luồng xeTạo Chuyến xe mớiHiển thị 0 chuyến xeBạn không có quyền xem dữ liệu này.',
+    expected: /Hiển thị\s*0\s*chuyến xe/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\resource-count.test.mjs:41:5
+✖ HandoversView does not present a confirmed zero when handovers is loading (17.5364ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Hiển thị\s*0\s*lệnh bàn giao/. Input:
+  
+  'BÀN GIAO ĐỐI TÁCBàn giao Vận chuyển Ngoài ICD (Partner Handover)Quản lý quy trình ủy thác container cho đối tác vận tải ngoài, giao tiếp API và nghiệm thu biên bản giao nhận (POD)Tài liệu APITạo Lệnh Bàn giao mớiTất cả trạng tháiDRAFT (Nháp)READY_FOR_HANDOVER (Chờ đối tác nhận)PARTNER_ACCEPTED (Đã nhận)IN_TRANSIT (Đang vận chuyển)PARTNER_CONFIRMED (Chờ duyệt POD)ICD_CONFIRMED (Đã nghiệm thu)COMPLETED (Đã hoàn tất)Hiển thị 0 lệnh bàn giaoĐang tải dữ liệu…Chọn một Lệnh bàn giao bên trái để xem chi tiết'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/resource-count.test.mjs:43:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'BÀN GIAO ĐỐI TÁCBàn giao Vận chuyển Ngoài ICD (Partner Handover)Quản lý quy trình ủy thác container cho đối tác vận tải ngoài, giao tiếp API và nghiệm thu biên bản giao nhận (POD)Tài liệu APITạo Lệnh Bàn giao mớiTất cả trạng tháiDRAFT (Nháp)READY_FOR_HANDOVER (Chờ đối tác nhận)PARTNER_ACCEPTED (Đã nhận)IN_TRANSIT (Đang vận chuyển)PARTNER_CONFIRMED (Chờ duyệt POD)ICD_CONFIRMED (Đã nghiệm thu)COMPLETED (Đã hoàn tất)Hiển thị 0 lệnh bàn giaoĐang tải dữ liệu…Chọn một Lệnh bàn giao bên trái để xem chi tiết',
+    expected: /Hiển thị\s*0\s*lệnh bàn giao/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\resource-count.test.mjs:41:5
+✖ HandoversView does not present a confirmed zero when handovers is error (20.6589ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Hiển thị\s*0\s*lệnh bàn giao/. Input:
+  
+  'BÀN GIAO ĐỐI TÁCBàn giao Vận chuyển Ngoài ICD (Partner Handover)Quản lý quy trình ủy thác container cho đối tác vận tải ngoài, giao tiếp API và nghiệm thu biên bản giao nhận (POD)Tài liệu APITạo Lệnh Bàn giao mớiTất cả trạng tháiDRAFT (Nháp)READY_FOR_HANDOVER (Chờ đối tác nhận)PARTNER_ACCEPTED (Đã nhận)IN_TRANSIT (Đang vận chuyển)PARTNER_CONFIRMED (Chờ duyệt POD)ICD_CONFIRMED (Đã nghiệm thu)COMPLETED (Đã hoàn tất)Hiển thị 0 lệnh bàn giaoKhông thể tải dữ liệu. Chưa xác nhận danh sách hiện tại.Tải lại dữ liệuChọn một Lệnh bàn giao bên trái để xem chi tiết'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/resource-count.test.mjs:43:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'BÀN GIAO ĐỐI TÁCBàn giao Vận chuyển Ngoài ICD (Partner Handover)Quản lý quy trình ủy thác container cho đối tác vận tải ngoài, giao tiếp API và nghiệm thu biên bản giao nhận (POD)Tài liệu APITạo Lệnh Bàn giao mớiTất cả trạng tháiDRAFT (Nháp)READY_FOR_HANDOVER (Chờ đối tác nhận)PARTNER_ACCEPTED (Đã nhận)IN_TRANSIT (Đang vận chuyển)PARTNER_CONFIRMED (Chờ duyệt POD)ICD_CONFIRMED (Đã nghiệm thu)COMPLETED (Đã hoàn tất)Hiển thị 0 lệnh bàn giaoKhông thể tải dữ liệu. Chưa xác nhận danh sách hiện tại.Tải lại dữ liệuChọn một Lệnh bàn giao bên trái để xem chi tiết',
+    expected: /Hiển thị\s*0\s*lệnh bàn giao/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\resource-count.test.mjs:41:5
+✖ HandoversView does not present a confirmed zero when handovers is forbidden (29.654ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Hiển thị\s*0\s*lệnh bàn giao/. Input:
+  
+  'BÀN GIAO ĐỐI TÁCBàn giao Vận chuyển Ngoài ICD (Partner Handover)Quản lý quy trình ủy thác container cho đối tác vận tải ngoài, giao tiếp API và nghiệm thu biên bản giao nhận (POD)Tài liệu APITạo Lệnh Bàn giao mớiTất cả trạng tháiDRAFT (Nháp)READY_FOR_HANDOVER (Chờ đối tác nhận)PARTNER_ACCEPTED (Đã nhận)IN_TRANSIT (Đang vận chuyển)PARTNER_CONFIRMED (Chờ duyệt POD)ICD_CONFIRMED (Đã nghiệm thu)COMPLETED (Đã hoàn tất)Hiển thị 0 lệnh bàn giaoBạn không có quyền xem dữ liệu này.Chọn một Lệnh bàn giao bên trái để xem chi tiết'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/resource-count.test.mjs:43:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'BÀN GIAO ĐỐI TÁCBàn giao Vận chuyển Ngoài ICD (Partner Handover)Quản lý quy trình ủy thác container cho đối tác vận tải ngoài, giao tiếp API và nghiệm thu biên bản giao nhận (POD)Tài liệu APITạo Lệnh Bàn giao mớiTất cả trạng tháiDRAFT (Nháp)READY_FOR_HANDOVER (Chờ đối tác nhận)PARTNER_ACCEPTED (Đã nhận)IN_TRANSIT (Đang vận chuyển)PARTNER_CONFIRMED (Chờ duyệt POD)ICD_CONFIRMED (Đã nghiệm thu)COMPLETED (Đã hoàn tất)Hiển thị 0 lệnh bàn giaoBạn không có quyền xem dữ liệu này.Chọn một Lệnh bàn giao bên trái để xem chi tiết',
+    expected: /Hiển thị\s*0\s*lệnh bàn giao/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\resource-count.test.mjs:41:5
+✖ AuditsView does not present a confirmed zero when auditLogs is loading (34.2858ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Tổng cộng:\s*0\s*bản ghi/. Input:
+  
+  'Nhật ký Kiểm toán & An ninh (Audit Logs)Ghi nhận vết can thiệp nghiệp vụ (Ai đã làm gì, lúc nào, đối tượng và thông tin chi tiết)Tổng cộng: 0 bản ghiThời gianNgười thực hiệnHành độngĐối tượngChi tiết nghiệp vụRequest IDĐang tải dữ liệu…'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/resource-count.test.mjs:43:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Nhật ký Kiểm toán & An ninh (Audit Logs)Ghi nhận vết can thiệp nghiệp vụ (Ai đã làm gì, lúc nào, đối tượng và thông tin chi tiết)Tổng cộng: 0 bản ghiThời gianNgười thực hiệnHành độngĐối tượngChi tiết nghiệp vụRequest IDĐang tải dữ liệu…',
+    expected: /Tổng cộng:\s*0\s*bản ghi/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\resource-count.test.mjs:41:5
+✖ AuditsView does not present a confirmed zero when auditLogs is error (16.1187ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Tổng cộng:\s*0\s*bản ghi/. Input:
+  
+  'Nhật ký Kiểm toán & An ninh (Audit Logs)Ghi nhận vết can thiệp nghiệp vụ (Ai đã làm gì, lúc nào, đối tượng và thông tin chi tiết)Tổng cộng: 0 bản ghiThời gianNgười thực hiệnHành độngĐối tượngChi tiết nghiệp vụRequest IDKhông thể tải dữ liệu. Chưa xác nhận danh sách hiện tại.Tải lại dữ liệu'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/resource-count.test.mjs:43:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Nhật ký Kiểm toán & An ninh (Audit Logs)Ghi nhận vết can thiệp nghiệp vụ (Ai đã làm gì, lúc nào, đối tượng và thông tin chi tiết)Tổng cộng: 0 bản ghiThời gianNgười thực hiệnHành độngĐối tượngChi tiết nghiệp vụRequest IDKhông thể tải dữ liệu. Chưa xác nhận danh sách hiện tại.Tải lại dữ liệu',
+    expected: /Tổng cộng:\s*0\s*bản ghi/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\resource-count.test.mjs:41:5
+✖ AuditsView does not present a confirmed zero when auditLogs is forbidden (10.9126ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Tổng cộng:\s*0\s*bản ghi/. Input:
+  
+  'Nhật ký Kiểm toán & An ninh (Audit Logs)Ghi nhận vết can thiệp nghiệp vụ (Ai đã làm gì, lúc nào, đối tượng và thông tin chi tiết)Tổng cộng: 0 bản ghiThời gianNgười thực hiệnHành độngĐối tượngChi tiết nghiệp vụRequest IDBạn không có quyền xem dữ liệu này.'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/resource-count.test.mjs:43:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Nhật ký Kiểm toán & An ninh (Audit Logs)Ghi nhận vết can thiệp nghiệp vụ (Ai đã làm gì, lúc nào, đối tượng và thông tin chi tiết)Tổng cộng: 0 bản ghiThời gianNgười thực hiệnHành độngĐối tượngChi tiết nghiệp vụRequest IDBạn không có quyền xem dữ liệu này.',
+    expected: /Tổng cộng:\s*0\s*bản ghi/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\resource-count.test.mjs:41:5
+✖ PartnerManagementView does not present a confirmed zero when partnerApiLogs is loading (14.3068ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /0\s*cuộc gọi API đã ghi nhận/. Input:
+  
+  'Nhật ký API Đối tác (Partner Integration Logs)Giám sát thời gian thực các cuộc gọi API từ đối tác: Accept chuyến, Xác nhận giao kho, Upload POD, Tọa độ GPS0 cuộc gọi API đã ghi nhậnĐang tải dữ liệu…Chọn một bản ghi API bên trái để kiểm tra gói tin'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/resource-count.test.mjs:43:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Nhật ký API Đối tác (Partner Integration Logs)Giám sát thời gian thực các cuộc gọi API từ đối tác: Accept chuyến, Xác nhận giao kho, Upload POD, Tọa độ GPS0 cuộc gọi API đã ghi nhậnĐang tải dữ liệu…Chọn một bản ghi API bên trái để kiểm tra gói tin',
+    expected: /0\s*cuộc gọi API đã ghi nhận/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\resource-count.test.mjs:41:5
+✖ PartnerManagementView does not present a confirmed zero when partnerApiLogs is error (16.7483ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /0\s*cuộc gọi API đã ghi nhận/. Input:
+  
+  'Nhật ký API Đối tác (Partner Integration Logs)Giám sát thời gian thực các cuộc gọi API từ đối tác: Accept chuyến, Xác nhận giao kho, Upload POD, Tọa độ GPS0 cuộc gọi API đã ghi nhậnKhông thể tải dữ liệu. Chưa xác nhận danh sách hiện tại.Tải lại dữ liệuChọn một bản ghi API bên trái để kiểm tra gói tin'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/resource-count.test.mjs:43:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Nhật ký API Đối tác (Partner Integration Logs)Giám sát thời gian thực các cuộc gọi API từ đối tác: Accept chuyến, Xác nhận giao kho, Upload POD, Tọa độ GPS0 cuộc gọi API đã ghi nhậnKhông thể tải dữ liệu. Chưa xác nhận danh sách hiện tại.Tải lại dữ liệuChọn một bản ghi API bên trái để kiểm tra gói tin',
+    expected: /0\s*cuộc gọi API đã ghi nhận/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\resource-count.test.mjs:41:5
+✖ PartnerManagementView does not present a confirmed zero when partnerApiLogs is forbidden (9.7202ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /0\s*cuộc gọi API đã ghi nhận/. Input:
+  
+  'Nhật ký API Đối tác (Partner Integration Logs)Giám sát thời gian thực các cuộc gọi API từ đối tác: Accept chuyến, Xác nhận giao kho, Upload POD, Tọa độ GPS0 cuộc gọi API đã ghi nhậnBạn không có quyền xem dữ liệu này.Chọn một bản ghi API bên trái để kiểm tra gói tin'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/resource-count.test.mjs:43:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Nhật ký API Đối tác (Partner Integration Logs)Giám sát thời gian thực các cuộc gọi API từ đối tác: Accept chuyến, Xác nhận giao kho, Upload POD, Tọa độ GPS0 cuộc gọi API đã ghi nhậnBạn không có quyền xem dữ liệu này.Chọn một bản ghi API bên trái để kiểm tra gói tin',
+    expected: /0\s*cuộc gọi API đã ghi nhận/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\resource-count.test.mjs:41:5
+✖ WorkQueueView does not present a confirmed zero when workQueue is loading (18.4334ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /0\s*(?:Quá hạn|Ưu tiên cao|Tổng việc)|Hiển thị\s*0\s*\/\s*0\s*tác vụ/. Input:
+  
+  'Danh sách công việc thông minh (Work Queue)Tự động sắp xếp các tác vụ theo mức độ khẩn cấp (Urgency) và cam kết thời gian hoàn thành (SLA)0 Quá hạn0 Ưu tiên cao0 Tổng việc Bộ lọc:Tất cả mức độ khẩn cấpQuá hạn (OVERDUE)Ưu tiên cao (HIGH)Trung bình (MEDIUM)Bình thường (NORMAL)Tất cả loại nghiệp vụTiếp nhận vào cổng (Gate-in)Xếp vị trí bãi (Yard Assign)Thu phí dịch vụ (Billing)Xác nhận ra cổng (Gate-out)Duyệt bàn giao đối tác (Review POD)Chỉ việc thuộc vai trò của tôi (ADMIN)Hiển thị 0 / 0 tác vụĐang tải dữ liệu…Không có công việc nào cần xử lýToàn bộ các tác vụ theo tiêu chí lọc hiện tại đã được giải quyết hoặc chưa phát sinh.'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/resource-count.test.mjs:43:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Danh sách công việc thông minh (Work Queue)Tự động sắp xếp các tác vụ theo mức độ khẩn cấp (Urgency) và cam kết thời gian hoàn thành (SLA)0 Quá hạn0 Ưu tiên cao0 Tổng việc Bộ lọc:Tất cả mức độ khẩn cấpQuá hạn (OVERDUE)Ưu tiên cao (HIGH)Trung bình (MEDIUM)Bình thường (NORMAL)Tất cả loại nghiệp vụTiếp nhận vào cổng (Gate-in)Xếp vị trí bãi (Yard Assign)Thu phí dịch vụ (Billing)Xác nhận ra cổng (Gate-out)Duyệt bàn giao đối tác (Review POD)Chỉ việc thuộc vai trò của tôi (ADMIN)Hiển thị 0 / 0 tác vụĐang tải dữ liệu…Không có công việc nào cần xử lýToàn bộ các tác vụ theo tiêu chí lọc hiện tại đã được giải quyết hoặc chưa phát sinh.',
+    expected: /0\s*(?:Quá hạn|Ưu tiên cao|Tổng việc)|Hiển thị\s*0\s*\/\s*0\s*tác vụ/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\resource-count.test.mjs:41:5
+✖ WorkQueueView does not present a confirmed zero when workQueue is error (19.0075ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /0\s*(?:Quá hạn|Ưu tiên cao|Tổng việc)|Hiển thị\s*0\s*\/\s*0\s*tác vụ/. Input:
+  
+  'Danh sách công việc thông minh (Work Queue)Tự động sắp xếp các tác vụ theo mức độ khẩn cấp (Urgency) và cam kết thời gian hoàn thành (SLA)0 Quá hạn0 Ưu tiên cao0 Tổng việc Bộ lọc:Tất cả mức độ khẩn cấpQuá hạn (OVERDUE)Ưu tiên cao (HIGH)Trung bình (MEDIUM)Bình thường (NORMAL)Tất cả loại nghiệp vụTiếp nhận vào cổng (Gate-in)Xếp vị trí bãi (Yard Assign)Thu phí dịch vụ (Billing)Xác nhận ra cổng (Gate-out)Duyệt bàn giao đối tác (Review POD)Chỉ việc thuộc vai trò của tôi (ADMIN)Hiển thị 0 / 0 tác vụKhông thể tải dữ liệu. Chưa xác nhận danh sách hiện tại.Tải lại dữ liệuKhông có công việc nào cần xử lýToàn bộ các tác vụ theo tiêu chí lọc hiện tại đã được giải quyết hoặc chưa phát sinh.'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/resource-count.test.mjs:43:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Danh sách công việc thông minh (Work Queue)Tự động sắp xếp các tác vụ theo mức độ khẩn cấp (Urgency) và cam kết thời gian hoàn thành (SLA)0 Quá hạn0 Ưu tiên cao0 Tổng việc Bộ lọc:Tất cả mức độ khẩn cấpQuá hạn (OVERDUE)Ưu tiên cao (HIGH)Trung bình (MEDIUM)Bình thường (NORMAL)Tất cả loại nghiệp vụTiếp nhận vào cổng (Gate-in)Xếp vị trí bãi (Yard Assign)Thu phí dịch vụ (Billing)Xác nhận ra cổng (Gate-out)Duyệt bàn giao đối tác (Review POD)Chỉ việc thuộc vai trò của tôi (ADMIN)Hiển thị 0 / 0 tác vụKhông thể tải dữ liệu. Chưa xác nhận danh sách hiện tại.Tải lại dữ liệuKhông có công việc nào cần xử lýToàn bộ các tác vụ theo tiêu chí lọc hiện tại đã được giải quyết hoặc chưa phát sinh.',
+    expected: /0\s*(?:Quá hạn|Ưu tiên cao|Tổng việc)|Hiển thị\s*0\s*\/\s*0\s*tác vụ/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\resource-count.test.mjs:41:5
+✖ WorkQueueView does not present a confirmed zero when workQueue is forbidden (15.9504ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /0\s*(?:Quá hạn|Ưu tiên cao|Tổng việc)|Hiển thị\s*0\s*\/\s*0\s*tác vụ/. Input:
+  
+  'Danh sách công việc thông minh (Work Queue)Tự động sắp xếp các tác vụ theo mức độ khẩn cấp (Urgency) và cam kết thời gian hoàn thành (SLA)0 Quá hạn0 Ưu tiên cao0 Tổng việc Bộ lọc:Tất cả mức độ khẩn cấpQuá hạn (OVERDUE)Ưu tiên cao (HIGH)Trung bình (MEDIUM)Bình thường (NORMAL)Tất cả loại nghiệp vụTiếp nhận vào cổng (Gate-in)Xếp vị trí bãi (Yard Assign)Thu phí dịch vụ (Billing)Xác nhận ra cổng (Gate-out)Duyệt bàn giao đối tác (Review POD)Chỉ việc thuộc vai trò của tôi (ADMIN)Hiển thị 0 / 0 tác vụBạn không có quyền xem dữ liệu này.Không có công việc nào cần xử lýToàn bộ các tác vụ theo tiêu chí lọc hiện tại đã được giải quyết hoặc chưa phát sinh.'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/resource-count.test.mjs:43:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Danh sách công việc thông minh (Work Queue)Tự động sắp xếp các tác vụ theo mức độ khẩn cấp (Urgency) và cam kết thời gian hoàn thành (SLA)0 Quá hạn0 Ưu tiên cao0 Tổng việc Bộ lọc:Tất cả mức độ khẩn cấpQuá hạn (OVERDUE)Ưu tiên cao (HIGH)Trung bình (MEDIUM)Bình thường (NORMAL)Tất cả loại nghiệp vụTiếp nhận vào cổng (Gate-in)Xếp vị trí bãi (Yard Assign)Thu phí dịch vụ (Billing)Xác nhận ra cổng (Gate-out)Duyệt bàn giao đối tác (Review POD)Chỉ việc thuộc vai trò của tôi (ADMIN)Hiển thị 0 / 0 tác vụBạn không có quyền xem dữ liệu này.Không có công việc nào cần xử lýToàn bộ các tác vụ theo tiêu chí lọc hiện tại đã được giải quyết hoặc chưa phát sinh.',
+    expected: /0\s*(?:Quá hạn|Ưu tiên cao|Tổng việc)|Hiển thị\s*0\s*\/\s*0\s*tác vụ/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\resource-count.test.mjs:41:5
+✖ BillingView does not present a confirmed zero when invoices is loading (42.2624ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Hóa đơn phát hành\s*\(0\)/. Input:
+  
+  'Dịch vụ & Thanh toán (Billing & Invoices)Tính toán biểu phí lưu bãi, tiếp nhận, rút ruột (Stripping), kiểm định và xuất hóa đơn đối soátTạo Đơn dịch vụ (Service Order)Tổng phí đã xuất Hóa đơnĐang tải dữ liệu…Đã thu thực tếĐang tải dữ liệu…Công nợ chưa thuĐang tải dữ liệu…Hóa đơn phát hành (0)Đơn dịch vụ (Service Orders) (0)Biểu phí dịch vụ (Tariffs) (0)Đang tải dữ liệu…'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/resource-count.test.mjs:43:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Dịch vụ & Thanh toán (Billing & Invoices)Tính toán biểu phí lưu bãi, tiếp nhận, rút ruột (Stripping), kiểm định và xuất hóa đơn đối soátTạo Đơn dịch vụ (Service Order)Tổng phí đã xuất Hóa đơnĐang tải dữ liệu…Đã thu thực tếĐang tải dữ liệu…Công nợ chưa thuĐang tải dữ liệu…Hóa đơn phát hành (0)Đơn dịch vụ (Service Orders) (0)Biểu phí dịch vụ (Tariffs) (0)Đang tải dữ liệu…',
+    expected: /Hóa đơn phát hành\s*\(0\)/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\resource-count.test.mjs:41:5
+✖ BillingView does not present a confirmed zero when invoices is error (16.2696ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Hóa đơn phát hành\s*\(0\)/. Input:
+  
+  'Dịch vụ & Thanh toán (Billing & Invoices)Tính toán biểu phí lưu bãi, tiếp nhận, rút ruột (Stripping), kiểm định và xuất hóa đơn đối soátTạo Đơn dịch vụ (Service Order)Tổng phí đã xuất Hóa đơnKhông thể tải dữ liệu. Chưa xác nhận danh sách hiện tại.Tải lại dữ liệuĐã thu thực tếKhông thể tải dữ liệu. Chưa xác nhận danh sách hiện tại.Tải lại dữ liệuCông nợ chưa thuKhông thể tải dữ liệu. Chưa xác nhận danh sách hiện tại.Tải lại dữ liệuHóa đơn phát hành (0)Đơn dịch vụ (Service Orders) (0)Biểu phí dịch vụ (Tariffs) (0)Không thể tải dữ liệu. Chưa xác nhận danh sách hiện tại.Tải lại dữ liệu'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/resource-count.test.mjs:43:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Dịch vụ & Thanh toán (Billing & Invoices)Tính toán biểu phí lưu bãi, tiếp nhận, rút ruột (Stripping), kiểm định và xuất hóa đơn đối soátTạo Đơn dịch vụ (Service Order)Tổng phí đã xuất Hóa đơnKhông thể tải dữ liệu. Chưa xác nhận danh sách hiện tại.Tải lại dữ liệuĐã thu thực tếKhông thể tải dữ liệu. Chưa xác nhận danh sách hiện tại.Tải lại dữ liệuCông nợ chưa thuKhông thể tải dữ liệu. Chưa xác nhận danh sách hiện tại.Tải lại dữ liệuHóa đơn phát hành (0)Đơn dịch vụ (Service Orders) (0)Biểu phí dịch vụ (Tariffs) (0)Không thể tải dữ liệu. Chưa xác nhận danh sách hiện tại.Tải lại dữ liệu',
+    expected: /Hóa đơn phát hành\s*\(0\)/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\resource-count.test.mjs:41:5
+✖ BillingView does not present a confirmed zero when invoices is forbidden (13.2087ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Hóa đơn phát hành\s*\(0\)/. Input:
+  
+  'Dịch vụ & Thanh toán (Billing & Invoices)Tính toán biểu phí lưu bãi, tiếp nhận, rút ruột (Stripping), kiểm định và xuất hóa đơn đối soátTạo Đơn dịch vụ (Service Order)Tổng phí đã xuất Hóa đơnBạn không có quyền xem dữ liệu này.Đã thu thực tếBạn không có quyền xem dữ liệu này.Công nợ chưa thuBạn không có quyền xem dữ liệu này.Hóa đơn phát hành (0)Đơn dịch vụ (Service Orders) (0)Biểu phí dịch vụ (Tariffs) (0)Bạn không có quyền xem dữ liệu này.'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/resource-count.test.mjs:43:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Dịch vụ & Thanh toán (Billing & Invoices)Tính toán biểu phí lưu bãi, tiếp nhận, rút ruột (Stripping), kiểm định và xuất hóa đơn đối soátTạo Đơn dịch vụ (Service Order)Tổng phí đã xuất Hóa đơnBạn không có quyền xem dữ liệu này.Đã thu thực tếBạn không có quyền xem dữ liệu này.Công nợ chưa thuBạn không có quyền xem dữ liệu này.Hóa đơn phát hành (0)Đơn dịch vụ (Service Orders) (0)Biểu phí dịch vụ (Tariffs) (0)Bạn không có quyền xem dữ liệu này.',
+    expected: /Hóa đơn phát hành\s*\(0\)/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\resource-count.test.mjs:73:1
+✖ Work Queue does not imply every task is resolved when the server refused the list (15.6621ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Không có công việc nào cần xử lý|đã được giải quyết/. Input:
+  
+  'Danh sách công việc thông minh (Work Queue)Tự động sắp xếp các tác vụ theo mức độ khẩn cấp (Urgency) và cam kết thời gian hoàn thành (SLA)0 Quá hạn0 Ưu tiên cao0 Tổng việc Bộ lọc:Tất cả mức độ khẩn cấpQuá hạn (OVERDUE)Ưu tiên cao (HIGH)Trung bình (MEDIUM)Bình thường (NORMAL)Tất cả loại nghiệp vụTiếp nhận vào cổng (Gate-in)Xếp vị trí bãi (Yard Assign)Thu phí dịch vụ (Billing)Xác nhận ra cổng (Gate-out)Duyệt bàn giao đối tác (Review POD)Chỉ việc thuộc vai trò của tôi (ADMIN)Hiển thị 0 / 0 tác vụBạn không có quyền xem dữ liệu này.Không có công việc nào cần xử lýToàn bộ các tác vụ theo tiêu chí lọc hiện tại đã được giải quyết hoặc chưa phát sinh.'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/resource-count.test.mjs:75:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Danh sách công việc thông minh (Work Queue)Tự động sắp xếp các tác vụ theo mức độ khẩn cấp (Urgency) và cam kết thời gian hoàn thành (SLA)0 Quá hạn0 Ưu tiên cao0 Tổng việc Bộ lọc:Tất cả mức độ khẩn cấpQuá hạn (OVERDUE)Ưu tiên cao (HIGH)Trung bình (MEDIUM)Bình thường (NORMAL)Tất cả loại nghiệp vụTiếp nhận vào cổng (Gate-in)Xếp vị trí bãi (Yard Assign)Thu phí dịch vụ (Billing)Xác nhận ra cổng (Gate-out)Duyệt bàn giao đối tác (Review POD)Chỉ việc thuộc vai trò của tôi (ADMIN)Hiển thị 0 / 0 tác vụBạn không có quyền xem dữ liệu này.Không có công việc nào cần xử lýToàn bộ các tác vụ theo tiêu chí lọc hiện tại đã được giải quyết hoặc chưa phát sinh.',
+    expected: /Không có công việc nào cần xử lý|đã được giải quyết/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }

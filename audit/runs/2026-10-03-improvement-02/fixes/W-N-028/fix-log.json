@@ -1,0 +1,25 @@
+{
+  "status": "VERIFIED",
+  "change": "Chi tiết lỗi giới hạn96px, có scroll/accessible region và Tab focus. Banner còn129,3px tại320/375/768/1440;7.170ký tự vẫn còn và ArrowDown cuộn thật. Giữ retry và trạng thái nghiệp vụ; nguyên nhân HTTP của read failure vẫn UNKNOWN.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/App.tsx",
+      "line": 268,
+      "detail": "aria-label=\"Chi tiết dữ liệu cần tải lại\"",
+      "snippet": "                  aria-label=\"Chi tiết dữ liệu cần tải lại\"\n                  tabIndex={0}\n                  className=\"min-w-0 flex-1 max-h-24 overflow-y-auto break-words\"\n                >"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/browser/read-error-bounds-before-2026-10-04.json",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/read-error-bounds-after-2026-10-04.json",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/read-error-bounds-responsive-after-2026-10-04.json"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Actual computed styles, trusted native interaction/frame samples or geometry, as explicitly linked. Offline analysis preserves incomplete/excluded measurements; no implementation-mirroring style test.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/App.tsx.diff"
+  ],
+  "isolated_review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/read-error-bounds-2026-10-04/W-N-028.diff"
+  ]
+}

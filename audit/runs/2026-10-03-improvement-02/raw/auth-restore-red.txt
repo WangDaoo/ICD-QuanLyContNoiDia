@@ -1,0 +1,132 @@
+✖ restore preserves credentials and hides operational data after Network unavailable (158.5892ms)
+✖ restore preserves credentials and hides operational data after Backend unavailable (17.3552ms)
+✖ restore preserves credentials and hides operational data after Invalid authentication response (15.1116ms)
+✔ definitive restore 401 clears credentials instead of suggesting a transient retry (16.0425ms)
+✔ definitive restore 403 clears credentials instead of suggesting a transient retry (14.4409ms)
+✖ retry verifies the retained session before exposing operational data and coalesces duplicate attempts (11.3927ms)
+✖ a delayed retry cannot restore a session after explicit logout (11.3904ms)
+✖ a delayed retry cannot overwrite a newly logged in user (12.4488ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 2
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5423.2845
+
+✖ failing tests:
+
+test at audit\tools\tests\auth-restore.test.mjs:42:3
+✖ restore preserves credentials and hides operational data after Network unavailable (158.5892ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + null
+  - 'restore-fixture-access'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/auth-restore.test.mjs:45:14)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: 'restore-fixture-access',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\auth-restore.test.mjs:42:3
+✖ restore preserves credentials and hides operational data after Backend unavailable (17.3552ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + null
+  - 'restore-fixture-access'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/auth-restore.test.mjs:45:14)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: 'restore-fixture-access',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\auth-restore.test.mjs:42:3
+✖ restore preserves credentials and hides operational data after Invalid authentication response (15.1116ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + null
+  - 'restore-fixture-access'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/auth-restore.test.mjs:45:14)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: 'restore-fixture-access',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\auth-restore.test.mjs:69:1
+✖ retry verifies the retained session before exposing operational data and coalesces duplicate attempts (11.3927ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/auth-restore.test.mjs:73:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\auth-restore.test.mjs:88:1
+✖ a delayed retry cannot restore a session after explicit logout (11.3904ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/auth-restore.test.mjs:92:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\auth-restore.test.mjs:104:1
+✖ a delayed retry cannot overwrite a newly logged in user (12.4488ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/auth-restore.test.mjs:108:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

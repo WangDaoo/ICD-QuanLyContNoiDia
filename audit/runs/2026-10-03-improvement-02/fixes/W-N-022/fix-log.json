@@ -1,0 +1,36 @@
+{
+  "status": "VERIFIED",
+  "change": "Reconcile field liên kết khi nguồn phụ hoàn tất; giữ giá trị stale được phép đọc, bỏ giá trị bị hạn chế. Vị trí chưa xác minh có copy trung tính. Browser trước/sau read hãng tàu chậm5s xác nhận vị trí canonical đã hiện khi read khác còn pending; Holds/readiness vẫn chờ xác minh server.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/context/AppContext.tsx",
+      "line": 324,
+      "detail": "const DEPENDENT_FIELDS",
+      "snippet": "const DEPENDENT_FIELDS: Array<{\n  resource: keyof LiveCollections; field: string; sources: Array<keyof LiveCollections>; missing: string | undefined;\n}> = [\n  { resource: 'containerVisits', field: 'currentLocation', sources: ['yardSlots'], missing: undefined },"
+    },
+    {
+      "file": "apps/web/src/components/ContainersView.tsx",
+      "line": 70,
+      "detail": "const yardLocationReady",
+      "snippet": "  const yardLocationReady = yardLocationStates.every((state) => state === 'ready');\n  const yardLocationForbidden = yardLocationStates.includes('forbidden');\n  const yardLocationLabel = (visit: ContainerVisit, emptyLabel = 'Chưa xếp') => {\n    if (yardLocationReady) return visit.currentLocation || emptyLabel;"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/progressive-dependencies-red-2026-10-04.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/progressive-dependencies-green-2026-10-04.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/dependency-location-regressions-2026-10-04.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/dependency-detail-checkpoint-2026-10-04.md",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/progressive-containers-catalog5s-series-2026-10-04.json",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/progressive-containers-location-fixed-2026-10-04.json"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Meaningful RED/GREEN source regression; real API only if explicitly linked.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/ContainersView.tsx.diff",
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/context/AppContext.tsx.diff"
+  ],
+  "isolated_review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/dependency-detail-2026-10-04/W-N-022-container.diff",
+    "audit/runs/2026-10-03-improvement-02/fixes/dependency-detail-2026-10-04/W-N-022-provider.diff"
+  ]
+}

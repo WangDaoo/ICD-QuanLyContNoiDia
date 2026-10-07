@@ -1,0 +1,39 @@
+✔ cancelled inspections retain their terminal backend status (3.298ms)
+✔ tariff rules preserve service codes and units from the backend catalogue (0.6177ms)
+✖ tariff rules preserve canonical container restrictions and absent free days (1.9084ms)
+✔ unrecognized and absent gate-pass states never grant an active pass (0.2223ms)
+✔ whitespace cannot be presented as a known zero financial balance (1.1676ms)
+✔ outbox without acknowledgement data does not invent a pending acknowledgement (0.4767ms)
+✔ acknowledgement errors and unmatched statuses retain the backend status (0.3683ms)
+✔ yard slot restrictions preserve canonical type codes rather than becoming ALL (0.4643ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 449.3005
+
+✖ failing tests:
+
+test at apps\web\src\services\mappers\canonical-status.test.ts:27:1
+✖ tariff rules preserve canonical container restrictions and absent free days (1.9084ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'ALL' !== 'REEFER'
+  
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\mappers\canonical-status.test.ts:41:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'ALL',
+    expected: 'REEFER',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

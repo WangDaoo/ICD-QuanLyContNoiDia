@@ -1,0 +1,20 @@
+{
+  "status": "VERIFIED",
+  "method": "Prior accepted fix retained; fresh regression suite rechecked.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/services/redacted-log-body.ts",
+      "line": 3,
+      "detail": "export function",
+      "snippet": "export function formatRedactedLogBody(value?: JsonValue): string {\n  if (value == null) return '// Empty or Redacted';\n  return typeof value === 'string' ? value : JSON.stringify(value, null, 2);\n}"
+    }
+  ],
+  "limitations": "Đã mở log thực tế ở 3 viewport; lỗi render cưỡng bức, dữ liệu falsy và bảo vệ redaction kiểm bằng fixture. Không gửi API đối tác.",
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/web-old-regressions-final.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/web-old-billing-final.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+  ],
+  "review_diffs": [],
+  "isolated_review_diffs": []
+}

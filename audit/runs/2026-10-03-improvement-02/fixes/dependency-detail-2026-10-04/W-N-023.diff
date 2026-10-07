@@ -1,0 +1,150 @@
+--- audit/runs/2026-10-03-improvement-02/raw/container-derived-sections-before-2026-10-04.tsx
++++ audit/runs/2026-10-03-improvement-02/raw/container-narrow-header-before-2026-10-04.tsx
+@@ -56,8 +56,14 @@
+     movementOrders,
+     resourceStatus = {},
+     isLoading,
++    detailStatus,
+   } = useApp();
+   const can = (permission: string) => hasWebPermission(currentUser, permission);
++  const collectionState = (resource: string) => resourceStatus[resource] ?? (isLoading ? 'loading' : 'ready');
++  const invoiceState = collectionState('invoices');
++  const movementOrderState = collectionState('movementOrders');
++  const handoverState = collectionState('handovers');
++  const readable = (state: string) => state === 'ready' || state === 'stale';
+   const yardLocationStates = ['containerVisits', 'yardSlots'].map(
+     (resource) => resourceStatus[resource] ?? (isLoading ? 'loading' : 'ready'),
+   );
+@@ -138,6 +144,8 @@
+       const invs = invoices.filter((i) => i.containerVisitId === v.id && i.status !== 'PAID');
+       if (
+         visitSafetyStatus[v.id]?.holds === 'ready' &&
++        invoiceState === 'ready' &&
++        yardLocationReady &&
+         activeHolds.length === 0 &&
+         invs.length === 0 &&
+         v.currentLocation
+@@ -387,7 +395,7 @@
+                 const activeHoldsCount = holds.filter(
+                   (h) => h.containerVisitId === v.id && h.status === 'ACTIVE',
+                 ).length;
+-                const hasUnpaid = invoices.some(
++                const hasUnpaid = readable(invoiceState) && invoices.some(
+                   (i) => i.containerVisitId === v.id && i.status !== 'PAID',
+                 );
+                 const dwellDays = v.gateInAt
+@@ -446,6 +454,7 @@
+                             <ShieldAlert className="w-3.5 h-3.5" />
+                           </span>
+                         )}
++                        {invoiceState !== 'ready' && <span className="text-amber-900">Thanh toán chưa kiểm tra</span>}
+                         {hasUnpaid && (
+                           <span
+                             title="Còn công nợ chưa thanh toán"
+@@ -562,7 +571,7 @@
+                     : 'border-transparent text-slate-500 hover:text-slate-800'
+                 }`}
+               >
+-                Dịch vụ & Thanh toán ({activeVisitInvoices.length})
++                Dịch vụ & Thanh toán (<ConfirmedResourceValue resource="invoices">{activeVisitInvoices.length}</ConfirmedResourceValue>)
+               </button>
+               <button
+                 disabled={action.pending}
+@@ -707,7 +716,7 @@
+                         const mo = movementOrders.find(
+                           (o) => o.containerVisitId === activeVisit.id && o.status !== 'CANCELLED',
+                         );
+-                        return mo ? (
++                        return readable(movementOrderState) && mo ? (
+                           <span
+                             className={`px-2.5 py-0.5 rounded-full text-caption font-bold ${
+                               mo.status === 'AUTHORIZED'
+@@ -721,13 +730,14 @@
+                           </span>
+                         ) : (
+                           <span className="text-slate-400 italic text-caption">
+-                            Chưa có Movement Order
++                            {movementOrderState === 'ready' ? 'Chưa có Movement Order' : 'Chưa xác nhận Movement Order'}
+                           </span>
+                         );
+                       })()}
+                     </h4>
++                    {movementOrderState !== 'ready' && <CollectionState resource="movementOrders" count={movementOrders.length} />}
+                     <div className="flex items-center gap-2 mt-2">
+-                      {!movementOrders.some(
++                      {movementOrderState === 'ready' && !movementOrders.some(
+                         (o) => o.containerVisitId === activeVisit.id && o.status !== 'CANCELLED',
+                       ) &&
+                         activeVisit.state === 'PENDING' && (
+@@ -782,16 +792,17 @@
+                           Bàn giao vận chuyển ngoài ICD
+                         </span>
+                       </div>
+-                      {activeVisitHandover ? (
++                      {readable(handoverState) && activeVisitHandover ? (
+                         <span className="px-2.5 py-0.5 rounded-full text-caption font-bold bg-indigo-200 text-indigo-900 border border-indigo-300">
+                           {activeVisitHandover.status}
+                         </span>
+                       ) : (
+-                        <span className="text-slate-400 italic">Chưa tạo Handover</span>
++                        <span className="text-slate-400 italic">{handoverState === 'ready' ? 'Chưa tạo Handover' : 'Chưa xác nhận hồ sơ Bàn giao'}</span>
+                       )}
+                     </div>
+ 
+-                    {activeVisitHandover ? (
++                    {handoverState !== 'ready' && <CollectionState resource="handovers" count={handovers.length} />}
++                    {readable(handoverState) && activeVisitHandover ? (
+                       <div className="bg-white p-3 rounded-lg border border-indigo-200 space-y-2">
+                         <div className="flex items-center justify-between">
+                           <div>
+@@ -812,7 +823,7 @@
+                           {activeVisitHandover.warehouseAddress})
+                         </div>
+                         <div className="flex items-center justify-between text-caption text-slate-500 pt-1 border-t border-slate-100">
+-                          <span>Số mốc xác nhận: {activeVisitHandover.confirmations.length}</span>
++                          <span>Số mốc xác nhận: {detailStatus?.handovers?.[activeVisitHandover.id] && detailStatus.handovers[activeVisitHandover.id] !== 'ready' ? 'Chưa xác nhận số mốc' : activeVisitHandover.confirmations.length}</span>
+                           <button
+                             disabled={action.pending}
+                             onClick={() => {
+@@ -826,7 +837,7 @@
+                           </button>
+                         </div>
+                       </div>
+-                    ) : (
++                    ) : handoverState === 'ready' ? (
+                       <div className="text-slate-500 flex items-center justify-between">
+                         <span>
+                           {activeVisit.state === 'EXITED'
+@@ -834,6 +845,7 @@
+                             : 'Container chưa hoàn tất Gate-out. Có thể lập trước bản nháp DRAFT.'}
+                         </span>
+                         <button
++                          hidden={!can('handover.create')}
+                           disabled={action.pending}
+                           onClick={() => {
+                             setActiveModalVisitId(null);
+@@ -844,7 +856,7 @@
+                           + Tạo Handover
+                         </button>
+                       </div>
+-                    )}
++                    ) : null}
+                   </div>
+ 
+                   {/* Metadata Specs */}
+@@ -961,12 +973,13 @@
+                     </button>
+                   </div>
+ 
+-                  {activeVisitInvoices.length === 0 ? (
++                  {invoiceState !== 'ready' && <CollectionState resource="invoices" count={activeVisitInvoices.length} />}
++                  {invoiceState === 'ready' && activeVisitInvoices.length === 0 ? (
+                     <div className="p-8 text-center text-slate-400 bg-slate-50 rounded-xl">
+                       Chưa phát sinh hóa đơn nào
+                     </div>
+                   ) : (
+-                    activeVisitInvoices.map((inv) => (
++                    readable(invoiceState) && activeVisitInvoices.map((inv) => (
+                       <div
+                         key={inv.id}
+                         className="border border-slate-200 rounded-xl p-4 bg-white shadow-xs space-y-2"

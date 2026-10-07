@@ -1,0 +1,28 @@
+{
+  "status": "VERIFIED",
+  "change": "Await guarded commands; failed save keeps input and dialog; distinguish saved/refresh failure.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/useCommandAction.tsx",
+      "line": 4,
+      "detail": "export function",
+      "snippet": "export function useCommandAction() {\n  const inFlight = useRef(false);\n  const [pending, setPending] = useState(false);\n  const [notice, setNotice] = useState<CommandResult | null>(null);"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/web-fixtures-final.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/master-data-save-persisted-375.json",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/master-data-conflict-retains-draft-375.json"
+  ],
+  "limitations": "Actual components in deferred/rejected fixtures plus real browser duplicate/save evidence.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [
+    "Delay a save in a disposable fixture: keep panel and values until outcome.",
+    "Reject save: show actionable local error, preserve all input, allow retry.",
+    "Resolve save: reset/close only after success and show confirmation."
+  ],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/useCommandAction.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

@@ -1,0 +1,45 @@
+✔ schedule defaults and payload preserve the local Vietnam clock (77.673ms)
+✖ Vietnam schedule defaults and payload are independent of browser timezone (21.1303ms)
+✔ blank, malformed and impossible schedules produce visible validation errors (3.9139ms)
+✔ booking schedule uses the edited FormData value instead of the initial clock (87.2692ms)
+✔ cleared or absent booking date controls fail without falling back to a default (0.4425ms)
+✔ booking results retain optional blank fields and explicit zero results (1.0479ms)
+✔ booking results reject negative and fractional package counts and invalid weights (39.6918ms)
+✔ yard write permissions are exact and a read or role alone grants no actions (0.5804ms)
+✔ move destinations exclude occupied, inactive, closed block and current source slots (8.2071ms)
+✔ display type and manifest weight do not hide slots whose safety is checked by backend (3.4642ms)
+✔ FAIL and HOLD inspection outcomes need a nonblank note (6.5276ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 10
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1314.6237
+
+✖ failing tests:
+
+test at apps\web\src\components\yard\yard-operation-form.test.ts:21:1
+✖ Vietnam schedule defaults and payload are independent of browser timezone (21.1303ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + '2026-10-02T02:15'
+  - '2026-10-02T09:15'
+                 ^
+  
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\yard\yard-operation-form.test.ts:25:12)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '2026-10-02T02:15',
+    expected: '2026-10-02T09:15',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,35 @@
+{
+  "checkedAt": "2026-10-04T08:09:48.683Z",
+  "evidence": [
+    {
+      "origin": "http://127.0.0.1:8081",
+      "status": 204,
+      "allowedOrigin": "http://127.0.0.1:8081",
+      "passed": true
+    },
+    {
+      "origin": "http://localhost:8081",
+      "status": 204,
+      "allowedOrigin": "http://localhost:8081",
+      "passed": true
+    },
+    {
+      "origin": "http://127.0.0.1:5174",
+      "status": 204,
+      "allowedOrigin": "http://127.0.0.1:5174",
+      "passed": true
+    },
+    {
+      "origin": "http://localhost:5174",
+      "status": 204,
+      "allowedOrigin": "http://localhost:5174",
+      "passed": true
+    },
+    {
+      "origin": "https://untrusted.invalid",
+      "status": 204,
+      "allowedOrigin": null,
+      "passed": true
+    }
+  ]
+}

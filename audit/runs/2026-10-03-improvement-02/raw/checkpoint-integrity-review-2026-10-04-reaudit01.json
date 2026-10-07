@@ -1,0 +1,18 @@
+{
+  "at": "2026-10-04T14:53:48.941834+07:00",
+  "status": "PASS",
+  "report": "audit/2026-10-04-reaudit-01-report.md",
+  "report_sha256": "89801DF5F4CA67F70B56BDA5D6FE1273BB8341F22C602598EA33EE091EC86BCF",
+  "findings": 71,
+  "status_counts": {
+    "VERIFIED": 58,
+    "FIXED": 13
+  },
+  "locked_observations": 104,
+  "file_links_checked": 425,
+  "raw_files_secret_checked": 719,
+  "historical_files_preserved": 9,
+  "source_hashes_match_final_checks": 220,
+  "review_scope": "Root integrity review, not independent human or spoken screen-reader acceptance.",
+  "report_generator_note": "Historical reports preserved; exact source/technical log hashes and independent locked-rubric arithmetic validated."
+}

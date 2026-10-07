@@ -1,0 +1,10 @@
+--- before/apps/mobile/tests/api-network.test.cjs
++++ after/apps/mobile/tests/api-network.test.cjs
+@@ -43,6 +43,7 @@
+   const api = load('services/api/api-client.ts', {
+     '../../storage/auth.storage': { authStorage: storage },
+     './api-protocol': load('services/api/api-protocol.ts'),
++    './connection-gate': load('services/api/connection-gate.ts'),
+   });
+   api.setUnauthorizedHandler(() => {
+     unauthorized++;

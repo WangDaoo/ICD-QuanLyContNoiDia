@@ -1,0 +1,69 @@
+✔ ManifestsView: operational overlays use a named modal with a close route (46.4224ms)
+✔ ManifestsView: visible field labels identify their adjacent native control (17.8339ms)
+✔ ContainersView: operational overlays use a named modal with a close route (23.0845ms)
+✖ ContainersView: visible field labels identify their adjacent native control (15.8074ms)
+✔ TruckVisitsView: operational overlays use a named modal with a close route (3.4901ms)
+✔ TruckVisitsView: visible field labels identify their adjacent native control (5.1676ms)
+✔ BillingView: operational overlays use a named modal with a close route (9.8344ms)
+✔ BillingView: visible field labels identify their adjacent native control (9.1341ms)
+✔ GatePassView: operational overlays use a named modal with a close route (8.2925ms)
+✖ GatePassView: visible field labels identify their adjacent native control (6.2372ms)
+✔ HandoversView: operational overlays use a named modal with a close route (5.7345ms)
+✔ HandoversView: visible field labels identify their adjacent native control (5.3654ms)
+✔ MasterDataView: operational overlays use a named modal with a close route (4.8813ms)
+✔ MasterDataView: visible field labels identify their adjacent native control (3.7175ms)
+✔ UsersRolesView: operational overlays use a named modal with a close route (5.2247ms)
+✔ UsersRolesView: visible field labels identify their adjacent native control (4.1477ms)
+✔ PartnerManagementView: operational overlays use a named modal with a close route (4.2043ms)
+✔ PartnerManagementView: visible field labels identify their adjacent native control (2.6345ms)
+✔ ManifestsView: record selectors support native keyboard selection and selected state (7.0444ms)
+✔ HandoversView: record selectors support native keyboard selection and selected state (6.725ms)
+✔ GatePassView: record selectors support native keyboard selection and selected state (3.7268ms)
+✔ EDIView: record selectors support native keyboard selection and selected state (5.2215ms)
+✔ PartnerManagementView: record selectors support native keyboard selection and selected state (3.7738ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 21
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1115.8806
+
+✖ failing tests:
+
+test at audit\tools\runtime\web-semantics.test.mjs:58:3
+✖ ContainersView: visible field labels identify their adjacent native control (15.8074ms)
+  AssertionError [ERR_ASSERTION]: ContainersView: <label className="block font-semibold text-slate-700 mb-1">Hãng tàu</label> has no native association
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/web-semantics.test.mjs:74:16)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\runtime\web-semantics.test.mjs:58:3
+✖ GatePassView: visible field labels identify their adjacent native control (6.2372ms)
+  AssertionError [ERR_ASSERTION]: GatePassView: <label className="block font-semibold text-slate-700 mb-1">Biển số xe nhận hàng*</label> has no native association
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/web-semantics.test.mjs:74:16)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

@@ -1,0 +1,4006 @@
+{
+  "generatedAt": "2026-10-02T20:00:37.354Z",
+  "method": "Validated file/line existence and excerpted source around every evidence anchor; compared all source SHA-256 values to static inventory",
+  "findings": 20,
+  "snippetRange": "5-20 lines",
+  "violations": [],
+  "changedSourceFiles": [],
+  "excerpts": [
+    {
+      "id": "W-S-001",
+      "file": "apps/web/src/components/TruckVisitsView.tsx",
+      "line": 159,
+      "detail": "Create overlay and panel are divs; component imports useState only and contains no focus/key handlers.",
+      "excerpt": [
+        {
+          "line": 157,
+          "text": "      {/* Create Modal */}"
+        },
+        {
+          "line": 158,
+          "text": "      {showCreateModal && ("
+        },
+        {
+          "line": 159,
+          "text": "        <div className=\"fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center z-50 p-4\">"
+        },
+        {
+          "line": 160,
+          "text": "          <div className=\"bg-white rounded-xl max-w-md w-full p-6 shadow-xl border border-slate-200 text-xs\">"
+        },
+        {
+          "line": 161,
+          "text": "            <h3 className=\"text-base font-bold text-slate-900 mb-4\">Tạo Lịch hẹn Chuyến xe (Truck Visit)</h3>"
+        },
+        {
+          "line": 162,
+          "text": "            <form onSubmit={handleCreate} className=\"space-y-3\">"
+        },
+        {
+          "line": 163,
+          "text": "              <div>"
+        },
+        {
+          "line": 164,
+          "text": "                <label className=\"block font-semibold text-slate-700 mb-1\">Loại chuyến xe</label>"
+        }
+      ]
+    },
+    {
+      "id": "W-S-001",
+      "file": "apps/web/src/components/BillingView.tsx",
+      "line": 398,
+      "detail": "Tariff overlay; same structure at 436,477,522.",
+      "excerpt": [
+        {
+          "line": 396,
+          "text": "      {/* Create Tariff Modal */}"
+        },
+        {
+          "line": 397,
+          "text": "      {showTariffModal && ("
+        },
+        {
+          "line": 398,
+          "text": "        <div className=\"fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center z-50 p-4\">"
+        },
+        {
+          "line": 399,
+          "text": "          <div className=\"bg-white rounded-xl max-w-sm w-full p-6 shadow-xl border border-slate-200 text-xs\">"
+        },
+        {
+          "line": 400,
+          "text": "            <h3 className=\"text-base font-bold text-slate-900 mb-4\">Tạo Bảng giá mới</h3>"
+        },
+        {
+          "line": 401,
+          "text": "            <div className=\"space-y-3\">"
+        },
+        {
+          "line": 402,
+          "text": "              <div>"
+        },
+        {
+          "line": 403,
+          "text": "                <label className=\"block font-semibold text-slate-700 mb-1\">Tên bảng giá*</label>"
+        }
+      ]
+    },
+    {
+      "id": "W-S-001",
+      "file": "apps/web/src/components/ManifestsView.tsx",
+      "line": 373,
+      "detail": "Create overlay; MBL 470 and HBL 514 are also plain div overlays.",
+      "excerpt": [
+        {
+          "line": 371,
+          "text": "      {/* Create Modal */}"
+        },
+        {
+          "line": 372,
+          "text": "      {showCreateModal && ("
+        },
+        {
+          "line": 373,
+          "text": "        <div className=\"fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center z-50 p-4\">"
+        },
+        {
+          "line": 374,
+          "text": "          <div className=\"bg-white rounded-xl max-w-lg w-full p-6 shadow-xl border border-slate-200\">"
+        },
+        {
+          "line": 375,
+          "text": "            <h3 className=\"text-base font-bold text-slate-900 mb-4\">Tạo Bản lược khai (Manifest) mới</h3>"
+        },
+        {
+          "line": 376,
+          "text": "            <form onSubmit={handleCreateManifest} className=\"space-y-4 text-xs\">"
+        },
+        {
+          "line": 377,
+          "text": "              <p className=\"text-slate-500\">Mã Manifest được backend cấp sau khi lưu.</p>"
+        },
+        {
+          "line": 378,
+          "text": "              <div className=\"grid grid-cols-2 gap-3\">"
+        }
+      ]
+    },
+    {
+      "id": "W-S-001",
+      "file": "apps/web/src/components/ContainersView.tsx",
+      "line": 321,
+      "detail": "Container 360 role/name exist; no focus/keydown implementation in file.",
+      "excerpt": [
+        {
+          "line": 319,
+          "text": "      {activeVisit && ("
+        },
+        {
+          "line": 320,
+          "text": "        <div className=\"fixed inset-0 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center z-50 p-4 overflow-y-auto\">"
+        },
+        {
+          "line": 321,
+          "text": "          <div role=\"dialog\" aria-modal=\"true\" aria-label={`Container 360 ${activeVisit.containerNumber}`} className=\"bg-white rounded-2xl max-w-5xl w-full p-6 shadow-2xl border border-slate-200 max-h-[90vh] flex flex-col my-auto\">"
+        },
+        {
+          "line": 322,
+          "text": "            {/* Modal Header */}"
+        },
+        {
+          "line": 323,
+          "text": "            <div className=\"flex items-start justify-between pb-4 border-b border-slate-200\">"
+        },
+        {
+          "line": 324,
+          "text": "              <div>"
+        },
+        {
+          "line": 325,
+          "text": "                <div className=\"flex items-center space-x-3\">"
+        },
+        {
+          "line": 326,
+          "text": "                  <h3 className=\"text-xl font-bold font-mono text-slate-900\">{activeVisit.containerNumber}</h3>"
+        }
+      ]
+    },
+    {
+      "id": "W-S-001",
+      "file": "apps/web/src/components/ContainersView.tsx",
+      "line": 897,
+      "detail": "Create Visit plain div overlay.",
+      "excerpt": [
+        {
+          "line": 895,
+          "text": "      {/* Create Container Visit Modal */}"
+        },
+        {
+          "line": 896,
+          "text": "      {showCreateVisit && ("
+        },
+        {
+          "line": 897,
+          "text": "        <div className=\"fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center z-50 p-4\">"
+        },
+        {
+          "line": 898,
+          "text": "          <div className=\"bg-white rounded-xl max-w-lg w-full p-6 shadow-xl border border-slate-200 text-xs\">"
+        },
+        {
+          "line": 899,
+          "text": "            <h3 className=\"text-base font-bold text-slate-900 mb-4\">Tạo Container Visit thủ công</h3>"
+        },
+        {
+          "line": 900,
+          "text": "            <div className=\"space-y-3\">"
+        },
+        {
+          "line": 901,
+          "text": "              <div>"
+        },
+        {
+          "line": 902,
+          "text": "                <label className=\"block font-semibold text-slate-700 mb-1\">Số container* (ISO 6346)</label>"
+        }
+      ]
+    },
+    {
+      "id": "W-S-001",
+      "file": "apps/web/src/components/GatePassView.tsx",
+      "line": 347,
+      "detail": "Issue overlay.",
+      "excerpt": [
+        {
+          "line": 345,
+          "text": "      {/* Issue Modal */}"
+        },
+        {
+          "line": 346,
+          "text": "      {showIssueModal && ("
+        },
+        {
+          "line": 347,
+          "text": "        <div className=\"fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center z-50 p-4\">"
+        },
+        {
+          "line": 348,
+          "text": "          <div className=\"bg-white rounded-xl max-w-md w-full p-6 shadow-xl border border-slate-200 text-xs\">"
+        },
+        {
+          "line": 349,
+          "text": "            <h3 className=\"text-base font-bold text-slate-900 mb-2\">Phát hành Phiếu ra cổng (Gate Pass)</h3>"
+        },
+        {
+          "line": 350,
+          "text": "            <p className=\"text-slate-500 mb-4\">"
+        },
+        {
+          "line": 351,
+          "text": "              Chọn container để kiểm tra hồ sơ, thanh toán và lệnh giữ từ backend trước khi phát hành."
+        },
+        {
+          "line": 352,
+          "text": "            </p>"
+        }
+      ]
+    },
+    {
+      "id": "W-S-001",
+      "file": "apps/web/src/components/HandoversView.tsx",
+      "line": 424,
+      "detail": "Create overlay.",
+      "excerpt": [
+        {
+          "line": 422,
+          "text": "      {/* Create Handover Modal */}"
+        },
+        {
+          "line": 423,
+          "text": "      {showCreateModal && ("
+        },
+        {
+          "line": 424,
+          "text": "        <div className=\"fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center z-50 p-4\">"
+        },
+        {
+          "line": 425,
+          "text": "          <div className=\"bg-white rounded-xl max-w-lg w-full p-6 shadow-xl border border-slate-200 text-xs\">"
+        },
+        {
+          "line": 426,
+          "text": "            <h3 className=\"text-base font-bold text-slate-900 mb-2\">Tạo lệnh bàn giao vận chuyển ngoài</h3>"
+        },
+        {
+          "line": 427,
+          "text": "            <p className=\"text-slate-500 mb-4\">"
+        },
+        {
+          "line": 428,
+          "text": "              Khởi tạo hồ sơ ủy thác container ra ngoài ICD cho đối tác vận tải chuyển đến kho nhận đích."
+        },
+        {
+          "line": 429,
+          "text": "            </p>"
+        }
+      ]
+    },
+    {
+      "id": "W-S-001",
+      "file": "apps/web/src/components/MasterDataView.tsx",
+      "line": 152,
+      "detail": "Create overlay.",
+      "excerpt": [
+        {
+          "line": 150,
+          "text": ""
+        },
+        {
+          "line": 151,
+          "text": "      {showForm && ("
+        },
+        {
+          "line": 152,
+          "text": "        <div className=\"fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center z-50 p-4\">"
+        },
+        {
+          "line": 153,
+          "text": "          <div className=\"bg-white rounded-xl max-w-sm w-full p-6 shadow-xl border border-slate-200 text-xs\">"
+        },
+        {
+          "line": 154,
+          "text": "            <h3 className=\"text-base font-bold text-slate-900 mb-4\">Thêm {tabs.find((t) => t.id === tab)?.label}</h3>"
+        },
+        {
+          "line": 155,
+          "text": "            <div className=\"space-y-3\">"
+        },
+        {
+          "line": 156,
+          "text": "              <div>"
+        },
+        {
+          "line": 157,
+          "text": "                <label className=\"block font-semibold text-slate-700 mb-1\">Tên*</label>"
+        }
+      ]
+    },
+    {
+      "id": "W-S-001",
+      "file": "apps/web/src/components/UsersRolesView.tsx",
+      "line": 146,
+      "detail": "Create overlay.",
+      "excerpt": [
+        {
+          "line": 144,
+          "text": ""
+        },
+        {
+          "line": 145,
+          "text": "      {showUserForm && ("
+        },
+        {
+          "line": 146,
+          "text": "        <div className=\"fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center z-50 p-4\">"
+        },
+        {
+          "line": 147,
+          "text": "          <div className=\"bg-white rounded-xl max-w-sm w-full p-6 shadow-xl border border-slate-200 text-xs\">"
+        },
+        {
+          "line": 148,
+          "text": "            <h3 className=\"text-base font-bold text-slate-900 mb-4\">Thêm người dùng</h3>"
+        },
+        {
+          "line": 149,
+          "text": "            <div className=\"space-y-3\">"
+        },
+        {
+          "line": 150,
+          "text": "              <div>"
+        },
+        {
+          "line": 151,
+          "text": "                <label className=\"block font-semibold text-slate-700 mb-1\">Họ tên*</label>"
+        }
+      ]
+    },
+    {
+      "id": "W-S-001",
+      "file": "apps/web/src/components/PartnerManagementView.tsx",
+      "line": 151,
+      "detail": "Create partner overlay.",
+      "excerpt": [
+        {
+          "line": 149,
+          "text": ""
+        },
+        {
+          "line": 150,
+          "text": "        {showAddModal && ("
+        },
+        {
+          "line": 151,
+          "text": "          <div className=\"fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center z-50 p-4\">"
+        },
+        {
+          "line": 152,
+          "text": "            <div className=\"bg-white rounded-xl max-w-md w-full p-6 shadow-xl border border-slate-200 text-xs\">"
+        },
+        {
+          "line": 153,
+          "text": "              <h3 className=\"text-base font-bold text-slate-900 mb-2\">Đăng ký Đối tác Tích hợp API mới</h3>"
+        },
+        {
+          "line": 154,
+          "text": ""
+        },
+        {
+          "line": 155,
+          "text": "              {newApiKeyResult ? ("
+        },
+        {
+          "line": 156,
+          "text": "                <div className=\"space-y-4\">"
+        }
+      ]
+    },
+    {
+      "id": "W-S-002",
+      "file": "apps/web/src/components/TruckVisitsView.tsx",
+      "line": 188,
+      "detail": "Plate visible label followed by unnamed input at 189; driver 200/201, phone 210/211, transporter 222/223 and container 232/233 also lack associations.",
+      "excerpt": [
+        {
+          "line": 186,
+          "text": ""
+        },
+        {
+          "line": 187,
+          "text": "              <div>"
+        },
+        {
+          "line": 188,
+          "text": "                <label className=\"block font-semibold text-slate-700 mb-1\">Biển số đầu kéo*</label>"
+        },
+        {
+          "line": 189,
+          "text": "                <input"
+        },
+        {
+          "line": 190,
+          "text": "                  type=\"text\""
+        },
+        {
+          "line": 191,
+          "text": "                  required"
+        },
+        {
+          "line": 192,
+          "text": "                  value={plate}"
+        },
+        {
+          "line": 193,
+          "text": "                  onChange={(e) => setPlate(e.target.value)}"
+        }
+      ]
+    },
+    {
+      "id": "W-S-002",
+      "file": "apps/web/src/components/MasterDataView.tsx",
+      "line": 157,
+      "detail": "Name label and input at 158; additional code/tax/phone/address/email follow same structure.",
+      "excerpt": [
+        {
+          "line": 155,
+          "text": "            <div className=\"space-y-3\">"
+        },
+        {
+          "line": 156,
+          "text": "              <div>"
+        },
+        {
+          "line": 157,
+          "text": "                <label className=\"block font-semibold text-slate-700 mb-1\">Tên*</label>"
+        },
+        {
+          "line": 158,
+          "text": "                <input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className=\"w-full px-3 py-2 border border-slate-300 rounded-lg\" />"
+        },
+        {
+          "line": 159,
+          "text": "              </div>"
+        },
+        {
+          "line": 160,
+          "text": "              {tab === 'SHIPPING_LINES' ? ("
+        },
+        {
+          "line": 161,
+          "text": "                <div>"
+        },
+        {
+          "line": 162,
+          "text": "                  <label className=\"block font-semibold text-slate-700 mb-1\">Mã SCAC</label>"
+        }
+      ]
+    },
+    {
+      "id": "W-S-002",
+      "file": "apps/web/src/components/UsersRolesView.tsx",
+      "line": 151,
+      "detail": "Name label/input at 152 and email 155/156.",
+      "excerpt": [
+        {
+          "line": 149,
+          "text": "            <div className=\"space-y-3\">"
+        },
+        {
+          "line": 150,
+          "text": "              <div>"
+        },
+        {
+          "line": 151,
+          "text": "                <label className=\"block font-semibold text-slate-700 mb-1\">Họ tên*</label>"
+        },
+        {
+          "line": 152,
+          "text": "                <input value={userForm.name} onChange={(e) => setUserForm({ ...userForm, name: e.target.value })} className=\"w-full px-3 py-2 border border-slate-300 rounded-lg\" />"
+        },
+        {
+          "line": 153,
+          "text": "              </div>"
+        },
+        {
+          "line": 154,
+          "text": "              <div>"
+        },
+        {
+          "line": 155,
+          "text": "                <label className=\"block font-semibold text-slate-700 mb-1\">Email*</label>"
+        },
+        {
+          "line": 156,
+          "text": "                <input value={userForm.email} onChange={(e) => setUserForm({ ...userForm, email: e.target.value })} className=\"w-full px-3 py-2 border border-slate-300 rounded-lg\" />"
+        }
+      ]
+    },
+    {
+      "id": "W-S-002",
+      "file": "apps/web/src/components/BillingView.tsx",
+      "line": 532,
+      "detail": "Payment amount label/input 533; payment method 543/544; tariff/rule/order fields likewise.",
+      "excerpt": [
+        {
+          "line": 530,
+          "text": "            <form onSubmit={handleRecordPayment} className=\"space-y-4\">"
+        },
+        {
+          "line": 531,
+          "text": "              <div>"
+        },
+        {
+          "line": 532,
+          "text": "                <label className=\"block font-semibold text-slate-700 mb-1\">Số tiền thanh toán (VNĐ)*</label>"
+        },
+        {
+          "line": 533,
+          "text": "                <input"
+        },
+        {
+          "line": 534,
+          "text": "                  type=\"number\""
+        },
+        {
+          "line": 535,
+          "text": "                  required"
+        },
+        {
+          "line": 536,
+          "text": "                  value={payAmount}"
+        },
+        {
+          "line": 537,
+          "text": "                  onChange={(e) => setPayAmount(parseInt(e.target.value, 10) || 0)}"
+        }
+      ]
+    },
+    {
+      "id": "W-S-002",
+      "file": "apps/web/src/components/HandoversView.tsx",
+      "line": 433,
+      "detail": "Transport code label/input 434 and three selects 444/445,460/461,475/476.",
+      "excerpt": [
+        {
+          "line": 431,
+          "text": "            <form onSubmit={handleCreate} className=\"space-y-4\">"
+        },
+        {
+          "line": 432,
+          "text": "              <div>"
+        },
+        {
+          "line": 433,
+          "text": "                <label className=\"block font-semibold text-slate-700 mb-1\">Mã chuyến vận chuyển*</label>"
+        },
+        {
+          "line": 434,
+          "text": "                <input"
+        },
+        {
+          "line": 435,
+          "text": "                  type=\"text\""
+        },
+        {
+          "line": 436,
+          "text": "                  required"
+        },
+        {
+          "line": 437,
+          "text": "                  value={transportCodeInput}"
+        },
+        {
+          "line": 438,
+          "text": "                  onChange={(e) => setTransportCodeInput(e.target.value)}"
+        }
+      ]
+    },
+    {
+      "id": "W-S-002",
+      "file": "apps/web/src/components/ManifestsView.tsx",
+      "line": 519,
+      "detail": "HBL label/input 520, consignee 523/524, agent 527/528, description 531/532, numeric 536/537,540/541.",
+      "excerpt": [
+        {
+          "line": 517,
+          "text": "            <div className=\"space-y-3\">"
+        },
+        {
+          "line": 518,
+          "text": "              <div>"
+        },
+        {
+          "line": 519,
+          "text": "                <label className=\"block font-semibold text-slate-700 mb-1\">Số HBL*</label>"
+        },
+        {
+          "line": 520,
+          "text": "                <input type=\"text\" value={hblForm.hblNumber} onChange={(e) => setHblForm({ ...hblForm, hblNumber: e.target.value })} className=\"w-full px-3 py-2 border border-slate-300 rounded-lg\" />"
+        },
+        {
+          "line": 521,
+          "text": "              </div>"
+        },
+        {
+          "line": 522,
+          "text": "              <div>"
+        },
+        {
+          "line": 523,
+          "text": "                <label className=\"block font-semibold text-slate-700 mb-1\">Chủ hàng (Consignee)*</label>"
+        },
+        {
+          "line": 524,
+          "text": "                <select value={hblForm.consigneeName} onChange={(e) => setHblForm({ ...hblForm, consigneeName: e.target.value })} className=\"w-full px-3 py-2 border border-slate-300 rounded-lg\"><option value=\"\">Chọn từ danh mục</option>{consignees.filter(item => item.active).map(item => <option key={item.id} value={item.id}>{item.name}</option>)}</select>"
+        }
+      ]
+    },
+    {
+      "id": "W-S-002",
+      "file": "apps/web/src/components/ContainersView.tsx",
+      "line": 686,
+      "detail": "Inline Gate Pass labels/input 687,695/696,704/705; Seal 951/952 and weight 955/956.",
+      "excerpt": [
+        {
+          "line": 684,
+          "text": "                          <div className=\"grid grid-cols-3 gap-2\">"
+        },
+        {
+          "line": 685,
+          "text": "                            <div>"
+        },
+        {
+          "line": 686,
+          "text": "                              <label className=\"block text-slate-600 mb-1\">Biển số xe nhận</label>"
+        },
+        {
+          "line": 687,
+          "text": "                              <input"
+        },
+        {
+          "line": 688,
+          "text": "                                type=\"text\""
+        },
+        {
+          "line": 689,
+          "text": "                                value={gpPlate}"
+        },
+        {
+          "line": 690,
+          "text": "                                onChange={(e) => setGpPlate(e.target.value)}"
+        },
+        {
+          "line": 691,
+          "text": "                                className=\"w-full px-2.5 py-1.5 border border-slate-300 rounded bg-white\""
+        }
+      ]
+    },
+    {
+      "id": "W-S-003",
+      "file": "apps/web/src/components/ManifestsView.tsx",
+      "line": 209,
+      "detail": "Manifest card onClick at 211.",
+      "excerpt": [
+        {
+          "line": 207,
+          "text": "                const isSelected = selectedManifest?.id === m.id;"
+        },
+        {
+          "line": 208,
+          "text": "                return ("
+        },
+        {
+          "line": 209,
+          "text": "                  <div"
+        },
+        {
+          "line": 210,
+          "text": "                    key={m.id}"
+        },
+        {
+          "line": 211,
+          "text": "                    onClick={() => setSelectedManifestId(m.id)}"
+        },
+        {
+          "line": 212,
+          "text": "                    className={`p-4 rounded-xl border cursor-pointer transition ${"
+        },
+        {
+          "line": 213,
+          "text": "                      isSelected"
+        },
+        {
+          "line": 214,
+          "text": "                        ? 'bg-blue-50/50 border-blue-500 shadow-xs'"
+        }
+      ]
+    },
+    {
+      "id": "W-S-003",
+      "file": "apps/web/src/components/HandoversView.tsx",
+      "line": 214,
+      "detail": "Handover card onClick at 216.",
+      "excerpt": [
+        {
+          "line": 212,
+          "text": "            const isSelected = selectedHandover?.id === h.id;"
+        },
+        {
+          "line": 213,
+          "text": "            return ("
+        },
+        {
+          "line": 214,
+          "text": "              <div"
+        },
+        {
+          "line": 215,
+          "text": "                key={h.id}"
+        },
+        {
+          "line": 216,
+          "text": "                onClick={() => setSelectedHandover(h)}"
+        },
+        {
+          "line": 217,
+          "text": "                className={`p-4 rounded-xl border cursor-pointer transition ${"
+        },
+        {
+          "line": 218,
+          "text": "                  isSelected"
+        },
+        {
+          "line": 219,
+          "text": "                    ? 'bg-indigo-50/50 border-indigo-500 shadow-xs'"
+        }
+      ]
+    },
+    {
+      "id": "W-S-003",
+      "file": "apps/web/src/components/GatePassView.tsx",
+      "line": 204,
+      "detail": "Gate Pass card onClick at 206.",
+      "excerpt": [
+        {
+          "line": 202,
+          "text": "              const isExpired = new Date(gp.expiresAt).getTime() < Date.now();"
+        },
+        {
+          "line": 203,
+          "text": "              return ("
+        },
+        {
+          "line": 204,
+          "text": "                <div"
+        },
+        {
+          "line": 205,
+          "text": "                  key={gp.id}"
+        },
+        {
+          "line": 206,
+          "text": "                  onClick={() => setSelectedGatePassId(gp.id)}"
+        },
+        {
+          "line": 207,
+          "text": "                  className={`p-4 rounded-xl border cursor-pointer transition ${"
+        },
+        {
+          "line": 208,
+          "text": "                    isSelected"
+        },
+        {
+          "line": 209,
+          "text": "                      ? 'bg-indigo-50/60 border-indigo-500 shadow-xs'"
+        }
+      ]
+    },
+    {
+      "id": "W-S-003",
+      "file": "apps/web/src/components/EDIView.tsx",
+      "line": 208,
+      "detail": "Outbox card onClick at 210.",
+      "excerpt": [
+        {
+          "line": 206,
+          "text": "            const isSelected = selectedEdi?.id === edi.id;"
+        },
+        {
+          "line": 207,
+          "text": "            return ("
+        },
+        {
+          "line": 208,
+          "text": "              <div"
+        },
+        {
+          "line": 209,
+          "text": "                key={edi.id}"
+        },
+        {
+          "line": 210,
+          "text": "                onClick={() => setSelectedEdiId(edi.id)}"
+        },
+        {
+          "line": 211,
+          "text": "                className={`p-4 rounded-xl border cursor-pointer transition ${"
+        },
+        {
+          "line": 212,
+          "text": "                  isSelected"
+        },
+        {
+          "line": 213,
+          "text": "                    ? 'bg-blue-50/60 border-blue-500 shadow-xs'"
+        }
+      ]
+    },
+    {
+      "id": "W-S-003",
+      "file": "apps/web/src/components/PartnerManagementView.tsx",
+      "line": 246,
+      "detail": "Partner log card onClick at 248.",
+      "excerpt": [
+        {
+          "line": 244,
+          "text": "            const isSelected = selectedLog?.id === log.id;"
+        },
+        {
+          "line": 245,
+          "text": "            return ("
+        },
+        {
+          "line": 246,
+          "text": "              <div"
+        },
+        {
+          "line": 247,
+          "text": "                key={log.id}"
+        },
+        {
+          "line": 248,
+          "text": "                onClick={() => setSelectedLog(log)}"
+        },
+        {
+          "line": 249,
+          "text": "                className={`p-3.5 rounded-xl border cursor-pointer transition text-xs ${"
+        },
+        {
+          "line": 250,
+          "text": "                  isSelected"
+        },
+        {
+          "line": 251,
+          "text": "                    ? 'bg-indigo-50/70 border-indigo-500 shadow-xs'"
+        }
+      ]
+    },
+    {
+      "id": "W-S-004",
+      "file": "apps/web/src/components/MasterDataView.tsx",
+      "line": 36,
+      "detail": "Four create Promises at 38-41; unconditional reset/close at 42-43.",
+      "excerpt": [
+        {
+          "line": 34,
+          "text": "  const resetForm = () => setForm({ name: '', code: '', taxCode: '', phone: '', email: '', address: '' });"
+        },
+        {
+          "line": 35,
+          "text": ""
+        },
+        {
+          "line": 36,
+          "text": "  const handleCreate = () => {"
+        },
+        {
+          "line": 37,
+          "text": "    if (!form.name.trim()) return;"
+        },
+        {
+          "line": 38,
+          "text": "    if (tab === 'SHIPPING_LINES') createShippingLine(form.name.trim(), form.code.trim() || undefined);"
+        },
+        {
+          "line": 39,
+          "text": "    if (tab === 'CONSIGNEES') createConsignee({ name: form.name.trim(), taxCode: form.taxCode.trim(), phone: form.phone, email: form.email, address: form.address });"
+        },
+        {
+          "line": 40,
+          "text": "    if (tab === 'CLEARING_AGENTS') createClearingAgent({ name: form.name.trim(), taxCode: form.taxCode.trim(), phone: form.phone, address: form.address });"
+        },
+        {
+          "line": 41,
+          "text": "    if (tab === 'TRANSPORTERS') createTransporter({ name: form.name.trim(), taxCode: form.taxCode.trim(), phone: form.phone, address: form.address });"
+        }
+      ]
+    },
+    {
+      "id": "W-S-004",
+      "file": "apps/web/src/components/UsersRolesView.tsx",
+      "line": 176,
+      "detail": "createManagedUser at 178, reset/close at 179-180.",
+      "excerpt": [
+        {
+          "line": 174,
+          "text": "              <button onClick={() => setShowUserForm(false)} className=\"px-4 py-2 border border-slate-300 text-slate-700 rounded-lg font-medium\">Hủy</button>"
+        },
+        {
+          "line": 175,
+          "text": "              <button"
+        },
+        {
+          "line": 176,
+          "text": "                onClick={() => {"
+        },
+        {
+          "line": 177,
+          "text": "                  if (!userForm.name.trim() || !userForm.email.trim()) return;"
+        },
+        {
+          "line": 178,
+          "text": "                  createManagedUser(userForm.name.trim(), userForm.email.trim(), userForm.roleCodes);"
+        },
+        {
+          "line": 179,
+          "text": "                  setUserForm({ name: '', email: '', roleCodes: [] });"
+        },
+        {
+          "line": 180,
+          "text": "                  setShowUserForm(false);"
+        },
+        {
+          "line": 181,
+          "text": "                }}"
+        }
+      ]
+    },
+    {
+      "id": "W-S-004",
+      "file": "apps/web/src/context/AppContext.tsx",
+      "line": 445,
+      "detail": "command awaits executeOperation; failed writes set global apiError at 448.",
+      "excerpt": [
+        {
+          "line": 443,
+          "text": "  const write = async (path: string, payload?: any, method: 'POST' | 'PATCH' | 'PUT' = 'POST') =>"
+        },
+        {
+          "line": 444,
+          "text": "    unwrapData<any>(await apiClient.request({ method, url: path, data: payload }));"
+        },
+        {
+          "line": 445,
+          "text": "  const command = async (path: string, payload?: any, method: 'POST' | 'PATCH' | 'PUT' = 'POST') => {"
+        },
+        {
+          "line": 446,
+          "text": "    if (!isAuthenticated) return { success: false, message: 'Vui lòng đăng nhập.' } as CommandResult;"
+        },
+        {
+          "line": 447,
+          "text": "    const result = await executeOperation(() => write(path, payload, method), refreshData);"
+        },
+        {
+          "line": 448,
+          "text": "    if (!result.success) setApiError(result.message);"
+        },
+        {
+          "line": 449,
+          "text": "    return result;"
+        },
+        {
+          "line": 450,
+          "text": "  };"
+        }
+      ]
+    },
+    {
+      "id": "W-S-005",
+      "file": "apps/web/src/components/BillingView.tsx",
+      "line": 88,
+      "detail": "Payment handler lacks re-entry/pending guard.",
+      "excerpt": [
+        {
+          "line": 86,
+          "text": "  };"
+        },
+        {
+          "line": 87,
+          "text": ""
+        },
+        {
+          "line": 88,
+          "text": "  const handleRecordPayment = async (e: React.FormEvent) => {"
+        },
+        {
+          "line": 89,
+          "text": "    e.preventDefault();"
+        },
+        {
+          "line": 90,
+          "text": "    if (!selectedInvoice) return;"
+        },
+        {
+          "line": 91,
+          "text": "    const result = await recordPayment(selectedInvoice.id, payAmount, payMethod);"
+        },
+        {
+          "line": 92,
+          "text": "    alert(result.message);"
+        },
+        {
+          "line": 93,
+          "text": "    if (!result.success) return;"
+        }
+      ]
+    },
+    {
+      "id": "W-S-005",
+      "file": "apps/web/src/components/BillingView.tsx",
+      "line": 562,
+      "detail": "Payment submit has no disabled/pending label.",
+      "excerpt": [
+        {
+          "line": 560,
+          "text": "                  Hủy"
+        },
+        {
+          "line": 561,
+          "text": "                </button>"
+        },
+        {
+          "line": 562,
+          "text": "                <button"
+        },
+        {
+          "line": 563,
+          "text": "                  type=\"submit\""
+        },
+        {
+          "line": 564,
+          "text": "                  className=\"px-4 py-2 bg-emerald-600 text-white rounded-lg font-bold hover:bg-emerald-700\""
+        },
+        {
+          "line": 565,
+          "text": "                >"
+        },
+        {
+          "line": 566,
+          "text": "                  Xác nhận Thu tiền"
+        },
+        {
+          "line": 567,
+          "text": "                </button>"
+        }
+      ]
+    },
+    {
+      "id": "W-S-005",
+      "file": "apps/web/src/context/AppContext.tsx",
+      "line": 489,
+      "detail": "recordPayment sends a newly generated WEB reference per call.",
+      "excerpt": [
+        {
+          "line": 487,
+          "text": "    },"
+        },
+        {
+          "line": 488,
+          "text": "    createServiceOrder: (id) => command('/containers/' + id + '/service-orders', { containerVisitId: id }),"
+        },
+        {
+          "line": 489,
+          "text": "    recordPayment: (id, amount, method) => method === 'THE' ? Promise.resolve({ success: false, message: 'Backend chỉ hỗ trợ tiền mặt hoặc chuyển khoản.' }) : command('/invoices/' + id + '/payments', { amount, method: method === 'TIEN_MAT' ? 'CASH' : 'BANK_TRANSFER', paidAt: new Date().toISOString(), referenceNo: 'WEB-' + crypto.randomUUID() }),"
+        },
+        {
+          "line": 490,
+          "text": "    createInspection: (id, inspectionType, notes) => command('/containers/' + id + '/inspections', { inspectionType: inspectionType === 'Hải quan' ? 'CUSTOMS' : inspectionType === 'Kiểm dịch' ? 'QUARANTINE' : 'DAMAGE_CHECK', notes }),"
+        },
+        {
+          "line": 491,
+          "text": "    startInspection: id => command('/inspections/' + id + '/start'),"
+        },
+        {
+          "line": 492,
+          "text": "    completeInspection: async (id, result, notes) => {"
+        },
+        {
+          "line": 493,
+          "text": "      const inspection = data.inspections.find((i: any) => i.id === id);"
+        },
+        {
+          "line": 494,
+          "text": "      if (inspection?.status === 'PENDING') {"
+        }
+      ]
+    },
+    {
+      "id": "W-S-005",
+      "file": "apps/web/src/components/TruckVisitsView.tsx",
+      "line": 42,
+      "detail": "Create handler and submit at 250 have no pending guard.",
+      "excerpt": [
+        {
+          "line": 40,
+          "text": "  );"
+        },
+        {
+          "line": 41,
+          "text": ""
+        },
+        {
+          "line": 42,
+          "text": "  const handleCreate = async (e: React.FormEvent) => {"
+        },
+        {
+          "line": 43,
+          "text": "    e.preventDefault();"
+        },
+        {
+          "line": 44,
+          "text": "    const result = await createTruckVisit({"
+        },
+        {
+          "line": 45,
+          "text": "      vehiclePlate: plate,"
+        },
+        {
+          "line": 46,
+          "text": "      driverName: driver,"
+        },
+        {
+          "line": 47,
+          "text": "      driverPhone: phone,"
+        }
+      ]
+    },
+    {
+      "id": "W-S-005",
+      "file": "apps/web/src/components/PartnerManagementView.tsx",
+      "line": 47,
+      "detail": "Create and key rotation have no pending guard.",
+      "excerpt": [
+        {
+          "line": 45,
+          "text": "  };"
+        },
+        {
+          "line": 46,
+          "text": ""
+        },
+        {
+          "line": 47,
+          "text": "  const handleCreatePartner = async (e: React.FormEvent) => {"
+        },
+        {
+          "line": 48,
+          "text": "    e.preventDefault();"
+        },
+        {
+          "line": 49,
+          "text": "    if (!newCode || !newName) return;"
+        },
+        {
+          "line": 50,
+          "text": "    const res = await createPartnerClient(newCode.trim().toUpperCase(), newName.trim(), ['read:handovers', 'write:confirmations']);"
+        },
+        {
+          "line": 51,
+          "text": "    if (res.success && res.plainApiKey) setNewApiKeyResult(res.plainApiKey);"
+        },
+        {
+          "line": 52,
+          "text": "    else alert(res.message);"
+        }
+      ]
+    },
+    {
+      "id": "W-S-005",
+      "file": "apps/web/src/components/HandoversView.tsx",
+      "line": 78,
+      "detail": "Create/publish/confirm await without operation pending state.",
+      "excerpt": [
+        {
+          "line": 76,
+          "text": "  });"
+        },
+        {
+          "line": 77,
+          "text": ""
+        },
+        {
+          "line": 78,
+          "text": "  const handleCreate = async (e: React.FormEvent) => {"
+        },
+        {
+          "line": 79,
+          "text": "    e.preventDefault();"
+        },
+        {
+          "line": 80,
+          "text": "    const cont = containerVisits.find((c) => c.id === selectedContVisitId);"
+        },
+        {
+          "line": 81,
+          "text": "    const client = partnerClients.find((p) => p.id === selectedPartnerClientId);"
+        },
+        {
+          "line": 82,
+          "text": "    const wh = warehouses.find((w) => w.id === selectedWarehouseId);"
+        },
+        {
+          "line": 83,
+          "text": "    if (!cont || !client || !wh) return;"
+        }
+      ]
+    },
+    {
+      "id": "W-S-006",
+      "file": "apps/web/src/components/MasterDataView.tsx",
+      "line": 37,
+      "detail": "Blank name returns without message; input 158 has no required.",
+      "excerpt": [
+        {
+          "line": 35,
+          "text": ""
+        },
+        {
+          "line": 36,
+          "text": "  const handleCreate = () => {"
+        },
+        {
+          "line": 37,
+          "text": "    if (!form.name.trim()) return;"
+        },
+        {
+          "line": 38,
+          "text": "    if (tab === 'SHIPPING_LINES') createShippingLine(form.name.trim(), form.code.trim() || undefined);"
+        },
+        {
+          "line": 39,
+          "text": "    if (tab === 'CONSIGNEES') createConsignee({ name: form.name.trim(), taxCode: form.taxCode.trim(), phone: form.phone, email: form.email, address: form.address });"
+        },
+        {
+          "line": 40,
+          "text": "    if (tab === 'CLEARING_AGENTS') createClearingAgent({ name: form.name.trim(), taxCode: form.taxCode.trim(), phone: form.phone, address: form.address });"
+        },
+        {
+          "line": 41,
+          "text": "    if (tab === 'TRANSPORTERS') createTransporter({ name: form.name.trim(), taxCode: form.taxCode.trim(), phone: form.phone, address: form.address });"
+        },
+        {
+          "line": 42,
+          "text": "    resetForm();"
+        }
+      ]
+    },
+    {
+      "id": "W-S-006",
+      "file": "apps/web/src/components/UsersRolesView.tsx",
+      "line": 177,
+      "detail": "Blank required fields return silently; email input at 156 has no type=email.",
+      "excerpt": [
+        {
+          "line": 175,
+          "text": "              <button"
+        },
+        {
+          "line": 176,
+          "text": "                onClick={() => {"
+        },
+        {
+          "line": 177,
+          "text": "                  if (!userForm.name.trim() || !userForm.email.trim()) return;"
+        },
+        {
+          "line": 178,
+          "text": "                  createManagedUser(userForm.name.trim(), userForm.email.trim(), userForm.roleCodes);"
+        },
+        {
+          "line": 179,
+          "text": "                  setUserForm({ name: '', email: '', roleCodes: [] });"
+        },
+        {
+          "line": 180,
+          "text": "                  setShowUserForm(false);"
+        },
+        {
+          "line": 181,
+          "text": "                }}"
+        },
+        {
+          "line": 182,
+          "text": "                className=\"px-4 py-2 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700\""
+        }
+      ]
+    },
+    {
+      "id": "W-S-006",
+      "file": "apps/web/src/components/ManifestsView.tsx",
+      "line": 496,
+      "detail": "Blank MBL number returns silently.",
+      "excerpt": [
+        {
+          "line": 494,
+          "text": "              <button"
+        },
+        {
+          "line": 495,
+          "text": "                onClick={async () => {"
+        },
+        {
+          "line": 496,
+          "text": "                  if (!mblNumber.trim()) return;"
+        },
+        {
+          "line": 497,
+          "text": "                  const result = await addMasterBl(selectedManifest.id, mblNumber.trim().toUpperCase(), mblLine);"
+        },
+        {
+          "line": 498,
+          "text": "                  alert(result.message);"
+        },
+        {
+          "line": 499,
+          "text": "                  if (!result.success) return;"
+        },
+        {
+          "line": 500,
+          "text": "                  setMblNumber('');"
+        },
+        {
+          "line": 501,
+          "text": "                  setShowMblModal(false);"
+        }
+      ]
+    },
+    {
+      "id": "W-S-006",
+      "file": "apps/web/src/components/ManifestsView.tsx",
+      "line": 549,
+      "detail": "Blank HBL/consignee returns silently.",
+      "excerpt": [
+        {
+          "line": 547,
+          "text": "              <button"
+        },
+        {
+          "line": 548,
+          "text": "                onClick={async () => {"
+        },
+        {
+          "line": 549,
+          "text": "                  if (!hblForm.hblNumber.trim() || !hblForm.consigneeName.trim()) return;"
+        },
+        {
+          "line": 550,
+          "text": "                  const result = await addHouseBl(selectedManifest.id, showHblModal.mblId, hblForm);"
+        },
+        {
+          "line": 551,
+          "text": "                  alert(result.message);"
+        },
+        {
+          "line": 552,
+          "text": "                  if (!result.success) return;"
+        },
+        {
+          "line": 553,
+          "text": "                  setHblForm({ hblNumber: '', consigneeName: '', clearingAgentName: '', cargoDescription: '', grossWeightKg: 0, packageCount: 0 });"
+        },
+        {
+          "line": 554,
+          "text": "                  setShowHblModal(null);"
+        }
+      ]
+    },
+    {
+      "id": "W-S-006",
+      "file": "apps/web/src/components/ContainersView.tsx",
+      "line": 793,
+      "detail": "Blank hold reason returns silently.",
+      "excerpt": [
+        {
+          "line": 791,
+          "text": "                          type=\"button\""
+        },
+        {
+          "line": 792,
+          "text": "                          onClick={async () => {"
+        },
+        {
+          "line": 793,
+          "text": "                            if (!newHoldReason.trim()) return;"
+        },
+        {
+          "line": 794,
+          "text": "                            const result = await createOperationalHold(activeVisit.id, newHoldType, newHoldReason.trim());"
+        },
+        {
+          "line": 795,
+          "text": "                            alert(result.message);"
+        },
+        {
+          "line": 796,
+          "text": "                            if (!result.success) return;"
+        },
+        {
+          "line": 797,
+          "text": "                            setNewHoldReason('');"
+        },
+        {
+          "line": 798,
+          "text": "                            setShowAddHold(false);"
+        }
+      ]
+    },
+    {
+      "id": "W-S-007",
+      "file": "apps/web/src/components/UsersRolesView.tsx",
+      "line": 129,
+      "detail": "Permission button selection active at 127/132 has no aria-pressed.",
+      "excerpt": [
+        {
+          "line": 127,
+          "text": "                    const active = r.permissionCodes.includes(code);"
+        },
+        {
+          "line": 128,
+          "text": "                    return ("
+        },
+        {
+          "line": 129,
+          "text": "                      <button"
+        },
+        {
+          "line": 130,
+          "text": "                        key={code}"
+        },
+        {
+          "line": 131,
+          "text": "                        onClick={() => setRolePermissions(r.id, active ? r.permissionCodes.filter((c) => c !== code) : [...r.permissionCodes, code])}"
+        },
+        {
+          "line": 132,
+          "text": "                        className={`px-2 py-1 rounded-md text-[10px] font-mono font-bold border ${active ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-slate-500 border-slate-200'}`}"
+        },
+        {
+          "line": 133,
+          "text": "                      >"
+        },
+        {
+          "line": 134,
+          "text": "                        {code}"
+        }
+      ]
+    },
+    {
+      "id": "W-S-007",
+      "file": "apps/web/src/components/UsersRolesView.tsx",
+      "line": 162,
+      "detail": "User role chips have no selected state despite includes(...) style at 165.",
+      "excerpt": [
+        {
+          "line": 160,
+          "text": "                <div className=\"flex flex-wrap gap-1.5\">"
+        },
+        {
+          "line": 161,
+          "text": "                  {roles.map((r) => ("
+        },
+        {
+          "line": 162,
+          "text": "                    <button"
+        },
+        {
+          "line": 163,
+          "text": "                      key={r.id}"
+        },
+        {
+          "line": 164,
+          "text": "                      onClick={() => toggleRoleCode(r.code)}"
+        },
+        {
+          "line": 165,
+          "text": "                      className={`px-2 py-1 rounded-md text-[10px] font-bold border ${userForm.roleCodes.includes(r.code) ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-slate-500 border-slate-200'}`}"
+        },
+        {
+          "line": 166,
+          "text": "                    >"
+        },
+        {
+          "line": 167,
+          "text": "                      {r.code}"
+        }
+      ]
+    },
+    {
+      "id": "W-S-007",
+      "file": "apps/web/src/components/BillingView.tsx",
+      "line": 142,
+      "detail": "Invoices/Orders/Tariffs local view buttons.",
+      "excerpt": [
+        {
+          "line": 140,
+          "text": "      {/* Tabs */}"
+        },
+        {
+          "line": 141,
+          "text": "      <div className=\"flex flex-wrap items-center gap-2 border-b border-slate-200 text-xs font-bold [&>button]:whitespace-nowrap\">"
+        },
+        {
+          "line": 142,
+          "text": "        <button"
+        },
+        {
+          "line": 143,
+          "text": "          onClick={() => setActiveTab('INVOICES')}"
+        },
+        {
+          "line": 144,
+          "text": "          className={`pb-2.5 px-3 border-b-2 transition ${"
+        },
+        {
+          "line": 145,
+          "text": "            activeTab === 'INVOICES' ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-500 hover:text-slate-800'"
+        },
+        {
+          "line": 146,
+          "text": "          }`}"
+        },
+        {
+          "line": 147,
+          "text": "        >"
+        }
+      ]
+    },
+    {
+      "id": "W-S-007",
+      "file": "apps/web/src/components/MasterDataView.tsx",
+      "line": 123,
+      "detail": "Category view button active only in classes.",
+      "excerpt": [
+        {
+          "line": 121,
+          "text": "          const Icon = t.icon;"
+        },
+        {
+          "line": 122,
+          "text": "          return ("
+        },
+        {
+          "line": 123,
+          "text": "            <button"
+        },
+        {
+          "line": 124,
+          "text": "              key={t.id}"
+        },
+        {
+          "line": 125,
+          "text": "              onClick={() => setTab(t.id)}"
+        },
+        {
+          "line": 126,
+          "text": "              className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition ${"
+        },
+        {
+          "line": 127,
+          "text": "                tab === t.id ? 'bg-blue-600 text-white' : 'text-slate-600 hover:bg-slate-100'"
+        },
+        {
+          "line": 128,
+          "text": "              }`}"
+        }
+      ]
+    },
+    {
+      "id": "W-S-007",
+      "file": "apps/web/src/components/EDIView.tsx",
+      "line": 74,
+      "detail": "Outbox/Routes/Alerts active only in classes.",
+      "excerpt": [
+        {
+          "line": 72,
+          "text": "        <div className=\"flex items-center space-x-2 text-xs\">"
+        },
+        {
+          "line": 73,
+          "text": "          <div className=\"flex gap-1 bg-slate-100 p-1 rounded-lg mr-1\">"
+        },
+        {
+          "line": 74,
+          "text": "            <button onClick={() => setTab('OUTBOX')} className={`px-3 py-1.5 rounded-md font-bold ${tab === 'OUTBOX' ? 'bg-white shadow-xs text-blue-700' : 'text-slate-500'}`}>Outbox</button>"
+        },
+        {
+          "line": 75,
+          "text": "            <button onClick={() => setTab('ROUTES')} className={`px-3 py-1.5 rounded-md font-bold ${tab === 'ROUTES' ? 'bg-white shadow-xs text-blue-700' : 'text-slate-500'}`}>Routes</button>"
+        },
+        {
+          "line": 76,
+          "text": "            <button onClick={() => setTab('ALERTS')} className={`px-3 py-1.5 rounded-md font-bold relative ${tab === 'ALERTS' ? 'bg-white shadow-xs text-blue-700' : 'text-slate-500'}`}>"
+        },
+        {
+          "line": 77,
+          "text": "              Alerts"
+        },
+        {
+          "line": 78,
+          "text": "              {ediAlerts.some((a) => a.status === 'OPEN') && <span className=\"absolute -top-1 -right-1 w-2 h-2 bg-rose-500 rounded-full\"></span>}"
+        },
+        {
+          "line": 79,
+          "text": "            </button>"
+        }
+      ]
+    },
+    {
+      "id": "W-S-008",
+      "file": "apps/web/src/components/GatePassView.tsx",
+      "line": 202,
+      "detail": "List computes isExpired and displays EXPIRED at 224.",
+      "excerpt": [
+        {
+          "line": 200,
+          "text": "            {filteredPasses.map((gp) => {"
+        },
+        {
+          "line": 201,
+          "text": "              const isSelected = selectedGatePass?.id === gp.id;"
+        },
+        {
+          "line": 202,
+          "text": "              const isExpired = new Date(gp.expiresAt).getTime() < Date.now();"
+        },
+        {
+          "line": 203,
+          "text": "              return ("
+        },
+        {
+          "line": 204,
+          "text": "                <div"
+        },
+        {
+          "line": 205,
+          "text": "                  key={gp.id}"
+        },
+        {
+          "line": 206,
+          "text": "                  onClick={() => setSelectedGatePassId(gp.id)}"
+        },
+        {
+          "line": 207,
+          "text": "                  className={`p-4 rounded-xl border cursor-pointer transition ${"
+        }
+      ]
+    },
+    {
+      "id": "W-S-008",
+      "file": "apps/web/src/components/GatePassView.tsx",
+      "line": 247,
+      "detail": "Detail badge renders raw status.",
+      "excerpt": [
+        {
+          "line": 245,
+          "text": "                    <h3 className=\"text-lg font-bold font-mono text-slate-900\">{selectedGatePass.code}</h3>"
+        },
+        {
+          "line": 246,
+          "text": "                    <span"
+        },
+        {
+          "line": 247,
+          "text": "                      className={`px-2.5 py-0.5 rounded-full text-xs font-bold ${"
+        },
+        {
+          "line": 248,
+          "text": "                        selectedGatePass.status === 'ACTIVE'"
+        },
+        {
+          "line": 249,
+          "text": "                          ? 'bg-emerald-100 text-emerald-800'"
+        },
+        {
+          "line": 250,
+          "text": "                          : selectedGatePass.status === 'USED'"
+        },
+        {
+          "line": 251,
+          "text": "                          ? 'bg-slate-200 text-slate-800'"
+        },
+        {
+          "line": 252,
+          "text": "                          : 'bg-rose-100 text-rose-800'"
+        }
+      ]
+    },
+    {
+      "id": "W-S-008",
+      "file": "apps/web/src/components/GatePassView.tsx",
+      "line": 300,
+      "detail": "All non-ACTIVE statuses get used copy; ACTIVE always receives Gate-out buttons.",
+      "excerpt": [
+        {
+          "line": 298,
+          "text": ""
+        },
+        {
+          "line": 299,
+          "text": "              {/* Gate-out Action */}"
+        },
+        {
+          "line": 300,
+          "text": "              <div className=\"pt-4 border-t border-slate-200 flex items-center justify-between\">"
+        },
+        {
+          "line": 301,
+          "text": "                <div className=\"text-slate-500\">"
+        },
+        {
+          "line": 302,
+          "text": "                  {selectedGatePass.status === 'ACTIVE'"
+        },
+        {
+          "line": 303,
+          "text": "                    ? 'Nhân viên bảo vệ kiểm tra xong biển số và số chì có thể xác nhận cho xe ra.'"
+        },
+        {
+          "line": 304,
+          "text": "                    : 'Phiếu này đã được sử dụng để xuất cổng.'}"
+        },
+        {
+          "line": 305,
+          "text": "                </div>"
+        }
+      ]
+    },
+    {
+      "id": "W-S-008",
+      "file": "apps/web/src/components/ContainersView.tsx",
+      "line": 117,
+      "detail": "Active pass lookup omits expiry.",
+      "excerpt": [
+        {
+          "line": 115,
+          "text": "  const activeVisitInvoices = activeVisit ? invoices.filter((i) => i.containerVisitId === activeVisit.id) : [];"
+        },
+        {
+          "line": 116,
+          "text": "  const activeVisitOrders = activeVisit ? serviceOrders.filter((s) => s.containerVisitId === activeVisit.id) : [];"
+        },
+        {
+          "line": 117,
+          "text": "  const activeVisitGatePass = activeVisit ? gatePasses.find((gp) => gp.containerVisitId === activeVisit.id && gp.status === 'ACTIVE') : null;"
+        },
+        {
+          "line": 118,
+          "text": "  const activeVisitHandover = activeVisit ? handovers.find((h) => h.containerVisitId === activeVisit.id) : null;"
+        },
+        {
+          "line": 119,
+          "text": ""
+        },
+        {
+          "line": 120,
+          "text": "  const { readiness, readinessError, isCheckingReadiness } = useBackendReadiness(activeVisit?.id);"
+        },
+        {
+          "line": 121,
+          "text": ""
+        },
+        {
+          "line": 122,
+          "text": "  const getStateBadge = (state: ContainerState) => {"
+        }
+      ]
+    },
+    {
+      "id": "W-S-008",
+      "file": "apps/web/src/components/ContainersView.tsx",
+      "line": 662,
+      "detail": "Unconditionally calls found ACTIVE pass currently valid.",
+      "excerpt": [
+        {
+          "line": 660,
+          "text": "                    <div className=\"border border-indigo-200 bg-indigo-50/40 rounded-xl p-5 text-center space-y-3\">"
+        },
+        {
+          "line": 661,
+          "text": "                      <div className=\"inline-block px-3 py-1 bg-emerald-100 text-emerald-800 font-bold rounded-full\">"
+        },
+        {
+          "line": 662,
+          "text": "                        PHIẾU RA CỔNG ĐANG HIỆU LỰC (ACTIVE)"
+        },
+        {
+          "line": 663,
+          "text": "                      </div>"
+        },
+        {
+          "line": 664,
+          "text": "                      <div className=\"text-xl font-mono font-bold text-slate-900\">{activeVisitGatePass.code}</div>"
+        },
+        {
+          "line": 665,
+          "text": "                      <div className=\"text-slate-600\">"
+        },
+        {
+          "line": 666,
+          "text": "                        Xe lấy hàng: <strong>{activeVisitGatePass.vehiclePlate}</strong> · Người nhận: <strong>{activeVisitGatePass.receiverName}</strong> ({activeVisitGatePass.receiverIdNumber})"
+        },
+        {
+          "line": 667,
+          "text": "                      </div>"
+        }
+      ]
+    },
+    {
+      "id": "W-S-009",
+      "file": "apps/web/src/components/ContainersView.tsx",
+      "line": 668,
+      "detail": "QrCode icon at 669 with token text below.",
+      "excerpt": [
+        {
+          "line": 666,
+          "text": "                        Xe lấy hàng: <strong>{activeVisitGatePass.vehiclePlate}</strong> · Người nhận: <strong>{activeVisitGatePass.receiverName}</strong> ({activeVisitGatePass.receiverIdNumber})"
+        },
+        {
+          "line": 667,
+          "text": "                      </div>"
+        },
+        {
+          "line": 668,
+          "text": "                      <div className=\"p-4 bg-white rounded-xl inline-block border border-slate-200 shadow-xs\">"
+        },
+        {
+          "line": 669,
+          "text": "                        <QrCode className=\"w-32 h-32 text-slate-800 mx-auto\" />"
+        },
+        {
+          "line": 670,
+          "text": "                        <div className=\"text-[10px] font-mono text-slate-400 mt-1\">{activeVisitGatePass.qrToken}</div>"
+        },
+        {
+          "line": 671,
+          "text": "                      </div>"
+        },
+        {
+          "line": 672,
+          "text": "                      <div className=\"text-slate-500\">"
+        },
+        {
+          "line": 673,
+          "text": "                        Hạn sử dụng: <strong>{new Date(activeVisitGatePass.expiresAt).toLocaleString('vi-VN')}</strong>"
+        }
+      ]
+    },
+    {
+      "id": "W-S-009",
+      "file": "apps/web/src/components/GatePassView.tsx",
+      "line": 2,
+      "detail": "react-qr-code import.",
+      "excerpt": [
+        {
+          "line": 1,
+          "text": "import React, { useEffect, useState } from 'react';"
+        },
+        {
+          "line": 2,
+          "text": "import QRCode from 'react-qr-code';"
+        },
+        {
+          "line": 3,
+          "text": "import { useApp } from '../context/AppContext';"
+        },
+        {
+          "line": 4,
+          "text": "import { readinessLabel } from '../services/readiness-labels';"
+        },
+        {
+          "line": 5,
+          "text": "import { GatePass, ContainerVisit } from '../types';"
+        },
+        {
+          "line": 6,
+          "text": "import {"
+        },
+        {
+          "line": 7,
+          "text": "  QrCode,"
+        }
+      ]
+    },
+    {
+      "id": "W-S-009",
+      "file": "apps/web/src/components/GatePassView.tsx",
+      "line": 274,
+      "detail": "QRCode value=selectedGatePass.qrToken in dedicated view.",
+      "excerpt": [
+        {
+          "line": 272,
+          "text": "              <div className=\"bg-slate-50 border border-slate-200 rounded-2xl p-6 text-center space-y-3\">"
+        },
+        {
+          "line": 273,
+          "text": "                <div className=\"bg-white p-4 rounded-xl border border-slate-200 inline-block shadow-xs\">"
+        },
+        {
+          "line": 274,
+          "text": "                  {selectedGatePass.qrToken ? <QRCode value={selectedGatePass.qrToken} size={160} /> : <p>QR chỉ hiển thị với phiếu còn hiệu lực và tài khoản có quyền phát hành.</p>}"
+        },
+        {
+          "line": 275,
+          "text": "                </div>"
+        },
+        {
+          "line": 276,
+          "text": "                <div className=\"font-mono text-slate-500 font-semibold break-all text-[10px] max-w-full\">{selectedGatePass.qrToken}</div>"
+        },
+        {
+          "line": 277,
+          "text": "                <div className=\"text-slate-600 max-w-sm mx-auto\">"
+        },
+        {
+          "line": 278,
+          "text": "                  Trình mã này tại cổng Outbound để nhân viên đối soát biển số xe và mở barie."
+        },
+        {
+          "line": 279,
+          "text": "                </div>"
+        }
+      ]
+    },
+    {
+      "id": "W-S-010",
+      "file": "apps/web/src/components/ContainersView.tsx",
+      "line": 409,
+      "detail": "Overview correctly distinguishes checking/no result.",
+      "excerpt": [
+        {
+          "line": 407,
+          "text": "                        readiness?.blockers.length === 0 ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+        },
+        {
+          "line": 408,
+          "text": "                      }`}>"
+        },
+        {
+          "line": 409,
+          "text": "                        {isCheckingReadiness ? 'ĐANG KIỂM TRA' : readiness ? (readiness.blockers.length === 0 ? 'ĐẠT' : `${readiness.blockers.length} ĐIỀU KIỆN CHƯA ĐẠT`) : 'CHƯA CÓ KẾT QUẢ'}"
+        },
+        {
+          "line": 410,
+          "text": "                      </span>"
+        },
+        {
+          "line": 411,
+          "text": "                    </h4>"
+        },
+        {
+          "line": 412,
+          "text": ""
+        },
+        {
+          "line": 413,
+          "text": "                    {readinessError && <p role=\"alert\" className=\"mt-3 text-rose-700\">{readinessError}</p>}"
+        },
+        {
+          "line": 414,
+          "text": "                    {readiness && <div className=\"grid grid-cols-2 sm:grid-cols-3 gap-2 mt-3\">"
+        }
+      ]
+    },
+    {
+      "id": "W-S-010",
+      "file": "apps/web/src/components/ContainersView.tsx",
+      "line": 679,
+      "detail": "Gate Pass branch tests only blockers length.",
+      "excerpt": [
+        {
+          "line": 677,
+          "text": "                    <div className=\"p-6 border border-slate-200 rounded-xl bg-slate-50 space-y-4\">"
+        },
+        {
+          "line": 678,
+          "text": "                      <h4 className=\"font-bold text-slate-800\">Phát hành Phiếu ra cổng (Gate Pass)</h4>"
+        },
+        {
+          "line": 679,
+          "text": "                      {readiness?.blockers.length === 0 ? ("
+        },
+        {
+          "line": 680,
+          "text": "                        <div className=\"space-y-3\">"
+        },
+        {
+          "line": 681,
+          "text": "                          <p className=\"text-emerald-700 font-semibold\">"
+        },
+        {
+          "line": 682,
+          "text": "                            ✓ Container đã vượt qua 100% điều kiện kiểm tra sẵn sàng ra cổng (Readiness Pass)."
+        },
+        {
+          "line": 683,
+          "text": "                          </p>"
+        },
+        {
+          "line": 684,
+          "text": "                          <div className=\"grid grid-cols-3 gap-2\">"
+        }
+      ]
+    },
+    {
+      "id": "W-S-010",
+      "file": "apps/web/src/components/ContainersView.tsx",
+      "line": 729,
+      "detail": "Fallback claims unmet conditions for all non-pass states.",
+      "excerpt": [
+        {
+          "line": 727,
+          "text": "                        </div>"
+        },
+        {
+          "line": 728,
+          "text": "                      ) : ("
+        },
+        {
+          "line": 729,
+          "text": "                        <div className=\"p-3 bg-amber-50 border border-amber-200 text-amber-900 rounded-lg\">"
+        },
+        {
+          "line": 730,
+          "text": "                          Chưa thể cấp Phiếu ra cổng vì còn vướng điều kiện chưa đạt. Vui lòng kiểm tra tab Tổng quan."
+        },
+        {
+          "line": 731,
+          "text": "                        </div>"
+        },
+        {
+          "line": 732,
+          "text": "                      )}"
+        },
+        {
+          "line": 733,
+          "text": "                    </div>"
+        },
+        {
+          "line": 734,
+          "text": "                  )}"
+        }
+      ]
+    },
+    {
+      "id": "W-S-010",
+      "file": "apps/web/src/components/useBackendReadiness.ts",
+      "line": 13,
+      "detail": "Hook clears readiness on each visit/reload and reports readinessError.",
+      "excerpt": [
+        {
+          "line": 11,
+          "text": "  useEffect(() => {"
+        },
+        {
+          "line": 12,
+          "text": "    let isCurrent = true;"
+        },
+        {
+          "line": 13,
+          "text": "    setReadiness(null);"
+        },
+        {
+          "line": 14,
+          "text": "    setReadinessError('');"
+        },
+        {
+          "line": 15,
+          "text": "    if (!visitId) return;"
+        },
+        {
+          "line": 16,
+          "text": "    setIsCheckingReadiness(true);"
+        },
+        {
+          "line": 17,
+          "text": "    checkReadiness(visitId).then((result) => {"
+        },
+        {
+          "line": 18,
+          "text": "      if (isCurrent) setReadiness(result);"
+        }
+      ]
+    },
+    {
+      "id": "W-S-011",
+      "file": "apps/web/src/components/MovementOrdersView.tsx",
+      "line": 14,
+      "detail": "UTC ISO string stripped for datetime-local.",
+      "excerpt": [
+        {
+          "line": 12,
+          "text": "  const { movementOrders, containerVisits, createMovementOrder, authorizeMovementOrder, cancelMovementOrder } = useApp();"
+        },
+        {
+          "line": 13,
+          "text": "  const [searchTerm, setSearchTerm] = useState('');"
+        },
+        {
+          "line": 14,
+          "text": "  const [expiresAt, setExpiresAt] = useState(new Date(Date.now() + 86400000).toISOString().slice(0,16));"
+        },
+        {
+          "line": 15,
+          "text": ""
+        },
+        {
+          "line": 16,
+          "text": "  const statusBadge = (status: string) => {"
+        },
+        {
+          "line": 17,
+          "text": "    const map: Record<string, string> = {"
+        },
+        {
+          "line": 18,
+          "text": "      DRAFT: 'bg-amber-100 text-amber-800',"
+        },
+        {
+          "line": 19,
+          "text": "      AUTHORIZED: 'bg-emerald-100 text-emerald-800',"
+        }
+      ]
+    },
+    {
+      "id": "W-S-011",
+      "file": "apps/web/src/components/MovementOrdersView.tsx",
+      "line": 61,
+      "detail": "datetime-local uses this value.",
+      "excerpt": [
+        {
+          "line": 59,
+          "text": ""
+        },
+        {
+          "line": 60,
+          "text": "      <label className=\"block text-sm text-slate-700\">Thời hạn khi duyệt lệnh"
+        },
+        {
+          "line": 61,
+          "text": "        <input aria-label=\"Thời hạn khi duyệt lệnh\" type=\"datetime-local\" value={expiresAt} onChange={e => setExpiresAt(e.target.value)} className=\"ml-3 rounded-lg border border-slate-300 px-3 py-2\" />"
+        },
+        {
+          "line": 62,
+          "text": "      </label>"
+        },
+        {
+          "line": 63,
+          "text": "      {eligibleVisits.length > 0 && ("
+        },
+        {
+          "line": 64,
+          "text": "        <div className=\"bg-amber-50 border border-amber-200 rounded-xl p-4\">"
+        },
+        {
+          "line": 65,
+          "text": "          <h4 className=\"text-xs font-bold text-amber-900 mb-2\">"
+        },
+        {
+          "line": 66,
+          "text": "            {eligibleVisits.length} Container Visit đang PENDING chưa có Movement Order:"
+        }
+      ]
+    },
+    {
+      "id": "W-S-011",
+      "file": "apps/web/src/components/MovementOrdersView.tsx",
+      "line": 111,
+      "detail": "Selected local value is parsed then converted to ISO.",
+      "excerpt": [
+        {
+          "line": 109,
+          "text": "                    <>"
+        },
+        {
+          "line": 110,
+          "text": "                      <button"
+        },
+        {
+          "line": 111,
+          "text": "                        onClick={async () => { if (!expiresAt || new Date(expiresAt).getTime() <= Date.now()) { alert('Chọn thời hạn trong tương lai.'); return; } alert((await authorizeMovementOrder(o.id, new Date(expiresAt).toISOString())).message); }}"
+        },
+        {
+          "line": 112,
+          "text": "                        className=\"px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-md font-bold inline-flex items-center gap-1\""
+        },
+        {
+          "line": 113,
+          "text": "                      >"
+        },
+        {
+          "line": 114,
+          "text": "                        <CheckCircle2 className=\"w-3 h-3\" /> Authorize"
+        },
+        {
+          "line": 115,
+          "text": "                      </button>"
+        },
+        {
+          "line": 116,
+          "text": "                      <button"
+        }
+      ]
+    },
+    {
+      "id": "W-S-012",
+      "file": "apps/web/src/components/WorkQueueView.tsx",
+      "line": 81,
+      "detail": "HANDOVER_REVIEW sends containerVisitId at 83.",
+      "excerpt": [
+        {
+          "line": 79,
+          "text": "        else onNavigate('gate-pass');"
+        },
+        {
+          "line": 80,
+          "text": "        break;"
+        },
+        {
+          "line": 81,
+          "text": "      case 'HANDOVER_REVIEW':"
+        },
+        {
+          "line": 82,
+          "text": "        if (onOpenHandover) onOpenHandover(task.containerVisitId);"
+        },
+        {
+          "line": 83,
+          "text": "        else onNavigate('handovers', task.containerVisitId);"
+        },
+        {
+          "line": 84,
+          "text": "        break;"
+        },
+        {
+          "line": 85,
+          "text": "      default:"
+        },
+        {
+          "line": 86,
+          "text": "        onNavigate('containers', task.containerVisitId);"
+        }
+      ]
+    },
+    {
+      "id": "W-S-012",
+      "file": "apps/web/src/App.tsx",
+      "line": 53,
+      "detail": "Generic activeContextId is targetHandoverId.",
+      "excerpt": [
+        {
+          "line": 51,
+          "text": "      case 'billing': return <BillingView onNavigate={handleNavigate} targetVisitId={activeContextId} />;"
+        },
+        {
+          "line": 52,
+          "text": "      case 'gate-pass': return <GatePassView onNavigate={handleNavigate} targetVisitId={activeContextId} />;"
+        },
+        {
+          "line": 53,
+          "text": "      case 'handovers': return <HandoversView onNavigate={handleNavigate} targetHandoverId={activeContextId} />;"
+        },
+        {
+          "line": 54,
+          "text": "      case 'partner-clients': return <PartnerManagementView mode=\"CLIENTS\" />;"
+        },
+        {
+          "line": 55,
+          "text": "      case 'partner-api-logs': return <PartnerManagementView mode=\"LOGS\" />;"
+        },
+        {
+          "line": 56,
+          "text": "      case 'edi': return <EDIView />;"
+        },
+        {
+          "line": 57,
+          "text": "      case 'master-data': return <MasterDataView />;"
+        },
+        {
+          "line": 58,
+          "text": "      case 'users-roles': return <UsersRolesView />;"
+        }
+      ]
+    },
+    {
+      "id": "W-S-012",
+      "file": "apps/web/src/components/HandoversView.tsx",
+      "line": 49,
+      "detail": "Lookup compares h.id to targetHandoverId; fallback handovers[0].",
+      "excerpt": [
+        {
+          "line": 47,
+          "text": "  const [statusFilter, setStatusFilter] = useState<string>('ALL');"
+        },
+        {
+          "line": 48,
+          "text": "  const [selectedHandover, setSelectedHandover] = useState<TransportHandover | null>("
+        },
+        {
+          "line": 49,
+          "text": "    (targetHandoverId ? handovers.find((h) => h.id === targetHandoverId) : null) || handovers[0] || null"
+        },
+        {
+          "line": 50,
+          "text": "  );"
+        },
+        {
+          "line": 51,
+          "text": ""
+        },
+        {
+          "line": 52,
+          "text": "  useEffect(() => {"
+        },
+        {
+          "line": 53,
+          "text": "    setSelectedHandover(previous => handovers.find(h => h.id === (targetHandoverId ?? previous?.id)) ?? handovers[0] ?? null);"
+        },
+        {
+          "line": 54,
+          "text": "  }, [handovers, targetHandoverId]);"
+        }
+      ]
+    },
+    {
+      "id": "W-S-012",
+      "file": "apps/web/src/components/HandoversView.tsx",
+      "line": 53,
+      "detail": "Effect repeats handover-id-only lookup.",
+      "excerpt": [
+        {
+          "line": 51,
+          "text": ""
+        },
+        {
+          "line": 52,
+          "text": "  useEffect(() => {"
+        },
+        {
+          "line": 53,
+          "text": "    setSelectedHandover(previous => handovers.find(h => h.id === (targetHandoverId ?? previous?.id)) ?? handovers[0] ?? null);"
+        },
+        {
+          "line": 54,
+          "text": "  }, [handovers, targetHandoverId]);"
+        },
+        {
+          "line": 55,
+          "text": ""
+        },
+        {
+          "line": 56,
+          "text": "  const [showCreateModal, setShowCreateModal] = useState(false);"
+        },
+        {
+          "line": 57,
+          "text": ""
+        },
+        {
+          "line": 58,
+          "text": "  // New Handover form"
+        }
+      ]
+    },
+    {
+      "id": "W-S-013",
+      "file": "apps/web/src/components/MovementOrdersView.tsx",
+      "line": 129,
+      "detail": "Tạo Truck Visit navigation passes containerVisitId.",
+      "excerpt": [
+        {
+          "line": 127,
+          "text": "                  {o.status === 'AUTHORIZED' && onNavigate && ("
+        },
+        {
+          "line": 128,
+          "text": "                    <button"
+        },
+        {
+          "line": 129,
+          "text": "                      onClick={() => onNavigate('truck-visits', o.containerVisitId)}"
+        },
+        {
+          "line": 130,
+          "text": "                      className=\"px-2.5 py-1 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-md font-bold border border-blue-200 inline-flex items-center gap-1\""
+        },
+        {
+          "line": 131,
+          "text": "                    >"
+        },
+        {
+          "line": 132,
+          "text": "                      <Clock className=\"w-3 h-3\" /> Tạo Truck Visit"
+        },
+        {
+          "line": 133,
+          "text": "                    </button>"
+        },
+        {
+          "line": 134,
+          "text": "                  )}"
+        }
+      ]
+    },
+    {
+      "id": "W-S-013",
+      "file": "apps/web/src/App.tsx",
+      "line": 48,
+      "detail": "TruckVisitsView receives no activeContextId.",
+      "excerpt": [
+        {
+          "line": 46,
+          "text": "      case 'containers': return <ContainersView onNavigate={handleNavigate} selectedVisitId={activeContextId} />;"
+        },
+        {
+          "line": 47,
+          "text": "      case 'movement-orders': return <MovementOrdersView onNavigate={handleNavigate} targetVisitId={activeContextId} />;"
+        },
+        {
+          "line": 48,
+          "text": "      case 'truck-visits': return <TruckVisitsView onNavigate={handleNavigate} />;"
+        },
+        {
+          "line": 49,
+          "text": "      case 'gate-in': return <GateInView onNavigate={handleNavigate} defaultVisitId={activeContextId} />;"
+        },
+        {
+          "line": 50,
+          "text": "      case 'yard': return <YardView onNavigate={handleNavigate} targetAssignVisitId={activeContextId} />;"
+        },
+        {
+          "line": 51,
+          "text": "      case 'billing': return <BillingView onNavigate={handleNavigate} targetVisitId={activeContextId} />;"
+        },
+        {
+          "line": 52,
+          "text": "      case 'gate-pass': return <GatePassView onNavigate={handleNavigate} targetVisitId={activeContextId} />;"
+        },
+        {
+          "line": 53,
+          "text": "      case 'handovers': return <HandoversView onNavigate={handleNavigate} targetHandoverId={activeContextId} />;"
+        }
+      ]
+    },
+    {
+      "id": "W-S-013",
+      "file": "apps/web/src/components/TruckVisitsView.tsx",
+      "line": 17,
+      "detail": "Props contain onNavigate only.",
+      "excerpt": [
+        {
+          "line": 15,
+          "text": "import { NavTabId } from './Sidebar';"
+        },
+        {
+          "line": 16,
+          "text": ""
+        },
+        {
+          "line": 17,
+          "text": "interface TruckVisitsViewProps {"
+        },
+        {
+          "line": 18,
+          "text": "  onNavigate: (tab: NavTabId, contextId?: string) => void;"
+        },
+        {
+          "line": 19,
+          "text": "}"
+        },
+        {
+          "line": 20,
+          "text": ""
+        },
+        {
+          "line": 21,
+          "text": "export const TruckVisitsView: React.FC<TruckVisitsViewProps> = ({ onNavigate }) => {"
+        },
+        {
+          "line": 22,
+          "text": "  const { truckVisits, createTruckVisit, updateTruckVisitStatus, containerVisits } = useApp();"
+        }
+      ]
+    },
+    {
+      "id": "W-S-013",
+      "file": "apps/web/src/components/TruckVisitsView.tsx",
+      "line": 25,
+      "detail": "Create modal initially false; selectedConts empty at 33.",
+      "excerpt": [
+        {
+          "line": 23,
+          "text": ""
+        },
+        {
+          "line": 24,
+          "text": "  const [searchTerm, setSearchTerm] = useState('');"
+        },
+        {
+          "line": 25,
+          "text": "  const [showCreateModal, setShowCreateModal] = useState(false);"
+        },
+        {
+          "line": 26,
+          "text": ""
+        },
+        {
+          "line": 27,
+          "text": "  // New Truck Visit form"
+        },
+        {
+          "line": 28,
+          "text": "  const [plate, setPlate] = useState('');"
+        },
+        {
+          "line": 29,
+          "text": "  const [driver, setDriver] = useState('');"
+        },
+        {
+          "line": 30,
+          "text": "  const [phone, setPhone] = useState('');"
+        }
+      ]
+    },
+    {
+      "id": "W-S-013",
+      "file": "apps/web/src/components/TruckVisitsView.tsx",
+      "line": 146,
+      "detail": "Gate-in shortcut omits the container visit id.",
+      "excerpt": [
+        {
+          "line": 144,
+          "text": "              {tv.status === 'ARRIVED' && tv.visitType === 'GATE_IN' && ("
+        },
+        {
+          "line": 145,
+          "text": "                <button"
+        },
+        {
+          "line": 146,
+          "text": "                  onClick={() => onNavigate('gate-in')}"
+        },
+        {
+          "line": 147,
+          "text": "                  className=\"px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded shadow-xs\""
+        },
+        {
+          "line": 148,
+          "text": "                >"
+        },
+        {
+          "line": 149,
+          "text": "                  Tiến hành Tiếp nhận (Gate-in) →"
+        },
+        {
+          "line": 150,
+          "text": "                </button>"
+        },
+        {
+          "line": 151,
+          "text": "              )}"
+        }
+      ]
+    },
+    {
+      "id": "W-S-014",
+      "file": "apps/web/src/App.tsx",
+      "line": 28,
+      "detail": "activeTab default dashboard; context stored only in useState.",
+      "excerpt": [
+        {
+          "line": 26,
+          "text": "const MainLayout: React.FC = () => {"
+        },
+        {
+          "line": 27,
+          "text": "  const { currentUser, isAuthenticated, isLoading, apiError, refreshData } = useApp();"
+        },
+        {
+          "line": 28,
+          "text": "  const [activeTab, setActiveTab] = useState<NavTabId>('dashboard');"
+        },
+        {
+          "line": 29,
+          "text": "  const [activeContextId, setActiveContextId] = useState<string>();"
+        },
+        {
+          "line": 30,
+          "text": "  const [isSidebarOpen, setIsSidebarOpen] = useState(false);"
+        },
+        {
+          "line": 31,
+          "text": ""
+        },
+        {
+          "line": 32,
+          "text": "  const handleNavigate = (tab: NavTabId, contextId?: string) => {"
+        },
+        {
+          "line": 33,
+          "text": "    setActiveTab(tab);"
+        }
+      ]
+    },
+    {
+      "id": "W-S-014",
+      "file": "apps/web/src/App.tsx",
+      "line": 32,
+      "detail": "handleNavigate only sets component state.",
+      "excerpt": [
+        {
+          "line": 30,
+          "text": "  const [isSidebarOpen, setIsSidebarOpen] = useState(false);"
+        },
+        {
+          "line": 31,
+          "text": ""
+        },
+        {
+          "line": 32,
+          "text": "  const handleNavigate = (tab: NavTabId, contextId?: string) => {"
+        },
+        {
+          "line": 33,
+          "text": "    setActiveTab(tab);"
+        },
+        {
+          "line": 34,
+          "text": "    setActiveContextId(contextId);"
+        },
+        {
+          "line": 35,
+          "text": "    setIsSidebarOpen(false);"
+        },
+        {
+          "line": 36,
+          "text": "  };"
+        },
+        {
+          "line": 37,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "W-S-014",
+      "file": "apps/web/src/App.tsx",
+      "line": 43,
+      "detail": "Conditional view switch replaces most screen components.",
+      "excerpt": [
+        {
+          "line": 41,
+          "text": "    if (!canAccessWebTab(currentUser,activeTab)) return <p role=\"alert\">Tài khoản không có quyền truy cập nghiệp vụ này.</p>;"
+        },
+        {
+          "line": 42,
+          "text": "    switch (activeTab) {"
+        },
+        {
+          "line": 43,
+          "text": "      case 'dashboard': return <DashboardView onNavigate={handleNavigate} />;"
+        },
+        {
+          "line": 44,
+          "text": "      case 'work-queue': return <WorkQueueView onNavigate={handleNavigate} />;"
+        },
+        {
+          "line": 45,
+          "text": "      case 'manifests': return <ManifestsView />;"
+        },
+        {
+          "line": 46,
+          "text": "      case 'containers': return <ContainersView onNavigate={handleNavigate} selectedVisitId={activeContextId} />;"
+        },
+        {
+          "line": 47,
+          "text": "      case 'movement-orders': return <MovementOrdersView onNavigate={handleNavigate} targetVisitId={activeContextId} />;"
+        },
+        {
+          "line": 48,
+          "text": "      case 'truck-visits': return <TruckVisitsView onNavigate={handleNavigate} />;"
+        }
+      ]
+    },
+    {
+      "id": "W-S-014",
+      "file": "apps/web/src/components/ManifestsView.tsx",
+      "line": 84,
+      "detail": "Search and draft fields live in view useState.",
+      "excerpt": [
+        {
+          "line": 82,
+          "text": "  const selectedManifest = manifests.find((m) => m.id === selectedManifestId) || null;"
+        },
+        {
+          "line": 83,
+          "text": "  const [showCreateModal, setShowCreateModal] = useState(false);"
+        },
+        {
+          "line": 84,
+          "text": "  const [searchTerm, setSearchTerm] = useState('');"
+        },
+        {
+          "line": 85,
+          "text": ""
+        },
+        {
+          "line": 86,
+          "text": "  // Form State for new Manifest"
+        },
+        {
+          "line": 87,
+          "text": "  const [newVessel, setNewVessel] = useState('');"
+        },
+        {
+          "line": 88,
+          "text": "  const [newVoyage, setNewVoyage] = useState('');"
+        },
+        {
+          "line": 89,
+          "text": "  const [newShippingLine, setNewShippingLine] = useState('');"
+        }
+      ]
+    },
+    {
+      "id": "W-S-015",
+      "file": "apps/web/src/components/AuditsView.tsx",
+      "line": 61,
+      "detail": "Only filteredLogs.map until tbody end 81.",
+      "excerpt": [
+        {
+          "line": 59,
+          "text": "          </thead>"
+        },
+        {
+          "line": 60,
+          "text": "          <tbody className=\"divide-y divide-slate-100\">"
+        },
+        {
+          "line": 61,
+          "text": "            {filteredLogs.map((log) => ("
+        },
+        {
+          "line": 62,
+          "text": "              <tr key={log.id} className=\"hover:bg-slate-50\">"
+        },
+        {
+          "line": 63,
+          "text": "                <td className=\"py-3 px-4 text-slate-500 font-mono text-[11px]\">"
+        },
+        {
+          "line": 64,
+          "text": "                  {new Date(log.timestamp).toLocaleString('vi-VN')}"
+        },
+        {
+          "line": 65,
+          "text": "                </td>"
+        },
+        {
+          "line": 66,
+          "text": "                <td className=\"py-3 px-4 font-bold text-slate-800 flex items-center space-x-1.5\">"
+        }
+      ]
+    },
+    {
+      "id": "W-S-015",
+      "file": "apps/web/src/components/MasterDataView.tsx",
+      "line": 147,
+      "detail": "tbody only renderList().",
+      "excerpt": [
+        {
+          "line": 145,
+          "text": "            </tr>"
+        },
+        {
+          "line": 146,
+          "text": "          </thead>"
+        },
+        {
+          "line": 147,
+          "text": "          <tbody className=\"divide-y divide-slate-100\">{renderList()}</tbody>"
+        },
+        {
+          "line": 148,
+          "text": "        </table>"
+        },
+        {
+          "line": 149,
+          "text": "      </div>"
+        },
+        {
+          "line": 150,
+          "text": ""
+        },
+        {
+          "line": 151,
+          "text": "      {showForm && ("
+        },
+        {
+          "line": 152,
+          "text": "        <div className=\"fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center z-50 p-4\">"
+        }
+      ]
+    },
+    {
+      "id": "W-S-015",
+      "file": "apps/web/src/components/TruckVisitsView.tsx",
+      "line": 95,
+      "detail": "Only filteredVisits.map until list close 155.",
+      "excerpt": [
+        {
+          "line": 93,
+          "text": "      {/* Visits List */}"
+        },
+        {
+          "line": 94,
+          "text": "      <div className=\"grid grid-cols-1 md:grid-cols-2 gap-4\">"
+        },
+        {
+          "line": 95,
+          "text": "        {filteredVisits.map((tv) => ("
+        },
+        {
+          "line": 96,
+          "text": "          <div key={tv.id} className=\"bg-white rounded-xl border border-slate-200 p-5 shadow-xs hover:border-blue-300 transition space-y-4\">"
+        },
+        {
+          "line": 97,
+          "text": "            <div className=\"flex items-center justify-between\">"
+        },
+        {
+          "line": 98,
+          "text": "              <div className=\"flex items-center space-x-2\">"
+        },
+        {
+          "line": 99,
+          "text": "                <span className={`p-1.5 rounded-lg ${tv.visitType === 'GATE_IN' ? 'bg-emerald-100 text-emerald-800' : 'bg-blue-100 text-blue-800'}`}>"
+        },
+        {
+          "line": 100,
+          "text": "                  {tv.visitType === 'GATE_IN' ? <LogIn className=\"w-4 h-4\" /> : <LogOut className=\"w-4 h-4\" />}"
+        }
+      ]
+    },
+    {
+      "id": "W-S-015",
+      "file": "apps/web/src/components/PartnerManagementView.tsx",
+      "line": 84,
+      "detail": "Only partnerClients.map until 148; logs at 243.",
+      "excerpt": [
+        {
+          "line": 82,
+          "text": ""
+        },
+        {
+          "line": 83,
+          "text": "        <div className=\"grid grid-cols-1 md:grid-cols-2 gap-4 text-xs\">"
+        },
+        {
+          "line": 84,
+          "text": "          {partnerClients.map((client) => ("
+        },
+        {
+          "line": 85,
+          "text": "            <div"
+        },
+        {
+          "line": 86,
+          "text": "              key={client.id}"
+        },
+        {
+          "line": 87,
+          "text": "              className=\"bg-white rounded-xl border border-slate-200 p-5 shadow-xs space-y-4 hover:border-indigo-300 transition\""
+        },
+        {
+          "line": 88,
+          "text": "            >"
+        },
+        {
+          "line": 89,
+          "text": "              <div className=\"flex items-center justify-between\">"
+        }
+      ]
+    },
+    {
+      "id": "W-S-015",
+      "file": "apps/web/src/components/ManifestsView.tsx",
+      "line": 200,
+      "detail": "Only filtered map in list.",
+      "excerpt": [
+        {
+          "line": 198,
+          "text": ""
+        },
+        {
+          "line": 199,
+          "text": "          <div className=\"space-y-2\">"
+        },
+        {
+          "line": 200,
+          "text": "            {manifests"
+        },
+        {
+          "line": 201,
+          "text": "              .filter("
+        },
+        {
+          "line": 202,
+          "text": "                (m) =>"
+        },
+        {
+          "line": 203,
+          "text": "                  m.manifestNo.toLowerCase().includes(searchTerm.toLowerCase()) ||"
+        },
+        {
+          "line": 204,
+          "text": "                  m.vesselName.toLowerCase().includes(searchTerm.toLowerCase())"
+        },
+        {
+          "line": 205,
+          "text": "              )"
+        }
+      ]
+    },
+    {
+      "id": "W-S-015",
+      "file": "apps/web/src/components/HandoversView.tsx",
+      "line": 211,
+      "detail": "Only filtered map in list.",
+      "excerpt": [
+        {
+          "line": 209,
+          "text": "        {/* Left Column: Handovers List */}"
+        },
+        {
+          "line": 210,
+          "text": "        <div className=\"space-y-3\">"
+        },
+        {
+          "line": 211,
+          "text": "          {filteredHandovers.map((h) => {"
+        },
+        {
+          "line": 212,
+          "text": "            const isSelected = selectedHandover?.id === h.id;"
+        },
+        {
+          "line": 213,
+          "text": "            return ("
+        },
+        {
+          "line": 214,
+          "text": "              <div"
+        },
+        {
+          "line": 215,
+          "text": "                key={h.id}"
+        },
+        {
+          "line": 216,
+          "text": "                onClick={() => setSelectedHandover(h)}"
+        }
+      ]
+    },
+    {
+      "id": "W-S-015",
+      "file": "apps/web/src/components/GatePassView.tsx",
+      "line": 200,
+      "detail": "Only filtered map in list.",
+      "excerpt": [
+        {
+          "line": 198,
+          "text": ""
+        },
+        {
+          "line": 199,
+          "text": "          <div className=\"space-y-2\">"
+        },
+        {
+          "line": 200,
+          "text": "            {filteredPasses.map((gp) => {"
+        },
+        {
+          "line": 201,
+          "text": "              const isSelected = selectedGatePass?.id === gp.id;"
+        },
+        {
+          "line": 202,
+          "text": "              const isExpired = new Date(gp.expiresAt).getTime() < Date.now();"
+        },
+        {
+          "line": 203,
+          "text": "              return ("
+        },
+        {
+          "line": 204,
+          "text": "                <div"
+        },
+        {
+          "line": 205,
+          "text": "                  key={gp.id}"
+        }
+      ]
+    },
+    {
+      "id": "W-S-015",
+      "file": "apps/web/src/components/EDIView.tsx",
+      "line": 205,
+      "detail": "Only filteredEdi.map; routes map at 121.",
+      "excerpt": [
+        {
+          "line": 203,
+          "text": "        {/* Left Column: Messages List */}"
+        },
+        {
+          "line": 204,
+          "text": "        <div className=\"space-y-2\">"
+        },
+        {
+          "line": 205,
+          "text": "          {filteredEdi.map((edi) => {"
+        },
+        {
+          "line": 206,
+          "text": "            const isSelected = selectedEdi?.id === edi.id;"
+        },
+        {
+          "line": 207,
+          "text": "            return ("
+        },
+        {
+          "line": 208,
+          "text": "              <div"
+        },
+        {
+          "line": 209,
+          "text": "                key={edi.id}"
+        },
+        {
+          "line": 210,
+          "text": "                onClick={() => setSelectedEdiId(edi.id)}"
+        }
+      ]
+    },
+    {
+      "id": "W-S-016",
+      "file": "apps/web/src/context/AppContext.tsx",
+      "line": 365,
+      "detail": "Manifest detail catch returns m at 370 with no marker.",
+      "excerpt": [
+        {
+          "line": 363,
+          "text": "        }"
+        },
+        {
+          "line": 364,
+          "text": "      }));"
+        },
+        {
+          "line": 365,
+          "text": "      const manifestsWithBills = await Promise.all((raw.manifests ?? []).map(async m => {"
+        },
+        {
+          "line": 366,
+          "text": "        try {"
+        },
+        {
+          "line": 367,
+          "text": "          const masterBls = await loadList('/manifests/' + m.id + '/master-bls');"
+        },
+        {
+          "line": 368,
+          "text": "          const masterBills = await Promise.all(masterBls.map(async b => ({ ...b, houseBills: await loadList('/manifests/' + m.id + '/master-bls/' + b.id + '/house-bls') })));"
+        },
+        {
+          "line": 369,
+          "text": "          return { ...m, masterBills };"
+        },
+        {
+          "line": 370,
+          "text": "        } catch { return m; }"
+        }
+      ]
+    },
+    {
+      "id": "W-S-016",
+      "file": "apps/web/src/context/AppContext.tsx",
+      "line": 373,
+      "detail": "Role detail catch returns r at 375.",
+      "excerpt": [
+        {
+          "line": 371,
+          "text": "      }));"
+        },
+        {
+          "line": 372,
+          "text": "      raw.manifests = manifestsWithBills;"
+        },
+        {
+          "line": 373,
+          "text": "      raw.roles = await Promise.all((raw.roles ?? []).map(async r => {"
+        },
+        {
+          "line": 374,
+          "text": "        try { return unwrapData<any>(await apiClient.get('/admin/roles/' + r.id)); }"
+        },
+        {
+          "line": 375,
+          "text": "        catch { return r; }"
+        },
+        {
+          "line": 376,
+          "text": "      }));"
+        },
+        {
+          "line": 377,
+          "text": "      raw.handovers = await Promise.all((raw.handovers ?? []).map(async h => {"
+        },
+        {
+          "line": 378,
+          "text": "        try { return unwrapData<any>(await apiClient.get('/handovers/' + h.id)); }"
+        }
+      ]
+    },
+    {
+      "id": "W-S-016",
+      "file": "apps/web/src/context/AppContext.tsx",
+      "line": 377,
+      "detail": "Handover detail catch returns h at 379.",
+      "excerpt": [
+        {
+          "line": 375,
+          "text": "        catch { return r; }"
+        },
+        {
+          "line": 376,
+          "text": "      }));"
+        },
+        {
+          "line": 377,
+          "text": "      raw.handovers = await Promise.all((raw.handovers ?? []).map(async h => {"
+        },
+        {
+          "line": 378,
+          "text": "        try { return unwrapData<any>(await apiClient.get('/handovers/' + h.id)); }"
+        },
+        {
+          "line": 379,
+          "text": "        catch { return h; }"
+        },
+        {
+          "line": 380,
+          "text": "      }));"
+        },
+        {
+          "line": 381,
+          "text": "      const visits = raw.containerVisits ?? [];"
+        },
+        {
+          "line": 382,
+          "text": "      try {"
+        }
+      ]
+    },
+    {
+      "id": "W-S-016",
+      "file": "apps/web/src/context/AppContext.tsx",
+      "line": 391,
+      "detail": "Rejected holds/passes become [] at 393; no failures.push.",
+      "excerpt": [
+        {
+          "line": 389,
+          "text": "        if (![401,403].includes(error?.status)) failures.push('/reports/summary: ' + error.message);"
+        },
+        {
+          "line": 390,
+          "text": "      }"
+        },
+        {
+          "line": 391,
+          "text": "      const perVisit = await Promise.all(visits.map(async v => {"
+        },
+        {
+          "line": 392,
+          "text": "        const [holds, passes] = await Promise.allSettled([loadList('/containers/' + v.id + '/holds'), loadList('/containers/' + v.id + '/gate-passes')]);"
+        },
+        {
+          "line": 393,
+          "text": "        return { holds: holds.status === 'fulfilled' ? holds.value : [], passes: passes.status === 'fulfilled' ? passes.value : [] };"
+        },
+        {
+          "line": 394,
+          "text": "      }));"
+        },
+        {
+          "line": 395,
+          "text": "      raw.holds = perVisit.flatMap(v => v.holds);"
+        },
+        {
+          "line": 396,
+          "text": "      raw.gatePasses = perVisit.flatMap(v => v.passes);"
+        }
+      ]
+    },
+    {
+      "id": "W-S-016",
+      "file": "apps/web/src/context/AppContext.tsx",
+      "line": 409,
+      "detail": "Banner depends on failures and health only.",
+      "excerpt": [
+        {
+          "line": 407,
+          "text": "      }"
+        },
+        {
+          "line": 408,
+          "text": "      setData(mapLiveCollections(raw, latestActor.current.role));"
+        },
+        {
+          "line": 409,
+          "text": "      setApiError(failures.length ? 'Không tải được một số dữ liệu: ' + failures.join(' | ') : !health ? 'Backend hoặc MySQL chưa sẵn sàng.' : '');"
+        },
+        {
+          "line": 410,
+          "text": "      setIsLoading(false);"
+        },
+        {
+          "line": 411,
+          "text": "    };"
+        },
+        {
+          "line": 412,
+          "text": "    pendingRefresh.current = refresh().finally(() => { pendingRefresh.current = null; setIsLoading(false); });"
+        },
+        {
+          "line": 413,
+          "text": "    return pendingRefresh.current;"
+        },
+        {
+          "line": 414,
+          "text": "  }, []);"
+        }
+      ]
+    },
+    {
+      "id": "W-S-017",
+      "file": "apps/web/src/components/EDIView.tsx",
+      "line": 30,
+      "detail": "getSimulatedEdifact constructs payload, hardcodes 45G1 at 36.",
+      "excerpt": [
+        {
+          "line": 28,
+          "text": "  });"
+        },
+        {
+          "line": 29,
+          "text": ""
+        },
+        {
+          "line": 30,
+          "text": "  const getSimulatedEdifact = (msg: EdiOutboxMessage) => {"
+        },
+        {
+          "line": 31,
+          "text": "    return `UNB+UNOA:2+VNICD+${msg.shippingLine}+${new Date(msg.createdAt).toISOString().slice(0, 10).replace(/-/g, '')}:${new Date(msg.createdAt).toISOString().slice(11, 16).replace(/:/g, '')}+${msg.id.slice(-6)}'"
+        },
+        {
+          "line": 32,
+          "text": "UNH+${msg.id.slice(-6)}+${msg.messageType}:D:00B:UN:SMDG20'"
+        },
+        {
+          "line": 33,
+          "text": "BGM+34+${msg.id}+9'"
+        },
+        {
+          "line": 34,
+          "text": "NAD+MS+VNICD:160:ZZZ'"
+        },
+        {
+          "line": 35,
+          "text": "NAD+MR+${msg.shippingLine}:160:ZZZ'"
+        }
+      ]
+    },
+    {
+      "id": "W-S-017",
+      "file": "apps/web/src/components/EDIView.tsx",
+      "line": 262,
+      "detail": "Copy copies simulated output.",
+      "excerpt": [
+        {
+          "line": 260,
+          "text": "                <div className=\"flex items-center space-x-2\">"
+        },
+        {
+          "line": 261,
+          "text": "                  <button"
+        },
+        {
+          "line": 262,
+          "text": "                    onClick={() => handleCopy(getSimulatedEdifact(selectedEdi))}"
+        },
+        {
+          "line": 263,
+          "text": "                    className=\"px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-lg flex items-center space-x-1\""
+        },
+        {
+          "line": 264,
+          "text": "                  >"
+        },
+        {
+          "line": 265,
+          "text": "                    {copied ? <Check className=\"w-3.5 h-3.5 text-emerald-600\" /> : <Copy className=\"w-3.5 h-3.5\" />}"
+        },
+        {
+          "line": 266,
+          "text": "                    <span>{copied ? 'Đã sao chép' : 'Copy'}</span>"
+        },
+        {
+          "line": 267,
+          "text": "                  </button>"
+        }
+      ]
+    },
+    {
+      "id": "W-S-017",
+      "file": "apps/web/src/components/EDIView.tsx",
+      "line": 303,
+      "detail": "Panel says raw segment payload; render at 306 uses generator.",
+      "excerpt": [
+        {
+          "line": 301,
+          "text": "              <div>"
+        },
+        {
+          "line": 302,
+          "text": "                <div className=\"font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-2\">"
+        },
+        {
+          "line": 303,
+          "text": "                  Dữ liệu điện tín thô (UN/EDIFACT D.00B Segment Payload):"
+        },
+        {
+          "line": 304,
+          "text": "                </div>"
+        },
+        {
+          "line": 305,
+          "text": "                <pre className=\"p-4 bg-slate-900 text-emerald-400 font-mono text-xs rounded-xl overflow-x-auto leading-relaxed border border-slate-800\">"
+        },
+        {
+          "line": 306,
+          "text": "                  {getSimulatedEdifact(selectedEdi)}"
+        },
+        {
+          "line": 307,
+          "text": "                </pre>"
+        },
+        {
+          "line": 308,
+          "text": "              </div>"
+        }
+      ]
+    },
+    {
+      "id": "W-S-018",
+      "file": "apps/web/src/services/permissions.ts",
+      "line": 4,
+      "detail": "Billing page requires billing.read.",
+      "excerpt": [
+        {
+          "line": 2,
+          "text": "  dashboard: [], 'work-queue':['truck_visit.read','yard.read','gate_in.create','gate_pass.use','billing.read','handover.read'],"
+        },
+        {
+          "line": 3,
+          "text": "  manifests:['manifest.read'],containers:['container.read'],'movement-orders':['movement_order.read'],"
+        },
+        {
+          "line": 4,
+          "text": "  'truck-visits':['truck_visit.read'],'gate-in':['gate_in.create'],yard:['yard.read'],billing:['billing.read'],"
+        },
+        {
+          "line": 5,
+          "text": "  'gate-pass':['gate_pass.create','gate_pass.use'],'edi':['edi.read'],handovers:['handover.read'],"
+        },
+        {
+          "line": 6,
+          "text": "  'partner-clients':['partner_client.manage'],'partner-api-logs':['partner_api_log.read'],"
+        },
+        {
+          "line": 7,
+          "text": "  'master-data':['master_data.read'],'users-roles':['users.read','roles.read'],admin:['reports.read'],activity:['audit.read'],"
+        },
+        {
+          "line": 8,
+          "text": "};"
+        },
+        {
+          "line": 9,
+          "text": "export function canAccessWebTab(user: {permissionCodes?:string[];role?:string},tab:string) {"
+        }
+      ]
+    },
+    {
+      "id": "W-S-018",
+      "file": "apps/web/src/services/permissions.ts",
+      "line": 7,
+      "detail": "Master Data read; Users/Roles read permits page.",
+      "excerpt": [
+        {
+          "line": 5,
+          "text": "  'gate-pass':['gate_pass.create','gate_pass.use'],'edi':['edi.read'],handovers:['handover.read'],"
+        },
+        {
+          "line": 6,
+          "text": "  'partner-clients':['partner_client.manage'],'partner-api-logs':['partner_api_log.read'],"
+        },
+        {
+          "line": 7,
+          "text": "  'master-data':['master_data.read'],'users-roles':['users.read','roles.read'],admin:['reports.read'],activity:['audit.read'],"
+        },
+        {
+          "line": 8,
+          "text": "};"
+        },
+        {
+          "line": 9,
+          "text": "export function canAccessWebTab(user: {permissionCodes?:string[];role?:string},tab:string) {"
+        },
+        {
+          "line": 10,
+          "text": "  const required = TAB_PERMISSIONS[tab];"
+        },
+        {
+          "line": 11,
+          "text": "  if (!required) return false;"
+        },
+        {
+          "line": 12,
+          "text": "  return required.length === 0 || required.some(p => user.permissionCodes?.includes(p)) || !!user.permissionCodes?.includes('*');"
+        }
+      ]
+    },
+    {
+      "id": "W-S-018",
+      "file": "apps/web/src/components/UsersRolesView.tsx",
+      "line": 43,
+      "detail": "Add User unconditional once USERS tab.",
+      "excerpt": [
+        {
+          "line": 41,
+          "text": "          </div>"
+        },
+        {
+          "line": 42,
+          "text": "          {tab === 'USERS' && ("
+        },
+        {
+          "line": 43,
+          "text": "            <button onClick={() => setShowUserForm(true)} className=\"px-3.5 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg flex items-center gap-1.5\">"
+        },
+        {
+          "line": 44,
+          "text": "              <Plus className=\"w-4 h-4\" /> Thêm người dùng"
+        },
+        {
+          "line": 45,
+          "text": "            </button>"
+        },
+        {
+          "line": 46,
+          "text": "          )}"
+        },
+        {
+          "line": 47,
+          "text": "        </div>"
+        },
+        {
+          "line": 48,
+          "text": "      </div>"
+        }
+      ]
+    },
+    {
+      "id": "W-S-018",
+      "file": "apps/web/src/components/UsersRolesView.tsx",
+      "line": 80,
+      "detail": "User role/status write controls unconditional; permissions editor at 114/129.",
+      "excerpt": [
+        {
+          "line": 78,
+          "text": "                  </td>"
+        },
+        {
+          "line": 79,
+          "text": "                  <td className=\"px-4 py-3 text-right space-x-2\">"
+        },
+        {
+          "line": 80,
+          "text": "                    <select"
+        },
+        {
+          "line": 81,
+          "text": "                      value=\"\""
+        },
+        {
+          "line": 82,
+          "text": "                      onChange={(e) => {"
+        },
+        {
+          "line": 83,
+          "text": "                        if (!e.target.value) return;"
+        },
+        {
+          "line": 84,
+          "text": "                        const codes = u.roleCodes.includes(e.target.value) ? u.roleCodes.filter((c) => c !== e.target.value) : [...u.roleCodes, e.target.value];"
+        },
+        {
+          "line": 85,
+          "text": "                        updateUserRoles(u.id, codes);"
+        }
+      ]
+    },
+    {
+      "id": "W-S-018",
+      "file": "apps/web/src/components/MasterDataView.tsx",
+      "line": 110,
+      "detail": "Add new and per-row toggle unconditional.",
+      "excerpt": [
+        {
+          "line": 108,
+          "text": "          </p>"
+        },
+        {
+          "line": 109,
+          "text": "        </div>"
+        },
+        {
+          "line": 110,
+          "text": "        <button"
+        },
+        {
+          "line": 111,
+          "text": "          onClick={() => setShowForm(true)}"
+        },
+        {
+          "line": 112,
+          "text": "          className=\"px-3.5 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg transition shadow-xs flex items-center space-x-1.5\""
+        },
+        {
+          "line": 113,
+          "text": "        >"
+        },
+        {
+          "line": 114,
+          "text": "          <Plus className=\"w-4 h-4\" />"
+        },
+        {
+          "line": 115,
+          "text": "          <span>Thêm mới</span>"
+        }
+      ]
+    },
+    {
+      "id": "W-S-018",
+      "file": "apps/web/src/components/BillingView.tsx",
+      "line": 212,
+      "detail": "Payment action depends on invoice status, not billing.manage.",
+      "excerpt": [
+        {
+          "line": 210,
+          "text": "                    <td className=\"py-3 px-4 text-right\">"
+        },
+        {
+          "line": 211,
+          "text": "                      {remaining > 0 ? ("
+        },
+        {
+          "line": 212,
+          "text": "                        <button"
+        },
+        {
+          "line": 213,
+          "text": "                          onClick={() => {"
+        },
+        {
+          "line": 214,
+          "text": "                            setSelectedInvoice(inv);"
+        },
+        {
+          "line": 215,
+          "text": "                            setPayAmount(remaining);"
+        },
+        {
+          "line": 216,
+          "text": "                            setShowPayModal(true);"
+        },
+        {
+          "line": 217,
+          "text": "                          }}"
+        }
+      ]
+    },
+    {
+      "id": "W-S-019",
+      "file": "apps/web/src/components/Header.tsx",
+      "line": 9,
+      "detail": "Only local showNotifs state.",
+      "excerpt": [
+        {
+          "line": 7,
+          "text": "export const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {"
+        },
+        {
+          "line": 8,
+          "text": "  const { currentUser, holds, notifications, markNotificationRead, markAllNotificationsRead, logout, isLoading, apiReady, refreshData } = useApp();"
+        },
+        {
+          "line": 9,
+          "text": "  const [showNotifs, setShowNotifs] = useState(false);"
+        },
+        {
+          "line": 10,
+          "text": "  const [isSigningOut, setIsSigningOut] = useState(false);"
+        },
+        {
+          "line": 11,
+          "text": "  const unreadCount = notifications.filter((notification) => !notification.read).length;"
+        },
+        {
+          "line": 12,
+          "text": "  const activeHoldCount = holds.filter((hold) => hold.status === 'ACTIVE').length;"
+        },
+        {
+          "line": 13,
+          "text": ""
+        },
+        {
+          "line": 14,
+          "text": "  const handleLogout = async () => {"
+        }
+      ]
+    },
+    {
+      "id": "W-S-019",
+      "file": "apps/web/src/components/Header.tsx",
+      "line": 33,
+      "detail": "Trigger toggles and exposes aria-expanded.",
+      "excerpt": [
+        {
+          "line": 31,
+          "text": "        <button type=\"button\" onClick={() => void refreshData()} disabled={isLoading} aria-label=\"Tải lại dữ liệu\" title=\"Tải lại dữ liệu\" className=\"rounded-lg p-2 text-slate-500 hover:bg-slate-100 disabled:opacity-50\"><RefreshCw className={`h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} /></button>"
+        },
+        {
+          "line": 32,
+          "text": "        <div className=\"relative\">"
+        },
+        {
+          "line": 33,
+          "text": "          <button type=\"button\" onClick={() => setShowNotifs((show) => !show)} aria-label={`Thông báo (${unreadCount} chưa đọc)`} aria-expanded={showNotifs} className=\"relative rounded-lg p-2 text-slate-500 hover:bg-slate-100\"><Bell className=\"h-4 w-4\" />{unreadCount > 0 && <span className=\"absolute top-1 right-1 h-2 w-2 rounded-full bg-rose-500\" />}</button>"
+        },
+        {
+          "line": 34,
+          "text": "          {showNotifs && <div className=\"absolute right-0 mt-3 w-80 max-w-[calc(100vw-1rem)] rounded-xl border border-slate-200 bg-white shadow-xl text-xs overflow-hidden\">"
+        },
+        {
+          "line": 35,
+          "text": "            <div className=\"flex items-center justify-between border-b border-slate-100 px-4 py-3\"><span className=\"font-bold text-slate-800\">Thông báo</span>{unreadCount > 0 && <button type=\"button\" onClick={async () => { const result = await markAllNotificationsRead(); if (result && !result.success) alert(result.message); }} className=\"font-semibold text-blue-600\">Đọc tất cả</button>}</div>"
+        },
+        {
+          "line": 36,
+          "text": "            <div className=\"max-h-80 overflow-y-auto divide-y divide-slate-100\">{notifications.length === 0 && <p className=\"p-5 text-center text-slate-400\">Không có thông báo.</p>}{notifications.map((notification) => <button type=\"button\" key={notification.id} onClick={async () => { const result = await markNotificationRead(notification.id); if (result && !result.success) alert(result.message); }} className={`block w-full text-left px-4 py-3 hover:bg-slate-50 ${!notification.read ? 'bg-blue-50/40' : ''}`}><span className=\"block font-bold text-slate-800\">{notification.title}</span><span className=\"block mt-1 text-slate-500\">{notification.body}</span><span className=\"block mt-1 text-slate-400\">{new Date(notification.createdAt).toLocaleString('vi-VN')}</span></button>)}</div>"
+        },
+        {
+          "line": 37,
+          "text": "          </div>}"
+        },
+        {
+          "line": 38,
+          "text": "        </div>"
+        }
+      ]
+    },
+    {
+      "id": "W-S-019",
+      "file": "apps/web/src/components/Header.tsx",
+      "line": 34,
+      "detail": "Panel has no dismissal routes beyond trigger; full component has no effect/keydown listener.",
+      "excerpt": [
+        {
+          "line": 32,
+          "text": "        <div className=\"relative\">"
+        },
+        {
+          "line": 33,
+          "text": "          <button type=\"button\" onClick={() => setShowNotifs((show) => !show)} aria-label={`Thông báo (${unreadCount} chưa đọc)`} aria-expanded={showNotifs} className=\"relative rounded-lg p-2 text-slate-500 hover:bg-slate-100\"><Bell className=\"h-4 w-4\" />{unreadCount > 0 && <span className=\"absolute top-1 right-1 h-2 w-2 rounded-full bg-rose-500\" />}</button>"
+        },
+        {
+          "line": 34,
+          "text": "          {showNotifs && <div className=\"absolute right-0 mt-3 w-80 max-w-[calc(100vw-1rem)] rounded-xl border border-slate-200 bg-white shadow-xl text-xs overflow-hidden\">"
+        },
+        {
+          "line": 35,
+          "text": "            <div className=\"flex items-center justify-between border-b border-slate-100 px-4 py-3\"><span className=\"font-bold text-slate-800\">Thông báo</span>{unreadCount > 0 && <button type=\"button\" onClick={async () => { const result = await markAllNotificationsRead(); if (result && !result.success) alert(result.message); }} className=\"font-semibold text-blue-600\">Đọc tất cả</button>}</div>"
+        },
+        {
+          "line": 36,
+          "text": "            <div className=\"max-h-80 overflow-y-auto divide-y divide-slate-100\">{notifications.length === 0 && <p className=\"p-5 text-center text-slate-400\">Không có thông báo.</p>}{notifications.map((notification) => <button type=\"button\" key={notification.id} onClick={async () => { const result = await markNotificationRead(notification.id); if (result && !result.success) alert(result.message); }} className={`block w-full text-left px-4 py-3 hover:bg-slate-50 ${!notification.read ? 'bg-blue-50/40' : ''}`}><span className=\"block font-bold text-slate-800\">{notification.title}</span><span className=\"block mt-1 text-slate-500\">{notification.body}</span><span className=\"block mt-1 text-slate-400\">{new Date(notification.createdAt).toLocaleString('vi-VN')}</span></button>)}</div>"
+        },
+        {
+          "line": 37,
+          "text": "          </div>}"
+        },
+        {
+          "line": 38,
+          "text": "        </div>"
+        },
+        {
+          "line": 39,
+          "text": "        <div className=\"flex items-center gap-2 border-l border-slate-200 pl-2 sm:pl-3\"><UserCircle className=\"h-7 w-7 text-slate-400 hidden sm:block\" /><div className=\"hidden lg:block text-right\"><div className=\"text-xs font-semibold text-slate-800\">{currentUser.name}</div><div className=\"text-[10px] text-slate-500\">{currentUser.role}</div></div><button type=\"button\" onClick={() => void handleLogout()} disabled={isSigningOut} aria-label=\"Đăng xuất\" title=\"Đăng xuất\" className=\"rounded-lg p-2 text-slate-500 hover:bg-rose-50 hover:text-rose-700 disabled:opacity-50\"><LogOut className=\"h-4 w-4\" /></button></div>"
+        }
+      ]
+    },
+    {
+      "id": "W-S-020",
+      "file": "apps/web/src/components/PartnerManagementView.tsx",
+      "line": 297,
+      "detail": "Request body rendered directly as child.",
+      "excerpt": [
+        {
+          "line": 295,
+          "text": "                  </div>"
+        },
+        {
+          "line": 296,
+          "text": "                  <pre className=\"p-3 bg-slate-900 text-emerald-400 font-mono text-[11px] rounded-lg overflow-x-auto max-h-64 whitespace-pre-wrap\">"
+        },
+        {
+          "line": 297,
+          "text": "                    {selectedLog.requestBodyRedacted || '// Empty or Redacted'}"
+        },
+        {
+          "line": 298,
+          "text": "                  </pre>"
+        },
+        {
+          "line": 299,
+          "text": "                </div>"
+        },
+        {
+          "line": 300,
+          "text": ""
+        },
+        {
+          "line": 301,
+          "text": "                <div>"
+        },
+        {
+          "line": 302,
+          "text": "                  <div className=\"font-bold text-slate-700 uppercase tracking-wider text-[10px] mb-1\">"
+        }
+      ]
+    },
+    {
+      "id": "W-S-020",
+      "file": "apps/web/src/components/PartnerManagementView.tsx",
+      "line": 306,
+      "detail": "Response body rendered directly as child.",
+      "excerpt": [
+        {
+          "line": 304,
+          "text": "                  </div>"
+        },
+        {
+          "line": 305,
+          "text": "                  <pre className=\"p-3 bg-slate-900 text-blue-300 font-mono text-[11px] rounded-lg overflow-x-auto max-h-64 whitespace-pre-wrap\">"
+        },
+        {
+          "line": 306,
+          "text": "                    {selectedLog.responseBodyRedacted || '// Empty or Redacted'}"
+        },
+        {
+          "line": 307,
+          "text": "                  </pre>"
+        },
+        {
+          "line": 308,
+          "text": "                </div>"
+        },
+        {
+          "line": 309,
+          "text": "              </div>"
+        },
+        {
+          "line": 310,
+          "text": "            </div>"
+        },
+        {
+          "line": 311,
+          "text": "          ) : ("
+        }
+      ]
+    },
+    {
+      "id": "W-S-020",
+      "file": "apps/web/src/services/mappers/live-view.mapper.ts",
+      "line": 40,
+      "detail": "Partner logs spread backend values without body serialization.",
+      "excerpt": [
+        {
+          "line": 38,
+          "text": "    warehouses: (raw.warehouses ?? []).map(d => ({ ...d, code: d.code ?? d.warehouseCode ?? '', contactName: d.contactName ?? '', contactPhone: d.contactPhone ?? '' })),"
+        },
+        {
+          "line": 39,
+          "text": "    partnerClients: raw.partnerClients ?? [],"
+        },
+        {
+          "line": 40,
+          "text": "    partnerApiLogs: (raw.partnerApiLogs ?? []).map(d => ({ ...d, partnerName: d.partnerApiClient?.partnerName ?? '', endpoint: d.path ?? d.endpoint, httpStatus: d.responseStatus ?? d.httpStatus, businessStatus: d.errorCode ? 'ERROR' : 'SUCCESS', latencyMs: d.durationMs ?? d.latencyMs ?? 0 })),"
+        },
+        {
+          "line": 41,
+          "text": "    auditLogs: (raw.auditLogs ?? []).map(d => ({ ...d, actor: d.actorName ?? d.actor?.name ?? d.actorId ?? '-', details: typeof d.afterData === 'object' ? JSON.stringify(d.afterData) : d.note ?? '', timestamp: d.createdAt })),"
+        },
+        {
+          "line": 42,
+          "text": "    shippingLines: (raw.shippingLines ?? []).map(master), consignees: (raw.consignees ?? []).map(master), clearingAgents: (raw.clearingAgents ?? []).map(master), transporters: (raw.transporters ?? []).map(master),"
+        },
+        {
+          "line": 43,
+          "text": "    permissions: raw.permissions ?? [],"
+        },
+        {
+          "line": 44,
+          "text": "    roles: (raw.roles ?? []).map(d => ({ ...d, permissionCodes: d.permissionCodes ?? (d.permissions ?? []).map((p: any) => p.permission?.code ?? p.code) })),"
+        },
+        {
+          "line": 45,
+          "text": "    managedUsers: (raw.managedUsers ?? []).map(d => ({ ...d, roleCodes: d.roleCodes ?? (d.roles ?? []).map((r: any) => r.role?.code ?? r.code) })),"
+        }
+      ]
+    },
+    {
+      "id": "W-S-020",
+      "file": "apps/web/src/types.ts",
+      "line": 424,
+      "detail": "Both body fields are inaccurately typed string.",
+      "excerpt": [
+        {
+          "line": 422,
+          "text": "  method: 'GET' | 'POST' | 'PUT' | 'DELETE';"
+        },
+        {
+          "line": 423,
+          "text": "  idempotencyKey?: string;"
+        },
+        {
+          "line": 424,
+          "text": "  requestBodyRedacted?: string;"
+        },
+        {
+          "line": 425,
+          "text": "  responseBodyRedacted?: string;"
+        },
+        {
+          "line": 426,
+          "text": "  httpStatus: number;"
+        },
+        {
+          "line": 427,
+          "text": "  businessStatus: string;"
+        },
+        {
+          "line": 428,
+          "text": "  errorCode?: string;"
+        },
+        {
+          "line": 429,
+          "text": "  requestId: string;"
+        }
+      ]
+    },
+    {
+      "id": "W-S-020",
+      "file": "apps/web/src/App.tsx",
+      "line": 77,
+      "detail": "renderContent is not wrapped in an error boundary.",
+      "excerpt": [
+        {
+          "line": 75,
+          "text": "            </div>}"
+        },
+        {
+          "line": 76,
+          "text": "            {isLoading && <div role=\"status\" className=\"flex items-center gap-2 text-xs text-slate-500\"><RefreshCw className=\"h-3.5 w-3.5 animate-spin\" />Đang tải dữ liệu vận hành…</div>}"
+        },
+        {
+          "line": 77,
+          "text": "            {renderContent()}"
+        },
+        {
+          "line": 78,
+          "text": "          </div>"
+        },
+        {
+          "line": 79,
+          "text": "        </main>"
+        },
+        {
+          "line": 80,
+          "text": "      </div>"
+        },
+        {
+          "line": 81,
+          "text": "    </div>"
+        },
+        {
+          "line": 82,
+          "text": "  );"
+        }
+      ]
+    },
+    {
+      "id": "W-S-020",
+      "file": "apps/api/src/modules/partner-handover/services/partner-api-log.service.ts",
+      "line": 32,
+      "detail": "Redacted request stored as Prisma.InputJsonValue; response at 38.",
+      "excerpt": [
+        {
+          "line": 30,
+          "text": "      : null;"
+        },
+        {
+          "line": 31,
+          "text": ""
+        },
+        {
+          "line": 32,
+          "text": "    const requestBodyRedacted = params.requestBody"
+        },
+        {
+          "line": 33,
+          "text": "      ? (IdempotencyPolicy.redactSensitiveData("
+        },
+        {
+          "line": 34,
+          "text": "          params.requestBody,"
+        },
+        {
+          "line": 35,
+          "text": "        ) as Prisma.InputJsonValue)"
+        },
+        {
+          "line": 36,
+          "text": "      : undefined;"
+        },
+        {
+          "line": 37,
+          "text": ""
+        }
+      ]
+    }
+  ]
+}

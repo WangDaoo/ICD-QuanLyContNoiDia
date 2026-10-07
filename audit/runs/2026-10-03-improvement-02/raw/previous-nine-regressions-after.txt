@@ -1,0 +1,228 @@
+✖ W-S-005: duplicate submits before React commits invoke one delayed command (1260.5079ms)
+✖ W-S-005: pending payment locks fields and synchronous cancellation (264.68ms)
+✖ W-S-005: recoverable command result preserves values and permits a deliberate retry (166.5634ms)
+✖ W-S-005: rejected command keeps values, reports failure, and releases the guard (153.2031ms)
+✔ W-S-001/W-S-002 conditional fixture: manifest-draft-mbl (820.4878ms)
+✔ W-S-001/W-S-002 conditional fixture: manifest-draft-hbl (249.6091ms)
+✔ W-S-001/W-S-002 conditional fixture: unpaid-invoice-payment (134.2487ms)
+✔ W-S-001/W-S-002 conditional fixture: master-data-shipping-line (139.1088ms)
+✔ W-S-001/W-S-002 conditional fixture: master-data-consignee (119.9677ms)
+✔ W-S-001/W-S-002 conditional fixture: master-data-clearing-agent (123.6868ms)
+✔ W-S-001/W-S-002 conditional fixture: master-data-transporter (156.1427ms)
+✔ W-S-001/W-S-002 conditional fixture: container-inline-gate-pass-ready (306.087ms)
+✔ W-S-001/W-S-002 conditional fixture: container-manifest-mbl-hbl-associations (206.7156ms)
+✖ redacted log renders JSON value {"note":"fixture","condition":"OK","secret":"[REDACTED]"} (8.8267ms)
+✖ redacted log renders JSON value [{"status":"received"}] (0.7ms)
+✖ redacted log renders JSON value "already redacted text" (0.7937ms)
+✖ redacted log renders JSON value null (0.794ms)
+✖ redacted log renders JSON value false (1.3345ms)
+✖ redacted log renders JSON value 0 (0.6888ms)
+✔ view failure preserves shell and recovery navigation remounts a working view (360.4387ms)
+✔ dialog enters native modal mode, locks page scroll, and restores opener and original scroll on unmount (737.4182ms)
+✔ native cancel closes an idle dialog and is blocked while its write is pending (45.5369ms)
+✔ Tab and Shift+Tab wrap between enabled visible controls instead of leaving the modal (245.9087ms)
+✔ Tab stays on the named dialog when it contains no enabled focusable control (25.8995ms)
+✔ ManifestsView: operational overlays use a named modal with a close route (167.9316ms)
+✔ ManifestsView: visible field labels identify their adjacent native control (55.1895ms)
+✔ ContainersView: operational overlays use a named modal with a close route (33.2825ms)
+✔ ContainersView: visible field labels identify their adjacent native control (27.0921ms)
+✔ TruckVisitsView: operational overlays use a named modal with a close route (6.7308ms)
+✔ TruckVisitsView: visible field labels identify their adjacent native control (8.8493ms)
+✔ BillingView: operational overlays use a named modal with a close route (15.1253ms)
+✔ BillingView: visible field labels identify their adjacent native control (14.3856ms)
+✔ GatePassView: operational overlays use a named modal with a close route (7.6184ms)
+✔ GatePassView: visible field labels identify their adjacent native control (7.3546ms)
+✔ HandoversView: operational overlays use a named modal with a close route (18.1194ms)
+✔ HandoversView: visible field labels identify their adjacent native control (9.1201ms)
+✔ MasterDataView: operational overlays use a named modal with a close route (4.7072ms)
+✔ MasterDataView: visible field labels identify their adjacent native control (4.6186ms)
+✔ UsersRolesView: operational overlays use a named modal with a close route (9.1014ms)
+✔ UsersRolesView: visible field labels identify their adjacent native control (7.2331ms)
+✔ PartnerManagementView: operational overlays use a named modal with a close route (4.8785ms)
+✔ PartnerManagementView: visible field labels identify their adjacent native control (3.9987ms)
+✔ ManifestsView: record selectors support native keyboard selection and selected state (9.5406ms)
+✔ HandoversView: record selectors support native keyboard selection and selected state (6.2484ms)
+✔ GatePassView: record selectors support native keyboard selection and selected state (5.7722ms)
+✔ EDIView: record selectors support native keyboard selection and selected state (5.3414ms)
+✖ PartnerManagementView: record selectors support native keyboard selection and selected state (6.4783ms)
+✔ failed critical GET preserves stale records, distinguishes unknown from empty and recovers on retry (423.3849ms)
+✔ W-S-016 review: initial failed holds and passes retain unavailable markers rather than verified absence (287.153ms)
+✔ W-S-016 review: successful empty reads are ready and show no critical-data warning (27.6538ms)
+✔ W-S-016 review: failed gate-pass reload preserves stale row, forbidden reload removes it, and retry recovers (38.6042ms)
+✔ W-S-016 review: later-page hold rejection discards incomplete fresh rows and marks retained records stale (20.3999ms)
+✔ W-S-016 review: unknown per-visit key and failed hold data cannot produce a green state appearance (1.2548ms)
+✔ W-S-016 review: an existing visit missing its status must produce a global warning (1.0979ms)
+✔ W-S-016 review: an existing visit missing its status must not reassure with zero holds (191.0928ms)
+✔ Code-only observation, UI reachability unknown: direct re-login clears protected rows and manual refresh recovers (20.5585ms)
+✔ W-S-020 independent review: raw request and response remain hidden and redacted text cannot become markup (67.0249ms)
+ℹ tests 57
+ℹ suites 0
+ℹ pass 46
+ℹ fail 11
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 39124.4672
+
+✖ failing tests:
+
+test at audit\raw\re-audit\billing\billing-payment.test.cjs:105:1
+✖ W-S-005: duplicate submits before React commits invoke one delayed command (1260.5079ms)
+  ReferenceError: exports is not defined in ES module scope
+      at file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/apps/web/src/services/api/client.ts:2:23
+      at ModuleJobSync.runSync (node:internal/modules/esm/module_job:517:37)
+      at ModuleLoader.importSyncForRequire (node:internal/modules/esm/loader:388:47)
+      at loadESMFromCJS (node:internal/modules/cjs/loader:1578:24)
+      at Module._compile (node:internal/modules/cjs/loader:1743:5)
+      at loadSource (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\raw\re-audit\billing\billing-payment.test.cjs:76:12)
+      at loaded.require (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\raw\re-audit\billing\billing-payment.test.cjs:66:32)
+      at require (node:internal/modules/helpers:152:16)
+      at Object.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\context\AppContext.tsx:58:18)
+      at Module._compile (node:internal/modules/cjs/loader:1761:14)
+
+test at audit\raw\re-audit\billing\billing-payment.test.cjs:119:1
+✖ W-S-005: pending payment locks fields and synchronous cancellation (264.68ms)
+  ReferenceError: exports is not defined in ES module scope
+      at file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/apps/web/src/services/api/client.ts:2:23
+      at ModuleJobSync.runSync (node:internal/modules/esm/module_job:517:37)
+      at ModuleLoader.importSyncForRequire (node:internal/modules/esm/loader:388:47)
+      at loadESMFromCJS (node:internal/modules/cjs/loader:1578:24)
+      at Module._compile (node:internal/modules/cjs/loader:1743:5)
+      at loadSource (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\raw\re-audit\billing\billing-payment.test.cjs:76:12)
+      at loaded.require (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\raw\re-audit\billing\billing-payment.test.cjs:66:32)
+      at require (node:internal/modules/helpers:152:16)
+      at Object.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\context\AppContext.tsx:58:18)
+      at Module._compile (node:internal/modules/cjs/loader:1761:14)
+
+test at audit\raw\re-audit\billing\billing-payment.test.cjs:147:1
+✖ W-S-005: recoverable command result preserves values and permits a deliberate retry (166.5634ms)
+  ReferenceError: exports is not defined in ES module scope
+      at file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/apps/web/src/services/api/client.ts:2:23
+      at ModuleJobSync.runSync (node:internal/modules/esm/module_job:517:37)
+      at ModuleLoader.importSyncForRequire (node:internal/modules/esm/loader:388:47)
+      at loadESMFromCJS (node:internal/modules/cjs/loader:1578:24)
+      at Module._compile (node:internal/modules/cjs/loader:1743:5)
+      at loadSource (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\raw\re-audit\billing\billing-payment.test.cjs:76:12)
+      at loaded.require (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\raw\re-audit\billing\billing-payment.test.cjs:66:32)
+      at require (node:internal/modules/helpers:152:16)
+      at Object.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\context\AppContext.tsx:58:18)
+      at Module._compile (node:internal/modules/cjs/loader:1761:14)
+
+test at audit\raw\re-audit\billing\billing-payment.test.cjs:174:1
+✖ W-S-005: rejected command keeps values, reports failure, and releases the guard (153.2031ms)
+  ReferenceError: exports is not defined in ES module scope
+      at file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/apps/web/src/services/api/client.ts:2:23
+      at ModuleJobSync.runSync (node:internal/modules/esm/module_job:517:37)
+      at ModuleLoader.importSyncForRequire (node:internal/modules/esm/loader:388:47)
+      at loadESMFromCJS (node:internal/modules/cjs/loader:1578:24)
+      at Module._compile (node:internal/modules/cjs/loader:1743:5)
+      at loadSource (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\raw\re-audit\billing\billing-payment.test.cjs:76:12)
+      at loaded.require (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\raw\re-audit\billing\billing-payment.test.cjs:66:32)
+      at require (node:internal/modules/helpers:152:16)
+      at Object.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\context\AppContext.tsx:58:18)
+      at Module._compile (node:internal/modules/cjs/loader:1761:14)
+
+test at audit\tools\partner-log-regression.test.mjs:16:3
+✖ redacted log renders JSON value {"note":"fixture","condition":"OK","secret":"[REDACTED]"} (8.8267ms)
+  TypeError: Cannot read properties of undefined (reading 'id')
+      at useViewQueryState (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\context\useViewQueryState.ts:10:46)
+      at PartnerManagementView (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\PartnerManagementView.tsx:22:45)
+      at Object.react_stack_bottom_frame (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:9808:18)
+      at renderWithHooks (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:5062:19)
+      at renderElement (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:5497:23)
+      at retryNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6417:31)
+      at renderNodeDestructive (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6367:11)
+      at renderElement (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6063:15)
+      at retryNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6417:31)
+      at performWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:7435:17)
+
+test at audit\tools\partner-log-regression.test.mjs:16:3
+✖ redacted log renders JSON value [{"status":"received"}] (0.7ms)
+  TypeError: Cannot read properties of undefined (reading 'id')
+      at useViewQueryState (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\context\useViewQueryState.ts:10:46)
+      at PartnerManagementView (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\PartnerManagementView.tsx:22:45)
+      at Object.react_stack_bottom_frame (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:9808:18)
+      at renderWithHooks (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:5062:19)
+      at renderElement (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:5497:23)
+      at retryNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6417:31)
+      at renderNodeDestructive (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6367:11)
+      at renderElement (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6063:15)
+      at retryNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6417:31)
+      at performWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:7435:17)
+
+test at audit\tools\partner-log-regression.test.mjs:16:3
+✖ redacted log renders JSON value "already redacted text" (0.7937ms)
+  TypeError: Cannot read properties of undefined (reading 'id')
+      at useViewQueryState (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\context\useViewQueryState.ts:10:46)
+      at PartnerManagementView (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\PartnerManagementView.tsx:22:45)
+      at Object.react_stack_bottom_frame (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:9808:18)
+      at renderWithHooks (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:5062:19)
+      at renderElement (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:5497:23)
+      at retryNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6417:31)
+      at renderNodeDestructive (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6367:11)
+      at renderElement (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6063:15)
+      at retryNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6417:31)
+      at performWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:7435:17)
+
+test at audit\tools\partner-log-regression.test.mjs:16:3
+✖ redacted log renders JSON value null (0.794ms)
+  TypeError: Cannot read properties of undefined (reading 'id')
+      at useViewQueryState (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\context\useViewQueryState.ts:10:46)
+      at PartnerManagementView (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\PartnerManagementView.tsx:22:45)
+      at Object.react_stack_bottom_frame (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:9808:18)
+      at renderWithHooks (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:5062:19)
+      at renderElement (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:5497:23)
+      at retryNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6417:31)
+      at renderNodeDestructive (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6367:11)
+      at renderElement (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6063:15)
+      at retryNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6417:31)
+      at performWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:7435:17)
+
+test at audit\tools\partner-log-regression.test.mjs:16:3
+✖ redacted log renders JSON value false (1.3345ms)
+  TypeError: Cannot read properties of undefined (reading 'id')
+      at useViewQueryState (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\context\useViewQueryState.ts:10:46)
+      at PartnerManagementView (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\PartnerManagementView.tsx:22:45)
+      at Object.react_stack_bottom_frame (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:9808:18)
+      at renderWithHooks (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:5062:19)
+      at renderElement (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:5497:23)
+      at retryNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6417:31)
+      at renderNodeDestructive (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6367:11)
+      at renderElement (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6063:15)
+      at retryNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6417:31)
+      at performWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:7435:17)
+
+test at audit\tools\partner-log-regression.test.mjs:16:3
+✖ redacted log renders JSON value 0 (0.6888ms)
+  TypeError: Cannot read properties of undefined (reading 'id')
+      at useViewQueryState (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\context\useViewQueryState.ts:10:46)
+      at PartnerManagementView (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\PartnerManagementView.tsx:22:45)
+      at Object.react_stack_bottom_frame (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:9808:18)
+      at renderWithHooks (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:5062:19)
+      at renderElement (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:5497:23)
+      at retryNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6417:31)
+      at renderNodeDestructive (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6367:11)
+      at renderElement (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6063:15)
+      at retryNode (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:6417:31)
+      at performWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-server-legacy.node.development.js:7435:17)
+
+test at audit\tools\runtime\web-semantics.test.mjs:83:3
+✖ PartnerManagementView: record selectors support native keyboard selection and selected state (6.4783ms)
+  AssertionError [ERR_ASSERTION]: PartnerManagementView record selector coverage
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/runtime/web-semantics.test.mjs:85:12)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

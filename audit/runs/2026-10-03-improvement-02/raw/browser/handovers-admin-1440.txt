@@ -1,0 +1,74 @@
+- link "Đến nội dung nghiệp vụ":
+  - /url: "#main-content"
+- banner:
+  - generic: ICD
+  - heading "ICD Management System" [level=1]
+  - paragraph: Cảng cạn & kho bãi container nội địa
+  - text: Đã kết nối
+  - button "Tải lại dữ liệu":
+  - button "Thông báo (0 chưa đọc)":
+  - generic: UI Audit ADMIN
+  - generic: ADMIN
+  - button "Đăng xuất":
+- complementary "Điều hướng nghiệp vụ":
+  - generic: Tổng quan & Điều phối
+  - button "Tổng quan vận hành":
+    - generic: Tổng quan vận hành
+  - button "Danh sách công việc":
+    - generic: Danh sách công việc
+  - generic: Quản lý Hàng hóa & Cổng
+  - button "Bản lược khai (Manifest)":
+    - generic: Bản lược khai (Manifest)
+  - button "Quản lý Container":
+    - generic: Quản lý Container
+  - button "Movement Order":
+    - generic: Movement Order
+  - button "Chuyến xe ra/vào":
+    - generic: Chuyến xe ra/vào
+  - button "Tiếp nhận vào cổng (Gate-in)":
+    - generic: Tiếp nhận vào cổng (Gate-in)
+  - button "Vận hành Bãi (Yard)":
+    - generic: Vận hành Bãi (Yard)
+  - generic: Tài chính & Ra cổng
+  - button "Dịch vụ & Thanh toán":
+    - generic: Dịch vụ & Thanh toán
+  - button "Phiếu ra cổng & Gate-out":
+    - generic: Phiếu ra cổng & Gate-out
+  - button "Vận hành EDI (CODECO)":
+    - generic: Vận hành EDI (CODECO)
+  - generic: Tích hợp đối tác
+  - button "Bàn giao vận chuyển" [active]:
+    - generic: Bàn giao vận chuyển
+  - button "Đối tác tích hợp API":
+    - generic: Đối tác tích hợp API
+  - button "Nhật ký API đối tác":
+    - generic: Nhật ký API đối tác
+  - generic: Hệ thống & Quản trị
+  - button "Danh mục dùng chung":
+    - generic: Danh mục dùng chung
+  - button "Người dùng & Phân quyền":
+    - generic: Người dùng & Phân quyền
+  - button "Báo cáo vận hành":
+    - generic: Báo cáo vận hành
+  - button "Nhật ký kiểm toán":
+    - generic: Nhật ký kiểm toán
+  - generic: UI Audit ADMIN
+  - generic: ui-admin@audit.icd.test
+  - generic: ADMIN
+- main:
+  - heading "Trung tâm Trao đổi Dữ liệu Điện tử (EDI Center)" [level=2]:
+    - generic: Trung tâm Trao đổi Dữ liệu Điện tử (EDI Center)
+  - paragraph: Giao tiếp tự động chuẩn UN/EDIFACT (CODECO_GATE_IN, CODECO_GATE_OUT, COREOR) với các Hãng tàu quốc tế và Cục Hải quan
+  - button "Outbox" [pressed]
+  - button "Routes"
+  - button "Alerts"
+  - combobox "Lọc loại điện tín":
+    - option "Tất cả loại điện tín" [selected]
+    - option "CODECO Gate In"
+    - option "CODECO Gate Out"
+    - option "COREOR Release Order"
+  - button "Chạy Dispatcher":
+    - text: Chạy Dispatcher
+  - status:
+    - paragraph: Chưa có dữ liệu trong danh sách này.
+  - generic: Chọn một điện tín bên trái để xem nội dung mã hóa EDIFACT

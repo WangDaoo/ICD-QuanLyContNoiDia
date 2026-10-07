@@ -1,0 +1,555 @@
+{
+  "environment": "Real production React components in jsdom with in-memory AppContext",
+  "native_browser": false,
+  "api_writes": 0,
+  "limitations": [
+    "Native showModal initial focus is modeled, not browser-verified.",
+    "Visibility rects are modeled because jsdom has no layout.",
+    "Cancel events exercise Escape callbacks; actual Escape defaults/top-layer behavior require native verification."
+  ],
+  "cases": [
+    {
+      "case": "manifest-draft-mbl",
+      "dialog_name": "Thêm Master BL vào MF-FIXTURE",
+      "field_count": 2,
+      "fields": [
+        {
+          "id": "manifests-mbl-number",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Số MBL*",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "manifests-mbl-line",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Hãng tàu*",
+              "target_matches": true
+            }
+          ]
+        }
+      ],
+      "focus_and_tabwrap": "PASS_MODELED_INITIAL_FOCUS_AND_REAL_CALLBACKS",
+      "cancel_callback": "PASS_NATIVE_CANCEL_EVENT_CALLBACK_NOT_BROWSER_ESCAPE",
+      "environment": "JSDOM_MODELED_DIALOG_NOT_NATIVE",
+      "label_activation": "PASS_NATIVE_LABEL_FORWARDED_CLICK_AND_PROGRAMMATIC_CONTROL_FOCUS"
+    },
+    {
+      "case": "manifest-draft-hbl",
+      "dialog_name": "Thêm House BL",
+      "field_count": 6,
+      "fields": [
+        {
+          "id": "manifests-hbl-form-hbl-number",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Số HBL*",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "manifests-hbl-form-consignee-name",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Chủ hàng (Consignee)*",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "manifests-hbl-form-clearing-agent-name",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Đại lý thông quan",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "manifests-hbl-form-cargo-description",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Mô tả hàng hóa",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "manifests-hbl-form-gross-weight-kg",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Trọng lượng (kg)",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "manifests-hbl-form-package-count",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Số kiện",
+              "target_matches": true
+            }
+          ]
+        }
+      ],
+      "focus_and_tabwrap": "PASS_MODELED_INITIAL_FOCUS_AND_REAL_CALLBACKS",
+      "cancel_callback": "PASS_NATIVE_CANCEL_EVENT_CALLBACK_NOT_BROWSER_ESCAPE",
+      "environment": "JSDOM_MODELED_DIALOG_NOT_NATIVE",
+      "label_activation": "PASS_NATIVE_LABEL_FORWARDED_CLICK_AND_PROGRAMMATIC_CONTROL_FOCUS"
+    },
+    {
+      "case": "unpaid-invoice-payment",
+      "dialog_name": "Ghi nhận Thanh toán Hóa đơn",
+      "field_count": 2,
+      "fields": [
+        {
+          "id": "billing-pay-amount",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Số tiền thanh toán (VNĐ)*",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "billing-pay-method",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Phương thức thanh toán*",
+              "target_matches": true
+            }
+          ]
+        }
+      ],
+      "focus_and_tabwrap": "PASS_MODELED_INITIAL_FOCUS_AND_REAL_CALLBACKS",
+      "cancel_callback": "PASS_NATIVE_CANCEL_EVENT_CALLBACK_NOT_BROWSER_ESCAPE",
+      "environment": "JSDOM_MODELED_DIALOG_NOT_NATIVE",
+      "label_activation": "PASS_NATIVE_LABEL_FORWARDED_CLICK_AND_PROGRAMMATIC_CONTROL_FOCUS"
+    },
+    {
+      "case": "master-data-shipping-line",
+      "dialog_name": "Thêm Hãng tàu (Shipping Line)",
+      "field_count": 2,
+      "fields": [
+        {
+          "id": "master-data-form-name",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Tên*",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "master-data-form-code",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Mã SCAC",
+              "target_matches": true
+            }
+          ]
+        }
+      ],
+      "focus_and_tabwrap": "PASS_MODELED_INITIAL_FOCUS_AND_REAL_CALLBACKS",
+      "cancel_callback": "PASS_NATIVE_CANCEL_EVENT_CALLBACK_NOT_BROWSER_ESCAPE",
+      "environment": "JSDOM_MODELED_DIALOG_NOT_NATIVE",
+      "label_activation": "PASS_NATIVE_LABEL_FORWARDED_CLICK_AND_PROGRAMMATIC_CONTROL_FOCUS"
+    },
+    {
+      "case": "master-data-consignee",
+      "dialog_name": "Thêm Chủ hàng (Consignee)",
+      "field_count": 5,
+      "fields": [
+        {
+          "id": "master-data-form-name",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Tên*",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "master-data-form-tax-code",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Mã số thuế",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "master-data-form-phone",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Điện thoại",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "master-data-form-address",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Địa chỉ",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "master-data-form-email",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Email",
+              "target_matches": true
+            }
+          ]
+        }
+      ],
+      "focus_and_tabwrap": "PASS_MODELED_INITIAL_FOCUS_AND_REAL_CALLBACKS",
+      "cancel_callback": "PASS_NATIVE_CANCEL_EVENT_CALLBACK_NOT_BROWSER_ESCAPE",
+      "environment": "JSDOM_MODELED_DIALOG_NOT_NATIVE",
+      "label_activation": "PASS_NATIVE_LABEL_FORWARDED_CLICK_AND_PROGRAMMATIC_CONTROL_FOCUS"
+    },
+    {
+      "case": "master-data-clearing-agent",
+      "dialog_name": "Thêm Đại lý Hải quan",
+      "field_count": 4,
+      "fields": [
+        {
+          "id": "master-data-form-name",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Tên*",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "master-data-form-tax-code",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Mã số thuế",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "master-data-form-phone",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Điện thoại",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "master-data-form-address",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Địa chỉ",
+              "target_matches": true
+            }
+          ]
+        }
+      ],
+      "focus_and_tabwrap": "PASS_MODELED_INITIAL_FOCUS_AND_REAL_CALLBACKS",
+      "cancel_callback": "PASS_NATIVE_CANCEL_EVENT_CALLBACK_NOT_BROWSER_ESCAPE",
+      "environment": "JSDOM_MODELED_DIALOG_NOT_NATIVE",
+      "label_activation": "PASS_NATIVE_LABEL_FORWARDED_CLICK_AND_PROGRAMMATIC_CONTROL_FOCUS"
+    },
+    {
+      "case": "master-data-transporter",
+      "dialog_name": "Thêm Đơn vị Vận tải",
+      "field_count": 4,
+      "fields": [
+        {
+          "id": "master-data-form-name",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Tên*",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "master-data-form-tax-code",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Mã số thuế",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "master-data-form-phone",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Điện thoại",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "master-data-form-address",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Địa chỉ",
+              "target_matches": true
+            }
+          ]
+        }
+      ],
+      "focus_and_tabwrap": "PASS_MODELED_INITIAL_FOCUS_AND_REAL_CALLBACKS",
+      "cancel_callback": "PASS_NATIVE_CANCEL_EVENT_CALLBACK_NOT_BROWSER_ESCAPE",
+      "environment": "JSDOM_MODELED_DIALOG_NOT_NATIVE",
+      "label_activation": "PASS_NATIVE_LABEL_FORWARDED_CLICK_AND_PROGRAMMATIC_CONTROL_FOCUS"
+    },
+    {
+      "case": "container-inline-gate-pass-ready",
+      "dialog_name": "Container 360 TEST0000001",
+      "field_count": 3,
+      "fields": [
+        {
+          "id": "containers-gp-plate",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Biển số xe nhận",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "containers-gp-receiver",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Tên người nhận",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "containers-gp-cccd",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Số CMND / CCCD",
+              "target_matches": true
+            }
+          ]
+        }
+      ],
+      "focus_and_tabwrap": "PASS_MODELED_INITIAL_FOCUS_AND_REAL_CALLBACKS",
+      "cancel_callback": "PASS_NATIVE_CANCEL_EVENT_CALLBACK_NOT_BROWSER_ESCAPE",
+      "environment": "JSDOM_MODELED_DIALOG_NOT_NATIVE",
+      "label_activation": "PASS_NATIVE_LABEL_FORWARDED_CLICK_AND_PROGRAMMATIC_CONTROL_FOCUS"
+    },
+    {
+      "case": "container-manifest-mbl-hbl-associations",
+      "dialog_name": "Tạo Container Visit thủ công",
+      "field_count": 9,
+      "fields": [
+        {
+          "id": "containers-cv-form-container-number",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Số container* (ISO 6346)",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "containers-cv-form-container-type",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Loại container",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "containers-create-shipping-line",
+          "aria_label": "Hãng tàu theo Manifest",
+          "readonly": true,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Hãng tàu",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "containers-create-consignee",
+          "aria_label": "Chủ hàng",
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Chủ hàng (Consignee)*",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "containers-create-manifest",
+          "aria_label": "Manifest",
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Manifest No.",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "containers-create-mbl",
+          "aria_label": "Master BL",
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "MBL No.",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "containers-create-hbl",
+          "aria_label": "House BL",
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "HBL No.",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "containers-cv-form-manifest-seal",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Seal Manifest*",
+              "target_matches": true
+            }
+          ]
+        },
+        {
+          "id": "containers-cv-form-gross-weight-kg",
+          "aria_label": null,
+          "readonly": false,
+          "disabled": false,
+          "labels": [
+            {
+              "text": "Trọng lượng (kg)",
+              "target_matches": true
+            }
+          ]
+        }
+      ],
+      "focus_and_tabwrap": "PASS_MODELED_INITIAL_FOCUS_AND_REAL_CALLBACKS",
+      "cancel_callback": "PASS_NATIVE_CANCEL_EVENT_CALLBACK_NOT_BROWSER_ESCAPE",
+      "environment": "JSDOM_MODELED_DIALOG_NOT_NATIVE",
+      "label_activation": "PASS_NATIVE_LABEL_FORWARDED_CLICK_AND_PROGRAMMATIC_CONTROL_FOCUS"
+    }
+  ]
+}

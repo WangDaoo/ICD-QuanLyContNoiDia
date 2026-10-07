@@ -6,7 +6,8 @@ import {
   View,
 } from 'react-native';
 
-import { theme } from '../theme/theme';
+import { useTheme } from '../theme/ThemeProvider';
+import type { Theme } from '../theme/theme';
 
 interface ErrorStateProps {
   title?: string;
@@ -21,13 +22,15 @@ export function ErrorState({
   onRetry,
   retryText = 'Thử lại',
 }: ErrorStateProps) {
+  const { theme } = useTheme();
+  const styles = createStyles(theme);
   return (
     <View style={styles.container}>
       <Text style={styles.icon}>⚠️</Text>
-      <Text style={styles.title}>{title}</Text>
+      <Text accessibilityRole="header" style={styles.title}>{title}</Text>
       <Text style={styles.message}>{message}</Text>
       {onRetry ? (
-        <TouchableOpacity style={styles.button} onPress={onRetry}>
+        <TouchableOpacity accessibilityRole="button" accessibilityLabel={retryText} style={styles.button} onPress={onRetry}>
           <Text style={styles.buttonText}>{retryText}</Text>
         </TouchableOpacity>
       ) : null}
@@ -35,7 +38,7 @@ export function ErrorState({
   );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (theme: Theme) => StyleSheet.create({
   container: {
     padding: theme.spacing.xxxl,
     alignItems: 'center',
@@ -47,7 +50,7 @@ const styles = StyleSheet.create({
   },
   title: {
     ...theme.typography.h3,
-    color: theme.colors.danger,
+    color: theme.colors.dangerText,
     textAlign: 'center',
     marginBottom: theme.spacing.xs,
   },
@@ -58,6 +61,9 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.lg,
   },
   button: {
+    minWidth: 48,
+    minHeight: 48,
+    justifyContent: 'center',
     backgroundColor: theme.colors.primary,
     borderRadius: theme.borderRadius.md,
     paddingVertical: theme.spacing.sm,
@@ -65,6 +71,6 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     ...theme.typography.bodyBold,
-    color: theme.colors.surface,
+    color: '#FFFFFF',
   },
 });

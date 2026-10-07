@@ -1,0 +1,22 @@
+✔ MovementOrdersView empty body presents loading without inventing a current empty result (511.3534ms)
+✔ MovementOrdersView empty body presents error without inventing a current empty result (70.0615ms)
+✔ MovementOrdersView empty body presents forbidden without inventing a current empty result (152.3226ms)
+✔ MovementOrdersView empty body presents stale without inventing a current empty result (56.8796ms)
+✔ MovementOrdersView ready empty list remains a real empty state (69.55ms)
+✔ MovementOrdersView read failure can retry then recover to a confirmed empty list (89.4603ms)
+✔ YardView empty body presents loading without inventing a current empty result (224.3562ms)
+✔ YardView empty body presents error without inventing a current empty result (83.1246ms)
+✔ YardView empty body presents forbidden without inventing a current empty result (90.7755ms)
+✔ YardView empty body presents stale without inventing a current empty result (69.8734ms)
+✔ YardView ready empty list remains a real empty state (82.3018ms)
+✔ YardView read failure can retry then recover to a confirmed empty list (85.6027ms)
+✔ MovementOrdersView ready no-match state can clear its filter and reveal confirmed rows (253.1198ms)
+✔ YardView ready no-match state can clear its filter and reveal confirmed rows (98.8559ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12762.3771

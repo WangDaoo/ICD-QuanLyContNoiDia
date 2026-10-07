@@ -1,0 +1,52 @@
+✖ forbidden dashboard metrics never pretend zero revenue or zero yard capacity (290.3632ms)
+✖ loading dashboard metrics do not show numeric zero; stale values are explicitly labelled (31.0675ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 40227.481
+
+✖ failing tests:
+
+test at audit\tools\dashboard-resource-regression.test.mjs:13:1
+✖ forbidden dashboard metrics never pretend zero revenue or zero yard capacity (290.3632ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /0\.0 tr₫|\/ 0 vị trí|Sức chứa bãi:0%/. Input:
+  
+  'Container trong Bãi0/ 0 vị tríSức chứa bãi:0%Cần xử lý (Work Queue)00 Quá hạn SLAĐộ ưu tiên cao:0 tác vụXem danh sách công việc →Doanh thu & Công nợ0.0 tr₫đã thuCông nợ chưa thu:0.0 tr₫Phiếu Ra Cổng & Xuất Bãi00 đã xuất cổngSẵn sàng ra cổng:Kiểm tra phiếu & điều kiệnQuản lý Phiếu ra cổng & Gate-out →Hoạt động Cổng & Chuyến xe (Truck Visits)Lịch hẹn Gate Appointment và tình trạng tiếp nhậnXem tất cảCảnh báo thời gian lưu bãi0 containerContainer gần hoặc vượt ngưỡng cảnh báo từ backend. Phí thực tế xem tại Dịch vụ & Thanh toán.Tính phí lưu khoSố ContainerChủ hàng (Consignee)Vị tríNgày vào cổngTình trạngKiểm soát Lệnh Giữ (Operational Holds)0 đang khóaCác chốt chặn kiểm soát pháp lý, hải quan, cước hãng tàu và hư hỏng trước khi cho phép ra cổng.Kiểm tra điều kiện xuất cổng (Readiness) →Vận hành EDI (CODECO)Shipping LinesThông điệp gửi tự động cho hãng tàu khi Gate-in và Gate-out thành công.Xem toàn bộ Outbox EDI →'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/dashboard-resource-regression.test.mjs:16:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Container trong Bãi0/ 0 vị tríSức chứa bãi:0%Cần xử lý (Work Queue)00 Quá hạn SLAĐộ ưu tiên cao:0 tác vụXem danh sách công việc →Doanh thu & Công nợ0.0 tr₫đã thuCông nợ chưa thu:0.0 tr₫Phiếu Ra Cổng & Xuất Bãi00 đã xuất cổngSẵn sàng ra cổng:Kiểm tra phiếu & điều kiệnQuản lý Phiếu ra cổng & Gate-out →Hoạt động Cổng & Chuyến xe (Truck Visits)Lịch hẹn Gate Appointment và tình trạng tiếp nhậnXem tất cảCảnh báo thời gian lưu bãi0 containerContainer gần hoặc vượt ngưỡng cảnh báo từ backend. Phí thực tế xem tại Dịch vụ & Thanh toán.Tính phí lưu khoSố ContainerChủ hàng (Consignee)Vị tríNgày vào cổngTình trạngKiểm soát Lệnh Giữ (Operational Holds)0 đang khóaCác chốt chặn kiểm soát pháp lý, hải quan, cước hãng tàu và hư hỏng trước khi cho phép ra cổng.Kiểm tra điều kiện xuất cổng (Readiness) →Vận hành EDI (CODECO)Shipping LinesThông điệp gửi tự động cho hãng tàu khi Gate-in và Gate-out thành công.Xem toàn bộ Outbox EDI →',
+    expected: /0\.0 tr₫|\/ 0 vị trí|Sức chứa bãi:0%/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\dashboard-resource-regression.test.mjs:22:1
+✖ loading dashboard metrics do not show numeric zero; stale values are explicitly labelled (31.0675ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /0\.0 tr₫|\/ 0 vị trí/. Input:
+  
+  'Container trong Bãi0/ 0 vị tríSức chứa bãi:0%Cần xử lý (Work Queue)00 Quá hạn SLAĐộ ưu tiên cao:0 tác vụXem danh sách công việc →Doanh thu & Công nợ0.0 tr₫đã thuCông nợ chưa thu:0.0 tr₫Phiếu Ra Cổng & Xuất Bãi00 đã xuất cổngSẵn sàng ra cổng:Kiểm tra phiếu & điều kiệnQuản lý Phiếu ra cổng & Gate-out →Hoạt động Cổng & Chuyến xe (Truck Visits)Lịch hẹn Gate Appointment và tình trạng tiếp nhậnXem tất cảCảnh báo thời gian lưu bãi0 containerContainer gần hoặc vượt ngưỡng cảnh báo từ backend. Phí thực tế xem tại Dịch vụ & Thanh toán.Tính phí lưu khoSố ContainerChủ hàng (Consignee)Vị tríNgày vào cổngTình trạngKiểm soát Lệnh Giữ (Operational Holds)0 đang khóaCác chốt chặn kiểm soát pháp lý, hải quan, cước hãng tàu và hư hỏng trước khi cho phép ra cổng.Kiểm tra điều kiện xuất cổng (Readiness) →Vận hành EDI (CODECO)Shipping LinesThông điệp gửi tự động cho hãng tàu khi Gate-in và Gate-out thành công.Xem toàn bộ Outbox EDI →'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/dashboard-resource-regression.test.mjs:24:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Container trong Bãi0/ 0 vị tríSức chứa bãi:0%Cần xử lý (Work Queue)00 Quá hạn SLAĐộ ưu tiên cao:0 tác vụXem danh sách công việc →Doanh thu & Công nợ0.0 tr₫đã thuCông nợ chưa thu:0.0 tr₫Phiếu Ra Cổng & Xuất Bãi00 đã xuất cổngSẵn sàng ra cổng:Kiểm tra phiếu & điều kiệnQuản lý Phiếu ra cổng & Gate-out →Hoạt động Cổng & Chuyến xe (Truck Visits)Lịch hẹn Gate Appointment và tình trạng tiếp nhậnXem tất cảCảnh báo thời gian lưu bãi0 containerContainer gần hoặc vượt ngưỡng cảnh báo từ backend. Phí thực tế xem tại Dịch vụ & Thanh toán.Tính phí lưu khoSố ContainerChủ hàng (Consignee)Vị tríNgày vào cổngTình trạngKiểm soát Lệnh Giữ (Operational Holds)0 đang khóaCác chốt chặn kiểm soát pháp lý, hải quan, cước hãng tàu và hư hỏng trước khi cho phép ra cổng.Kiểm tra điều kiện xuất cổng (Readiness) →Vận hành EDI (CODECO)Shipping LinesThông điệp gửi tự động cho hãng tàu khi Gate-in và Gate-out thành công.Xem toàn bộ Outbox EDI →',
+    expected: /0\.0 tr₫|\/ 0 vị trí/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }

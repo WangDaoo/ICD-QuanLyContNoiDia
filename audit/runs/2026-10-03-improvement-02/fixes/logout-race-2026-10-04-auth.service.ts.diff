@@ -1,0 +1,16 @@
+--- before/apps/web/src/services/api/auth.service.ts
++++ after/apps/web/src/services/api/auth.service.ts
+@@ -31,10 +31,12 @@
+   },
+ 
+   async logout(): Promise<void> {
++    const version = tokenStorage.getSessionVersion();
+     try {
+       await apiClient.post('/auth/logout');
+     } finally {
+-      tokenStorage.clear();
++      // A same-session refresh keeps this generation; another login or logout advances it.
++      if (version === tokenStorage.getSessionVersion()) tokenStorage.clear();
+     }
+   },
+ };

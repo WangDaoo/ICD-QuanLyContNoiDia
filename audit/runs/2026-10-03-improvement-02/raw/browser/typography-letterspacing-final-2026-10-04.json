@@ -1,0 +1,6003 @@
+{
+  "scope": "Measured effective heading and uppercase roles, no field values captured",
+  "cases": [
+    {
+      "screen": "dashboard",
+      "at": "2026-10-04T06:49:39.778Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-rose-900",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-slate-800 flex items-center space-x-2",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-slate-800 flex items-center space-x-2",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-slate-800 flex items-center space-x-2",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 320,
+      "scrollWidth": 320,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "text-xs font-semibold text-slate-500 uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-xs font-semibold text-slate-500 uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-xs font-semibold text-slate-500 uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-xs font-semibold text-slate-500 uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        }
+      ],
+      "width": 320
+    },
+    {
+      "screen": "work-queue",
+      "at": "2026-10-04T06:49:40.339Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 320,
+      "scrollWidth": 320,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [],
+      "width": 320
+    },
+    {
+      "screen": "manifests",
+      "at": "2026-10-04T06:49:40.936Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-base font-bold text-slate-900",
+          "fontSize": "16px",
+          "letterSpacing": "normal",
+          "lineHeight": "20px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-xs font-bold uppercase tracking-wider text-slate-500 mb-3 flex items-center space-x-2",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "h4",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 320,
+      "scrollWidth": 320,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 py-2 font-mono font-bold bg-white border border-blue-300 rounded-lg text-slate-800 w-44 uppercase focus:outline-none focus:ring-1 focus:ring-blue-500",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "input",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": "text-xs font-bold uppercase tracking-wider text-slate-500 mb-3 flex items-center space-x-2",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "h4",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "lucide lucide-layers w-4 h-4 text-blue-600",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "svg",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "path",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "path",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "path",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 320
+    },
+    {
+      "screen": "containers",
+      "at": "2026-10-04T06:49:41.497Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 320,
+      "scrollWidth": 320,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [],
+      "width": 320
+    },
+    {
+      "screen": "movement-orders",
+      "at": "2026-10-04T06:49:42.130Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-xs font-bold text-amber-900 mb-2",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "15px",
+          "tag": "h4",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 320,
+      "scrollWidth": 320,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "bg-slate-50 text-slate-500 uppercase text-caption",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "thead",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "tr",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-right px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 320
+    },
+    {
+      "screen": "truck-visits",
+      "at": "2026-10-04T06:49:42.693Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 320,
+      "scrollWidth": 320,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [],
+      "width": 320
+    },
+    {
+      "screen": "gate-in",
+      "at": "2026-10-04T06:49:43.354Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 320,
+      "scrollWidth": 320,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [],
+      "width": 320
+    },
+    {
+      "screen": "yard",
+      "at": "2026-10-04T06:49:43.978Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center gap-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "font-bold text-slate-900 flex items-center gap-2",
+          "fontSize": "16px",
+          "letterSpacing": "normal",
+          "lineHeight": "20px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "font-bold text-sm",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 320,
+      "scrollWidth": 320,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "font-bold uppercase tracking-wide",
+          "fontSize": "12px",
+          "letterSpacing": "0.3px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 320
+    },
+    {
+      "screen": "billing",
+      "at": "2026-10-04T06:49:44.586Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 320,
+      "scrollWidth": 320,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        }
+      ],
+      "width": 320
+    },
+    {
+      "screen": "gate-pass",
+      "at": "2026-10-04T06:49:45.166Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold font-mono text-slate-900",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 320,
+      "scrollWidth": 320,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [],
+      "width": 320
+    },
+    {
+      "screen": "edi",
+      "at": "2026-10-04T06:49:45.746Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 320,
+      "scrollWidth": 320,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "font-bold text-slate-700 uppercase tracking-wider text-caption mb-2",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 320
+    },
+    {
+      "screen": "handovers",
+      "at": "2026-10-04T06:49:46.335Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-mono font-bold text-slate-900",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 320,
+      "scrollWidth": 320,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "font-bold text-slate-700 uppercase tracking-wider text-caption mb-3",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 320
+    },
+    {
+      "screen": "partner-clients",
+      "at": "2026-10-04T06:49:46.572Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 320,
+      "scrollWidth": 320,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [],
+      "width": 320
+    },
+    {
+      "screen": "partner-api-logs",
+      "at": "2026-10-04T06:49:46.817Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 320,
+      "scrollWidth": 320,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "font-bold text-slate-700 uppercase tracking-wider text-caption mb-1",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "font-bold text-slate-700 uppercase tracking-wider text-caption mb-1",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 320
+    },
+    {
+      "screen": "master-data",
+      "at": "2026-10-04T06:49:47.085Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 320,
+      "scrollWidth": 320,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "bg-slate-50 text-slate-500 uppercase text-caption",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "thead",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "tr",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-right px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 320
+    },
+    {
+      "screen": "users-roles",
+      "at": "2026-10-04T06:49:47.441Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 320,
+      "scrollWidth": 320,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "bg-slate-50 text-slate-500 uppercase text-caption",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "thead",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "tr",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-right px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 320
+    },
+    {
+      "screen": "admin",
+      "at": "2026-10-04T06:49:47.715Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 320,
+      "scrollWidth": 320,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        }
+      ],
+      "width": 320
+    },
+    {
+      "screen": "activity",
+      "at": "2026-10-04T06:49:47.964Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 320,
+      "scrollWidth": 320,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [],
+      "width": 320
+    },
+    {
+      "screen": "dashboard",
+      "at": "2026-10-04T06:49:48.296Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-rose-900",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-slate-800 flex items-center space-x-2",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-slate-800 flex items-center space-x-2",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-slate-800 flex items-center space-x-2",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 375,
+      "scrollWidth": 375,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "text-xs font-semibold text-slate-500 uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-xs font-semibold text-slate-500 uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-xs font-semibold text-slate-500 uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-xs font-semibold text-slate-500 uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        }
+      ],
+      "width": 375
+    },
+    {
+      "screen": "work-queue",
+      "at": "2026-10-04T06:49:48.575Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 375,
+      "scrollWidth": 375,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [],
+      "width": 375
+    },
+    {
+      "screen": "manifests",
+      "at": "2026-10-04T06:49:48.839Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-base font-bold text-slate-900",
+          "fontSize": "16px",
+          "letterSpacing": "normal",
+          "lineHeight": "20px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-xs font-bold uppercase tracking-wider text-slate-500 mb-3 flex items-center space-x-2",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "h4",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 375,
+      "scrollWidth": 375,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 py-2 font-mono font-bold bg-white border border-blue-300 rounded-lg text-slate-800 w-44 uppercase focus:outline-none focus:ring-1 focus:ring-blue-500",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "input",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": "text-xs font-bold uppercase tracking-wider text-slate-500 mb-3 flex items-center space-x-2",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "h4",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "lucide lucide-layers w-4 h-4 text-blue-600",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "svg",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "path",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "path",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "path",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 375
+    },
+    {
+      "screen": "containers",
+      "at": "2026-10-04T06:49:49.116Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 375,
+      "scrollWidth": 375,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [],
+      "width": 375
+    },
+    {
+      "screen": "movement-orders",
+      "at": "2026-10-04T06:49:49.366Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-xs font-bold text-amber-900 mb-2",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "15px",
+          "tag": "h4",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 375,
+      "scrollWidth": 375,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "bg-slate-50 text-slate-500 uppercase text-caption",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "thead",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "tr",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-right px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 375
+    },
+    {
+      "screen": "truck-visits",
+      "at": "2026-10-04T06:49:49.686Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 375,
+      "scrollWidth": 375,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [],
+      "width": 375
+    },
+    {
+      "screen": "gate-in",
+      "at": "2026-10-04T06:49:49.930Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 375,
+      "scrollWidth": 375,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [],
+      "width": 375
+    },
+    {
+      "screen": "yard",
+      "at": "2026-10-04T06:49:50.183Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center gap-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "font-bold text-slate-900 flex items-center gap-2",
+          "fontSize": "16px",
+          "letterSpacing": "normal",
+          "lineHeight": "20px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "font-bold text-sm",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 375,
+      "scrollWidth": 375,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "font-bold uppercase tracking-wide",
+          "fontSize": "12px",
+          "letterSpacing": "0.3px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 375
+    },
+    {
+      "screen": "billing",
+      "at": "2026-10-04T06:49:50.438Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 375,
+      "scrollWidth": 375,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        }
+      ],
+      "width": 375
+    },
+    {
+      "screen": "gate-pass",
+      "at": "2026-10-04T06:49:50.677Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold font-mono text-slate-900",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 375,
+      "scrollWidth": 375,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [],
+      "width": 375
+    },
+    {
+      "screen": "edi",
+      "at": "2026-10-04T06:49:50.948Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 375,
+      "scrollWidth": 375,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "font-bold text-slate-700 uppercase tracking-wider text-caption mb-2",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 375
+    },
+    {
+      "screen": "handovers",
+      "at": "2026-10-04T06:49:51.191Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-mono font-bold text-slate-900",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 375,
+      "scrollWidth": 375,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "font-bold text-slate-700 uppercase tracking-wider text-caption mb-3",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 375
+    },
+    {
+      "screen": "partner-clients",
+      "at": "2026-10-04T06:49:51.445Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 375,
+      "scrollWidth": 375,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [],
+      "width": 375
+    },
+    {
+      "screen": "partner-api-logs",
+      "at": "2026-10-04T06:49:51.675Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 375,
+      "scrollWidth": 375,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "font-bold text-slate-700 uppercase tracking-wider text-caption mb-1",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "font-bold text-slate-700 uppercase tracking-wider text-caption mb-1",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 375
+    },
+    {
+      "screen": "master-data",
+      "at": "2026-10-04T06:49:51.935Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 375,
+      "scrollWidth": 375,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "bg-slate-50 text-slate-500 uppercase text-caption",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "thead",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "tr",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-right px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 375
+    },
+    {
+      "screen": "users-roles",
+      "at": "2026-10-04T06:49:52.219Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 375,
+      "scrollWidth": 375,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "bg-slate-50 text-slate-500 uppercase text-caption",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "thead",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "tr",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-right px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 375
+    },
+    {
+      "screen": "admin",
+      "at": "2026-10-04T06:49:52.404Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 375,
+      "scrollWidth": 375,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        }
+      ],
+      "width": 375
+    },
+    {
+      "screen": "activity",
+      "at": "2026-10-04T06:49:52.672Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "-0.35px",
+          "lineHeight": "17.5px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 375,
+      "scrollWidth": 375,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [],
+      "width": 375
+    },
+    {
+      "screen": "dashboard",
+      "at": "2026-10-04T06:49:52.870Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-rose-900",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-slate-800 flex items-center space-x-2",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-slate-800 flex items-center space-x-2",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-slate-800 flex items-center space-x-2",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 768,
+      "scrollWidth": 768,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-xs font-semibold text-slate-500 uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-xs font-semibold text-slate-500 uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-xs font-semibold text-slate-500 uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-xs font-semibold text-slate-500 uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        }
+      ],
+      "width": 768
+    },
+    {
+      "screen": "work-queue",
+      "at": "2026-10-04T06:49:53.077Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 768,
+      "scrollWidth": 768,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 768
+    },
+    {
+      "screen": "manifests",
+      "at": "2026-10-04T06:49:53.249Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-base font-bold text-slate-900",
+          "fontSize": "16px",
+          "letterSpacing": "normal",
+          "lineHeight": "20px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-xs font-bold uppercase tracking-wider text-slate-500 mb-3 flex items-center space-x-2",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "h4",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 768,
+      "scrollWidth": 768,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 py-2 font-mono font-bold bg-white border border-blue-300 rounded-lg text-slate-800 w-44 uppercase focus:outline-none focus:ring-1 focus:ring-blue-500",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "input",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": "text-xs font-bold uppercase tracking-wider text-slate-500 mb-3 flex items-center space-x-2",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "h4",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "lucide lucide-layers w-4 h-4 text-blue-600",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "svg",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "path",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "path",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "path",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 768
+    },
+    {
+      "screen": "containers",
+      "at": "2026-10-04T06:49:53.413Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 768,
+      "scrollWidth": 768,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 768
+    },
+    {
+      "screen": "movement-orders",
+      "at": "2026-10-04T06:49:53.554Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-xs font-bold text-amber-900 mb-2",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "15px",
+          "tag": "h4",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 768,
+      "scrollWidth": 768,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "bg-slate-50 text-slate-500 uppercase text-caption",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "thead",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "tr",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-right px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 768
+    },
+    {
+      "screen": "truck-visits",
+      "at": "2026-10-04T06:49:53.708Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 768,
+      "scrollWidth": 768,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 768
+    },
+    {
+      "screen": "gate-in",
+      "at": "2026-10-04T06:49:53.843Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 768,
+      "scrollWidth": 768,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 768
+    },
+    {
+      "screen": "yard",
+      "at": "2026-10-04T06:49:53.994Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center gap-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "font-bold text-slate-900 flex items-center gap-2",
+          "fontSize": "16px",
+          "letterSpacing": "normal",
+          "lineHeight": "20px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "font-bold text-sm",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 768,
+      "scrollWidth": 768,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "font-bold uppercase tracking-wide",
+          "fontSize": "12px",
+          "letterSpacing": "0.3px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 768
+    },
+    {
+      "screen": "billing",
+      "at": "2026-10-04T06:49:54.152Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 768,
+      "scrollWidth": 768,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        }
+      ],
+      "width": 768
+    },
+    {
+      "screen": "gate-pass",
+      "at": "2026-10-04T06:49:54.295Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold font-mono text-slate-900",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 768,
+      "scrollWidth": 768,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 768
+    },
+    {
+      "screen": "edi",
+      "at": "2026-10-04T06:49:54.428Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 768,
+      "scrollWidth": 768,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "font-bold text-slate-700 uppercase tracking-wider text-caption mb-2",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 768
+    },
+    {
+      "screen": "handovers",
+      "at": "2026-10-04T06:49:54.577Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-mono font-bold text-slate-900",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 768,
+      "scrollWidth": 768,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "font-bold text-slate-700 uppercase tracking-wider text-caption mb-3",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 768
+    },
+    {
+      "screen": "partner-clients",
+      "at": "2026-10-04T06:49:54.724Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 768,
+      "scrollWidth": 768,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 768
+    },
+    {
+      "screen": "partner-api-logs",
+      "at": "2026-10-04T06:49:54.861Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 768,
+      "scrollWidth": 768,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "font-bold text-slate-700 uppercase tracking-wider text-caption mb-1",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "font-bold text-slate-700 uppercase tracking-wider text-caption mb-1",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 768
+    },
+    {
+      "screen": "master-data",
+      "at": "2026-10-04T06:49:55.015Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 768,
+      "scrollWidth": 768,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "bg-slate-50 text-slate-500 uppercase text-caption",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "thead",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "tr",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-right px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 768
+    },
+    {
+      "screen": "users-roles",
+      "at": "2026-10-04T06:49:55.198Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 768,
+      "scrollWidth": 768,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "bg-slate-50 text-slate-500 uppercase text-caption",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "thead",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "tr",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-right px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 768
+    },
+    {
+      "screen": "admin",
+      "at": "2026-10-04T06:49:55.332Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 768,
+      "scrollWidth": 768,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        }
+      ],
+      "width": 768
+    },
+    {
+      "screen": "activity",
+      "at": "2026-10-04T06:49:55.466Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 768,
+      "scrollWidth": 768,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 768
+    },
+    {
+      "screen": "dashboard",
+      "at": "2026-10-04T06:49:55.670Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-rose-900",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-slate-800",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-slate-800 flex items-center space-x-2",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-slate-800 flex items-center space-x-2",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-slate-800 flex items-center space-x-2",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-xs font-semibold text-slate-500 uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-xs font-semibold text-slate-500 uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-xs font-semibold text-slate-500 uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-xs font-semibold text-slate-500 uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "screen": "work-queue",
+      "at": "2026-10-04T06:49:55.838Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "screen": "manifests",
+      "at": "2026-10-04T06:49:56.314Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-base font-bold text-slate-900",
+          "fontSize": "16px",
+          "letterSpacing": "normal",
+          "lineHeight": "20px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-xs font-bold uppercase tracking-wider text-slate-500 mb-3 flex items-center space-x-2",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "h4",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 py-2 font-mono font-bold bg-white border border-blue-300 rounded-lg text-slate-800 w-44 uppercase focus:outline-none focus:ring-1 focus:ring-blue-500",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "input",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": "text-xs font-bold uppercase tracking-wider text-slate-500 mb-3 flex items-center space-x-2",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "h4",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "lucide lucide-layers w-4 h-4 text-blue-600",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "svg",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "path",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "path",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "path",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "15px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "screen": "containers",
+      "at": "2026-10-04T06:49:56.711Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "screen": "movement-orders",
+      "at": "2026-10-04T06:49:56.958Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-xs font-bold text-amber-900 mb-2",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "15px",
+          "tag": "h4",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "bg-slate-50 text-slate-500 uppercase text-caption",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "thead",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "tr",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-right px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "screen": "truck-visits",
+      "at": "2026-10-04T06:49:57.194Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "screen": "gate-in",
+      "at": "2026-10-04T06:49:57.436Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "screen": "yard",
+      "at": "2026-10-04T06:49:57.704Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center gap-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "font-bold text-slate-900 flex items-center gap-2",
+          "fontSize": "16px",
+          "letterSpacing": "normal",
+          "lineHeight": "20px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "font-bold text-sm",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "font-bold uppercase tracking-wide",
+          "fontSize": "12px",
+          "letterSpacing": "0.3px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "screen": "billing",
+      "at": "2026-10-04T06:49:57.944Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "screen": "gate-pass",
+      "at": "2026-10-04T06:49:58.165Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold font-mono text-slate-900",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "screen": "edi",
+      "at": "2026-10-04T06:49:58.404Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "font-bold text-slate-700 uppercase tracking-wider text-caption mb-2",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "screen": "handovers",
+      "at": "2026-10-04T06:49:58.617Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-mono font-bold text-slate-900",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "font-bold text-slate-700 uppercase tracking-wider text-caption mb-3",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "screen": "partner-clients",
+      "at": "2026-10-04T06:49:58.833Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "screen": "partner-api-logs",
+      "at": "2026-10-04T06:49:59.067Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "font-bold text-slate-700 uppercase tracking-wider text-caption mb-1",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "font-bold text-slate-700 uppercase tracking-wider text-caption mb-1",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "screen": "master-data",
+      "at": "2026-10-04T06:49:59.334Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "bg-slate-50 text-slate-500 uppercase text-caption",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "thead",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "tr",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-right px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "screen": "users-roles",
+      "at": "2026-10-04T06:49:59.617Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "bg-slate-50 text-slate-500 uppercase text-caption",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "thead",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": null,
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "tr",
+          "textTransform": "uppercase",
+          "weight": "400"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-left px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-right px-4 py-3",
+          "fontSize": "12px",
+          "letterSpacing": "normal",
+          "lineHeight": "16px",
+          "tag": "th",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "screen": "admin",
+      "at": "2026-10-04T06:49:59.841Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-sm font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "14px",
+          "letterSpacing": "normal",
+          "lineHeight": "17.5px",
+          "tag": "h3",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        },
+        {
+          "class": "text-slate-500 font-semibold uppercase tracking-wider",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "span",
+          "textTransform": "uppercase",
+          "weight": "600"
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "screen": "activity",
+      "at": "2026-10-04T06:50:00.082Z",
+      "headings": [
+        {
+          "class": "truncate text-sm sm:text-base font-bold tracking-tight text-slate-800",
+          "fontSize": "16px",
+          "letterSpacing": "-0.4px",
+          "lineHeight": "20px",
+          "tag": "h1",
+          "textTransform": "none",
+          "weight": "700"
+        },
+        {
+          "class": "text-lg font-bold text-slate-900 flex items-center space-x-2",
+          "fontSize": "18px",
+          "letterSpacing": "normal",
+          "lineHeight": "22.5px",
+          "tag": "h2",
+          "textTransform": "none",
+          "weight": "700"
+        }
+      ],
+      "rootWidth": 1440,
+      "scrollWidth": 1440,
+      "source": [
+        "/assets/index-DbeLcFUK.js"
+      ],
+      "uppercase": [
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        },
+        {
+          "class": "px-3 text-caption font-bold uppercase tracking-wider text-slate-400",
+          "fontSize": "12px",
+          "letterSpacing": "0.6px",
+          "lineHeight": "16px",
+          "tag": "div",
+          "textTransform": "uppercase",
+          "weight": "700"
+        }
+      ],
+      "width": 1440
+    }
+  ]
+}

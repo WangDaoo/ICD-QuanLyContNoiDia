@@ -1,0 +1,28 @@
+{
+  "status": "VERIFIED",
+  "change": "EDI inspector displays canonical payloadSnapshot and separates send state from ACK.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/EDIView.tsx",
+      "line": 337,
+      "detail": "payloadSnapshot",
+      "snippet": "                      disabled={selectedEdi.payloadSnapshot == null}\n                      onClick={() =>\n                        handleCopy(JSON.stringify(selectedEdi.payloadSnapshot, null, 2))\n                      }"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/web-fixtures-final.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/dashboard-edi-green.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/web-types-api/workflows-completed.json"
+  ],
+  "limitations": "MOCK external provider; internal outbox, ACK and alert operations persisted; no actual external delivery claimed.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [
+    "A generated preview is visibly and accessibly identified as illustrative before copying.",
+    "If raw payload becomes available, display exactly that payload and clearly identify its version/source.",
+    "A 20-foot/reefer fixture never labels a hardcoded 45G1 example as its transmitted raw data."
+  ],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/EDIView.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

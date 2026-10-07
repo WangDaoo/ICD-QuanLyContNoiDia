@@ -1,0 +1,22 @@
+{
+  "status": "FIXED",
+  "change": "Inspection history has separate loading/error/retry and stale response fencing.",
+  "source_evidence": [
+    {
+      "file": "apps/mobile/src/features/yard/screens/SurveyHomeScreen.tsx",
+      "line": 39,
+      "detail": "history",
+      "snippet": "  const [historyLoading, setHistoryLoading] = useState(true);\n  const [historyError, setHistoryError] = useState('');\n  const [historyLoaded, setHistoryLoaded] = useState(false);\n  const historyRequest = useRef(0);"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+  ],
+  "limitations": "Delayed/rejected source component fixtures; native slow/offline behavior pending.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/features/yard/screens/SurveyHomeScreen.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

@@ -1,0 +1,78 @@
+Browser tab: 20, Title: "ICD Management System — Quản lý Kho bãi Container Nội địa", URL: "http://127.0.0.1:5173/".
+0 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/
+	1 container root
+		2 container
+			3 text ICD
+			4 heading ICD Management System, Value: 1
+				5 text ICD Management System
+			6 text Cảng cạn & kho bãi container nội địa 1  lệnh giữ Đã kết nối
+			7 button Tải lại dữ liệu
+			8 button (collapsed) Description: Thông báo (0 chưa đọc), Secondary Actions: Expand
+			9 text System Administrator ADMIN
+			10 button Đăng xuất
+		11 container Điều hướng nghiệp vụ
+			12 container
+				13 text TỔNG QUAN & ĐIỀU PHỐI
+				14 button Tổng quan vận hành
+				15 button Danh sách công việc
+				16 text QUẢN LÝ HÀNG HÓA & CỔNG
+				17 button Bản lược khai (Manifest)
+				18 button Quản lý Container
+				19 button Movement Order
+				20 button Chuyến xe ra/vào
+				21 button Tiếp nhận vào cổng (Gate-in)
+				22 button Vận hành Bãi (Yard)
+				23 text TÀI CHÍNH & RA CỔNG
+				24 button Dịch vụ & Thanh toán
+				25 button Phiếu ra cổng & Gate-out
+				26 button Vận hành EDI (CODECO)
+				27 text TÍCH HỢP ĐỐI TÁC
+				28 button Bàn giao vận chuyển
+				29 button Đối tác tích hợp API
+				30 button Nhật ký API đối tác
+				31 text HỆ THỐNG & QUẢN TRỊ
+				32 button Danh mục dùng chung
+				33 button Người dùng & Phân quyền
+				34 button Báo cáo vận hành
+				35 button Nhật ký kiểm toán
+			36 text System Administrator
+			37 text admin@icd.local
+			38 text ADMIN
+		39 container
+			40 text BÀN GIAO ĐỐI TÁC
+			41 heading Bàn giao Vận chuyển Ngoài ICD (Partner Handover), Value: 2
+				42 text Bàn giao Vận chuyển Ngoài ICD (Partner Handover)
+			43 text Quản lý quy trình ủy thác container cho đối tác vận tải ngoài, giao tiếp API và nghiệm thu biên bản giao nhận (POD)
+			44 link Description: Tài liệu API, Value: 127.0.0.1:3000/api/docs
+			45 button Tạo Lệnh Bàn giao mới
+			46 text field (settable)
+			47 pop up button (collapsed, settable) Value: Tất cả trạng thái, Secondary Actions: Expand
+				48 menu
+					49 (selected) Tất cả trạng thái
+					50 DRAFT (Nháp)
+					51 READY_FOR_HANDOVER (Chờ đối tác nhận)
+					52 PARTNER_ACCEPTED (Đã nhận)
+					53 IN_TRANSIT (Đang vận chuyển)
+					54 PARTNER_CONFIRMED (Chờ duyệt POD)
+					55 ICD_CONFIRMED (Đã nghiệm thu)
+					56 COMPLETED (Đã hoàn tất)
+			57 text Hiển thị  1  lệnh bàn giao QA-VC-1790837623424 COMPLETED QATU2282957 ( 40HC )
+			58 container
+				59 text Đối tác:  Local QA Transport
+			60 container
+				61 text Đích đến:  Local QA Warehouse
+			62 heading QA-VC-1790837623424, Value: 3
+				63 text QA-VC-1790837623424
+			64 text COMPLETED Hồ sơ Container: 
+			65 text QATU2282957
+			66 text  ( 40HC )
+			67 button Xem Hồ sơ Container
+			68 text TIẾN TRÌNH VÒNG ĐỜI BÀN GIAO (STATE MACHINE LIFECYCLE) 1. Bản nháp 2. Sẵn sàng 3. Đã nhận 4. Đang đi 5. Đã giao kho 6. Nghiệm thu Đối tác Vận tải ngoài Tên đối tác: 
+			69 text Local QA Transport
+			70 text Mã đối tác: 
+			71 text 8d6f057a-5ab1-4bb6-94fb-526af578eed0
+			72 text Ghi chú đơn:  Không có Kho nhận hàng đích Tên kho nhận: 
+			73 text Local QA Warehouse
+			74 text Địa chỉ kho:  Local test warehouse Dự kiến đến kho:  Chưa có lịch hẹn Trạng thái bàn giao: ICD đã xác nhận hoàn tất bàn giao. Xem lịch sử xác nhận bên dưới. Đã hoàn tất Biên bản & Lịch sử Xác nhận Bàn giao (Confirmations Timeline) ICD_CONFIRMED System Administrator 14:04:25 1/10/2026 ICD Nghiệm thu hoàn tất đối soát chứng từ và seal WAREHOUSE_RECEIVED Local QA Transport 13:53:43 1/10/2026 Local QA delivery received IN_TRANSIT Local QA Transport 13:53:43 1/10/2026 Xác nhận hợp lệ PARTNER_ACCEPTED Local QA Transport 13:53:43 1/10/2026 Local QA partner accepted
+
+The focused UI element is 28 button Bàn giao vận chuyển

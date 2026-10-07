@@ -1,0 +1,19 @@
+--- before/apps/mobile/src/components/GateModeSwitch.tsx
++++ after/apps/mobile/src/components/GateModeSwitch.tsx
+@@ -11,12 +11,12 @@
+   const navigation = useNavigation<NativeStackNavigationProp<GateStackParamList>>();
+   const { user } = useAuth();
+   const { theme } = useTheme();
+-  return <View style={{ flexDirection: 'row', padding: 4, gap: 6, borderWidth: 1, borderColor: theme.colors.borderDark, backgroundColor: theme.colors.border, borderRadius: 12 }}>
+-    {([{ key: 'IN', label: 'Tiếp nhận Vào (Gate-In)', Icon: Truck, permission: 'gate.in', route: 'GateInScan' },
+-      { key: 'OUT', label: 'Quét Ra (Gate-Out)', Icon: QrCode, permission: 'gate.out', route: 'GatePassScan' }] as const).filter(item => canAccessMobileScreen(user, item.permission)).map(({ key, label, Icon, route }) =>
++  return <View style={{ flexDirection: 'row', padding: theme.spacing.xs, gap: theme.spacing.sm, borderWidth: 1, borderColor: theme.colors.borderDark, backgroundColor: theme.colors.border, borderRadius: theme.borderRadius.lg }}>
++    {([{ key: 'IN', label: 'Tiếp nhận vào cổng', Icon: Truck, permission: 'gate.in', route: 'GateInScan' },
++      { key: 'OUT', label: 'Quét phiếu ra cổng', Icon: QrCode, permission: 'gate.out', route: 'GatePassScan' }] as const).filter(item => canAccessMobileScreen(user, item.permission)).map(({ key, label, Icon, route }) =>
+       <TouchableOpacity key={key} accessibilityRole="button" accessibilityState={{ selected: mode === key }} onPress={() => navigation.navigate(route)} style={{ flex: 1, minWidth: 48, minHeight: 48, paddingHorizontal: 4, borderRadius: 8, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 4, backgroundColor: mode === key ? key === 'IN' ? '#2563EB' : theme.colors.successButton : 'transparent' }}>
+         <Icon size={15} color={mode === key ? '#FFFFFF' : theme.colors.textMuted} />
+-        <Text style={{ flexShrink: 1, textAlign: 'center', fontSize: 10, fontWeight: '700', color: mode === key ? '#FFFFFF' : theme.colors.textSecondary }}>{label}</Text>
++        <Text style={{ ...theme.typography.captionBold, flexShrink: 1, textAlign: 'center', color: mode === key ? '#FFFFFF' : theme.colors.textSecondary }}>{label}</Text>
+       </TouchableOpacity>)}
+   </View>;
+ }

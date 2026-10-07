@@ -1,0 +1,218 @@
+--- before/apps/web/src/components/WorkQueueView.tsx
++++ after/apps/web/src/components/WorkQueueView.tsx
+@@ -1,90 +1,54 @@
+ import React, { useState } from 'react';
+ import { useApp } from '../context/AppContext';
+-import { WorkQueueTask, TaskUrgency, TaskType } from '../types';
++import { WorkQueueTask, TaskUrgency } from '../types';
+ import {
+   ListTodo,
+-  AlertOctagon,
+   Clock,
+   ArrowRight,
+   Filter,
+   CheckCircle2,
+-  LogIn,
+-  Warehouse,
+-  Receipt,
+-  QrCode,
+-  TruckIcon,
+-  RefreshCw,
+ } from 'lucide-react';
++import { taskDestination, type NavigationContext } from '../navigation';
++import { useViewQueryState } from '../context/useViewQueryState';
++import { CollectionState, ConfirmedResourceValue } from './CollectionState';
+ import { NavTabId } from './Sidebar';
+ 
+ interface WorkQueueViewProps {
+-  onNavigate: (tab: NavTabId, contextId?: string) => void;
+-  onOpenGateIn?: (visitId: string) => void;
+-  onOpenYardAssign?: (visitId: string) => void;
+-  onOpenBilling?: (visitId: string) => void;
+-  onOpenGateOut?: (containerNumber: string) => void;
+-  onOpenHandover?: (visitId: string) => void;
++  onNavigate: (tab: NavTabId, contextId?: string, context?: NavigationContext) => void;
+ }
+ 
+ export const WorkQueueView: React.FC<WorkQueueViewProps> = ({
+   onNavigate,
+-  onOpenGateIn,
+-  onOpenYardAssign,
+-  onOpenBilling,
+-  onOpenGateOut,
+-  onOpenHandover,
+ }) => {
+   const { workQueue, currentUser } = useApp();
+ 
+-  const [urgencyFilter, setUrgencyFilter] = useState<string>('ALL');
+-  const [taskTypeFilter, setTaskTypeFilter] = useState<string>('ALL');
++  const [urgencyFilter, setUrgencyFilter] = useViewQueryState('work-queue', 'urgency', 'ALL');
++  const [taskTypeFilter, setTaskTypeFilter] = useViewQueryState('work-queue', 'type', 'ALL');
+   const [filterMyRoleOnly, setFilterMyRoleOnly] = useState<boolean>(false);
+ 
+   const filteredTasks = workQueue.filter((task) => {
+     if (urgencyFilter !== 'ALL' && task.urgency !== urgencyFilter) return false;
+     if (taskTypeFilter !== 'ALL' && task.taskType !== taskTypeFilter) return false;
+-    if (filterMyRoleOnly && !task.assignedRoles.includes(currentUser.role)) return false;
++    if (filterMyRoleOnly && !task.assignedRoles.some(role => (currentUser.roleCodes ?? [currentUser.role]).includes(role))) return false;
+     return true;
+   });
+ 
+   const getUrgencyBadge = (urgency: TaskUrgency) => {
+     switch (urgency) {
+       case 'OVERDUE':
+-        return <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-100 text-rose-800 border border-rose-300">QUÁ HẠN</span>;
++        return <span className="px-3 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-800 border border-rose-300">QUÁ HẠN</span>;
+       case 'HIGH':
+-        return <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-300">ƯU TIÊN CAO</span>;
++        return <span className="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-300">ƯU TIÊN CAO</span>;
+       case 'MEDIUM':
+-        return <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-yellow-100 text-yellow-800 border border-yellow-300">TRUNG BÌNH</span>;
++        return <span className="px-3 py-1 rounded-full text-xs font-bold bg-yellow-100 text-yellow-800 border border-yellow-300">TRUNG BÌNH</span>;
+       case 'NORMAL':
+-        return <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">BÌNH THƯỜNG</span>;
++        return <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">BÌNH THƯỜNG</span>;
+     }
+   };
+ 
+   const handleAction = (task: WorkQueueTask) => {
+-    switch (task.taskType) {
+-      case 'GATE_IN':
+-        if (onOpenGateIn) onOpenGateIn(task.containerVisitId);
+-        else onNavigate('gate-in', task.containerVisitId);
+-        break;
+-      case 'YARD_ASSIGN':
+-        if (onOpenYardAssign) onOpenYardAssign(task.containerVisitId);
+-        else onNavigate('yard', task.containerVisitId);
+-        break;
+-      case 'BILLING':
+-        if (onOpenBilling) onOpenBilling(task.containerVisitId);
+-        else onNavigate('billing', task.containerVisitId);
+-        break;
+-      case 'GATE_OUT':
+-        if (onOpenGateOut) onOpenGateOut(task.containerNumber);
+-        else onNavigate('gate-pass');
+-        break;
+-      case 'HANDOVER_REVIEW':
+-        if (onOpenHandover) onOpenHandover(task.containerVisitId);
+-        else onNavigate('handovers', task.containerVisitId);
+-        break;
+-      default:
+-        onNavigate('containers', task.containerVisitId);
+-    }
++    const destination = taskDestination(task);
++    onNavigate(destination.tab, undefined, destination.context);
+   };
+ 
+   return (
+@@ -102,16 +66,18 @@
+         </div>
+ 
+         {/* Quick Urgency counters */}
+-        <div className="flex items-center space-x-2">
++        <div className="flex items-center space-x-2 text-xs text-slate-500">
++          <ConfirmedResourceValue resource="workQueue">
+           <div className="px-3 py-1 bg-rose-50 border border-rose-200 rounded-lg text-xs">
+-            <span className="text-rose-600 font-bold">{workQueue.filter((t) => t.urgency === 'OVERDUE').length}</span> Overdue
++            <span className="text-rose-700 font-bold">{workQueue.filter((t) => t.urgency === 'OVERDUE').length}</span> Quá hạn
+           </div>
+           <div className="px-3 py-1 bg-amber-50 border border-amber-200 rounded-lg text-xs">
+-            <span className="text-amber-600 font-bold">{workQueue.filter((t) => t.urgency === 'HIGH').length}</span> High
++            <span className="text-amber-800 font-bold">{workQueue.filter((t) => t.urgency === 'HIGH').length}</span> Ưu tiên cao
+           </div>
+           <div className="px-3 py-1 bg-blue-50 border border-blue-200 rounded-lg text-xs">
+             <span className="text-blue-600 font-bold">{workQueue.length}</span> Tổng việc
+           </div>
++          </ConfirmedResourceValue>
+         </div>
+       </div>
+ 
+@@ -123,9 +89,10 @@
+           </span>
+ 
+           <select
++            aria-label="Mức độ khẩn cấp"
+             value={urgencyFilter}
+             onChange={(e) => setUrgencyFilter(e.target.value)}
+-            className="border border-slate-200 rounded-lg px-2.5 py-1.5 bg-slate-50 text-slate-700 font-medium"
++            className="border border-slate-200 rounded-lg px-3 py-2 bg-slate-50 text-slate-700 font-medium"
+           >
+             <option value="ALL">Tất cả mức độ khẩn cấp</option>
+             <option value="OVERDUE">Quá hạn (OVERDUE)</option>
+@@ -135,9 +102,10 @@
+           </select>
+ 
+           <select
++            aria-label="Loại nghiệp vụ"
+             value={taskTypeFilter}
+             onChange={(e) => setTaskTypeFilter(e.target.value)}
+-            className="border border-slate-200 rounded-lg px-2.5 py-1.5 bg-slate-50 text-slate-700 font-medium"
++            className="border border-slate-200 rounded-lg px-3 py-2 bg-slate-50 text-slate-700 font-medium"
+           >
+             <option value="ALL">Tất cả loại nghiệp vụ</option>
+             <option value="GATE_IN">Tiếp nhận vào cổng (Gate-in)</option>
+@@ -147,7 +115,7 @@
+             <option value="HANDOVER_REVIEW">Duyệt bàn giao đối tác (Review POD)</option>
+           </select>
+ 
+-          <label className="flex items-center space-x-1.5 cursor-pointer ml-2 text-slate-700 select-none">
++          <label className="flex items-center space-x-2 cursor-pointer ml-2 text-slate-700 select-none">
+             <input
+               type="checkbox"
+               checked={filterMyRoleOnly}
+@@ -159,13 +127,15 @@
+         </div>
+ 
+         <span className="text-slate-400">
+-          Hiển thị {filteredTasks.length} / {workQueue.length} tác vụ
++          <ConfirmedResourceValue resource="workQueue">Hiển thị {filteredTasks.length} / {workQueue.length} tác vụ</ConfirmedResourceValue>
+         </span>
+       </div>
+ 
+       {/* Task List */}
+       <div className="space-y-3">
++        <CollectionState resource="workQueue" count={filteredTasks.length} total={workQueue.length} filtered={urgencyFilter !== 'ALL' || taskTypeFilter !== 'ALL' || filterMyRoleOnly} onClear={() => { setUrgencyFilter('ALL'); setTaskTypeFilter('ALL'); setFilterMyRoleOnly(false); }} />
+         {filteredTasks.length === 0 ? (
++          <ConfirmedResourceValue resource="workQueue" unavailable={null}>
+           <div className="bg-white p-12 text-center rounded-xl border border-slate-200 shadow-xs">
+             <CheckCircle2 className="w-12 h-12 text-emerald-500 mx-auto mb-3" />
+             <h3 className="text-base font-bold text-slate-800">Không có công việc nào cần xử lý</h3>
+@@ -173,6 +143,7 @@
+               Toàn bộ các tác vụ theo tiêu chí lọc hiện tại đã được giải quyết hoặc chưa phát sinh.
+             </p>
+           </div>
++          </ConfirmedResourceValue>
+         ) : (
+           filteredTasks.map((task) => (
+             <div
+@@ -185,17 +156,17 @@
+                   : 'border-slate-200 hover:border-blue-300'
+               }`}
+             >
+-              <div className="flex items-start space-x-3.5">
+-                <div className="pt-0.5">{getUrgencyBadge(task.urgency)}</div>
++              <div className="flex items-start space-x-4">
++                <div className="pt-1">{getUrgencyBadge(task.urgency)}</div>
+                 <div>
+                   <div className="flex items-center space-x-2">
+                     <span className="text-sm font-bold text-slate-900">{task.title}</span>
+-                    <span className="text-xs font-mono font-bold px-2 py-0.5 bg-slate-100 text-slate-700 rounded-md">
++                    <span className="text-xs font-mono font-bold px-2 py-1 bg-slate-100 text-slate-700 rounded-md">
+                       {task.containerNumber}
+                     </span>
+                   </div>
+                   <p className="text-xs text-slate-600 mt-1">{task.subtitle}</p>
+-                  <div className="flex items-center space-x-4 mt-2 text-[11px] text-slate-400">
++                  <div className="flex items-center space-x-4 mt-2 text-caption text-slate-400">
+                     <span className="flex items-center text-slate-500">
+                       <Clock className="w-3.5 h-3.5 mr-1 text-slate-400" />
+                       Thời hạn: <strong className="ml-1 text-slate-700">{task.timeRemainingText}</strong>
+@@ -210,7 +181,7 @@
+               <div className="shrink-0 flex items-center space-x-2">
+                 <button
+                   onClick={() => handleAction(task)}
+-                  className={`px-4 py-2 text-xs font-bold rounded-lg transition shadow-xs flex items-center space-x-1.5 ${
++                  className={`px-4 py-2 text-xs font-bold rounded-lg transition shadow-xs flex items-center space-x-2 ${
+                     task.urgency === 'OVERDUE'
+                       ? 'bg-rose-600 hover:bg-rose-700 text-white'
+                       : 'bg-blue-600 hover:bg-blue-700 text-white'

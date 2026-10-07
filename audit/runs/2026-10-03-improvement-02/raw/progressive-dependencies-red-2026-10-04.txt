@@ -1,0 +1,114 @@
+✔ a completed resource is published while an unrelated read remains pending (165.3003ms)
+✔ publication waits for complete and valid pagination without waiting on unrelated reads (20.1808ms)
+✔ a malformed financial response becomes unavailable before any false zero is published (17.9671ms)
+✔ a malformed tariff refresh retains its previously validated derived rules through final reconciliation (26.7835ms)
+✔ a late previous-session resource cannot replace a progressively published new-session resource (27.8322ms)
+✔ transient read failure preserves stale rows and a forbidden read removes them immediately (30.4779ms)
+✔ refresh invalidates old safety readiness until both authoritative safety reads finish (28.4252ms)
+✔ early manifest role and handover lists expose pending detail availability (14.8626ms)
+✖ a later slot response updates an already published container before unrelated reads complete (19.3931ms)
+✖ later visit and service-order responses enrich already published operations and invoice references (21.4786ms)
+✖ unavailable slot refresh preserves known location but forbidden slots remove cached enrichment (18.9159ms)
+✖ dependency publication does not replace stale primary rows and forbidden dependencies clear stale enrichment (17.0107ms)
+✖ a slot refresh exposes loading while preserving the previous location until fresh slots establish it (19.7524ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 8
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4758.915
+
+✖ failing tests:
+
+test at audit\tools\tests\progressive-loading.test.mjs:233:1
+✖ a later slot response updates an already published container before unrelated reads complete (19.3931ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'AUD25157BF4/A/03/01'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/progressive-loading.test.mjs:248:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'AUD25157BF4/A/03/01',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\progressive-loading.test.mjs:254:1
+✖ later visit and service-order responses enrich already published operations and invoice references (21.4786ms)
+  AssertionError [ERR_ASSERTION]: movementOrders
+  
+  '-' !== 'AUDU4246647'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/progressive-loading.test.mjs:273:45)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: '-',
+    expected: 'AUDU4246647',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\progressive-loading.test.mjs:285:1
+✖ unavailable slot refresh preserves known location but forbidden slots remove cached enrichment (18.9159ms)
+  AssertionError [ERR_ASSERTION]: unavailable dependency cannot invent an unassigned container
+  + actual - expected
+  
+  + undefined
+  - 'A/03/01'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/progressive-loading.test.mjs:305:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'A/03/01',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\progressive-loading.test.mjs:317:1
+✖ dependency publication does not replace stale primary rows and forbidden dependencies clear stale enrichment (17.0107ms)
+  AssertionError [ERR_ASSERTION]: stale primary data cannot retain newly forbidden enrichment
+  + actual - expected
+  
+  + 'A/03/01'
+  - undefined
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/progressive-loading.test.mjs:340:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'A/03/01',
+    expected: undefined,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\progressive-loading.test.mjs:346:1
+✖ a slot refresh exposes loading while preserving the previous location until fresh slots establish it (19.7524ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'ready' !== 'loading'
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/progressive-loading.test.mjs:361:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'ready',
+    expected: 'loading',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

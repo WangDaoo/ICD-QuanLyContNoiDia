@@ -1,0 +1,105 @@
+--- before/apps/web/src/services/api/edi.service.ts
++++ after/apps/web/src/services/api/edi.service.ts
+@@ -1,58 +1,55 @@
+ import { apiClient } from './client';
+-import { unwrapData, unwrapList, unwrapPage } from '../mappers';
+-
+-export interface EdiRoute {
+-  id: string;
+-  shippingLineId: string;
+-  protocol: string;
+-  sftpHost?: string;
+-  sftpPort?: number;
+-  sftpUser?: string;
+-  active: boolean;
++import type { EdiOutboxMessage, EdiAlert } from '../../types';
++import { asNumber } from '../mappers/api-response.mapper';
++import { responseRecord, viewList, viewPage, type PaginationParams } from './dto';
++export type { EdiRoute, EdiOutboxMessage, EdiAlert } from '../../types';
++export interface EdiOutboxQuery extends PaginationParams {
++  status?: EdiOutboxMessage['status'];
++  messageType?: EdiOutboxMessage['messageType'];
++  shippingLineId?: string;
++  containerVisitId?: string;
++  requestId?: string;
+ }
+-
+-export interface EdiOutboxMessage {
+-  id: string;
+-  messageType: string;
+-  recipientId: string;
+-  status: string;
+-  retryCount: number;
+-  payloadText: string;
+-  createdAt: string;
++export interface EdiAlertQuery extends PaginationParams {
++  status?: EdiAlert['status'];
++  severity?: 'WARNING' | 'ERROR' | 'CRITICAL';
++  alertType?: 'DELIVERY_FAILURE' | 'ACK_REJECTED' | 'ACK_ERROR' | 'ACK_UNMATCHED';
++  sourceType?: 'OUTBOX' | 'ACKNOWLEDGEMENT';
+ }
+-
+-export interface EdiAlert {
+-  id: string;
+-  alertType: string;
+-  severity: string;
+-  message: string;
+-  status: string;
+-  createdAt: string;
++export interface EdiDispatchResult {
++  processed: number;
++  sent: number;
++  failed: number;
+ }
+-
+ export const ediService = {
+-  async getRoutes(): Promise<EdiRoute[]> {
+-    const res = await apiClient.get<any>('/integrations/edi/routes');
+-    return unwrapList<EdiRoute>(res);
++  async getRoutes() {
++    return viewList('ediRoutes', await apiClient.get<unknown>('/integrations/edi/routes'));
+   },
+-
+-  async listOutbox(params?: any): Promise<{ data: EdiOutboxMessage[]; total?: number }> {
+-    const res = await apiClient.get<any>('/integrations/edi/outbox', { params });
+-    return unwrapPage<EdiOutboxMessage>(res);
++  async listOutbox(params?: EdiOutboxQuery) {
++    return viewPage(
++      'ediMessages',
++      await apiClient.get<unknown>('/integrations/edi/outbox', { params }),
++    );
+   },
+-
+-  async triggerDispatch(): Promise<any> {
+-    const res = await apiClient.post<any>('/integrations/edi/dispatch');
+-    return unwrapData<any>(res);
++  async triggerDispatch(): Promise<EdiDispatchResult> {
++    const d = responseRecord(await apiClient.post<unknown>('/integrations/edi/dispatch'));
++    return { processed: asNumber(d.processed), sent: asNumber(d.sent), failed: asNumber(d.failed) };
+   },
+-
+-  async listAlerts(params?: any): Promise<{ data: EdiAlert[]; total?: number }> {
+-    const res = await apiClient.get<any>('/integrations/edi/alerts', { params });
+-    return unwrapPage<EdiAlert>(res);
++  async listAlerts(params?: EdiAlertQuery) {
++    return viewPage(
++      'ediAlerts',
++      await apiClient.get<unknown>('/integrations/edi/alerts', { params }),
++    );
+   },
+-
+-  async resolveAlert(id: string, resolutionNotes: string): Promise<any> {
+-    const res = await apiClient.post<any>(`/integrations/edi/alerts/${id}/resolve`, { resolutionNotes });
+-    return unwrapData<any>(res);
++  async resolveAlert(id: string, resolutionNote: string): Promise<EdiAlert> {
++    return viewList('ediAlerts', {
++      data: [
++        responseRecord(
++          await apiClient.post<unknown>(`/integrations/edi/alerts/${id}/resolve`, {
++            resolutionNote,
++          }),
++        ),
++      ],
++    })[0];
+   },
+ };

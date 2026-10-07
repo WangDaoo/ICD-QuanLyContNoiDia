@@ -1,0 +1,28 @@
+// Presentation only. API codes and business transitions stay on the server.
+const labels: Record<string, string> = {
+  IN_YARD: 'Đang ở bãi', EXPECTED: 'Chờ tiếp nhận', GATE_IN: 'Đã nhập cổng', GATED_IN: 'Đã nhập cổng',
+  GATE_OUT: 'Đã xuất cổng', GATED_OUT: 'Đã xuất cổng', RELEASED: 'Đã giải phóng', CANCELLED: 'Đã hủy',
+  PENDING: 'Chờ thực hiện', IN_PROGRESS: 'Đang thực hiện', COMPLETED: 'Hoàn tất',
+  DAMAGE_SURVEY: 'Giám định hư hỏng', SEAL_CHECK: 'Kiểm tra seal', CONDITION_SURVEY: 'Kiểm tra tình trạng',
+  STRIPPING: 'Rút hàng', STUFFING: 'Đóng hàng', INSPECTION: 'Kiểm tra', MOVEMENT: 'Đảo chuyển', BOOKING: 'Dịch vụ tại bãi',
+  ACTIVE: 'Đang hiệu lực', EXPIRED: 'Hết hạn', USED: 'Đã sử dụng', REVOKED: 'Đã thu hồi', ISSUED: 'Đã cấp',
+  HOLD: 'Giữ container', PASS: 'Đạt', FAIL: 'Không đạt', BILLING: 'Phí', OPERATIONAL: 'Nghiệp vụ',
+  CUSTOMS: 'Hải quan', CUSTOMS_HOLD: 'Giữ theo hải quan', INSPECTION_HOLD: 'Giữ để kiểm định',
+  DRAFT: 'Bản nháp', APPROVED: 'Đã duyệt', CONFIRMED: 'Đã xác nhận', PAID: 'Đã thanh toán', UNPAID: 'Chưa thanh toán',
+  PARTIALLY_PAID: 'Thanh toán một phần', VOID: 'Đã hủy', AVAILABLE: 'Còn trống', OCCUPIED: 'Đã có container', BLOCKED: 'Bị chặn',
+  CREATED: 'Tạo hồ sơ', GATE_IN_COMPLETED: 'Hoàn tất nhập cổng', GATE_OUT_COMPLETED: 'Hoàn tất xuất cổng',
+  YARD_ASSIGNED: 'Đã xếp bãi', YARD_MOVED: 'Đã đảo chuyển', INSPECTION_COMPLETED: 'Hoàn tất giám định',
+  ADMIN: 'Quản trị viên', MANAGER: 'Điều hành', GATE_STAFF: 'Nhân viên cổng', YARD_STAFF: 'Nhân viên bãi',
+  OPERATOR: 'Điều độ', CONSIGNEE: 'Chủ hàng', AGENT: 'Đại lý',
+  AUTHORIZED: 'Đã duyệt', GATE_PASS_ISSUED: 'Đã cấp phiếu ra cổng', EXITED: 'Đã ra cổng',
+  DRY: 'Container khô', REEFER: 'Container lạnh', FLATRACK: 'Container sàn', OPENTOP: 'Container hở nóc', TANK: 'Container bồn',
+  SIZE_20: '20 feet', SIZE_40: '40 feet', SIZE_45: '45 feet',
+  SHIPPING_LINE: 'Hãng tàu', DAMAGE: 'Hư hỏng', SECURITY: 'An ninh', DOCUMENT: 'Chứng từ', OTHER: 'Khác',
+  INVOICED: 'Đã lập hóa đơn', SCHEDULED: 'Đã lên lịch', ARRIVED: 'Đã đến cổng',
+  PICKED_UP: 'Đã nhận hàng', IN_TRANSIT: 'Đang vận chuyển', DELIVERED: 'Đã giao hàng', RECEIVED: 'Đã nhận',
+};
+
+export function displayCode(code?: string | null): string {
+  if (!code) return 'Chưa ghi nhận';
+  return labels[code] || (/^[A-Z][A-Z0-9_]*$/.test(code) ? `Chưa xác định (${code})` : code);
+}

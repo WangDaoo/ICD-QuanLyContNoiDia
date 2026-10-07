@@ -1,0 +1,104 @@
+✖ Gate Out exposes shared frame on web and native with existing manual input fallback (121.5116ms)
+✖ scanner result reaches actual Gate Pass API without auto-confirming Gate Out (24.0803ms)
+✖ header Quét requests scanner in permission-appropriate Gate route (21.8332ms)
+✖ Gate In forwards scanner entry intent to receipt without removing manual form (6.993ms)
+✖ Gate Out opens scanner from header route intent then consumes intent (16.6175ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 0
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 648.1739
+
+✖ failing tests:
+
+test at apps\mobile\tests\scanner-integration.test.cjs:49:1
+✖ Gate Out exposes shared frame on web and native with existing manual input fallback (121.5116ms)
+  AssertionError [ERR_ASSERTION]: Missing CodeScanner 
+      at Object.find (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\scanner-integration.test.cjs:45:188)
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\scanner-integration.test.cjs:52:25)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at apps\mobile\tests\scanner-integration.test.cjs:61:1
+✖ scanner result reaches actual Gate Pass API without auto-confirming Gate Out (24.0803ms)
+  AssertionError [ERR_ASSERTION]: Missing PrimaryButton Quét QR bằng camera
+      at Object.find (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\scanner-integration.test.cjs:45:188)
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\scanner-integration.test.cjs:63:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at apps\mobile\tests\scanner-integration.test.cjs:71:1
+✖ header Quét requests scanner in permission-appropriate Gate route (21.8332ms)
+  TypeError: Cannot read properties of undefined (reading 'openScanner')
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\scanner-integration.test.cjs:74:54)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at apps\mobile\tests\scanner-integration.test.cjs:77:1
+✖ Gate In forwards scanner entry intent to receipt without removing manual form (6.993ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - true
+  
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\scanner-integration.test.cjs:79:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps\mobile\tests\scanner-integration.test.cjs:82:1
+✖ Gate Out opens scanner from header route intent then consumes intent (16.6175ms)
+  AssertionError [ERR_ASSERTION]: Missing CodeScanner 
+      at Object.find (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\scanner-integration.test.cjs:45:188)
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\mobile\tests\scanner-integration.test.cjs:84:23)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

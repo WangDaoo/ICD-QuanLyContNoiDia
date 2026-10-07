@@ -1,0 +1,143 @@
+--- before/apps/mobile/tests/auth-restore.test.cjs
++++ after/apps/mobile/tests/auth-restore.test.cjs
+@@ -38,12 +38,13 @@
+   }
+ }
+ 
+-function setup({ accessToken = 'access', refreshToken = 'refresh', me }) {
++function setup({ accessToken = 'access', refreshToken = 'refresh', me, cachedProfile = null, login, clearCache }) {
+   const hooks = [];
+   const effects = [];
+   let cursor = 0,
+     cleared = 0,
+-    meCalls = 0;
++    meCalls = 0, cachedCleared = 0, revalidator = null, sessionInvalidations = 0;
++  const remembered = [];
+   const react = {
+     createContext: () => ({ Provider: 'AuthContext.Provider' }),
+     useState(initial) {
+@@ -56,7 +57,12 @@
+         },
+       ];
+     },
+-    useCallback: (fn) => fn,
++    useCallback(fn, deps) {
++      const index = cursor++, previous = hooks[index];
++      if (!previous || deps.some((value, i) => value !== previous.deps[i])) hooks[index] = { deps, value: fn };
++      return hooks[index].value;
++    },
++    useRef(initial) { const index = cursor++; return hooks[index] ?? (hooks[index] = { current: initial }); },
+     useMemo: (fn) => fn(),
+     useEffect(fn, deps) {
+       const index = cursor++;
+@@ -91,15 +97,20 @@
+       ApiError,
+       setUnauthorizedHandler: () => {},
+       setRefreshedUserHandler: () => {},
++      invalidateApiSession: () => { sessionInvalidations++; },
+     },
+     '../api/auth.api': {
+       authApi: {
++        logout: async () => {},
++        login: async input => login(input),
+         me: async () => {
+           meCalls++;
+           return me();
+         },
+       },
+     },
++    '../../../services/api/connection-gate': { connectionGate: { setRevalidator(fn) { revalidator = fn; } } },
++    '../../../storage/read-cache-store': { rememberProfile: async user => { remembered.push(user); }, restoreCachedProfile: async () => cachedProfile, clearCachedSession: async () => { cachedCleared++; if (clearCache) await clearCache(); } },
+   });
+   function render() {
+     cursor = 0;
+@@ -119,6 +130,10 @@
+     get cleared() {
+       return cleared;
+     },
++    get cachedCleared() { return cachedCleared; },
++    get revalidator() { return revalidator; },
++    get sessionInvalidations() { return sessionInvalidations; },
++    remembered,
+     get meCalls() {
+       return meCalls;
+     },
+@@ -127,6 +142,78 @@
+     },
+   };
+ }
++
++const cachedUser = { id: 'cached-user', icdId: 'icd-1', sessionId: 's', name: 'Cached profile', email: 'cached@example.test', roleCodes: ['ADMIN'], permissionCodes: ['container.read', 'yard.move'] };
++test('local logout invalidates pending API authentication and clears cached profile before exposing login', async () => {
++  const session = setup({ me: async () => cachedUser });
++  session.render(); const auth = await session.settle();
++  assert.equal(auth.status, 'authenticated');
++  await auth.logout();
++  assert.equal(session.sessionInvalidations, 1);
++  assert.equal(session.cachedCleared, 1);
++  assert.deepEqual(session.tokens, { accessToken: null, refreshToken: null });
++  assert.equal(session.render().status, 'anonymous');
++});
++
++for (const trigger of ['logout', 'restore403']) test(`a delayed ${trigger} cleanup cannot clear a newer login`, async () => {
++  let completeCacheClear;
++  const nextUser = { ...cachedUser, id: 'new-user', sessionId: 'new-session' };
++  const session = setup({
++    me: async () => { if (trigger === 'restore403') throw new ApiError(403); return cachedUser; },
++    login: async () => ({ user: nextUser, accessToken: 'new-access', refreshToken: 'new-refresh' }),
++    clearCache: () => new Promise(resolve => { completeCacheClear = resolve; }),
++  });
++  session.render(); await session.settle();
++  const pendingLogout = trigger === 'logout' ? session.render().logout() : Promise.resolve();
++  await new Promise(resolve => setImmediate(resolve));
++  await session.render().login({ email: 'new@example.test', password: 'fixture-only' });
++  completeCacheClear(); await pendingLogout; await session.settle();
++  assert.equal(session.render().status, 'authenticated');
++  assert.equal(session.render().user.id, 'new-user');
++  assert.deepEqual(session.tokens, { accessToken: 'new-access', refreshToken: 'new-refresh' });
++  assert.equal(session.remembered.at(-1).id, 'new-user');
++});
++
++test('an older successful login response cannot replace a newer session', async () => {
++  let completeFirst;
++  const session = setup({ accessToken: null, refreshToken: null, me: async () => cachedUser,
++    login: input => input.email === 'old@example.test' ? new Promise(resolve => { completeFirst = resolve; }) : Promise.resolve({ user: { ...cachedUser, id: 'new-user' }, accessToken: 'new-access', refreshToken: 'new-refresh' }),
++  });
++  session.render(); await session.settle();
++  const first = session.render().login({ email: 'old@example.test', password: 'fixture-only' });
++  await session.render().login({ email: 'new@example.test', password: 'fixture-only' });
++  completeFirst({ user: cachedUser, accessToken: 'old-access', refreshToken: 'old-refresh' });
++  await assert.rejects(first, /Phiên đăng nhập/);
++  assert.equal(session.render().user.id, 'new-user');
++  assert.deepEqual(session.tokens, { accessToken: 'new-access', refreshToken: 'new-refresh' });
++});
++test('cold offline session exposes recent cached profile for readonly viewing without extending its TTL', async () => {
++  const session = setup({ cachedProfile: cachedUser, me: async () => { throw new TypeError('network offline'); } });
++  session.render(); const auth = await session.settle();
++  assert.equal(auth.status, 'authenticated'); assert.deepEqual(auth.user, cachedUser);
++  assert.equal(session.remembered.length, 0, 'offline restoration must not extend the30minute profile cache');
++  assert.equal(typeof session.revalidator, 'function'); assert.equal(session.cleared, 0);
++});
++test('server503 does not substitute a cached profile for an unverifiable current session', async () => {
++  const session = setup({ cachedProfile: cachedUser, me: async () => { throw new ApiError(503); } });
++  session.render(); assert.equal((await session.settle()).status, 'restore-error');
++});
++test('reconnection replaces cached permissions with current server permission codes', async () => {
++  const session = setup({ cachedProfile: cachedUser, me: async () => { throw new TypeError('offline'); } });
++  session.render(); await session.settle();
++  const current = { ...cachedUser, permissionCodes: ['container.read'] };
++  session.setMe(async () => current); await session.revalidator();
++  assert.deepEqual(session.render().user.permissionCodes, ['container.read']);
++  assert.deepEqual(session.remembered.at(-1), current);
++});
++test('authoritative403 on reconnect removes cached permissions and ends the local session', async () => {
++  const session = setup({ cachedProfile: cachedUser, me: async () => { throw new TypeError('offline'); } });
++  session.render(); await session.settle();
++  session.setMe(async () => { throw new ApiError(403); });
++  await assert.rejects(session.revalidator());
++  assert.equal(session.render().status, 'anonymous');
++  assert.equal(session.cachedCleared, 1); assert.equal(session.cleared, 1);
++});
+ 
+ for (const failure of [new Error('offline'), new ApiError(503)]) {
+   test(`session restore retains credentials after ${failure.message === 'offline' ? 'network failure' : '503'} and retries successfully`, async () => {

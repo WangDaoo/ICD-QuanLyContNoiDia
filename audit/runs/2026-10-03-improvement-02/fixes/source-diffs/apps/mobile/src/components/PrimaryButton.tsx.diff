@@ -1,0 +1,13 @@
+--- before/apps/mobile/src/components/PrimaryButton.tsx
++++ after/apps/mobile/src/components/PrimaryButton.tsx
+@@ -32,8 +32,8 @@
+ }: PrimaryButtonProps) {
+   const { theme } = useTheme();
+   const styles = createStyles(theme);
+-  const { online } = useApiConnection();
+-  const isActionDisabled = disabled || loading || (requiresOnline && online === false);
++  const { online, writesReady } = useApiConnection();
++  const isActionDisabled = disabled || loading || (requiresOnline && (online === false || writesReady === false));
+ 
+   const getBackgroundColor = () => {
+     if (isActionDisabled) return theme.colors.borderDark;

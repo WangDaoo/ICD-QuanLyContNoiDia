@@ -1,0 +1,33 @@
+--- before/apps/web/src/navigation.ts
++++ after/apps/web/src/navigation.ts
+@@ -0,0 +1,30 @@
++import type { NavTabId } from './components/Sidebar';
++import type { WorkQueueTask } from './types';
++export interface NavigationContext { visitId?: string; handoverId?: string; gatePassId?: string; truckVisitId?: string; action?: 'create'; }
++const tabs: NavTabId[] = ['dashboard','work-queue','manifests','containers','movement-orders','truck-visits','gate-in','yard','billing','gate-pass','handovers','partner-clients','partner-api-logs','edi','master-data','users-roles','admin','activity'];
++export function makeDestination(tab: NavTabId, id?: string, explicit: NavigationContext = {}): string {
++  const context: NavigationContext = { ...explicit };
++  if (id) context[tab === 'handovers' ? 'handoverId' : 'visitId'] = id;
++  if (tab === 'truck-visits' && context.visitId) context.action = 'create';
++  const params = new URLSearchParams();
++  for (const [key, value] of Object.entries(context)) if (value) params.set(key, value);
++  return '/app/' + tab + (params.size ? '?' + params.toString() : '');
++}
++export function parseDestination(pathname: string, search: string): { tab: NavTabId; context: NavigationContext } {
++  const candidate = pathname.split('/')[2];
++  const tab = tabs.find(value => value === candidate) ?? 'dashboard';
++  const params = new URLSearchParams(search);
++  const context: NavigationContext = {};
++  for (const key of ['visitId', 'handoverId', 'gatePassId', 'truckVisitId'] as const) {
++    const value = params.get(key);
++    if (value && value.length <= 128 && !Array.from(value).some(character => character.charCodeAt(0) < 32)) context[key] = value;
++  }
++  if (params.get('action') === 'create') context.action = 'create';
++  return { tab, context };
++}
++export function taskDestination(task: WorkQueueTask): { tab: NavTabId; context: NavigationContext } {
++  if (task.taskType === 'HANDOVER_REVIEW') return { tab: 'handovers', context: { handoverId: task.entityType === 'TRANSPORT_HANDOVER' || task.entityType === 'HANDOVER' ? task.entityId : undefined } };
++  if (task.taskType === 'GATE_OUT') return { tab: 'gate-pass', context: { gatePassId: task.entityType === 'GATE_PASS' ? task.entityId : undefined, visitId: task.containerVisitId || undefined } };
++  const tab = task.taskType === 'GATE_IN' ? 'gate-in' : task.taskType === 'YARD_ASSIGN' || task.taskType === 'YARD_OPERATIONS' ? 'yard' : task.taskType === 'BILLING' ? 'billing' : 'containers';
++  return { tab, context: { visitId: task.containerVisitId || (task.entityType === 'CONTAINER_VISIT' ? task.entityId : undefined) } };
++}

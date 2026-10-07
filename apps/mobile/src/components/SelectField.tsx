@@ -1,0 +1,27 @@
+import { useState } from 'react';
+import { KeyboardAvoidingView, Modal, Platform, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { ChevronDown, Check, X } from 'lucide-react-native';
+import { useFieldStyles } from './ScreenLayout';
+import { useTheme } from '../theme/ThemeProvider';
+
+export function SelectField({ label, value, options, onChange, disabled, placeholder = 'Chọn…' }: { label: string; value: string; options: { value: string; label: string }[]; onChange: (value: string) => void; disabled?: boolean; placeholder?: string }) {
+  const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState('');
+  const { theme } = useTheme();
+  const styles = useFieldStyles();
+  return <View style={{ gap: theme.spacing.sm }}>
+    <Text style={styles.label}>{label}</Text>
+    <TouchableOpacity accessibilityRole="button" accessibilityLabel={label} disabled={disabled} onPress={() => {setQuery('');setOpen(true);}} style={[styles.input, { flexDirection: 'row', alignItems: 'center', gap: 6, opacity: disabled ? 0.5 : 1 }]}>
+      <Text style={[styles.value, { flex: 1 }]}>{options.find(option => option.value === value)?.label || placeholder}</Text><ChevronDown size={15} color={theme.colors.textMuted} />
+    </TouchableOpacity>
+    <Modal visible={open} transparent animationType="fade" onRequestClose={() => setOpen(false)}>
+      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{flex:1}}><View style={{ flex: 1, backgroundColor: '#00000066', justifyContent: 'center', alignItems:'center', padding: 20 }}>
+        <View accessibilityViewIsModal style={{ width:'100%', maxWidth:480, maxHeight: '80%', backgroundColor: theme.colors.surface, borderRadius: 12, padding: 14, gap: 10 }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: theme.spacing.sm }}><Text accessibilityRole="header" style={[styles.cardTitle, { flex: 1 }]}>{label}</Text><TouchableOpacity accessibilityRole="button" accessibilityLabel="Đóng danh sách" onPress={() => setOpen(false)} style={{ minWidth: 48, minHeight: 48, alignItems: 'center', justifyContent: 'center' }}><X size={20} color={theme.colors.textPrimary} /></TouchableOpacity></View>
+          {options.length > 8 ? <TextInput accessibilityLabel="Tìm trong danh sách" placeholder="Tìm trong danh sách…" placeholderTextColor={theme.colors.textMuted} value={query} onChangeText={setQuery} style={styles.input} /> : null}
+          <ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={{ gap: theme.spacing.sm }}>{options.filter(option => option.label.toLocaleLowerCase('vi').includes(query.trim().toLocaleLowerCase('vi'))).map(option => <TouchableOpacity key={option.value} accessibilityRole="button" accessibilityState={{ selected: value === option.value }} disabled={disabled} onPress={() => { onChange(option.value); setOpen(false); }} style={{ minWidth: 48, minHeight: 48, paddingVertical: 10, borderBottomWidth: 1, borderBottomColor: theme.colors.border, flexDirection: 'row', gap: 8 }}><Text style={[styles.value, { flex: 1 }]}>{option.label}</Text>{value === option.value ? <Check size={16} color={theme.colors.info} /> : null}</TouchableOpacity>)}{!options.some(option => option.label.toLocaleLowerCase('vi').includes(query.trim().toLocaleLowerCase('vi'))) ? <Text style={styles.muted}>Không có lựa chọn phù hợp.</Text> : null}</ScrollView>
+        </View>
+      </View></KeyboardAvoidingView>
+    </Modal>
+  </View>;
+}

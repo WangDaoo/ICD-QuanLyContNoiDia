@@ -1,0 +1,9 @@
+{
+  "finding": "W-N-028",
+  "before": "audit/runs/2026-10-03-improvement-02/fixes/read-error-bounds-2026-10-04/App-before.tsx",
+  "diff": "audit/runs/2026-10-03-improvement-02/fixes/read-error-bounds-2026-10-04/W-N-028.diff",
+  "after": "apps/web/src/App.tsx",
+  "before_sha256": "9ed24d4c1ab2604f43c13023bd8f7e952151b4c9a0f20d413889fa61cfcdcc4b",
+  "after_sha256": "1d293db9452a36e4deba183c5ab429093406a7f91d981ac4eb073f60689a080e",
+  "scope": "Only bounds and keyboard-scroll semantics for existing read-error details; retry, errors and business state preserved"
+}

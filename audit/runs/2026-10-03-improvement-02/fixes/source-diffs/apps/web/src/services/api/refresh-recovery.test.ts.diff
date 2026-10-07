@@ -1,0 +1,105 @@
+--- before/apps/web/src/services/api/refresh-recovery.test.ts
++++ after/apps/web/src/services/api/refresh-recovery.test.ts
+@@ -0,0 +1,102 @@
++import assert from 'node:assert/strict';
++import test, { type TestContext } from 'node:test';
++import { AxiosError, type InternalAxiosRequestConfig } from '../../../../../packages/api-client/node_modules/axios/index.js';
++import { ApiError } from '@icd/api-client';
++import { apiClient, tokenStorage } from './client';
++
++function deferred<T>() {
++  let resolve!: (value: T) => void; let reject!: (error: unknown) => void;
++  const promise = new Promise<T>((yes, no) => { resolve = yes; reject = no; });
++  return { promise, resolve, reject };
++}
++function denied(config: InternalAxiosRequestConfig): never {
++  throw new AxiosError('Unauthorized', AxiosError.ERR_BAD_RESPONSE, config, undefined,
++    { status: 401, statusText: 'Unauthorized', headers: {}, data: { error: { code: 'UNAUTHORIZED' } }, config });
++}
++function ok(config: InternalAxiosRequestConfig) { return { status: 200, statusText: 'OK', headers: {}, data: { data: 'read-complete' }, config }; }
++function fixture(t: TestContext) {
++  const previous = Object.getOwnPropertyDescriptor(globalThis, 'localStorage');
++  const originalFetch = globalThis.fetch, originalAdapter = apiClient.raw.defaults.adapter;
++  const stored = new Map<string, string>();
++  Object.defineProperty(globalThis, 'localStorage', { configurable: true, value: {
++    getItem: (key: string) => stored.get(key) ?? null,
++    setItem: (key: string, value: string) => { stored.set(key, value); },
++    removeItem: (key: string) => { stored.delete(key); },
++  } });
++  tokenStorage.clear(); tokenStorage.setAccessToken('actor-A'); tokenStorage.setRefreshToken('refresh-A');
++  t.after(() => { apiClient.raw.defaults.adapter = originalAdapter; globalThis.fetch = originalFetch;
++    if (previous) Object.defineProperty(globalThis, 'localStorage', previous); else Reflect.deleteProperty(globalThis, 'localStorage'); });
++  return stored;
++}
++function refreshResponse(accessToken = 'actor-A-refreshed', refreshToken = 'refresh-A-refreshed') {
++  return new Response(JSON.stringify({ data: { accessToken, refreshToken } }), { status: 200 });
++}
++const hasStatus = (status: number) => (error: unknown) => error instanceof ApiError && error.status === status;
++
++for (const failure of ['network', '500', 'json', 'tokens'] as const) test(`actual web refresh ${failure} failure preserves credentials and exposes a recoverable error`, async t => {
++  fixture(t);
++  apiClient.raw.defaults.adapter = async config => denied(config);
++  globalThis.fetch = async () => {
++    if (failure === 'network') throw new TypeError('Fixture network down');
++    if (failure === '500') return new Response(JSON.stringify({ error: { code: 'INTERNAL_SERVER_ERROR' } }), { status: 500 });
++    if (failure === 'json') return new Response('<invalid>', { status: 200 });
++    return new Response(JSON.stringify({ data: { accessToken: 12, refreshToken: null } }), { status: 200 });
++  };
++  await assert.rejects(apiClient.get('/containers'), hasStatus(failure === 'network' ? 0 : 500));
++  assert.equal(tokenStorage.getAccessToken(), 'actor-A'); assert.equal(tokenStorage.getRefreshToken(), 'refresh-A');
++});
++
++for (const status of [401, 403]) test(`definitive web refresh ${status} invalidates only its current credentials`, async t => {
++  const stored = fixture(t);
++  apiClient.raw.defaults.adapter = async config => denied(config);
++  globalThis.fetch = async () => new Response(JSON.stringify({ error: { code: 'UNAUTHORIZED' } }), { status });
++  await assert.rejects(apiClient.get('/containers'), hasStatus(401)); assert.equal(stored.size, 0);
++});
++
++test('missing web refresh token is definitive and does not send another credential request', async t => {
++  const stored = fixture(t); stored.delete('icd_refresh_token'); let calls = 0;
++  apiClient.raw.defaults.adapter = async config => denied(config);
++  globalThis.fetch = async () => { calls++; return refreshResponse(); };
++  await assert.rejects(apiClient.get('/containers'), hasStatus(401)); assert.equal(calls, 0); assert.equal(stored.size, 0);
++});
++
++test('simultaneous actual web reads coalesce refresh and persist one valid rotated pair', async t => {
++  fixture(t); let calls = 0;
++  const entered = deferred<void>(), response = deferred<Response>();
++  apiClient.raw.defaults.adapter = async config => config.headers.Authorization === 'Bearer actor-A' ? denied(config) : ok(config);
++  globalThis.fetch = async () => { calls++; entered.resolve(); return response.promise; };
++  const reads = Promise.all([apiClient.get('/containers'), apiClient.get('/notifications/history')]);
++  await entered.promise; await Promise.resolve(); assert.equal(calls, 1);
++  response.resolve(refreshResponse()); await reads;
++  assert.equal(tokenStorage.getAccessToken(), 'actor-A-refreshed'); assert.equal(tokenStorage.getRefreshToken(), 'refresh-A-refreshed');
++});
++
++for (const replacement of ['logout', 'new-login', 'same-token-new-login'] as const) {
++  for (const outcome of ['fulfill', 'network', '401'] as const) test(`late actual web refresh ${outcome} cannot overwrite ${replacement}`, async t => {
++    fixture(t);
++    const entered = deferred<void>(), response = deferred<Response>();
++    apiClient.raw.defaults.adapter = async config => denied(config);
++    globalThis.fetch = async () => { entered.resolve(); return response.promise; };
++    const read = assert.rejects(apiClient.get('/containers'), hasStatus(0));
++    await entered.promise; tokenStorage.clear();
++    if (replacement === 'new-login') { tokenStorage.setAccessToken('actor-B'); tokenStorage.setRefreshToken('refresh-B'); }
++    if (replacement === 'same-token-new-login') { tokenStorage.setAccessToken('actor-A'); tokenStorage.setRefreshToken('refresh-A'); }
++    if (outcome === 'fulfill') response.resolve(refreshResponse());
++    else if (outcome === '401') response.resolve(new Response('{}', { status: 401 }));
++    else response.reject(new TypeError('Late fixture network failure'));
++    await read;
++    assert.equal(tokenStorage.getAccessToken(), replacement === 'logout' ? null : replacement === 'new-login' ? 'actor-B' : 'actor-A');
++    assert.equal(tokenStorage.getRefreshToken(), replacement === 'logout' ? null : replacement === 'new-login' ? 'refresh-B' : 'refresh-A');
++  });
++}
++
++test('late old web 401 cannot fetch refresh or clear a new login', async t => {
++  fixture(t); let refreshCalls = 0;
++  const entered = deferred<void>(), response = deferred<void>();
++  apiClient.raw.defaults.adapter = async config => { entered.resolve(); await response.promise; return denied(config); };
++  globalThis.fetch = async () => { refreshCalls++; return refreshResponse(); };
++  const read = assert.rejects(apiClient.get('/containers'), hasStatus(0));
++  await entered.promise; tokenStorage.clear(); tokenStorage.setAccessToken('actor-B'); tokenStorage.setRefreshToken('refresh-B');
++  response.resolve(); await read;
++  assert.equal(refreshCalls, 0); assert.equal(tokenStorage.getAccessToken(), 'actor-B'); assert.equal(tokenStorage.getRefreshToken(), 'refresh-B');
++});

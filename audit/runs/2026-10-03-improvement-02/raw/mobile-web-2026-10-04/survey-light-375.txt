@@ -1,0 +1,146 @@
+- generic: TOS-MOBILE
+- generic: Quản trị viên
+- heading [level=1]: Cổng
+- generic: Quản trị viên Hệ thống
+- button:
+- button:
+  - generic: Quét
+- button:
+- button:
+- heading [level=1]: PHIÊN ĐĂNG NHẬP CA TRỰC
+- generic: ĐÃ ĐĂNG NHẬP
+- generic: "Tài khoản: UI Audit ADMIN"
+- generic: Quản trị viên
+- button:
+  - generic: Tiếp nhận vào cổng
+- button:
+  - generic: Quét phiếu ra cổng
+- heading [level=1]: Biên nhận Cổng vào (Gate-In EIR)
+- generic: Số Container*
+- textbox:
+  - /placeholder: "VD: TEMU8829104"
+- button:
+- button:
+- generic: Biển số đầu kéo*
+- textbox:
+  - /placeholder: Theo lượt xe
+- generic: Số Seal thực tế*
+- textbox:
+  - /placeholder: Seal đã kiểm tra
+- generic: Tài xế nhận hàng*
+- textbox:
+  - /placeholder: Theo lượt xe
+- generic: Cân Gross (kg)
+- textbox:
+  - /placeholder: Kết quả cân
+- generic: Tình trạng vỏ container
+- button [disabled]:
+  - generic: Vỏ tốt, seal nguyên
+- generic: Ghi chú hiện trường
+- textbox:
+  - /placeholder: Ghi nhận bất thường / seal lệch hồ sơ
+- button [disabled]:
+  - generic: Xác nhận tiếp nhận Gate-In
+- button:
+  - generic: Ghi nhận xe đến cổng
+- generic: TOS-MOBILE
+- generic: Quản trị viên
+- heading [level=1]: Tác nghiệp bãi
+- generic: Quản trị viên Hệ thống
+- button:
+- button:
+  - generic: Quét
+- button:
+- button:
+- heading [level=1]: PHIÊN ĐĂNG NHẬP CA TRỰC
+- generic: ĐÃ ĐĂNG NHẬP
+- generic: "Tài khoản: UI Audit ADMIN"
+- generic: Quản trị viên
+- heading [level=1]: Lệnh Tác nghiệp Bãi (Yard Stacking)
+- generic: Chọn Container cần xếp/dời vị trí
+- button [disabled]:
+  - generic: Chọn…
+- generic: Vị trí xếp bãi (Block - Row - Bay - Tier)
+- textbox:
+  - /placeholder: "VD: A-01-01-1"
+- button [disabled]:
+  - generic: Gợi ý vị trí trống
+- button [disabled]:
+  - generic: Kiểm tra vị trí nhập tay
+- generic: Chọn container để xem vị trí hiện tại và tác nghiệp.
+- button:
+  - generic: Danh sách tác nghiệp và đặt lịch
+- heading [level=1]: Sơ đồ vị trí bãi — Tổng quan
+- generic: Đang hiển thị 0 / 0 ô bãi
+- progressbar:
+- generic: Đang tải dữ liệu...
+- generic: TOS-MOBILE
+- generic: Quản trị viên
+- heading "Giám định hiện trường" [level=1]
+- generic: Quản trị viên Hệ thống
+- button "Chuyển sang nền tối":
+- button "Quét mã":
+  - generic: Quét
+- button "Thông báo":
+- button "Tài khoản và kết thúc ca":
+- heading "PHIÊN ĐĂNG NHẬP CA TRỰC" [level=1]
+- generic: ĐÃ ĐĂNG NHẬP
+- generic: "Tài khoản: UI Audit ADMIN"
+- generic: Quản trị viên
+- heading "Biên bản giám định hiện trường" [level=1]
+- generic: Ghi nhận tình trạng thực tế của container và seal
+- generic: Loại giám định
+- button "Loại giám định":
+  - generic: Giám định hư hỏng
+- generic: Số Container*
+- textbox "Số Container*":
+  - /placeholder: "VD: MSCU6639870"
+- generic: Nội dung ghi nhận*
+- textbox "Nội dung ghi nhận*":
+  - /placeholder: Nhập nội dung ghi nhận thực tế...
+- generic: Mức độ hư hỏng
+- 'radio "Mức độ hư hỏng: Nhẹ"':
+  - generic: Nhẹ
+- 'radio "Mức độ hư hỏng: Trung bình"':
+  - generic: Trung bình
+- 'radio "Mức độ hư hỏng: Nặng"':
+  - generic: Nặng
+- button "Gửi biên bản Giám định":
+  - generic: Gửi biên bản Giám định
+- heading "Biên bản giám định trong ICD" [level=1]
+- button "AUDU2384570 Chờ giám định Synthetic pending UI fixture":
+  - generic: AUDU2384570
+  - generic: Chờ giám định
+  - generic: Synthetic pending UI fixture
+- 'button "AUDU2384565 Đã hủy Synthetic cancel branch [Hủy: Synthetic audit cancellation]"':
+  - generic: AUDU2384565
+  - generic: Đã hủy
+  - generic: "Synthetic cancel branch [Hủy: Synthetic audit cancellation]"
+- 'button "AUDU2384565 Hoàn tất Kết quả: PASS · Đạt giám định. Synthetic audit passed"':
+  - generic: AUDU2384565
+  - generic: Hoàn tất
+  - generic: "Kết quả: PASS · Đạt giám định."
+  - generic: Synthetic audit passed
+- button "AUDU0424930 Chờ giám định Synthetic pending UI fixture":
+  - generic: AUDU0424930
+  - generic: Chờ giám định
+  - generic: Synthetic pending UI fixture
+- 'button "AUDU0424925 Đã hủy Synthetic cancel branch [Hủy: Synthetic audit cancellation]"':
+  - generic: AUDU0424925
+  - generic: Đã hủy
+  - generic: "Synthetic cancel branch [Hủy: Synthetic audit cancellation]"
+- 'button "AUDU0424925 Hoàn tất Kết quả: PASS · Đạt giám định. Synthetic audit passed"':
+  - generic: AUDU0424925
+  - generic: Hoàn tất
+  - generic: "Kết quả: PASS · Đạt giám định."
+  - generic: Synthetic audit passed
+- tab "Cổng":
+  - generic: Cổng
+- tab "Bãi":
+  - generic: Bãi
+- tab "Giám định" [active]:
+  - generic: Giám định
+- tab "Tra cứu":
+  - generic: Tra cứu
+- tab "Việc ca":
+  - generic: Việc ca

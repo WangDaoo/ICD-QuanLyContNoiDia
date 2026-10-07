@@ -1,0 +1,23 @@
+import type { AuthUser } from '../features/auth/auth.types';
+import { canAccessMobileScreen, hasAnyPermission } from '../features/auth/permissions';
+import type { MainTabParamList } from './types';
+import type { NavigatorScreenParams } from '@react-navigation/native';
+
+export function resolveMobileLink(raw: string, user: Pick<AuthUser, 'permissionCodes' | 'roleCodes'> | null): NavigatorScreenParams<MainTabParamList> | null {
+  if (!user || raw.length > 512) return null;
+  try {
+    const url = new URL(raw);
+    if (!['exp:', 'exps:', 'icd-field:'].includes(url.protocol) || url.search || url.hash || url.username || url.password) return null;
+    const path = url.protocol === 'icd-field:' ? '/' + url.hostname + url.pathname : url.pathname.replace(/^\/--(?=\/)/, '');
+    const match = /^\/(container|inspection|movement|booking|gate-in)\/([A-Za-z0-9_-]{1,128})\/?$/.exec(path);
+    if (!match) return null;
+    const [, kind, id] = match;
+    const principal = user as AuthUser;
+    if (kind === 'container' && canAccessMobileScreen(principal, 'container.read')) return { screen: 'LookupTab', params: { screen: 'ContainerDetail', params: { visitId: id } } };
+    if (kind === 'gate-in' && canAccessMobileScreen(principal, 'gate.in')) return { screen: 'GateTab', params: { screen: 'GateInForm', params: { visitId: id } } };
+    if (['inspection', 'movement', 'booking'].includes(kind) && hasAnyPermission(principal, ['yard.read'])) {
+      return { screen: 'YardTab', params: { screen: 'YardOperationDetail', params: { operationId: id, operationType: kind === 'inspection' ? 'INSPECTION' : kind === 'movement' ? 'MOVEMENT' : 'BOOKING' } } };
+    }
+    return null;
+  } catch { return null; }
+}

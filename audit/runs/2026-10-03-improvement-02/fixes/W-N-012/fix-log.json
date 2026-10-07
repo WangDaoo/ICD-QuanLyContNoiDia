@@ -1,0 +1,23 @@
+{
+  "status": "VERIFIED",
+  "change": "Chọn đúng target, chờ loading/response tới muộn; báo lỗi rõ và quay về danh sách; URL thiếu hồ sơ không còn action cho bản ghi khác.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/HandoversView.tsx",
+      "line": 55,
+      "detail": "const selectedHandover",
+      "snippet": "  const selectedHandover = targetHandoverId\n    ? handovers.find((h) => h.id === targetHandoverId) ?? null\n    : selectedHandoverState;\n  const handoverLoadState = resourceStatus?.handovers ?? (isLoading ? 'loading' : 'ready');"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/handover-target-red.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/handover-target-green.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/handover-missing-target-runtime.json"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Meaningful RED/GREEN source regression; real API only if explicitly linked.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/HandoversView.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

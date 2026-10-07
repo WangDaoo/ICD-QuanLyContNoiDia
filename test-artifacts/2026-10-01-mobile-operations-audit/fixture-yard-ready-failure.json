@@ -1,0 +1,38 @@
+{
+  "phase": "yard-ready",
+  "alias": "yard",
+  "checkedAt": "2026-10-02T00:39:00.408Z",
+  "checks": [
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c/yard/location",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c/yard/recommendations",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/containers/2a1ee6c4-b438-495c-8b35-14df04f6403c/yard/check",
+      "status": 201,
+      "expectedStatus": "2xx"
+    }
+  ],
+  "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ undefined\n- true\n"
+}

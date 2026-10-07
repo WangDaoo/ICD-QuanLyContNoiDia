@@ -1,0 +1,78 @@
+- link "Đến nội dung nghiệp vụ":
+  - /url: "#main-content"
+- banner:
+  - generic: ICD
+  - heading "ICD Management System" [level=1]
+  - paragraph: Cảng cạn & kho bãi container nội địa
+  - text: Đã kết nối
+  - button "Tải lại dữ liệu":
+  - button "Thông báo (0 chưa đọc)":
+  - generic: UI Audit ADMIN
+  - generic: ADMIN
+  - button "Đăng xuất":
+- complementary "Điều hướng nghiệp vụ":
+  - generic: Tổng quan & Điều phối
+  - button "Tổng quan vận hành":
+    - generic: Tổng quan vận hành
+  - button "Danh sách công việc":
+    - generic: Danh sách công việc
+  - generic: Quản lý Hàng hóa & Cổng
+  - button "Bản lược khai (Manifest)":
+    - generic: Bản lược khai (Manifest)
+  - button "Quản lý Container":
+    - generic: Quản lý Container
+  - button "Movement Order":
+    - generic: Movement Order
+  - button "Chuyến xe ra/vào":
+    - generic: Chuyến xe ra/vào
+  - button "Tiếp nhận vào cổng (Gate-in)":
+    - generic: Tiếp nhận vào cổng (Gate-in)
+  - button "Vận hành Bãi (Yard)":
+    - generic: Vận hành Bãi (Yard)
+  - generic: Tài chính & Ra cổng
+  - button "Dịch vụ & Thanh toán":
+    - generic: Dịch vụ & Thanh toán
+  - button "Phiếu ra cổng & Gate-out":
+    - generic: Phiếu ra cổng & Gate-out
+  - button "Vận hành EDI (CODECO)":
+    - generic: Vận hành EDI (CODECO)
+  - generic: Tích hợp đối tác
+  - button "Bàn giao vận chuyển":
+    - generic: Bàn giao vận chuyển
+  - button "Đối tác tích hợp API":
+    - generic: Đối tác tích hợp API
+  - button "Nhật ký API đối tác":
+    - generic: Nhật ký API đối tác
+  - generic: Hệ thống & Quản trị
+  - button "Danh mục dùng chung":
+    - generic: Danh mục dùng chung
+  - button "Người dùng & Phân quyền":
+    - generic: Người dùng & Phân quyền
+  - button "Báo cáo vận hành":
+    - generic: Báo cáo vận hành
+  - button "Nhật ký kiểm toán" [active]:
+    - generic: Nhật ký kiểm toán
+  - generic: UI Audit ADMIN
+  - generic: ui-admin@audit.icd.test
+  - generic: ADMIN
+- main:
+  - heading "Nhật ký Kiểm toán & An ninh (Audit Logs)" [level=2]:
+    - generic: Nhật ký Kiểm toán & An ninh (Audit Logs)
+  - paragraph: Ghi nhận vết can thiệp nghiệp vụ (Ai đã làm gì, lúc nào, đối tượng và thông tin chi tiết)
+  - generic: "Tổng cộng: 0 bản ghi"
+  - textbox "Tìm nhật ký kiểm toán":
+    - /placeholder: Tìm theo hành động, đối tượng, người thực hiện...
+  - table:
+    - rowgroup:
+      - row "Thời gian Người thực hiện Hành động Đối tượng Chi tiết nghiệp vụ Request ID":
+        - columnheader "Thời gian"
+        - columnheader "Người thực hiện"
+        - columnheader "Hành động"
+        - columnheader "Đối tượng"
+        - columnheader "Chi tiết nghiệp vụ"
+        - columnheader "Request ID"
+    - rowgroup:
+      - row:
+        - cell:
+          - status:
+            - paragraph: Chưa có dữ liệu trong danh sách này.

@@ -1,0 +1,56 @@
+{
+  "appOverflow": "hidden",
+  "bodyOverflow": "hidden",
+  "dialog": "containers-dialog-2-title",
+  "fields": [
+    {
+      "aria": null,
+      "id": "containers-cv-form-container-number",
+      "label": "Số container* (ISO 6346)"
+    },
+    {
+      "aria": null,
+      "id": "containers-cv-form-container-type",
+      "label": "Loại container"
+    },
+    {
+      "aria": "Hãng tàu theo Manifest",
+      "id": "",
+      "label": ""
+    },
+    {
+      "aria": "Chủ hàng",
+      "id": "",
+      "label": ""
+    },
+    {
+      "aria": "Manifest",
+      "id": "",
+      "label": ""
+    },
+    {
+      "aria": "Master BL",
+      "id": "",
+      "label": ""
+    },
+    {
+      "aria": "House BL",
+      "id": "",
+      "label": ""
+    },
+    {
+      "aria": null,
+      "id": "containers-cv-form-manifest-seal",
+      "label": "Seal Manifest*"
+    },
+    {
+      "aria": null,
+      "id": "containers-cv-form-gross-weight-kg",
+      "label": "Trọng lượng (kg)"
+    }
+  ],
+  "focus": "containers-cv-form-container-number",
+  "inside": true,
+  "modal": true,
+  "name": "Tạo Container Visit thủ công"
+}

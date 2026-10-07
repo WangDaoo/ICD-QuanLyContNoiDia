@@ -1,0 +1,22 @@
+{
+  "status": "FIXED",
+  "change": "Known business enums and notification templates use Vietnamese labels; custom codes remain honest.",
+  "source_evidence": [
+    {
+      "file": "apps/mobile/src/presentation/labels.ts",
+      "line": 25,
+      "detail": "export",
+      "snippet": "export function displayCode(code?: string | null): string {\n  if (!code) return 'Chưa ghi nhận';\n  return labels[code] || (/^[A-Z][A-Z0-9_]*$/.test(code) ? `Chưa xác định (${code})` : code);\n}"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+  ],
+  "limitations": "Known/custom presentation tested from real source; native list/detail screenshots pending.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/presentation/labels.ts.diff"
+  ],
+  "isolated_review_diffs": []
+}

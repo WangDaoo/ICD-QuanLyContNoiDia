@@ -1,0 +1,80 @@
+- link "Đến nội dung nghiệp vụ":
+  - /url: "#main-content"
+- banner:
+  - generic: ICD
+  - heading "ICD Management System" [level=1]
+  - paragraph: Cảng cạn & kho bãi container nội địa
+  - text: Đã kết nối
+  - button "Tải lại dữ liệu":
+  - button "Thông báo (0 chưa đọc)":
+  - generic: UI Audit ADMIN
+  - generic: ADMIN
+  - button "Đăng xuất":
+- complementary "Điều hướng nghiệp vụ":
+  - generic: Tổng quan & Điều phối
+  - button "Tổng quan vận hành":
+    - generic: Tổng quan vận hành
+  - button "Danh sách công việc":
+    - generic: Danh sách công việc
+  - generic: Quản lý Hàng hóa & Cổng
+  - button "Bản lược khai (Manifest)":
+    - generic: Bản lược khai (Manifest)
+  - button "Quản lý Container":
+    - generic: Quản lý Container
+  - button "Movement Order":
+    - generic: Movement Order
+  - button "Chuyến xe ra/vào":
+    - generic: Chuyến xe ra/vào
+  - button "Tiếp nhận vào cổng (Gate-in)":
+    - generic: Tiếp nhận vào cổng (Gate-in)
+  - button "Vận hành Bãi (Yard)":
+    - generic: Vận hành Bãi (Yard)
+  - generic: Tài chính & Ra cổng
+  - button "Dịch vụ & Thanh toán":
+    - generic: Dịch vụ & Thanh toán
+  - button "Phiếu ra cổng & Gate-out":
+    - generic: Phiếu ra cổng & Gate-out
+  - button "Vận hành EDI (CODECO)":
+    - generic: Vận hành EDI (CODECO)
+  - generic: Tích hợp đối tác
+  - button "Bàn giao vận chuyển" [active]:
+    - generic: Bàn giao vận chuyển
+  - button "Đối tác tích hợp API":
+    - generic: Đối tác tích hợp API
+  - button "Nhật ký API đối tác":
+    - generic: Nhật ký API đối tác
+  - generic: Hệ thống & Quản trị
+  - button "Danh mục dùng chung":
+    - generic: Danh mục dùng chung
+  - button "Người dùng & Phân quyền":
+    - generic: Người dùng & Phân quyền
+  - button "Báo cáo vận hành":
+    - generic: Báo cáo vận hành
+  - button "Nhật ký kiểm toán":
+    - generic: Nhật ký kiểm toán
+  - generic: UI Audit ADMIN
+  - generic: ui-admin@audit.icd.test
+  - generic: ADMIN
+- main:
+  - generic: BÀN GIAO ĐỐI TÁC
+  - heading "Bàn giao Vận chuyển Ngoài ICD (Partner Handover)" [level=2]
+  - paragraph: Quản lý quy trình ủy thác container cho đối tác vận tải ngoài, giao tiếp API và nghiệm thu biên bản giao nhận (POD)
+  - link "Tài liệu API":
+    - /url: http://127.0.0.1:3000/api/docs
+  - button "Tạo Lệnh Bàn giao mới":
+    - generic: Tạo Lệnh Bàn giao mới
+  - textbox "Tìm lệnh bàn giao":
+    - /placeholder: Tìm mã VC, số cont, đối tác...
+  - combobox "Lọc trạng thái bàn giao":
+    - option "Tất cả trạng thái" [selected]
+    - option "DRAFT (Nháp)"
+    - option "READY_FOR_HANDOVER (Chờ đối tác nhận)"
+    - option "PARTNER_ACCEPTED (Đã nhận)"
+    - option "IN_TRANSIT (Đang vận chuyển)"
+    - option "PARTNER_CONFIRMED (Chờ duyệt POD)"
+    - option "ICD_CONFIRMED (Đã nghiệm thu)"
+    - option "COMPLETED (Đã hoàn tất)"
+  - generic: Hiển thị 0 lệnh bàn giao
+  - status:
+    - paragraph: Chưa có dữ liệu trong danh sách này.
+  - generic: Chọn một Lệnh bàn giao bên trái để xem chi tiết

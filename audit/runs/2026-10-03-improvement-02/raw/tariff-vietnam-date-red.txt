@@ -1,0 +1,35 @@
+✖ tariff date-only inputs mean Vietnam midnight and invalid dates never send a command (222.5039ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5019.4854
+
+✖ failing tests:
+
+test at audit\tools\tariff-vietnam-date-regression.test.mjs:10:1
+✖ tariff date-only inputs mean Vietnam midnight and invalid dates never send a command (222.5039ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   effectiveFrom: '2026-10-03T00:00:00.000Z',
+  +   effectiveTo: '2026-10-04T00:00:00.000Z',
+  -   effectiveFrom: '2026-10-02T17:00:00.000Z',
+  -   effectiveTo: '2026-10-03T17:00:00.000Z',
+      name: 'Synthetic tariff'
+    }
+  
+      at TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tariff-vietnam-date-regression.test.mjs:30:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { name: 'Synthetic tariff', effectiveFrom: '2026-10-03T00:00:00.000Z', effectiveTo: '2026-10-04T00:00:00.000Z' },
+    expected: { name: 'Synthetic tariff', effectiveFrom: '2026-10-02T17:00:00.000Z', effectiveTo: '2026-10-03T17:00:00.000Z' },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

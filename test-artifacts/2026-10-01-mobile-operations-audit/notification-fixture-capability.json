@@ -1,0 +1,30 @@
+{
+  "auditedAt": "2026-10-02",
+  "createApiAvailable": false,
+  "notificationApiActions": ["POST register-device", "DELETE unregister-device", "GET history", "PATCH :id/read", "POST read-all"],
+  "directFixtureInsertPerformed": false,
+  "businessTriggers": {
+    "gateOut": {
+      "connected": true,
+      "recipient": "authenticated gate-out actor",
+      "emailRecipientProvided": false,
+      "deepLink": "/containers/:visitId"
+    },
+    "inspectionHold": {
+      "helperExists": true,
+      "connectedToBusinessService": true,
+      "recipient": "active same-ICD OPERATOR with effective yard.read",
+      "afterTransactionCommit": true,
+      "recipientScopedDedupe": true
+    },
+    "gateInWorkQueue": {
+      "helperExists": true,
+      "connectedToBusinessService": true,
+      "recipient": "active same-ICD GATE_STAFF with effective gate_in.create",
+      "afterTransactionCommit": true,
+      "source": "GATE_IN truck arrival with AUTHORIZED visits without reception"
+    }
+  },
+  "qaRecommendation": "Use real Gate-out, GATE_IN truck arrival or inspection HOLD on dedicated QA records after rebuilding the API to produce persisted business notifications. No generic notification creation API is available. Do not bypass the notification service with Prisma.",
+  "validation": { "backendFocusedTests": "78/78 passed across 16 suites in one final aggregate run, including 7 payment duplicate regression cases", "mobileTests": "44/44 passed", "typechecks": ["API passed", "mobile passed"], "targetedLint": "passed", "newHookLiveVerification": "Gate-in arrival persisted real GateStaff notification for QAOU1882075 and canonical queue projected its exact visit ID; UI received and assigned it, then exited it using the issued pass. HOLD inspection cd79419f-3f37-49b3-9e49-b0b53a445b86 was completed through UI, resulting in exactly one notification each for operator@icd.local and docs@icd.local. Final live probes after restart confirmed operator read and docs unread, correct deep links and readiness blockers." }
+}

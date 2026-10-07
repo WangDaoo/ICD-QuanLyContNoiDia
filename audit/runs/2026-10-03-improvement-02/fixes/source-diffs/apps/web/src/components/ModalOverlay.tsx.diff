@@ -1,0 +1,130 @@
+--- before/apps/web/src/components/ModalOverlay.tsx
++++ after/apps/web/src/components/ModalOverlay.tsx
+@@ -10,23 +10,93 @@
+   'aria-labelledby'?: string;
+ }
+ 
+-export function ModalOverlay({ children, onClose, pending = false, className = '', ...name }: ModalOverlayProps) {
++export function ModalOverlay({
++  children,
++  onClose,
++  pending = false,
++  className = '',
++  ...name
++}: ModalOverlayProps) {
+   const ref = useRef<HTMLDialogElement>(null);
++  const dirty = useRef(false);
++  const pendingRef = useRef(pending);
++  pendingRef.current = pending;
++
++  useEffect(() => {
++    const isActive = () => ref.current?.open && !ref.current.closest('[hidden], [inert]');
++    const guard = (event: Event) => {
++      if (!isActive()) return;
++      if (
++        pendingRef.current ||
++        (dirty.current &&
++          !window.confirm(
++            'Biểu mẫu có dữ liệu chưa lưu. Rời màn hình và giữ bản nháp để quay lại sau?',
++          ))
++      )
++        event.preventDefault();
++    };
++    const unload = (event: BeforeUnloadEvent) => {
++      if (!isActive()) return;
++      if (!dirty.current && !pendingRef.current) return;
++      event.preventDefault();
++      event.returnValue = '';
++    };
++    document.addEventListener('icd:navigation-request', guard);
++    window.addEventListener('beforeunload', unload);
++    return () => {
++      document.removeEventListener('icd:navigation-request', guard);
++      window.removeEventListener('beforeunload', unload);
++    };
++  }, []);
+ 
+   useEffect(() => {
+     const dialog = ref.current;
+     if (!dialog) return;
+     const opener = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+-    const scrollContainers = [document.body, document.querySelector<HTMLElement>('.app-content')].filter(
+-      (element): element is HTMLElement => element !== null,
+-    );
+-    const overflow = scrollContainers.map(element => element.style.overflow);
+-    scrollContainers.forEach(element => { element.style.overflow = 'hidden'; });
+-    dialog.showModal();
++    const scrollContainers = [
++      document.body,
++      document.querySelector<HTMLElement>('.app-content'),
++    ].filter((element): element is HTMLElement => element !== null);
++    let overflow: string[] | undefined;
++    let lastFocus: HTMLElement | null = null;
++    const unlockScroll = () => {
++      if (!overflow) return;
++      scrollContainers.forEach((element, index) => {
++        element.style.overflow = overflow![index];
++      });
++      overflow = undefined;
++    };
++    const syncVisibility = () => {
++      if (dialog.closest('[hidden], [inert]')) {
++        if (dialog.contains(document.activeElement))
++          lastFocus = document.activeElement as HTMLElement;
++        if (dialog.open) dialog.close();
++        unlockScroll();
++      } else if (!dialog.open) {
++        overflow = scrollContainers.map((element) => element.style.overflow);
++        scrollContainers.forEach((element) => {
++          element.style.overflow = 'hidden';
++        });
++        dialog.showModal();
++        if (lastFocus?.isConnected && !lastFocus.matches(':disabled')) lastFocus.focus();
++      }
++    };
++    // A kept-mounted view can become inactive without unmounting its form.
++    // Suspend the native top layer only; retain its fields, dirty state and focus.
++    const observer = new window.MutationObserver(syncVisibility);
++    observer.observe(document.body, {
++      attributes: true,
++      subtree: true,
++      attributeFilter: ['hidden', 'inert'],
++    });
++    document.addEventListener('icd:route-changed', syncVisibility);
++    syncVisibility();
+     return () => {
+-      dialog.close();
+-      scrollContainers.forEach((element, index) => { element.style.overflow = overflow[index]; });
+-      if (opener?.isConnected) opener.focus();
++      observer.disconnect();
++      document.removeEventListener('icd:route-changed', syncVisibility);
++      if (dialog.open) dialog.close();
++      unlockScroll();
++      if (opener?.isConnected && !opener.closest('[hidden], [inert]')) opener.focus();
+     };
+   }, []);
+ 
+@@ -36,7 +106,13 @@
+       {...name}
+       aria-modal="true"
+       tabIndex={-1}
+-      onKeyDown={event => {
++      onInputCapture={() => {
++        dirty.current = true;
++      }}
++      onChangeCapture={() => {
++        dirty.current = true;
++      }}
++      onKeyDown={(event) => {
+         if (event.key !== 'Tab' || !ref.current) return;
+         const controls = focusableControls(ref.current);
+         const first = controls[0];
+@@ -56,7 +132,7 @@
+           first.focus();
+         }
+       }}
+-      onCancel={event => {
++      onCancel={(event) => {
+         event.preventDefault();
+         if (!pending) onClose();
+       }}

@@ -1,0 +1,81 @@
+{
+  "phase": "read",
+  "checkedAt": "2026-10-02T08:55:15.292Z",
+  "visits": [
+    {
+      "alias": "first",
+      "visitId": "eca87bd1-901a-4f38-b5ec-d7e32cb8639c",
+      "containerNumber": "QAOU5007550",
+      "state": "EXITED",
+      "slotCode": null,
+      "reception": {
+        "truckVisitId": "fc525ccc-ba8e-49f2-8831-62eadd0ae0e3",
+        "actualSeal": "OPS-QA-SEAL-1",
+        "actualWeight": 20000,
+        "conditionCode": "GOOD"
+      },
+      "blockers": [
+        "CONTAINER_NOT_IN_YARD",
+        "NO_YARD_POSITION"
+      ]
+    },
+    {
+      "alias": "second",
+      "visitId": "cac4e8ca-967b-4fbc-a845-ec844c6a263f",
+      "containerNumber": "QAOU5007565",
+      "state": "IN_YARD",
+      "slotCode": "A-01-03-2",
+      "reception": {
+        "truckVisitId": "fc525ccc-ba8e-49f2-8831-62eadd0ae0e3",
+        "actualSeal": "OPS-QA-SEAL-2",
+        "actualWeight": 20000,
+        "conditionCode": "GOOD"
+      },
+      "blockers": [
+        "NO_BILLING",
+        "UNBILLED_SERVICES"
+      ]
+    },
+    {
+      "alias": "yard",
+      "visitId": "2a1ee6c4-b438-495c-8b35-14df04f6403c",
+      "containerNumber": "QAOU5007570",
+      "state": "IN_YARD",
+      "slotCode": "A-01-01-2",
+      "reception": {
+        "truckVisitId": "4d582342-e97e-4a32-aaee-406690b2d6b6",
+        "actualSeal": "OPS-QA-SEAL-3",
+        "actualWeight": 20000,
+        "conditionCode": "GOOD"
+      },
+      "blockers": [
+        "INSPECTION_HOLD",
+        "OPERATIONAL_HOLD",
+        "NO_BILLING",
+        "UNBILLED_SERVICES"
+      ]
+    },
+    {
+      "alias": "followup",
+      "visitId": "f6482365-ae79-4ae3-9dec-efecd8f04947",
+      "containerNumber": "QAOU1882075",
+      "state": "EXITED",
+      "slotCode": null,
+      "reception": {
+        "truckVisitId": "950be735-d6ca-455d-9e2c-072023a053d7",
+        "actualSeal": "OPS-QA-FOLLOWUP",
+        "actualWeight": 20000,
+        "conditionCode": "GOOD"
+      },
+      "blockers": [
+        "CONTAINER_NOT_IN_YARD",
+        "NO_YARD_POSITION"
+      ]
+    }
+  ],
+  "truck": {
+    "id": "fc525ccc-ba8e-49f2-8831-62eadd0ae0e3",
+    "vehiclePlate": "51C-QA0755",
+    "status": "COMPLETED"
+  }
+}

@@ -1,0 +1,16 @@
+✔ Master Data retains the draft and blocks a second submission while pending and after rejection (415.6676ms)
+✔ Users blank submit associates errors and focuses the first invalid field (56.6987ms)
+✔ read-only users never receive master-data or user write controls (178.1068ms)
+✔ truck shortcut opens a create dialog with its linked container (72.9194ms)
+✔ expired and cancelled passes never offer exit or handover and explain their status (101.7142ms)
+✔ EDI inspector renders canonical payload snapshot without synthesized ISO type (37.6904ms)
+✔ failed and forbidden collections do not claim a settled empty result (50.3818ms)
+✔ movement order default means now plus 24 hours in Vietnam UTC+7 (34.7424ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8971.0725

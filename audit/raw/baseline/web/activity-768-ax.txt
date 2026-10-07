@@ -1,0 +1,70 @@
+Browser tab: 20, Title: "ICD Management System — Quản lý Kho bãi Container Nội địa", URL: "http://127.0.0.1:5173/".
+0 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/
+	1 container root
+		2 container
+			3 text ICD
+			4 heading ICD Management System, Value: 1
+				5 text ICD Management System
+			6 text Cảng cạn & kho bãi container nội địa
+			7 button Tải lại dữ liệu
+			8 button (collapsed) Description: Thông báo (0 chưa đọc), Secondary Actions: Expand
+			10 button Đăng xuất
+		11 container Điều hướng nghiệp vụ
+			226 text TỔNG QUAN & ĐIỀU PHỐI
+			227 button Tổng quan vận hành
+			228 button Danh sách công việc
+			229 text QUẢN LÝ HÀNG HÓA & CỔNG
+			230 button Bản lược khai (Manifest)
+			231 button Quản lý Container
+			232 button Movement Order
+			233 button Chuyến xe ra/vào
+			234 button Tiếp nhận vào cổng (Gate-in)
+			235 button Vận hành Bãi (Yard)
+			236 text TÀI CHÍNH & RA CỔNG
+			237 button Dịch vụ & Thanh toán
+			238 button Phiếu ra cổng & Gate-out
+			239 button Vận hành EDI (CODECO)
+			240 text TÍCH HỢP ĐỐI TÁC
+			241 button Bàn giao vận chuyển
+			242 button Đối tác tích hợp API
+			243 button Nhật ký API đối tác
+			244 text HỆ THỐNG & QUẢN TRỊ
+			245 button Danh mục dùng chung
+			246 button Người dùng & Phân quyền
+			247 button Báo cáo vận hành
+			248 button Nhật ký kiểm toán
+			36 text System Administrator
+			37 text admin@icd.local
+			38 text ADMIN
+		39 container
+			249 heading Nhật ký Kiểm toán & An ninh (Audit Logs), Value: 2
+				250 text Nhật ký Kiểm toán & An ninh (Audit Logs)
+			251 text Ghi nhận vết can thiệp nghiệp vụ (Ai đã làm gì, lúc nào, đối tượng và thông tin chi tiết) Tổng cộng:  1  bản ghi
+			252 text field (settable)
+			253 table
+				254 row
+					255 cell
+						256 text Thời gian
+					257 cell
+						258 text Người thực hiện
+					259 cell
+						260 text Hành động
+					261 cell
+						262 text Đối tượng
+					263 cell
+						264 text Chi tiết nghiệp vụ
+					265 cell
+						266 text Request ID
+				267 row
+					268 cell
+						269 text 14:04:25 1/10/2026
+					270 cell
+						271 text -
+					272 cell
+						273 text TRANSPORT_HANDOVER_ICD_CONFIRMED
+					274 cell
+						275 text TRANSPORT_HANDOVER : b3fe3d3b-039d-4c41-9976-141d9cd8327d
+					276 cell
+						277 text f7c61da5-36ed-490d-9743-3e3c8abc8d6b
+
+The focused UI element is 248 button Nhật ký kiểm toán

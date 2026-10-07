@@ -1,0 +1,36 @@
+{
+  "role": "ADMIN",
+  "configId": "progressive-containers-5s-oct04",
+  "slowResource": "GET /api/containers",
+  "delayMs": 5000,
+  "series": [
+    {
+      "stage": "start",
+      "at": "2026-10-03T21:53:48.075Z"
+    },
+    {
+      "stage": "initial",
+      "at": "2026-10-03T21:53:48.302Z",
+      "snapshot": "- main:\n  - heading \"Khôi phục phiên làm việc\" [level=1]\n  - status:\n    - text: Đang kiểm tra phiên làm việc…"
+    },
+    {
+      "stage": "partial",
+      "at": "2026-10-03T21:53:48.887Z",
+      "proof": {
+        "globalPending": "true",
+        "knownRow": "Maersk Line (A.P. Moller)\tMAEU\tACTIVE\tKhóa",
+        "tableRows": 23
+      }
+    },
+    {
+      "stage": "complete",
+      "at": "2026-10-03T21:53:59.183Z",
+      "proof": {
+        "globalPending": "false",
+        "knownRow": "Maersk Line (A.P. Moller)\tMAEU\tACTIVE\tKhóa",
+        "tableRows": 23
+      }
+    }
+  ],
+  "timingMethod": "Host CUA observation timestamps; these bound states and do not measure input-to-paint latency"
+}

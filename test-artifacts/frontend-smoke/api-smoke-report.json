@@ -1,0 +1,362 @@
+[
+  {
+    "method": "GET",
+    "path": "/containers",
+    "ok": true,
+    "status": 200,
+    "count": 10,
+    "detail": "{\"data\":[{\"id\":\"8b807f34-ef0b-4ad5-9e0f-e07da0f0570c\",\"icdId\":\"16174fea-a7cc-4f76-815e-db21684f86f6\",\"containerId\":\"2744ab02-6930-4061-b5b0-c5c1fc16fe67\",\"manifestId\":\"85a1409c-6a86-4d36-9bb6-b88a65976231\",\"masterBlId\":\"72d78911-67d9-439d-abe7-abfaf75cc58e\",\"h..."
+  },
+  {
+    "method": "GET",
+    "path": "/health/ready",
+    "ok": true,
+    "status": 200,
+    "count": 1,
+    "detail": "{\"data\":{\"status\":\"ok\",\"service\":\"icd-api\",\"database\":\"up\",\"timestamp\":\"2026-09-23T07:54:39.749Z\"}}"
+  },
+  {
+    "method": "GET",
+    "path": "/auth/me",
+    "ok": true,
+    "status": 200,
+    "count": 1,
+    "detail": "{\"data\":{\"id\":\"21876409-d622-47aa-b8de-392f06bc0189\",\"icdId\":\"16174fea-a7cc-4f76-815e-db21684f86f6\",\"sessionId\":\"e03e5b80-5b09-4a40-95af-3ffb9c24c3fb\",\"name\":\"System Administrator\",\"email\":\"admin@icd.local\",\"roleCodes\":[\"ADMIN\"],\"permissionCodes\":[\"handover.co..."
+  },
+  {
+    "method": "GET",
+    "path": "/admin/master-data/shipping-lines",
+    "ok": true,
+    "status": 200,
+    "count": 19,
+    "detail": "{\"data\":[{\"id\":\"27008df5-9993-4513-bd21-40769fce9061\",\"name\":\"CMA CGM Group\",\"scacCode\":\"CMDU\",\"active\":true,\"createdAt\":\"2026-09-22T06:56:39.204Z\",\"updatedAt\":\"2026-09-22T08:17:33.967Z\"},{\"id\":\"80e7e251-a1b8-4e95-8617-042209ed04f7\",\"name\":\"Công ty Cổ phần Gem..."
+  },
+  {
+    "method": "GET",
+    "path": "/admin/master-data/consignees",
+    "ok": true,
+    "status": 200,
+    "count": 11,
+    "detail": "{\"data\":[{\"id\":\"64cce54c-d619-445d-bae9-cd4ee45e3cb9\",\"name\":\"Công ty Cổ phần Sản xuất & Kinh doanh VinFast\",\"taxCode\":\"0801234567\",\"phone\":\"02253999888\",\"email\":\"inbound@vinfast.vn\",\"address\":\"Khu kinh tế Đình Vũ - Cát Hải, Hải Phòng\",\"active\":true,\"createdAt..."
+  },
+  {
+    "method": "GET",
+    "path": "/admin/master-data/clearing-agents",
+    "ok": true,
+    "status": 200,
+    "count": 5,
+    "detail": "{\"data\":[{\"id\":\"dcb87876-976b-4771-b7fa-db3fd7881ade\",\"name\":\"Đại lý Hải quan Quốc tế Việt Thịnh\",\"licenseNo\":\"0388776655\",\"active\":true,\"createdAt\":\"2026-09-22T06:56:39.341Z\",\"updatedAt\":\"2026-09-22T08:17:34.304Z\"},{\"id\":\"3a3ffe8b-cdb4-4726-84ca-5b7342a53e48\"..."
+  },
+  {
+    "method": "GET",
+    "path": "/admin/master-data/transporters",
+    "ok": true,
+    "status": 200,
+    "count": 6,
+    "detail": "{\"data\":[{\"id\":\"2df7e7da-d9fe-4700-9d7f-daccd3cf50ad\",\"name\":\"Công ty CP Dịch vụ Vận tải Container Hoàng Long\",\"taxCode\":\"0355443322\",\"active\":true,\"createdAt\":\"2026-09-22T07:30:03.306Z\",\"updatedAt\":\"2026-09-22T08:17:34.394Z\"},{\"id\":\"1c5a2ded-fd5d-4561-ac0f-f2..."
+  },
+  {
+    "method": "GET",
+    "path": "/yard/blocks",
+    "ok": true,
+    "status": 200,
+    "count": 4,
+    "detail": "{\"data\":[{\"id\":\"6f941473-8a97-4aae-b3f7-3f7fe53082cd\",\"icdId\":\"16174fea-a7cc-4f76-815e-db21684f86f6\",\"blockCode\":\"A\",\"name\":\"Khu A — Hàng khô Dry Cargo\",\"operational\":true,\"_count\":{\"slots\":12}},{\"id\":\"4349b92e-1737-44f5-b21c-7a1785780157\",\"icdId\":\"16174fea-a7..."
+  },
+  {
+    "method": "GET",
+    "path": "/yard/slots",
+    "ok": true,
+    "status": 200,
+    "count": 48,
+    "detail": "{\"data\":[{\"id\":\"6b8862f0-d5ce-4c09-b16c-9692114a5852\",\"yardBlock\":{\"id\":\"6f941473-8a97-4aae-b3f7-3f7fe53082cd\",\"icdId\":\"16174fea-a7cc-4f76-815e-db21684f86f6\",\"blockCode\":\"A\",\"name\":\"Khu A — Hàng khô Dry Cargo\",\"operational\":true},\"rowNo\":\"1\",\"bayNo\":\"1\",\"tierN..."
+  },
+  {
+    "method": "GET",
+    "path": "/yard/movements",
+    "ok": true,
+    "status": 200,
+    "count": 1,
+    "detail": "{\"data\":{\"items\":[],\"meta\":{\"page\":1,\"pageSize\":20,\"total\":0,\"totalPages\":0}}}"
+  },
+  {
+    "method": "GET",
+    "path": "/yard/inspections",
+    "ok": true,
+    "status": 200,
+    "count": 1,
+    "detail": "{\"data\":{\"items\":[],\"meta\":{\"page\":1,\"pageSize\":20,\"total\":0,\"totalPages\":0}}}"
+  },
+  {
+    "method": "GET",
+    "path": "/yard/bookings",
+    "ok": true,
+    "status": 200,
+    "count": 1,
+    "detail": "{\"data\":{\"items\":[],\"meta\":{\"page\":1,\"pageSize\":20,\"total\":0,\"totalPages\":0}}}"
+  },
+  {
+    "method": "GET",
+    "path": "/gate/truck-visits",
+    "ok": true,
+    "status": 200,
+    "count": 0,
+    "detail": "{\"data\":[],\"meta\":{\"page\":1,\"pageSize\":20,\"total\":0,\"totalPages\":0}}"
+  },
+  {
+    "method": "GET",
+    "path": "/movement-orders",
+    "ok": true,
+    "status": 200,
+    "count": 0,
+    "detail": "{\"data\":[],\"meta\":{\"page\":1,\"pageSize\":20,\"total\":0,\"totalPages\":0}}"
+  },
+  {
+    "method": "GET",
+    "path": "/admin/tariffs",
+    "ok": true,
+    "status": 200,
+    "count": 1,
+    "detail": "{\"data\":[{\"id\":\"95f86ecc-eaf6-4518-bb03-ec564c511e87\",\"icdId\":\"16174fea-a7cc-4f76-815e-db21684f86f6\",\"name\":\"Biểu phí tiêu chuẩn ICD 2026\",\"status\":\"ACTIVE\",\"effectiveFrom\":\"2026-01-01T00:00:00Z\",\"effectiveTo\":null,\"createdById\":\"21876409-d622-47aa-b8de-392f06..."
+  },
+  {
+    "method": "GET",
+    "path": "/service-orders",
+    "ok": true,
+    "status": 200,
+    "count": 0,
+    "detail": "{\"data\":[],\"meta\":{\"page\":1,\"pageSize\":20,\"total\":0,\"totalPages\":0}}"
+  },
+  {
+    "method": "GET",
+    "path": "/invoices",
+    "ok": true,
+    "status": 200,
+    "count": 0,
+    "detail": "{\"data\":[],\"meta\":{\"page\":1,\"pageSize\":20,\"total\":0,\"totalPages\":0}}"
+  },
+  {
+    "method": "GET",
+    "path": "/payments",
+    "ok": true,
+    "status": 200,
+    "count": 0,
+    "detail": "{\"data\":[],\"meta\":{\"page\":1,\"pageSize\":20,\"total\":0,\"totalPages\":0}}"
+  },
+  {
+    "method": "GET",
+    "path": "/integrations/edi/routes",
+    "ok": true,
+    "status": 200,
+    "count": 19,
+    "detail": "{\"data\":[{\"id\":\"5f58e56c-d5cb-44c9-b426-ff91a30d0bc3\",\"icdId\":\"16174fea-a7cc-4f76-815e-db21684f86f6\",\"shippingLineId\":\"27008df5-9993-4513-bd21-40769fce9061\",\"enabled\":true,\"transport\":\"MOCK\",\"outboundFormat\":\"CODECO_CANONICAL_JSON_V1\",\"partnerTarget\":\"mock://l..."
+  },
+  {
+    "method": "GET",
+    "path": "/integrations/edi/outbox",
+    "ok": true,
+    "status": 200,
+    "count": 0,
+    "detail": "{\"data\":[],\"meta\":{\"page\":1,\"pageSize\":20,\"total\":0,\"totalPages\":0}}"
+  },
+  {
+    "method": "GET",
+    "path": "/integrations/edi/alerts",
+    "ok": true,
+    "status": 200,
+    "count": 0,
+    "detail": "{\"data\":[],\"meta\":{\"page\":1,\"pageSize\":20,\"total\":0,\"totalPages\":0}}"
+  },
+  {
+    "method": "GET",
+    "path": "/handovers",
+    "ok": true,
+    "status": 200,
+    "count": 0,
+    "detail": "{\"data\":[],\"meta\":{\"page\":1,\"pageSize\":20,\"total\":0,\"totalPages\":0}}"
+  },
+  {
+    "method": "GET",
+    "path": "/customer-warehouses",
+    "ok": true,
+    "status": 200,
+    "count": 3,
+    "detail": "{\"data\":[{\"id\":\"e24ab343-9e5c-46e9-b402-18e47db4f51f\",\"icdId\":\"16174fea-a7cc-4f76-815e-db21684f86f6\",\"consigneeId\":\"0153cd3f-f30f-4896-9388-1528d3462266\",\"code\":\"WH-PHUOC-LONG\",\"name\":\"Kho ICD Phước Long 3\",\"address\":\"Km 9, Xa lộ Hà Nội, P. Phước Long A, TP. T..."
+  },
+  {
+    "method": "GET",
+    "path": "/admin/partner-clients",
+    "ok": true,
+    "status": 200,
+    "count": 2,
+    "detail": "{\"data\":[{\"id\":\"51beff65-14e4-48ea-ab5c-a9b986301370\",\"partnerCode\":\"VINATRANS_EXPRESS\",\"partnerName\":\"Tổng Công ty Giao nhận Kho vận VinaTrans\",\"keyLast4\":\"3F88\",\"status\":\"ACTIVE\",\"scopes\":[\"handover.read\",\"handover.accept\",\"handover.transit\",\"handover.confir..."
+  },
+  {
+    "method": "GET",
+    "path": "/admin/partner-api-logs",
+    "ok": true,
+    "status": 200,
+    "count": 0,
+    "detail": "{\"data\":[],\"meta\":{\"page\":1,\"pageSize\":20,\"total\":0,\"totalPages\":0}}"
+  },
+  {
+    "method": "GET",
+    "path": "/audit-logs",
+    "ok": true,
+    "status": 200,
+    "count": 0,
+    "detail": "{\"data\":[],\"meta\":{\"page\":1,\"pageSize\":20,\"total\":0,\"totalPages\":0}}"
+  },
+  {
+    "method": "GET",
+    "path": "/reports/summary",
+    "ok": true,
+    "status": 200,
+    "count": 1,
+    "detail": "{\"data\":{\"asOfAt\":\"2026-09-23T07:55:31.831Z\",\"timeZone\":\"Asia/Ho_Chi_Minh\",\"yard\":{\"inYardCount\":9,\"byCategory\":{\"IMPORT\":9},\"byHoldStatus\":{\"NONE\":9},\"byContainerType\":{\"DRY\":7,\"REEFER\":2}},\"gateToday\":{\"gateIn\":0,\"gateOut\":0,\"netFlow\":0,\"hourly\":[{\"hour\":0,\"..."
+  },
+  {
+    "method": "GET",
+    "path": "/reports/yard-inventory/current",
+    "ok": true,
+    "status": 200,
+    "count": 1,
+    "detail": "{\"data\":{\"generatedAt\":\"2026-09-23T07:55:34.055Z\",\"summary\":{\"occupiedSlots\":9,\"operationalSlots\":48,\"availableSlots\":39,\"occupancyRate\":0.1875},\"byBlock\":[{\"blockCode\":\"A\",\"count\":3},{\"blockCode\":\"B\",\"count\":2},{\"blockCode\":\"C\",\"count\":2},{\"blockCode\":\"D\",\"co..."
+  },
+  {
+    "method": "GET",
+    "path": "/reports/revenue",
+    "ok": true,
+    "status": 200,
+    "count": 1,
+    "detail": "{\"data\":{\"period\":{\"fromDate\":\"2026-09-01\",\"toDate\":\"2026-09-23\",\"timeZone\":\"Asia/Ho_Chi_Minh\",\"groupBy\":\"DAY\"},\"summary\":{\"totalRevenue\":0,\"allocationCount\":0},\"series\":[],\"byConsignee\":[],\"byMethod\":[],\"byServiceType\":[]}}"
+  },
+  {
+    "method": "GET",
+    "path": "/notifications/history",
+    "ok": true,
+    "status": 200,
+    "count": 0,
+    "detail": "{\"data\":[],\"meta\":{\"page\":1,\"pageSize\":20,\"total\":0,\"totalPages\":0,\"unreadCount\":0}}"
+  },
+  {
+    "method": "GET",
+    "path": "/admin/users",
+    "ok": true,
+    "status": 200,
+    "count": 11,
+    "detail": "{\"data\":[{\"id\":\"3e70fa36-3199-499b-9e71-8979d0d60e7a\",\"icdId\":\"16174fea-a7cc-4f76-815e-db21684f86f6\",\"name\":\"Công ty Samsung SEVT\",\"email\":\"consignee@icd.local\",\"active\":true,\"roles\":[{\"id\":\"6fb6ea0f-0aa1-4426-9556-e6bf4e4188ed\",\"code\":\"CONSIGNEE\",\"name\":\"Chủ ..."
+  },
+  {
+    "method": "GET",
+    "path": "/admin/roles",
+    "ok": true,
+    "status": 200,
+    "count": 9,
+    "detail": "{\"data\":[{\"id\":\"31205f10-d33d-4216-9851-d5f500c722cb\",\"code\":\"ADMIN\",\"name\":\"Quản trị viên\",\"description\":\"Quản trị hệ thống, người dùng, cấu hình, tích hợp và dữ liệu nền.\",\"active\":true,\"userCount\":1,\"permissionCount\":56,\"createdAt\":\"2026-09-18T14:41:38.808Z..."
+  },
+  {
+    "method": "GET",
+    "path": "/admin/permissions",
+    "ok": true,
+    "status": 200,
+    "count": 56,
+    "detail": "{\"data\":[{\"id\":\"8668fa20-919c-40b0-ab1d-6e9c3bc58b36\",\"code\":\"audit.read\",\"name\":\"Xem nhật ký Audit\",\"description\":\"Cho phép xem lịch sử thay đổi và truy vết request.\",\"active\":true,\"createdAt\":\"2026-09-19T08:34:01.174Z\",\"updatedAt\":\"2026-09-22T08:17:32.905Z\"}..."
+  },
+  {
+    "method": "GET",
+    "path": "/containers/8b807f34-ef0b-4ad5-9e0f-e07da0f0570c",
+    "ok": true,
+    "status": 200,
+    "count": 1,
+    "detail": "{\"data\":{\"id\":\"8b807f34-ef0b-4ad5-9e0f-e07da0f0570c\",\"icdId\":\"16174fea-a7cc-4f76-815e-db21684f86f6\",\"containerId\":\"2744ab02-6930-4061-b5b0-c5c1fc16fe67\",\"manifestId\":\"85a1409c-6a86-4d36-9bb6-b88a65976231\",\"masterBlId\":\"72d78911-67d9-439d-abe7-abfaf75cc58e\",\"ho..."
+  },
+  {
+    "method": "GET",
+    "path": "/containers/8b807f34-ef0b-4ad5-9e0f-e07da0f0570c/events",
+    "ok": true,
+    "status": 200,
+    "count": 0,
+    "detail": "{\"data\":[]}"
+  },
+  {
+    "method": "GET",
+    "path": "/containers/8b807f34-ef0b-4ad5-9e0f-e07da0f0570c/gate-in-context",
+    "ok": true,
+    "status": 200,
+    "count": 1,
+    "detail": "{\"data\":{\"containerVisit\":{\"id\":\"8b807f34-ef0b-4ad5-9e0f-e07da0f0570c\",\"state\":\"IN_YARD\",\"expectedSeal\":\"VOS-993821\",\"grossWeight\":\"29500\",\"gateInAt\":\"2026-09-21T08:17:36.704Z\",\"container\":{\"id\":\"2744ab02-6930-4061-b5b0-c5c1fc16fe67\",\"containerNumber\":\"VSCU674..."
+  },
+  {
+    "method": "GET",
+    "path": "/containers/8b807f34-ef0b-4ad5-9e0f-e07da0f0570c/reception",
+    "ok": false,
+    "status": 404,
+    "count": null,
+    "detail": "Response status code does not indicate success: 404 (Not Found)."
+  },
+  {
+    "method": "GET",
+    "path": "/containers/8b807f34-ef0b-4ad5-9e0f-e07da0f0570c/yard/recommendations",
+    "ok": false,
+    "status": 409,
+    "count": null,
+    "detail": "Response status code does not indicate success: 409 (Conflict)."
+  },
+  {
+    "method": "GET",
+    "path": "/containers/8b807f34-ef0b-4ad5-9e0f-e07da0f0570c/yard/location",
+    "ok": true,
+    "status": 200,
+    "count": 1,
+    "detail": "{\"data\":{\"id\":\"a6935e08-4793-4a04-a103-0e6967a651d5\",\"containerVisitId\":\"8b807f34-ef0b-4ad5-9e0f-e07da0f0570c\",\"startedAt\":\"2026-09-22T08:17:36.728Z\",\"endedAt\":null,\"source\":\"RULE\",\"recommendationId\":null,\"yardSlot\":{\"id\":\"1275d407-19ac-44b0-8b1c-a853dd42ae25\"..."
+  },
+  {
+    "method": "GET",
+    "path": "/containers/8b807f34-ef0b-4ad5-9e0f-e07da0f0570c/gate-pass/readiness",
+    "ok": true,
+    "status": 200,
+    "count": 1,
+    "detail": "{\"data\":{\"containerVisitId\":\"8b807f34-ef0b-4ad5-9e0f-e07da0f0570c\",\"ready\":false,\"isReady\":false,\"blockers\":[\"NO_BILLING\",\"UNBILLED_SERVICES\"],\"details\":{\"containerStatus\":\"IN_YARD\",\"yardLocation\":{\"id\":\"a6935e08-4793-4a04-a103-0e6967a651d5\",\"yardSlotId\":\"1275..."
+  },
+  {
+    "method": "GET",
+    "path": "/containers/8b807f34-ef0b-4ad5-9e0f-e07da0f0570c/gate-pass",
+    "ok": true,
+    "status": 200,
+    "count": 0,
+    "detail": "{\"data\":null}"
+  },
+  {
+    "method": "GET",
+    "path": "/containers/8b807f34-ef0b-4ad5-9e0f-e07da0f0570c/handover-summary",
+    "ok": true,
+    "status": 200,
+    "count": 1,
+    "detail": "{\"data\":{\"containerVisitId\":\"8b807f34-ef0b-4ad5-9e0f-e07da0f0570c\",\"handover\":null}}"
+  },
+  {
+    "method": "GET",
+    "path": "/containers/8b807f34-ef0b-4ad5-9e0f-e07da0f0570c/billing",
+    "ok": true,
+    "status": 200,
+    "count": 1,
+    "detail": "{\"data\":{\"containerVisitId\":\"8b807f34-ef0b-4ad5-9e0f-e07da0f0570c\",\"isReady\":false,\"blockers\":[\"UNBILLED_SERVICES\"],\"details\":{\"pendingOrders\":[],\"unpaidInvoices\":[],\"unbilledServicesCount\":2}}}"
+  },
+  {
+    "method": "GET",
+    "path": "/containers/8b807f34-ef0b-4ad5-9e0f-e07da0f0570c/holds",
+    "ok": true,
+    "status": 200,
+    "count": 0,
+    "detail": "{\"data\":[]}"
+  },
+  {
+    "method": "GET",
+    "path": "/containers/8b807f34-ef0b-4ad5-9e0f-e07da0f0570c/yard/operations/active-summary",
+    "ok": true,
+    "status": 200,
+    "count": 1,
+    "detail": "{\"data\":{\"hasActiveOperations\":false,\"hasHoldInspection\":false,\"activeMovements\":[],\"activeInspections\":[],\"holdInspections\":[],\"activeBookings\":[]}}"
+  }
+]

@@ -1,0 +1,2718 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "rubric_source": {
+    "repository": "laststance/skills",
+    "url": "https://github.com/laststance/skills",
+    "commit": "66d87e7906a9584d193fa32b91b9e1c3a6232743",
+    "default_branch": "main",
+    "resolved_at_utc": "2026-10-02T19:45:06.851364+00:00",
+    "local_path": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\reference\\laststance-skills",
+    "mode": "reference-only; dependencies not installed",
+    "depth": 1,
+    "verified_commit": "66d87e7906a9584d193fa32b91b9e1c3a6232743",
+    "rubric_path": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\reference\\laststance-skills\\skills\\ux-gap-detector\\scoring-rubric.md",
+    "rubric_sha256": "42af283bcacf77b5d59adbc3e987449458f4f9fe1034875215b21f56c3fb5792",
+    "rubric_caveat": "Per-dimension issue-priority table uses 0-49/50-74/75+ ranges although dimensions max25; use explicit 0-25 dimension and 0-100 overall verdict bands; do not invent normalization."
+  },
+  "method": "25 x weighted mean of criterion PASS/(PASS+FAIL+UNKNOWN); upper substitutes PASS+UNKNOWN. N/A excluded, weights normalized per dimension. Binary observations are explicitly scoped samples; untested role/state cross-products remain in coverage. No full-product certification.",
+  "platforms": {
+    "web": {
+      "ux_gap": {
+        "min": 48.67424242424242,
+        "max": 79.40151515151516,
+        "observed_coverage": 0.78,
+        "dimensions": [
+          {
+            "dimension": 1,
+            "name": "Typography & Spacing",
+            "max_points": 25,
+            "min": 14.5,
+            "max": 21,
+            "criteria": [
+              {
+                "criterion": "type_scale",
+                "weight": 5,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 1,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "web-D1-type_scale-1",
+                  "web-D1-type_scale-2"
+                ],
+                "applicable": true,
+                "min": 0.5,
+                "max": 0.5
+              },
+              {
+                "criterion": "font_weight",
+                "weight": 3,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 0,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "web-D1-font_weight-1"
+                ],
+                "applicable": true,
+                "min": 1,
+                "max": 1
+              },
+              {
+                "criterion": "line_height",
+                "weight": 3,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 1,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "web-D1-line_height-1",
+                  "web-D1-line_height-2"
+                ],
+                "applicable": true,
+                "min": 0.5,
+                "max": 0.5
+              },
+              {
+                "criterion": "letter_spacing",
+                "weight": 2,
+                "counts": {
+                  "PASS": 0,
+                  "FAIL": 0,
+                  "UNKNOWN": 1
+                },
+                "observation_ids": [
+                  "web-D1-letter_spacing-1"
+                ],
+                "applicable": true,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "criterion": "spacing_rhythm",
+                "weight": 5,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 0,
+                  "UNKNOWN": 1
+                },
+                "observation_ids": [
+                  "web-D1-spacing_rhythm-1",
+                  "web-D1-spacing_rhythm-2"
+                ],
+                "applicable": true,
+                "min": 0.5,
+                "max": 1
+              },
+              {
+                "criterion": "margin_padding",
+                "weight": 4,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 0,
+                  "UNKNOWN": 1
+                },
+                "observation_ids": [
+                  "web-D1-margin_padding-1",
+                  "web-D1-margin_padding-2"
+                ],
+                "applicable": true,
+                "min": 0.5,
+                "max": 1
+              },
+              {
+                "criterion": "whitespace",
+                "weight": 3,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 0,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "web-D1-whitespace-1"
+                ],
+                "applicable": true,
+                "min": 1,
+                "max": 1
+              }
+            ]
+          },
+          {
+            "dimension": 2,
+            "name": "Interactive States",
+            "max_points": 25,
+            "min": 8.5,
+            "max": 21,
+            "criteria": [
+              {
+                "criterion": "hover",
+                "weight": 5,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 0,
+                  "UNKNOWN": 1
+                },
+                "observation_ids": [
+                  "web-D2-hover-1",
+                  "web-D2-hover-2"
+                ],
+                "applicable": true,
+                "min": 0.5,
+                "max": 1
+              },
+              {
+                "criterion": "focus",
+                "weight": 5,
+                "counts": {
+                  "PASS": 2,
+                  "FAIL": 2,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "web-D2-focus-1",
+                  "web-D2-focus-2",
+                  "web-D2-focus-3",
+                  "web-D2-focus-4"
+                ],
+                "applicable": true,
+                "min": 0.5,
+                "max": 0.5
+              },
+              {
+                "criterion": "active",
+                "weight": 3,
+                "counts": {
+                  "PASS": 0,
+                  "FAIL": 0,
+                  "UNKNOWN": 1
+                },
+                "observation_ids": [
+                  "web-D2-active-1"
+                ],
+                "applicable": true,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "criterion": "timing",
+                "weight": 4,
+                "counts": {
+                  "PASS": 0,
+                  "FAIL": 0,
+                  "UNKNOWN": 1
+                },
+                "observation_ids": [
+                  "web-D2-timing-1"
+                ],
+                "applicable": true,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "criterion": "cursor",
+                "weight": 2,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 0,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "web-D2-cursor-1"
+                ],
+                "applicable": true,
+                "min": 1,
+                "max": 1
+              },
+              {
+                "criterion": "disabled",
+                "weight": 3,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 1,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "web-D2-disabled-1",
+                  "web-D2-disabled-2"
+                ],
+                "applicable": true,
+                "min": 0.5,
+                "max": 0.5
+              },
+              {
+                "criterion": "easing",
+                "weight": 3,
+                "counts": {
+                  "PASS": 0,
+                  "FAIL": 0,
+                  "UNKNOWN": 1
+                },
+                "observation_ids": [
+                  "web-D2-easing-1"
+                ],
+                "applicable": true,
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          {
+            "dimension": 3,
+            "name": "Content Hierarchy",
+            "max_points": 25,
+            "min": 18.666666666666664,
+            "max": 20.166666666666664,
+            "criteria": [
+              {
+                "criterion": "visual_weight",
+                "weight": 5,
+                "counts": {
+                  "PASS": 2,
+                  "FAIL": 1,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "web-D3-visual_weight-1",
+                  "web-D3-visual_weight-2",
+                  "web-D3-visual_weight-3"
+                ],
+                "applicable": true,
+                "min": 0.6666666666666666,
+                "max": 0.6666666666666666
+              },
+              {
+                "criterion": "headings",
+                "weight": 3,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 1,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "web-D3-headings-1",
+                  "web-D3-headings-2"
+                ],
+                "applicable": true,
+                "min": 0.5,
+                "max": 0.5
+              },
+              {
+                "criterion": "CTA",
+                "weight": 5,
+                "counts": {
+                  "PASS": 2,
+                  "FAIL": 1,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "web-D3-CTA-1",
+                  "web-D3-CTA-2",
+                  "web-D3-CTA-3"
+                ],
+                "applicable": true,
+                "min": 0.6666666666666666,
+                "max": 0.6666666666666666
+              },
+              {
+                "criterion": "density",
+                "weight": 3,
+                "counts": {
+                  "PASS": 2,
+                  "FAIL": 0,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "web-D3-density-1",
+                  "web-D3-density-2"
+                ],
+                "applicable": true,
+                "min": 1,
+                "max": 1
+              },
+              {
+                "criterion": "separation",
+                "weight": 3,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 0,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "web-D3-separation-1"
+                ],
+                "applicable": true,
+                "min": 1,
+                "max": 1
+              },
+              {
+                "criterion": "data_chrome",
+                "weight": 3,
+                "counts": {
+                  "PASS": 2,
+                  "FAIL": 0,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "web-D3-data_chrome-1",
+                  "web-D3-data_chrome-2"
+                ],
+                "applicable": true,
+                "min": 1,
+                "max": 1
+              },
+              {
+                "criterion": "above_fold",
+                "weight": 3,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 0,
+                  "UNKNOWN": 1
+                },
+                "observation_ids": [
+                  "web-D3-above_fold-1",
+                  "web-D3-above_fold-2"
+                ],
+                "applicable": true,
+                "min": 0.5,
+                "max": 1
+              }
+            ]
+          },
+          {
+            "dimension": 4,
+            "name": "Loading & Error UX",
+            "max_points": 25,
+            "min": 7.007575757575759,
+            "max": 17.234848484848484,
+            "criteria": [
+              {
+                "criterion": "initial",
+                "weight": 5,
+                "counts": {
+                  "PASS": 0,
+                  "FAIL": 0,
+                  "UNKNOWN": 1
+                },
+                "observation_ids": [
+                  "web-D4-initial-1"
+                ],
+                "applicable": true,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "criterion": "progressive",
+                "weight": 3,
+                "counts": {
+                  "PASS": 0,
+                  "FAIL": 0,
+                  "UNKNOWN": 1
+                },
+                "observation_ids": [
+                  "web-D4-progressive-1"
+                ],
+                "applicable": true,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "criterion": "empty",
+                "weight": 5,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 1,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "web-D4-empty-1",
+                  "web-D4-empty-2"
+                ],
+                "applicable": true,
+                "min": 0.5,
+                "max": 0.5
+              },
+              {
+                "criterion": "validation",
+                "weight": 4,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 1,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "web-D4-validation-1",
+                  "web-D4-validation-2"
+                ],
+                "applicable": true,
+                "min": 0.5,
+                "max": 0.5
+              },
+              {
+                "criterion": "recovery",
+                "weight": 2,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 2,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "web-D4-recovery-1",
+                  "web-D4-recovery-2",
+                  "web-D4-recovery-3"
+                ],
+                "applicable": true,
+                "min": 0.3333333333333333,
+                "max": 0.3333333333333333
+              },
+              {
+                "criterion": "indicators",
+                "weight": 3,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 1,
+                  "UNKNOWN": 1
+                },
+                "observation_ids": [
+                  "web-D4-indicators-1",
+                  "web-D4-indicators-2",
+                  "web-D4-indicators-3"
+                ],
+                "applicable": true,
+                "min": 0.3333333333333333,
+                "max": 0.6666666666666666
+              },
+              {
+                "criterion": "optimistic",
+                "weight": 3,
+                "counts": {
+                  "PASS": 0,
+                  "FAIL": 0,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "web-D4-optimistic-1"
+                ],
+                "applicable": false,
+                "min": null,
+                "max": null
+              }
+            ]
+          }
+        ]
+      },
+      "nielsen": {
+        "conversion": "Project conversion, not an official Nielsen0-100 scale:100-2.5*sum(max severity per heuristic)",
+        "observed": 30,
+        "min": 0,
+        "max": 30,
+        "heuristics": [
+          {
+            "id": "H1",
+            "name": "Trạng thái hệ thống",
+            "verified_max_severity": 4,
+            "possible_max_severity": 4,
+            "finding_ids": [
+              "W-S-020",
+              "W-S-005",
+              "W-S-016",
+              "W-S-004",
+              "W-S-007",
+              "W-S-008",
+              "W-S-009",
+              "W-S-010",
+              "W-S-015",
+              "W-S-017",
+              "W-S-018"
+            ],
+            "unknown_ids": [
+              "U-01",
+              "U-03",
+              "U-04",
+              "U-05",
+              "U-06",
+              "U-07",
+              "U-09",
+              "U-10",
+              "U-11"
+            ],
+            "note": "Max verified finding severity; no sum of duplicate causes."
+          },
+          {
+            "id": "H2",
+            "name": "Phù hợp thực tế",
+            "verified_max_severity": 2,
+            "possible_max_severity": 4,
+            "finding_ids": [
+              "W-S-008",
+              "W-S-011",
+              "W-S-012",
+              "W-S-013",
+              "W-S-017"
+            ],
+            "unknown_ids": [
+              "U-01",
+              "U-03",
+              "U-04",
+              "U-05",
+              "U-06",
+              "U-07",
+              "U-09",
+              "U-10",
+              "U-11"
+            ],
+            "note": "Max verified finding severity; no sum of duplicate causes."
+          },
+          {
+            "id": "H3",
+            "name": "Quyền kiểm soát",
+            "verified_max_severity": 4,
+            "possible_max_severity": 4,
+            "finding_ids": [
+              "W-S-020",
+              "W-S-001",
+              "W-S-003",
+              "W-S-004",
+              "W-S-012",
+              "W-S-014",
+              "W-S-019"
+            ],
+            "unknown_ids": [
+              "U-01",
+              "U-03",
+              "U-04",
+              "U-05",
+              "U-06",
+              "U-07",
+              "U-09",
+              "U-10",
+              "U-11"
+            ],
+            "note": "Max verified finding severity; no sum of duplicate causes."
+          },
+          {
+            "id": "H4",
+            "name": "Nhất quán",
+            "verified_max_severity": 3,
+            "possible_max_severity": 4,
+            "finding_ids": [
+              "W-S-001",
+              "W-S-002",
+              "W-S-003",
+              "W-R-001",
+              "W-R-002",
+              "W-S-007",
+              "W-S-009",
+              "W-S-019",
+              "W-R-003",
+              "W-R-004"
+            ],
+            "unknown_ids": [
+              "U-01",
+              "U-03",
+              "U-04",
+              "U-05",
+              "U-06",
+              "U-07",
+              "U-09",
+              "U-10",
+              "U-11"
+            ],
+            "note": "Max verified finding severity; no sum of duplicate causes."
+          },
+          {
+            "id": "H5",
+            "name": "Ngăn lỗi",
+            "verified_max_severity": 3,
+            "possible_max_severity": 4,
+            "finding_ids": [
+              "W-S-005",
+              "W-S-016",
+              "W-S-006",
+              "W-S-008",
+              "W-S-009",
+              "W-S-011",
+              "W-S-012",
+              "W-S-017",
+              "W-S-018"
+            ],
+            "unknown_ids": [
+              "U-01",
+              "U-03",
+              "U-04",
+              "U-05",
+              "U-06",
+              "U-07",
+              "U-09",
+              "U-10",
+              "U-11"
+            ],
+            "note": "Max verified finding severity; no sum of duplicate causes."
+          },
+          {
+            "id": "H6",
+            "name": "Nhận biết",
+            "verified_max_severity": 3,
+            "possible_max_severity": 4,
+            "finding_ids": [
+              "W-S-002",
+              "W-S-013",
+              "W-S-014"
+            ],
+            "unknown_ids": [
+              "U-01",
+              "U-03",
+              "U-04",
+              "U-05",
+              "U-06",
+              "U-07",
+              "U-09",
+              "U-10",
+              "U-11"
+            ],
+            "note": "Max verified finding severity; no sum of duplicate causes."
+          },
+          {
+            "id": "H7",
+            "name": "Hiệu quả",
+            "verified_max_severity": 3,
+            "possible_max_severity": 4,
+            "finding_ids": [
+              "W-S-003",
+              "W-R-002",
+              "W-S-013",
+              "W-S-014"
+            ],
+            "unknown_ids": [
+              "U-01",
+              "U-03",
+              "U-04",
+              "U-05",
+              "U-06",
+              "U-07",
+              "U-09",
+              "U-10",
+              "U-11"
+            ],
+            "note": "Max verified finding severity; no sum of duplicate causes."
+          },
+          {
+            "id": "H8",
+            "name": "Thông tin cần thiết",
+            "verified_max_severity": 2,
+            "possible_max_severity": 4,
+            "finding_ids": [
+              "W-R-001"
+            ],
+            "unknown_ids": [
+              "U-01",
+              "U-03",
+              "U-04",
+              "U-05",
+              "U-06",
+              "U-07",
+              "U-09",
+              "U-10",
+              "U-11"
+            ],
+            "note": "Max verified finding severity; no sum of duplicate causes."
+          },
+          {
+            "id": "H9",
+            "name": "Phục hồi lỗi",
+            "verified_max_severity": 4,
+            "possible_max_severity": 4,
+            "finding_ids": [
+              "W-S-020",
+              "W-S-016",
+              "W-S-004",
+              "W-S-006",
+              "W-S-010",
+              "W-S-015"
+            ],
+            "unknown_ids": [
+              "U-01",
+              "U-03",
+              "U-04",
+              "U-05",
+              "U-06",
+              "U-07",
+              "U-09",
+              "U-10",
+              "U-11"
+            ],
+            "note": "Max verified finding severity; no sum of duplicate causes."
+          },
+          {
+            "id": "H10",
+            "name": "Trợ giúp",
+            "verified_max_severity": 0,
+            "possible_max_severity": 4,
+            "finding_ids": [],
+            "unknown_ids": [
+              "U-01",
+              "U-03",
+              "U-04",
+              "U-05",
+              "U-06",
+              "U-07",
+              "U-09",
+              "U-10",
+              "U-11"
+            ],
+            "note": "No verified finding in sampled scope; incomplete runtime prevents claiming full heuristic pass."
+          }
+        ]
+      }
+    },
+    "mobile": {
+      "ux_gap": {
+        "min": 39.13636363636364,
+        "max": 69.58333333333334,
+        "observed_coverage": 0.78,
+        "dimensions": [
+          {
+            "dimension": 1,
+            "name": "Typography & Spacing",
+            "max_points": 25,
+            "min": 12,
+            "max": 14,
+            "criteria": [
+              {
+                "criterion": "type_scale",
+                "weight": 5,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 1,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "mobile-D1-type_scale-1",
+                  "mobile-D1-type_scale-2"
+                ],
+                "applicable": true,
+                "min": 0.5,
+                "max": 0.5
+              },
+              {
+                "criterion": "font_weight",
+                "weight": 3,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 1,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "mobile-D1-font_weight-1",
+                  "mobile-D1-font_weight-2"
+                ],
+                "applicable": true,
+                "min": 0.5,
+                "max": 0.5
+              },
+              {
+                "criterion": "line_height",
+                "weight": 3,
+                "counts": {
+                  "PASS": 2,
+                  "FAIL": 1,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "mobile-D1-line_height-1",
+                  "mobile-D1-line_height-2",
+                  "mobile-D1-line_height-3"
+                ],
+                "applicable": true,
+                "min": 0.6666666666666666,
+                "max": 0.6666666666666666
+              },
+              {
+                "criterion": "letter_spacing",
+                "weight": 2,
+                "counts": {
+                  "PASS": 0,
+                  "FAIL": 0,
+                  "UNKNOWN": 1
+                },
+                "observation_ids": [
+                  "mobile-D1-letter_spacing-1"
+                ],
+                "applicable": true,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "criterion": "spacing_rhythm",
+                "weight": 5,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 1,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "mobile-D1-spacing_rhythm-1",
+                  "mobile-D1-spacing_rhythm-2"
+                ],
+                "applicable": true,
+                "min": 0.5,
+                "max": 0.5
+              },
+              {
+                "criterion": "margin_padding",
+                "weight": 4,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 1,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "mobile-D1-margin_padding-1",
+                  "mobile-D1-margin_padding-2"
+                ],
+                "applicable": true,
+                "min": 0.5,
+                "max": 0.5
+              },
+              {
+                "criterion": "whitespace",
+                "weight": 3,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 1,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "mobile-D1-whitespace-1",
+                  "mobile-D1-whitespace-2"
+                ],
+                "applicable": true,
+                "min": 0.5,
+                "max": 0.5
+              }
+            ]
+          },
+          {
+            "dimension": 2,
+            "name": "Interactive States",
+            "max_points": 25,
+            "min": 4.166666666666667,
+            "max": 25,
+            "criteria": [
+              {
+                "criterion": "hover",
+                "weight": 5,
+                "counts": {
+                  "PASS": 0,
+                  "FAIL": 0,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "mobile-D2-hover-1"
+                ],
+                "applicable": false,
+                "min": null,
+                "max": null
+              },
+              {
+                "criterion": "focus",
+                "weight": 5,
+                "counts": {
+                  "PASS": 0,
+                  "FAIL": 0,
+                  "UNKNOWN": 1
+                },
+                "observation_ids": [
+                  "mobile-D2-focus-1"
+                ],
+                "applicable": true,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "criterion": "active",
+                "weight": 3,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 0,
+                  "UNKNOWN": 1
+                },
+                "observation_ids": [
+                  "mobile-D2-active-1",
+                  "mobile-D2-active-2"
+                ],
+                "applicable": true,
+                "min": 0.5,
+                "max": 1
+              },
+              {
+                "criterion": "timing",
+                "weight": 4,
+                "counts": {
+                  "PASS": 0,
+                  "FAIL": 0,
+                  "UNKNOWN": 1
+                },
+                "observation_ids": [
+                  "mobile-D2-timing-1"
+                ],
+                "applicable": true,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "criterion": "cursor",
+                "weight": 2,
+                "counts": {
+                  "PASS": 0,
+                  "FAIL": 0,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "mobile-D2-cursor-1"
+                ],
+                "applicable": false,
+                "min": null,
+                "max": null
+              },
+              {
+                "criterion": "disabled",
+                "weight": 3,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 0,
+                  "UNKNOWN": 1
+                },
+                "observation_ids": [
+                  "mobile-D2-disabled-1",
+                  "mobile-D2-disabled-2"
+                ],
+                "applicable": true,
+                "min": 0.5,
+                "max": 1
+              },
+              {
+                "criterion": "easing",
+                "weight": 3,
+                "counts": {
+                  "PASS": 0,
+                  "FAIL": 0,
+                  "UNKNOWN": 1
+                },
+                "observation_ids": [
+                  "mobile-D2-easing-1"
+                ],
+                "applicable": true,
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          {
+            "dimension": 3,
+            "name": "Content Hierarchy",
+            "max_points": 25,
+            "min": 13.5,
+            "max": 16,
+            "criteria": [
+              {
+                "criterion": "visual_weight",
+                "weight": 5,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 1,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "mobile-D3-visual_weight-1",
+                  "mobile-D3-visual_weight-2"
+                ],
+                "applicable": true,
+                "min": 0.5,
+                "max": 0.5
+              },
+              {
+                "criterion": "headings",
+                "weight": 3,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 1,
+                  "UNKNOWN": 1
+                },
+                "observation_ids": [
+                  "mobile-D3-headings-1",
+                  "mobile-D3-headings-2",
+                  "mobile-D3-headings-3"
+                ],
+                "applicable": true,
+                "min": 0.3333333333333333,
+                "max": 0.6666666666666666
+              },
+              {
+                "criterion": "CTA",
+                "weight": 5,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 1,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "mobile-D3-CTA-1",
+                  "mobile-D3-CTA-2"
+                ],
+                "applicable": true,
+                "min": 0.5,
+                "max": 0.5
+              },
+              {
+                "criterion": "density",
+                "weight": 3,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 1,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "mobile-D3-density-1",
+                  "mobile-D3-density-2"
+                ],
+                "applicable": true,
+                "min": 0.5,
+                "max": 0.5
+              },
+              {
+                "criterion": "separation",
+                "weight": 3,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 0,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "mobile-D3-separation-1"
+                ],
+                "applicable": true,
+                "min": 1,
+                "max": 1
+              },
+              {
+                "criterion": "data_chrome",
+                "weight": 3,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 1,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "mobile-D3-data_chrome-1",
+                  "mobile-D3-data_chrome-2"
+                ],
+                "applicable": true,
+                "min": 0.5,
+                "max": 0.5
+              },
+              {
+                "criterion": "above_fold",
+                "weight": 3,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 0,
+                  "UNKNOWN": 1
+                },
+                "observation_ids": [
+                  "mobile-D3-above_fold-1",
+                  "mobile-D3-above_fold-2"
+                ],
+                "applicable": true,
+                "min": 0.5,
+                "max": 1
+              }
+            ]
+          },
+          {
+            "dimension": 4,
+            "name": "Loading & Error UX",
+            "max_points": 25,
+            "min": 9.469696969696969,
+            "max": 14.583333333333336,
+            "criteria": [
+              {
+                "criterion": "initial",
+                "weight": 5,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 1,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "mobile-D4-initial-1",
+                  "mobile-D4-initial-2"
+                ],
+                "applicable": true,
+                "min": 0.5,
+                "max": 0.5
+              },
+              {
+                "criterion": "progressive",
+                "weight": 3,
+                "counts": {
+                  "PASS": 0,
+                  "FAIL": 0,
+                  "UNKNOWN": 1
+                },
+                "observation_ids": [
+                  "mobile-D4-progressive-1"
+                ],
+                "applicable": true,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "criterion": "empty",
+                "weight": 5,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 1,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "mobile-D4-empty-1",
+                  "mobile-D4-empty-2"
+                ],
+                "applicable": true,
+                "min": 0.5,
+                "max": 0.5
+              },
+              {
+                "criterion": "validation",
+                "weight": 4,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 2,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "mobile-D4-validation-1",
+                  "mobile-D4-validation-2",
+                  "mobile-D4-validation-3"
+                ],
+                "applicable": true,
+                "min": 0.3333333333333333,
+                "max": 0.3333333333333333
+              },
+              {
+                "criterion": "recovery",
+                "weight": 2,
+                "counts": {
+                  "PASS": 2,
+                  "FAIL": 1,
+                  "UNKNOWN": 1
+                },
+                "observation_ids": [
+                  "mobile-D4-recovery-1",
+                  "mobile-D4-recovery-2",
+                  "mobile-D4-recovery-3",
+                  "mobile-D4-recovery-4"
+                ],
+                "applicable": true,
+                "min": 0.5,
+                "max": 0.75
+              },
+              {
+                "criterion": "indicators",
+                "weight": 3,
+                "counts": {
+                  "PASS": 1,
+                  "FAIL": 1,
+                  "UNKNOWN": 1
+                },
+                "observation_ids": [
+                  "mobile-D4-indicators-1",
+                  "mobile-D4-indicators-2",
+                  "mobile-D4-indicators-3"
+                ],
+                "applicable": true,
+                "min": 0.3333333333333333,
+                "max": 0.6666666666666666
+              },
+              {
+                "criterion": "optimistic",
+                "weight": 3,
+                "counts": {
+                  "PASS": 0,
+                  "FAIL": 0,
+                  "UNKNOWN": 0
+                },
+                "observation_ids": [
+                  "mobile-D4-optimistic-1"
+                ],
+                "applicable": false,
+                "min": null,
+                "max": null
+              }
+            ]
+          }
+        ]
+      },
+      "nielsen": {
+        "conversion": "Project conversion, not an official Nielsen0-100 scale:100-2.5*sum(max severity per heuristic)",
+        "observed": 45,
+        "min": 0,
+        "max": 45,
+        "heuristics": [
+          {
+            "id": "H1",
+            "name": "Trạng thái hệ thống",
+            "verified_max_severity": 2,
+            "possible_max_severity": 4,
+            "finding_ids": [
+              "M-008",
+              "M-009"
+            ],
+            "unknown_ids": [
+              "U-01",
+              "U-02",
+              "U-03",
+              "U-04",
+              "U-08",
+              "U-09",
+              "U-11"
+            ],
+            "note": "Max verified finding severity; no sum of duplicate causes."
+          },
+          {
+            "id": "H2",
+            "name": "Phù hợp thực tế",
+            "verified_max_severity": 2,
+            "possible_max_severity": 4,
+            "finding_ids": [
+              "M-006",
+              "M-007"
+            ],
+            "unknown_ids": [
+              "U-01",
+              "U-02",
+              "U-03",
+              "U-04",
+              "U-08",
+              "U-09",
+              "U-11"
+            ],
+            "note": "Max verified finding severity; no sum of duplicate causes."
+          },
+          {
+            "id": "H3",
+            "name": "Quyền kiểm soát",
+            "verified_max_severity": 3,
+            "possible_max_severity": 4,
+            "finding_ids": [
+              "M-003"
+            ],
+            "unknown_ids": [
+              "U-01",
+              "U-02",
+              "U-03",
+              "U-04",
+              "U-08",
+              "U-09",
+              "U-11"
+            ],
+            "note": "Max verified finding severity; no sum of duplicate causes."
+          },
+          {
+            "id": "H4",
+            "name": "Nhất quán",
+            "verified_max_severity": 3,
+            "possible_max_severity": 4,
+            "finding_ids": [
+              "M-001",
+              "M-002",
+              "M-004",
+              "M-005",
+              "M-011",
+              "M-014",
+              "M-013"
+            ],
+            "unknown_ids": [
+              "U-01",
+              "U-02",
+              "U-03",
+              "U-04",
+              "U-08",
+              "U-09",
+              "U-11"
+            ],
+            "note": "Max verified finding severity; no sum of duplicate causes."
+          },
+          {
+            "id": "H5",
+            "name": "Ngăn lỗi",
+            "verified_max_severity": 3,
+            "possible_max_severity": 4,
+            "finding_ids": [
+              "M-001",
+              "M-002",
+              "M-004",
+              "M-010",
+              "M-012"
+            ],
+            "unknown_ids": [
+              "U-01",
+              "U-02",
+              "U-03",
+              "U-04",
+              "U-08",
+              "U-09",
+              "U-11"
+            ],
+            "note": "Max verified finding severity; no sum of duplicate causes."
+          },
+          {
+            "id": "H6",
+            "name": "Nhận biết",
+            "verified_max_severity": 2,
+            "possible_max_severity": 4,
+            "finding_ids": [
+              "M-006",
+              "M-009",
+              "M-014"
+            ],
+            "unknown_ids": [
+              "U-01",
+              "U-02",
+              "U-03",
+              "U-04",
+              "U-08",
+              "U-09",
+              "U-11"
+            ],
+            "note": "Max verified finding severity; no sum of duplicate causes."
+          },
+          {
+            "id": "H7",
+            "name": "Hiệu quả",
+            "verified_max_severity": 2,
+            "possible_max_severity": 4,
+            "finding_ids": [
+              "M-010",
+              "M-011"
+            ],
+            "unknown_ids": [
+              "U-01",
+              "U-02",
+              "U-03",
+              "U-04",
+              "U-08",
+              "U-09",
+              "U-11"
+            ],
+            "note": "Max verified finding severity; no sum of duplicate causes."
+          },
+          {
+            "id": "H8",
+            "name": "Thông tin cần thiết",
+            "verified_max_severity": 2,
+            "possible_max_severity": 4,
+            "finding_ids": [
+              "M-005",
+              "M-007"
+            ],
+            "unknown_ids": [
+              "U-01",
+              "U-02",
+              "U-03",
+              "U-04",
+              "U-08",
+              "U-09",
+              "U-11"
+            ],
+            "note": "Max verified finding severity; no sum of duplicate causes."
+          },
+          {
+            "id": "H9",
+            "name": "Phục hồi lỗi",
+            "verified_max_severity": 3,
+            "possible_max_severity": 4,
+            "finding_ids": [
+              "M-003",
+              "M-008",
+              "M-012"
+            ],
+            "unknown_ids": [
+              "U-01",
+              "U-02",
+              "U-03",
+              "U-04",
+              "U-08",
+              "U-09",
+              "U-11"
+            ],
+            "note": "Max verified finding severity; no sum of duplicate causes."
+          },
+          {
+            "id": "H10",
+            "name": "Trợ giúp",
+            "verified_max_severity": 0,
+            "possible_max_severity": 4,
+            "finding_ids": [],
+            "unknown_ids": [
+              "U-01",
+              "U-02",
+              "U-03",
+              "U-04",
+              "U-08",
+              "U-09",
+              "U-11"
+            ],
+            "note": "No verified finding in sampled scope; incomplete runtime prevents claiming full heuristic pass."
+          }
+        ]
+      }
+    }
+  },
+  "observations": [
+    {
+      "id": "web-D1-type_scale-1",
+      "platform": "web",
+      "dimension": 1,
+      "criterion": "type_scale",
+      "weight": 5,
+      "status": "PASS",
+      "note": "Named Tailwind type utilities provide a reusable scale",
+      "evidence": [
+        "apps/web/src/components/Header.tsx"
+      ]
+    },
+    {
+      "id": "web-D1-type_scale-2",
+      "platform": "web",
+      "dimension": 1,
+      "criterion": "type_scale",
+      "weight": 5,
+      "status": "FAIL",
+      "note": "Repeated arbitrary metadata sizes outside named roles",
+      "evidence": [
+        "W-R-003"
+      ]
+    },
+    {
+      "id": "web-D1-font_weight-1",
+      "platform": "web",
+      "dimension": 1,
+      "criterion": "font_weight",
+      "weight": 3,
+      "status": "PASS",
+      "note": "Measured header and operational content use differentiated weights",
+      "evidence": [
+        "audit/raw/baseline/web/dashboard-1440-measure.json"
+      ]
+    },
+    {
+      "id": "web-D1-line_height-1",
+      "platform": "web",
+      "dimension": 1,
+      "criterion": "line_height",
+      "weight": 3,
+      "status": "FAIL",
+      "note": "Shell heading16/24=1.5 exceeds project heading range",
+      "evidence": [
+        "W-R-004"
+      ]
+    },
+    {
+      "id": "web-D1-line_height-2",
+      "platform": "web",
+      "dimension": 1,
+      "criterion": "line_height",
+      "weight": 3,
+      "status": "PASS",
+      "note": "MBL detail text14/20=1.4286 lies in body1.4-1.6",
+      "evidence": [
+        "audit/raw/baseline/web/manifests-1440-measure.json"
+      ]
+    },
+    {
+      "id": "web-D1-letter_spacing-1",
+      "platform": "web",
+      "dimension": 1,
+      "criterion": "letter_spacing",
+      "weight": 2,
+      "status": "UNKNOWN",
+      "note": "Complete heading/uppercase letter-spacing measurement not captured",
+      "evidence": [
+        "U-11"
+      ]
+    },
+    {
+      "id": "web-D1-spacing_rhythm-1",
+      "platform": "web",
+      "dimension": 1,
+      "criterion": "spacing_rhythm",
+      "weight": 5,
+      "status": "PASS",
+      "note": "Main sections use named Tailwind spacing utilities",
+      "evidence": [
+        "apps/web/src/components/YardView.tsx"
+      ]
+    },
+    {
+      "id": "web-D1-spacing_rhythm-2",
+      "platform": "web",
+      "dimension": 1,
+      "criterion": "spacing_rhythm",
+      "weight": 5,
+      "status": "UNKNOWN",
+      "note": "All effective spacings were not measured; typography scan cannot establish this",
+      "evidence": [
+        "U-11"
+      ]
+    },
+    {
+      "id": "web-D1-margin_padding-1",
+      "platform": "web",
+      "dimension": 1,
+      "criterion": "margin_padding",
+      "weight": 4,
+      "status": "PASS",
+      "note": "Main panels retain measured responsive boundaries",
+      "evidence": [
+        "audit/raw/baseline/web/yard-375-measure.json"
+      ]
+    },
+    {
+      "id": "web-D1-margin_padding-2",
+      "platform": "web",
+      "dimension": 1,
+      "criterion": "margin_padding",
+      "weight": 4,
+      "status": "UNKNOWN",
+      "note": "Overlay/type variants not all geometrically sampled",
+      "evidence": [
+        "U-11"
+      ]
+    },
+    {
+      "id": "web-D1-whitespace-1",
+      "platform": "web",
+      "dimension": 1,
+      "criterion": "whitespace",
+      "weight": 3,
+      "status": "PASS",
+      "note": "Main container/yard content has no global overflow at375/768/1440",
+      "evidence": [
+        "audit/raw/baseline/web/runtime-case-summary.json"
+      ]
+    },
+    {
+      "id": "web-D2-hover-1",
+      "platform": "web",
+      "dimension": 2,
+      "criterion": "hover",
+      "weight": 5,
+      "status": "PASS",
+      "note": "Existing hover utility states in operational buttons",
+      "evidence": [
+        "apps/web/src/components/ManifestsView.tsx"
+      ]
+    },
+    {
+      "id": "web-D2-hover-2",
+      "platform": "web",
+      "dimension": 2,
+      "criterion": "hover",
+      "weight": 5,
+      "status": "UNKNOWN",
+      "note": "Hover interaction not exercised",
+      "evidence": [
+        "U-06"
+      ]
+    },
+    {
+      "id": "web-D2-focus-1",
+      "platform": "web",
+      "dimension": 2,
+      "criterion": "focus",
+      "weight": 5,
+      "status": "PASS",
+      "note": "Login visible keyboard ring",
+      "evidence": [
+        "audit/raw/baseline/web/login-keyboard-focus.json"
+      ]
+    },
+    {
+      "id": "web-D2-focus-2",
+      "platform": "web",
+      "dimension": 2,
+      "criterion": "focus",
+      "weight": 5,
+      "status": "PASS",
+      "note": "Yard dialog initial/trapped/restored focus",
+      "evidence": [
+        "audit/raw/baseline/web/yard-slot-dialog-keyboard.json"
+      ]
+    },
+    {
+      "id": "web-D2-focus-3",
+      "platform": "web",
+      "dimension": 2,
+      "criterion": "focus",
+      "weight": 5,
+      "status": "FAIL",
+      "note": "MasterData Tab leaves overlay",
+      "evidence": [
+        "W-S-001"
+      ]
+    },
+    {
+      "id": "web-D2-focus-4",
+      "platform": "web",
+      "dimension": 2,
+      "criterion": "focus",
+      "weight": 5,
+      "status": "FAIL",
+      "note": "Map search focus ring missing",
+      "evidence": [
+        "W-R-002"
+      ]
+    },
+    {
+      "id": "web-D2-active-1",
+      "platform": "web",
+      "dimension": 2,
+      "criterion": "active",
+      "weight": 3,
+      "status": "UNKNOWN",
+      "note": "Transient pressed state not captured; selected checkbox is not the same state",
+      "evidence": [
+        "U-11"
+      ]
+    },
+    {
+      "id": "web-D2-timing-1",
+      "platform": "web",
+      "dimension": 2,
+      "criterion": "timing",
+      "weight": 4,
+      "status": "UNKNOWN",
+      "note": "No click-to-feedback p95 measurement",
+      "evidence": [
+        "U-07"
+      ]
+    },
+    {
+      "id": "web-D2-cursor-1",
+      "platform": "web",
+      "dimension": 2,
+      "criterion": "cursor",
+      "weight": 2,
+      "status": "PASS",
+      "note": "Button cursor rule and measured controls",
+      "evidence": [
+        "apps/web/src/index.css"
+      ]
+    },
+    {
+      "id": "web-D2-disabled-1",
+      "platform": "web",
+      "dimension": 2,
+      "criterion": "disabled",
+      "weight": 3,
+      "status": "PASS",
+      "note": "Yard pending guard/disabled styling present",
+      "evidence": [
+        "apps/web/src/components/yard/YardAssignment.tsx"
+      ]
+    },
+    {
+      "id": "web-D2-disabled-2",
+      "platform": "web",
+      "dimension": 2,
+      "criterion": "disabled",
+      "weight": 3,
+      "status": "FAIL",
+      "note": "Financial command remains enabled while sending",
+      "evidence": [
+        "W-S-005"
+      ]
+    },
+    {
+      "id": "web-D2-easing-1",
+      "platform": "web",
+      "dimension": 2,
+      "criterion": "easing",
+      "weight": 3,
+      "status": "UNKNOWN",
+      "note": "Complete animation easing behavior unmeasured",
+      "evidence": [
+        "U-11"
+      ]
+    },
+    {
+      "id": "web-D3-visual_weight-1",
+      "platform": "web",
+      "dimension": 3,
+      "criterion": "visual_weight",
+      "weight": 5,
+      "status": "PASS",
+      "note": "Login distinguishes main form from branding",
+      "evidence": [
+        "audit/screenshots/baseline/web/login-1440.jpg"
+      ]
+    },
+    {
+      "id": "web-D3-visual_weight-2",
+      "platform": "web",
+      "dimension": 3,
+      "criterion": "visual_weight",
+      "weight": 5,
+      "status": "PASS",
+      "note": "Yard map uses section/status hierarchy",
+      "evidence": [
+        "audit/screenshots/baseline/web/yard-375.jpg"
+      ]
+    },
+    {
+      "id": "web-D3-visual_weight-3",
+      "platform": "web",
+      "dimension": 3,
+      "criterion": "visual_weight",
+      "weight": 5,
+      "status": "FAIL",
+      "note": "Partner log screen removes all content",
+      "evidence": [
+        "W-S-020"
+      ]
+    },
+    {
+      "id": "web-D3-headings-1",
+      "platform": "web",
+      "dimension": 3,
+      "criterion": "headings",
+      "weight": 3,
+      "status": "PASS",
+      "note": "Manifest h1-h2-h3-h4 hierarchy",
+      "evidence": [
+        "audit/raw/baseline/web/manifests-1440-measure.json"
+      ]
+    },
+    {
+      "id": "web-D3-headings-2",
+      "platform": "web",
+      "dimension": 3,
+      "criterion": "headings",
+      "weight": 3,
+      "status": "FAIL",
+      "note": "Dashboard jumps shell h1 to section h3",
+      "evidence": [
+        "audit/raw/baseline/web/dashboard-1440-measure.json"
+      ]
+    },
+    {
+      "id": "web-D3-CTA-1",
+      "platform": "web",
+      "dimension": 3,
+      "criterion": "CTA",
+      "weight": 5,
+      "status": "PASS",
+      "note": "Manifest primary create action visually differentiated",
+      "evidence": [
+        "audit/screenshots/baseline/web/manifests-1440.jpg"
+      ]
+    },
+    {
+      "id": "web-D3-CTA-2",
+      "platform": "web",
+      "dimension": 3,
+      "criterion": "CTA",
+      "weight": 5,
+      "status": "PASS",
+      "note": "Login primary submit visually differentiated",
+      "evidence": [
+        "audit/screenshots/baseline/web/login-1440.jpg"
+      ]
+    },
+    {
+      "id": "web-D3-CTA-3",
+      "platform": "web",
+      "dimension": 3,
+      "criterion": "CTA",
+      "weight": 5,
+      "status": "FAIL",
+      "note": "Partner-log crash removes navigation/recovery actions",
+      "evidence": [
+        "W-S-020"
+      ]
+    },
+    {
+      "id": "web-D3-density-1",
+      "platform": "web",
+      "dimension": 3,
+      "criterion": "density",
+      "weight": 3,
+      "status": "PASS",
+      "note": "Container table scrolls locally on narrow viewport",
+      "evidence": [
+        "audit/screenshots/baseline/web/containers-375.jpg"
+      ]
+    },
+    {
+      "id": "web-D3-density-2",
+      "platform": "web",
+      "dimension": 3,
+      "criterion": "density",
+      "weight": 3,
+      "status": "PASS",
+      "note": "Yard blocks arranged in sections",
+      "evidence": [
+        "audit/screenshots/baseline/web/yard-375.jpg"
+      ]
+    },
+    {
+      "id": "web-D3-separation-1",
+      "platform": "web",
+      "dimension": 3,
+      "criterion": "separation",
+      "weight": 3,
+      "status": "PASS",
+      "note": "Existing panel borders/backgrounds separate sections",
+      "evidence": [
+        "audit/raw/baseline/web/dashboard-1440-measure.json"
+      ]
+    },
+    {
+      "id": "web-D3-data_chrome-1",
+      "platform": "web",
+      "dimension": 3,
+      "criterion": "data_chrome",
+      "weight": 3,
+      "status": "PASS",
+      "note": "375px navigation collapses and leaves content visible",
+      "evidence": [
+        "audit/raw/baseline/web/yard-375-measure.json"
+      ]
+    },
+    {
+      "id": "web-D3-data_chrome-2",
+      "platform": "web",
+      "dimension": 3,
+      "criterion": "data_chrome",
+      "weight": 3,
+      "status": "PASS",
+      "note": "Desktop main content retains table width",
+      "evidence": [
+        "audit/screenshots/baseline/web/containers-1440.jpg"
+      ]
+    },
+    {
+      "id": "web-D3-above_fold-1",
+      "platform": "web",
+      "dimension": 3,
+      "criterion": "above_fold",
+      "weight": 3,
+      "status": "PASS",
+      "note": "Page title/main action visible on Container/Yard capture",
+      "evidence": [
+        "audit/screenshots/baseline/web/containers-375.jpg"
+      ]
+    },
+    {
+      "id": "web-D3-above_fold-2",
+      "platform": "web",
+      "dimension": 3,
+      "criterion": "above_fold",
+      "weight": 3,
+      "status": "UNKNOWN",
+      "note": "Task-priority confirmation with actual role users not performed",
+      "evidence": [
+        "U-01"
+      ]
+    },
+    {
+      "id": "web-D4-initial-1",
+      "platform": "web",
+      "dimension": 4,
+      "criterion": "initial",
+      "weight": 5,
+      "status": "UNKNOWN",
+      "note": "Settled snapshots and Login lab timing do not establish all authenticated initial loading states",
+      "evidence": [
+        "U-07"
+      ]
+    },
+    {
+      "id": "web-D4-progressive-1",
+      "platform": "web",
+      "dimension": 4,
+      "criterion": "progressive",
+      "weight": 3,
+      "status": "UNKNOWN",
+      "note": "Progressive loading under realistic authenticated network not timed",
+      "evidence": [
+        "U-07"
+      ]
+    },
+    {
+      "id": "web-D4-empty-1",
+      "platform": "web",
+      "dimension": 4,
+      "criterion": "empty",
+      "weight": 5,
+      "status": "PASS",
+      "note": "WorkQueue empty state has explicit no-work message",
+      "evidence": [
+        "audit/raw/baseline/web/work-queue-1440-ax.txt"
+      ]
+    },
+    {
+      "id": "web-D4-empty-2",
+      "platform": "web",
+      "dimension": 4,
+      "criterion": "empty",
+      "weight": 5,
+      "status": "FAIL",
+      "note": "Manifest filtered list gives no empty guidance",
+      "evidence": [
+        "W-S-015"
+      ]
+    },
+    {
+      "id": "web-D4-validation-1",
+      "platform": "web",
+      "dimension": 4,
+      "criterion": "validation",
+      "weight": 4,
+      "status": "PASS",
+      "note": "Login visible labels and required fields",
+      "evidence": [
+        "apps/web/src/components/WebLoginView.tsx"
+      ]
+    },
+    {
+      "id": "web-D4-validation-2",
+      "platform": "web",
+      "dimension": 4,
+      "criterion": "validation",
+      "weight": 4,
+      "status": "FAIL",
+      "note": "Required-field handler silently returns",
+      "evidence": [
+        "W-S-006"
+      ]
+    },
+    {
+      "id": "web-D4-recovery-1",
+      "platform": "web",
+      "dimension": 4,
+      "criterion": "recovery",
+      "weight": 2,
+      "status": "FAIL",
+      "note": "Critical nested read failures become empty data",
+      "evidence": [
+        "W-S-016"
+      ]
+    },
+    {
+      "id": "web-D4-recovery-2",
+      "platform": "web",
+      "dimension": 4,
+      "criterion": "recovery",
+      "weight": 2,
+      "status": "FAIL",
+      "note": "Render error removes shell and recovery",
+      "evidence": [
+        "W-S-020"
+      ]
+    },
+    {
+      "id": "web-D4-recovery-3",
+      "platform": "web",
+      "dimension": 4,
+      "criterion": "recovery",
+      "weight": 2,
+      "status": "PASS",
+      "note": "Global command error banner exists",
+      "evidence": [
+        "apps/web/src/context/AppContext.tsx"
+      ]
+    },
+    {
+      "id": "web-D4-indicators-1",
+      "platform": "web",
+      "dimension": 4,
+      "criterion": "indicators",
+      "weight": 3,
+      "status": "PASS",
+      "note": "Yard action has pending feedback",
+      "evidence": [
+        "apps/web/src/components/yard/YardAssignment.tsx"
+      ]
+    },
+    {
+      "id": "web-D4-indicators-2",
+      "platform": "web",
+      "dimension": 4,
+      "criterion": "indicators",
+      "weight": 3,
+      "status": "FAIL",
+      "note": "Payment action has no pending guard",
+      "evidence": [
+        "W-S-005"
+      ]
+    },
+    {
+      "id": "web-D4-indicators-3",
+      "platform": "web",
+      "dimension": 4,
+      "criterion": "indicators",
+      "weight": 3,
+      "status": "UNKNOWN",
+      "note": "Mutation success runtime deliberately untested",
+      "evidence": [
+        "U-04"
+      ]
+    },
+    {
+      "id": "web-D4-optimistic-1",
+      "platform": "web",
+      "dimension": 4,
+      "criterion": "optimistic",
+      "weight": 3,
+      "status": "N/A",
+      "note": "Critical gate/financial transactions require authoritative confirmation; optimistic completion is not a requirement.",
+      "evidence": []
+    },
+    {
+      "id": "mobile-D1-type_scale-1",
+      "platform": "mobile",
+      "dimension": 1,
+      "criterion": "type_scale",
+      "weight": 5,
+      "status": "PASS",
+      "note": "Central typography role definitions exist",
+      "evidence": [
+        "apps/mobile/src/theme/typography.ts"
+      ]
+    },
+    {
+      "id": "mobile-D1-type_scale-2",
+      "platform": "mobile",
+      "dimension": 1,
+      "criterion": "type_scale",
+      "weight": 5,
+      "status": "FAIL",
+      "note": "Shared consumers add8/10/12px literals",
+      "evidence": [
+        "M-013"
+      ]
+    },
+    {
+      "id": "mobile-D1-font_weight-1",
+      "platform": "mobile",
+      "dimension": 1,
+      "criterion": "font_weight",
+      "weight": 3,
+      "status": "PASS",
+      "note": "Central body/heading weights400/600/700 differentiated",
+      "evidence": [
+        "apps/mobile/src/theme/typography.ts"
+      ]
+    },
+    {
+      "id": "mobile-D1-font_weight-2",
+      "platform": "mobile",
+      "dimension": 1,
+      "criterion": "font_weight",
+      "weight": 3,
+      "status": "FAIL",
+      "note": "Header adds800 outside named role",
+      "evidence": [
+        "M-013"
+      ]
+    },
+    {
+      "id": "mobile-D1-line_height-1",
+      "platform": "mobile",
+      "dimension": 1,
+      "criterion": "line_height",
+      "weight": 3,
+      "status": "PASS",
+      "note": "Body13/19=1.4615",
+      "evidence": [
+        "apps/mobile/src/theme/typography.ts"
+      ]
+    },
+    {
+      "id": "mobile-D1-line_height-2",
+      "platform": "mobile",
+      "dimension": 1,
+      "criterion": "line_height",
+      "weight": 3,
+      "status": "PASS",
+      "note": "h1=30/24=1.25 andh2=26/20=1.3",
+      "evidence": [
+        "apps/mobile/src/theme/typography.ts"
+      ]
+    },
+    {
+      "id": "mobile-D1-line_height-3",
+      "platform": "mobile",
+      "dimension": 1,
+      "criterion": "line_height",
+      "weight": 3,
+      "status": "FAIL",
+      "note": "Card title12/18=1.5 exceeds project heading range",
+      "evidence": [
+        "apps/mobile/src/components/ScreenLayout.tsx"
+      ]
+    },
+    {
+      "id": "mobile-D1-letter_spacing-1",
+      "platform": "mobile",
+      "dimension": 1,
+      "criterion": "letter_spacing",
+      "weight": 2,
+      "status": "UNKNOWN",
+      "note": "No full native tracking measurement",
+      "evidence": [
+        "U-11"
+      ]
+    },
+    {
+      "id": "mobile-D1-spacing_rhythm-1",
+      "platform": "mobile",
+      "dimension": 1,
+      "criterion": "spacing_rhythm",
+      "weight": 5,
+      "status": "PASS",
+      "note": "Central4/8 spacing scale",
+      "evidence": [
+        "apps/mobile/src/theme/spacing.ts"
+      ]
+    },
+    {
+      "id": "mobile-D1-spacing_rhythm-2",
+      "platform": "mobile",
+      "dimension": 1,
+      "criterion": "spacing_rhythm",
+      "weight": 5,
+      "status": "FAIL",
+      "note": "Shared content14/gap14 andinput10/9 bypass4/8",
+      "evidence": [
+        "M-013"
+      ]
+    },
+    {
+      "id": "mobile-D1-margin_padding-1",
+      "platform": "mobile",
+      "dimension": 1,
+      "criterion": "margin_padding",
+      "weight": 4,
+      "status": "PASS",
+      "note": "Shared ScreenLayout keeps the same card structure",
+      "evidence": [
+        "apps/mobile/src/components/ScreenLayout.tsx"
+      ]
+    },
+    {
+      "id": "mobile-D1-margin_padding-2",
+      "platform": "mobile",
+      "dimension": 1,
+      "criterion": "margin_padding",
+      "weight": 4,
+      "status": "FAIL",
+      "note": "Adjacent targets have<8dp gaps",
+      "evidence": [
+        "M-004"
+      ]
+    },
+    {
+      "id": "mobile-D1-whitespace-1",
+      "platform": "mobile",
+      "dimension": 1,
+      "criterion": "whitespace",
+      "weight": 3,
+      "status": "PASS",
+      "note": "Yard normal-size native capture has distinct cards",
+      "evidence": [
+        "audit/screenshots/baseline/mobile/03-yard-light.png"
+      ]
+    },
+    {
+      "id": "mobile-D1-whitespace-2",
+      "platform": "mobile",
+      "dimension": 1,
+      "criterion": "whitespace",
+      "weight": 3,
+      "status": "FAIL",
+      "note": "Large font/narrow header overlaps",
+      "evidence": [
+        "M-005"
+      ]
+    },
+    {
+      "id": "mobile-D2-hover-1",
+      "platform": "mobile",
+      "dimension": 2,
+      "criterion": "hover",
+      "weight": 5,
+      "status": "N/A",
+      "note": "Touch-first RN adaptation: hover not applicable; external keyboard focus separately UNKNOWN.",
+      "evidence": []
+    },
+    {
+      "id": "mobile-D2-focus-1",
+      "platform": "mobile",
+      "dimension": 2,
+      "criterion": "focus",
+      "weight": 5,
+      "status": "UNKNOWN",
+      "note": "Native external keyboard focus not exercised",
+      "evidence": [
+        "U-03"
+      ]
+    },
+    {
+      "id": "mobile-D2-active-1",
+      "platform": "mobile",
+      "dimension": 2,
+      "criterion": "active",
+      "weight": 3,
+      "status": "PASS",
+      "note": "PrimaryButton has explicit activeOpacity in source",
+      "evidence": [
+        "apps/mobile/src/components/PrimaryButton.tsx"
+      ]
+    },
+    {
+      "id": "mobile-D2-active-2",
+      "platform": "mobile",
+      "dimension": 2,
+      "criterion": "active",
+      "weight": 3,
+      "status": "UNKNOWN",
+      "note": "Transient native pressed screenshot/timing not captured",
+      "evidence": [
+        "U-11"
+      ]
+    },
+    {
+      "id": "mobile-D2-timing-1",
+      "platform": "mobile",
+      "dimension": 2,
+      "criterion": "timing",
+      "weight": 4,
+      "status": "UNKNOWN",
+      "note": "No native interaction latency trace",
+      "evidence": [
+        "U-11"
+      ]
+    },
+    {
+      "id": "mobile-D2-cursor-1",
+      "platform": "mobile",
+      "dimension": 2,
+      "criterion": "cursor",
+      "weight": 2,
+      "status": "N/A",
+      "note": "Native touch cursor is not applicable.",
+      "evidence": []
+    },
+    {
+      "id": "mobile-D2-disabled-1",
+      "platform": "mobile",
+      "dimension": 2,
+      "criterion": "disabled",
+      "weight": 3,
+      "status": "PASS",
+      "note": "SelectField opacity0.5 and scanner torch opacity0.45 distinguish disabled",
+      "evidence": [
+        "apps/mobile/src/components/SelectField.tsx"
+      ]
+    },
+    {
+      "id": "mobile-D2-disabled-2",
+      "platform": "mobile",
+      "dimension": 2,
+      "criterion": "disabled",
+      "weight": 3,
+      "status": "UNKNOWN",
+      "note": "Business pending/success transitions not submitted",
+      "evidence": [
+        "U-04"
+      ]
+    },
+    {
+      "id": "mobile-D2-easing-1",
+      "platform": "mobile",
+      "dimension": 2,
+      "criterion": "easing",
+      "weight": 3,
+      "status": "UNKNOWN",
+      "note": "Animation timing/easing not profiled",
+      "evidence": [
+        "U-11"
+      ]
+    },
+    {
+      "id": "mobile-D3-visual_weight-1",
+      "platform": "mobile",
+      "dimension": 3,
+      "criterion": "visual_weight",
+      "weight": 5,
+      "status": "PASS",
+      "note": "Normal-size light/dark card hierarchy present",
+      "evidence": [
+        "audit/screenshots/baseline/mobile/03-yard-light.png"
+      ]
+    },
+    {
+      "id": "mobile-D3-visual_weight-2",
+      "platform": "mobile",
+      "dimension": 3,
+      "criterion": "visual_weight",
+      "weight": 5,
+      "status": "FAIL",
+      "note": "Large-type header role overlaps action",
+      "evidence": [
+        "M-005"
+      ]
+    },
+    {
+      "id": "mobile-D3-headings-1",
+      "platform": "mobile",
+      "dimension": 3,
+      "criterion": "headings",
+      "weight": 3,
+      "status": "PASS",
+      "note": "Scanner/dialog already expose header semantics",
+      "evidence": [
+        "apps/mobile/src/components/CodeScanner.tsx"
+      ]
+    },
+    {
+      "id": "mobile-D3-headings-2",
+      "platform": "mobile",
+      "dimension": 3,
+      "criterion": "headings",
+      "weight": 3,
+      "status": "FAIL",
+      "note": "Shared card title has no header role",
+      "evidence": [
+        "M-014"
+      ]
+    },
+    {
+      "id": "mobile-D3-headings-3",
+      "platform": "mobile",
+      "dimension": 3,
+      "criterion": "headings",
+      "weight": 3,
+      "status": "UNKNOWN",
+      "note": "Live TalkBack heading traversal not exercised",
+      "evidence": [
+        "U-03"
+      ]
+    },
+    {
+      "id": "mobile-D3-CTA-1",
+      "platform": "mobile",
+      "dimension": 3,
+      "criterion": "CTA",
+      "weight": 5,
+      "status": "PASS",
+      "note": "Logout dialog separates confirm and return",
+      "evidence": [
+        "audit/screenshots/baseline/mobile/52-logout-confirm-light.png"
+      ]
+    },
+    {
+      "id": "mobile-D3-CTA-2",
+      "platform": "mobile",
+      "dimension": 3,
+      "criterion": "CTA",
+      "weight": 5,
+      "status": "FAIL",
+      "note": "Dark filled confirm loses text contrast",
+      "evidence": [
+        "M-002"
+      ]
+    },
+    {
+      "id": "mobile-D3-density-1",
+      "platform": "mobile",
+      "dimension": 3,
+      "criterion": "density",
+      "weight": 3,
+      "status": "PASS",
+      "note": "Default-scale operational cards are separated",
+      "evidence": [
+        "audit/screenshots/baseline/mobile/20-survey-light.png"
+      ]
+    },
+    {
+      "id": "mobile-D3-density-2",
+      "platform": "mobile",
+      "dimension": 3,
+      "criterion": "density",
+      "weight": 3,
+      "status": "FAIL",
+      "note": "Scaled gate segment spills icon",
+      "evidence": [
+        "M-005"
+      ]
+    },
+    {
+      "id": "mobile-D3-separation-1",
+      "platform": "mobile",
+      "dimension": 3,
+      "criterion": "separation",
+      "weight": 3,
+      "status": "PASS",
+      "note": "Both theme body/surface text contrast measured positive",
+      "evidence": [
+        "audit/raw/baseline/mobile/contrast-measurements.json"
+      ]
+    },
+    {
+      "id": "mobile-D3-data_chrome-1",
+      "platform": "mobile",
+      "dimension": 3,
+      "criterion": "data_chrome",
+      "weight": 3,
+      "status": "PASS",
+      "note": "Shared header/tab safe-area layout present",
+      "evidence": [
+        "apps/mobile/src/navigation/MainTabNavigator.tsx"
+      ]
+    },
+    {
+      "id": "mobile-D3-data_chrome-2",
+      "platform": "mobile",
+      "dimension": 3,
+      "criterion": "data_chrome",
+      "weight": 3,
+      "status": "FAIL",
+      "note": "Dense adjacent header actions violate spacing threshold",
+      "evidence": [
+        "M-004"
+      ]
+    },
+    {
+      "id": "mobile-D3-above_fold-1",
+      "platform": "mobile",
+      "dimension": 3,
+      "criterion": "above_fold",
+      "weight": 3,
+      "status": "PASS",
+      "note": "Gate main mode/action visible in default capture",
+      "evidence": [
+        "audit/screenshots/baseline/mobile/01-gate-out-light.png"
+      ]
+    },
+    {
+      "id": "mobile-D3-above_fold-2",
+      "platform": "mobile",
+      "dimension": 3,
+      "criterion": "above_fold",
+      "weight": 3,
+      "status": "UNKNOWN",
+      "note": "Non-ADMIN role task priorities not tested",
+      "evidence": [
+        "U-01"
+      ]
+    },
+    {
+      "id": "mobile-D4-initial-1",
+      "platform": "mobile",
+      "dimension": 4,
+      "criterion": "initial",
+      "weight": 5,
+      "status": "PASS",
+      "note": "Root restore and detail loader present",
+      "evidence": [
+        "apps/mobile/src/navigation/RootNavigator.tsx"
+      ]
+    },
+    {
+      "id": "mobile-D4-initial-2",
+      "platform": "mobile",
+      "dimension": 4,
+      "criterion": "initial",
+      "weight": 5,
+      "status": "FAIL",
+      "note": "Survey history has no separate loading state",
+      "evidence": [
+        "M-008"
+      ]
+    },
+    {
+      "id": "mobile-D4-progressive-1",
+      "platform": "mobile",
+      "dimension": 4,
+      "criterion": "progressive",
+      "weight": 3,
+      "status": "UNKNOWN",
+      "note": "Native load progression/slow-network timing not captured",
+      "evidence": [
+        "U-09"
+      ]
+    },
+    {
+      "id": "mobile-D4-empty-1",
+      "platform": "mobile",
+      "dimension": 4,
+      "criterion": "empty",
+      "weight": 5,
+      "status": "PASS",
+      "note": "Detail/history settled empty content captured",
+      "evidence": [
+        "audit/screenshots/baseline/mobile/81-container-handover-history-light.png"
+      ]
+    },
+    {
+      "id": "mobile-D4-empty-2",
+      "platform": "mobile",
+      "dimension": 4,
+      "criterion": "empty",
+      "weight": 5,
+      "status": "FAIL",
+      "note": "Survey history empty may precede successful response",
+      "evidence": [
+        "M-008"
+      ]
+    },
+    {
+      "id": "mobile-D4-validation-1",
+      "platform": "mobile",
+      "dimension": 4,
+      "criterion": "validation",
+      "weight": 4,
+      "status": "PASS",
+      "note": "Booking form has format validation and confirmation",
+      "evidence": [
+        "apps/mobile/src/features/yard/screens/YardOperationsScreen.tsx"
+      ]
+    },
+    {
+      "id": "mobile-D4-validation-2",
+      "platform": "mobile",
+      "dimension": 4,
+      "criterion": "validation",
+      "weight": 4,
+      "status": "FAIL",
+      "note": "Survey missing-field error persists after filling",
+      "evidence": [
+        "M-012"
+      ]
+    },
+    {
+      "id": "mobile-D4-validation-3",
+      "platform": "mobile",
+      "dimension": 4,
+      "criterion": "validation",
+      "weight": 4,
+      "status": "FAIL",
+      "note": "Seal mode still asks damage severity",
+      "evidence": [
+        "M-007"
+      ]
+    },
+    {
+      "id": "mobile-D4-recovery-1",
+      "platform": "mobile",
+      "dimension": 4,
+      "criterion": "recovery",
+      "weight": 2,
+      "status": "PASS",
+      "note": "Camera denied gives settings/manual alternative",
+      "evidence": [
+        "audit/screenshots/baseline/mobile/63-scanner-denied-light.png"
+      ]
+    },
+    {
+      "id": "mobile-D4-recovery-2",
+      "platform": "mobile",
+      "dimension": 4,
+      "criterion": "recovery",
+      "weight": 2,
+      "status": "PASS",
+      "note": "Root restore and ContainerDetail have retry paths",
+      "evidence": [
+        "apps/mobile/src/navigation/RootNavigator.tsx"
+      ]
+    },
+    {
+      "id": "mobile-D4-recovery-3",
+      "platform": "mobile",
+      "dimension": 4,
+      "criterion": "recovery",
+      "weight": 2,
+      "status": "FAIL",
+      "note": "No-permission authenticated fallback lacks exit",
+      "evidence": [
+        "M-003"
+      ]
+    },
+    {
+      "id": "mobile-D4-recovery-4",
+      "platform": "mobile",
+      "dimension": 4,
+      "criterion": "recovery",
+      "weight": 2,
+      "status": "UNKNOWN",
+      "note": "Full offline/rejected business save matrix untested",
+      "evidence": [
+        "U-04"
+      ]
+    },
+    {
+      "id": "mobile-D4-indicators-1",
+      "platform": "mobile",
+      "dimension": 4,
+      "criterion": "indicators",
+      "weight": 3,
+      "status": "PASS",
+      "note": "Detail loader and restore indicator exist",
+      "evidence": [
+        "apps/mobile/src/features/containers/screens/ContainerDetailScreen.tsx"
+      ]
+    },
+    {
+      "id": "mobile-D4-indicators-2",
+      "platform": "mobile",
+      "dimension": 4,
+      "criterion": "indicators",
+      "weight": 3,
+      "status": "FAIL",
+      "note": "Survey history lacks loading indicator",
+      "evidence": [
+        "M-008"
+      ]
+    },
+    {
+      "id": "mobile-D4-indicators-3",
+      "platform": "mobile",
+      "dimension": 4,
+      "criterion": "indicators",
+      "weight": 3,
+      "status": "UNKNOWN",
+      "note": "Transaction success/loading runtime not submitted",
+      "evidence": [
+        "U-04"
+      ]
+    },
+    {
+      "id": "mobile-D4-optimistic-1",
+      "platform": "mobile",
+      "dimension": 4,
+      "criterion": "optimistic",
+      "weight": 3,
+      "status": "N/A",
+      "note": "No optimistic completion for gate/yard/financial writes; authoritative backend result required.",
+      "evidence": []
+    }
+  ]
+}

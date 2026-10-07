@@ -1,0 +1,66 @@
+✔ transient restore failure offers retry without exposing protected UI or requesting the password again (290.9016ms)
+✔ unverified restore in progress shows loading and disables retry (32.8791ms)
+✔ recovery lets the user explicitly end the preserved session and choose another account (22.8554ms)
+✔ definitively unauthenticated session still presents the existing login form (43.3088ms)
+✖ independent review: end-session controls give pending feedback during a deferred server logout (24.4696ms)
+✖ independent review: rejected server logout must not emit an unhandled event rejection (22.2995ms)
+✖ independent review: same-batch account switch sends only one logout (25.1173ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 4
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5388.5211
+
+✖ failing tests:
+
+test at audit\tools\tests\auth-recovery-view.test.mjs:61:1
+✖ independent review: end-session controls give pending feedback during a deferred server logout (24.4696ms)
+  AssertionError [ERR_ASSERTION]: outage logout must show pending feedback or disable its control
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\auth-recovery-view.test.mjs:58:3)
+      at async withRecovery (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\auth-recovery-view.test.mjs:29:5)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\auth-recovery-view.test.mjs:58:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\auth-recovery-view.test.mjs:73:1
+✖ independent review: rejected server logout must not emit an unhandled event rejection (22.2995ms)
+  Error: Synthetic logout network failure
+      at logout (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\auth-recovery-view.test.mjs:58:3)
+      at executeDispatch (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:19116:9)
+      at runWithFiberInDEV (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:871:30)
+      at processDispatchQueue (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:19166:19)
+      at D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:19767:9
+      at batchedUpdates$1 (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:3255:40)
+      at dispatchEventForPluginEventSystem (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:19320:7)
+      at dispatchEvent (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:23585:11)
+      at dispatchDiscreteEvent (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:23553:11)
+      at HTMLDivElement.callTheUserObjectsOperation (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\runtime\node_modules\jsdom\lib\generated\idl\EventListener.js:26:30)
+
+test at audit\tools\tests\auth-recovery-view.test.mjs:80:1
+✖ independent review: same-batch account switch sends only one logout (25.1173ms)
+  AssertionError [ERR_ASSERTION]: pending account switch must synchronously reject a duplicate before React commits
+  
+  2 !== 1
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\auth-recovery-view.test.mjs:58:3)
+      at async withRecovery (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\auth-recovery-view.test.mjs:29:5)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\auth-recovery-view.test.mjs:58:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

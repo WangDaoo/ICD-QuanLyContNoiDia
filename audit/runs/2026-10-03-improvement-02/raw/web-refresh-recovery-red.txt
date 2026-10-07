@@ -1,0 +1,564 @@
+✖ actual web refresh network failure preserves credentials and exposes a recoverable error (18.8887ms)
+✖ actual web refresh 500 failure preserves credentials and exposes a recoverable error (11.8233ms)
+✖ actual web refresh json failure preserves credentials and exposes a recoverable error (20.8144ms)
+✖ actual web refresh tokens failure preserves credentials and exposes a recoverable error (3.128ms)
+✔ definitive web refresh 401 invalidates only its current credentials (2.3573ms)
+✔ definitive web refresh 403 invalidates only its current credentials (2.0426ms)
+✔ missing web refresh token is definitive and does not send another credential request (4.1796ms)
+✔ simultaneous actual web reads coalesce refresh and persist one valid rotated pair (4.7497ms)
+✖ late actual web refresh fulfill cannot overwrite logout (10.056ms)
+✖ late actual web refresh network cannot overwrite logout (1.0801ms)
+✖ late actual web refresh 401 cannot overwrite logout (10.9272ms)
+✖ late actual web refresh fulfill cannot overwrite new-login (13.6916ms)
+✖ late actual web refresh network cannot overwrite new-login (3.9654ms)
+✖ late actual web refresh 401 cannot overwrite new-login (2.1914ms)
+✖ late actual web refresh fulfill cannot overwrite same-token-new-login (7.2571ms)
+✖ late actual web refresh network cannot overwrite same-token-new-login (0.8691ms)
+✖ late actual web refresh 401 cannot overwrite same-token-new-login (0.9022ms)
+✖ late old web 401 cannot fetch refresh or clear a new login (9.4965ms)
+✖ transient refresh ApiError 0 reaches the caller without unauthorized callback (9.2694ms)
+✖ transient refresh ApiError 500 reaches the caller without unauthorized callback (1.2233ms)
+✔ simultaneous unauthorized reads share one refresh and retry with its token (2.465ms)
+✔ a missing refresh result invalidates only the current session once (0.9647ms)
+✖ late old 401 does not refresh, replay or invalidate the new actor (1.0052ms)
+✖ version changes fence stale 401 even when new login has the same token fixture (0.9367ms)
+✖ late refresh fulfill cannot retry or clear a different actor (1.3866ms)
+✖ late refresh reject cannot retry or clear a different actor (0.6853ms)
+✖ an old refresh finally cannot release a newer session refresh slot (19.2053ms)
+✔ a retry denied by server invalidates the still-current refreshed session (5.0663ms)
+✖ a write queued before logout/login cannot acquire another actor token at dispatch (0.9557ms)
+✔ uncertain financial write 0 is not automatically retried (1.2531ms)
+✔ uncertain financial write 500 is not automatically retried (0.8054ms)
+✖ refresh callback can return a token without changing its getter contract (0.9775ms)
+ℹ tests 32
+ℹ suites 0
+ℹ pass 9
+ℹ fail 23
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1082.6205
+
+✖ failing tests:
+
+test at apps\web\src\services\api\refresh-recovery.test.ts:1:2034
+✖ actual web refresh network failure preserves credentials and exposes a recoverable error (18.8887ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  ApiError: Unauthorized
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:45:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: ApiError: Unauthorized
+        at toApiError (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:50:11)
+        at request (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:110:14)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:45:3)
+        at async Test.run (node:internal/test_runner/test:1113:7)
+        at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\api\refresh-recovery.test.ts:1:2034
+✖ actual web refresh 500 failure preserves credentials and exposes a recoverable error (11.8233ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  ApiError: Unauthorized
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:45:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: ApiError: Unauthorized
+        at toApiError (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:50:11)
+        at request (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:110:14)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:45:3)
+        at async Test.run (node:internal/test_runner/test:1113:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:788:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\api\refresh-recovery.test.ts:1:2034
+✖ actual web refresh json failure preserves credentials and exposes a recoverable error (20.8144ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  ApiError: Unauthorized
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:45:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: ApiError: Unauthorized
+        at toApiError (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:50:11)
+        at request (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:110:14)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:45:3)
+        at async Test.run (node:internal/test_runner/test:1113:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:788:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\api\refresh-recovery.test.ts:1:2034
+✖ actual web refresh tokens failure preserves credentials and exposes a recoverable error (3.128ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  ApiError: Unauthorized
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:45:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: ApiError: Unauthorized
+        at toApiError (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:50:11)
+        at request (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:110:14)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:45:3)
+        at async Test.run (node:internal/test_runner/test:1113:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:788:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\api\refresh-recovery.test.ts:1:4411
+✖ late actual web refresh fulfill cannot overwrite logout (10.056ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  ApiError: Unauthorized
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:87:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: ApiError: Unauthorized
+        at toApiError (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:50:11)
+        at request (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:110:14)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:87:5)
+        at async Test.run (node:internal/test_runner/test:1113:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:788:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\api\refresh-recovery.test.ts:1:4411
+✖ late actual web refresh network cannot overwrite logout (1.0801ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  ApiError: Unauthorized
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:87:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: ApiError: Unauthorized
+        at toApiError (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:50:11)
+        at request (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:110:14)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:87:5)
+        at async Test.run (node:internal/test_runner/test:1113:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:788:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\api\refresh-recovery.test.ts:1:4411
+✖ late actual web refresh 401 cannot overwrite logout (10.9272ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  ApiError: Unauthorized
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:87:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: ApiError: Unauthorized
+        at toApiError (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:50:11)
+        at request (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:110:14)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:87:5)
+        at async Test.run (node:internal/test_runner/test:1113:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:788:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\api\refresh-recovery.test.ts:1:4411
+✖ late actual web refresh fulfill cannot overwrite new-login (13.6916ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  ApiError: Unauthorized
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:87:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: ApiError: Unauthorized
+        at toApiError (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:50:11)
+        at request (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:110:14)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:87:5)
+        at async Test.run (node:internal/test_runner/test:1113:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:788:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\api\refresh-recovery.test.ts:1:4411
+✖ late actual web refresh network cannot overwrite new-login (3.9654ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  ApiError: Unauthorized
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:87:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: ApiError: Unauthorized
+        at toApiError (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:50:11)
+        at request (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:110:14)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:87:5)
+        at async Test.run (node:internal/test_runner/test:1113:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:788:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\api\refresh-recovery.test.ts:1:4411
+✖ late actual web refresh 401 cannot overwrite new-login (2.1914ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  ApiError: Unauthorized
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:87:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: ApiError: Unauthorized
+        at toApiError (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:50:11)
+        at request (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:110:14)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:87:5)
+        at async Test.run (node:internal/test_runner/test:1113:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:788:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\api\refresh-recovery.test.ts:1:4411
+✖ late actual web refresh fulfill cannot overwrite same-token-new-login (7.2571ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  ApiError: Unauthorized
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:87:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: ApiError: Unauthorized
+        at toApiError (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:50:11)
+        at request (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:110:14)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:87:5)
+        at async Test.run (node:internal/test_runner/test:1113:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:788:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\api\refresh-recovery.test.ts:1:4411
+✖ late actual web refresh network cannot overwrite same-token-new-login (0.8691ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  ApiError: Unauthorized
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:87:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: ApiError: Unauthorized
+        at toApiError (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:50:11)
+        at request (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:110:14)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:87:5)
+        at async Test.run (node:internal/test_runner/test:1113:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:788:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\api\refresh-recovery.test.ts:1:4411
+✖ late actual web refresh 401 cannot overwrite same-token-new-login (0.9022ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  ApiError: Unauthorized
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:87:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: ApiError: Unauthorized
+        at toApiError (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:50:11)
+        at request (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:110:14)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:87:5)
+        at async Test.run (node:internal/test_runner/test:1113:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:788:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at apps\web\src\services\api\refresh-recovery.test.ts:1:5481
+✖ late old web 401 cannot fetch refresh or clear a new login (9.4965ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  ApiError: Unauthorized
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:100:23)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: ApiError: Unauthorized
+        at toApiError (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:50:11)
+        at request (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:110:14)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\services\api\refresh-recovery.test.ts:100:23)
+        at async Test.run (node:internal/test_runner/test:1113:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:788:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at packages\api-client\src\refresh-recovery.test.ts:1:938
+✖ transient refresh ApiError 0 reaches the caller without unauthorized callback (9.2694ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  ApiError: Rejected
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\refresh-recovery.test.ts:27:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: ApiError: Rejected
+        at toApiError (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:50:11)
+        at request (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:110:14)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\refresh-recovery.test.ts:27:3)
+        at async Test.run (node:internal/test_runner/test:1113:7)
+        at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at packages\api-client\src\refresh-recovery.test.ts:1:938
+✖ transient refresh ApiError 500 reaches the caller without unauthorized callback (1.2233ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  ApiError: Rejected
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\refresh-recovery.test.ts:27:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: ApiError: Rejected
+        at toApiError (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:50:11)
+        at request (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:110:14)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\refresh-recovery.test.ts:27:3)
+        at async Test.run (node:internal/test_runner/test:1113:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:788:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at packages\api-client\src\refresh-recovery.test.ts:1:2978
+✖ late old 401 does not refresh, replay or invalidate the new actor (1.0052ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  ApiError: Rejected
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\refresh-recovery.test.ts:64:23)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: ApiError: Rejected
+        at toApiError (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:50:11)
+        at request (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:110:14)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\refresh-recovery.test.ts:64:23)
+        at async Test.run (node:internal/test_runner/test:1113:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:788:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at packages\api-client\src\refresh-recovery.test.ts:1:3810
+✖ version changes fence stale 401 even when new login has the same token fixture (0.9367ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  ApiError: Rejected
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\refresh-recovery.test.ts:75:57)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: ApiError: Rejected
+        at toApiError (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:50:11)
+        at request (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:110:14)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\refresh-recovery.test.ts:75:57)
+        at async Test.run (node:internal/test_runner/test:1113:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:788:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at packages\api-client\src\refresh-recovery.test.ts:1:4643
+✖ late refresh fulfill cannot retry or clear a different actor (1.3866ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  ApiError: Rejected
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\refresh-recovery.test.ts:88:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: ApiError: Rejected
+        at toApiError (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:50:11)
+        at request (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:110:14)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\refresh-recovery.test.ts:88:3)
+        at async Test.run (node:internal/test_runner/test:1113:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:788:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at packages\api-client\src\refresh-recovery.test.ts:1:4643
+✖ late refresh reject cannot retry or clear a different actor (0.6853ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  ApiError: Rejected
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\refresh-recovery.test.ts:88:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: ApiError: Rejected
+        at toApiError (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:50:11)
+        at request (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:110:14)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\refresh-recovery.test.ts:88:3)
+        at async Test.run (node:internal/test_runner/test:1113:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:788:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at packages\api-client\src\refresh-recovery.test.ts:1:5534
+✖ an old refresh finally cannot release a newer session refresh slot (19.2053ms)
+  AssertionError [ERR_ASSERTION]: new session must start its own refresh while the old refresh is pending
+  
+  1 !== 2
+  
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\refresh-recovery.test.ts:110:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at packages\api-client\src\refresh-recovery.test.ts:1:7904
+✖ a write queued before logout/login cannot acquire another actor token at dispatch (0.9557ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\refresh-recovery.test.ts:139:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at packages\api-client\src\refresh-recovery.test.ts:1:9142
+✖ refresh callback can return a token without changing its getter contract (0.9775ms)
+  Error [ApiError]: Rejected
+      at toApiError (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:50:11)
+      at request (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:110:14)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\refresh-recovery.test.ts:155:20)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    status: 401,
+    payload: { error: { code: 'UNAUTHORIZED', message: 'Rejected' } }
+  }

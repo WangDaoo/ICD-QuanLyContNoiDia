@@ -1,0 +1,135 @@
+--- before/apps/web/src/services/api/partner-handover.service.ts
++++ after/apps/web/src/services/api/partner-handover.service.ts
+@@ -1,67 +1,82 @@
+ import { apiClient } from './client';
+-import { unwrapData, unwrapList, unwrapPage } from '../mappers';
+-
+-export interface TransportHandover {
+-  id: string;
+-  handoverNumber: string;
++import type { HandoverStatus, TransportHandover } from '../../types';
++import { mapTransportHandoverDto, normalizeHandoverStatus } from '../mappers/icd-view.mapper';
++import { asRecord, asString, asOptionalString, isRecord } from '../mappers/api-response.mapper';
++import { responseRecord, viewList, viewPage, type PaginationParams } from './dto';
++export type { TransportHandover } from '../../types';
++export interface HandoverQuery extends PaginationParams {
++  status?: HandoverStatus;
++  containerVisitId?: string;
++  partnerApiClientId?: string;
++  warehouseId?: string;
++  search?: string;
++}
++export interface CreateHandoverPayload {
+   containerVisitId: string;
+-  status: string;
+-  mode: string;
+-  transporterName: string;
+-  destination: string;
+-  issuedAt: string;
+-  completedAt?: string;
+-  disputeReason?: string;
++  partnerApiClientId: string;
++  warehouseId: string;
++  transportCode: string;
++  expectedDeliveryAt?: string;
+ }
+-
++export interface DisputePayload {
++  reasonCode: string;
++  note: string;
++  attachmentUrl?: string;
++}
+ export const partnerHandoverService = {
+-  async getHandovers(params?: any): Promise<{ data: TransportHandover[]; total?: number }> {
+-    const res = await apiClient.get<any>('/handovers', { params });
+-    return unwrapPage<TransportHandover>(res);
++  async getHandovers(params?: HandoverQuery) {
++    return viewPage('handovers', await apiClient.get<unknown>('/handovers', { params }));
+   },
+-
+   async getHandoverById(id: string): Promise<TransportHandover> {
+-    const res = await apiClient.get<any>(`/handovers/${id}`);
+-    return unwrapData<TransportHandover>(res);
++    return mapTransportHandoverDto(
++      responseRecord(await apiClient.get<unknown>(`/handovers/${id}`)),
++    );
+   },
+-
+-  async createHandover(payload: any): Promise<TransportHandover> {
+-    const res = await apiClient.post<any>('/handovers', payload);
+-    return unwrapData<TransportHandover>(res);
++  async createHandover(payload: CreateHandoverPayload): Promise<TransportHandover> {
++    return mapTransportHandoverDto(
++      responseRecord(await apiClient.post<unknown>('/handovers', payload)),
++    );
+   },
+-
+   async publishHandover(id: string): Promise<TransportHandover> {
+-    const res = await apiClient.post<any>(`/handovers/${id}/publish`);
+-    return unwrapData<TransportHandover>(res);
++    return mapTransportHandoverDto(
++      responseRecord(await apiClient.post<unknown>(`/handovers/${id}/publish`)),
++    );
+   },
+-
+-  async icdConfirm(id: string, payload: any): Promise<TransportHandover> {
+-    const res = await apiClient.post<any>(`/handovers/${id}/icd-confirm`, payload);
+-    return unwrapData<TransportHandover>(res);
++  async icdConfirm(id: string, payload: { note?: string }): Promise<TransportHandover> {
++    return mapTransportHandoverDto(
++      responseRecord(await apiClient.post<unknown>(`/handovers/${id}/icd-confirm`, payload)),
++    );
+   },
+-
+-  async dispute(id: string, payload: any): Promise<TransportHandover> {
+-    const res = await apiClient.post<any>(`/handovers/${id}/dispute`, payload);
+-    return unwrapData<TransportHandover>(res);
++  async dispute(id: string, payload: DisputePayload): Promise<TransportHandover> {
++    return mapTransportHandoverDto(
++      responseRecord(await apiClient.post<unknown>(`/handovers/${id}/dispute`, payload)),
++    );
+   },
+-
+-  async getSummaryByVisit(visitId: string): Promise<any> {
+-    const res = await apiClient.get<any>(`/containers/${visitId}/handover-summary`);
+-    return unwrapData<any>(res);
++  async getSummaryByVisit(visitId: string) {
++    const d = responseRecord(
++      await apiClient.get<unknown>(`/containers/${visitId}/handover-summary`),
++    );
++    const h = asRecord(d.handover);
++    return {
++      containerVisitId: asString(d.containerVisitId),
++      handover: isRecord(d.handover)
++        ? {
++            id: asString(h.id),
++            transportCode: asString(h.transportCode),
++            status: normalizeHandoverStatus(h.status),
++            partnerName: asString(h.partnerName),
++            expectedDeliveryAt: asOptionalString(h.expectedDeliveryAt),
++          }
++        : null,
++    };
+   },
+-
+-  async getWarehouses(): Promise<any[]> {
+-    const res = await apiClient.get<any>('/customer-warehouses');
+-    return unwrapList<any>(res);
++  async getWarehouses() {
++    return viewList('warehouses', await apiClient.get<unknown>('/customer-warehouses'));
+   },
+-
+-  async getPartnerClients(): Promise<any[]> {
+-    const res = await apiClient.get<any>('/admin/partner-clients');
+-    return unwrapList<any>(res);
++  async getPartnerClients() {
++    return viewList('partnerClients', await apiClient.get<unknown>('/admin/partner-clients'));
+   },
+-
+-  async getPartnerApiLogs(): Promise<any[]> {
+-    const res = await apiClient.get<any>('/admin/partner-api-logs');
+-    return unwrapList<any>(res);
++  async getPartnerApiLogs() {
++    return viewList('partnerApiLogs', await apiClient.get<unknown>('/admin/partner-api-logs'));
+   },
+ };

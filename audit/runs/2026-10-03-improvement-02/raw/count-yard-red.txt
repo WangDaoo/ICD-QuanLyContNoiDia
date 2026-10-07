@@ -1,0 +1,104 @@
+✔ ContainersView does not present a confirmed zero when containerVisits is loading (220.019ms)
+✔ ContainersView does not present a confirmed zero when containerVisits is error (23.4479ms)
+✔ ContainersView does not present a confirmed zero when containerVisits is forbidden (21.1299ms)
+✔ ContainersView preserves real ready zero (20.0255ms)
+✔ ContainersView can display previously confirmed stale zero with its existing stale notice (19.8621ms)
+✔ TruckVisitsView does not present a confirmed zero when truckVisits is loading (17.0757ms)
+✔ TruckVisitsView does not present a confirmed zero when truckVisits is error (17.6745ms)
+✔ TruckVisitsView does not present a confirmed zero when truckVisits is forbidden (14.1928ms)
+✔ TruckVisitsView preserves real ready zero (17.8802ms)
+✔ TruckVisitsView can display previously confirmed stale zero with its existing stale notice (15.8762ms)
+✔ HandoversView does not present a confirmed zero when handovers is loading (17.837ms)
+✔ HandoversView does not present a confirmed zero when handovers is error (14.5032ms)
+✔ HandoversView does not present a confirmed zero when handovers is forbidden (15.2952ms)
+✔ HandoversView preserves real ready zero (13.7329ms)
+✔ HandoversView can display previously confirmed stale zero with its existing stale notice (21.0651ms)
+✔ AuditsView does not present a confirmed zero when auditLogs is loading (13.7475ms)
+✔ AuditsView does not present a confirmed zero when auditLogs is error (12.5547ms)
+✔ AuditsView does not present a confirmed zero when auditLogs is forbidden (10.2614ms)
+✔ AuditsView preserves real ready zero (10.5705ms)
+✔ AuditsView can display previously confirmed stale zero with its existing stale notice (14.5394ms)
+✔ PartnerManagementView does not present a confirmed zero when partnerApiLogs is loading (10.792ms)
+✔ PartnerManagementView does not present a confirmed zero when partnerApiLogs is error (8.7288ms)
+✔ PartnerManagementView does not present a confirmed zero when partnerApiLogs is forbidden (10.6482ms)
+✔ PartnerManagementView preserves real ready zero (9.3805ms)
+✔ PartnerManagementView can display previously confirmed stale zero with its existing stale notice (10.7916ms)
+✔ WorkQueueView does not present a confirmed zero when workQueue is loading (14.5797ms)
+✔ WorkQueueView does not present a confirmed zero when workQueue is error (13.5784ms)
+✔ WorkQueueView does not present a confirmed zero when workQueue is forbidden (13.8525ms)
+✔ WorkQueueView preserves real ready zero (12.4728ms)
+✔ WorkQueueView can display previously confirmed stale zero with its existing stale notice (14.5408ms)
+✔ BillingView does not present a confirmed zero when invoices is loading (24.7224ms)
+✔ BillingView does not present a confirmed zero when invoices is error (16.5481ms)
+✔ BillingView does not present a confirmed zero when invoices is forbidden (12.122ms)
+✔ BillingView preserves real ready zero (13.9906ms)
+✔ BillingView can display previously confirmed stale zero with its existing stale notice (31.7807ms)
+✔ Containers retains truthful filter zero when one ready container does not match the current state filter (14.8061ms)
+✔ Work Queue does not imply every task is resolved when the server refused the list (11.7506ms)
+✖ Yard list footer count stays truthful while yardSlots is loading (238.083ms)
+✖ Yard list footer count stays truthful while yardSlots is error (62.7424ms)
+✖ Yard list footer count stays truthful while yardSlots is forbidden (74.7702ms)
+✔ Yard list footer count stays truthful while yardSlots is ready (111.4832ms)
+✔ Yard list footer count stays truthful while yardSlots is stale (95.4102ms)
+✔ confirmed value needs every declared dependency and preserves stale known nonzero data (27.4796ms)
+ℹ tests 43
+ℹ suites 0
+ℹ pass 40
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6708.2237
+
+✖ failing tests:
+
+test at audit\tools\tests\resource-count.test.mjs:82:3
+✖ Yard list footer count stays truthful while yardSlots is loading (238.083ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /0\s*\/\s*0\s*vị trí/. Input:
+  
+  '0/0 vị trí'
+  
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\resource-count.test.mjs:103:16)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '0/0 vị trí',
+    expected: /0\s*\/\s*0\s*vị trí/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\resource-count.test.mjs:82:3
+✖ Yard list footer count stays truthful while yardSlots is error (62.7424ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /0\s*\/\s*0\s*vị trí/. Input:
+  
+  '0/0 vị trí'
+  
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\resource-count.test.mjs:103:16)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '0/0 vị trí',
+    expected: /0\s*\/\s*0\s*vị trí/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\resource-count.test.mjs:82:3
+✖ Yard list footer count stays truthful while yardSlots is forbidden (74.7702ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /0\s*\/\s*0\s*vị trí/. Input:
+  
+  '0/0 vị trí'
+  
+      at TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\resource-count.test.mjs:103:16)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '0/0 vị trí',
+    expected: /0\s*\/\s*0\s*vị trí/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }

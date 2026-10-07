@@ -1,0 +1,38 @@
+{
+  "phase": "billing-ready",
+  "alias": "followup",
+  "checkedAt": "2026-10-02T01:31:24.092Z",
+  "checks": [
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/service-orders/07d2fb91-013c-44c5-932a-d4fb6224b345/confirm",
+      "status": 201,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/service-orders/07d2fb91-013c-44c5-932a-d4fb6224b345/invoice",
+      "status": 201,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/invoices/b14c74b7-0275-41fc-be2e-94db54fc734d/payments",
+      "status": 500,
+      "expectedStatus": "2xx"
+    }
+  ],
+  "error": "POST /invoices/b14c74b7-0275-41fc-be2e-94db54fc734d/payments: 500 INTERNAL_SERVER_ERROR Đã xảy ra lỗi hệ thống."
+}

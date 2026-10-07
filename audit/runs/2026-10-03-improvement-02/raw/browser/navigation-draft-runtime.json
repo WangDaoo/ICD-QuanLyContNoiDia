@@ -1,0 +1,19 @@
+{
+  "method": "CUA native browser Back/Forward and keyboard",
+  "pass": true,
+  "cases": {
+    "back_cancel_preserves_fields": true,
+    "back_accept_no_open_dialog_on_dashboard": true,
+    "forward_restores_fields_and_focus": true,
+    "tab_wrap_first": "master-data-form-name",
+    "shift_tab_wrap_last": "Lưu",
+    "escape_closed_dialog": true
+  },
+  "screenshots": [
+    "navigation-draft-before.png",
+    "navigation-back-cancel.png",
+    "navigation-back-accepted.png",
+    "navigation-forward-draft.png"
+  ],
+  "transactionSubmitted": false
+}

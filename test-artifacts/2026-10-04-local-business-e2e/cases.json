@@ -1,0 +1,183 @@
+[
+  {
+    "id": "AUTH-01",
+    "steps": [
+      "Mở http://127.0.0.1:5173",
+      "Nhập tài khoản quản trị Local từ cấu hình",
+      "Bấm Đăng nhập"
+    ],
+    "result": "Dashboard hiện 14 container/48 vị trí; phiên API3000 sẵn sàng.",
+    "status": "PASS",
+    "at": "2026-10-04T14:46:02.701Z",
+    "url": "http://127.0.0.1:5173/"
+  },
+  {
+    "id": "MAN-01",
+    "steps": [
+      "Menu → Bản lược khai",
+      "Tạo Manifest mới",
+      "Nhập tàu/voyage E2E-20261004-2147, hãng CMA CGM, ETA04/10/2026",
+      "Xác nhận lưu",
+      "Tìm Manifest theo mã E2E"
+    ],
+    "result": "MF-20261004-1D16A185 DRAFT xuất hiện và thông báo Đã lưu.",
+    "status": "PASS",
+    "at": "2026-10-04T14:46:54.854Z",
+    "url": "http://127.0.0.1:5173/app/manifests?search=E2E-20261004-2147"
+  },
+  {
+    "id": "MAN-02",
+    "steps": [
+      "+ Master BL → nhập E2E-20261004-2147-MBL, chọn CMA CGM → Lưu",
+      "+ House BL → nhập E2E-20261004-2147-HBL, chọn VinFast/Việt Thịnh, hàng tổng hợp,20000kg/100kiện → Lưu"
+    ],
+    "result": "MBL/HBL xuất hiện liên kết đúng Manifest.",
+    "status": "PASS",
+    "at": "2026-10-04T14:47:37.682Z",
+    "url": "http://127.0.0.1:5173/app/manifests?search=E2E-20261004-2147"
+  },
+  {
+    "id": "CON-01",
+    "steps": [
+      "Quản lý Container → Tạo Container Visit",
+      "Nhập QAOU6100040/40HC, chọn VinFast/ManifestMF-20261004-1D16A185/MBL/HBL E2E",
+      "Nhập seal E2E-20261004-2147-SEAL và20000kg",
+      "Tạo → lọc QAOU6100040"
+    ],
+    "result": "Một container PENDING chưa vị trí; các BL phụ thuộc hiển thị đúng.",
+    "status": "PASS",
+    "at": "2026-10-04T14:48:38.165Z",
+    "url": "http://127.0.0.1:5173/app/containers?search=QAOU6100040"
+  },
+  {
+    "id": "MAN-03",
+    "steps": [
+      "Quay lại Manifest E2E",
+      "Bấm Submit Manifest"
+    ],
+    "result": "Trạng thái SUBMITTED xuất hiện sau xác nhận server.",
+    "status": "PASS",
+    "at": "2026-10-04T14:48:46.184Z",
+    "url": "http://127.0.0.1:5173/app/manifests"
+  },
+  {
+    "id": "MO-01",
+    "steps": [
+      "Movement Order → lọc QAOU6100040",
+      "+ Tạo lệnh cho QAOU6100040",
+      "Giữ hết hạn05/10/2026 21:48UTC+7 → Authorize"
+    ],
+    "result": "Lệnh a8a7c455-b2d8-4a8c-87fe-20ecd0190ec0 chuyển AUTHORIZED.",
+    "status": "PASS",
+    "at": "2026-10-04T14:49:16.024Z",
+    "url": "http://127.0.0.1:5173/app/movement-orders?search=QAOU6100040"
+  },
+  {
+    "id": "TRUCK-01",
+    "steps": [
+      "Từ lệnh bấm Tạo Truck Visit",
+      "Kiểm ô container QAOU6100040 có sẵn",
+      "Nhập xe E2E-0410/tài xế tổng hợp/0900000000 → Lưu",
+      "Lọc E2E-0410 → Xác nhận xe đến cổng"
+    ],
+    "result": "TV-20261004-458B98 SCHEDULED→ARRIVED; đúng container.",
+    "status": "PASS",
+    "at": "2026-10-04T14:50:09.237Z",
+    "url": "http://127.0.0.1:5173/app/truck-visits?visitId=af9a1bee-1a45-44c5-b3d5-b888b3f9a342&action=create&search=E2E-0410"
+  },
+  {
+    "id": "GATE-IN-01",
+    "steps": [
+      "Shortcut Tiến hành Tiếp nhận từ xe ARRIVED",
+      "Chọn chuyến E2E-0410",
+      "Nhập seal đúng/20000kg/ghi chú E2E",
+      "Bấm Xác nhận gate-in"
+    ],
+    "result": "Đã lưu trên hệ thống; màn thành công có Xếp vị trí bãi/Tiếp nhận container tiếp theo.",
+    "status": "PASS",
+    "at": "2026-10-04T14:51:04.134Z",
+    "url": "http://127.0.0.1:5173/app/gate-in?visitId=af9a1bee-1a45-44c5-b3d5-b888b3f9a342"
+  },
+  {
+    "id": "YARD-01",
+    "steps": [
+      "Gate-in thành công → Xếp vị trí bãi",
+      "Thử A-01-01-1 đang có cont: hai nút bị khóa",
+      "Chọn A/Row2/Bay1/Tier1 → Kiểm tra vị trí",
+      "Backend xác nhận phù hợp → Xác nhận xếp vị trí"
+    ],
+    "result": "QAOU6100040 được xếp A-02-01-1; thuật toán giữ trạng thái Đang trong quá trình phát triển.",
+    "status": "PASS",
+    "at": "2026-10-04T14:51:48.516Z",
+    "url": "http://127.0.0.1:5173/app/yard?visitId=af9a1bee-1a45-44c5-b3d5-b888b3f9a342"
+  },
+  {
+    "id": "YARD-02",
+    "steps": [
+      "Công việc trong bãi → lọc QAOU6100040",
+      "Tạo lệnh đảo chuyển → B-02-01-1, lý do E2E → Tạo",
+      "Bắt đầu → Hoàn tất di chuyển → Xác nhận hoàn tất"
+    ],
+    "result": "Chờ thực hiện→Đang thực hiện→Hoàn tất; chuyển từ A-02-01-1 sang B-02-01-1.",
+    "status": "PASS",
+    "at": "2026-10-04T14:52:40.400Z",
+    "url": "http://127.0.0.1:5173/app/yard?visitId=af9a1bee-1a45-44c5-b3d5-b888b3f9a342"
+  },
+  {
+    "id": "YARD-03",
+    "steps": [
+      "Tạo yêu cầu kiểm định → Nội bộ,ghi chú E2E → Tạo",
+      "Bắt đầu kiểm định",
+      "Ghi nhận kết quả → PASS,ghi chú → Xác nhận hoàn tất"
+    ],
+    "result": "Kiểm định Hoàn tất/PASS; không còn pending inspection.",
+    "status": "PASS",
+    "at": "2026-10-04T14:53:47.946Z",
+    "url": "http://127.0.0.1:5173/app/yard?visitId=af9a1bee-1a45-44c5-b3d5-b888b3f9a342"
+  },
+  {
+    "id": "YARD-04",
+    "steps": [
+      "Đặt lịch trong bãi → Kiểm định,04/10/2026 22:30UTC+7,ghi chú E2E → Tạo",
+      "Bắt đầu booking",
+      "Hoàn tất booking →100kiện/20000kg/ghi chú → Xác nhận hoàn tất"
+    ],
+    "result": "Booking giữ giờ22:30, Hoàn tất và kết quả thực tế hiển thị.",
+    "status": "PASS",
+    "at": "2026-10-04T14:55:02.303Z",
+    "url": "http://127.0.0.1:5173/app/yard?visitId=af9a1bee-1a45-44c5-b3d5-b888b3f9a342"
+  },
+  {
+    "id": "READY-01",
+    "steps": [
+      "Container360 QAOU6100040 → Tổng quan & Readiness"
+    ],
+    "result": "IN_YARD/B-02-01-1; 2 blockers: chưa hồ sơ tính phí, còn dịch vụ chưa tính phí.",
+    "status": "PASS",
+    "at": "2026-10-04T14:55:31.074Z",
+    "url": "http://127.0.0.1:5173/app/containers"
+  },
+  {
+    "id": "HOLD-01",
+    "steps": [
+      "Container360 → Lệnh giữ Holds → Đặt lệnh giữ",
+      "CUSTOMS, lý do E2E → Lưu",
+      "Tổng quan & Readiness → xem blockers"
+    ],
+    "result": "ACTIVE CUSTOMS tạo thành công; Readiness thêm Container đang bị giữ theo nghiệp vụ.",
+    "status": "PASS",
+    "at": "2026-10-04T14:56:50.121Z",
+    "url": "http://127.0.0.1:5173/app/containers"
+  },
+  {
+    "id": "HOLD-02",
+    "steps": [
+      "Lệnh giữ Holds → Release Hold",
+      "Kiểm DOM và JavaScript dialog sau click"
+    ],
+    "result": "window.prompt không xuất hiện trong browser kiểm thử; Hold vẫn ACTIVE. Không gọi API thay thế để giả kết quả thao tác tay.",
+    "status": "BLOCKED_TOOL",
+    "at": "2026-10-04T14:56:50.124Z",
+    "url": "http://127.0.0.1:5173/app/containers"
+  }
+]

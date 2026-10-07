@@ -1,0 +1,28 @@
+{
+  "status": "VERIFIED",
+  "change": "Exact action permissions, command/session boundary checks and read-only notice.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/services/write-permissions.ts",
+      "line": 528,
+      "detail": "export function",
+      "snippet": "export function requiredWritePermission(path: string, method = 'POST'): string | null | undefined {\n  return rules.find(rule => rule.method === method && rule.pattern.test(path))?.permission;\n}"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/web-all-regressions-final.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/context-write-permission-green.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/read-only-containers-final.txt"
+  ],
+  "limitations": "Seven real UI accounts; custom roles and104 generated routes/102 single-decorator methods independently compared; exact/downgraded permission fixtures and real read-only notice. Full per-overlay role cross-product remains coverage UNKNOWN.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [
+    "Read-only fixture users see viewing controls and clear permission context, no unusable write invitation.",
+    "Users/manage, roles/manage, billing/manage and tariff/manage controls follow exact separate permissions.",
+    "Backend authorization remains enforced on every command."
+  ],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/write-permissions.ts.diff"
+  ],
+  "isolated_review_diffs": []
+}

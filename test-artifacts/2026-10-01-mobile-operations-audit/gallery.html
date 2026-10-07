@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bằng chứng kiểm thử Mobile ICD</title>
+<style>
+:root{color-scheme:light dark;--bg:#f3f5f9;--panel:#fff;--ink:#142238;--muted:#546579;--line:#d6dfea;--accent:#136d9c;--tag:#e7f3fa}
+@media(prefers-color-scheme:dark){:root{--bg:#101722;--panel:#182230;--ink:#e4edf6;--muted:#a5b7ca;--line:#314154;--accent:#77c8f2;--tag:#213a4b}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,sans-serif}header,main,footer{max-width:1320px;margin:auto;padding:24px}header{padding-top:38px}h1{font-size:clamp(26px,4vw,40px);line-height:1.2;margin:8px 0 12px}h2{font-size:22px;margin:0}.eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:12px;color:var(--accent);font-weight:750}.note{color:var(--muted);max-width:850px}a{color:var(--accent)}.tools{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:22px}input,select,button{font:inherit;color:var(--ink);border:1px solid var(--line);border-radius:8px;background:var(--panel);padding:10px 12px}input{flex:1;min-width:200px}button{cursor:pointer}.count{color:var(--muted);font-size:13px}.jump{display:flex;flex-wrap:wrap;gap:8px;padding-top:18px}.jump a{padding:5px 10px;border-radius:20px;background:var(--tag);font-size:13px;text-decoration:none}.sector{margin-bottom:36px;scroll-margin-top:16px}.heading{display:flex;gap:12px;align-items:baseline;margin-bottom:14px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:16px}.shot{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}.shot>a{display:block;background:var(--bg);padding:12px;outline-offset:-3px}.shot img{display:block;width:100%;height:360px;object-fit:contain;object-position:top center}.shot figcaption{padding:12px 14px;font-weight:600;min-height:85px}.filename{display:block;word-break:break-word;color:var(--muted);font-size:11px;font-weight:400;margin-top:5px}.old{display:inline-block;background:var(--tag);color:var(--muted);font-size:11px;padding:2px 7px;border-radius:5px;margin-top:7px}footer{border-top:1px solid var(--line);color:var(--muted);font-size:13px}.empty{padding:28px;color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+<div class="eyebrow">ICD · Mobile operations audit · 02/10/2026</div>
+<h1>Bằng chứng giao diện và tác nghiệp</h1>
+<p class="note">Ảnh giao diện thật của app Expo Web với API và dữ liệu QA cục bộ; ảnh 99 bổ sung dashboard web. Bấm một ảnh để xem bản đầy đủ. Các ảnh “trước sửa” được giữ làm bằng chứng lỗi, không đại diện cho giao diện cuối.</p>
+<p class="note">Phạm vi này không xác nhận chạy trên thiết bị Android/iOS, camera vật lý, thông báo push hay tải ảnh/biên bản. Xem <a href="REPORT.md">báo cáo và giới hạn kiểm chứng</a>.</p>
+<div class="tools"><input id="search" type="search" aria-label="Tìm ảnh" placeholder="Tìm theo tên, trạng thái hoặc số ảnh…"><select id="filter" aria-label="Nhóm nghiệp vụ"><option value="">Tất cả nghiệp vụ</option></select><span id="count" class="count"></span></div>
+<nav id="jump" class="jump" aria-label="Chuyển nhóm nghiệp vụ"></nav>
+</header>
+<main id="gallery"></main>
+<footer>100 ảnh được liên kết tới bản gốc trong cùng thư mục. JavaScript và đường dẫn đã được kiểm tra. Preview thư viện trên trình duyệt bị từ chối; chưa xác nhận bộ lọc bằng thao tác UI. Máy chủ preview đã dừng; đây là bộ tài liệu cục bộ.</footer>
+<script>
+/* SCREENSHOT_MANIFEST_BEGIN */
+const files = ["01-login-before.jpg","02-gate-in-before-data.jpg","03-account-light.jpg","04-account-permissions-dialog.jpg","05-logout-confirm-dialog.jpg","06-login-invalid.jpg","07-gate-container-invalid.jpg","08-truck-arrival-confirm.jpg","09-gate-in-seal-required.jpg","10-gate-condition-select.jpg","11-gate-in-review.jpg","12-gate-in-first-success.jpg","13-session-offline-retry.jpg","14-session-restored.jpg","15-second-container-review.jpg","16-gate-in-second-success.jpg","17-lookup-empty.jpg","18-lookup-results.jpg","19-container-detail-gate-role.jpg","20-container-readiness-held.jpg","21-notifications-empty-filters.jpg","22-yard-container-select.jpg","23-yard-occupied-refusal.jpg","24-yard-assign-manual-confirm.jpg","25-yard-manual-assigned.jpg","26-movement-create-confirm.jpg","27-movement-detail-pending.jpg","28-cancel-reason-required.jpg","29-movement-start-confirm.jpg","30-movement-in-progress.jpg","31-movement-complete-confirm.jpg","32-movement-completed.jpg","33-yard-recommendations-inline.jpg","34-yard-recommendation-select.jpg","35-yard-recommended-confirm.jpg","36-survey-light.jpg","37-survey-validation.jpg","38-survey-type-dialog.jpg","39-survey-create-confirm.jpg","40-inspection-pending.jpg","41-inspection-hold-reason-required.jpg","42-inspection-pass-confirm.jpg","43-inspection-completed-notes.jpg","44-yard-operations-list.jpg","45-operation-type-dialog.jpg","46-operation-status-dialog.jpg","47-booking-invalid-date.jpg","48-booking-service-select.jpg","49-booking-create-confirm.jpg","50-work-queue-booking-before-label-fix.jpg","51-booking-detail-from-queue.jpg","52-booking-negative-result.jpg","53-booking-complete-confirm.jpg","54-booking-completed-results.jpg","55-booking-detail-dark.jpg","56-booking-cancel-dark.jpg","57-booking-cancelled.jpg","58-login-360.jpg","59-gate-in-light-360.jpg","60-gate-out-scan-360.jpg","61-gate-qr-invalid-refusal.jpg","62-gate-out-ready-360.jpg","63-gate-out-review-dialog-360.jpg","64-gate-out-success-360.jpg","65-gate-pass-used-refusal-360.jpg","66-notifications-live-360.jpg","67-notification-arrival-popup.jpg","68-notification-marked-read.jpg","69-gate-in-from-notification.jpg","70-gate-queue-authorized.jpg","71-queue-priority-empty.jpg","72-notifications-read-all.jpg","73-yard-queue-dark.jpg","74-yard-assignment-dark.jpg","75-yard-assignment-expanded.jpg","76-yard-assignment-confirm-dark.jpg","77-yard-assignment-success-dark.jpg","78-inspection-hold-confirm-dark.jpg","79-inspection-hold-completed.jpg","80-operator-monitor-light.jpg","81-operator-hold-notification.jpg","82-operator-hold-popup.jpg","83-operator-inspection-read-only.jpg","84-operator-hold-gate-readiness.jpg","85-followup-gate-out-success.jpg","86-gate-next-pass-cleared.jpg","87-movement-cancel-reason-dark.jpg","88-movement-cancelled-dark.jpg","89-final-gate-light.jpg","90-final-yard-light.jpg","91-final-survey-light.jpg","92-final-lookup-light.jpg","93-final-work-queue-light.jpg","94-final-work-queue-dark.jpg","95-final-lookup-dark.jpg","96-final-survey-dark.jpg","97-final-yard-dark.jpg","98-final-gate-dark.jpg","99-web-backend-live-overview.jpg","100-final-mobile-backend-connection.jpg"];
+const captions = {"01-login-before.jpg":"Đăng nhập — ảnh trước sửa","02-gate-in-before-data.jpg":"Cổng vào — trước khi chọn dữ liệu","03-account-light.jpg":"Tài khoản · giao diện sáng","04-account-permissions-dialog.jpg":"Popup vai trò và quyền","05-logout-confirm-dialog.jpg":"Popup xác nhận đăng xuất","06-login-invalid.jpg":"Đăng nhập — dữ liệu không hợp lệ","07-gate-container-invalid.jpg":"Số container không hợp lệ","08-truck-arrival-confirm.jpg":"Xác nhận xe đã đến cổng","09-gate-in-seal-required.jpg":"Seal thực tế bắt buộc","10-gate-condition-select.jpg":"Popup tình trạng vỏ container","11-gate-in-review.jpg":"Xem lại biên nhận cổng vào","12-gate-in-first-success.jpg":"Tiếp nhận container thứ nhất thành công","13-session-offline-retry.jpg":"Khôi phục phiên — mất mạng và thử lại","14-session-restored.jpg":"Phiên được khôi phục","15-second-container-review.jpg":"Xem lại container thứ hai cùng xe","16-gate-in-second-success.jpg":"Tiếp nhận container thứ hai thành công","17-lookup-empty.jpg":"Tra cứu — không có kết quả","18-lookup-results.jpg":"Tra cứu — danh sách kết quả","19-container-detail-gate-role.jpg":"Chi tiết container với quyền nhân viên cổng","20-container-readiness-held.jpg":"Readiness — container có lệnh giữ","21-notifications-empty-filters.jpg":"Thông báo — bộ lọc và danh sách rỗng","22-yard-container-select.jpg":"Popup chọn container xếp bãi","23-yard-occupied-refusal.jpg":"Từ chối vị trí đã có container","24-yard-assign-manual-confirm.jpg":"Xác nhận xếp vị trí thủ công","25-yard-manual-assigned.jpg":"Vị trí thủ công đã được xác nhận","26-movement-create-confirm.jpg":"Xác nhận tạo lệnh đảo chuyển","27-movement-detail-pending.jpg":"Chi tiết đảo chuyển đang chờ","28-cancel-reason-required.jpg":"Popup hủy — bắt buộc lý do","29-movement-start-confirm.jpg":"Xác nhận bắt đầu đảo chuyển","30-movement-in-progress.jpg":"Đảo chuyển đang thực hiện","31-movement-complete-confirm.jpg":"Xác nhận container đã đến vị trí","32-movement-completed.jpg":"Đảo chuyển hoàn tất","33-yard-recommendations-inline.jpg":"Đề xuất vị trí và lý do","34-yard-recommendation-select.jpg":"Popup chọn vị trí đề xuất","35-yard-recommended-confirm.jpg":"Xác nhận xếp vị trí đề xuất","36-survey-light.jpg":"Giám định · giao diện sáng","37-survey-validation.jpg":"Giám định — kiểm tra dữ liệu nhập","38-survey-type-dialog.jpg":"Popup loại giám định","39-survey-create-confirm.jpg":"Xác nhận tạo yêu cầu giám định","40-inspection-pending.jpg":"Giám định đang chờ","41-inspection-hold-reason-required.jpg":"HOLD — bắt buộc lý do kết luận","42-inspection-pass-confirm.jpg":"Xác nhận kết quả giám định PASS","43-inspection-completed-notes.jpg":"Giám định hoàn tất, giữ ghi chú","44-yard-operations-list.jpg":"Danh sách tác nghiệp bãi","45-operation-type-dialog.jpg":"Popup lọc loại tác nghiệp","46-operation-status-dialog.jpg":"Popup lọc trạng thái tác nghiệp","47-booking-invalid-date.jpg":"Booking — từ chối ngày không hợp lệ","48-booking-service-select.jpg":"Popup chọn dịch vụ booking","49-booking-create-confirm.jpg":"Xác nhận lịch dịch vụ tại bãi","50-work-queue-booking-before-label-fix.jpg":"Booking trong hàng đợi — trước sửa nhãn","51-booking-detail-from-queue.jpg":"Mở chi tiết booking từ hàng đợi","52-booking-negative-result.jpg":"Booking — từ chối kết quả âm","53-booking-complete-confirm.jpg":"Xác nhận hoàn tất booking","54-booking-completed-results.jpg":"Booking hoàn tất với kết quả thực tế","55-booking-detail-dark.jpg":"Chi tiết booking · giao diện tối","56-booking-cancel-dark.jpg":"Popup hủy booking · giao diện tối","57-booking-cancelled.jpg":"Booking đã hủy","58-login-360.jpg":"Đăng nhập · viewport 360px","59-gate-in-light-360.jpg":"Cổng vào sáng · viewport 360px","60-gate-out-scan-360.jpg":"Quét phiếu cổng ra · viewport 360px","61-gate-qr-invalid-refusal.jpg":"Từ chối QR không hợp lệ","62-gate-out-ready-360.jpg":"Readiness đủ điều kiện cổng ra · 360px","63-gate-out-review-dialog-360.jpg":"Popup xác nhận cổng ra · 360px","64-gate-out-success-360.jpg":"Xuất cổng thành công · 360px","65-gate-pass-used-refusal-360.jpg":"Từ chối phiếu đã sử dụng · 360px","66-notifications-live-360.jpg":"Thông báo có dữ liệu thật · 360px","67-notification-arrival-popup.jpg":"Popup thông báo xe đến cổng","68-notification-marked-read.jpg":"Thông báo đã đánh dấu đọc","69-gate-in-from-notification.jpg":"Mở Gate-in từ thông báo thật","70-gate-queue-authorized.jpg":"Hàng đợi container AUTHORIZED","71-queue-priority-empty.jpg":"Bộ lọc ưu tiên — danh sách rỗng","72-notifications-read-all.jpg":"Thông báo — đánh dấu tất cả đã đọc","73-yard-queue-dark.jpg":"Hàng đợi bãi · giao diện tối","74-yard-assignment-dark.jpg":"Xếp bãi · giao diện tối","75-yard-assignment-expanded.jpg":"Xếp bãi — mở rộng vị trí","76-yard-assignment-confirm-dark.jpg":"Xác nhận xếp bãi · giao diện tối","77-yard-assignment-success-dark.jpg":"Xếp bãi thành công · giao diện tối","78-inspection-hold-confirm-dark.jpg":"Popup xác nhận inspection HOLD","79-inspection-hold-completed.jpg":"Inspection COMPLETED/HOLD với lý do","88-movement-cancelled-dark.jpg":"Đảo chuyển đã hủy, lý do được lưu","90-final-yard-light.jpg":"Bãi · giao diện sáng cuối · 390px","93-final-work-queue-light.jpg":"Việc ca · giao diện sáng cuối · 390px","84-operator-hold-gate-readiness.jpg":"Operator · INSPECTION_HOLD và OPERATIONAL_HOLD chặn cổng ra","89-final-gate-light.jpg":"Cổng · giao diện sáng cuối · 390px","92-final-lookup-light.jpg":"Tra cứu · giao diện sáng cuối · 390px","86-gate-next-pass-cleared.jpg":"Quét phiếu tiếp theo · QR và kết quả cũ đã xóa","81-operator-hold-notification.jpg":"Operator nhận thông báo HOLD · đã đánh dấu đọc","97-final-yard-dark.jpg":"Bãi · giao diện tối cuối · 390px","98-final-gate-dark.jpg":"Cổng · giao diện tối cuối · 390px","96-final-survey-dark.jpg":"Giám định · giao diện tối cuối · 390px","83-operator-inspection-read-only.jpg":"Operator · inspection chỉ đọc, không có command","80-operator-monitor-light.jpg":"Operator Monitor · 48 ô bãi · nhãn phiên trước sửa cuối","91-final-survey-light.jpg":"Giám định · giao diện sáng cuối · 390px","99-web-backend-live-overview.jpg":"Web bổ sung · 1 HOLD, 12/48 ô có container, 0 việc chờ","94-final-work-queue-dark.jpg":"Việc ca · giao diện tối cuối · 390px","82-operator-hold-popup.jpg":"Operator · popup thông báo inspection HOLD","87-movement-cancel-reason-dark.jpg":"Hủy đảo chuyển · lý do thực tế · giao diện tối","85-followup-gate-out-success.jpg":"Follow-up · Gate-out thành công, visit EXITED và phiếu USED","95-final-lookup-dark.jpg":"Tra cứu · giao diện tối cuối · 390px","100-final-mobile-backend-connection.jpg":"Phiên Admin cuối · backend đã kết nối sau restart · 08:54:36"};
+/* SCREENSHOT_MANIFEST_END */
+const groups = [
+ ['final-tabs','Năm tab đã duyệt · sáng/tối cuối'],
+ ['operator','Operator · Monitor, HOLD và chi tiết chỉ đọc'],
+ ['web','Web · bằng chứng bổ sung'],
+ ['session','Đăng nhập, phiên và tài khoản'],
+ ['gate-in','Tiếp nhận cổng vào'],
+ ['lookup','Tra cứu và chi tiết container'],
+ ['yard-assignment','Xếp vị trí bãi'],
+ ['movement','Đảo chuyển'],
+ ['inspection','Giám định'],
+ ['booking','Tác nghiệp bãi và booking'],
+ ['work-queue','Hàng đợi công việc'],
+ ['gate-out','Phiếu và xác nhận cổng ra'],
+ ['notifications','Thông báo'],
+ ['monitor','Giám sát và điều phối'],
+ ['other','Bằng chứng bổ sung']
+];
+function group(file){
+ const n=parseInt(file,10);
+ if(n===100)return 'session';
+ if(n>=89&&n<=98)return 'final-tabs';
+ if(n>=80&&n<=84)return 'operator';
+ if(n===99)return 'web';
+ if([1,3,4,5,6,13,14].includes(n)||/login|session|account|logout|permission/.test(file))return 'session';
+ if([2,7,8,9,10,11,12,15,16].includes(n)||/gate-in|gate-condition|second-container|truck-arrival/.test(file))return 'gate-in';
+ if(/gate-out|gate-pass|qr-|pass-/.test(file))return 'gate-out';
+ if([81,82].includes(n)||/notification/.test(file))return 'notifications';
+ if(/work-queue|gate-queue|yard-queue|queue-priority/.test(file))return 'work-queue';
+ if([17,18,19,20].includes(n)||/lookup|container-detail|container-readiness|container-final/.test(file))return 'lookup';
+ if([22,23,24,25,33,34,35].includes(n)||/yard-(container|occupied|assign|manual|recommend)/.test(file))return 'yard-assignment';
+ if((n>=26&&n<=32)||/movement|cancel-reason/.test(file))return 'movement';
+ if((n>=36&&n<=43)||/survey|inspection/.test(file))return 'inspection';
+ if((n>=44&&n<=55)||/booking|work-queue|operation-(type|status)|yard-operations/.test(file))return 'booking';
+ if(/monitor|operator|dashboard/.test(file))return 'monitor';
+ return 'other';
+}
+function title(file){return captions[file]||file.replace(/\.jpg$/i,'').replace(/-/g,' ');}
+const gallery=document.querySelector('#gallery'),search=document.querySelector('#search'),filter=document.querySelector('#filter');
+for(const [id,label] of groups){if(!files.some(file=>group(file)===id))continue;const option=document.createElement('option');option.value=id;option.textContent=label;filter.append(option);}
+function render(){
+ gallery.replaceChildren();document.querySelector('#jump').replaceChildren();
+ const query=search.value.trim().toLocaleLowerCase('vi');
+ const visible=files.filter(file=>(!filter.value||group(file)===filter.value)&&(!query||(file+' '+title(file)).toLocaleLowerCase('vi').includes(query)));
+ document.querySelector('#count').textContent=visible.length+' / '+files.length+' ảnh';
+ for(const [id,label] of groups){
+  const entries=visible.filter(file=>group(file)===id);if(!entries.length)continue;
+  const jump=document.createElement('a');jump.href='#'+id;jump.textContent=label;document.querySelector('#jump').append(jump);
+  const section=document.createElement('section');section.className='sector';section.id=id;
+  const heading=document.createElement('div');heading.className='heading';const h=document.createElement('h2');h.textContent=label;heading.append(h);
+  const tally=document.createElement('span');tally.className='count';tally.textContent=entries.length+' ảnh';heading.append(tally);section.append(heading);
+  const grid=document.createElement('div');grid.className='grid';
+  for(const file of entries){
+   const figure=document.createElement('figure');figure.className='shot';
+   const link=document.createElement('a');link.href=file;link.target='_blank';link.rel='noopener';link.title='Xem ảnh đầy đủ: '+title(file);
+   const img=document.createElement('img');img.src=file;img.alt=title(file);img.loading='lazy';link.append(img);figure.append(link);
+   const caption=document.createElement('figcaption');caption.textContent=title(file);
+   const filename=document.createElement('span');filename.className='filename';filename.textContent=file;caption.append(filename);
+   if(/before/.test(file)||file==='80-operator-monitor-light.jpg'){const badge=document.createElement('span');badge.className='old';badge.textContent=file==='80-operator-monitor-light.jpg'?'Nhãn phiên trước sửa cuối; bố cục hợp lệ':'Bằng chứng trước sửa';caption.append(badge);}
+   figure.append(caption);grid.append(figure);
+  }
+  section.append(grid);gallery.append(section);
+ }
+ if(!visible.length){const empty=document.createElement('p');empty.className='empty';empty.textContent='Không có ảnh khớp bộ lọc.';gallery.append(empty);}
+}
+search.addEventListener('input',render);filter.addEventListener('change',render);
+render();
+</script>
+</body>
+</html>
+
+
+
+
+
+

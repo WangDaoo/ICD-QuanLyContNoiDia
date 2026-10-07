@@ -1,0 +1,120 @@
+✖ existing Gate Pass route wins over the linked visit and never opens another issue form (341.0475ms)
+✖ a visit-only Gate Pass URL requires the explicit create intent before opening its form (60.2917ms)
+✖ explicit create intent opens the issue form unless an existing pass is the canonical destination (112.7431ms)
+✖ loading a newly expired pass evaluates against the current clock rather than the initial render (18.7316ms)
+✖ an open role permission editor stops offering writes after a same-user permission downgrade (42.3257ms)
+✖ refreshed expired pass removes token QR and Gate-out action from its selected detail (38.7738ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 0
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4712.1179
+
+✖ failing tests:
+
+test at audit\tools\improvement-web-business-independent.test.mjs:50:1
+✖ existing Gate Pass route wins over the linked visit and never opens another issue form (341.0475ms)
+  AssertionError [ERR_ASSERTION]: existing pass destination must not open issue dialog
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:53:12)
+      at async withFixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:46:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:51:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\improvement-web-business-independent.test.mjs:59:1
+✖ a visit-only Gate Pass URL requires the explicit create intent before opening its form (60.2917ms)
+  AssertionError [ERR_ASSERTION]: informational visit URL must not start issue flow
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:62:12)
+      at async withFixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:46:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:60:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\improvement-web-business-independent.test.mjs:66:1
+✖ explicit create intent opens the issue form unless an existing pass is the canonical destination (112.7431ms)
+  AssertionError [ERR_ASSERTION]: existing canonical pass takes priority
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:73:12)
+      at async withFixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:46:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:71:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\improvement-web-business-independent.test.mjs:77:1
+✖ loading a newly expired pass evaluates against the current clock rather than the initial render (18.7316ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'ACTIVE'
+  - 'EXPIRED'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:89:14)
+      at async withFixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:46:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:85:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'ACTIVE',
+    expected: 'EXPIRED',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\improvement-web-business-independent.test.mjs:94:1
+✖ an open role permission editor stops offering writes after a same-user permission downgrade (42.3257ms)
+  AssertionError [ERR_ASSERTION]: revoked role editor must not issue a command
+  
+  1 !== 0
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:106:12)
+      at async withFixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:46:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:95:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\improvement-web-business-independent.test.mjs:112:1
+✖ refreshed expired pass removes token QR and Gate-out action from its selected detail (38.7738ms)
+  AssertionError [ERR_ASSERTION]: expired token QR must disappear
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:120:14)
+      at async withFixture (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:46:9)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business-independent.test.mjs:116:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

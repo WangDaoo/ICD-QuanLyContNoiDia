@@ -1,0 +1,81 @@
+import assert from 'node:assert/strict';
+import {
+  mapContainerVisitDto,
+  mapReadinessDto,
+  mapYardSlotDto,
+  mapTransportHandoverDto,
+} from './icd-view.mapper';
+import { mapLiveCollections } from './live-view.mapper';
+import { unwrapList } from './api-response.mapper';
+
+assert.deepEqual(unwrapList({ data: { data: [{ yardSlotId: 's' }], contextToken: 'c' } }), [
+  { yardSlotId: 's' },
+]);
+assert.equal(
+  mapTransportHandoverDto({
+    partnerApiClientId: 'partner',
+    partnerApiClient: { id: 'partner', partnerName: 'Live partner' },
+  }).partnerName,
+  'Live partner',
+);
+
+const visit = mapContainerVisitDto({
+  id: 'visit',
+  state: 'IN_YARD',
+  container: {
+    id: 'container',
+    containerNumber: 'MSCU1234567',
+    size: 'SIZE_40',
+    type: 'DRY',
+    isoCode: '45G1',
+  },
+  currentLocation: { yardSlot: { slotCode: 'A-01-02-1' } },
+  reception: { actualSealNumber: 'SEAL-A' },
+});
+assert.equal(visit.containerType, '40HC', 'Canonical size and ISO code must survive mapping');
+assert.equal(visit.currentLocation, 'A-01-02-1', 'A location DTO must not become [object Object]');
+assert.equal(visit.actualSeal, 'SEAL-A');
+assert.equal(
+  visit.freeDays,
+  undefined,
+  'Missing free storage policy must never become a fabricated five days',
+);
+assert.equal(mapContainerVisitDto({ freeDays: 0 }).freeDays, 0);
+const readiness = mapReadinessDto({
+  ready: true,
+  blockers: [],
+  details: {
+    containerStatus: 'IN_YARD',
+    yardLocation: { slotCode: 'A' },
+    billing: { isReady: true },
+    operationalHolds: [],
+  },
+});
+assert.equal(readiness.isBillingCompleted, true, 'Readiness must reflect backend billing result');
+assert.equal(mapReadinessDto({}).isBillingCompleted, false, 'Unknown readiness must fail closed');
+assert.equal(
+  mapYardSlotDto({ id: 'slot', currentContainer: { containerVisitId: 'visit' } })
+    .occupiedByContainerId,
+  'visit',
+  'Occupied slots must use backend visit identity',
+);
+const collections = mapLiveCollections(
+  {
+    containerVisits: [
+      { id: 'visit', container: { id: 'container', containerNumber: 'MSCU1234567' } },
+    ],
+    yardSlots: [{ slotCode: 'A-01', currentContainer: { containerVisitId: 'visit' } }],
+  },
+  'ADMIN',
+);
+assert.equal(
+  collections.containerVisits[0].currentLocation,
+  'A-01',
+  'Location on list view must match live yard slot occupancy',
+);
+const movementOrderId = '11111111-2222-4333-8444-555555555555';
+assert.equal(
+  mapLiveCollections({ movementOrders: [{ id: movementOrderId, containerVisitId: 'visit', status: 'AUTHORIZED' }] }, 'ADMIN').movementOrders[0].orderCode,
+  movementOrderId,
+  'Backend MovementOrder has an id without a separate order code; its actual identity must remain visible',
+);

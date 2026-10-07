@@ -1,0 +1,177 @@
+Browser tab: 22, Title: "ICD Management System — Quản lý Kho bãi Container Nội địa", URL: "http://127.0.0.1:5173/".
+1 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/
+	2 container root
+		41 container
+			42 text ICD
+			43 heading ICD Management System, Value: 1
+				44 text ICD Management System
+			45 text Cảng cạn & kho bãi container nội địa 1 lệnh giữ Đã kết nối
+			46 button Tải lại dữ liệu
+			47 button (collapsed) Description: Thông báo (0 chưa đọc), Secondary Actions: Expand
+			48 text System Administrator ADMIN
+			49 button Đăng xuất
+		12 container Điều hướng nghiệp vụ
+			13 container
+				14 text TỔNG QUAN & ĐIỀU PHỐI
+				15 button Tổng quan vận hành
+				16 button Danh sách công việc
+				17 text QUẢN LÝ HÀNG HÓA & CỔNG
+				18 button Bản lược khai (Manifest)
+				19 button Quản lý Container
+				20 button Movement Order
+				21 button Chuyến xe ra/vào
+				22 button Tiếp nhận vào cổng (Gate-in)
+				23 button Vận hành Bãi (Yard)
+				24 text TÀI CHÍNH & RA CỔNG
+				25 button Dịch vụ & Thanh toán
+				26 button Phiếu ra cổng & Gate-out
+				27 button Vận hành EDI (CODECO)
+				28 text TÍCH HỢP ĐỐI TÁC
+				29 button Bàn giao vận chuyển
+				30 button Đối tác tích hợp API
+				31 button Nhật ký API đối tác
+				32 text HỆ THỐNG & QUẢN TRỊ
+				33 button Danh mục dùng chung
+				34 button Người dùng & Phân quyền
+				35 button Báo cáo vận hành
+				36 button Nhật ký kiểm toán
+			37 text System Administrator
+			38 text admin@icd.local
+			39 text ADMIN
+		40 container
+			50 heading Movement Order — Lệnh cho phép container di chuyển về ICD, Value: 2
+				51 text Movement Order — Lệnh cho phép container di chuyển về ICD
+			52 text Mắt xích bắt buộc giữa Container Visit (PENDING) và Truck Visit/Gate-in. Chỉ khi Authorize thành công, container mới đủ điều kiện vào cổng.
+			53 text field (settable)
+			54 text Thời hạn khi duyệt lệnh
+			55 date field (settable) Description: Thời hạn khi duyệt lệnh, Value: 2026-10-04T02:02
+				56 container
+					57 stepper
+					58 stepper
+					59 stepper
+					60 stepper
+					61 stepper
+					62 stepper
+				63 pop up button Show local date and time picker Show local date and time picker
+			64 table
+				65 row
+					66 cell
+						67 text MÃ LỆNH
+					68 cell
+						69 text CONTAINER
+					70 cell
+						71 text TRẠNG THÁI
+					72 cell
+						73 text TẠO LÚC
+					74 cell
+						75 text HẾT HẠN
+					76 cell
+						77 text DUYỆT BỞI
+					78 cell
+						79 text HÀNH ĐỘNG
+				80 row
+					81 cell
+						82 text QAOU4835930
+					83 cell
+						84 text AUTHORIZED
+					85 cell
+						86 text 22:04:43 2/10/2026
+					87 cell
+						88 text 22:04:43 3/10/2026
+					89 cell
+						90 text System Administrator
+					91 cell
+						92 button Tạo Truck Visit
+				93 row
+					94 cell
+						95 text QAOU6004067
+					96 cell
+						97 text AUTHORIZED
+					98 cell
+						99 text 16:00:00 2/10/2026
+					100 cell
+						101 text 16:00:00 3/10/2026
+					102 cell
+						103 text System Administrator
+					104 cell
+						105 button Tạo Truck Visit
+				106 row
+					107 cell
+						108 text QAOU1882075
+					109 cell
+						110 text AUTHORIZED
+					111 cell
+						112 text 08:06:28 2/10/2026
+					113 cell
+						114 text 08:06:28 3/10/2026
+					115 cell
+						116 text System Administrator
+					117 cell
+						118 button Tạo Truck Visit
+				119 row
+					120 cell
+						121 text QAOU5007570
+					122 cell
+						123 text AUTHORIZED
+					124 cell
+						125 text 07:38:21 2/10/2026
+					126 cell
+						127 text 07:38:21 9/10/2026
+					128 cell
+						129 text System Administrator
+					130 cell
+						131 button Tạo Truck Visit
+				132 row
+					133 cell
+						134 text QAOU5007565
+					135 cell
+						136 text AUTHORIZED
+					137 cell
+						138 text 07:38:21 2/10/2026
+					139 cell
+						140 text 07:38:21 9/10/2026
+					141 cell
+						142 text System Administrator
+					143 cell
+						144 button Tạo Truck Visit
+				145 row
+					146 cell
+						147 text QAOU5007550
+					148 cell
+						149 text AUTHORIZED
+					150 cell
+						151 text 07:38:20 2/10/2026
+					152 cell
+						153 text 07:38:21 9/10/2026
+					154 cell
+						155 text System Administrator
+					156 cell
+						157 button Tạo Truck Visit
+				158 row
+					159 cell
+						160 text QAMU6102765
+					161 cell
+						162 text AUTHORIZED
+					163 cell
+						164 text 15:50:10 1/10/2026
+					165 cell
+						166 text 15:50:10 2/10/2026
+					167 cell
+						168 text System Administrator
+					169 cell
+						170 button Tạo Truck Visit
+				171 row
+					172 cell
+						173 text QATU2282957
+					174 cell
+						175 text AUTHORIZED
+					176 cell
+						177 text 13:30:28 1/10/2026
+					178 cell
+						179 text 13:30:55 2/10/2026
+					180 cell
+						181 text System Administrator
+					182 cell
+						183 button Tạo Truck Visit
+
+The focused UI element is 20 button Movement Order

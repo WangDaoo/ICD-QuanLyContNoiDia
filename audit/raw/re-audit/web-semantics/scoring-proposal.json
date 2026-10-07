@@ -1,0 +1,1039 @@
+{
+  "status": "PROPOSAL_ONLY_NOT_APPLIED",
+  "condition": "Apply each FAIL-to-PASS promotion only after root verifies the linked approved finding with new evidence; all projections assume all nine approved findings resolved.",
+  "resolved_if_verified": [
+    "W-S-020",
+    "W-S-001",
+    "W-S-002",
+    "W-S-003",
+    "W-S-005",
+    "W-S-016",
+    "M-001",
+    "M-002",
+    "M-003"
+  ],
+  "observation_promotions": [
+    {
+      "id": "web-D2-focus-3",
+      "from": "FAIL",
+      "to": "PASS",
+      "finding_ids": [
+        "W-S-001"
+      ],
+      "dimension": 2,
+      "criterion": "focus",
+      "baseline_note": "MasterData Tab leaves overlay"
+    },
+    {
+      "id": "web-D2-disabled-2",
+      "from": "FAIL",
+      "to": "PASS",
+      "finding_ids": [
+        "W-S-005"
+      ],
+      "dimension": 2,
+      "criterion": "disabled",
+      "baseline_note": "Financial command remains enabled while sending"
+    },
+    {
+      "id": "web-D3-visual_weight-3",
+      "from": "FAIL",
+      "to": "PASS",
+      "finding_ids": [
+        "W-S-020"
+      ],
+      "dimension": 3,
+      "criterion": "visual_weight",
+      "baseline_note": "Partner log screen removes all content"
+    },
+    {
+      "id": "web-D3-CTA-3",
+      "from": "FAIL",
+      "to": "PASS",
+      "finding_ids": [
+        "W-S-020"
+      ],
+      "dimension": 3,
+      "criterion": "CTA",
+      "baseline_note": "Partner-log crash removes navigation/recovery actions"
+    },
+    {
+      "id": "web-D4-recovery-1",
+      "from": "FAIL",
+      "to": "PASS",
+      "finding_ids": [
+        "W-S-016"
+      ],
+      "dimension": 4,
+      "criterion": "recovery",
+      "baseline_note": "Critical nested read failures become empty data"
+    },
+    {
+      "id": "web-D4-recovery-2",
+      "from": "FAIL",
+      "to": "PASS",
+      "finding_ids": [
+        "W-S-020"
+      ],
+      "dimension": 4,
+      "criterion": "recovery",
+      "baseline_note": "Render error removes shell and recovery"
+    },
+    {
+      "id": "web-D4-indicators-2",
+      "from": "FAIL",
+      "to": "PASS",
+      "finding_ids": [
+        "W-S-005"
+      ],
+      "dimension": 4,
+      "criterion": "indicators",
+      "baseline_note": "Payment action has no pending guard"
+    },
+    {
+      "id": "mobile-D3-CTA-2",
+      "from": "FAIL",
+      "to": "PASS",
+      "finding_ids": [
+        "M-002"
+      ],
+      "dimension": 3,
+      "criterion": "CTA",
+      "baseline_note": "Dark filled confirm loses text contrast"
+    },
+    {
+      "id": "mobile-D4-recovery-3",
+      "from": "FAIL",
+      "to": "PASS",
+      "finding_ids": [
+        "M-003"
+      ],
+      "dimension": 4,
+      "criterion": "recovery",
+      "baseline_note": "No-permission authenticated fallback lacks exit"
+    }
+  ],
+  "no_existing_ux_gap_observation_for": [
+    "W-S-002",
+    "W-S-003",
+    "M-001"
+  ],
+  "policy": [
+    "Keep exact observation IDs, criteria weights, denominators, N/A and UNKNOWN statuses.",
+    "Leave P2/P3-linked FAIL observations unchanged.",
+    "Do not add score observations for newly checked dialogs or selectors during this before/after comparison.",
+    "Nielsen possible severities and uncertainty floor stay unchanged because unknown coverage remains."
+  ],
+  "projections": {
+    "web": {
+      "ux_gap": {
+        "baseline": {
+          "min": 48.67424242424242,
+          "max": 79.40151515151516
+        },
+        "conditional_after_all_nine_verified": {
+          "min": 57.40909090909091,
+          "max": 88.13636363636364
+        },
+        "observed_coverage_unchanged": 0.78,
+        "dimensions": [
+          {
+            "dimension": 1,
+            "baseline": {
+              "min": 14.5,
+              "max": 21
+            },
+            "conditional_after_all_nine_verified": {
+              "min": 14.5,
+              "max": 21
+            },
+            "criteria": [
+              {
+                "criterion": "type_scale",
+                "denominator_preserved": 2,
+                "weight": 5,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "font_weight",
+                "denominator_preserved": 1,
+                "weight": 3,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "line_height",
+                "denominator_preserved": 2,
+                "weight": 3,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "letter_spacing",
+                "denominator_preserved": 1,
+                "weight": 2,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "spacing_rhythm",
+                "denominator_preserved": 2,
+                "weight": 5,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "margin_padding",
+                "denominator_preserved": 2,
+                "weight": 4,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "whitespace",
+                "denominator_preserved": 1,
+                "weight": 3,
+                "promoted_ids": []
+              }
+            ]
+          },
+          {
+            "dimension": 2,
+            "baseline": {
+              "min": 8.5,
+              "max": 21
+            },
+            "conditional_after_all_nine_verified": {
+              "min": 11.25,
+              "max": 23.75
+            },
+            "criteria": [
+              {
+                "criterion": "hover",
+                "denominator_preserved": 2,
+                "weight": 5,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "focus",
+                "denominator_preserved": 4,
+                "weight": 5,
+                "promoted_ids": [
+                  "web-D2-focus-3"
+                ]
+              },
+              {
+                "criterion": "active",
+                "denominator_preserved": 1,
+                "weight": 3,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "timing",
+                "denominator_preserved": 1,
+                "weight": 4,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "cursor",
+                "denominator_preserved": 1,
+                "weight": 2,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "disabled",
+                "denominator_preserved": 2,
+                "weight": 3,
+                "promoted_ids": [
+                  "web-D2-disabled-2"
+                ]
+              },
+              {
+                "criterion": "easing",
+                "denominator_preserved": 1,
+                "weight": 3,
+                "promoted_ids": []
+              }
+            ]
+          },
+          {
+            "dimension": 3,
+            "baseline": {
+              "min": 18.666666666666664,
+              "max": 20.166666666666664
+            },
+            "conditional_after_all_nine_verified": {
+              "min": 22,
+              "max": 23.5
+            },
+            "criteria": [
+              {
+                "criterion": "visual_weight",
+                "denominator_preserved": 3,
+                "weight": 5,
+                "promoted_ids": [
+                  "web-D3-visual_weight-3"
+                ]
+              },
+              {
+                "criterion": "headings",
+                "denominator_preserved": 2,
+                "weight": 3,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "CTA",
+                "denominator_preserved": 3,
+                "weight": 5,
+                "promoted_ids": [
+                  "web-D3-CTA-3"
+                ]
+              },
+              {
+                "criterion": "density",
+                "denominator_preserved": 2,
+                "weight": 3,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "separation",
+                "denominator_preserved": 1,
+                "weight": 3,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "data_chrome",
+                "denominator_preserved": 2,
+                "weight": 3,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "above_fold",
+                "denominator_preserved": 2,
+                "weight": 3,
+                "promoted_ids": []
+              }
+            ]
+          },
+          {
+            "dimension": 4,
+            "baseline": {
+              "min": 7.007575757575759,
+              "max": 17.234848484848484
+            },
+            "conditional_after_all_nine_verified": {
+              "min": 9.65909090909091,
+              "max": 19.886363636363637
+            },
+            "criteria": [
+              {
+                "criterion": "initial",
+                "denominator_preserved": 1,
+                "weight": 5,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "progressive",
+                "denominator_preserved": 1,
+                "weight": 3,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "empty",
+                "denominator_preserved": 2,
+                "weight": 5,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "validation",
+                "denominator_preserved": 2,
+                "weight": 4,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "recovery",
+                "denominator_preserved": 3,
+                "weight": 2,
+                "promoted_ids": [
+                  "web-D4-recovery-1",
+                  "web-D4-recovery-2"
+                ]
+              },
+              {
+                "criterion": "indicators",
+                "denominator_preserved": 3,
+                "weight": 3,
+                "promoted_ids": [
+                  "web-D4-indicators-2"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "nielsen": {
+        "baseline": {
+          "observed": 30,
+          "min": 0,
+          "max": 30
+        },
+        "conditional_after_all_nine_verified": {
+          "observed": 55,
+          "min": 0,
+          "max": 55
+        },
+        "heuristics": [
+          {
+            "id": "H1",
+            "baseline_verified_max_severity": 4,
+            "conditional_verified_max_severity": 2,
+            "possible_max_severity": 4,
+            "remaining_finding_ids": [
+              "W-S-004",
+              "W-S-007",
+              "W-S-008",
+              "W-S-009",
+              "W-S-010",
+              "W-S-015",
+              "W-S-017",
+              "W-S-018"
+            ],
+            "unknown_ids_unchanged": [
+              "U-01",
+              "U-03",
+              "U-04",
+              "U-05",
+              "U-06",
+              "U-07",
+              "U-09",
+              "U-10",
+              "U-11"
+            ]
+          },
+          {
+            "id": "H2",
+            "baseline_verified_max_severity": 2,
+            "conditional_verified_max_severity": 2,
+            "possible_max_severity": 4,
+            "remaining_finding_ids": [
+              "W-S-008",
+              "W-S-011",
+              "W-S-012",
+              "W-S-013",
+              "W-S-017"
+            ],
+            "unknown_ids_unchanged": [
+              "U-01",
+              "U-03",
+              "U-04",
+              "U-05",
+              "U-06",
+              "U-07",
+              "U-09",
+              "U-10",
+              "U-11"
+            ]
+          },
+          {
+            "id": "H3",
+            "baseline_verified_max_severity": 4,
+            "conditional_verified_max_severity": 2,
+            "possible_max_severity": 4,
+            "remaining_finding_ids": [
+              "W-S-004",
+              "W-S-012",
+              "W-S-014",
+              "W-S-019"
+            ],
+            "unknown_ids_unchanged": [
+              "U-01",
+              "U-03",
+              "U-04",
+              "U-05",
+              "U-06",
+              "U-07",
+              "U-09",
+              "U-10",
+              "U-11"
+            ]
+          },
+          {
+            "id": "H4",
+            "baseline_verified_max_severity": 3,
+            "conditional_verified_max_severity": 2,
+            "possible_max_severity": 4,
+            "remaining_finding_ids": [
+              "W-R-001",
+              "W-R-002",
+              "W-S-007",
+              "W-S-009",
+              "W-S-019",
+              "W-R-003",
+              "W-R-004"
+            ],
+            "unknown_ids_unchanged": [
+              "U-01",
+              "U-03",
+              "U-04",
+              "U-05",
+              "U-06",
+              "U-07",
+              "U-09",
+              "U-10",
+              "U-11"
+            ]
+          },
+          {
+            "id": "H5",
+            "baseline_verified_max_severity": 3,
+            "conditional_verified_max_severity": 2,
+            "possible_max_severity": 4,
+            "remaining_finding_ids": [
+              "W-S-006",
+              "W-S-008",
+              "W-S-009",
+              "W-S-011",
+              "W-S-012",
+              "W-S-017",
+              "W-S-018"
+            ],
+            "unknown_ids_unchanged": [
+              "U-01",
+              "U-03",
+              "U-04",
+              "U-05",
+              "U-06",
+              "U-07",
+              "U-09",
+              "U-10",
+              "U-11"
+            ]
+          },
+          {
+            "id": "H6",
+            "baseline_verified_max_severity": 3,
+            "conditional_verified_max_severity": 2,
+            "possible_max_severity": 4,
+            "remaining_finding_ids": [
+              "W-S-013",
+              "W-S-014"
+            ],
+            "unknown_ids_unchanged": [
+              "U-01",
+              "U-03",
+              "U-04",
+              "U-05",
+              "U-06",
+              "U-07",
+              "U-09",
+              "U-10",
+              "U-11"
+            ]
+          },
+          {
+            "id": "H7",
+            "baseline_verified_max_severity": 3,
+            "conditional_verified_max_severity": 2,
+            "possible_max_severity": 4,
+            "remaining_finding_ids": [
+              "W-R-002",
+              "W-S-013",
+              "W-S-014"
+            ],
+            "unknown_ids_unchanged": [
+              "U-01",
+              "U-03",
+              "U-04",
+              "U-05",
+              "U-06",
+              "U-07",
+              "U-09",
+              "U-10",
+              "U-11"
+            ]
+          },
+          {
+            "id": "H8",
+            "baseline_verified_max_severity": 2,
+            "conditional_verified_max_severity": 2,
+            "possible_max_severity": 4,
+            "remaining_finding_ids": [
+              "W-R-001"
+            ],
+            "unknown_ids_unchanged": [
+              "U-01",
+              "U-03",
+              "U-04",
+              "U-05",
+              "U-06",
+              "U-07",
+              "U-09",
+              "U-10",
+              "U-11"
+            ]
+          },
+          {
+            "id": "H9",
+            "baseline_verified_max_severity": 4,
+            "conditional_verified_max_severity": 2,
+            "possible_max_severity": 4,
+            "remaining_finding_ids": [
+              "W-S-004",
+              "W-S-006",
+              "W-S-010",
+              "W-S-015"
+            ],
+            "unknown_ids_unchanged": [
+              "U-01",
+              "U-03",
+              "U-04",
+              "U-05",
+              "U-06",
+              "U-07",
+              "U-09",
+              "U-10",
+              "U-11"
+            ]
+          },
+          {
+            "id": "H10",
+            "baseline_verified_max_severity": 0,
+            "conditional_verified_max_severity": 0,
+            "possible_max_severity": 4,
+            "remaining_finding_ids": [],
+            "unknown_ids_unchanged": [
+              "U-01",
+              "U-03",
+              "U-04",
+              "U-05",
+              "U-06",
+              "U-07",
+              "U-09",
+              "U-10",
+              "U-11"
+            ]
+          }
+        ]
+      }
+    },
+    "mobile": {
+      "ux_gap": {
+        "baseline": {
+          "min": 39.13636363636364,
+          "max": 69.58333333333334
+        },
+        "conditional_after_all_nine_verified": {
+          "min": 42.20454545454546,
+          "max": 72.65151515151516
+        },
+        "observed_coverage_unchanged": 0.78,
+        "dimensions": [
+          {
+            "dimension": 1,
+            "baseline": {
+              "min": 12,
+              "max": 14
+            },
+            "conditional_after_all_nine_verified": {
+              "min": 12,
+              "max": 14
+            },
+            "criteria": [
+              {
+                "criterion": "type_scale",
+                "denominator_preserved": 2,
+                "weight": 5,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "font_weight",
+                "denominator_preserved": 2,
+                "weight": 3,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "line_height",
+                "denominator_preserved": 3,
+                "weight": 3,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "letter_spacing",
+                "denominator_preserved": 1,
+                "weight": 2,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "spacing_rhythm",
+                "denominator_preserved": 2,
+                "weight": 5,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "margin_padding",
+                "denominator_preserved": 2,
+                "weight": 4,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "whitespace",
+                "denominator_preserved": 2,
+                "weight": 3,
+                "promoted_ids": []
+              }
+            ]
+          },
+          {
+            "dimension": 2,
+            "baseline": {
+              "min": 4.166666666666667,
+              "max": 25
+            },
+            "conditional_after_all_nine_verified": {
+              "min": 4.166666666666667,
+              "max": 25
+            },
+            "criteria": [
+              {
+                "criterion": "focus",
+                "denominator_preserved": 1,
+                "weight": 5,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "active",
+                "denominator_preserved": 2,
+                "weight": 3,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "timing",
+                "denominator_preserved": 1,
+                "weight": 4,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "disabled",
+                "denominator_preserved": 2,
+                "weight": 3,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "easing",
+                "denominator_preserved": 1,
+                "weight": 3,
+                "promoted_ids": []
+              }
+            ]
+          },
+          {
+            "dimension": 3,
+            "baseline": {
+              "min": 13.5,
+              "max": 16
+            },
+            "conditional_after_all_nine_verified": {
+              "min": 16,
+              "max": 18.5
+            },
+            "criteria": [
+              {
+                "criterion": "visual_weight",
+                "denominator_preserved": 2,
+                "weight": 5,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "headings",
+                "denominator_preserved": 3,
+                "weight": 3,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "CTA",
+                "denominator_preserved": 2,
+                "weight": 5,
+                "promoted_ids": [
+                  "mobile-D3-CTA-2"
+                ]
+              },
+              {
+                "criterion": "density",
+                "denominator_preserved": 2,
+                "weight": 3,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "separation",
+                "denominator_preserved": 1,
+                "weight": 3,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "data_chrome",
+                "denominator_preserved": 2,
+                "weight": 3,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "above_fold",
+                "denominator_preserved": 2,
+                "weight": 3,
+                "promoted_ids": []
+              }
+            ]
+          },
+          {
+            "dimension": 4,
+            "baseline": {
+              "min": 9.469696969696969,
+              "max": 14.583333333333336
+            },
+            "conditional_after_all_nine_verified": {
+              "min": 10.037878787878789,
+              "max": 15.151515151515152
+            },
+            "criteria": [
+              {
+                "criterion": "initial",
+                "denominator_preserved": 2,
+                "weight": 5,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "progressive",
+                "denominator_preserved": 1,
+                "weight": 3,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "empty",
+                "denominator_preserved": 2,
+                "weight": 5,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "validation",
+                "denominator_preserved": 3,
+                "weight": 4,
+                "promoted_ids": []
+              },
+              {
+                "criterion": "recovery",
+                "denominator_preserved": 4,
+                "weight": 2,
+                "promoted_ids": [
+                  "mobile-D4-recovery-3"
+                ]
+              },
+              {
+                "criterion": "indicators",
+                "denominator_preserved": 3,
+                "weight": 3,
+                "promoted_ids": []
+              }
+            ]
+          }
+        ]
+      },
+      "nielsen": {
+        "baseline": {
+          "observed": 45,
+          "min": 0,
+          "max": 45
+        },
+        "conditional_after_all_nine_verified": {
+          "observed": 60,
+          "min": 0,
+          "max": 60
+        },
+        "heuristics": [
+          {
+            "id": "H1",
+            "baseline_verified_max_severity": 2,
+            "conditional_verified_max_severity": 2,
+            "possible_max_severity": 4,
+            "remaining_finding_ids": [
+              "M-008",
+              "M-009"
+            ],
+            "unknown_ids_unchanged": [
+              "U-01",
+              "U-02",
+              "U-03",
+              "U-04",
+              "U-08",
+              "U-09",
+              "U-11"
+            ]
+          },
+          {
+            "id": "H2",
+            "baseline_verified_max_severity": 2,
+            "conditional_verified_max_severity": 2,
+            "possible_max_severity": 4,
+            "remaining_finding_ids": [
+              "M-006",
+              "M-007"
+            ],
+            "unknown_ids_unchanged": [
+              "U-01",
+              "U-02",
+              "U-03",
+              "U-04",
+              "U-08",
+              "U-09",
+              "U-11"
+            ]
+          },
+          {
+            "id": "H3",
+            "baseline_verified_max_severity": 3,
+            "conditional_verified_max_severity": 0,
+            "possible_max_severity": 4,
+            "remaining_finding_ids": [],
+            "unknown_ids_unchanged": [
+              "U-01",
+              "U-02",
+              "U-03",
+              "U-04",
+              "U-08",
+              "U-09",
+              "U-11"
+            ]
+          },
+          {
+            "id": "H4",
+            "baseline_verified_max_severity": 3,
+            "conditional_verified_max_severity": 2,
+            "possible_max_severity": 4,
+            "remaining_finding_ids": [
+              "M-004",
+              "M-005",
+              "M-011",
+              "M-014",
+              "M-013"
+            ],
+            "unknown_ids_unchanged": [
+              "U-01",
+              "U-02",
+              "U-03",
+              "U-04",
+              "U-08",
+              "U-09",
+              "U-11"
+            ]
+          },
+          {
+            "id": "H5",
+            "baseline_verified_max_severity": 3,
+            "conditional_verified_max_severity": 2,
+            "possible_max_severity": 4,
+            "remaining_finding_ids": [
+              "M-004",
+              "M-010",
+              "M-012"
+            ],
+            "unknown_ids_unchanged": [
+              "U-01",
+              "U-02",
+              "U-03",
+              "U-04",
+              "U-08",
+              "U-09",
+              "U-11"
+            ]
+          },
+          {
+            "id": "H6",
+            "baseline_verified_max_severity": 2,
+            "conditional_verified_max_severity": 2,
+            "possible_max_severity": 4,
+            "remaining_finding_ids": [
+              "M-006",
+              "M-009",
+              "M-014"
+            ],
+            "unknown_ids_unchanged": [
+              "U-01",
+              "U-02",
+              "U-03",
+              "U-04",
+              "U-08",
+              "U-09",
+              "U-11"
+            ]
+          },
+          {
+            "id": "H7",
+            "baseline_verified_max_severity": 2,
+            "conditional_verified_max_severity": 2,
+            "possible_max_severity": 4,
+            "remaining_finding_ids": [
+              "M-010",
+              "M-011"
+            ],
+            "unknown_ids_unchanged": [
+              "U-01",
+              "U-02",
+              "U-03",
+              "U-04",
+              "U-08",
+              "U-09",
+              "U-11"
+            ]
+          },
+          {
+            "id": "H8",
+            "baseline_verified_max_severity": 2,
+            "conditional_verified_max_severity": 2,
+            "possible_max_severity": 4,
+            "remaining_finding_ids": [
+              "M-005",
+              "M-007"
+            ],
+            "unknown_ids_unchanged": [
+              "U-01",
+              "U-02",
+              "U-03",
+              "U-04",
+              "U-08",
+              "U-09",
+              "U-11"
+            ]
+          },
+          {
+            "id": "H9",
+            "baseline_verified_max_severity": 3,
+            "conditional_verified_max_severity": 2,
+            "possible_max_severity": 4,
+            "remaining_finding_ids": [
+              "M-008",
+              "M-012"
+            ],
+            "unknown_ids_unchanged": [
+              "U-01",
+              "U-02",
+              "U-03",
+              "U-04",
+              "U-08",
+              "U-09",
+              "U-11"
+            ]
+          },
+          {
+            "id": "H10",
+            "baseline_verified_max_severity": 0,
+            "conditional_verified_max_severity": 0,
+            "possible_max_severity": 4,
+            "remaining_finding_ids": [],
+            "unknown_ids_unchanged": [
+              "U-01",
+              "U-02",
+              "U-03",
+              "U-04",
+              "U-08",
+              "U-09",
+              "U-11"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "status": "VERIFIED",
+  "change": "Dùng ID canonical backend khi không có mã hiển thị; không tạo mã nghiệp vụ mới. Contract regression RED/GREEN và actual Container360 hiển thị UUID đúng record.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/services/mappers/live-view.mapper.ts",
+      "line": 182,
+      "detail": "orderCode: asString(d.orderCode ?? d.orderNumber ?? d.id)",
+      "snippet": "      orderCode: asString(d.orderCode ?? d.orderNumber ?? d.id),\n      containerVisitId: asString(d.containerVisitId),\n      containerNumber: containerNumber(enrich(d)),\n      status: asEnum(d.status, ['DRAFT', 'AUTHORIZED', 'EXPIRED', 'CANCELLED'], 'DRAFT'),"
+    },
+    {
+      "file": "apps/api/prisma/schema.prisma",
+      "line": 904,
+      "detail": "model MovementOrder",
+      "snippet": "model MovementOrder {\n  id String @id @default(uuid()) @db.Char(36)\n\n  containerVisitId String @map(\"container_visit_id\") @db.Char(36)"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/movement-identity-red-2026-10-04.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/movement-identity-green-2026-10-04.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/dependency-detail-checkpoint-2026-10-04.md",
+    "audit/runs/2026-10-03-improvement-02/raw/browser/container-movement-identity-after-2026-10-04.json"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Meaningful RED/GREEN source regression; real API only if explicitly linked.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/services/mappers/live-view.mapper.ts.diff"
+  ],
+  "isolated_review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/dependency-detail-2026-10-04/W-N-024.diff"
+  ]
+}

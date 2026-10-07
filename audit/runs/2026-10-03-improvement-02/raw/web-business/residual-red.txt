@@ -1,0 +1,78 @@
+✖ manifest MBL blank save identifies the required number and keeps its form (424.3088ms)
+✖ Container Gate Pass failed readiness exposes retry without saying business conditions failed (106.4542ms)
+✖ Container Gate Pass renders a token-bearing QR only while the pass is valid (37.301ms)
+✖ dirty create dialog prevents cancelled navigation and blocks navigation while pending (73.1619ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 0
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6488.3652
+
+✖ failing tests:
+
+test at audit\tools\improvement-web-business.test.mjs:109:1
+✖ manifest MBL blank save identifies the required number and keeps its form (424.3088ms)
+  AssertionError [ERR_ASSERTION]: button /Thêm MBL|Thêm Master BL/
+      at click (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:38:132)
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:111:11)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:40:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:110:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\improvement-web-business.test.mjs:118:1
+✖ Container Gate Pass failed readiness exposes retry without saying business conditions failed (106.4542ms)
+  TypeError: Cannot read properties of undefined (reading 'toLocaleString')
+      at ContainersView (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\ContainersView.tsx:585:81)
+      at Object.react_stack_bottom_frame (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:25904:20)
+      at renderWithHooks (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:7662:22)
+      at updateFunctionComponent (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:10166:19)
+      at beginWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:11778:18)
+      at runWithFiberInDEV (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:871:30)
+      at performUnitOfWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17641:22)
+      at workLoopSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17469:41)
+      at renderRootSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17450:11)
+      at performWorkOnRoot (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:16583:35)
+
+test at audit\tools\improvement-web-business.test.mjs:127:1
+✖ Container Gate Pass renders a token-bearing QR only while the pass is valid (37.301ms)
+  TypeError: Cannot read properties of undefined (reading 'toLocaleString')
+      at ContainersView (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\ContainersView.tsx:585:81)
+      at Object.react_stack_bottom_frame (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:25904:20)
+      at renderWithHooks (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:7662:22)
+      at updateFunctionComponent (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:10166:19)
+      at beginWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:11778:18)
+      at runWithFiberInDEV (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:871:30)
+      at performUnitOfWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17641:22)
+      at workLoopSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17469:41)
+      at renderRootSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17450:11)
+      at performWorkOnRoot (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:16583:35)
+
+test at audit\tools\improvement-web-business.test.mjs:135:1
+✖ dirty create dialog prevents cancelled navigation and blocks navigation while pending (73.1619ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:141:12)
+      at async withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:40:5)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:136:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

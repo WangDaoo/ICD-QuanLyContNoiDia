@@ -1,0 +1,30 @@
+{
+  "id": "W-S-005",
+  "scope": "P1 financial Record Payment only",
+  "source": "apps/web/src/components/BillingView.tsx",
+  "baseline_sha256": "1F033639CFAC6B4B9EEEBEAEE8E2806A3B71387F8DEF69D7D7BA515BD7FBBA28",
+  "after_sha256": "7C819A293E94F1120CF53E8C7D8A7538A7D83943E1D40DA818A04BCB81D9735F",
+  "after_snapshot_scope": "Payment change before W-S-001/W-S-002 integration",
+  "verification": "PASS_FIXTURE_AND_TYPECHECK",
+  "test_command": "node --test audit/raw/re-audit/billing/billing-payment.test.cjs",
+  "tests": { "red_failed": 4, "green_passed": 4, "green_failed": 0 },
+  "typecheck_command": "pnpm --filter @icd/web typecheck",
+  "typecheck_exit": 0,
+  "artifacts": [
+    "audit/raw/re-audit/billing/red.txt",
+    "audit/raw/re-audit/billing/green.txt",
+    "audit/raw/re-audit/billing/typecheck.txt",
+    "audit/raw/re-audit/billing/billing-payment.test.cjs",
+    "audit/raw/re-audit/billing/fix-log.md",
+    "audit/fixes/W-S-005/before/BillingView.tsx",
+    "audit/fixes/W-S-005/after/BillingView.tsx",
+    "audit/fixes/W-S-005/change.diff"
+  ],
+  "limitations": [
+    "No real payment request; useApp and recordPayment are in-memory fixtures.",
+    "No claim about backend idempotency, accepted duplicate payments or double charging.",
+    "jsdom dialog showModal/close shims model open state only, not top-layer focus behavior.",
+    "Real-browser keyboard and modal integration requires root verification.",
+    "Non-financial P2 pending subcases unchanged."
+  ]
+}

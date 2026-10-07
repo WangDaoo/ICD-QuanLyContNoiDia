@@ -1,0 +1,37 @@
+{
+  "role": "ADMIN",
+  "configId": "progressive-catalog-fixed-5s-oct04-r2",
+  "slowResource": "GET /api/admin/master-data/shipping-lines",
+  "delayMs": 5000,
+  "status": "PASS",
+  "finding": "W-N-022",
+  "series": [
+    {
+      "stage": "start",
+      "at": "2026-10-04T03:14:25.711Z"
+    },
+    {
+      "stage": "initial",
+      "at": "2026-10-04T03:14:26.064Z",
+      "snapshot": "- main:\n  - heading \"Khôi phục phiên làm việc\" [level=1]\n  - status:\n    - text: Đang kiểm tra phiên làm việc…"
+    },
+    {
+      "stage": "partial",
+      "at": "2026-10-04T03:14:26.397Z",
+      "proof": {
+        "globalPending": "true",
+        "knownRow": "AUDU4246647\t20GP\tAUD25157BF4 Audit Consignee\tAUD25157BF4/A/03/01\tIN_YARD\t3/10/2026\t0 ngày\t\nHolds chưa kiểm tra\n\tChi tiết →"
+      }
+    },
+    {
+      "stage": "complete",
+      "at": "2026-10-04T03:14:38.205Z",
+      "proof": {
+        "globalPending": "false",
+        "knownRow": "AUDU4246647\t20GP\tAUD25157BF4 Audit Consignee\tAUD25157BF4/A/03/01\tIN_YARD\t3/10/2026\t0 ngày\t\n\tChi tiết →"
+      }
+    }
+  ],
+  "scope": "Canonical assigned location is visible while unrelated read is pending; safety holds still explicitly unverified until full reconciliation",
+  "timingMethod": "Host CUA observation timestamps; does not establish input-to-paint p95"
+}

@@ -1,0 +1,22 @@
+{
+  "status": "FIXED",
+  "change": "Native date/time picker with explicit Vietnam timezone replaces memorized timestamp input.",
+  "source_evidence": [
+    {
+      "file": "apps/mobile/src/components/BookingDateField.tsx",
+      "line": 9,
+      "detail": "export function",
+      "snippet": "export function BookingDateField({ value, onChange, disabled, error }: { value: string; onChange: (value: string) => void; disabled?: boolean; error?: string }) {\n  const { theme } = useTheme();\n  const styles = useFieldStyles();\n  const [picker, setPicker] = useState<'date' | 'time' | null>(null);"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+  ],
+  "limitations": "Expo-compatible9.1.0 installed; native picker/cancel/timezone not yet exercised this run.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/components/BookingDateField.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

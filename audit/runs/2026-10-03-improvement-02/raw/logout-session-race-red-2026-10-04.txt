@@ -1,0 +1,97 @@
+✖ auth service completed old logout cannot erase a completed new login (154.1241ms)
+✖ auth service rejected old logout cannot erase a completed new login (13.7861ms)
+✔ same-session credential rotation during logout still permits definitive local cleanup (11.3248ms)
+✔ same-session rejected logout clears local credentials while preserving the transport error (14.0284ms)
+✖ provider completed old logout cannot replace a verified new login with signed-out state (71.5067ms)
+✖ provider rejected old logout cannot replace a verified new login with signed-out state (27.2193ms)
+✔ provider same-session rejected logout definitively removes protected data and loading state (19.9345ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 3
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5142.6683
+
+✖ failing tests:
+
+test at audit\tools\tests\logout-session-race.test.mjs:49:3
+✖ auth service completed old logout cannot erase a completed new login (154.1241ms)
+  AssertionError [ERR_ASSERTION]: a previous actor cleanup must not erase the new credentials
+  + actual - expected
+  
+  + null
+  - 'new-B-access'
+  
+      at file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/logout-session-race.test.mjs:57:14
+      at async fixture (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/logout-session-race.test.mjs:39:5)
+      at async TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/logout-session-race.test.mjs:50:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: 'new-B-access',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\logout-session-race.test.mjs:49:3
+✖ auth service rejected old logout cannot erase a completed new login (13.7861ms)
+  AssertionError [ERR_ASSERTION]: a previous actor cleanup must not erase the new credentials
+  + actual - expected
+  
+  + null
+  - 'new-B-access'
+  
+      at file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/logout-session-race.test.mjs:57:14
+      at async fixture (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/logout-session-race.test.mjs:39:5)
+      at async TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/logout-session-race.test.mjs:50:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: 'new-B-access',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\logout-session-race.test.mjs:91:3
+✖ provider completed old logout cannot replace a verified new login with signed-out state (71.5067ms)
+  AssertionError [ERR_ASSERTION]: old logout finally must not clear a newer actor state
+  
+  false !== true
+  
+      at file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/logout-session-race.test.mjs:104:14
+      at async fixture (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/logout-session-race.test.mjs:39:5)
+      at async TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/logout-session-race.test.mjs:92:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\logout-session-race.test.mjs:91:3
+✖ provider rejected old logout cannot replace a verified new login with signed-out state (27.2193ms)
+  AssertionError [ERR_ASSERTION]: old logout finally must not clear a newer actor state
+  
+  false !== true
+  
+      at file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/logout-session-race.test.mjs:104:14
+      at async fixture (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/logout-session-race.test.mjs:39:5)
+      at async TestContext.<anonymous> (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/audit/tools/tests/logout-session-race.test.mjs:92:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

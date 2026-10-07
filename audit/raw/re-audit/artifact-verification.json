@@ -1,0 +1,185 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "Baseline documents unchanged",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "All original finding IDs retained",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Only nine approved IDs closed",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Remaining baseline backlog",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "All approved finding verification artifacts exist",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "All finding source line anchors resolve",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "No changed historical source misrepresented as current",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Exactly nine rubric promotions; no denominator changes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "UNKNOWN and N/A observations untouched",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Criterion weights / observation sets unchanged",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "web: UX Gap independently recomputed",
+      "status": "PASS",
+      "detail": {
+        "min": 57.40909090909091,
+        "max": 88.13636363636364
+      }
+    },
+    {
+      "name": "web: Nielsen independently recomputed",
+      "status": "PASS",
+      "detail": 55.0
+    },
+    {
+      "name": "mobile: UX Gap independently recomputed",
+      "status": "PASS",
+      "detail": {
+        "min": 42.20454545454546,
+        "max": 72.65151515151516
+      }
+    },
+    {
+      "name": "mobile: Nielsen independently recomputed",
+      "status": "PASS",
+      "detail": 60.0
+    },
+    {
+      "name": "Fresh coverage scope recorded without blanket PASS",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "All fresh coverage evidence files exist",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Test log: web-tests-final.txt",
+      "status": "PASS",
+      "detail": {
+        "tests": 54
+      }
+    },
+    {
+      "name": "Test log: mobile-tests-final.txt",
+      "status": "PASS",
+      "detail": {
+        "tests": 132
+      }
+    },
+    {
+      "name": "Test log: approved-fix-fixtures-final.txt",
+      "status": "PASS",
+      "detail": {
+        "tests": 57
+      }
+    },
+    {
+      "name": "Final build log includes successful production build",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "ESLint limitations accurately reported",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Changed baseline source still matches captured final hashes",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Protected source/config scope intact",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "New source files remain within approved scope",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Independent native measurements",
+      "status": "PASS",
+      "detail": {
+        "color_pairs": 9,
+        "complete_targets": 331,
+        "partial_excluded": 21
+      }
+    },
+    {
+      "name": "Lighthouse final three runs / original settings",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Original browser tabs preserved and audit tab closed",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "No final browser console errors",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Execution ledger has all approved IDs",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Per-ID reviewable diffs present",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Report file links and screenshots resolve",
+      "status": "PASS",
+      "detail": {
+        "links_checked": 109,
+        "invalid": []
+      }
+    },
+    {
+      "name": "Report retains each finding ID",
+      "status": "PASS",
+      "detail": null
+    }
+  ],
+  "failed": []
+}

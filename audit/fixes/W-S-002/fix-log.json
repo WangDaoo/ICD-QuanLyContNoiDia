@@ -1,0 +1,77 @@
+{
+  "id": "W-S-002",
+  "updated_at": "2026-10-03T02:05:08.147Z",
+  "implementation_status": "SOURCE_FIXED",
+  "verification_status": "STATIC_VERIFIED_RUNTIME_PENDING",
+  "scope": "Visible sibling labels associated using native htmlFor/id; includes eight already ARIA-named Container/GatePass fields with unchanged existing names",
+  "count": 59,
+  "checks": {
+    "source_regression": {
+      "pass": 23,
+      "fail": 0,
+      "baseline_pass": 0,
+      "baseline_fail": 23,
+      "green": "audit/raw/re-audit/web-semantics/green.txt",
+      "red": "audit/raw/re-audit/web-semantics/red.txt"
+    },
+    "modal_lifecycle": {
+      "pass": 4,
+      "fail": 0,
+      "native_browser_tab_check_required": true,
+      "green": "audit/raw/re-audit/web-semantics/modal-green.txt",
+      "red": "audit/raw/re-audit/web-semantics/modal-trap-red.txt"
+    },
+    "web_source_suite": {
+      "pass": 54,
+      "fail": 0,
+      "path": "audit/raw/re-audit/web-semantics/web-source-tests-final.txt"
+    },
+    "typecheck": {
+      "command": "rtk tsc --noEmit --project apps/web/tsconfig.json",
+      "result": "No errors found",
+      "runtime_claim": false
+    }
+  },
+  "runtime_owner": "root",
+  "runtime_status": "UNKNOWN_PENDING_PARENT_NATIVE_CHECKS",
+  "preserved": [
+    "Existing source work and write handlers",
+    "Existing panel styles and information",
+    "P2/P3 scope",
+    "Yard dialog behavior"
+  ],
+  "baseline_policy": "Each before snapshot is the current dirty source immediately before this ID was applied; no Git HEAD reset and no overwrite of audit/raw/baseline.",
+  "notes": [],
+  "supplement": {
+    "count": 8,
+    "path": "audit/fixes/W-S-002/supplement",
+    "red": "audit/raw/re-audit/web-semantics/labels-supplement-red.txt",
+    "green": "audit/raw/re-audit/web-semantics/green.txt",
+    "original_aria_preserved": true,
+    "users_password_field": "Not present in UsersRoles create form"
+  },
+  "parent_final_verification": {
+    "id": "W-S-002",
+    "status": "VERIFIED_IN_APPROVED_SCOPE",
+    "change": "Thêm 59 liên kết label htmlFor/id cho field vận hành; giữ ARIA name đã có. Label được click để đối chiếu focus.",
+    "evidence": [
+      "audit/fixes/W-S-002/inventory.json",
+      "audit/fixes/W-S-002/supplement/inventory.json",
+      "audit/raw/re-audit/web/modal-keyboard-checks.json",
+      "audit/raw/re-audit/web-conditional-forms/coverage.json"
+    ],
+    "source_evidence": [
+      {
+        "file": "apps/web/src/components/TruckVisitsView.tsx",
+        "line": 189,
+        "detail": "htmlFor="
+      },
+      {
+        "file": "apps/web/src/components/ContainersView.tsx",
+        "line": 934,
+        "detail": "htmlFor=\"containers-create"
+      }
+    ],
+    "limitations": "Field có điều kiện kiểm thêm qua 9 fixture component thật, 37 field hiển thị. Chưa xác nhận thông báo screen reader thực tế."
+  }
+}

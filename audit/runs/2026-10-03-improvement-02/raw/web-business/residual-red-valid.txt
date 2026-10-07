@@ -1,0 +1,70 @@
+✖ manifest MBL blank save identifies the required number and keeps its form (460.8388ms)
+✖ Container Gate Pass failed readiness exposes retry without saying business conditions failed (161.1597ms)
+✖ Container Gate Pass renders a token-bearing QR only while the pass is valid (95.1417ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 0
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6585.9349
+
+✖ failing tests:
+
+test at audit\tools\improvement-web-business.test.mjs:109:1
+✖ manifest MBL blank save identifies the required number and keeps its form (460.8388ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  null !== 'true'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:113:12)
+      at async withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:40:5)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:110:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: 'true',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at audit\tools\improvement-web-business.test.mjs:118:1
+✖ Container Gate Pass failed readiness exposes retry without saying business conditions failed (161.1597ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Fixture network error/. Input:
+  
+  'TEST0000001IN_YARD20GPChủ hàng: Fixture · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianPhát hành Phiếu ra cổng (Gate Pass)Chưa thể cấp Phiếu ra cổng vì còn vướng điều kiện chưa đạt. Vui lòng kiểm tra tab Tổng quan.Đóng'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:121:12)
+      at async withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:40:5)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:119:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'TEST0000001IN_YARD20GPChủ hàng: Fixture · Hãng tàu: Fixture · Manifest: MF✕Tổng quan & ReadinessTác nghiệp bãiDịch vụ & Thanh toán (0)Phiếu ra cổngLệnh giữ Holds (0)Dòng thời gianPhát hành Phiếu ra cổng (Gate Pass)Chưa thể cấp Phiếu ra cổng vì còn vướng điều kiện chưa đạt. Vui lòng kiểm tra tab Tổng quan.Đóng',
+    expected: /Fixture network error/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at audit\tools\improvement-web-business.test.mjs:127:1
+✖ Container Gate Pass renders a token-bearing QR only while the pass is valid (95.1417ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(document.querySelector('[data-testid="container-gate-pass-qr"]'))
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:131:12)
+      at async withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:40:5)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\improvement-web-business.test.mjs:129:3)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

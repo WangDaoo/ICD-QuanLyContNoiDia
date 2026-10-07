@@ -1,0 +1,21 @@
+✔ a completed resource is published while an unrelated read remains pending (279.8047ms)
+✔ publication waits for complete and valid pagination without waiting on unrelated reads (20.8049ms)
+✔ a malformed financial response becomes unavailable before any false zero is published (16.8949ms)
+✔ a malformed tariff refresh retains its previously validated derived rules through final reconciliation (29.8582ms)
+✔ a late previous-session resource cannot replace a progressively published new-session resource (28.1262ms)
+✔ transient read failure preserves stale rows and a forbidden read removes them immediately (23.8131ms)
+✔ refresh invalidates old safety readiness until both authoritative safety reads finish (32.0762ms)
+✔ early manifest role and handover lists expose pending detail availability (15.6546ms)
+✔ a later slot response updates an already published container before unrelated reads complete (16.335ms)
+✔ later visit and service-order responses enrich already published operations and invoice references (21.2269ms)
+✔ unavailable slot refresh preserves known location but forbidden slots remove cached enrichment (24.5154ms)
+✔ dependency publication does not replace stale primary rows and forbidden dependencies clear stale enrichment (22.8117ms)
+✔ a slot refresh exposes loading while preserving the previous location until fresh slots establish it (21.0978ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5217.6028

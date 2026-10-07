@@ -1,0 +1,189 @@
+- link "Đến nội dung nghiệp vụ":
+  - /url: "#main-content"
+- banner:
+  - generic: ICD
+  - heading "ICD Management System" [level=1]
+  - paragraph: Cảng cạn & kho bãi container nội địa
+  - text: Đã kết nối
+  - button "Tải lại dữ liệu":
+  - button "Thông báo (0 chưa đọc)":
+  - generic: UI Audit ADMIN
+  - generic: ADMIN
+  - button "Đăng xuất":
+- complementary "Điều hướng nghiệp vụ":
+  - generic: Tổng quan & Điều phối
+  - button "Tổng quan vận hành":
+    - generic: Tổng quan vận hành
+  - button "Danh sách công việc":
+    - generic: Danh sách công việc
+  - generic: Quản lý Hàng hóa & Cổng
+  - button "Bản lược khai (Manifest)":
+    - generic: Bản lược khai (Manifest)
+  - button "Quản lý Container":
+    - generic: Quản lý Container
+  - button "Movement Order":
+    - generic: Movement Order
+  - button "Chuyến xe ra/vào":
+    - generic: Chuyến xe ra/vào
+  - button "Tiếp nhận vào cổng (Gate-in)":
+    - generic: Tiếp nhận vào cổng (Gate-in)
+  - button "Vận hành Bãi (Yard)":
+    - generic: Vận hành Bãi (Yard)
+  - generic: Tài chính & Ra cổng
+  - button "Dịch vụ & Thanh toán":
+    - generic: Dịch vụ & Thanh toán
+  - button "Phiếu ra cổng & Gate-out":
+    - generic: Phiếu ra cổng & Gate-out
+  - button "Vận hành EDI (CODECO)":
+    - generic: Vận hành EDI (CODECO)
+  - generic: Tích hợp đối tác
+  - button "Bàn giao vận chuyển":
+    - generic: Bàn giao vận chuyển
+  - button "Đối tác tích hợp API":
+    - generic: Đối tác tích hợp API
+  - button "Nhật ký API đối tác":
+    - generic: Nhật ký API đối tác
+  - generic: Hệ thống & Quản trị
+  - button "Danh mục dùng chung" [active]:
+    - generic: Danh mục dùng chung
+  - button "Người dùng & Phân quyền":
+    - generic: Người dùng & Phân quyền
+  - button "Báo cáo vận hành":
+    - generic: Báo cáo vận hành
+  - button "Nhật ký kiểm toán":
+    - generic: Nhật ký kiểm toán
+  - generic: UI Audit ADMIN
+  - generic: ui-admin@audit.icd.test
+  - generic: ADMIN
+- main:
+  - heading "Danh mục dùng chung (Master Data)" [level=2]:
+    - generic: Danh mục dùng chung (Master Data)
+  - paragraph: Catalog dùng chung cho Manifest/HBL/Truck Visit. Không hard-delete — chỉ khóa (active=false) để giữ lịch sử.
+  - button "Thêm mới":
+    - generic: Thêm mới
+  - button "Hãng tàu (Shipping Line)" [pressed]:
+    - text: Hãng tàu (Shipping Line)
+  - button "Chủ hàng (Consignee)":
+    - text: Chủ hàng (Consignee)
+  - button "Đại lý Hải quan":
+    - text: Đại lý Hải quan
+  - button "Đơn vị Vận tải":
+    - text: Đơn vị Vận tải
+  - table:
+    - rowgroup:
+      - row "Tên Mã số Trạng thái Hành động":
+        - columnheader "Tên"
+        - columnheader "Mã số"
+        - columnheader "Trạng thái"
+        - columnheader "Hành động"
+    - rowgroup:
+      - row "CMA CGM Group CMDU ACTIVE Khóa":
+        - cell "CMA CGM Group"
+        - cell "CMDU"
+        - cell "ACTIVE"
+        - cell "Khóa":
+          - button "Khóa"
+      - row "Công ty Cổ phần Gemadept (GMD Shipping) GLDU ACTIVE Khóa":
+        - cell "Công ty Cổ phần Gemadept (GMD Shipping)"
+        - cell "GLDU"
+        - cell "ACTIVE"
+        - cell "Khóa":
+          - button "Khóa"
+      - row "Công ty Cổ phần Vận tải biển Việt Nam (VOSCO) VSCU ACTIVE Khóa":
+        - cell "Công ty Cổ phần Vận tải biển Việt Nam (VOSCO)"
+        - cell "VSCU"
+        - cell "ACTIVE"
+        - cell "Khóa":
+          - button "Khóa"
+      - row "Công ty Cổ phần Vinafco (Vinafco Shipping) VFCU ACTIVE Khóa":
+        - cell "Công ty Cổ phần Vinafco (Vinafco Shipping)"
+        - cell "VFCU"
+        - cell "ACTIVE"
+        - cell "Khóa":
+          - button "Khóa"
+      - row "Công ty CP Vận tải Thủy Tân Cảng (Tan Cang Shipping) TCSU ACTIVE Khóa":
+        - cell "Công ty CP Vận tải Thủy Tân Cảng (Tan Cang Shipping)"
+        - cell "TCSU"
+        - cell "ACTIVE"
+        - cell "Khóa":
+          - button "Khóa"
+      - row "Công ty CP Vận tải và Xếp dỡ Hải An (HATS / HAH) HACU ACTIVE Khóa":
+        - cell "Công ty CP Vận tải và Xếp dỡ Hải An (HATS / HAH)"
+        - cell "HACU"
+        - cell "ACTIVE"
+        - cell "Khóa":
+          - button "Khóa"
+      - row "Công ty Vận tải Biển Đông (Bien Dong Shipping) BDCU ACTIVE Khóa":
+        - cell "Công ty Vận tải Biển Đông (Bien Dong Shipping)"
+        - cell "BDCU"
+        - cell "ACTIVE"
+        - cell "Khóa":
+          - button "Khóa"
+      - row "Công ty Vận tải biển Nhật Việt (Glory Marine) GLRU ACTIVE Khóa":
+        - cell "Công ty Vận tải biển Nhật Việt (Glory Marine)"
+        - cell "GLRU"
+        - cell "ACTIVE"
+        - cell "Khóa":
+          - button "Khóa"
+      - row "COSCO Shipping Lines COSU ACTIVE Khóa":
+        - cell "COSCO Shipping Lines"
+        - cell "COSU"
+        - cell "ACTIVE"
+        - cell "Khóa":
+          - button "Khóa"
+      - row "Evergreen Marine Corp. EGLV ACTIVE Khóa":
+        - cell "Evergreen Marine Corp."
+        - cell "EGLV"
+        - cell "ACTIVE"
+        - cell "Khóa":
+          - button "Khóa"
+      - row "Hapag-Lloyd AG HLCU ACTIVE Khóa":
+        - cell "Hapag-Lloyd AG"
+        - cell "HLCU"
+        - cell "ACTIVE"
+        - cell "Khóa":
+          - button "Khóa"
+      - row "HMM Co., Ltd. (Hyundai) HDMU ACTIVE Khóa":
+        - cell "HMM Co., Ltd. (Hyundai)"
+        - cell "HDMU"
+        - cell "ACTIVE"
+        - cell "Khóa":
+          - button "Khóa"
+      - row "Maersk Line (A.P. Moller) MAEU ACTIVE Khóa":
+        - cell "Maersk Line (A.P. Moller)"
+        - cell "MAEU"
+        - cell "ACTIVE"
+        - cell "Khóa":
+          - button "Khóa"
+      - row "MSC (Mediterranean Shipping Company) MSCU ACTIVE Khóa":
+        - cell "MSC (Mediterranean Shipping Company)"
+        - cell "MSCU"
+        - cell "ACTIVE"
+        - cell "Khóa":
+          - button "Khóa"
+      - row "ONE (Ocean Network Express) ONEY ACTIVE Khóa":
+        - cell "ONE (Ocean Network Express)"
+        - cell "ONEY"
+        - cell "ACTIVE"
+        - cell "Khóa":
+          - button "Khóa"
+      - row "Tổng công ty Hàng hải Việt Nam (VIMC / Vinalines) VMCU ACTIVE Khóa":
+        - cell "Tổng công ty Hàng hải Việt Nam (VIMC / Vinalines)"
+        - cell "VMCU"
+        - cell "ACTIVE"
+        - cell "Khóa":
+          - button "Khóa"
+      - row "Wan Hai Lines WHLC ACTIVE Khóa":
+        - cell "Wan Hai Lines"
+        - cell "WHLC"
+        - cell "ACTIVE"
+        - cell "Khóa":
+          - button "Khóa"
+      - row "Yang Ming Marine Transport YMLU ACTIVE Khóa":
+        - cell "Yang Ming Marine Transport"
+        - cell "YMLU"
+        - cell "ACTIVE"
+        - cell "Khóa":
+          - button "Khóa"
+      - row:
+        - cell

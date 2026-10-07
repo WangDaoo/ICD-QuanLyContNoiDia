@@ -1,0 +1,32 @@
+[
+  {
+    "file": "apps/web/src/components/ManifestsView.tsx",
+    "handler": "setSelectedManifestId",
+    "selected": "aria-pressed={isSelected}",
+    "focus": "focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+  },
+  {
+    "file": "apps/web/src/components/HandoversView.tsx",
+    "handler": "setSelectedHandover",
+    "selected": "aria-pressed={isSelected}",
+    "focus": "focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+  },
+  {
+    "file": "apps/web/src/components/GatePassView.tsx",
+    "handler": "setSelectedGatePassId",
+    "selected": "aria-pressed={isSelected}",
+    "focus": "focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+  },
+  {
+    "file": "apps/web/src/components/EDIView.tsx",
+    "handler": "setSelectedEdiId",
+    "selected": "aria-pressed={isSelected}",
+    "focus": "focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+  },
+  {
+    "file": "apps/web/src/components/PartnerManagementView.tsx",
+    "handler": "setSelectedLog",
+    "selected": "aria-pressed={isSelected}",
+    "focus": "focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+  }
+]

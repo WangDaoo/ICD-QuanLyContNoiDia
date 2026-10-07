@@ -1,0 +1,332 @@
+import React, { lazy, Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  useBlocker,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
+import { makeDestination, parseDestination, type NavigationContext } from './navigation';
+import { clearViewState, ViewQueryContext } from './context/useViewQueryState';
+import { canAccessWebTab } from './services/permissions';
+import { AppProvider, useApp } from './context/AppContext';
+import { Header } from './components/Header';
+import { Sidebar, NavTabId } from './components/Sidebar';
+import { WebLoginView } from './components/WebLoginView';
+const DashboardView = lazy(() =>
+  import('./components/DashboardView').then((module) => ({ default: module.DashboardView })),
+);
+const WorkQueueView = lazy(() =>
+  import('./components/WorkQueueView').then((module) => ({ default: module.WorkQueueView })),
+);
+const ManifestsView = lazy(() =>
+  import('./components/ManifestsView').then((module) => ({ default: module.ManifestsView })),
+);
+const ContainersView = lazy(() =>
+  import('./components/ContainersView').then((module) => ({ default: module.ContainersView })),
+);
+const TruckVisitsView = lazy(() =>
+  import('./components/TruckVisitsView').then((module) => ({ default: module.TruckVisitsView })),
+);
+const GateInView = lazy(() =>
+  import('./components/GateInView').then((module) => ({ default: module.GateInView })),
+);
+const YardView = lazy(() =>
+  import('./components/YardView').then((module) => ({ default: module.YardView })),
+);
+const BillingView = lazy(() =>
+  import('./components/BillingView').then((module) => ({ default: module.BillingView })),
+);
+const GatePassView = lazy(() =>
+  import('./components/GatePassView').then((module) => ({ default: module.GatePassView })),
+);
+const HandoversView = lazy(() =>
+  import('./components/HandoversView').then((module) => ({ default: module.HandoversView })),
+);
+const PartnerManagementView = lazy(() =>
+  import('./components/PartnerManagementView').then((module) => ({
+    default: module.PartnerManagementView,
+  })),
+);
+const EDIView = lazy(() =>
+  import('./components/EDIView').then((module) => ({ default: module.EDIView })),
+);
+const AuditsView = lazy(() =>
+  import('./components/AuditsView').then((module) => ({ default: module.AuditsView })),
+);
+const ReportsView = lazy(() =>
+  import('./components/ReportsView').then((module) => ({ default: module.ReportsView })),
+);
+const MovementOrdersView = lazy(() =>
+  import('./components/MovementOrdersView').then((module) => ({
+    default: module.MovementOrdersView,
+  })),
+);
+const MasterDataView = lazy(() =>
+  import('./components/MasterDataView').then((module) => ({ default: module.MasterDataView })),
+);
+const UsersRolesView = lazy(() =>
+  import('./components/UsersRolesView').then((module) => ({ default: module.UsersRolesView })),
+);
+import { ViewErrorBoundary } from './components/ViewErrorBoundary';
+import { AlertCircle, RefreshCw } from 'lucide-react';
+
+const MainLayout: React.FC = () => {
+  const { currentUser, isAuthenticated, isLoading, resourceStatus, apiError, refreshData,
+    sessionRestoreError, retrySessionRestore, logout } =
+    useApp();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { tab: activeTab, context } = parseDestination(location.pathname, location.search);
+  const [visited, setVisited] = useState<NavTabId[]>([]);
+  const contexts = useRef(new Map<NavTabId, NavigationContext>());
+  const scrolls = useRef(new Map<string, number>());
+  const content = useRef<HTMLElement>(null);
+  const previousUser = useRef<string | undefined>(undefined);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isEndingSession, setIsEndingSession] = useState(false);
+  const [endSessionError, setEndSessionError] = useState('');
+  const endingSession = useRef(false);
+  const endSession = async () => {
+    if (endingSession.current) return;
+    endingSession.current = true;
+    setIsEndingSession(true);
+    setEndSessionError('');
+    try {
+      await logout();
+    } catch {
+      setEndSessionError('Không xác nhận được việc kết thúc phiên trên máy chủ. Kiểm tra kết nối rồi thử lại.');
+    } finally {
+      endingSession.current = false;
+      setIsEndingSession(false);
+    }
+  };
+  const blocker = useBlocker(({ currentLocation, nextLocation }) => {
+    if (!isAuthenticated) return false;
+    const current = parseDestination(currentLocation.pathname, currentLocation.search);
+    const next = parseDestination(nextLocation.pathname, nextLocation.search);
+    if (
+      currentLocation.pathname === nextLocation.pathname &&
+      JSON.stringify(current.context) === JSON.stringify(next.context)
+    )
+      return false;
+    return !document.dispatchEvent(new CustomEvent('icd:navigation-request', { cancelable: true }));
+  });
+  useEffect(() => {
+    // The active dialog already supplied the leave choice. Cancel this attempt;
+    // a later PUSH or POP must run a fresh check rather than remain blocked.
+    if (blocker.state === 'blocked') blocker.reset();
+  }, [blocker]);
+  contexts.current.set(activeTab, context);
+  useEffect(() => {
+    if (previousUser.current && (!isAuthenticated || previousUser.current !== currentUser.id)) {
+      clearViewState(previousUser.current);
+      setVisited([]);
+      contexts.current.clear();
+      scrolls.current.clear();
+      navigate('/app/dashboard', { replace: true });
+    }
+    previousUser.current = isAuthenticated ? currentUser.id : undefined;
+  }, [isAuthenticated, currentUser.id, navigate]);
+  useEffect(() => {
+    setVisited((old) => (old.includes(activeTab) ? old : [...old, activeTab]));
+  }, [activeTab]);
+  useLayoutEffect(() => {
+    if (content.current && !location.state?.preserveScroll)
+      content.current.scrollTop = scrolls.current.get(location.key) ?? 0;
+    document.dispatchEvent(new CustomEvent('icd:route-changed'));
+    const scrollKey = location.key;
+    const element = content.current;
+    return () => {
+      if (element) scrolls.current.set(scrollKey, element.scrollTop);
+    };
+  }, [location.key]);
+  const handleNavigate = (tab: NavTabId, contextId?: string, explicit?: NavigationContext) => {
+    if (content.current) scrolls.current.set(location.key, content.current.scrollTop);
+    const target = { ...explicit };
+    if (tab === 'gate-pass' && contextId && !target.gatePassId) target.action = 'create';
+    navigate(makeDestination(tab, contextId, target));
+    setIsSidebarOpen(false);
+  };
+
+  if (!isAuthenticated && (sessionRestoreError || isLoading))
+    return (
+      <div className="flex min-h-dvh items-center justify-center bg-slate-50 p-4">
+        <main aria-busy={isLoading || isEndingSession} className="w-full max-w-md space-y-4 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h1 className="text-xl font-bold text-slate-900">Khôi phục phiên làm việc</h1>
+          {sessionRestoreError && <p role="alert" className="text-sm text-rose-800">{sessionRestoreError}</p>}
+          {endSessionError && <p role="alert" className="text-sm text-rose-800">{endSessionError}</p>}
+          {isLoading && <p role="status" className="flex items-center gap-2 text-sm text-slate-700"><RefreshCw className="h-4 w-4 animate-spin" aria-hidden="true" />Đang kiểm tra phiên làm việc…</p>}
+          {isEndingSession && <p role="status" className="text-sm text-slate-700">Đang kết thúc phiên trên thiết bị…</p>}
+          {sessionRestoreError && <div className="flex flex-wrap gap-3">
+            <button type="button" disabled={isLoading || isEndingSession} onClick={() => void retrySessionRestore?.()} className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white disabled:cursor-wait disabled:opacity-50">Thử lại</button>
+            <button type="button" disabled={isLoading || isEndingSession} onClick={() => void endSession()} className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 disabled:cursor-wait disabled:opacity-50">Đăng nhập tài khoản khác</button>
+          </div>}
+        </main>
+      </div>
+    );
+  if (!isAuthenticated) return <>
+    {endSessionError && <p role="status" className="bg-amber-50 px-4 py-3 text-sm text-amber-900">Phiên trên thiết bị đã kết thúc. Máy chủ chưa xác nhận đăng xuất; kiểm tra kết nối trước khi đăng nhập lại.</p>}
+    <WebLoginView />
+  </>;
+
+  const renderContent = (tab: NavTabId, target: NavigationContext) => {
+    const activeContextId = target.visitId;
+    if (!canAccessWebTab(currentUser, tab))
+      return <p role="alert">Tài khoản không có quyền truy cập nghiệp vụ này.</p>;
+    if (isLoading && !Object.keys(resourceStatus ?? {}).length)
+      return (
+        <div role="status" className="min-h-64 rounded-xl bg-slate-200 p-6">
+          Đang tải dữ liệu vận hành…
+        </div>
+      );
+    switch (tab) {
+      case 'dashboard':
+        return <DashboardView onNavigate={handleNavigate} />;
+      case 'work-queue':
+        return <WorkQueueView onNavigate={handleNavigate} />;
+      case 'manifests':
+        return <ManifestsView />;
+      case 'containers':
+        return <ContainersView onNavigate={handleNavigate} selectedVisitId={activeContextId} />;
+      case 'movement-orders':
+        return <MovementOrdersView onNavigate={handleNavigate} targetVisitId={activeContextId} />;
+      case 'truck-visits':
+        return <TruckVisitsView onNavigate={handleNavigate} targetVisitId={target.visitId} />;
+      case 'gate-in':
+        return <GateInView onNavigate={handleNavigate} defaultVisitId={activeContextId} />;
+      case 'yard':
+        return <YardView onNavigate={handleNavigate} targetAssignVisitId={activeContextId} />;
+      case 'billing':
+        return <BillingView onNavigate={handleNavigate} targetVisitId={activeContextId} />;
+      case 'gate-pass':
+        return (
+          <GatePassView
+            onNavigate={handleNavigate}
+            targetVisitId={target.visitId}
+            targetGatePassId={target.gatePassId}
+            targetAction={target.action}
+          />
+        );
+      case 'handovers':
+        return <HandoversView onNavigate={handleNavigate} targetHandoverId={target.handoverId} />;
+      case 'partner-clients':
+        return <PartnerManagementView mode="CLIENTS" />;
+      case 'partner-api-logs':
+        return <PartnerManagementView mode="LOGS" />;
+      case 'edi':
+        return <EDIView />;
+      case 'master-data':
+        return <MasterDataView />;
+      case 'users-roles':
+        return <UsersRolesView />;
+      case 'admin':
+        return <ReportsView />;
+      case 'activity':
+        return <AuditsView />;
+    }
+  };
+
+  return (
+    <div className="app-shell bg-slate-100 text-slate-900 selection:bg-blue-100 selection:text-blue-900">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:rounded focus:bg-white focus:p-3"
+      >
+        Đến nội dung nghiệp vụ
+      </a>
+      <Header
+        currentTab={`${activeTab}:${location.search}`}
+        onMenuClick={() => setIsSidebarOpen((open) => !open)}
+      />
+      <div className="flex min-h-0 flex-1">
+        {isSidebarOpen && (
+          <button
+            type="button"
+            aria-label="Đóng menu điều hướng"
+            className="fixed inset-0 top-16 z-30 bg-slate-950/50 md:hidden"
+            onClick={() => setIsSidebarOpen(false)}
+          />
+        )}
+        <Sidebar activeTab={activeTab} setActiveTab={handleNavigate} isOpen={isSidebarOpen} />
+        <main
+          ref={content}
+          id="main-content"
+          tabIndex={-1}
+          className="app-content min-w-0 flex-1 overflow-y-auto p-4 md:p-6 lg:p-8"
+          aria-busy={isLoading}
+        >
+          <div className="mx-auto max-w-[1440px] space-y-5">
+            {apiError && (
+              <div
+                role="alert"
+                className="flex flex-wrap items-center gap-3 rounded-xl border border-rose-200 bg-rose-50 p-4 text-xs text-rose-800"
+              >
+                <AlertCircle className="h-4 w-4 shrink-0" />
+                <span className="flex-1">{apiError}</span>
+                <button
+                  type="button"
+                  disabled={isLoading}
+                  onClick={() => void refreshData()}
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-rose-200 bg-white px-3 py-2 font-semibold disabled:opacity-50"
+                >
+                  <RefreshCw className="h-3.5 w-3.5" />
+                  Tải lại
+                </button>
+              </div>
+            )}
+            {isLoading && (
+              <div role="status" className="flex items-center gap-2 text-xs text-slate-500">
+                <RefreshCw className="h-3.5 w-3.5 animate-spin" />
+                Đang tải dữ liệu vận hành…
+              </div>
+            )}
+            <ViewQueryContext.Provider
+              value={{
+                view: activeTab,
+                search: location.search,
+                replaceSearch: (search) =>
+                  navigate(
+                    { pathname: location.pathname, search },
+                    { replace: true, state: { preserveScroll: true } },
+                  ),
+              }}
+            >
+              {[...new Set([...visited, activeTab])].map((tab) => (
+                <div
+                  key={`${currentUser.id}:${tab}`}
+                  data-view={tab}
+                  className="app-view"
+                  hidden={tab !== activeTab}
+                >
+                  <ViewErrorBoundary onRecover={() => handleNavigate('dashboard')}>
+                    <Suspense
+                      fallback={
+                        <div role="status" className="rounded-xl bg-slate-200 p-6 text-slate-700">
+                          Đang mở màn nghiệp vụ…
+                        </div>
+                      }
+                    >
+                      {renderContent(tab, contexts.current.get(tab) ?? {})}
+                    </Suspense>
+                  </ViewErrorBoundary>
+                </div>
+              ))}
+            </ViewQueryContext.Provider>
+          </div>
+        </main>
+      </div>
+    </div>
+  );
+};
+
+let browserRouter: ReturnType<typeof createBrowserRouter> | undefined;
+export default function App() {
+  // Create once on the client; reuse during StrictMode's repeated render.
+  browserRouter ??= createBrowserRouter([{ path: '*', element: <MainLayout /> }]);
+  return (
+    <AppProvider>
+      <RouterProvider router={browserRouter} />
+    </AppProvider>
+  );
+}

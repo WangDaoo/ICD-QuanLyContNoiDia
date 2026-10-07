@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED",
+  "change": "Repeated arbitrary metadata sizes replaced with named typography roles.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/index.css",
+      "line": 4,
+      "detail": "--text-caption:",
+      "snippet": "  --text-caption: .75rem;\n  --text-caption--line-height: 1rem;\n  --text-body: .875rem;\n  --text-body--line-height: 1.25rem;"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/web-source-tests-final.txt"
+  ],
+  "limitations": "Source criterion; complete font/spacing matrix still pending.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/index.css.diff"
+  ],
+  "isolated_review_diffs": []
+}

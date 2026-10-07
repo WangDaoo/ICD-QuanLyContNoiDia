@@ -1,0 +1,82 @@
+[
+  {
+    "id": "manifests",
+    "count": 16,
+    "enter": {
+      "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(255, 255, 255) 0px 0px 0px 2px, oklch(0.546 0.245 262.881) 0px 0px 0px 4px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px",
+      "focusVisible": true,
+      "outline": "2px",
+      "selected": "true",
+      "text": "MF-20261002-C9CC9579SUBMITTEDLOCAL WEB YARD QA(WEB-YARD-QA-1790931600314)Hãng: CMA CGM GroupETA: 2/10/2026"
+    },
+    "space": {
+      "focusVisible": true,
+      "selected": "true",
+      "text": "MF-20261002-84D4CE80SUBMITTEDLOCAL MOBILE YARD QA(MOBILE-YARD-QA-1790953483505)Hãng: CMA CGM GroupETA: 2/10/2026"
+    }
+  },
+  {
+    "id": "gate-pass",
+    "count": 3,
+    "enter": {
+      "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(255, 255, 255) 0px 0px 0px 2px, oklch(0.546 0.245 262.881) 0px 0px 0px 4px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px",
+      "focusVisible": true,
+      "outline": "2px",
+      "selected": "true",
+      "text": "GP-MUQ99LSU-EC4D56USEDQAOU5007550Xe: 51C-OUTQATài xế: Local QA receiver"
+    },
+    "space": {
+      "focusVisible": true,
+      "selected": "true",
+      "text": "GP-MUQAHDPX-0237BCUSEDQAOU1882075Xe: 51C-OUTQATài xế: Local QA receiver"
+    }
+  },
+  {
+    "id": "handovers",
+    "count": 1,
+    "enter": {
+      "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(255, 255, 255) 0px 0px 0px 2px, oklch(0.546 0.245 262.881) 0px 0px 0px 4px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px",
+      "focusVisible": true,
+      "outline": "2px",
+      "selected": "true",
+      "text": "QA-VC-1790837623424COMPLETEDQATU2282957(40HC)Đối tác: Local QA TransportĐích đến: Local QA Warehouse"
+    },
+    "space": {
+      "focusVisible": true,
+      "selected": "true",
+      "text": "QA-VC-1790837623424COMPLETEDQATU2282957(40HC)Đối tác: Local QA TransportĐích đến: Local QA Warehouse"
+    }
+  },
+  {
+    "id": "edi",
+    "count": 11,
+    "enter": {
+      "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(255, 255, 255) 0px 0px 0px 2px, oklch(0.546 0.245 262.881) 0px 0px 0px 4px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px",
+      "focusVisible": true,
+      "outline": "2px",
+      "selected": "true",
+      "text": "CODECO_GATE_INSENTQAOU6004067Hãng tàu: CMA CGM Group16:00:00"
+    },
+    "space": {
+      "focusVisible": true,
+      "selected": "true",
+      "text": "CODECO_GATE_INSENTQAOU4835930Hãng tàu: CMA CGM Group22:04:43"
+    }
+  },
+  {
+    "id": "partner-api-logs",
+    "count": 3,
+    "enter": {
+      "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(255, 255, 255, 0.992) 0px 0px 0px 1.98605px, oklab(0.546 -0.030363 -0.243111 / 0.993024) 0px 0px 0px 3.9721px, rgba(0, 0, 0, 0.05) 0px 0.993024px 1.98605px 0px",
+      "focusVisible": true,
+      "outline": "2px",
+      "selected": "true",
+      "text": "POSTHTTP 200/api/v1/external/handovers/b3fe3d3b-039d-4c41-9976-141d9cd8327d/in-transitĐối tác: Local QA Transport13:53:43"
+    },
+    "space": {
+      "focusVisible": true,
+      "selected": "true",
+      "text": "POSTHTTP 200/api/v1/external/handovers/b3fe3d3b-039d-4c41-9976-141d9cd8327d/warehouse-receivedĐối tác: Local QA Transport13:53:43"
+    }
+  }
+]

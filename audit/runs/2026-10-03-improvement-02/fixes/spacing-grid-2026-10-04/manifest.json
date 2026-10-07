@@ -1,0 +1,1340 @@
+{
+  "finding": "W-N-027",
+  "policy": "Only layout margin/padding/gap/space half-step utilities rounded upwards to4px. Dimensions, icons, positions, typography, business fields and negative optical offsets preserved. Original file bytes/line endings retained.",
+  "files": [
+    {
+      "path": "apps/web/src/App.tsx",
+      "before": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/before/apps/web/src/App.tsx",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/App.tsx.diff",
+      "before_sha256": "a4fda9cbe272bfd0bab2a5a0f67e557b975f7fa3d8b2009baa7f4dbcd982c691",
+      "after_sha256": "9ed24d4c1ab2604f43c13023bd8f7e952151b4c9a0f20d413889fa61cfcdcc4b",
+      "edits": [
+        {
+          "before": "gap-1.5",
+          "after": "gap-2"
+        }
+      ],
+      "after_snapshot": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/after/apps/web/src/App.tsx"
+    },
+    {
+      "path": "apps/web/src/components/BillingView.tsx",
+      "before": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/before/apps/web/src/components/BillingView.tsx",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/BillingView.tsx.diff",
+      "before_sha256": "52ce72441d851c1b7d06881466c9596d446c98695bb11b401bec21440ca63255",
+      "after_sha256": "d75ac01bb2540e0c2d2d0878cf6a6fc022e97244005a632e841af10c9e7ebbd1",
+      "edits": [
+        {
+          "before": "space-x-1.5",
+          "after": "space-x-2"
+        },
+        {
+          "before": "pb-2.5",
+          "after": "pb-3"
+        },
+        {
+          "before": "pb-2.5",
+          "after": "pb-3"
+        },
+        {
+          "before": "pb-2.5",
+          "after": "pb-3"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "gap-1.5",
+          "after": "gap-2"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "px-3.5",
+          "after": "px-4"
+        },
+        {
+          "before": "gap-1.5",
+          "after": "gap-2"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "gap-1.5",
+          "after": "gap-2"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        }
+      ],
+      "after_snapshot": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/after/apps/web/src/components/BillingView.tsx"
+    },
+    {
+      "path": "apps/web/src/components/ContainersView.tsx",
+      "before": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/before/apps/web/src/components/ContainersView.tsx",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/ContainersView.tsx.diff",
+      "before_sha256": "0e26f8d8c080d00680e179543ad77a168522b0341ae052f4f345795c0f1c9428",
+      "after_sha256": "7c2372f99337a23deab202112de8ab5d7cdc8c2164885f19f3bf956434515202",
+      "edits": [
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "px-3.5",
+          "after": "px-4"
+        },
+        {
+          "before": "space-x-1.5",
+          "after": "space-x-2"
+        },
+        {
+          "before": "gap-2.5",
+          "after": "gap-3"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "space-x-1.5",
+          "after": "space-x-2"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "space-x-1.5",
+          "after": "space-x-2"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "p-2.5",
+          "after": "p-3"
+        },
+        {
+          "before": "p-2.5",
+          "after": "p-3"
+        },
+        {
+          "before": "p-2.5",
+          "after": "p-3"
+        },
+        {
+          "before": "p-2.5",
+          "after": "p-3"
+        },
+        {
+          "before": "p-2.5",
+          "after": "p-3"
+        },
+        {
+          "before": "p-2.5",
+          "after": "p-3"
+        },
+        {
+          "before": "p-2.5",
+          "after": "p-3"
+        },
+        {
+          "before": "space-y-0.5",
+          "after": "space-y-1"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "ml-0.5",
+          "after": "ml-1"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "p-3.5",
+          "after": "p-4"
+        },
+        {
+          "before": "p-3.5",
+          "after": "p-4"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "py-2.5",
+          "after": "py-3"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "mt-0.5",
+          "after": "mt-1"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        }
+      ],
+      "after_snapshot": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/after/apps/web/src/components/ContainersView.tsx"
+    },
+    {
+      "path": "apps/web/src/components/DashboardView.tsx",
+      "before": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/before/apps/web/src/components/DashboardView.tsx",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/DashboardView.tsx.diff",
+      "before_sha256": "51fa72c2c3eaf49eb2ab9e1b3c845ae13d65a0bfd519f99e28206c4cc3e4efd5",
+      "after_sha256": "98e7a9c73a606a2d52a18d027709d0c0d37338428ab3f27834365a2dad5ab32c",
+      "edits": [
+        {
+          "before": "px-3.5",
+          "after": "px-4"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "ml-0.5",
+          "after": "ml-1"
+        },
+        {
+          "before": "space-y-2.5",
+          "after": "space-y-3"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "mt-0.5",
+          "after": "mt-1"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "ml-0.5",
+          "after": "ml-1"
+        },
+        {
+          "before": "py-2.5",
+          "after": "py-3"
+        },
+        {
+          "before": "py-2.5",
+          "after": "py-3"
+        },
+        {
+          "before": "py-2.5",
+          "after": "py-3"
+        },
+        {
+          "before": "py-2.5",
+          "after": "py-3"
+        },
+        {
+          "before": "py-2.5",
+          "after": "py-3"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "space-x-1.5",
+          "after": "space-x-2"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "p-2.5",
+          "after": "p-3"
+        },
+        {
+          "before": "px-1.5",
+          "after": "px-2"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "mt-0.5",
+          "after": "mt-1"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "space-x-1.5",
+          "after": "space-x-2"
+        },
+        {
+          "before": "p-2.5",
+          "after": "p-3"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "mt-0.5",
+          "after": "mt-1"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        }
+      ],
+      "after_snapshot": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/after/apps/web/src/components/DashboardView.tsx"
+    },
+    {
+      "path": "apps/web/src/components/EDIView.tsx",
+      "before": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/before/apps/web/src/components/EDIView.tsx",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/EDIView.tsx.diff",
+      "before_sha256": "067335a42601d38a34294e316c5c5883f922c0d96e207f362c7327c8d540332b",
+      "after_sha256": "70c9df24680034a6b3206823245d7fbe2162fbc7cd9ca7d1aafb5ac3b6d08e34",
+      "edits": [
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "gap-1.5",
+          "after": "gap-2"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "gap-1.5",
+          "after": "gap-2"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "mt-0.5",
+          "after": "mt-1"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "mt-0.5",
+          "after": "mt-1"
+        },
+        {
+          "before": "mt-0.5",
+          "after": "mt-1"
+        },
+        {
+          "before": "mt-0.5",
+          "after": "mt-1"
+        }
+      ],
+      "after_snapshot": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/after/apps/web/src/components/EDIView.tsx"
+    },
+    {
+      "path": "apps/web/src/components/GateInView.tsx",
+      "before": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/before/apps/web/src/components/GateInView.tsx",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/GateInView.tsx.diff",
+      "before_sha256": "896f64d7dc58adf6decc4ab36a791c41144a8a3000e0f0c16fc2a66d0f8e0451",
+      "after_sha256": "1536da577d72e496ad4467601bfbb8226cc3eeac6014cc85e009a3f72437dbbf",
+      "edits": [
+        {
+          "before": "py-2.5",
+          "after": "py-3"
+        }
+      ],
+      "after_snapshot": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/after/apps/web/src/components/GateInView.tsx"
+    },
+    {
+      "path": "apps/web/src/components/GatePassView.tsx",
+      "before": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/before/apps/web/src/components/GatePassView.tsx",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/GatePassView.tsx.diff",
+      "before_sha256": "5ea1ac2311da695a306f76307e6f8714a9ff6bb73b92c1c5cba08216549a7f5d",
+      "after_sha256": "5c82c9d53ed7384c7c71bd538d7ea4af250f0d4a127e8a8b23940c5a4801a20e",
+      "edits": [
+        {
+          "before": "space-x-1.5",
+          "after": "space-x-2"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "px-3.5",
+          "after": "px-4"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "mt-0.5",
+          "after": "mt-1"
+        },
+        {
+          "before": "p-3.5",
+          "after": "p-4"
+        },
+        {
+          "before": "space-y-1.5",
+          "after": "space-y-2"
+        },
+        {
+          "before": "p-3.5",
+          "after": "p-4"
+        },
+        {
+          "before": "space-y-1.5",
+          "after": "space-y-2"
+        },
+        {
+          "before": "py-2.5",
+          "after": "py-3"
+        },
+        {
+          "before": "py-2.5",
+          "after": "py-3"
+        },
+        {
+          "before": "space-x-1.5",
+          "after": "space-x-2"
+        }
+      ],
+      "after_snapshot": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/after/apps/web/src/components/GatePassView.tsx"
+    },
+    {
+      "path": "apps/web/src/components/HandoversView.tsx",
+      "before": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/before/apps/web/src/components/HandoversView.tsx",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/HandoversView.tsx.diff",
+      "before_sha256": "4f51af76fa1dcc68c31559e2fb8a3f9fdebf0c018434f9e6c238b02534726d17",
+      "after_sha256": "09e52fe6f42659c36a2b842f736ff77eba3d12d1534974cb358c54bf30928e91",
+      "edits": [
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "px-3.5",
+          "after": "px-4"
+        },
+        {
+          "before": "space-x-1.5",
+          "after": "space-x-2"
+        },
+        {
+          "before": "gap-2.5",
+          "after": "gap-3"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "mt-1.5",
+          "after": "mt-2"
+        },
+        {
+          "before": "space-y-0.5",
+          "after": "space-y-1"
+        },
+        {
+          "before": "mt-0.5",
+          "after": "mt-1"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "gap-1.5",
+          "after": "gap-2"
+        },
+        {
+          "before": "space-x-1.5",
+          "after": "space-x-2"
+        },
+        {
+          "before": "space-x-1.5",
+          "after": "space-x-2"
+        },
+        {
+          "before": "space-x-1.5",
+          "after": "space-x-2"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "space-x-1.5",
+          "after": "space-x-2"
+        },
+        {
+          "before": "p-3.5",
+          "after": "p-4"
+        },
+        {
+          "before": "space-y-1.5",
+          "after": "space-y-2"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        }
+      ],
+      "after_snapshot": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/after/apps/web/src/components/HandoversView.tsx"
+    },
+    {
+      "path": "apps/web/src/components/Header.tsx",
+      "before": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/before/apps/web/src/components/Header.tsx",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/Header.tsx.diff",
+      "before_sha256": "9e22d630f2a9dafd429aca05bad59013051892a150ca42dfb1bd5ca9f0bef99f",
+      "after_sha256": "137b0d059b9785d0fee1576cc97ecaa95931f8752fa93439ae945ad3d8738a84",
+      "edits": [
+        {
+          "before": "gap-1.5",
+          "after": "gap-2"
+        },
+        {
+          "before": "gap-1.5",
+          "after": "gap-2"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "gap-1.5",
+          "after": "gap-2"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        }
+      ],
+      "after_snapshot": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/after/apps/web/src/components/Header.tsx"
+    },
+    {
+      "path": "apps/web/src/components/ManifestsView.tsx",
+      "before": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/before/apps/web/src/components/ManifestsView.tsx",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/ManifestsView.tsx.diff",
+      "before_sha256": "dd46fd97700034b6ca8c2b57e01e90e2dd0e243e8a48d0f553a365e2e23e960b",
+      "after_sha256": "9ec04350132a4b55e937265aa284c00509b00ea8f604e30e063b158b571cf886",
+      "edits": [
+        {
+          "before": "px-3.5",
+          "after": "px-4"
+        },
+        {
+          "before": "space-x-1.5",
+          "after": "space-x-2"
+        },
+        {
+          "before": "space-x-2.5",
+          "after": "space-x-3"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "space-x-1.5",
+          "after": "space-x-2"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "mt-0.5",
+          "after": "mt-1"
+        },
+        {
+          "before": "gap-1.5",
+          "after": "gap-2"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "space-x-1.5",
+          "after": "space-x-2"
+        },
+        {
+          "before": "p-3.5",
+          "after": "p-4"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "space-y-1.5",
+          "after": "space-y-2"
+        }
+      ],
+      "after_snapshot": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/after/apps/web/src/components/ManifestsView.tsx"
+    },
+    {
+      "path": "apps/web/src/components/MasterDataView.tsx",
+      "before": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/before/apps/web/src/components/MasterDataView.tsx",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/MasterDataView.tsx.diff",
+      "before_sha256": "ae3808db202ef7bf087f570972c1c22a868ba332e3b26955764ec8345759b60c",
+      "after_sha256": "62ef005e7639350ea1c568a51550e80144ad249779ad81cdce455b19316798bb",
+      "edits": [
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "px-3.5",
+          "after": "px-4"
+        },
+        {
+          "before": "space-x-1.5",
+          "after": "space-x-2"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "gap-1.5",
+          "after": "gap-2"
+        }
+      ],
+      "after_snapshot": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/after/apps/web/src/components/MasterDataView.tsx"
+    },
+    {
+      "path": "apps/web/src/components/MovementOrdersView.tsx",
+      "before": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/before/apps/web/src/components/MovementOrdersView.tsx",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/MovementOrdersView.tsx.diff",
+      "before_sha256": "e8719c7e8e255b33a0a65d9233d7d55e28ae096ce8fdcf4af3a4d7061df4ae8c",
+      "after_sha256": "8b7a0058eff70afb9ac1e81306b4b64a2e889311fdb05411d5678b552252eb1b",
+      "edits": [
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        }
+      ],
+      "after_snapshot": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/after/apps/web/src/components/MovementOrdersView.tsx"
+    },
+    {
+      "path": "apps/web/src/components/PartnerManagementView.tsx",
+      "before": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/before/apps/web/src/components/PartnerManagementView.tsx",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/PartnerManagementView.tsx.diff",
+      "before_sha256": "bc6bb00280b6b7d49ea1e034d9ca8576f203a89d2b1c116a18d933e21c6e4aa7",
+      "after_sha256": "4d4f23ba79301631dfe74e0c9435683d08c2dc73be71b320630fe3d6cfc327d5",
+      "edits": [
+        {
+          "before": "px-3.5",
+          "after": "px-4"
+        },
+        {
+          "before": "space-x-1.5",
+          "after": "space-x-2"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "px-1.5",
+          "after": "px-2"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "px-3.5",
+          "after": "px-4"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "space-x-1.5",
+          "after": "space-x-2"
+        },
+        {
+          "before": "p-3.5",
+          "after": "p-4"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "mt-1.5",
+          "after": "mt-2"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        }
+      ],
+      "after_snapshot": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/after/apps/web/src/components/PartnerManagementView.tsx"
+    },
+    {
+      "path": "apps/web/src/components/Sidebar.tsx",
+      "before": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/before/apps/web/src/components/Sidebar.tsx",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/Sidebar.tsx.diff",
+      "before_sha256": "9a9471cd636a522f0b67a6507fbb43021430082256b103d39e4db2fffae18483",
+      "after_sha256": "cf8f13b37edd0d3a379988158b8581a72a5f3389270e0632cc7e91a2b1b0e210",
+      "edits": [
+        {
+          "before": "space-x-2.5",
+          "after": "space-x-3"
+        },
+        {
+          "before": "px-1.5",
+          "after": "px-2"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        }
+      ],
+      "after_snapshot": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/after/apps/web/src/components/Sidebar.tsx"
+    },
+    {
+      "path": "apps/web/src/components/TruckVisitsView.tsx",
+      "before": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/before/apps/web/src/components/TruckVisitsView.tsx",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/TruckVisitsView.tsx.diff",
+      "before_sha256": "1a427a706bfb37d2da8acf54024b6e05426f886f28323142314776b7ffeab17f",
+      "after_sha256": "17a333be941f5ada562cf4c091a6877ecc907919e300b02bf9bb63332782d6ce",
+      "edits": [
+        {
+          "before": "space-x-1.5",
+          "after": "space-x-2"
+        },
+        {
+          "before": "p-1.5",
+          "after": "p-2"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        }
+      ],
+      "after_snapshot": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/after/apps/web/src/components/TruckVisitsView.tsx"
+    },
+    {
+      "path": "apps/web/src/components/UsersRolesView.tsx",
+      "before": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/before/apps/web/src/components/UsersRolesView.tsx",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/UsersRolesView.tsx.diff",
+      "before_sha256": "f73d589e2185f2c88c59d62172ba86c627b7087e452521cedeefdbbb22905a21",
+      "after_sha256": "0750b0eebebda03686ac6e983c9f2f04d3ae4b2863b3427929464f6a053144bf",
+      "edits": [
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "px-3.5",
+          "after": "px-4"
+        },
+        {
+          "before": "gap-1.5",
+          "after": "gap-2"
+        },
+        {
+          "before": "px-1.5",
+          "after": "px-2"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "gap-1.5",
+          "after": "gap-2"
+        },
+        {
+          "before": "px-1.5",
+          "after": "px-2"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "gap-1.5",
+          "after": "gap-2"
+        },
+        {
+          "before": "gap-1.5",
+          "after": "gap-2"
+        }
+      ],
+      "after_snapshot": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/after/apps/web/src/components/UsersRolesView.tsx"
+    },
+    {
+      "path": "apps/web/src/components/WebLoginView.tsx",
+      "before": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/before/apps/web/src/components/WebLoginView.tsx",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/WebLoginView.tsx.diff",
+      "before_sha256": "afa531035f6f446c8414ab1f8e3b4330e77b8e69932181688e13d2d9db77a6f0",
+      "after_sha256": "9f1af227e74e448dfbd4ce33cc89611f0ff1c2708da9580cbee89ab29c4e5b5c",
+      "edits": [
+        {
+          "before": "mt-0.5",
+          "after": "mt-1"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "mt-1.5",
+          "after": "mt-2"
+        },
+        {
+          "before": "mt-1.5",
+          "after": "mt-2"
+        },
+        {
+          "before": "mb-1.5",
+          "after": "mb-2"
+        },
+        {
+          "before": "mb-1.5",
+          "after": "mb-2"
+        }
+      ],
+      "after_snapshot": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/after/apps/web/src/components/WebLoginView.tsx"
+    },
+    {
+      "path": "apps/web/src/components/WorkQueueView.tsx",
+      "before": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/before/apps/web/src/components/WorkQueueView.tsx",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/WorkQueueView.tsx.diff",
+      "before_sha256": "dfdc46a42d0a526fd9557ffee49b9e62fdc5f6e870906f23f02ec682ef1bacd6",
+      "after_sha256": "ad857cd17dc545d2dd3fa51a07e4401df86f113a6daf5a7ca3e45d85a1e7de72",
+      "edits": [
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "space-x-1.5",
+          "after": "space-x-2"
+        },
+        {
+          "before": "space-x-3.5",
+          "after": "space-x-4"
+        },
+        {
+          "before": "pt-0.5",
+          "after": "pt-1"
+        },
+        {
+          "before": "py-0.5",
+          "after": "py-1"
+        },
+        {
+          "before": "space-x-1.5",
+          "after": "space-x-2"
+        }
+      ],
+      "after_snapshot": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/after/apps/web/src/components/WorkQueueView.tsx"
+    },
+    {
+      "path": "apps/web/src/components/yard/YardOperations.tsx",
+      "before": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/before/apps/web/src/components/yard/YardOperations.tsx",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/yard/YardOperations.tsx.diff",
+      "before_sha256": "59be81673923c93fe84c6f4dbe31146a8bb1e79bc66f1f7124f2c8d7ecc2cbc9",
+      "after_sha256": "014cc5ea9cda2395d1598d041a2b8812087823f66ee75f68ff61a5265b31f160",
+      "edits": [
+        {
+          "before": "px-2.5",
+          "after": "px-3"
+        },
+        {
+          "before": "py-1.5",
+          "after": "py-2"
+        },
+        {
+          "before": "space-y-1.5",
+          "after": "space-y-2"
+        },
+        {
+          "before": "gap-1.5",
+          "after": "gap-2"
+        },
+        {
+          "before": "gap-1.5",
+          "after": "gap-2"
+        },
+        {
+          "before": "gap-1.5",
+          "after": "gap-2"
+        },
+        {
+          "before": "gap-1.5",
+          "after": "gap-2"
+        },
+        {
+          "before": "gap-1.5",
+          "after": "gap-2"
+        },
+        {
+          "before": "gap-1.5",
+          "after": "gap-2"
+        }
+      ],
+      "after_snapshot": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/after/apps/web/src/components/yard/YardOperations.tsx"
+    },
+    {
+      "path": "apps/web/src/components/yard/YardSiteMap.tsx",
+      "before": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/before/apps/web/src/components/yard/YardSiteMap.tsx",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/yard/YardSiteMap.tsx.diff",
+      "before_sha256": "9aaa39e7d7de11727e9c25ebbb39191c4e477c792f5ad79b6a8823025fb012a8",
+      "after_sha256": "84efe17e5289bf3ed06e2066edf761405c72d217558e85fc275252638e7c6130",
+      "edits": [
+        {
+          "before": "px-1.5",
+          "after": "px-2"
+        },
+        {
+          "before": "gap-1.5",
+          "after": "gap-2"
+        },
+        {
+          "before": "mt-0.5",
+          "after": "mt-1"
+        }
+      ],
+      "after_snapshot": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/after/apps/web/src/components/yard/YardSiteMap.tsx"
+    },
+    {
+      "path": "apps/web/src/components/YardView.tsx",
+      "before": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/before/apps/web/src/components/YardView.tsx",
+      "diff": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/diffs/apps/web/src/components/YardView.tsx.diff",
+      "before_sha256": "97f2c7a60bc8eecc55a546cab1b21585b9886183a2ee48b9c2c2c11d424e75ec",
+      "after_sha256": "792f4226459360c43cb7d58bad7a0bf364935a87782e53fa421003aca54763d3",
+      "edits": [
+        {
+          "before": "gap-1.5",
+          "after": "gap-2"
+        }
+      ],
+      "after_snapshot": "audit/runs/2026-10-03-improvement-02/fixes/spacing-grid-2026-10-04/after/apps/web/src/components/YardView.tsx"
+    }
+  ]
+}

@@ -1,0 +1,376 @@
+- link "Đến nội dung nghiệp vụ":
+  - /url: "#main-content"
+- banner:
+  - generic: ICD
+  - heading "ICD Management System" [level=1]
+  - paragraph: Cảng cạn & kho bãi container nội địa
+  - text: Đã kết nối
+  - button "Tải lại dữ liệu":
+  - button "Thông báo (0 chưa đọc)":
+  - generic: UI Audit ADMIN
+  - generic: ADMIN
+  - button "Đăng xuất":
+- complementary "Điều hướng nghiệp vụ":
+  - generic: Tổng quan & Điều phối
+  - button "Tổng quan vận hành" [active]:
+    - generic: Tổng quan vận hành
+  - button "Danh sách công việc":
+    - generic: Danh sách công việc
+  - generic: Quản lý Hàng hóa & Cổng
+  - button "Bản lược khai (Manifest)":
+    - generic: Bản lược khai (Manifest)
+  - button "Quản lý Container":
+    - generic: Quản lý Container
+  - button "Movement Order":
+    - generic: Movement Order
+  - button "Chuyến xe ra/vào":
+    - generic: Chuyến xe ra/vào
+  - button "Tiếp nhận vào cổng (Gate-in)":
+    - generic: Tiếp nhận vào cổng (Gate-in)
+  - button "Vận hành Bãi (Yard)":
+    - generic: Vận hành Bãi (Yard)
+  - generic: Tài chính & Ra cổng
+  - button "Dịch vụ & Thanh toán":
+    - generic: Dịch vụ & Thanh toán
+  - button "Phiếu ra cổng & Gate-out":
+    - generic: Phiếu ra cổng & Gate-out
+  - button "Vận hành EDI (CODECO)":
+    - generic: Vận hành EDI (CODECO)
+  - generic: Tích hợp đối tác
+  - button "Bàn giao vận chuyển":
+    - generic: Bàn giao vận chuyển
+  - button "Đối tác tích hợp API":
+    - generic: Đối tác tích hợp API
+  - button "Nhật ký API đối tác":
+    - generic: Nhật ký API đối tác
+  - generic: Hệ thống & Quản trị
+  - button "Danh mục dùng chung":
+    - generic: Danh mục dùng chung
+  - button "Người dùng & Phân quyền":
+    - generic: Người dùng & Phân quyền
+  - button "Báo cáo vận hành":
+    - generic: Báo cáo vận hành
+  - button "Nhật ký kiểm toán":
+    - generic: Nhật ký kiểm toán
+  - generic: UI Audit ADMIN
+  - generic: ui-admin@audit.icd.test
+  - generic: ADMIN
+- main:
+  - heading "Vận hành Bãi Container" [level=2]:
+    - text: Vận hành Bãi Container
+  - paragraph: Sơ đồ cảng demo, quản lý vị trí và công việc trong bãi
+  - navigation "Chế độ vận hành bãi":
+    - button "Sơ đồ 2D Bãi" [pressed]:
+      - text: Sơ đồ 2D Bãi
+    - button "Danh sách Vị trí":
+      - text: Danh sách Vị trí
+    - button "Xếp vị trí thủ công":
+      - text: Xếp vị trí thủ công
+    - button "Công việc trong bãi":
+      - text: Công việc trong bãi
+  - strong: "Thuật toán xếp vị trí:"
+  - text: Đang trong quá trình phát triển
+  - button "Chọn vị trí thủ công"
+  - generic: Đang sử dụng
+  - generic: 9/48
+  - generic: Vị trí có container
+  - generic: Vị trí khả dụng
+  - generic: "39"
+  - generic: Trống và đang hoạt động
+  - generic: Container Hold
+  - generic: "0"
+  - generic: Lệnh giữ hoặc kết quả giám định
+  - generic: Công việc đang mở
+  - generic: "0"
+  - generic: Đảo chuyển, booking, giám định
+  - heading "Sơ đồ tổng thể ICD" [level=3]:
+    - text: Sơ đồ tổng thể ICD
+  - paragraph: Khung cảng demo · Block và vị trí lấy từ backend · Chọn ô để xem chi tiết
+  - button "Loại vị trí" [pressed]
+  - button "Trạng thái container"
+  - generic "Legend bản đồ":
+    - strong: Legend
+    - generic: Slot trống
+    - generic: Có container
+    - generic: Bảo trì / Ngưng dùng
+    - generic: Slot lạnh trống (Reefer)
+    - generic: "HOLD: huy hiệu lệnh giữ / giám định"
+  - generic: ICD DEMO · Ranh giới khu đất
+  - generic: ↑ Bắc · Sơ đồ minh họa, không theo tỷ lệ địa lý
+  - text: CỔNG VÀO · Gate-in
+  - generic: Hạ tầng minh họa
+  - text: Khu đệm & trạm cân
+  - generic: Hạ tầng minh họa
+  - text: Điều hành / chứng từ
+  - generic: Hạ tầng minh họa
+  - text: CỔNG RA · Gate-out
+  - generic: Hạ tầng minh họa
+  - generic: ĐƯỜNG NỘI BỘ · LÀN TIẾP NHẬN
+  - generic: LỐI RA →
+  - button "Block A 3/12 vị trí Khu A — Hàng khô Dry Cargo" [pressed]:
+    - strong: Block A
+    - generic: 3/12 vị trí
+    - paragraph: Khu A — Hàng khô Dry Cargo
+  - generic: Bay 1
+  - generic: Bay 2
+  - generic: Bay 3
+  - generic: "1"
+  - button "Vị trí A-01-01-1, Có container, TCSU8849201":
+    - generic: Tầng 1
+    - generic: TCSU8849201
+  - button "Vị trí A-01-01-2, Slot trống":
+    - generic: Tầng 2
+    - generic: Slot trống
+  - button "Vị trí A-01-02-1, Có container, GLDU5739201":
+    - generic: Tầng 1
+    - generic: GLDU5739201
+  - button "Vị trí A-01-02-2, Slot trống":
+    - generic: Tầng 2
+    - generic: Slot trống
+  - button "Vị trí A-01-03-1, Có container, VFCU7482910":
+    - generic: Tầng 1
+    - generic: VFCU7482910
+  - button "Vị trí A-01-03-2, Slot trống":
+    - generic: Tầng 2
+    - generic: Slot trống
+  - generic: "2"
+  - button "Vị trí A-02-01-1, Slot trống":
+    - generic: Tầng 1
+    - generic: Slot trống
+  - button "Vị trí A-02-01-2, Slot trống":
+    - generic: Tầng 2
+    - generic: Slot trống
+  - button "Vị trí A-02-02-1, Slot trống":
+    - generic: Tầng 1
+    - generic: Slot trống
+  - button "Vị trí A-02-02-2, Slot trống":
+    - generic: Tầng 2
+    - generic: Slot trống
+  - button "Vị trí A-02-03-1, Slot trống":
+    - generic: Tầng 1
+    - generic: Slot trống
+  - button "Vị trí A-02-03-2, Slot trống":
+    - generic: Tầng 2
+    - generic: Slot trống
+  - button "Block B 2/12 vị trí Khu B — Hàng xuất kiểm & Stripping":
+    - strong: Block B
+    - generic: 2/12 vị trí
+    - paragraph: Khu B — Hàng xuất kiểm & Stripping
+  - generic: Bay 1
+  - generic: Bay 2
+  - generic: Bay 3
+  - generic: "1"
+  - button "Vị trí B-01-01-1, Có container, VMCU9284012":
+    - generic: Tầng 1
+    - generic: VMCU9284012
+  - button "Vị trí B-01-01-2, Slot trống":
+    - generic: Tầng 2
+    - generic: Slot trống
+  - button "Vị trí B-01-02-1, Có container, BDCU3849102":
+    - generic: Tầng 1
+    - generic: BDCU3849102
+  - button "Vị trí B-01-02-2, Slot trống":
+    - generic: Tầng 2
+    - generic: Slot trống
+  - button "Vị trí B-01-03-1, Slot trống":
+    - generic: Tầng 1
+    - generic: Slot trống
+  - button "Vị trí B-01-03-2, Slot trống":
+    - generic: Tầng 2
+    - generic: Slot trống
+  - generic: "2"
+  - button "Vị trí B-02-01-1, Slot trống":
+    - generic: Tầng 1
+    - generic: Slot trống
+  - button "Vị trí B-02-01-2, Slot trống":
+    - generic: Tầng 2
+    - generic: Slot trống
+  - button "Vị trí B-02-02-1, Slot trống":
+    - generic: Tầng 1
+    - generic: Slot trống
+  - button "Vị trí B-02-02-2, Slot trống":
+    - generic: Tầng 2
+    - generic: Slot trống
+  - button "Vị trí B-02-03-1, Slot trống":
+    - generic: Tầng 1
+    - generic: Slot trống
+  - button "Vị trí B-02-03-2, Slot trống":
+    - generic: Tầng 2
+    - generic: Slot trống
+  - button "Block C 2/12 vị trí Khu C — Container nặng & Chờ xuất":
+    - strong: Block C
+    - generic: 2/12 vị trí
+    - paragraph: Khu C — Container nặng & Chờ xuất
+  - generic: Bay 1
+  - generic: Bay 2
+  - generic: Bay 3
+  - generic: "1"
+  - button "Vị trí C-01-01-1, Có container, VSCU1049281":
+    - generic: Tầng 1
+    - generic: VSCU1049281
+  - button "Vị trí C-01-01-2, Slot trống":
+    - generic: Tầng 2
+    - generic: Slot trống
+  - button "Vị trí C-01-02-1, Có container, VSCU6748392":
+    - generic: Tầng 1
+    - generic: VSCU6748392
+  - button "Vị trí C-01-02-2, Slot trống":
+    - generic: Tầng 2
+    - generic: Slot trống
+  - button "Vị trí C-01-03-1, Slot trống":
+    - generic: Tầng 1
+    - generic: Slot trống
+  - button "Vị trí C-01-03-2, Slot trống":
+    - generic: Tầng 2
+    - generic: Slot trống
+  - generic: "2"
+  - button "Vị trí C-02-01-1, Slot trống":
+    - generic: Tầng 1
+    - generic: Slot trống
+  - button "Vị trí C-02-01-2, Slot trống":
+    - generic: Tầng 2
+    - generic: Slot trống
+  - button "Vị trí C-02-02-1, Slot trống":
+    - generic: Tầng 1
+    - generic: Slot trống
+  - button "Vị trí C-02-02-2, Slot trống":
+    - generic: Tầng 2
+    - generic: Slot trống
+  - button "Vị trí C-02-03-1, Slot trống":
+    - generic: Tầng 1
+    - generic: Slot trống
+  - button "Vị trí C-02-03-2, Slot trống":
+    - generic: Tầng 2
+    - generic: Slot trống
+  - button "Block D 2/12 vị trí Khu D — Container lạnh Reefer":
+    - strong: Block D
+    - generic: 2/12 vị trí
+    - paragraph: Khu D — Container lạnh Reefer
+  - generic: Bay 1
+  - generic: Bay 2
+  - generic: Bay 3
+  - generic: "1"
+  - button "Vị trí D-01-01-1, Có container, HACU4829103":
+    - generic: Tầng 1
+    - img "Có nguồn điện lạnh"
+    - generic: HACU4829103
+  - button "Vị trí D-01-01-2, Slot lạnh trống (Reefer)":
+    - generic: Tầng 2
+    - img "Có nguồn điện lạnh"
+    - generic: Slot lạnh trống (Reefer)
+  - button "Vị trí D-01-02-1, Có container, TCSU9283741":
+    - generic: Tầng 1
+    - img "Có nguồn điện lạnh"
+    - generic: TCSU9283741
+  - button "Vị trí D-01-02-2, Slot lạnh trống (Reefer)":
+    - generic: Tầng 2
+    - img "Có nguồn điện lạnh"
+    - generic: Slot lạnh trống (Reefer)
+  - button "Vị trí D-01-03-1, Slot lạnh trống (Reefer)":
+    - generic: Tầng 1
+    - img "Có nguồn điện lạnh"
+    - generic: Slot lạnh trống (Reefer)
+  - button "Vị trí D-01-03-2, Slot lạnh trống (Reefer)":
+    - generic: Tầng 2
+    - img "Có nguồn điện lạnh"
+    - generic: Slot lạnh trống (Reefer)
+  - generic: "2"
+  - button "Vị trí D-02-01-1, Slot lạnh trống (Reefer)":
+    - generic: Tầng 1
+    - img "Có nguồn điện lạnh"
+    - generic: Slot lạnh trống (Reefer)
+  - button "Vị trí D-02-01-2, Slot lạnh trống (Reefer)":
+    - generic: Tầng 2
+    - img "Có nguồn điện lạnh"
+    - generic: Slot lạnh trống (Reefer)
+  - button "Vị trí D-02-02-1, Slot lạnh trống (Reefer)":
+    - generic: Tầng 1
+    - img "Có nguồn điện lạnh"
+    - generic: Slot lạnh trống (Reefer)
+  - button "Vị trí D-02-02-2, Slot lạnh trống (Reefer)":
+    - generic: Tầng 2
+    - img "Có nguồn điện lạnh"
+    - generic: Slot lạnh trống (Reefer)
+  - button "Vị trí D-02-03-1, Slot lạnh trống (Reefer)":
+    - generic: Tầng 1
+    - img "Có nguồn điện lạnh"
+    - generic: Slot lạnh trống (Reefer)
+  - button "Vị trí D-02-03-2, Slot lạnh trống (Reefer)":
+    - generic: Tầng 2
+    - img "Có nguồn điện lạnh"
+    - generic: Slot lạnh trống (Reefer)
+  - complementary:
+    - strong: Kho CFS
+    - text: Rút / đóng hàng
+    - text: Hạ tầng minh họa
+    - strong: Khu kiểm tra
+    - text: Giám định / kiểm hóa
+    - text: Hạ tầng minh họa
+  - generic: ĐƯỜNG ĐẢO CHUYỂN & PHÒNG CHÁY
+  - generic: KẾT NỐI KHO / BÃI
+  - heading "Chi tiết Block A" [level=3]
+  - paragraph: 3 có container · 9 khả dụng · 0 ngưng dùng
+  - combobox "Chọn block chi tiết":
+    - option "Block A" [selected]
+    - option "Block B"
+    - option "Block C"
+    - option "Block D"
+  - combobox "Chọn tầng hiển thị":
+    - option "Tất cả tầng" [selected]
+    - option "Tầng 1"
+    - option "Tầng 2"
+  - textbox "Tìm vị trí hoặc container trên bản đồ":
+    - /placeholder: Mã vị trí / container
+  - generic: Bay 1
+  - generic: Bay 2
+  - generic: Bay 3
+  - generic: Row 1
+  - button "Vị trí A-01-01-1, Có container, TCSU8849201":
+    - generic: A-01-01-1
+    - generic: TCSU8849201
+    - generic: 40GP · Có container
+  - button "Vị trí A-01-01-2, Slot trống":
+    - generic: A-01-01-2
+    - generic: Slot trống
+    - generic: ALL · Slot trống
+  - button "Vị trí A-01-02-1, Có container, GLDU5739201":
+    - generic: A-01-02-1
+    - generic: GLDU5739201
+    - generic: 40HC · Có container
+  - button "Vị trí A-01-02-2, Slot trống":
+    - generic: A-01-02-2
+    - generic: Slot trống
+    - generic: ALL · Slot trống
+  - button "Vị trí A-01-03-1, Có container, VFCU7482910":
+    - generic: A-01-03-1
+    - generic: VFCU7482910
+    - generic: 40GP · Có container
+  - button "Vị trí A-01-03-2, Slot trống":
+    - generic: A-01-03-2
+    - generic: Slot trống
+    - generic: ALL · Slot trống
+  - generic: Row 2
+  - button "Vị trí A-02-01-1, Slot trống":
+    - generic: A-02-01-1
+    - generic: Slot trống
+    - generic: ALL · Slot trống
+  - button "Vị trí A-02-01-2, Slot trống":
+    - generic: A-02-01-2
+    - generic: Slot trống
+    - generic: ALL · Slot trống
+  - button "Vị trí A-02-02-1, Slot trống":
+    - generic: A-02-02-1
+    - generic: Slot trống
+    - generic: ALL · Slot trống
+  - button "Vị trí A-02-02-2, Slot trống":
+    - generic: A-02-02-2
+    - generic: Slot trống
+    - generic: ALL · Slot trống
+  - button "Vị trí A-02-03-1, Slot trống":
+    - generic: A-02-03-1
+    - generic: Slot trống
+    - generic: ALL · Slot trống
+  - button "Vị trí A-02-03-2, Slot trống":
+    - generic: A-02-03-2
+    - generic: Slot trống
+    - generic: ALL · Slot trống

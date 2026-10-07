@@ -1,0 +1,12 @@
+--- before/apps/web/src/services/payment-amount.ts
++++ after/apps/web/src/services/payment-amount.ts
+@@ -0,0 +1,9 @@
++export const PAYMENT_AMOUNT_ERROR =
++  'Số tiền phải lớn hơn 0 và có tối đa 2 chữ số thập phân.';
++
++export function isValidPaymentAmount(amount: unknown): amount is number {
++  if (typeof amount !== 'number' || !Number.isFinite(amount) || amount <= 0) return false;
++  const [coefficient, exponent = '0'] = String(amount).toLowerCase().split('e');
++  const fraction = coefficient.split('.')[1] ?? '';
++  return Math.max(0, fraction.length - Number(exponent)) <= 2;
++}

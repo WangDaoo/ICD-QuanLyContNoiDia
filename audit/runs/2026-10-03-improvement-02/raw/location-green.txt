@@ -1,0 +1,21 @@
+✔ unknown yard location is never a real unassigned position when yardSlots is loading (459.0662ms)
+✔ unknown yard location is never a real unassigned position when yardSlots is error (96.4819ms)
+✔ unknown yard location is never a real unassigned position when yardSlots is forbidden (77.8178ms)
+✔ unknown yard location is never a real unassigned position when yardSlots is stale (106.9783ms)
+✔ previously known location stays explicitly cached across row and details when yardSlots is loading (100.7949ms)
+✔ previously known location stays explicitly cached across row and details when yardSlots is error (74.9414ms)
+✔ previously known location stays explicitly cached across row and details when yardSlots is stale (74.1235ms)
+✔ forbidden yard catalog cannot reveal a previously cached location in row, details or timeline (98.3126ms)
+✔ ready unassigned container retains truthful missing-position labels and blocker (78.0636ms)
+✔ ready assigned container remains authoritative while an unrelated catalog loads (66.7712ms)
+✔ container collection stale cannot convert cached missing location into a confirmed unassigned position (54.0259ms)
+✔ late yard result replaces unknown copy with remapped assigned location in an already open detail (97.9514ms)
+✔ undefined initial resource status during global load remains an unconfirmed location (65.0557ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6386.5748

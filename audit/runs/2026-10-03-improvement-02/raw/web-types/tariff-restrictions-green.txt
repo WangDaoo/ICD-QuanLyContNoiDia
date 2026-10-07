@@ -1,0 +1,16 @@
+✔ cancelled inspections retain their terminal backend status (1.8536ms)
+✔ tariff rules preserve service codes and units from the backend catalogue (0.4033ms)
+✔ tariff rules preserve canonical container restrictions and absent free days (0.2288ms)
+✔ unrecognized and absent gate-pass states never grant an active pass (0.21ms)
+✔ whitespace cannot be presented as a known zero financial balance (0.8423ms)
+✔ outbox without acknowledgement data does not invent a pending acknowledgement (0.3378ms)
+✔ acknowledgement errors and unmatched statuses retain the backend status (0.3619ms)
+✔ yard slot restrictions preserve canonical type codes rather than becoming ALL (0.4693ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 507.2392

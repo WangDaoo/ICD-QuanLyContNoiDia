@@ -1,0 +1,252 @@
+✖ MovementOrdersView empty body presents loading without inventing a current empty result (284.4528ms)
+✖ MovementOrdersView empty body presents error without inventing a current empty result (31.3418ms)
+✖ MovementOrdersView empty body presents forbidden without inventing a current empty result (24.8568ms)
+✖ MovementOrdersView empty body presents stale without inventing a current empty result (24.9622ms)
+✔ MovementOrdersView ready empty list remains a real empty state (25.3923ms)
+✖ MovementOrdersView read failure can retry then recover to a confirmed empty list (32.4986ms)
+✖ YardView empty body presents loading without inventing a current empty result (108.1778ms)
+✖ YardView empty body presents error without inventing a current empty result (55.044ms)
+✖ YardView empty body presents forbidden without inventing a current empty result (48.9617ms)
+✖ YardView empty body presents stale without inventing a current empty result (62.0941ms)
+✔ YardView ready empty list remains a real empty state (60.1103ms)
+✖ YardView read failure can retry then recover to a confirmed empty list (37.7074ms)
+✖ MovementOrdersView ready no-match state can clear its filter and reveal confirmed rows (21.5699ms)
+✖ YardView ready no-match state can clear its filter and reveal confirmed rows (47.1475ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 2
+ℹ fail 12
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5165.9727
+
+✖ failing tests:
+
+test at audit\tools\tests\list-empty-state.test.mjs:49:5
+✖ MovementOrdersView empty body presents loading without inventing a current empty result (284.4528ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Chưa có Movement Order nào phù hợp/. Input:
+  
+  'Chưa có Movement Order nào phù hợp.'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:52:16)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:35:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:50:7)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Chưa có Movement Order nào phù hợp.',
+    expected: /Chưa có Movement Order nào phù hợp/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\list-empty-state.test.mjs:49:5
+✖ MovementOrdersView empty body presents error without inventing a current empty result (31.3418ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Chưa có Movement Order nào phù hợp/. Input:
+  
+  'Chưa có Movement Order nào phù hợp.'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:52:16)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:35:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:50:7)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Chưa có Movement Order nào phù hợp.',
+    expected: /Chưa có Movement Order nào phù hợp/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\list-empty-state.test.mjs:49:5
+✖ MovementOrdersView empty body presents forbidden without inventing a current empty result (24.8568ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Chưa có Movement Order nào phù hợp/. Input:
+  
+  'Chưa có Movement Order nào phù hợp.'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:52:16)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:35:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:50:7)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Chưa có Movement Order nào phù hợp.',
+    expected: /Chưa có Movement Order nào phù hợp/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\list-empty-state.test.mjs:49:5
+✖ MovementOrdersView empty body presents stale without inventing a current empty result (24.9622ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Chưa có Movement Order nào phù hợp/. Input:
+  
+  'Chưa có Movement Order nào phù hợp.'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:52:16)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:35:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:50:7)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Chưa có Movement Order nào phù hợp.',
+    expected: /Chưa có Movement Order nào phù hợp/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\list-empty-state.test.mjs:63:3
+✖ MovementOrdersView read failure can retry then recover to a confirmed empty list (32.4986ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(retry)
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:66:55)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:35:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:65:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\list-empty-state.test.mjs:49:5
+✖ YardView empty body presents loading without inventing a current empty result (108.1778ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Không có vị trí phù hợp/. Input:
+  
+  'Không có vị trí phù hợp.'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:52:16)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:35:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:50:7)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Không có vị trí phù hợp.',
+    expected: /Không có vị trí phù hợp/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\list-empty-state.test.mjs:49:5
+✖ YardView empty body presents error without inventing a current empty result (55.044ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Không có vị trí phù hợp/. Input:
+  
+  'Không có vị trí phù hợp.'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:52:16)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:35:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:50:7)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Không có vị trí phù hợp.',
+    expected: /Không có vị trí phù hợp/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\list-empty-state.test.mjs:49:5
+✖ YardView empty body presents forbidden without inventing a current empty result (48.9617ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Không có vị trí phù hợp/. Input:
+  
+  'Không có vị trí phù hợp.'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:52:16)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:35:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:50:7)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Không có vị trí phù hợp.',
+    expected: /Không có vị trí phù hợp/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\list-empty-state.test.mjs:49:5
+✖ YardView empty body presents stale without inventing a current empty result (62.0941ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Không có vị trí phù hợp/. Input:
+  
+  'Không có vị trí phù hợp.'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:52:16)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:35:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:50:7)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Không có vị trí phù hợp.',
+    expected: /Không có vị trí phù hợp/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\list-empty-state.test.mjs:63:3
+✖ YardView read failure can retry then recover to a confirmed empty list (37.7074ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(retry)
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:66:55)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:35:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:65:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\list-empty-state.test.mjs:83:3
+✖ MovementOrdersView ready no-match state can clear its filter and reveal confirmed rows (21.5699ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Không có kết quả khớp bộ lọc/. Input:
+  
+  'Chưa có Movement Order nào phù hợp.'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:85:14)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:35:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:84:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Chưa có Movement Order nào phù hợp.',
+    expected: /Không có kết quả khớp bộ lọc/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\list-empty-state.test.mjs:83:3
+✖ YardView ready no-match state can clear its filter and reveal confirmed rows (47.1475ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Không có kết quả khớp bộ lọc/. Input:
+  
+  'Không có vị trí phù hợp.'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:85:14)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:35:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:84:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Không có vị trí phù hợp.',
+    expected: /Không có kết quả khớp bộ lọc/,
+    operator: 'match',
+    diff: 'simple'
+  }

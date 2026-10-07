@@ -1,0 +1,48 @@
+✔ context refuses a write after account switch and preserves the canonical custom role (351.184ms)
+✔ Dashboard distinguishes successful dispatch from pending partner acknowledgement (396.6124ms)
+✔ forbidden dashboard metrics never pretend zero revenue or zero yard capacity (425.1207ms)
+✔ report sections distinguish unavailable source data from real zero totals (53.6116ms)
+✔ loading dashboard metrics do not show numeric zero; stale values are explicitly labelled (137.0032ms)
+✔ Master Data retains the draft and blocks a second submission while pending and after rejection (1000.8436ms)
+✔ Users blank submit associates errors and focuses the first invalid field (72.6952ms)
+✔ read-only users never receive master-data or user write controls (59.0743ms)
+✔ truck shortcut opens a create dialog with its linked container (60.1037ms)
+✔ expired and cancelled passes never offer exit or handover and explain their status (127.6189ms)
+✔ EDI inspector renders canonical payload snapshot without synthesized ISO type (39.0648ms)
+✔ failed and forbidden collections do not claim a settled empty result (64.7914ms)
+✔ movement order default means now plus 24 hours in Vietnam UTC+7 (34.562ms)
+✔ manifest MBL blank save identifies the required number and keeps its form (58.5153ms)
+✔ Container Gate Pass failed readiness exposes retry without saying business conditions failed (106.8324ms)
+✔ Container Gate Pass renders a token-bearing QR only while the pass is valid (101.7353ms)
+✔ dirty create dialog prevents cancelled navigation and blocks navigation while pending (63.611ms)
+✔ Billing read-only page keeps invoice balances without offering billing or tariff writes (31.1351ms)
+✔ successful save followed by refresh failure reports saved without inviting another save (50.4727ms)
+✔ active pass changes to expired at its deadline without a user interaction (702.5264ms)
+✔ late readiness result for the previous container cannot enable issue for the new target (75.0923ms)
+✔ a readiness response with no confirmed checks cannot enable Gate Pass issue (48.293ms)
+✔ User creation keeps the entered identity until a rejected save settles and sends once (47.3756ms)
+✔ Partner creation sends once and retains its draft after rejection (45.0825ms)
+✔ Handover creation sends once and retains transport code after rejection (52.3825ms)
+✔ EDI dispatch sends once while pending and reports the backend result (23.1802ms)
+✔ Container inline Gate Pass blank submission focuses its first required receiver field (90.8328ms)
+✔ Tariff rule picker uses the canonical service catalog including custom codes and units (60.4496ms)
+✔ dirty modal blocks browser Back when the leave choice is cancelled (1311.9933ms)
+✔ accepted Back suspends the native dialog and Forward restores the same draft and focus (549.1479ms)
+✔ pending save blocks browser Back without issuing a second command (366.0825ms)
+✔ filter-only query replacement leaves the dirty dialog open without a leave prompt (232.9334ms)
+✔ internal navigation has exactly one dirty leave prompt and can be cancelled (315.2417ms)
+✔ hidden dialogs do not block active-page navigation or reload (77.9672ms)
+✔ switching user starts a fresh read and a late previous refresh cannot clear its pending state (337.2619ms)
+✔ tariff date-only inputs mean Vietnam midnight and invalid dates never send a command (333.1001ms)
+✔ ContainersView respects read-only and exact create permission (446.9741ms)
+✔ ManifestsView respects read-only and exact create permission (86.694ms)
+✔ MovementOrdersView respects read-only and exact create permission (116.5232ms)
+✔ HandoversView respects read-only and exact create permission (73.875ms)
+ℹ tests 40
+ℹ suites 0
+ℹ pass 40
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14438.9098

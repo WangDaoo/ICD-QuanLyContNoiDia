@@ -1,0 +1,26 @@
+{
+  "status": "VERIFIED",
+  "change": "Readiness distinguishes checking/error/unavailable/blocked/ready and rejects incomplete flags.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/useBackendReadiness.ts",
+      "line": 5,
+      "detail": "export function",
+      "snippet": "export function useBackendReadiness(visitId?: string | null) {\n  const {\n    checkReadiness,\n    containerVisits,"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/web-fixtures-final.txt"
+  ],
+  "limitations": "Deferred old responses cannot enable a newly selected visit; API readiness also tested on isolated DB.",
+  "method": "actual source component regression / guarded API / CUA when explicitly linked",
+  "next_verify": [
+    "Pending/read failure/no result/blockers/pass each produce distinct truthful content.",
+    "A network error never becomes a claimed failed business condition.",
+    "Issue remains unavailable until an explicit backend pass."
+  ],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/useBackendReadiness.ts.diff"
+  ],
+  "isolated_review_diffs": []
+}

@@ -1,0 +1,312 @@
+{
+  "created_at_utc": "2026-10-02T19:45:01.003737+00:00",
+  "sources": {
+    "frontend-law-auditor": {
+      "repository": "Jacobinwwey/frontend-law-auditor",
+      "url": "https://github.com/Jacobinwwey/frontend-law-auditor",
+      "commit": "6870ab3dc654ff6f879ef8fdee8d5fc085b6e507",
+      "default_branch": "main",
+      "resolved_at_utc": "2026-10-02T19:45:02.369005+00:00"
+    },
+    "mobile-ux-audit": {
+      "repository": "aditya305/mobile-ux-audit",
+      "url": "https://github.com/aditya305/mobile-ux-audit",
+      "commit": "a80d8c1de20ab51a5dffbf274dc13acf47c49baa",
+      "default_branch": "main",
+      "resolved_at_utc": "2026-10-02T19:45:03.414232+00:00"
+    },
+    "kz-skills": {
+      "repository": "kz-95/kz-skills",
+      "url": "https://github.com/kz-95/kz-skills",
+      "commit": "ca77ea4be13dc1405d18d0671e4696ecd91c3e62",
+      "default_branch": "main",
+      "resolved_at_utc": "2026-10-02T19:45:04.493246+00:00",
+      "local_path": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\kz-skills-source",
+      "mode": "reference-only; dependencies not installed",
+      "depth": 1,
+      "verified_commit": "ca77ea4be13dc1405d18d0671e4696ecd91c3e62"
+    },
+    "lumen": {
+      "repository": "LedgerHQ/lumen",
+      "url": "https://github.com/LedgerHQ/lumen",
+      "commit": "efafe93739bce351735b7b20fd2a2cf18424f099",
+      "default_branch": "main",
+      "resolved_at_utc": "2026-10-02T19:45:05.683458+00:00",
+      "local_path": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\lumen-source",
+      "mode": "reference-only; dependencies not installed",
+      "depth": 1,
+      "verified_commit": "efafe93739bce351735b7b20fd2a2cf18424f099"
+    },
+    "ux-gap-detector": {
+      "repository": "laststance/skills",
+      "url": "https://github.com/laststance/skills",
+      "commit": "66d87e7906a9584d193fa32b91b9e1c3a6232743",
+      "default_branch": "main",
+      "resolved_at_utc": "2026-10-02T19:45:06.851364+00:00",
+      "local_path": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\reference\\laststance-skills",
+      "mode": "reference-only; dependencies not installed",
+      "depth": 1,
+      "verified_commit": "66d87e7906a9584d193fa32b91b9e1c3a6232743",
+      "rubric_path": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\reference\\laststance-skills\\skills\\ux-gap-detector\\scoring-rubric.md",
+      "rubric_sha256": "42af283bcacf77b5d59adbc3e987449458f4f9fe1034875215b21f56c3fb5792",
+      "rubric_caveat": "Per-dimension issue-priority table uses 0-49/50-74/75+ ranges although dimensions max25; use explicit 0-25 dimension and 0-100 overall verdict bands; do not invent normalization."
+    }
+  },
+  "skills": {
+    "mobile-ux-audit": {
+      "path": "C:\\Users\\quang\\.codex\\skills\\mobile-ux-audit",
+      "source_key": "mobile-ux-audit",
+      "source_path": ".",
+      "commit": "a80d8c1de20ab51a5dffbf274dc13acf47c49baa",
+      "install_method": "official-installer-full-root",
+      "installed_at_utc": "2026-10-02T19:45:14.593496+00:00",
+      "file_count": 22,
+      "skill_md_sha256": "cc9e2e27a0c32340ff1e4ab36fe012ea87c60a107c3ba8671eb2f1ac9ddc7cc8",
+      "selected_workflow": "Codex executes portable playbook; no CLI dependencies installed and no Claude API calls"
+    },
+    "frontend-law-auditor": {
+      "path": "C:\\Users\\quang\\.codex\\skills\\frontend-law-auditor",
+      "source_key": "frontend-law-auditor",
+      "source_path": ".",
+      "commit": "6870ab3dc654ff6f879ef8fdee8d5fc085b6e507",
+      "install_method": "official-installer-full-root",
+      "installed_at_utc": "2026-10-02T19:45:15.914766+00:00",
+      "file_count": 43,
+      "skill_md_sha256": "dd471500da57d10e3222170525b17c274d5dd9c8a727fae865257be7c8848ccb",
+      "verified_help": "usage: law_audit.py [-h] [--input INPUT] [--output OUTPUT]\n                    [--json-out JSON_OUT] [--strict]\n                    [--fail-threshold FAIL_THRESHOLD]\n                    [--init-template INIT_TEMPLATE]\n\nAudit frontend evidence against human-centered design laws.\n\noptions:\n  -h, --help            show this help message and exit\n  --input INPUT         Path to evidence JSON.\n  --output OUTPUT       Path to markdown report output.\n  --json-out JSON_OUT   Optional JSON results output path.\n  --strict              Return non-zero when gate/score threshold fails.\n  --fail-threshold FAIL_THRESHOLD\n                        Minimum score required in strict mode.\n  --init-template INIT_TEMPLATE\n                        Write a template evidence JSON to this path and exit."
+    },
+    "kz-askcard": {
+      "path": "C:\\Users\\quang\\.codex\\skills\\kz-askcard",
+      "source_key": "kz-skills",
+      "source_path": "skills/kz-askcard",
+      "commit": "ca77ea4be13dc1405d18d0671e4696ecd91c3e62",
+      "install_method": "official-installer",
+      "full_source_reference": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\kz-skills-source",
+      "installed_at_utc": "2026-10-02T19:46:33.270841+00:00",
+      "file_count": 3,
+      "skill_md_sha256": "893ba72c3a55a54fc49d4b977dca918c2492ba1d514a2a3f30ff8917fb30b08e",
+      "source_files_preserved": 3
+    },
+    "kz-crew021": {
+      "path": "C:\\Users\\quang\\.codex\\skills\\kz-crew021",
+      "source_key": "kz-skills",
+      "source_path": "skills/kz-crew021",
+      "commit": "ca77ea4be13dc1405d18d0671e4696ecd91c3e62",
+      "install_method": "official-installer",
+      "full_source_reference": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\kz-skills-source",
+      "installed_at_utc": "2026-10-02T19:46:35.114617+00:00",
+      "file_count": 10,
+      "skill_md_sha256": "2cd419830d0b02d1369c67515f253c4f2383215b1709d54e29cf3b27885bf7f2",
+      "source_files_preserved": 10
+    },
+    "kz-engrules": {
+      "path": "C:\\Users\\quang\\.codex\\skills\\kz-engrules",
+      "source_key": "kz-skills",
+      "source_path": "skills/kz-engrules",
+      "commit": "ca77ea4be13dc1405d18d0671e4696ecd91c3e62",
+      "install_method": "official-installer",
+      "full_source_reference": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\kz-skills-source",
+      "installed_at_utc": "2026-10-02T19:46:42.072447+00:00",
+      "file_count": 3,
+      "skill_md_sha256": "9b517bb10101968d5c614fad8f5ac62b4156aef49beaf34b79f4d846621e75d6",
+      "source_files_preserved": 3
+    },
+    "kz-loopfix": {
+      "path": "C:\\Users\\quang\\.codex\\skills\\kz-loopfix",
+      "source_key": "kz-skills",
+      "source_path": "skills/kz-loopfix",
+      "commit": "ca77ea4be13dc1405d18d0671e4696ecd91c3e62",
+      "install_method": "official-installer",
+      "full_source_reference": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\kz-skills-source",
+      "installed_at_utc": "2026-10-02T19:46:43.843078+00:00",
+      "file_count": 1,
+      "skill_md_sha256": "a539dadeabff36764f707a1bd3bc8a38659d782945bc44e5a0ac1d4cb4ba34ae",
+      "source_files_preserved": 1
+    },
+    "kz-reflect": {
+      "path": "C:\\Users\\quang\\.codex\\skills\\kz-reflect",
+      "source_key": "kz-skills",
+      "source_path": "skills/kz-reflect",
+      "commit": "ca77ea4be13dc1405d18d0671e4696ecd91c3e62",
+      "install_method": "official-installer",
+      "full_source_reference": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\kz-skills-source",
+      "installed_at_utc": "2026-10-02T19:46:46.691697+00:00",
+      "file_count": 2,
+      "skill_md_sha256": "44c9d56f498d9d5baddbc7104a61416031d63017b697395a95a0071a3183ef19",
+      "source_files_preserved": 2
+    },
+    "kz-skill": {
+      "path": "C:\\Users\\quang\\.codex\\skills\\kz-skill",
+      "source_key": "kz-skills",
+      "source_path": "skills/kz-skill",
+      "commit": "ca77ea4be13dc1405d18d0671e4696ecd91c3e62",
+      "install_method": "official-installer",
+      "full_source_reference": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\kz-skills-source",
+      "installed_at_utc": "2026-10-02T19:46:48.718926+00:00",
+      "file_count": 1,
+      "skill_md_sha256": "305439e96a3d242c09e2f2f337e03e76fe8214c502e1d8dce4673a4ca1cda73c",
+      "source_files_preserved": 1
+    },
+    "kz-uicheck": {
+      "path": "C:\\Users\\quang\\.codex\\skills\\kz-uicheck",
+      "source_key": "kz-skills",
+      "source_path": "skills/kz-uicheck",
+      "commit": "ca77ea4be13dc1405d18d0671e4696ecd91c3e62",
+      "install_method": "official-installer",
+      "full_source_reference": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\kz-skills-source",
+      "installed_at_utc": "2026-10-02T19:46:50.696070+00:00",
+      "file_count": 9,
+      "skill_md_sha256": "fccc1070f9befa68b2746f7de54c31ccf83ff0a2195ee2f04d6cbfbb312b149a",
+      "source_files_preserved": 9
+    },
+    "kz-uiuxrule": {
+      "path": "C:\\Users\\quang\\.codex\\skills\\kz-uiuxrule",
+      "source_key": "kz-skills",
+      "source_path": "skills/kz-uiuxrule",
+      "commit": "ca77ea4be13dc1405d18d0671e4696ecd91c3e62",
+      "install_method": "official-installer",
+      "full_source_reference": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\kz-skills-source",
+      "installed_at_utc": "2026-10-02T19:46:52.715997+00:00",
+      "file_count": 7,
+      "skill_md_sha256": "c8f6ae22b7970172f06a5f5cfd407f00b5f449d340ef83209c063a8c9f687949",
+      "source_files_preserved": 7
+    }
+  },
+  "runtime": {
+    "package_versions": {
+      "axe-core": "4.13.0",
+      "lighthouse": "13.5.0",
+      "playwright": "1.63.0",
+      "tsx": "4.23.15",
+      "web-vitals": "6.2.2",
+      "colorjs.io": "0.7.1"
+    },
+    "path": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\runtime",
+    "package_json": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\runtime\\package.json",
+    "lockfile": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\runtime\\package-lock.json",
+    "node": "v24.13.0",
+    "npm": "11.6.2",
+    "installed_at_utc": "2026-10-02T19:47:52.541941+00:00",
+    "browser_install_performed": false,
+    "npm_ls": {
+      "version": "1.0.0",
+      "name": "icd-audit-runtime",
+      "dependencies": {
+        "axe-core": {
+          "version": "4.13.0",
+          "resolved": "https://registry.npmjs.org/axe-core/-/axe-core-4.13.0.tgz",
+          "overridden": false
+        },
+        "colorjs.io": {
+          "version": "0.7.1",
+          "resolved": "https://registry.npmjs.org/colorjs.io/-/colorjs.io-0.7.1.tgz",
+          "overridden": false
+        },
+        "lighthouse": {
+          "version": "13.5.0",
+          "resolved": "https://registry.npmjs.org/lighthouse/-/lighthouse-13.5.0.tgz",
+          "overridden": false
+        },
+        "playwright": {
+          "version": "1.63.0",
+          "resolved": "https://registry.npmjs.org/playwright/-/playwright-1.63.0.tgz",
+          "overridden": false
+        },
+        "tsx": {
+          "version": "4.23.15",
+          "resolved": "https://registry.npmjs.org/tsx/-/tsx-4.23.15.tgz",
+          "overridden": false
+        },
+        "web-vitals": {
+          "version": "6.2.2",
+          "resolved": "https://registry.npmjs.org/web-vitals/-/web-vitals-6.2.2.tgz",
+          "overridden": false
+        }
+      }
+    },
+    "playwright_version_output": "Version 1.63.0",
+    "lighthouse_version_output": "13.5.0",
+    "tsx_version_output": "tsx v4.23.15\nnode v24.13.0",
+    "package_lock_sha256": "8410e7484e864abda1aa0ae98e6e42fbe0edab0140769bfc4b02c9a6e7ea9810",
+    "color_api_sources": [
+      "https://colorjs.io/docs/the-color-object.html",
+      "https://colorjs.io/docs/contrast.html"
+    ],
+    "offline_converter": {
+      "path": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\runtime\\contrast-offline.mjs",
+      "sha256": "95a33ab947e9ed5b79181c4331aa97fbd44d9e1fa67c04ffa2d5232f4bc7db3c",
+      "verified_help": "node contrast-offline.mjs --input <measurements.json> [--output <contrast.json>]\nInput: array or {measurements:[{foregroundRaw,backgroundLayers,fontSizePx,fontWeight,disabled?}]}. Background layers ordered nearest first; strings or {colorRaw,backgroundImage?,opacity?}. Optional measured canvasRaw. Unsupported data returns UNKNOWN.",
+      "fixture_verification": "✔ offline Color4 contrast tool is present (1.7557ms)\n✔ known black/white WCAG contrast is 21 (4.2683ms)\n✔ OKLCH neutral L=.5 parses and has white contrast six (2.1092ms)\n✔ half-transparent black is composited over the measured white surface (0.6834ms)\n✔ nearest transparent surface composites over opaque outer surface (0.8327ms)\n✔ invalid and unresolved colors never silently become white (0.5001ms)\n✔ gradient and image background remains unknown (0.4402ms)\n✔ missing opaque canvas remains unknown (0.3187ms)\n✔ disabled text is exempt and does not produce a failure (0.383ms)\n✔ large bold text uses the three-to-one contrast threshold (0.8371ms)\n✔ CSS group opacity is unknown without rendered pixel evidence (0.3121ms)\nℹ tests 11\nℹ suites 0\nℹ pass 11\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 524.5198",
+      "browser_access": false,
+      "primary_sources": [
+        "https://colorjs.io/docs/the-color-object.html",
+        "https://colorjs.io/docs/contrast.html",
+        "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html"
+      ]
+    }
+  },
+  "scope": "audit-only preparation; no application package changes, audits, browser launch, or business writes",
+  "tamagui": {
+    "status": "not-applicable",
+    "reason": "No Tamagui dependency in the application per delegated baseline context"
+  },
+  "updated_at_utc": "2026-10-02T19:55:52.755967+00:00",
+  "verification": {
+    "at_utc": "2026-10-02T19:55:52.755967+00:00",
+    "support_files": "present",
+    "source_commits": "matched",
+    "exact_runtime_versions": "matched",
+    "audits_run": false,
+    "browser_launches": false,
+    "business_writes": false
+  },
+  "readonly_check_feasibility": {
+    "path": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\raw\\baseline\\web\\kz-check-feasibility.json",
+    "sha256": "7d9f055c2f8d1b177a281b40383601b884cdd89472caf8359814aeefd2bea579",
+    "compatible_originals": [
+      "table-check.js",
+      "layout-audit.js"
+    ],
+    "runtime_executed": false
+  },
+  "lumen_reference_notes": {
+    "path": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\lumen-token-reference-notes.md",
+    "sha256": "dda54e4c2689e152a0ba487b961233645189327a059eeea7af5ec0ab8520f0da",
+    "mode": "semantic token comparison; no adoption or package installation",
+    "source_commit": "efafe93739bce351735b7b20fd2a2cf18424f099",
+    "reference_hashes": {
+      "libs/ui-react/ai-rules/RULES.md": "f594c2108b804d91817cfb3340b89387eb1084a962b239d983ef6dc52a2d218a",
+      "libs/ui-rnative/ai-rules/RULES.md": "1489200a28f6a70103f4ee27188502986549d9aea9b30f893b8b9951582c4ab5",
+      "libs/design-core/README.md": "7dbb0da1470f086127c98f70023492ac6bc7f1201d1f7fc6a2bef16a06c5a149",
+      "libs/design-core/src/lib/themes/js/primitives/primitives.others.ts": "796b70a1d11a9a25f7fc0997a40fb3c18bdb06bc118dd0a9c32e967f36afbf6b",
+      "libs/design-core/src/lib/themes/js/primitives/primitive.typographies.ts": "d75c05e95a74b44d6375afa834c6fdfdd29711f51859e1a8a29bea3dfc173597",
+      "libs/design-core/src/lib/themes/js/typographies/typography.md.ts": "fb61ac074ad9e0f1642348d9f88438e86093b7d26f3a96542bf217272526f1e8",
+      "libs/design-core/src/lib/themes/js/ledger-live/theme.light.ts": "e9e9b2b3ab89ddea6f68fb1dac1a7b59c89fdb03603af4ca57f0655624d46e5b"
+    },
+    "current_source_hashes": {
+      "apps/mobile/src/theme/colors.ts": "f6ef16f4f126cbfc70b918f2dffb04afcb9f41757f0feee13b140f5de8b6b608",
+      "apps/mobile/src/theme/spacing.ts": "e86b03ac12ca93fb204c7a3b898dc3d8644d0fe974936be17fd6a1af6e97eda6",
+      "apps/mobile/src/theme/typography.ts": "87a723208971c2296450ee22f5ea86ce2afdce81341ab9f932a3d3d12930d7e3",
+      "apps/web/src/index.css": "a6a1570f644d71c2624c002bcb24ea7fc1eafda8d71f15c90a3f8a4304983f42",
+      "apps/web/package.json": "e4d806aabbf2b4d54178da6d443bf77a10d3f32141fe3342bc11ee72518a3107",
+      "apps/web/src/components/AuditsView.tsx": "db9795928a1effc43465d98bdebdbd1eb70c60e000b741fac0687b8d3adc41e2"
+    }
+  },
+  "lighthouse_login": {
+    "summary_path": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\raw\\baseline\\web\\lighthouse-summary.json",
+    "summary_sha256": "63a6ed511bedaa862826e07664c9eb1c4aad636e5e1be26b23e6f68e7e92c1cf",
+    "status": "MEASURED",
+    "artifacts_directory": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\raw\\baseline\\web\\lighthouse-login-20261002T201338Z",
+    "helper_path": "D:\\Project\\Đồ Án 4 +Mobile\\icd-management\\audit\\tools\\runtime\\run-lighthouse-login.py",
+    "helper_sha256": "e77f5ce6e699f9c868d1caec4b4a20270e22aa48977056fbd6a852d55098bb1c",
+    "primary_sources": [
+      "https://developer.chrome.com/docs/lighthouse/overview",
+      "https://developer.chrome.com/docs/lighthouse/performance/performance-scoring",
+      "https://github.com/GoogleChrome/lighthouse/blob/v13.5.0/core/gather/gatherers/accessibility.js",
+      "https://github.com/GoogleChrome/lighthouse/blob/v13.5.0/core/runner.js"
+    ],
+    "embedded_axe_versions": [
+      "4.13.0"
+    ]
+  }
+}

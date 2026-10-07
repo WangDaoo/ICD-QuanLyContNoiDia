@@ -1,0 +1,228 @@
+{
+  "approved_fix_ids": [
+    "W-S-020",
+    "M-001",
+    "M-002",
+    "M-003",
+    "W-S-001",
+    "W-S-002",
+    "W-S-003",
+    "W-S-005",
+    "W-S-016"
+  ],
+  "fixes": [
+    {
+      "id": "W-S-020",
+      "status": "VERIFIED_IN_APPROVED_SCOPE",
+      "change": "Chuẩn hóa JSON đã redacted thành văn bản; khai báo JsonValue đúng kiểu; thêm ErrorBoundary riêng cho màn hình và nút về Tổng quan.",
+      "evidence": [
+        "audit/raw/re-audit/web/W-S-020-green.txt",
+        "audit/raw/re-audit/web/partner-api-logs-fixed-ax.txt",
+        "audit/screenshots/re-audit/web/partner-api-logs-fixed.jpg",
+        "audit/raw/re-audit/web-safety/independent-review-tests.txt"
+      ],
+      "source_evidence": [
+        {
+          "file": "apps/web/src/services/redacted-log-body.ts",
+          "line": 3,
+          "detail": "export function"
+        },
+        {
+          "file": "apps/web/src/components/ViewErrorBoundary.tsx",
+          "line": 11,
+          "detail": "getDerivedStateFromError"
+        },
+        {
+          "file": "apps/web/src/components/PartnerManagementView.tsx",
+          "line": 299,
+          "detail": "formatRedactedLogBody(selectedLog.requestBodyRedacted)"
+        }
+      ],
+      "limitations": "Đã mở log thực tế ở 3 viewport; lỗi render cưỡng bức, dữ liệu falsy và bảo vệ redaction kiểm bằng fixture. Không gửi API đối tác."
+    },
+    {
+      "id": "M-001",
+      "status": "VERIFIED_IN_APPROVED_SCOPE",
+      "change": "Nâng minima vùng chạm thành 48dp; header xuống hàng ở màn hẹp, nhãn Gate-in/out co và wrap trong vùng chạm.",
+      "evidence": [
+        "audit/raw/re-audit/mobile/hit-area-measurements.json",
+        "audit/raw/re-audit/mobile/measurements-independent-verification.json",
+        "audit/screenshots/re-audit/mobile/26-320-gate-light.png"
+      ],
+      "source_evidence": [
+        {
+          "file": "apps/mobile/src/components/AppHeader.tsx",
+          "line": 49,
+          "detail": "minHeight: 48"
+        },
+        {
+          "file": "apps/mobile/src/components/PrimaryButton.tsx",
+          "line": 95,
+          "detail": "minHeight: 48"
+        }
+      ],
+      "limitations": "352 mẫu XML: 331 vùng đầy đủ đạt ≥48dp, 21 mẫu bị cắt mép viewport loại khỏi phép kết luận kích thước. Android thường và 320dp/font150%; chưa có iOS."
+    },
+    {
+      "id": "M-002",
+      "status": "VERIFIED_IN_APPROVED_SCOPE",
+      "change": "Tách màu chữ semantic, màu fill và chữ trên fill; tăng contrast success/warning và xác nhận đăng xuất cho sáng/tối.",
+      "evidence": [
+        "audit/raw/re-audit/mobile/contrast-measurements.json",
+        "audit/raw/re-audit/mobile/measurements-independent-verification.json",
+        "audit/screenshots/re-audit/mobile/06-logout-dark.png"
+      ],
+      "source_evidence": [
+        {
+          "file": "apps/mobile/src/theme/colors.ts",
+          "line": 7,
+          "detail": "successText"
+        }
+      ],
+      "limitations": "9 cặp màu chữ native có RGB pixel thực tế đạt ≥4.5:1. Kết quả chỉ áp dụng các cặp đã đo, không chứng nhận toàn bộ màu của app."
+    },
+    {
+      "id": "M-003",
+      "status": "VERIFIED_IN_APPROVED_SCOPE",
+      "change": "Phiên không có tab được phép có hành động mở Tài khoản để yêu cầu quyền và dùng luồng đăng xuất hiện có.",
+      "evidence": [
+        "audit/fixes/mobile/fix-log.json",
+        "audit/raw/re-audit/mobile-tests-final.txt",
+        "audit/raw/re-audit/mobile/independent-source-review.md"
+      ],
+      "source_evidence": [
+        {
+          "file": "apps/mobile/src/navigation/MainTabNavigator.tsx",
+          "line": 26,
+          "detail": "onOpenAccount"
+        },
+        {
+          "file": "apps/mobile/src/components/ForbiddenScreen.tsx",
+          "line": 10,
+          "detail": "onOpenAccount"
+        }
+      ],
+      "limitations": "Điều hướng zero-tab và hủy/xác nhận đăng xuất được kiểm bằng fixture. Native zero-tab UNKNOWN vì không có tài khoản tương ứng; native ADMIN chỉ mở/hủy đăng xuất, không đăng xuất thật."
+    },
+    {
+      "id": "W-S-001",
+      "status": "VERIFIED_IN_APPROVED_SCOPE",
+      "change": "15 overlay dùng dialog có tên, focus ban đầu, trap Tab/Shift+Tab, khóa nền, Escape và trả focus về nút mở; giữ điều kiện khóa khi đang gửi.",
+      "evidence": [
+        "audit/fixes/W-S-001/inventory.json",
+        "audit/raw/re-audit/web/modal-keyboard-checks.json",
+        "audit/raw/re-audit/web-semantics/modal-green.txt",
+        "audit/raw/re-audit/web-conditional-forms/tests.txt"
+      ],
+      "source_evidence": [
+        {
+          "file": "apps/web/src/components/ModalOverlay.tsx",
+          "line": 13,
+          "detail": "export function"
+        }
+      ],
+      "limitations": "12/15 loại overlay chạy trực tiếp trong browser. MBL/HBL/thanh toán không mở được với dữ liệu hiện tại; kiểm component thật bằng fixture. Đây không phải bằng chứng native browser cho 3 loại đó."
+    },
+    {
+      "id": "W-S-002",
+      "status": "VERIFIED_IN_APPROVED_SCOPE",
+      "change": "Thêm 59 liên kết label htmlFor/id cho field vận hành; giữ ARIA name đã có. Label được click để đối chiếu focus.",
+      "evidence": [
+        "audit/fixes/W-S-002/inventory.json",
+        "audit/fixes/W-S-002/supplement/inventory.json",
+        "audit/raw/re-audit/web/modal-keyboard-checks.json",
+        "audit/raw/re-audit/web-conditional-forms/coverage.json"
+      ],
+      "source_evidence": [
+        {
+          "file": "apps/web/src/components/TruckVisitsView.tsx",
+          "line": 189,
+          "detail": "htmlFor="
+        },
+        {
+          "file": "apps/web/src/components/ContainersView.tsx",
+          "line": 934,
+          "detail": "htmlFor=\"containers-create"
+        }
+      ],
+      "limitations": "Field có điều kiện kiểm thêm qua 9 fixture component thật, 37 field hiển thị. Chưa xác nhận thông báo screen reader thực tế."
+    },
+    {
+      "id": "W-S-003",
+      "status": "VERIFIED_IN_APPROVED_SCOPE",
+      "change": "5 danh sách master/detail dùng button type=button, aria-pressed và focus ring; Enter/Space chọn đúng bản ghi.",
+      "evidence": [
+        "audit/fixes/W-S-003/inventory.json",
+        "audit/raw/re-audit/web/keyboard-selectors.json"
+      ],
+      "source_evidence": [
+        {
+          "file": "apps/web/src/components/ManifestsView.tsx",
+          "line": 210,
+          "detail": "aria-pressed={"
+        }
+      ],
+      "limitations": "Đã thao tác keyboard cả 5 danh sách bằng dữ liệu hiện có; không ghi giao dịch."
+    },
+    {
+      "id": "W-S-005",
+      "status": "VERIFIED_IN_APPROVED_SCOPE",
+      "change": "Thanh toán có khóa ref đồng bộ chống gửi trùng, disabled/loading, khóa đóng/sửa lúc pending và lỗi phục hồi giữ nguyên input.",
+      "evidence": [
+        "audit/fixes/W-S-005/evidence.json",
+        "audit/raw/re-audit/billing/green.txt",
+        "audit/raw/re-audit/web-conditional-forms/tests.txt"
+      ],
+      "source_evidence": [
+        {
+          "file": "apps/web/src/components/BillingView.tsx",
+          "line": 65,
+          "detail": "const paymentPending = useRef(false)"
+        }
+      ],
+      "limitations": "4 fixture async component thật; không tạo thanh toán. Chỉ phần P1 thanh toán được duyệt; các action phi tài chính còn là việc P2 ngoài phạm vi."
+    },
+    {
+      "id": "W-S-016",
+      "status": "VERIFIED_IN_APPROVED_SCOPE",
+      "change": "Theo dõi ready/unavailable/forbidden của Holds/Gate Pass từng visit; giữ dữ liệu stale khi lỗi tạm thời, xóa dữ liệu khi mất quyền; cảnh báo/retry và màu bãi chưa kiểm tra.",
+      "evidence": [
+        "audit/raw/re-audit/web-safety/independent-review-tests.txt",
+        "audit/raw/re-audit/web-safety/independent-review.md"
+      ],
+      "source_evidence": [
+        {
+          "file": "apps/web/src/services/visit-safety-data.ts",
+          "line": 4,
+          "detail": "export function"
+        },
+        {
+          "file": "apps/web/src/components/CriticalDataNotice.tsx",
+          "line": 4,
+          "detail": "export function"
+        },
+        {
+          "file": "apps/web/src/context/AppContext.tsx",
+          "line": 103,
+          "detail": "visitSafetyStatus"
+        }
+      ],
+      "limitations": "Fixture GET lỗi trang sau, 403, thiếu status, stale, empty thật và retry đã chạy. Không ép lỗi backend thật. Manifest/Role/Handover detail phi an toàn vẫn là việc P2 ngoài phạm vi."
+    }
+  ],
+  "baseline_priority_plan_preserved": true,
+  "residual_subtasks": [
+    {
+      "parent_id": "W-S-005",
+      "priority": "P2",
+      "status": "OPEN_NOT_APPROVED",
+      "scope": "Pending guards for non-financial actions from the original broad finding"
+    },
+    {
+      "parent_id": "W-S-016",
+      "priority": "P2",
+      "status": "OPEN_NOT_APPROVED",
+      "scope": "Noncritical Manifest/Role/Handover nested-detail availability from the original broad finding"
+    }
+  ]
+}

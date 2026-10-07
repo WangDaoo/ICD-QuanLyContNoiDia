@@ -1,0 +1,124 @@
+--- before/apps/web/src/services/api/containers.service.ts
++++ after/apps/web/src/services/api/containers.service.ts
+@@ -1,61 +1,77 @@
+ import { apiClient } from './client';
+-import { unwrapData, unwrapPage } from '../mappers';
++import type { ContainerVisit } from '../../types';
++import { mapContainerVisitDto } from '../mappers/icd-view.mapper';
++import { asRecords, unwrapData } from '../mappers/api-response.mapper';
++import { responseRecord, viewPage, type PaginationParams } from './dto';
++export type { ContainerVisit } from '../../types';
+ 
+-export interface ContainerVisit {
+-  id: string;
++export interface CreateContainerVisitPayload {
+   containerNumber: string;
+-  isoType: string;
+-  status: string;
+-  customsStatus: string;
+-  shippingLineId?: string;
+-  shippingLine?: { id: string; code: string; name: string };
+-  sealNumber?: string;
+-  cargoWeight?: number;
++  isoCode: string;
++  size: 'SIZE_20' | 'SIZE_40' | 'SIZE_45';
++  type: 'DRY' | 'REEFER' | 'FLATRACK' | 'OPENTOP' | 'TANK';
++  height?: number;
++  tareWeight?: number;
++  maxPayload?: number;
++  houseBlId?: string;
++  manifestId?: string;
++  masterBlId?: string;
++  consigneeId?: string;
++  fullEmptyStatus?: 'FULL' | 'EMPTY' | 'UNKNOWN';
++  sealNo?: string;
++  cargoDescription?: string;
+   grossWeight?: number;
+-  hazmatClass?: string;
+-  reeferTemp?: number;
+-  yardBlock?: string;
+-  yardBay?: string;
+-  yardRow?: string;
+-  yardTier?: string;
+-  createdAt: string;
+-  updatedAt: string;
++  category?: 'IMPORT' | 'EXPORT' | 'STORAGE';
+ }
+-
+-export interface QueryContainersParams {
+-  containerNumber?: string;
+-  status?: string;
+-  page?: number;
+-  limit?: number;
++export type UpdateContainerVisitPayload = Partial<
++  Pick<
++    CreateContainerVisitPayload,
++    | 'houseBlId'
++    | 'manifestId'
++    | 'masterBlId'
++    | 'consigneeId'
++    | 'sealNo'
++    | 'cargoDescription'
++    | 'grossWeight'
++    | 'category'
++    | 'fullEmptyStatus'
++  >
++> & { note?: string };
++export interface QueryContainersParams extends PaginationParams {
++  search?: string;
++  state?: 'PENDING' | 'AUTHORIZED' | 'IN_YARD' | 'GATE_PASS_ISSUED' | 'EXITED' | 'CANCELLED';
++  category?: CreateContainerVisitPayload['category'];
++  isOverstay?: boolean;
+ }
+ 
+ export const containersService = {
+-  async findAll(params?: QueryContainersParams): Promise<{ data: ContainerVisit[]; total?: number }> {
+-    const res = await apiClient.get<any>('/containers', { params });
+-    return unwrapPage<ContainerVisit>(res);
++  async findAll(params?: QueryContainersParams) {
++    return viewPage('containerVisits', await apiClient.get<unknown>('/containers', { params }));
+   },
+-
+   async findById(visitId: string): Promise<ContainerVisit> {
+-    const res = await apiClient.get<any>(`/containers/${visitId}`);
+-    return unwrapData<ContainerVisit>(res);
++    return mapContainerVisitDto(
++      responseRecord(await apiClient.get<unknown>(`/containers/${visitId}`)),
++    );
+   },
+-
+-  async getEvents(visitId: string): Promise<any[]> {
+-    const res = await apiClient.get<any>(`/containers/${visitId}/events`);
+-    return unwrapData<any[]>(res, []);
++  async getEvents(visitId: string): Promise<Record<string, unknown>[]> {
++    return asRecords(
++      unwrapData<unknown>(await apiClient.get<unknown>(`/containers/${visitId}/events`)),
++    );
+   },
+-
+-  async createVisit(payload: any): Promise<ContainerVisit> {
+-    const res = await apiClient.post<any>('/containers', payload);
+-    return unwrapData<ContainerVisit>(res);
++  async createVisit(payload: CreateContainerVisitPayload): Promise<ContainerVisit> {
++    return mapContainerVisitDto(
++      responseRecord(await apiClient.post<unknown>('/containers', payload)),
++    );
+   },
+-
+-  async updateVisit(visitId: string, payload: any): Promise<ContainerVisit> {
+-    const res = await apiClient.patch<any>(`/containers/${visitId}`, payload);
+-    return unwrapData<ContainerVisit>(res);
++  async updateVisit(
++    visitId: string,
++    payload: UpdateContainerVisitPayload,
++  ): Promise<ContainerVisit> {
++    return mapContainerVisitDto(
++      responseRecord(await apiClient.patch<unknown>(`/containers/${visitId}`, payload)),
++    );
+   },
+-
+   async cancelVisit(visitId: string, payload: { reason: string }): Promise<void> {
+-    await apiClient.post(`/containers/${visitId}/cancel`, payload);
++    await apiClient.post<unknown>(`/containers/${visitId}/cancel`, payload);
+   },
+ };

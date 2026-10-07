@@ -1,0 +1,61 @@
+Browser tab: 22, Title: "ICD Management System — Quản lý Kho bãi Container Nội địa", URL: "http://127.0.0.1:5173/".
+1 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/
+	2 container root
+		41 container
+			102 button Mở menu điều hướng
+			42 text ICD
+			43 heading ICD Management System, Value: 1
+				44 text ICD Management System
+			46 button Tải lại dữ liệu
+			47 button (collapsed) Description: Thông báo (0 chưa đọc), Secondary Actions: Expand
+			49 button Đăng xuất
+		40 container
+			103 heading Phiếu ra cổng (Gate Pass) & Kiểm soát Xuất kho, Value: 2
+				104 text Phiếu ra cổng (Gate Pass) & Kiểm soát Xuất kho
+			105 text Phát hành mã QR Code ra cổng có thời hạn 24 giờ, đối soát cổng Outbound và xác nhận Gate-out
+			106 button Cấp Phiếu ra cổng mới
+			107 text Tra cứu phiếu ra cổng Quét mã QR từ app tài xế hoặc nhập mã GP-XXXX để xác thực
+			108 text field (settable)
+			109 button Quét mã
+			110 text field (settable)
+			111 checkbox GP-MUQAHDPX-0237BC USED QAOU1882075 Xe: 51C-OUTQA Tài xế: Local QA receiver, Value: 1
+				112 text GP-MUQAHDPX-0237BC
+				113 text USED
+				114 text QAOU1882075
+				115 text Xe: 
+				116 text 51C-OUTQA
+				117 text Tài xế: 
+				118 text Local QA receiver
+			119 checkbox GP-MUQ99LSU-EC4D56 USED QAOU5007550 Xe: 51C-OUTQA Tài xế: Local QA receiver, Value: 0
+				120 text GP-MUQ99LSU-EC4D56
+				121 text USED
+				122 text QAOU5007550
+				123 text Xe: 
+				124 text 51C-OUTQA
+				125 text Tài xế: 
+				126 text Local QA receiver
+			127 checkbox GP-MUP67M77-8C9CDC USED QATU2282957 Xe: 51C-QA1001 Tài xế: Local QA Receiver, Value: 0
+				128 text GP-MUP67M77-8C9CDC
+				129 text USED
+				130 text QATU2282957
+				131 text Xe: 
+				132 text 51C-QA1001
+				133 text Tài xế: 
+				134 text Local QA Receiver
+			135 heading GP-MUQAHDPX-0237BC, Value: 3
+				136 text GP-MUQAHDPX-0237BC
+			137 text USED Phát hành lúc:  08:33:27 2/10/2026 Hiệu lực đến: 08:33:27 3/10/2026
+			138 text QR chỉ hiển thị với phiếu còn hiệu lực và tài khoản có quyền phát hành.
+			139 text Trình mã này tại cổng Outbound để nhân viên đối soát biển số xe và mở barie. Thông tin Phương tiện Biển số đăng ký: 
+			140 text 51C-OUTQA
+			141 text Người nhận hàng: 
+			142 text Local QA receiver
+			143 text Số CMND/CCCD:
+			144 text Hồ sơ Container Số container: 
+			145 text QAOU1882075
+			146 text Mã chuyến tiếp nhận: 
+			147 text f6482365-ae79-4ae3-9dec-efecd8f04947
+			148 text Điều kiện được backend kiểm tra lại khi xác nhận ra cổng. Phiếu này đã được sử dụng để xuất cổng.
+			149 button Tiến hành bàn giao vận chuyển
+
+The focused UI element is 1 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/

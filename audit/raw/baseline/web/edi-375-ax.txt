@@ -1,0 +1,86 @@
+Browser tab: 20, Title: "ICD Management System — Quản lý Kho bãi Container Nội địa", URL: "http://127.0.0.1:5173/".
+0 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/
+	1 container root
+		2 container
+			278 button Mở menu điều hướng
+			3 text ICD
+			4 heading ICD Management System, Value: 1
+				5 text ICD Management System
+			7 button Tải lại dữ liệu
+			8 button (collapsed) Description: Thông báo (0 chưa đọc), Secondary Actions: Expand
+			10 button Đăng xuất
+		39 container
+			279 heading Trung tâm Trao đổi Dữ liệu Điện tử (EDI Center), Value: 2
+				280 text Trung tâm Trao đổi Dữ liệu Điện tử (EDI Center)
+			281 text Giao tiếp tự động chuẩn UN/EDIFACT (CODECO_GATE_IN, CODECO_GATE_OUT, COREOR) với các Hãng tàu quốc tế và Cục Hải quan
+			282 button Outbox
+			283 button Routes
+			284 button Alerts
+			285 pop up button (collapsed, settable) Value: Tất cả loại điện tín, Secondary Actions: Expand
+				286 menu
+					287 (selected) Tất cả loại điện tín
+					288 CODECO Gate In
+					289 CODECO Gate Out
+					290 COREOR Release Order
+			291 button Chạy Dispatcher
+			292 text CODECO_GATE_IN SENT
+			293 text QAOU4835930
+			294 text Hãng tàu: 
+			295 text CMA CGM Group
+			296 text 22:04:43 CODECO_GATE_IN SENT
+			297 text QAOU6004067
+			298 text Hãng tàu: 
+			299 text CMA CGM Group
+			300 text 16:00:00 CODECO_GATE_OUT SENT
+			301 text QAOU1882075
+			302 text Hãng tàu: 
+			303 text CMA CGM Group
+			304 text 08:35:55 CODECO_GATE_IN SENT
+			305 text QAOU1882075
+			306 text Hãng tàu: 
+			307 text CMA CGM Group
+			308 text 08:12:18 CODECO_GATE_OUT SENT
+			309 text QAOU5007550
+			310 text Hãng tàu: 
+			311 text CMA CGM Group
+			312 text 08:07:57 CODECO_GATE_IN SENT
+			313 text QAOU5007565
+			314 text Hãng tàu: 
+			315 text CMA CGM Group
+			316 text 07:46:07 CODECO_GATE_IN SENT
+			317 text QAOU5007550
+			318 text Hãng tàu: 
+			319 text CMA CGM Group
+			320 text 07:41:41 CODECO_GATE_IN SENT
+			321 text QAOU5007570
+			322 text Hãng tàu: 
+			323 text CMA CGM Group
+			324 text 07:38:39 CODECO_GATE_IN SENT
+			325 text QAMU6102765
+			326 text Hãng tàu: 
+			327 text CMA CGM Group
+			328 text 15:51:24 CODECO_GATE_OUT SENT
+			329 text QATU2282957
+			330 text Hãng tàu: 
+			331 text MSC (Mediterranean Shipping Company)
+			332 text 13:50:14 CODECO_GATE_IN SENT
+			333 text QATU2282957
+			334 text Hãng tàu: 
+			335 text MSC (Mediterranean Shipping Company)
+			336 text 13:32:55 Điện tín  CODECO_GATE_IN Hãng nhận:  CMA CGM Group Container liên quan: 
+			337 text QAOU4835930
+			338 text  · Idempotency Key:  CODECO_GATE_IN:8296f2ae-da88-4f0e-bb0d-2835d2d7dc7c
+			339 button Copy
+			340 text Trạng thái truyền: SENT Thời gian tạo: 22:04:43 2/10/2026 Số lần thử lại: 0  lần DỮ LIỆU ĐIỆN TÍN THÔ (UN/EDIFACT D.00B SEGMENT PAYLOAD): UNB+UNOA:2+VNICD+CMA CGM Group+20261002:1504+7e9e93'
+UNH+7e9e93+CODECO_GATE_IN:D:00B:UN:SMDG20'
+BGM+34+6f4a78d9-c2ce-4ec2-8e00-97f9027e9e93+9'
+NAD+MS+VNICD:160:ZZZ'
+NAD+MR+CMA CGM Group:160:ZZZ'
+EQD+CN+QAOU4835930+45G1:102:5++2+5'
+LOC+11+VNICD:139:6'
+DTM+132:20261002:102'
+CNT+16:1'
+UNT+9+7e9e93'
+UNZ+1+7e9e93'
+
+The focused UI element is 0 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/

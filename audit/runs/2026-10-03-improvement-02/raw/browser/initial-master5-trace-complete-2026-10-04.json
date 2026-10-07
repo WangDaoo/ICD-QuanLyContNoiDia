@@ -1,0 +1,139 @@
+{
+  "scope": "Visible loading/resource transitions in the actual authenticated app; 50ms polling starts at iframe load, not navigation start",
+  "at": "2026-10-04T06:42:42.734Z",
+  "truncated": false,
+  "records": [
+    {
+      "elapsedMs": 0.10000002384185791,
+      "at": "2026-10-04T06:42:36.382Z",
+      "path": "/__audit-production-20261004-after-pointer-final.html",
+      "view": null,
+      "headings": [],
+      "statuses": [],
+      "rowCount": 0,
+      "knownRows": []
+    },
+    {
+      "elapsedMs": 116.5,
+      "at": "2026-10-04T06:42:36.498Z",
+      "path": "/__audit-production-20261004-after-pointer-final.html",
+      "view": "dashboard",
+      "headings": [],
+      "statuses": [
+        "Đang tải dữ liệu vận hành…",
+        "Đang mở màn nghiệp vụ…"
+      ],
+      "rowCount": 0,
+      "knownRows": []
+    },
+    {
+      "elapsedMs": 166.20000004768372,
+      "at": "2026-10-04T06:42:36.548Z",
+      "path": "/__audit-production-20261004-after-pointer-final.html",
+      "view": "dashboard",
+      "headings": [
+        "Hoạt động Cổng & Chuyến xe (Truck Visits)",
+        "Cảnh báo thời gian lưu bãiChưa kiểm tra",
+        "Kiểm soát Lệnh Giữ (Operational Holds)",
+        "Vận hành EDI (CODECO)"
+      ],
+      "statuses": [
+        "Đang tải dữ liệu vận hành…",
+        "Đang tải dữ liệu…",
+        "Đang tải dữ liệu…",
+        "Đang tải dữ liệu…",
+        "Đang tải dữ liệu…",
+        "Đang tải dữ liệu…",
+        "Đang tải dữ liệu…",
+        "Đang tải dữ liệu…",
+        "Đang tải dữ liệu…"
+      ],
+      "rowCount": 0,
+      "knownRows": []
+    },
+    {
+      "elapsedMs": 204.5,
+      "at": "2026-10-04T06:42:36.586Z",
+      "path": "/__audit-production-20261004-after-pointer-final.html",
+      "view": "dashboard",
+      "headings": [
+        "Hoạt động Cổng & Chuyến xe (Truck Visits)",
+        "Cảnh báo thời gian lưu bãiChưa kiểm tra",
+        "Kiểm soát Lệnh Giữ (Operational Holds)",
+        "Vận hành EDI (CODECO)"
+      ],
+      "statuses": [
+        "Đang tải dữ liệu vận hành…",
+        "Đang tải dữ liệu…",
+        "Đang tải dữ liệu…",
+        "Đang tải dữ liệu…",
+        "Đang tải dữ liệu…",
+        "Đang tải dữ liệu…",
+        "Đang tải dữ liệu…",
+        "Đang tải dữ liệu…"
+      ],
+      "rowCount": 0,
+      "knownRows": []
+    },
+    {
+      "elapsedMs": 250.30000007152557,
+      "at": "2026-10-04T06:42:36.632Z",
+      "path": "/app/master-data",
+      "view": "master-data",
+      "headings": [],
+      "statuses": [
+        "Đang tải dữ liệu vận hành…",
+        "Đang mở màn nghiệp vụ…"
+      ],
+      "rowCount": 0,
+      "knownRows": []
+    },
+    {
+      "elapsedMs": 354.3000000715256,
+      "at": "2026-10-04T06:42:36.736Z",
+      "path": "/app/master-data",
+      "view": "master-data",
+      "headings": [
+        "Danh mục dùng chung (Master Data)"
+      ],
+      "statuses": [
+        "Đang tải dữ liệu vận hành…",
+        "Đang tải dữ liệu…"
+      ],
+      "rowCount": 1,
+      "knownRows": []
+    },
+    {
+      "elapsedMs": 688.6000000238419,
+      "at": "2026-10-04T06:42:37.070Z",
+      "path": "/app/master-data",
+      "view": "master-data",
+      "headings": [
+        "Danh mục dùng chung (Master Data)"
+      ],
+      "statuses": [
+        "Đang tải dữ liệu vận hành…"
+      ],
+      "rowCount": 103,
+      "knownRows": [
+        "AUD25157BF4 Audit ShippingAUD25157BFACTIVEKhóa",
+        "UXT1004D timing Shipping01UXT1004D01ACTIVEKhóa"
+      ]
+    },
+    {
+      "elapsedMs": 6352.300000071526,
+      "at": "2026-10-04T06:42:42.734Z",
+      "path": "/app/master-data",
+      "view": "master-data",
+      "headings": [
+        "Danh mục dùng chung (Master Data)"
+      ],
+      "statuses": [],
+      "rowCount": 103,
+      "knownRows": [
+        "AUD25157BF4 Audit ShippingAUD25157BFACTIVEKhóa",
+        "UXT1004D timing Shipping01UXT1004D01ACTIVEKhóa"
+      ]
+    }
+  ]
+}

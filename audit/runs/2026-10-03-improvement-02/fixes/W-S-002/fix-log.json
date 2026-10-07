@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED",
+  "method": "Prior accepted fix retained; fresh regression suite rechecked.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/components/TruckVisitsView.tsx",
+      "line": 268,
+      "detail": "htmlFor=",
+      "snippet": "                    htmlFor=\"truck-visits-plate\"\n                    className=\"block font-semibold text-slate-700 mb-1\"\n                  >\n                    Biển số đầu kéo*"
+    }
+  ],
+  "limitations": "Field có điều kiện kiểm thêm qua 9 fixture component thật, 37 field hiển thị. Chưa xác nhận thông báo screen reader thực tế.",
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/web-old-regressions-final.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/web-old-billing-final.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+  ],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/components/TruckVisitsView.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

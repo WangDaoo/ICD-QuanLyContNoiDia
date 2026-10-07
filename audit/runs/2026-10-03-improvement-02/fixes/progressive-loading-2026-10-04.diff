@@ -1,0 +1,75 @@
+--- before/apps/web/src/context/AppContext.tsx
++++ after/apps/web/src/context/AppContext.tsx
+@@ -345,25 +345,62 @@
+     if (pendingRefresh.current) return pendingRefresh.current;
+     const version = sessionVersion.current;
+     const refresh = async () => {
++      const activeSession = () => version === sessionVersion.current && Boolean(tokenStorage.getAccessToken());
+       setIsLoading(true);
++      // Old safety reads cannot authorize actions while a fresh authoritative read is pending.
++      setData(old => activeSession() ? { ...old, visitSafetyStatus: {} } : old);
+       const health = await apiClient.get<unknown>('/health/ready').catch(() => null);
+       if (version !== sessionVersion.current) return;
+       setApiReady(Boolean(health));
+       const previous = currentData.current;
+       const raw: Record<string, unknown[]> = {};
+       const statuses: ResourceStatus = {};
+-      const details: DetailStatus = { manifests: {}, roles: {}, handovers: {} };
++      const details: DetailStatus = {
++        manifests: Object.fromEntries(previous.manifests.map(row => [row.id, 'loading'])),
++        roles: Object.fromEntries(previous.roles.map(row => [row.id, 'loading'])),
++        handovers: Object.fromEntries(previous.handovers.map(row => [row.id, 'loading'])),
++      };
+       const failures: string[] = [];
+       setResourceStatus(old => Object.fromEntries(Object.keys(DATA_ROUTES).map(key => [key, old[key] === 'ready' || old[key] === 'stale' ? old[key] : 'loading'])));
++      setDetailStatus(old => activeSession() ? {
++        manifests: { ...details.manifests }, roles: { ...details.roles }, handovers: { ...details.handovers },
++      } : old);
++      const publishResource = (key: keyof LiveCollections) => {
++        if (!activeSession()) return;
++        const mapped = mapLiveCollections(raw, latestActor.current.role);
++        setData(old => {
++          if (!activeSession()) return old;
++          const next = { ...old, [key]: statuses[key] === 'stale' ? previous[key] : mapped[key] };
++          if (key === 'tariffs') next.tariffRules = statuses[key] === 'stale' ? previous.tariffRules : mapped.tariffRules;
++          return next;
++        });
++        setResourceStatus(old => activeSession() ? { ...old, [key]: statuses[key] } : old);
++        if (key === 'manifests' || key === 'roles' || key === 'handovers')
++          setDetailStatus(old => activeSession() ? { ...old, [key]: { ...details[key] } } : old);
++      };
+       await Promise.all(Object.entries(DATA_ROUTES).map(async ([key, path]) => {
+-        try { raw[key] = await loadList(path); statuses[key] = 'ready'; }
++        try {
++          const rows = await loadList(path);
++          if (!activeSession()) return;
++          // Validate the complete paginated resource before publishing it, including financial fields.
++          mapLiveCollections({ [key]: rows }, latestActor.current.role);
++          raw[key] = rows;
++          statuses[key] = 'ready';
++          if (key === 'manifests' || key === 'roles' || key === 'handovers')
++            details[key] = Object.fromEntries(rows.map(row => [asString(row.id), 'loading']));
++        }
+         catch (error: unknown) {
++          if (!activeSession()) return;
+           raw[key] = [];
+           const hasPrevious = key in previous && Array.isArray(previous[key as keyof LiveCollections]) && previous[key as keyof LiveCollections].length > 0;
+           statuses[key] = readFailureState(error, hasPrevious);
++          if (key === 'manifests' || key === 'roles' || key === 'handovers')
++            details[key] = statuses[key] === 'stale' ? Object.fromEntries(previous[key].map(row => [row.id, 'stale'])) : {};
+           if (![401,403].includes(errorStatus(error) ?? 0)) failures.push(path + ': ' + errorMessage(error));
+         }
++        publishResource(key as keyof LiveCollections);
+       }));
++      if (version !== sessionVersion.current) return;
+       const detailRead = async (resource: 'manifests' | 'roles' | 'handovers', row: Record<string, unknown>, read: () => Promise<unknown>) => {
+         const id = asString(row.id);
+         try { const result = asRecord(await read()); details[resource][id] = 'ready'; return result; }
+@@ -422,6 +459,7 @@
+       for (const key of Object.keys(DATA_ROUTES) as Array<keyof LiveCollections>) {
+         if (statuses[key] === 'stale') Object.assign(next, { [key]: previous[key] });
+       }
++      if (statuses.tariffs === 'stale') next.tariffRules = previous.tariffRules;
+       next.manifests = next.manifests.map(row => details.manifests[row.id] === 'stale' ? previous.manifests.find(old => old.id === row.id) ?? row : details.manifests[row.id] === 'forbidden' ? { ...row, masterBills: [] } : row);
+       next.roles = next.roles.map(row => details.roles[row.id] === 'stale' ? previous.roles.find(old => old.id === row.id) ?? row : details.roles[row.id] === 'forbidden' ? { ...row, permissionCodes: [] } : row);
+       next.handovers = next.handovers.map(row => details.handovers[row.id] === 'stale' ? previous.handovers.find(old => old.id === row.id) ?? row : row);

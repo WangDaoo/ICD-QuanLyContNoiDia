@@ -1,0 +1,37 @@
+{
+  "phase": "prepare-billing",
+  "alias": "followup",
+  "checkedAt": "2026-10-02T01:31:22.473Z",
+  "checks": [
+    {
+      "method": "POST",
+      "endpoint": "/auth/login",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947",
+      "status": 200,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/service-orders/preview",
+      "status": 201,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "POST",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947/service-orders",
+      "status": 201,
+      "expectedStatus": "2xx"
+    },
+    {
+      "method": "GET",
+      "endpoint": "/containers/f6482365-ae79-4ae3-9dec-efecd8f04947/gate-pass/readiness",
+      "status": 200,
+      "expectedStatus": "2xx"
+    }
+  ]
+}

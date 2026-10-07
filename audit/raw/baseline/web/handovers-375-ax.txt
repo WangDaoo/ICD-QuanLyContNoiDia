@@ -1,0 +1,49 @@
+Browser tab: 20, Title: "ICD Management System — Quản lý Kho bãi Container Nội địa", URL: "http://127.0.0.1:5173/".
+0 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/
+	1 container root
+		2 container
+			278 button Mở menu điều hướng
+			3 text ICD
+			4 heading ICD Management System, Value: 1
+				5 text ICD Management System
+			7 button Tải lại dữ liệu
+			8 button (collapsed) Description: Thông báo (0 chưa đọc), Secondary Actions: Expand
+			10 button Đăng xuất
+		39 container
+			279 text BÀN GIAO ĐỐI TÁC
+			280 heading Bàn giao Vận chuyển Ngoài ICD (Partner Handover), Value: 2
+				281 text Bàn giao Vận chuyển Ngoài ICD (Partner Handover)
+			282 text Quản lý quy trình ủy thác container cho đối tác vận tải ngoài, giao tiếp API và nghiệm thu biên bản giao nhận (POD)
+			283 link Description: Tài liệu API, Value: 127.0.0.1:3000/api/docs
+			284 button Tạo Lệnh Bàn giao mới
+			285 text field (settable)
+			286 pop up button (collapsed, settable) Value: Tất cả trạng thái, Secondary Actions: Expand
+				287 menu
+					288 (selected) Tất cả trạng thái
+					289 DRAFT (Nháp)
+					290 READY_FOR_HANDOVER (Chờ đối tác nhận)
+					291 PARTNER_ACCEPTED (Đã nhận)
+					292 IN_TRANSIT (Đang vận chuyển)
+					293 PARTNER_CONFIRMED (Chờ duyệt POD)
+					294 ICD_CONFIRMED (Đã nghiệm thu)
+					295 COMPLETED (Đã hoàn tất)
+			296 text Hiển thị  1  lệnh bàn giao QA-VC-1790837623424 COMPLETED QATU2282957 ( 40HC )
+			297 container
+				298 text Đối tác:  Local QA Transport
+			299 container
+				300 text Đích đến:  Local QA Warehouse
+			301 heading QA-VC-1790837623424, Value: 3
+				302 text QA-VC-1790837623424
+			303 text COMPLETED Hồ sơ Container: 
+			304 text QATU2282957
+			305 text  ( 40HC )
+			306 button Xem Hồ sơ Container
+			307 text TIẾN TRÌNH VÒNG ĐỜI BÀN GIAO (STATE MACHINE LIFECYCLE) 1. Bản nháp 2. Sẵn sàng 3. Đã nhận 4. Đang đi 5. Đã giao kho 6. Nghiệm thu Đối tác Vận tải ngoài Tên đối tác: 
+			308 text Local QA Transport
+			309 text Mã đối tác: 
+			310 text 8d6f057a-5ab1-4bb6-94fb-526af578eed0
+			311 text Ghi chú đơn:  Không có Kho nhận hàng đích Tên kho nhận: 
+			312 text Local QA Warehouse
+			313 text Địa chỉ kho:  Local test warehouse Dự kiến đến kho:  Chưa có lịch hẹn Trạng thái bàn giao: ICD đã xác nhận hoàn tất bàn giao. Xem lịch sử xác nhận bên dưới. Đã hoàn tất Biên bản & Lịch sử Xác nhận Bàn giao (Confirmations Timeline) ICD_CONFIRMED System Administrator 14:04:25 1/10/2026 ICD Nghiệm thu hoàn tất đối soát chứng từ và seal WAREHOUSE_RECEIVED Local QA Transport 13:53:43 1/10/2026 Local QA delivery received IN_TRANSIT Local QA Transport 13:53:43 1/10/2026 Xác nhận hợp lệ PARTNER_ACCEPTED Local QA Transport 13:53:43 1/10/2026 Local QA partner accepted
+
+The focused UI element is 0 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/

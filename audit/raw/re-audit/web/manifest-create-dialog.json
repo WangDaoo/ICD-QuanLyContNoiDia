@@ -1,0 +1,41 @@
+{
+  "appOverflow": "hidden",
+  "bodyOverflow": "hidden",
+  "dialog": "manifests-dialog-1-title",
+  "fields": [
+    {
+      "aria": null,
+      "id": "manifests-new-vessel",
+      "label": "Tên Tàu (Vessel)*"
+    },
+    {
+      "aria": null,
+      "id": "manifests-new-voyage",
+      "label": "Số Chuyến (Voyage)*"
+    },
+    {
+      "aria": null,
+      "id": "manifests-new-shipping-line",
+      "label": "Hãng tàu (Shipping Line)*"
+    },
+    {
+      "aria": null,
+      "id": "manifests-new-eta",
+      "label": "Ngày tàu đến (ETA)*"
+    },
+    {
+      "aria": null,
+      "id": "manifests-new-pol",
+      "label": "Cảng xếp hàng (POL)"
+    },
+    {
+      "aria": null,
+      "id": "manifests-new-pod",
+      "label": "Cảng dỡ / Cảng đích (POD)"
+    }
+  ],
+  "focus": "manifests-new-vessel",
+  "inside": true,
+  "modal": true,
+  "name": "Tạo Bản lược khai (Manifest) mới"
+}

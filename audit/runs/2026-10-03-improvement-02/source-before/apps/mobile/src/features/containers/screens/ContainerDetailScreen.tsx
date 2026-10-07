@@ -1,0 +1,84 @@
+import { useCallback, useRef, useState } from 'react';
+import { Text, View } from 'react-native';
+import { useFocusEffect, useNavigation, useRoute } from '@react-navigation/native';
+import type { RouteProp } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { ScreenLayout, Card, DetailRow, Notice, useFieldStyles } from '../../../components/ScreenLayout';
+import { PrimaryButton } from '../../../components/PrimaryButton';
+import { LoadingState } from '../../../components/LoadingState';
+import { ErrorState } from '../../../components/ErrorState';
+import { StatusBadge } from '../../../components/StatusBadge';
+import { containerApi } from '../api/container.api';
+import type { ContainerRecord, ContainerHold, ContainerEvent, GatePassSummary, Readiness } from '../api/container.api';
+import type { YardStackParamList } from '../../../navigation/types';
+import { useAuth } from '../../auth/hooks/useAuth';
+import { canAccessMobileScreen, hasAnyPermission } from '../../auth/permissions';
+import { explainGateBlocker } from '../../gate-out/gate-readiness';
+import { handoverApi } from '../../handover/api/handover.api';
+import type { HandoverRecord } from '../../handover/api/handover.api';
+import { HandoverSummary } from '../../handover/components/HandoverSummary';
+const date = (value?: string) => value ? new Date(value).toLocaleString('vi-VN') : undefined;
+type Sections = { holds?: ContainerHold[]; events?: ContainerEvent[]; passes?: GatePassSummary[]; readiness?: Readiness; handover?: HandoverRecord | null; location?: ContainerRecord['currentLocation'] };
+export function ContainerDetailScreen() {
+  const navigation = useNavigation<NativeStackNavigationProp<YardStackParamList>>();
+  const { params } = useRoute<RouteProp<YardStackParamList, 'ContainerDetail'>>();
+  const { user } = useAuth();
+  const styles = useFieldStyles();
+  const request = useRef(0);
+  const [record, setRecord] = useState<ContainerRecord | null>(null);
+  const [sections, setSections] = useState<Sections>({});
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [sectionErrors, setSectionErrors] = useState<string[]>([]);
+  const canReadLocation = hasAnyPermission(user, ['yard.read']);
+  const canReadHolds = hasAnyPermission(user, ['operational_hold.read']);
+  const canReadHandover = hasAnyPermission(user, ['handover.read']);
+  const canReadBilling = hasAnyPermission(user, ['billing.read', 'billing.manage']);
+  const load = useCallback(async () => {
+    if (!params?.visitId) { setError('Thiếu hồ sơ lượt container. Hãy chọn kết quả tra cứu.'); return; }
+    const ticket = ++request.current;
+    setLoading(true); setError(''); setSections({}); setSectionErrors([]);
+    const visitId = params.visitId;
+    try {
+      const data = await containerApi.detail(visitId);
+      if (request.current !== ticket) return;
+      setRecord(data);
+      const jobs: Array<{ key: keyof Sections; label: string; run: () => Promise<unknown> }> = [
+        { key: 'events', label: 'Lịch sử', run: () => containerApi.events(visitId) },
+        { key: 'readiness', label: 'Điều kiện cấp phiếu', run: () => containerApi.readiness(visitId) },
+        { key: 'passes', label: 'Phiếu ra cổng', run: () => containerApi.gatePasses(visitId) },
+      ];
+      if (canReadLocation) jobs.push({ key: 'location', label: 'Vị trí bãi', run: async () => { const value = await containerApi.location(visitId); return value?.currentLocation ?? value; } });
+      if (canReadHolds) jobs.push({ key: 'holds', label: 'Lệnh giữ', run: () => containerApi.holds(visitId) });
+      if (canReadHandover) jobs.push({ key: 'handover', label: 'Bàn giao', run: async () => (await handoverApi.summary(visitId)).handover });
+      const results = await Promise.allSettled(jobs.map(job => job.run()));
+      if (request.current !== ticket) return;
+      const next: Sections = {};
+      const errors: string[] = [];
+      results.forEach((result, index) => {
+        if (result.status === 'fulfilled') Object.assign(next, { [jobs[index].key]: result.value });
+        else errors.push(jobs[index].label + ': ' + (result.reason instanceof Error ? result.reason.message : 'Không tải được dữ liệu.'));
+      });
+      setSections(next); setSectionErrors(errors);
+    } catch (err) { if (request.current === ticket) setError(err instanceof Error ? err.message : 'Không tải được hồ sơ.'); }
+    finally { if (request.current === ticket) setLoading(false); }
+  }, [params?.visitId, canReadLocation, canReadHolds, canReadHandover]);
+  useFocusEffect(useCallback(() => { void load(); return () => { request.current++; }; }, [load]));
+  const slot = sections.location?.slotCode || sections.location?.yardSlot?.slotCode;
+  const readiness = sections.readiness;
+  return <ScreenLayout title="Chi tiết container" subtitle={record?.container.containerNumber || params?.containerNo} onBack={() => navigation.goBack()} onRefresh={() => void load()} refreshing={loading}>
+    {loading && !record ? <LoadingState /> : error ? <ErrorState message={error} onRetry={() => void load()} /> : record ? <>
+      <Card title={record.container.containerNumber}><Text selectable style={styles.muted}>Nhấn giữ số container để sao chép</Text><Text selectable style={styles.value}>{record.container.containerNumber}</Text><StatusBadge label={record.state} variant="info" /><DetailRow label="ISO / Kích thước / Loại" value={record.container.isoCode + ' · ' + record.container.size + ' · ' + record.container.type} /><DetailRow label="Seal khai báo" value={record.sealNo} /><DetailRow label="Trọng lượng (kg)" value={record.grossWeight} /><DetailRow label="Vị trí bãi" value={canReadLocation ? slot || (loading ? 'Đang tải…' : sections.location === undefined ? 'Không tải được vị trí' : 'Chưa có vị trí') : 'Không được cấp quyền xem'} /><DetailRow label="Chủ hàng" value={record.houseBl?.consignee?.name} /><DetailRow label="HBL" value={record.houseBl?.hblNumber} /><DetailRow label="Vào cổng" value={date(record.gateInAt)} /><DetailRow label="Ra cổng" value={date(record.gateOutAt)} /></Card>
+      {sectionErrors.map(message => <Notice key={message} message={message} />)}
+      {sectionErrors.length ? <PrimaryButton title="Tải lại các mục" variant="secondary" onPress={() => void load()} /> : null}
+      {canReadLocation && canAccessMobileScreen(user, 'yard.assign') && record.state === 'IN_YARD' && sections.location !== undefined && !slot ? <PrimaryButton title="Xếp vị trí bãi" onPress={() => navigation.navigate('YardAssignment', { visitId: record.id, containerNo: record.container.containerNumber })} /> : null}
+      {record.reception ? <Card title="Tiếp nhận thực tế"><DetailRow label="Seal thực tế" value={record.reception.actualSeal} /><DetailRow label="Trọng lượng thực tế" value={record.reception.actualWeight} /><DetailRow label="Biển số" value={record.reception.truckVisit?.vehiclePlate} /><DetailRow label="Tài xế" value={record.reception.truckVisit?.driverName} /><DetailRow label="Ghi nhận" value={record.reception.conditionNotes} /></Card> : null}
+      {readiness ? <Card title="Điều kiện cấp phiếu ra cổng"><StatusBadge label={readiness.ready ? 'ĐỦ ĐIỀU KIỆN CẤP PHIẾU' : 'CHƯA ĐỦ ĐIỀU KIỆN'} variant={readiness.ready ? 'success' : 'warning'} /><Text style={styles.muted}>Kết quả kiểm tra cấp phiếu. Xuất cổng cần quét phiếu và kiểm tra lại tại cổng.</Text>{readiness.blockers.map(code => <Text key={code} style={styles.value}>• {explainGateBlocker(code)}</Text>)}{canReadLocation ? <><DetailRow label="Đảo chuyển đang mở" value={readiness.details.activeOperations.movementCount} /><DetailRow label="Giám định đang mở" value={readiness.details.activeOperations.inspectionCount} /><DetailRow label="Booking đang mở" value={readiness.details.activeOperations.bookingCount} /><DetailRow label="Giám định giữ hàng" value={readiness.details.inspectionHoldCount} /></> : null}</Card> : null}
+      {canReadBilling && readiness ? <Card title="Tình trạng phí"><DetailRow label="Đơn phí chưa hoàn tất" value={readiness.details.billing.pendingOrders.length} /><DetailRow label="Hóa đơn chưa thanh toán" value={readiness.details.billing.unpaidInvoices.length} /><DetailRow label="Dịch vụ chưa tính phí" value={readiness.details.billing.unbilledServicesCount} />{readiness.details.billing.hasNoOrders ? <Text style={styles.muted}>Chưa có hồ sơ tính phí.</Text> : null}{readiness.details.billing.pendingOrders.map(order => <DetailRow key={order.id} label={order.orderNumber} value={order.status} />)}{readiness.details.billing.unpaidInvoices.map(invoice => <DetailRow key={invoice.id} label={invoice.invoiceNo} value={invoice.outstandingAmount ?? 'Chưa thanh toán'} />)}</Card> : null}
+      {sections.holds ? <Card title="Lệnh giữ nghiệp vụ">{sections.holds.length ? sections.holds.map(hold => <View key={hold.id} style={{ gap: 6 }}><DetailRow label={hold.holdType} value={hold.status} /><Text style={styles.value}>{hold.reason}</Text><DetailRow label="Ngày giữ" value={date(hold.placedAt)} />{hold.releasedAt ? <><DetailRow label="Ngày giải phóng" value={date(hold.releasedAt)} /><DetailRow label="Lý do giải phóng" value={hold.releaseReason} /></> : null}</View>) : <Text style={styles.muted}>Không có lệnh giữ.</Text>}</Card> : null}
+      {sections.passes ? <Card title="Phiếu ra cổng">{sections.passes.length ? sections.passes.map(pass => <View key={pass.id} style={{ gap: 6 }}><DetailRow label={pass.code} value={pass.status} /><DetailRow label="Hết hạn" value={date(pass.expiresAt)} /><DetailRow label="Biển số" value={pass.vehiclePlate} />{pass.usedAt ? <DetailRow label="Đã sử dụng" value={date(pass.usedAt)} /> : null}</View>) : <Text style={styles.muted}>Chưa cấp phiếu ra cổng.</Text>}</Card> : null}
+      {canReadHandover && sections.handover !== undefined ? <HandoverSummary handover={sections.handover} /> : null}
+      {sections.events ? <Card title="Lịch sử container">{sections.events.length ? sections.events.map(event => <View key={event.id} style={{ gap: 5 }}><Text style={styles.value}>{event.eventType}</Text><Text style={styles.muted}>{date(event.createdAt)}{event.actor?.name ? ' · ' + event.actor.name : ''}</Text>{event.note ? <Text style={styles.value}>{event.note}</Text> : null}</View>) : <Text style={styles.muted}>Chưa có sự kiện.</Text>}</Card> : null}
+    </> : null}
+  </ScreenLayout>;
+}

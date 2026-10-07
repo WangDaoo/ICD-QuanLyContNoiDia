@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED",
+  "method": "Prior accepted fix retained; fresh regression suite rechecked.",
+  "source_evidence": [
+    {
+      "file": "apps/mobile/src/components/AppHeader.tsx",
+      "line": 50,
+      "detail": "layout.touchTarget",
+      "snippet": "    minWidth: layout.touchTarget,\n    minHeight: layout.touchTarget,\n    alignItems: 'center',\n    justifyContent: 'center',"
+    }
+  ],
+  "limitations": "352 mẫu XML: 331 vùng đầy đủ đạt ≥48dp, 21 mẫu bị cắt mép viewport loại khỏi phép kết luận kích thước. Android thường và 320dp/font150%; chưa có iOS.",
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/web-old-regressions-final.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/web-old-billing-final.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/mobile-agent/checkpoint-mobile-tests.log"
+  ],
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/mobile/src/components/AppHeader.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

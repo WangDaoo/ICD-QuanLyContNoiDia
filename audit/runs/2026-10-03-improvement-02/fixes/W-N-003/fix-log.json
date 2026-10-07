@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED",
+  "change": "Current-session and exact backend-derived command permission checks; stale callback emits zero writes.",
+  "source_evidence": [
+    {
+      "file": "apps/web/src/context/AppContext.tsx",
+      "line": 612,
+      "detail": "commandSession",
+      "snippet": "  const commandSession = sessionVersion.current;\n  const command = async (path: string, payload?: unknown, method: 'POST' | 'PATCH' | 'PUT' = 'POST'): Promise<CommandResult<Record<string, unknown>>> => {\n    if (!isAuthenticated || !tokenStorage.getAccessToken()) return { success: false, message: 'Vui lòng đăng nhập.' };\n    if (commandSession !== sessionVersion.current) return { success: false, message: 'Phiên đăng nhập đã thay đổi. Mở lại biểu mẫu để kiểm tra quyền và dữ liệu.' };"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/context-write-permission-green.txt",
+    "audit/runs/2026-10-03-improvement-02/raw/refresh-session-race-green.txt"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Meaningful RED/GREEN source regression; real API only if explicitly linked.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/web/src/context/AppContext.tsx.diff"
+  ],
+  "isolated_review_diffs": []
+}

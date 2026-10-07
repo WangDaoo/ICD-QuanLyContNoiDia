@@ -1,0 +1,3073 @@
+{
+  "created_at": "2026-10-03T12:17:14.845698+07:00",
+  "head": "5a037f9de865e73ac9061fffd6a4885979bd079c",
+  "baseline": "audit/2026-10-03-reaudit-01-report.md",
+  "source_files": [
+    {
+      "path": "scripts/start-mobile-preview.ps1",
+      "sha256": "E498DEE29941C72D80E5DEA4ED8460435DB3E057F1070130F6ED823C6C1F79C3"
+    },
+    {
+      "path": "scripts/start-local-runtime.ps1",
+      "sha256": "45AFE161C91A1FD8A6B751C28140977764222A66EB5A63DE35F84D1F4B50241C"
+    },
+    {
+      "path": "scripts/RULES.md",
+      "sha256": "9B814614C7FD87FED149B75A4A788049D5EFEA9943B37DA98D8EB8CE474F9EFA"
+    },
+    {
+      "path": "scripts/README.md",
+      "sha256": "390C89BB0EBF83542457AC394206BCB6D69EAD0AB259A0903CFF74440D978D06"
+    },
+    {
+      "path": "apps/web/vite.config.ts",
+      "sha256": "159C6EFB932B95F57F38D8C086D47BA55E4BB1066028147950A5DB41DCB014ED"
+    },
+    {
+      "path": "apps/web/tsconfig.json",
+      "sha256": "855E213557728D1CF3540420C09B223C00545071CD9A1A9FF00337EE77F4162C"
+    },
+    {
+      "path": "apps/api/tsconfig.json",
+      "sha256": "692B5701DF0A8125B17EA775C3D6A1E3399A3ACABE75F92966E4F33FC4FD88F6"
+    },
+    {
+      "path": "apps/api/tsconfig.build.json",
+      "sha256": "BF0F908756BCEF07DC00362D723E91DD8D6A7877106E0C802A3AC6DC8709E701"
+    },
+    {
+      "path": "apps/web/src/types.ts",
+      "sha256": "FE74BA1D3167A70B4DFE11ED83C35869AC095E9A6C06288C5AEFA46D8F06EC35"
+    },
+    {
+      "path": "apps/mobile/tsconfig.json",
+      "sha256": "7A77D858224729A5AD36CFCDBBB575D9D22DC91EF4C455D32B05C2BC50902A4D"
+    },
+    {
+      "path": "packages/validation/tsconfig.json",
+      "sha256": "D62B4E26FA8C55D066763567ED6AB2703CBE2EF49DE541A38195AEC206FA1F63"
+    },
+    {
+      "path": "apps/api/RULES.md",
+      "sha256": "047D2F3D07B1A22AA5ECCFCE5E73FD9B19268893693A9866A70BAA5573E33DB3"
+    },
+    {
+      "path": "apps/api/README.md",
+      "sha256": "1ABA482633589BAC76B8844CD03A92F643854E382F86F2627EE145872D115A7F"
+    },
+    {
+      "path": "apps/api/prisma.config.ts",
+      "sha256": "A90D39794F7DAE67382FEBC516587F9A13DAA9BCC15010216FA8C33BC5633637"
+    },
+    {
+      "path": "apps/api/test/core-lifecycle-failures.e2e-spec.ts",
+      "sha256": "2873D39AC9798D8113A5092624DFD4D2261CC2157B14F8B5825F070727696DEC"
+    },
+    {
+      "path": "apps/api/test/auth.e2e-spec.ts",
+      "sha256": "823DA355E696F2EEFC6160081F9F866CDC0E40F3AAEDB38659C044103EE47F1D"
+    },
+    {
+      "path": "apps/api/test/core-lifecycle.e2e-spec.ts",
+      "sha256": "2E30C6292CABD878D30C0A146D5E4F491AB672779EA63F3BFD2AD114DAB92072"
+    },
+    {
+      "path": "apps/api/test/edi.e2e-spec.ts",
+      "sha256": "56F6A4E304ED978796BC0D57E2B2E8D8B63553D0BE95CF5C74FA2AFB58BF2305"
+    },
+    {
+      "path": "apps/api/test/health.e2e-spec.ts",
+      "sha256": "29CBA49C1C0D45D4CD5FBCF4F2BE9BAB6317131570BADB680E02D82138BD2CA8"
+    },
+    {
+      "path": "apps/mobile/app.json",
+      "sha256": "FBA1B744E89EE666FF12C09EED8F9C451B239506166F359D1458B28BBD881EC5"
+    },
+    {
+      "path": "apps/mobile/App.tsx",
+      "sha256": "F74BF993F412A974A2917F69912541AABD433823BEE48DB4D86FFE4514D1C989"
+    },
+    {
+      "path": "apps/mobile/package.json",
+      "sha256": "36FAC00561114A6B89EACA45A0EF6ECD9CA65DA179FB3816082F0E475A44792E"
+    },
+    {
+      "path": "apps/mobile/index.ts",
+      "sha256": "5C157F4D44972D9C84415E1E4BDA595B3ABCD8CF733F8A9CD20935BEC3ECCC42"
+    },
+    {
+      "path": "apps/mobile/RULES.md",
+      "sha256": "70E4B463077636E15A1DA14DC02BB2945004D804D0C051D1A0EDD0182A9E1859"
+    },
+    {
+      "path": "apps/api/test/reports.e2e-spec.ts",
+      "sha256": "7C9B524D03578F7A68806D3F5014B9AFF00AA81187D43A3D81A7185C60329780"
+    },
+    {
+      "path": "apps/api/test/rbac.e2e-spec.ts",
+      "sha256": "154FE761AF4B20C0B1BC508F9AB541111A8C9ED5C232C2113AFC7DBF71214E48"
+    },
+    {
+      "path": "apps/api/test/partner-handover.e2e-spec.ts",
+      "sha256": "67B65CF6868AB736CD029D748D0EB5DCE33CA216C272B5A8E8DF2A4181F264D4"
+    },
+    {
+      "path": "apps/api/test/notifications.e2e-spec.ts",
+      "sha256": "3B2CB1870AE575A91AD374B99536CD13BBB6285C2D4E70E01F4F76156345A6C9"
+    },
+    {
+      "path": "apps/api/test/jest-e2e.json",
+      "sha256": "E4D65CE7236510F73CC14D393344317B12FC54407AAC9F09E9A3720310D704FC"
+    },
+    {
+      "path": "apps/web/src/services/visit-safety-data.ts",
+      "sha256": "19F5D6290D080F6469F4C37842702F79DC6611322F9B56DBECA921FDF5DDF958"
+    },
+    {
+      "path": "apps/web/src/services/report-metrics.ts",
+      "sha256": "34E2912011BD331224764E9AC91BFEECCEAB123C1154FB344E273F9329676A10"
+    },
+    {
+      "path": "apps/web/src/services/report-metrics.test.ts",
+      "sha256": "BA9D40545FF66F4BB8AE80D3308B2CF0FCBE49B8A1771179B48BD7270466AA72"
+    },
+    {
+      "path": "apps/web/src/services/redacted-log-body.ts",
+      "sha256": "35F7D57E7EDAC4C6C8F9D5D848CEAED7837FBB5C09C52551C3D2AA51953E9F36"
+    },
+    {
+      "path": "apps/web/src/services/readiness-labels.ts",
+      "sha256": "CF73BC8791E3E0D78B22133777C3DF314F058AE75A18AB3E20BFDCFBF483C673"
+    },
+    {
+      "path": "apps/web/src/services/permissions.ts",
+      "sha256": "1F410AF9122DC7373D6CF5E2E7101A5351DBA831CABE622D54C03BF456C59BB9"
+    },
+    {
+      "path": "apps/web/src/services/permissions.test.ts",
+      "sha256": "493474363FD1EBA078FC0B0658BF4371F6151D99AB89A7E2499CA3B1C3D4492F"
+    },
+    {
+      "path": "packages/validation/src/index.ts",
+      "sha256": "15D1E90EEB27225B07401C891250C6550F80A849F2ECD09F39C31F66182F0DD6"
+    },
+    {
+      "path": "packages/validation/package.json",
+      "sha256": "0338B966173AC331FE59D909071DC25AB49D645651B986857740D9D33516FDF4"
+    },
+    {
+      "path": "apps/api/nest-cli.json",
+      "sha256": "BCB15E3049FF5D131762D2BFE3A6F917C3C64C83AC772467A4073975CD423B5B"
+    },
+    {
+      "path": "apps/api/jest.config.js",
+      "sha256": "8894D01B65AD71A8419D9DADB4E7CB2DD26B0DFCBD9BEB17BDC8501B78A2C0A0"
+    },
+    {
+      "path": "apps/api/package.json",
+      "sha256": "186E95607BF7866EA7B8D4D862FB4296765DAB3E54A2E94B3211F6DAAA91EEB7"
+    },
+    {
+      "path": "apps/api/test/helpers/stop-e2e-cron-jobs.ts",
+      "sha256": "77777EE44F081AAA33485842BCD8CB73312CD2FEF6CA4C4070B638EB435070BD"
+    },
+    {
+      "path": "apps/api/test/helpers/disable-e2e-notification-triggers.ts",
+      "sha256": "2E292EE663670E85ABF5D017CE9DE3D1C4529B77131D8C84B264AC26CD4B2EE7"
+    },
+    {
+      "path": "apps/api/test/helpers/core-lifecycle-fixture.ts",
+      "sha256": "EA0AFC66EDA665F180BC24F6EEDC7A5E903B3E2853416EC8FA320D92D44AC97E"
+    },
+    {
+      "path": "apps/api/test/helpers/assert-e2e-database.ts",
+      "sha256": "D3DB4236B925021A2F027B163BC031DC9A9B156609AEF163ED8EF70A7E4EC1BC"
+    },
+    {
+      "path": "apps/mobile/tests/auth-restore.test.cjs",
+      "sha256": "F8B1B59A525EE4D818352782ED8B2F71409704F1D30451A31EE8BD7C3BBBF3E1"
+    },
+    {
+      "path": "apps/mobile/tests/api-network.test.cjs",
+      "sha256": "CE12449D333E5C1B20D53A8EFA6EC191A13BA5A4A650B6806FB782F633B90396"
+    },
+    {
+      "path": "apps/mobile/tests/api-connection.test.cjs",
+      "sha256": "1A76CF53C320E0F9CC79DC9CFA9C811B9837669D40046DF1F5E2250F879700B1"
+    },
+    {
+      "path": "apps/mobile/tests/auth-storage.test.cjs",
+      "sha256": "3E0D7104F0DDDA7A8ABC072F6A57B1C08A69A628F92CCF267CD0F82B2F1F152C"
+    },
+    {
+      "path": "apps/mobile/tests/code-scanner.test.cjs",
+      "sha256": "0D9F9F8753B99E911A1695DE4C1EDA036E109D61421861985DC21A0FDB61A45B"
+    },
+    {
+      "path": "apps/web/src/index.css",
+      "sha256": "A6A1570F644D71C2624C002BCB24EA7FC1EAFDA8D71F15C90A3F8A4304983F42"
+    },
+    {
+      "path": "apps/mobile/tests/yard-snapshot.test.cjs",
+      "sha256": "5388E425E3F7E0D4261E4854E96093E297873DE01A4E4EC1EEA825FEB3F584FF"
+    },
+    {
+      "path": "apps/mobile/tests/yard-map.test.cjs",
+      "sha256": "1A089D304BA98084B0AEE45E6E58B3549C853A93F949E7EF6E278900EF2B79AA"
+    },
+    {
+      "path": "apps/mobile/tests/yard-home.test.cjs",
+      "sha256": "145B9B7FD2A795A55AA86F6D9527D1E02934F093097EBA87B004549824C7082F"
+    },
+    {
+      "path": "apps/mobile/tests/yard-assignment.test.cjs",
+      "sha256": "03A2C5F0E904C4E26E7C76B52FB317EE93CAAB746B7F667DC9950F489EDD703C"
+    },
+    {
+      "path": "apps/mobile/tests/yard-api.test.cjs",
+      "sha256": "85A65CB1458B435BA67D6876C9A5F3FA7710EA2F8E95FA45B6CF1831D6D823B7"
+    },
+    {
+      "path": "apps/mobile/tests/work-queue-read-routing.test.cjs",
+      "sha256": "694F5242AF0E4DD58253FC38528411E2C02346C910D6DE4057426636B1831EBA"
+    },
+    {
+      "path": "apps/mobile/tests/support-contracts.test.cjs",
+      "sha256": "AE2270C9551585C96D2698F526EBA434C64BBB7B48DCB258CA6185AF5622BBF6"
+    },
+    {
+      "path": "apps/mobile/tests/scanner-integration.test.cjs",
+      "sha256": "7AAE2B5CC72838765A81DF54F347516E34A9F641681EE2EDCC74246EFE7185CB"
+    },
+    {
+      "path": "apps/mobile/tests/priority-accessibility.test.cjs",
+      "sha256": "2DF1416BAC9E2E8CD52AF6D7BD059348AA06E2AD0A266EF9C0D2BAFCFC0380EA"
+    },
+    {
+      "path": "apps/mobile/tests/mobile-contracts.test.cjs",
+      "sha256": "186D859FAA7920E39047B6215587AF8272FF613D3E5584610053D066860FCC46"
+    },
+    {
+      "path": "apps/mobile/tests/inspection-display.test.cjs",
+      "sha256": "0989EDD50363809E3B8C5F7783A281F5DD7171E4812F936DE66CC17AC654759A"
+    },
+    {
+      "path": "apps/mobile/tests/gate-workflows.test.cjs",
+      "sha256": "326D663E9D7BFFAA44A8A837593B47D7AB7C11BF95A839A16CADAA2951228166"
+    },
+    {
+      "path": "apps/mobile/tests/gate-readiness.test.cjs",
+      "sha256": "7DD2DC5FC24782C4B272DF0AC4C46FD335CCD0DB9B909A462C3D67CDE1078D52"
+    },
+    {
+      "path": "apps/mobile/src/types/api.types.ts",
+      "sha256": "8B2EF672C20BCF8E1B0EDC6D6920809EC5166C76A63F0EA4DA4D7FED2221F20A"
+    },
+    {
+      "path": "apps/web/src/services/mappers/yard-contract.test.ts",
+      "sha256": "2523172F683AA85AF7A9B342F54153873458054549BD6F8983D60541F62E97A3"
+    },
+    {
+      "path": "apps/web/src/services/mappers/mappers.smoke.test.ts",
+      "sha256": "65D1E7A9099D49FEBFAFFC85BA609F86BD497A1B8870F95918DA39A9619DD7A2"
+    },
+    {
+      "path": "apps/web/src/services/mappers/live-view.mapper.ts",
+      "sha256": "568425D4D88E294804814C6C3D0503DF62F0A6D8C521C5F0D953132BA2248D3D"
+    },
+    {
+      "path": "apps/web/src/services/mappers/live-contract.test.ts",
+      "sha256": "2AF70B3E8589323E6E87EF173A6EF19F44F6A9BC0BE6E1A7B984A70BBA3C8EC0"
+    },
+    {
+      "path": "apps/web/src/services/mappers/index.ts",
+      "sha256": "B5D20AA6695018A406ACFAF45853EA6702AEA4EA78D79FB6A9F0BB68302B7D59"
+    },
+    {
+      "path": "apps/web/src/services/mappers/icd-view.mapper.ts",
+      "sha256": "CD7052B3F0CCCA829AE47B7E02B0CCA7BF4BB02EE4D092DF4AA2382818CEADB9"
+    },
+    {
+      "path": "apps/web/src/services/mappers/api-response.mapper.ts",
+      "sha256": "12B53F2053E13808B584C9A04E2EB0932AF8DB1051A0062350661A8695C4B0E7"
+    },
+    {
+      "path": "packages/api-client/package.json",
+      "sha256": "755052504F8F4CF1561FD6ACD4D3A59352564375FC5B3247BC989464BF08E46C"
+    },
+    {
+      "path": "packages/RULES.md",
+      "sha256": "E0DB548C5C0E876B0DE35E8C151B784E61DAE61483613C06B003468FC46E196A"
+    },
+    {
+      "path": "apps/web/package.json",
+      "sha256": "E4D806AABBF2B4D54178DA6D443BF77A10D3F32141FE3342BC11EE72518A3107"
+    },
+    {
+      "path": "apps/web/index.html",
+      "sha256": "8ACC1E314E8D67659916EF3D0DBE5F3203B0618474F222FBCC1BDE89DBC71EF2"
+    },
+    {
+      "path": "apps/web/RULES.md",
+      "sha256": "FE1FCEB82319B2C08620128BCA4A8A7331860DD52E530598C7B36532B0058CE9"
+    },
+    {
+      "path": "apps/web/src/App.tsx",
+      "sha256": "579389C027B6F51A8C035776E4A86B53C536960DF60A273F3886600C3AF05E6D"
+    },
+    {
+      "path": "apps/mobile/assets/splash-icon.png",
+      "sha256": "5F4C0A732B6325BF4071D9124D2AE67E037CB24FCC9C482EF82BEA742109A3B8"
+    },
+    {
+      "path": "apps/mobile/assets/icon.png",
+      "sha256": "119462BB78EB240A65C869FC067EE599639B3CB5A41953F25C07B17D2A8C7E0F"
+    },
+    {
+      "path": "apps/mobile/assets/favicon.png",
+      "sha256": "A4E030697A7571B3E95D31860E4DA55D2F98E5E861E2B55E414F45A8556828BA"
+    },
+    {
+      "path": "apps/mobile/assets/android-icon-monochrome.png",
+      "sha256": "6371FC2C12E33AD2215A86C281DB3D682A81BEBE7C957A842C13B8BF00CCEB83"
+    },
+    {
+      "path": "apps/mobile/assets/android-icon-foreground.png",
+      "sha256": "9E3D0315A33C6799DE601DD34CD8BF8CC3A8D16F3BF75592BAEC2CEB7240B391"
+    },
+    {
+      "path": "apps/mobile/assets/android-icon-background.png",
+      "sha256": "FB139C2DEE362EBF2070E23B96DA6FC0D43F8492DE38B8AF1FD7223E19B5861D"
+    },
+    {
+      "path": "apps/web/src/main.tsx",
+      "sha256": "5580D48B0FEC68698A113D45A640B88D479DC35EB1F4B87C51F67C6CC81CEE9B"
+    },
+    {
+      "path": "packages/shared-types/package.json",
+      "sha256": "3E2B0F00A55B2042596DBE35B8C55EE26FB7C9B253198FC6438618ADCF9D7315"
+    },
+    {
+      "path": "apps/api/prisma/schema.prisma",
+      "sha256": "87112092C24E9D31A9A8B7E29594078515F92004ABD88C3882384EE988FA5CAD"
+    },
+    {
+      "path": "apps/api/prisma/seed/seed.ts",
+      "sha256": "1883BC9567D0A32B20F2808ED2CF1F23A88A23213150B2DB58FBED256B5BCC28"
+    },
+    {
+      "path": "packages/api-client/src/index.ts",
+      "sha256": "B15DB47B40373CBE63D19BB32D36E5C13241637D09B5CD96B25932D2F347033C"
+    },
+    {
+      "path": "packages/api-client/src/api-error.test.ts",
+      "sha256": "B67438418C9F3F73D8FEB2466603B85F68DA11F6DF2231A5250F0831B1A0A89E"
+    },
+    {
+      "path": "apps/web/src/components/BillingView.tsx",
+      "sha256": "1EE586F9FD387F416FED51E155477AF2C402125976E6C762F081C6555912CAC9"
+    },
+    {
+      "path": "apps/web/src/components/AuditsView.tsx",
+      "sha256": "DB9795928A1EFFC43465D98BDEBDBD1EB70C60E000B741FAC0687B8D3ADC41E2"
+    },
+    {
+      "path": "apps/web/src/components/CriticalDataNotice.tsx",
+      "sha256": "A857871CB64B804C1A568B92AE91C01E0F49E4C3A669C9B87C9FFEE9C2F23D78"
+    },
+    {
+      "path": "apps/web/src/components/ContainersView.tsx",
+      "sha256": "C5E4E46D9EF6DF76ECE16E106D0BE38996A1FA161546CA75816E2F8178853755"
+    },
+    {
+      "path": "apps/web/src/components/DashboardView.tsx",
+      "sha256": "C419952BED2EB6460C3EF297AD027777A93B1E3E468CEA0332FE39F75F9AF1D1"
+    },
+    {
+      "path": "apps/web/src/components/EDIView.tsx",
+      "sha256": "960030A0E4C45DBEF58439606BA8D801B50720BA579A25116AD3A4429E15E02B"
+    },
+    {
+      "path": "apps/web/src/services/api/yard.service.ts",
+      "sha256": "6774F14231971106360AAC7F0AD360E74BDB9AC045E9D4D7DE52D218CD0D0EF1"
+    },
+    {
+      "path": "apps/web/src/services/api/partner-handover.service.ts",
+      "sha256": "942B7B6164FB9CC8922720E006B6BFB181852DA1E50249B82C7CB7910F20C5ED"
+    },
+    {
+      "path": "apps/web/src/services/api/operation.ts",
+      "sha256": "5D0AF1045C0F567082BE5888C751894A86A09BC9520E5633323D13FD26AA0ABE"
+    },
+    {
+      "path": "apps/web/src/services/api/operation.test.ts",
+      "sha256": "4A18927ED97B05BC8B2F3E70BF062C5FDAC05863F00361BEF5418C5D5DAD4715"
+    },
+    {
+      "path": "apps/web/src/services/api/master-data.service.ts",
+      "sha256": "A8A96497A72AC477DD8F6C2AE2C3CEB7B09857A267ABF75BABAF978482A5A03A"
+    },
+    {
+      "path": "apps/web/src/services/api/load-list.ts",
+      "sha256": "0CB5A7F0B64BA5BC63A01111CC8CF3B4FCAD4BB674BCD67CF7E01EABD5E74507"
+    },
+    {
+      "path": "apps/web/src/data/mockData.ts",
+      "sha256": "068449673C175552846FCFC217C9F838B9CCAECC326E1EE699CD924B723AA3BA"
+    },
+    {
+      "path": "apps/web/src/services/api/load-list.test.ts",
+      "sha256": "B05D0A3E0D6F98767EBF65639F4E48F4FF0EFE42E64B4D29E13533D709F398FD"
+    },
+    {
+      "path": "apps/web/src/services/api/index.ts",
+      "sha256": "3116D090F5AC25717F44F39AE3B77AF3FF216C25CA9EDE9C4F0219B0732D9BB2"
+    },
+    {
+      "path": "apps/web/src/services/api/gate-pass.service.ts",
+      "sha256": "D8F4BB690366244E441D2BB3F8D742496322E311725B72E19420BEEEAD9B41E3"
+    },
+    {
+      "path": "apps/web/src/services/api/gate-in.service.ts",
+      "sha256": "BFB118607B1E1C8252A3C378F9776499E521F6B56DC4E8658B6FE64636E904DD"
+    },
+    {
+      "path": "apps/web/src/services/api/edi.service.ts",
+      "sha256": "12F18C430E58BD28561E069809DA0ABF54944078812BFFA079264E649863283B"
+    },
+    {
+      "path": "apps/web/src/services/api/containers.service.ts",
+      "sha256": "8048F85E5BFFBC8B603924850EAC09E37C0731590201E735C2BF3F9AF0D3730B"
+    },
+    {
+      "path": "apps/web/src/services/api/client.ts",
+      "sha256": "A5F6D678D99DC0A5E6F87C14CF3DE3691D093AA0F3520DAD78182DDA958E1F12"
+    },
+    {
+      "path": "apps/web/src/services/api/billing.service.ts",
+      "sha256": "B384CD32472519D634EC7996DB4E86C8964E9B393BAEBBA0E856921C6B856023"
+    },
+    {
+      "path": "apps/web/src/services/api/auth.service.ts",
+      "sha256": "8B1AA1577B0EACCA19E35B2965D2A22EC2ADEC2DF75C341CEDB848A7CCC591A1"
+    },
+    {
+      "path": "apps/web/src/components/MasterDataView.tsx",
+      "sha256": "5A3CF2F3B1924A9A95D6FB384E79647E3E2C40D10C735C011B2FA2AB0D8719BD"
+    },
+    {
+      "path": "apps/web/src/components/ManifestsView.tsx",
+      "sha256": "C907DD395122C263300AC177D92A7FFF582E616791958EAB6F81210455EDAB8E"
+    },
+    {
+      "path": "apps/web/src/components/Header.tsx",
+      "sha256": "176E92AC603AA5E26CDD3FAC4C35BE18CFCA165A55C0F9D5A2F28CB331959266"
+    },
+    {
+      "path": "apps/web/src/components/HandoversView.tsx",
+      "sha256": "9BEAEC3734DD6BEF0B9D735FE8200CAB1B0D18DABF9940847BFD89EB83B85A35"
+    },
+    {
+      "path": "apps/web/src/components/GatePassView.tsx",
+      "sha256": "97B9DB84C0B44F7CF50008CBA743B3458AAC7D980CA95D046FE6AFE1EF6E034A"
+    },
+    {
+      "path": "apps/web/src/components/GateInView.tsx",
+      "sha256": "4350C7D2A81988B30470DD51AFBA84948282FF26FED592EAD16AA74675AB4741"
+    },
+    {
+      "path": "apps/web/src/components/ReportsView.tsx",
+      "sha256": "3DD1DCC2EEE41A0860CE4D7EF565EF4E7BE58AE1E4CE3757F2D4DC38F84741F0"
+    },
+    {
+      "path": "apps/web/src/components/PartnerManagementView.tsx",
+      "sha256": "3E6345ED9811068BA53E2FF7AE5EBA54CD81263B0BF5B702CA4C8FE1C9A7DBD6"
+    },
+    {
+      "path": "apps/web/src/components/MovementOrdersView.tsx",
+      "sha256": "3B3652E33E1F2CDDBB90F73A162BB90F75A7B2800C4A738FE5A7F6F6FC175CB3"
+    },
+    {
+      "path": "apps/web/src/components/ModalOverlay.tsx",
+      "sha256": "B6B48A220642097FD9B82F87F3A144889729C961179EF6397818298AD961331D"
+    },
+    {
+      "path": "apps/web/src/components/TruckVisitsView.tsx",
+      "sha256": "30297BD40FD29FD088A3AAB589DA332E535C02421E56CAA26E7FBE3C1C741804"
+    },
+    {
+      "path": "apps/web/src/components/Sidebar.tsx",
+      "sha256": "AD10456A4F3B2E662461BC9DA660FD6A18EE3F5B5DA0E37E36F24EB82F30EA66"
+    },
+    {
+      "path": "apps/web/src/components/UsersRolesView.tsx",
+      "sha256": "AEE654822AE554AB5C7B93AEC2A1D36250EAF5C1BA04288D186B745702889FAB"
+    },
+    {
+      "path": "apps/web/src/components/useBackendReadiness.ts",
+      "sha256": "D340CB288E590DE2FBF9F44D039C772EEEF3E6902E883B74D88B657CCCEBBE37"
+    },
+    {
+      "path": "apps/web/src/components/ViewErrorBoundary.tsx",
+      "sha256": "2F8363E53A1728CF4379669CEFA42B5FC8E5A685F2F6E6D4E3FFB4C264A0FE07"
+    },
+    {
+      "path": "apps/web/src/components/YardView.tsx",
+      "sha256": "500883BBD8D639BDADCB35AED59342BDFCFC6D631D1EEEE9477D5507C1C1AF21"
+    },
+    {
+      "path": "packages/shared-types/src/index.ts",
+      "sha256": "3F90F6BDF5553A9A39B3055B37CA25733773AC428DDE8E3D15B1564944D22BE9"
+    },
+    {
+      "path": "apps/web/src/components/WebLoginView.tsx",
+      "sha256": "12B960A94C9D60853BC429CCBB5F719A1E88FC2A385199DABE59C964DE093987"
+    },
+    {
+      "path": "apps/web/src/components/WorkQueueView.tsx",
+      "sha256": "B776F10FD6A2B5962BCC221722467A61DFA847635781738F044D9B75B7836439"
+    },
+    {
+      "path": "apps/mobile/src/navigation/YardNavigator.tsx",
+      "sha256": "0E73103399630D139015B17527ABAFCD64D5CDF01C304C74F7CCBE9A567F18A9"
+    },
+    {
+      "path": "apps/mobile/src/navigation/types.ts",
+      "sha256": "3D91AA7CD9785739DCCCBFBA4F73F7CDF23B888374F64C84F930ED6277AB1AB7"
+    },
+    {
+      "path": "apps/mobile/src/navigation/RootNavigator.tsx",
+      "sha256": "633EB734B52A358CF73ADA92CECF964841B46A09B1D0B917F99045810C610C61"
+    },
+    {
+      "path": "apps/mobile/src/navigation/MainTabNavigator.tsx",
+      "sha256": "D7429E6D6D88A5621ED18F558E719CCD1204D191927B556FDD18E10F231E4F09"
+    },
+    {
+      "path": "apps/mobile/src/navigation/GateNavigator.tsx",
+      "sha256": "0C304453E9318F9892A4A3872DE270545B6F1AD74B2275A1AB10EE42F6299EE8"
+    },
+    {
+      "path": "apps/mobile/src/services/location/location.service.ts",
+      "sha256": "13F33F14E51B1D357B1710C98327628D9F2D372C6305F366DCCCDE33629B2B4A"
+    },
+    {
+      "path": "apps/web/src/components/yard/YardView.render.test.tsx",
+      "sha256": "F008C664A545289BC75E39FC238F8482E71AC2434E2A6CECDCE567D44B42BCE8"
+    },
+    {
+      "path": "apps/web/src/components/yard/YardSiteMap.tsx",
+      "sha256": "F2C21D706B1DB9079A15A28A3F35142A64CAB3688F7E360F3BB4A576E411ED2F"
+    },
+    {
+      "path": "apps/web/src/components/yard/YardOperations.tsx",
+      "sha256": "F2CD7D6D6397BDF5EE830EC3B03AD7DF682D9140D99A55084255C0559B980F72"
+    },
+    {
+      "path": "apps/web/src/components/yard/YardOperations.render.test.tsx",
+      "sha256": "F3CFBCEB2C8CEF28B52B01FA53A80CFAC4903310FED0B07F05F71E390E50E86B"
+    },
+    {
+      "path": "apps/web/src/components/yard/YardAssignment.tsx",
+      "sha256": "BEFF5C5C3808FEB120ADDD8705CA671D77033E8F11BB569535F1D0FF6CFC594E"
+    },
+    {
+      "path": "apps/web/src/components/yard/yard-operation-form.ts",
+      "sha256": "621966599591EE7BD692D23F707D7E8013F09E7CAF21B03C2083B966B34D5318"
+    },
+    {
+      "path": "apps/web/src/components/yard/yard-operation-form.test.ts",
+      "sha256": "9FBBA7349354DEB5C04DCF7A41021C77BBCF423A0A6B36532045263CD4F4CAFB"
+    },
+    {
+      "path": "apps/web/src/components/yard/yard-model.ts",
+      "sha256": "57D7346C0F2A08B1CC875912E18D7AB0C6F191C8C822982C4A16FA806C88D41B"
+    },
+    {
+      "path": "apps/web/src/components/yard/yard-model.test.ts",
+      "sha256": "134D59916209544D1788E9364E0B23BC3173A23EB091CAD532043062D5CB13CD"
+    },
+    {
+      "path": "apps/web/src/components/yard/useYardDialogFocus.ts",
+      "sha256": "57691D56F325952FB81F698621BCC3580D3B187A9F2A313AA801110B5214193A"
+    },
+    {
+      "path": "apps/api/prisma/seed/data/service-types.data.ts",
+      "sha256": "0089B87497CE170DD0AF9EBF13AEEE49A637B9DD5F18907A16C61A93865440A7"
+    },
+    {
+      "path": "apps/api/prisma/seed/data/roles.data.ts",
+      "sha256": "BABFD1D3AD05BF87D6D3182971CF3265D05C6335D24269117EE26AF564EC9FF5"
+    },
+    {
+      "path": "apps/api/prisma/seed/data/role-permissions.data.ts",
+      "sha256": "630375314917403159CCBA490C4BF0065A50289EF103FF238729631E7878F512"
+    },
+    {
+      "path": "apps/api/prisma/seed/data/permissions.data.ts",
+      "sha256": "48CFD8D535EEA8364EE6F6D886C8898BD9FDB30025D089CC1132D03D3740C31E"
+    },
+    {
+      "path": "apps/mobile/src/storage/auth.storage.web.ts",
+      "sha256": "C0FF1708EE2102D23242375510840E16F56BD4566465923B90A863152CB3D909"
+    },
+    {
+      "path": "apps/mobile/src/storage/auth.storage.ts",
+      "sha256": "DD5B13C0348980B749384C6E5D94F52A0D25A611D3F09955EA187065DA815294"
+    },
+    {
+      "path": "apps/api/src/main.ts",
+      "sha256": "17F31240B842423A662552C3FC4602A331EFE0986F557F362CDF5EA13C9DF58B"
+    },
+    {
+      "path": "apps/mobile/src/services/camera/camera.service.ts",
+      "sha256": "D184212F860E1224FBEF0A4034E74EDCFBC0BC11C9FAC007C5A4841503FA6914"
+    },
+    {
+      "path": "apps/mobile/src/theme/typography.ts",
+      "sha256": "87A723208971C2296450EE22F5EA86CE2AFDCE81341AB9F932A3D3D12930D7E3"
+    },
+    {
+      "path": "apps/api/prisma/migrations/migration_lock.toml",
+      "sha256": "2AF88C61808DA511E8E7C9473DF57BFBD81684B7F0F72309A9D2BDBF8AAF2DBB"
+    },
+    {
+      "path": "packages/contracts/src/common/api-response.types.ts",
+      "sha256": "4172F3AC0D88B309ACCBD5E6BA36C230118CB58702F3B2DE95611BC0D5691FC1"
+    },
+    {
+      "path": "packages/contracts/src/yard/yard.types.ts",
+      "sha256": "80C26DFE4C9FE67C30B9E3B20A6106B157B979C9215DD570D4AABBAC7DCA9A9A"
+    },
+    {
+      "path": "apps/mobile/src/services/api/ApiConnectionProvider.tsx",
+      "sha256": "697EC27EB01EDD4B7FC93CF24DD5D48C7D72298E527558A891C811FE8AA5AFE7"
+    },
+    {
+      "path": "apps/mobile/src/services/api/api-protocol.ts",
+      "sha256": "9C4A5558CF87AAD11CC0342CC87F04C04B1C38338E5E10739CF48EE6F2FE1578"
+    },
+    {
+      "path": "apps/mobile/src/services/api/api-connection.ts",
+      "sha256": "78C80A6DFB83955B734002BE598A1D99246F524D2892E0891C087CA721867AF7"
+    },
+    {
+      "path": "apps/mobile/src/services/api/api-client.ts",
+      "sha256": "0D0ADE02E6379BA114FB71E3ADAE6000C3B96DD9FCA720F78D6226AA591A7CF0"
+    },
+    {
+      "path": "apps/api/src/config/jwt.config.ts",
+      "sha256": "1A85FAE6A281C6DF6CE7FFA0F780E4F0723AEFD9F7FE4DC0A971FE2D75B1874C"
+    },
+    {
+      "path": "apps/api/src/config/env.validation.ts",
+      "sha256": "AFA27861EE4E1BB65F6B3A6E2EF74170BA84A247D6251849CB389F498C5C8521"
+    },
+    {
+      "path": "apps/api/src/config/database.config.ts",
+      "sha256": "FEC3B079B2140A8FD7230FC17D430E073525A63865E80421BFC403BBAF0F2BE8"
+    },
+    {
+      "path": "apps/api/src/config/app.config.ts",
+      "sha256": "4492C2B7E2684229391052B08342467A78A98F1B6A28FDD91F438793D5840679"
+    },
+    {
+      "path": "apps/mobile/src/features/yard/screens/YardOperationsScreen.tsx",
+      "sha256": "E5F1B5F166820D2A67A8499316D3DC1FFEC7987698061E58DF0C50BCE98FF227"
+    },
+    {
+      "path": "apps/mobile/src/features/yard/screens/YardOperationDetailScreen.tsx",
+      "sha256": "DB6EC1F3EEA1EAFDFA88AD0886C028059A1F5C7DFBDF99C46C2614F048DECAED"
+    },
+    {
+      "path": "apps/mobile/src/features/yard/screens/YardHomeScreen.tsx",
+      "sha256": "16CAE6A8737A5541708BE6F624136E9E0E3E5A1B1477E81E65E32E426660C672"
+    },
+    {
+      "path": "apps/mobile/src/features/yard/screens/YardAssignmentScreen.tsx",
+      "sha256": "22E1AD1897CA9E6B2116761496A11FE294F2AF53E130C540E1DD3ABF1A1859B8"
+    },
+    {
+      "path": "apps/mobile/src/features/yard/screens/SurveyHomeScreen.tsx",
+      "sha256": "79854B1CA17AA35703C124C9048032A1A40F35E8A68B0ACA84F17A0A5963F8F6"
+    },
+    {
+      "path": "apps/mobile/src/features/yard/screens/MonitorScreen.tsx",
+      "sha256": "ABE485A9BCF8C44D5B7C5C60867461410D19457D5C837645DDCE81D7C375D472"
+    },
+    {
+      "path": "apps/mobile/src/features/yard/RULES.md",
+      "sha256": "7D7D6970A31829F1B48A59401445AE6D7CAD4BBBB428323DBD7A815ED4F020A6"
+    },
+    {
+      "path": "apps/mobile/src/features/yard/inspection-display.ts",
+      "sha256": "6A2A553ABCE3C1D25C963C47C7DBCA2DC9FCEA102EF270CAA08043492D0E8658"
+    },
+    {
+      "path": "apps/web/src/context/AppContext.tsx",
+      "sha256": "14888988148A632DFDE42311D7EC2C836A93ADE4DB23B8D6F4B7E776F95EF656"
+    },
+    {
+      "path": "apps/web/src/context/app-context.shared.ts",
+      "sha256": "B3B29ECF71C3631ECACB9CDE0DF02603AD3DDA0B92A87F42514AB095F166EFC8"
+    },
+    {
+      "path": "packages/contracts/src/handover/handover.types.ts",
+      "sha256": "16D354E908FBDA62B79E44DBE255C69467491AD633307CBFFF01CA833FB3DDE6"
+    },
+    {
+      "path": "apps/mobile/src/features/yard/components/YardSlotGrid.tsx",
+      "sha256": "A4063CE141370A19DDA714C84C218A047D346FE25D7933969ABB99C7646BB74D"
+    },
+    {
+      "path": "apps/mobile/src/features/yard/components/YardRecommendationCard.tsx",
+      "sha256": "0D8D0D02392FF55B994B6DED08DBFD79884DFF665C65A8C51985959E3BF661B6"
+    },
+    {
+      "path": "apps/mobile/src/features/gate-out/screens/GatePassScanScreen.tsx",
+      "sha256": "772889F9288A5B4B83E52B39F9272D9312F8546EBBD08BA288494EDEB7A70048"
+    },
+    {
+      "path": "apps/mobile/src/features/gate-out/screens/GateOutConfirmScreen.tsx",
+      "sha256": "76786B151DB22D8F5E3EE81D2D78DDA6A309415A20DDB3FC038333A8FA4E0E02"
+    },
+    {
+      "path": "apps/mobile/src/theme/ThemeProvider.tsx",
+      "sha256": "7F71ABEAFD9EE8CE2AAA7ECB678403BD708134CC515A4170C2CF7972E4C6D2AB"
+    },
+    {
+      "path": "apps/mobile/src/features/gate-out/RULES.md",
+      "sha256": "C7A826D29B6F186A43652955E593ED087590284D4B9C95FCC0CABEFC1D7AECDB"
+    },
+    {
+      "path": "apps/mobile/src/theme/theme.ts",
+      "sha256": "478CB12B27E18B39044F1EB1144329DAD07DFD8C549E2D154D815FA84D46DDCB"
+    },
+    {
+      "path": "apps/mobile/src/theme/spacing.ts",
+      "sha256": "E86B03AC12CA93FB204C7A3B898DC3D8644D0FE974936BE17FD6A1AF6E97EDA6"
+    },
+    {
+      "path": "apps/mobile/src/theme/colors.ts",
+      "sha256": "6421FA90E4BE11CAABCD8173846A0DCC48CB4735A248A6B7A626673E7864E16B"
+    },
+    {
+      "path": "apps/mobile/src/features/gate-out/gate-readiness.ts",
+      "sha256": "5487EF5AC958D4E2EF98779358647F0930EF9CDE12E3C6A4990C552F82634B53"
+    },
+    {
+      "path": "apps/mobile/src/features/gate-out/gate-out-confirmation.ts",
+      "sha256": "75D63DC27A2CC04F94C9A060D1C8A2BB15137AB20E232ECBED2F1DBA6BAAFE77"
+    },
+    {
+      "path": "packages/contracts/src/billing/billing.types.ts",
+      "sha256": "EF7FA864701B32F2019823FFD5373A2FB9FAF53F18EE4EC27352DBC22DA48A47"
+    },
+    {
+      "path": "apps/mobile/src/features/gate-in/screens/GateInSuccessScreen.tsx",
+      "sha256": "6BAB4E98E1326935E7B7EFF2ECF82B29F3672077D6F67BD8D405538B98F6E740"
+    },
+    {
+      "path": "apps/mobile/src/features/gate-in/screens/GateInScanScreen.tsx",
+      "sha256": "4B53FAB1E0321FCFD78E246A5D27A382DFADBFEF746823EE411EB557B2FEB6CC"
+    },
+    {
+      "path": "apps/mobile/src/features/gate-in/screens/GateInFormScreen.tsx",
+      "sha256": "722AB505D4D0AE838BF5559F52E147704DE05A8FD4CE455160E05A73045ED48C"
+    },
+    {
+      "path": "apps/mobile/src/features/gate-in/RULES.md",
+      "sha256": "E0F93A342A69EFC2B34355244EBE91FFBE6A9AD96B3B9E9302AA893B748448D2"
+    },
+    {
+      "path": "apps/mobile/src/features/yard/api/yard.api.ts",
+      "sha256": "2DF7F1C3DF00AC6955EFC9FC0C35005767E01791055B32B91084C21C93478A25"
+    },
+    {
+      "path": "apps/mobile/src/features/yard/api/yard-snapshot.ts",
+      "sha256": "A68F604FC5E06569166C4E860258AB84EAEEABA259D8C03A04A2A0962E4456A7"
+    },
+    {
+      "path": "apps/mobile/src/features/yard/api/yard-map.ts",
+      "sha256": "E5D182A9A8E7BF0DF7B04944BEF389C87E4DDE7BC891DB92C4EDDC459ADF05A7"
+    },
+    {
+      "path": "apps/mobile/src/features/yard/api/yard-assignment.ts",
+      "sha256": "F2721C1652308F69594F7F2AE4C71749FFC65ED3C83BA90BCFC3FA0925F27726"
+    },
+    {
+      "path": "apps/mobile/src/features/yard/api/inspection-notes.ts",
+      "sha256": "7BDFF317055B93E24A7B8739AEECF50D21369E91D515E2C86F3F2F58C775CA99"
+    },
+    {
+      "path": "apps/mobile/src/features/gate-out/api/gate-out.api.ts",
+      "sha256": "0E340811D93CB7C9A5E9A46203A8AE96D489BEC756024240056FD910230ECA8C"
+    },
+    {
+      "path": "packages/contracts/src/gate/gate.types.ts",
+      "sha256": "39A68A31C849EEE7EE6521BA95C735C98BFC2F36CEE5FBAD62F6D8A4E13AD6DE"
+    },
+    {
+      "path": "apps/api/src/database/prisma.service.ts",
+      "sha256": "7F4923E927F51AF74D07AC3DC1153078A806C94A7B708725FC76A128C406CE1A"
+    },
+    {
+      "path": "apps/api/src/database/prisma.module.ts",
+      "sha256": "6AAC31992FD1AA3B525BC7B73733D2EE75EB61C739ED141CFD30CF63974CBDBF"
+    },
+    {
+      "path": "apps/api/src/database/prisma-error.util.ts",
+      "sha256": "4A29DC8B32A0AEADFCE5C59723678DBE42EDF58BDC1ABA236D4B7B31516436D8"
+    },
+    {
+      "path": "apps/api/src/modules/yard/yard.service.ts",
+      "sha256": "0A0C4774365A1979F467BF2EEAA499FA7E0847FC5EA736A3E5A22AA0CA81F18E"
+    },
+    {
+      "path": "apps/api/src/modules/yard/yard.module.ts",
+      "sha256": "A8FBD332CB17EB321B7E4253565B74C034D6B888152413A6F7679E5BA57DDB47"
+    },
+    {
+      "path": "apps/api/src/modules/yard/yard.controller.ts",
+      "sha256": "5F67A8BD66A92A33FF589AF8B3F275EE4F908DFB93126F4E957B619F13C50391"
+    },
+    {
+      "path": "apps/mobile/src/features/gate-in/components/TruckArrival.tsx",
+      "sha256": "8F1D9318BC03DDEDEE6947D026830077546BD3A4AA6A047D3488FED4919C3884"
+    },
+    {
+      "path": "apps/mobile/src/features/gate-in/components/GateInReceipt.tsx",
+      "sha256": "38F5B17C27C03369A0ACC1041035402D6B1D4BC0F6F1B5B5031320AF785C083D"
+    },
+    {
+      "path": "packages/contracts/src/auth/auth.types.ts",
+      "sha256": "9243D1B051106204D2B44420674D90D491AB7B85C54823756678B24DA3267280"
+    },
+    {
+      "path": "apps/api/prisma/migrations/20260921154655_canonical_container_visit_v17/migration.sql",
+      "sha256": "2ABC693B50C4E0DB3DFF8E8D1C0B21211179EA230CF47A216659888DF581D274"
+    },
+    {
+      "path": "packages/contracts/src/container/container.types.ts",
+      "sha256": "4AD99D89F1984CB359713800307B7EF10C1F6C0F074000316306EDE19F82ABC4"
+    },
+    {
+      "path": "apps/mobile/src/features/gate-in/api/gate-in.validation.ts",
+      "sha256": "73515C3CED18C706154830DD22583AD8BAF34F785CA56957700ED81D21604D1B"
+    },
+    {
+      "path": "packages/shared/src/utils/string.util.ts",
+      "sha256": "302B92341A69C408378E201EA53C6BF622EEE5D64A157B83F5C851D180969B83"
+    },
+    {
+      "path": "apps/mobile/src/features/gate-in/api/gate-in.api.ts",
+      "sha256": "B7031962770BEC426CD61106BFFE83E86CC29D5F226573A0783A5E45AA94E9C0"
+    },
+    {
+      "path": "apps/mobile/src/features/notifications/screens/NotificationsScreen.tsx",
+      "sha256": "3E14E0EDA211682D0B8D92437617FA9DA6C6D0CCFDE3CC3184CC88F38379549D"
+    },
+    {
+      "path": "apps/mobile/src/features/notifications/notification-target.ts",
+      "sha256": "0246027710D696A8AC013B8015AB1EECDCAE8D84594E7ADCF71BD9C7E2B76241"
+    },
+    {
+      "path": "apps/api/src/common/utils/validation-error.util.ts",
+      "sha256": "D6F2A718FF30A3D18F942DCCA6DCACEEDA105FC2CDBCDFFD6165458D2065E56F"
+    },
+    {
+      "path": "apps/api/src/common/utils/date.util.ts",
+      "sha256": "2C49F04E466D2B803D7760BC4650E66071231F7FDB83FC1AC5E12527FC33FCB0"
+    },
+    {
+      "path": "apps/api/prisma/migrations/20260920053115_sync_foreign_key_indexes/migration.sql",
+      "sha256": "122D743A0403E77AD7E0ED9447F5B8826F2FBDBC55612D936EFF004DD13C2EEC"
+    },
+    {
+      "path": "apps/api/src/modules/yard/utils/yard-slot-code.util.ts",
+      "sha256": "33609480307124348C1EAFAA4A584A7211940A071A4A2988F25D0268232ACDA7"
+    },
+    {
+      "path": "packages/shared/src/constants/app.constants.ts",
+      "sha256": "8B2D8EB39C25014B477A43BBC7BB339AD0D0EE690503AA42BD1B1B7535104530"
+    },
+    {
+      "path": "apps/api/src/common/filters/http-exception.filter.ts",
+      "sha256": "4B9F342CE805ED9ACEA30EB777F485FE4A0B8A655937780A57CB62470D5B9BA9"
+    },
+    {
+      "path": "apps/api/src/common/filters/global-exception.filter.ts",
+      "sha256": "7FDD587FE45ABC210779885BF85A8B5263FA3F50945D823BCA4A4253F77EA969"
+    },
+    {
+      "path": "apps/mobile/src/features/notifications/api/notification.api.ts",
+      "sha256": "02477BFF40AA3FAEBAEF883B855F95500E03D67540EA205169A94AD451221C0F"
+    },
+    {
+      "path": "apps/api/prisma/migrations/20260918161042_manifest_bills/migration.sql",
+      "sha256": "7D4618BF7E8F8FFDA9D0F543F9B6E5F71AF705E06AC18A6A956036B4CD634CDF"
+    },
+    {
+      "path": "apps/mobile/src/features/work-queue/work-queue-target.ts",
+      "sha256": "9E8220F3700993D58305DAA7F6F8AA277F79ACE2DFB7A506F593520C4A648BA5"
+    },
+    {
+      "path": "apps/api/prisma/migrations/20260920012000_complete_v1_7_schema/migration.sql",
+      "sha256": "A8FB5C34767728622308BDD46A74C1C1B636B77AD4862400305465945BB0F7F2"
+    },
+    {
+      "path": "apps/mobile/src/features/work-queue/screens/WorkQueueScreen.tsx",
+      "sha256": "9F80864AEE94DE59D19DA31FA1426DEFE47F9C4E42490876280E594EA51D6021"
+    },
+    {
+      "path": "apps/mobile/src/features/work-queue/RULES.md",
+      "sha256": "2820DFCEEE849715A1E222808C1D08312B6EB8870BE345A959BF12E19EC1FF69"
+    },
+    {
+      "path": "apps/api/src/common/types/pagination.types.ts",
+      "sha256": "E5D4CFBC3B87630A516F3DC3B199C9BBF7C6812AB1794B4AD376689138CB39BB"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/services/transporter.service.ts",
+      "sha256": "CEAF03ECD01E66CAC8E070F5F7497639B2E20FB869BC8BEEFE60CC72896E0073"
+    },
+    {
+      "path": "apps/api/src/common/types/authenticated-user.types.ts",
+      "sha256": "356ABA5DF594DF82338AF1883A907CC5FA1CC996FAFBAD2528A6F88FA303DE16"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/services/transporter.service.spec.ts",
+      "sha256": "6C2CC300C5D82C7C581C63C0F6A7250022636E673BADDB52EFFF205A78252F16"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/services/shipping-line.service.ts",
+      "sha256": "0BB42FCE917C94F168FFD8BE0C4AEE5C5DEF9909629B65A540A4BF2FA43DC7F0"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/services/consignee.service.ts",
+      "sha256": "1FD7B10B285F75E8DCE87C88F3E9D6C611FBAF556E26C177398383731E59ABFC"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/services/clearing-agent.service.ts",
+      "sha256": "35D1AD006E40A7036EA7413E6DFFEA44581C00F5F32271EAC3BE4ED4F5A7F5D4"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/RULES.md",
+      "sha256": "55A59A66876E4E4452275642A8DC3F97A7EA1A7303F1AAA32D5829EFCB3C4035"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/master-data.service.ts",
+      "sha256": "DE1C2EB946DEDF72ED755A83A46192D386B3A44E39748BA87E1EF0B369E4F46E"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/master-data.module.ts",
+      "sha256": "9E3A03D6D354A42D195AC38B93678ADB3E93B1584B6491151DAEDF7161E512F3"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/master-data.controller.ts",
+      "sha256": "D45539592971E7125E421BB6CA8FABADB73CA76AD7472074CE77A6257A3A38F9"
+    },
+    {
+      "path": "apps/mobile/src/components/StatusBadge.tsx",
+      "sha256": "D54BA251C4E05BDFBCF114409A6CB317F8F4FE3B63B6B0C4D89589486B4D6374"
+    },
+    {
+      "path": "apps/mobile/src/components/SessionCard.tsx",
+      "sha256": "483447180EC0C62478B15501C0026D799BEB8295D793C0E925CE288DEFDFBE73"
+    },
+    {
+      "path": "apps/mobile/src/components/SelectField.tsx",
+      "sha256": "A64A243FBC184895A0D6040A252A74822757D05B68273C8F4D65289587F4205B"
+    },
+    {
+      "path": "apps/mobile/src/components/ScreenLayout.tsx",
+      "sha256": "C13A73BBEE1D4FC48C0E9233A2858DF352C9C62E674F1122E8EE125E3760B9A2"
+    },
+    {
+      "path": "apps/mobile/src/components/scanner-code.ts",
+      "sha256": "FF2EEAC27D5AACA393F38DFD3A722D264333C4783ED9A5488E4A9631D5C3ED74"
+    },
+    {
+      "path": "apps/mobile/src/components/PrimaryButton.tsx",
+      "sha256": "09486A9FDDA2A81AFC316665E63A03970EBBC371DE96C9114DF5DF7E8EEC09E5"
+    },
+    {
+      "path": "apps/mobile/src/components/LoadingState.tsx",
+      "sha256": "492E645C569CFFDD270B0EF1758714A2C432F54610A0B2BEB896912DAD97A8D3"
+    },
+    {
+      "path": "apps/mobile/src/components/GateModeSwitch.tsx",
+      "sha256": "388C4049A41D92B76C5FC613BA5A4A086038DC81C3F3F9E9E15335C2031E5673"
+    },
+    {
+      "path": "apps/mobile/src/components/ForbiddenScreen.tsx",
+      "sha256": "544504893CDFFBFA1339C09626CAE44408803D1CEF7FBCF78FF0AA8026CF8114"
+    },
+    {
+      "path": "apps/mobile/src/components/ErrorState.tsx",
+      "sha256": "495F22C417C6E4D00281AA736AB5FBFE5F7048C3D24DD330C0F385F447378632"
+    },
+    {
+      "path": "apps/mobile/src/components/EmptyState.tsx",
+      "sha256": "A0CFEA0D2EEAB9A5EE9D98C84CF9AD0693F90E46F87A1B43C5A9AC38F0C4BA38"
+    },
+    {
+      "path": "apps/mobile/src/components/ConnectionBanner.tsx",
+      "sha256": "01A67DC567CFDAF29ED9A4E24FC579704C62FB6929C7D34F259A720DA5136EDA"
+    },
+    {
+      "path": "apps/mobile/src/components/CodeScanner.tsx",
+      "sha256": "5916CDB654DFEF7E704DBAEFEBB997BA9B20CDB6ACD57377F73755090A5F851A"
+    },
+    {
+      "path": "apps/mobile/src/components/AppHeader.tsx",
+      "sha256": "A257DBF847AC6980D902E123C5B26FA9AF5CD98E1741D0286AA99A5C746DE2BD"
+    },
+    {
+      "path": "apps/mobile/src/components/ActionDialog.tsx",
+      "sha256": "2F2016323408739DF4EB90081EC9DA7B9CE30D46CF870C65E0CD308F44E74483"
+    },
+    {
+      "path": "apps/mobile/src/features/more/screens/MoreScreen.tsx",
+      "sha256": "68A711322473ED72C283E0FECF559C6B3C4875A2E4DED50F054A94ADFA137F4C"
+    },
+    {
+      "path": "apps/api/src/modules/edi/transports/edi-transport.interface.ts",
+      "sha256": "F1E154CD8E4CEF01AF4016F1248DBA98EFA3C82F8349ABC0788183B323401CFB"
+    },
+    {
+      "path": "apps/api/src/modules/edi/transports/edi-sftp.transport.ts",
+      "sha256": "263CF4B7CBB722D6F761E4D03F98BDF0292B74FF39227863F5BE434767F36543"
+    },
+    {
+      "path": "apps/api/src/modules/edi/transports/edi-mock.transport.ts",
+      "sha256": "9C127EE90053F1DD73B6C6CDCD257D366D180C22BE88FD3EC4BE258CAAE5AFE3"
+    },
+    {
+      "path": "apps/api/src/modules/edi/transports/edi-https.transport.ts",
+      "sha256": "25FABDFC881ED969E92E52435516F6E2F2CBFE41230AE841E6F6B5595C264DA2"
+    },
+    {
+      "path": "apps/api/src/common/exceptions/business.exception.ts",
+      "sha256": "498BC236B79C4A1F710770E8AD0E6459AE02C4A0276EB0AE2AB1AD65E0C05A02"
+    },
+    {
+      "path": "apps/mobile/src/features/containers/screens/ContainerSearchScreen.tsx",
+      "sha256": "B2463D01ABA2BD4B4B6661910707977B21BA29D387C6207DCE5F942861C394FD"
+    },
+    {
+      "path": "apps/mobile/src/features/containers/screens/ContainerDetailScreen.tsx",
+      "sha256": "407F9F8DDDD68E802EE30D62D856FFCDE1794EF6233F693C2093F2D31C74D294"
+    },
+    {
+      "path": "apps/mobile/src/features/containers/RULES.md",
+      "sha256": "C41B548786EC4089E34F82D59501FF762D406881C5AB0FB8FDA1D8D3189D8256"
+    },
+    {
+      "path": "apps/mobile/src/features/handover/RULES.md",
+      "sha256": "63A9D13E2E227AB5A2E0661B692C7AE62C2BD69B779B39AE6D5A0377C5421164"
+    },
+    {
+      "path": "apps/api/src/common/security/token-hash.util.ts",
+      "sha256": "D3D5D2B38E83B97149844C1349DA71732F85600F36EB065B6DAA9024A7A92565"
+    },
+    {
+      "path": "apps/api/src/common/security/password.util.ts",
+      "sha256": "E1CBF7687BE7DC53E4C86DAFD61BCD83E78D6C9934E9482789DCFAF96A94A497"
+    },
+    {
+      "path": "apps/api/src/common/RULES.md",
+      "sha256": "65547D82C7927E28C44AAA6AB9D3C91631391BEEE69B82057E978CC735199597"
+    },
+    {
+      "path": "apps/api/src/modules/yard/services/yard-readiness.service.ts",
+      "sha256": "FB9C2C123EF24F50B0B63AEA6BD626CB4DC400D5AA8360AF1A477C593E618470"
+    },
+    {
+      "path": "apps/api/src/modules/yard/services/yard-operation-serialization.spec.ts",
+      "sha256": "AB30213C6CAFBDFD513A618807AE2C7EAC443BA60F115907CBAD98A67C78C8B0"
+    },
+    {
+      "path": "apps/api/src/modules/yard/services/yard-operation-read.service.ts",
+      "sha256": "CA2EF312B3907E9CE6AE233C3E1C4B1EFD8F65F9B3AC7D940D66D3F06D0972EC"
+    },
+    {
+      "path": "apps/api/src/modules/yard/services/yard-movement.service.ts",
+      "sha256": "46182F5ACC40E649AF1CFF7DA94236AF7E580823C6FD7ED576F81A2A435940A3"
+    },
+    {
+      "path": "apps/api/src/modules/yard/services/yard-movement.service.spec.ts",
+      "sha256": "062D2F382C475F7F6AC2363134FC1A82873B6D90AE1DBC62FC0B30AAD74E70F3"
+    },
+    {
+      "path": "apps/api/src/modules/yard/services/yard-location.service.ts",
+      "sha256": "15AEC06B49E2254B27F70606F6DF7FF2BECA73278290F6D5EF10C3894BD05309"
+    },
+    {
+      "path": "apps/api/src/modules/yard/services/yard-catalog.service.ts",
+      "sha256": "26F076A7586A0BB81D98F82F508C083C15AF286C322D71142E0A643987AFDA8A"
+    },
+    {
+      "path": "apps/api/src/modules/yard/services/yard-assignment.service.ts",
+      "sha256": "7FF50FECE2E43F58A656F5ED2DE68F4ECE821ACA991886776F15B7B4141F548A"
+    },
+    {
+      "path": "apps/api/src/modules/yard/services/yard-assignment.service.spec.ts",
+      "sha256": "23E082E2359BB2979991162DBC7EB05C441BE5D172A9DE4AB7CF82BA3A3CC132"
+    },
+    {
+      "path": "apps/api/src/modules/yard/services/inspection-notifications.spec.ts",
+      "sha256": "BA9664992CDDE7012791CF950D28D1E61360BBA5BFAD88EFD517E4DB922400E0"
+    },
+    {
+      "path": "apps/api/src/modules/yard/services/in-yard-booking.service.ts",
+      "sha256": "46F4A6280C42EDDA4947FB723FA24E30D00C6E549C72E362D3815FA75E3A1789"
+    },
+    {
+      "path": "apps/api/src/modules/yard/services/container-inspection.service.ts",
+      "sha256": "5F319EBE545DC4B7BD863852CD47C5862BD624F4A07BD3B808ED698ADDF03DC3"
+    },
+    {
+      "path": "apps/api/src/modules/yard/services/container-inspection.service.spec.ts",
+      "sha256": "4B4FB61689D1772AF510B83527B5E852F3FEF634E5EC895A4ACCEFE59A69CF56"
+    },
+    {
+      "path": "apps/api/src/modules/yard/RULES.md",
+      "sha256": "00157169213C33108B669498E5E2104E90551C48A951A9615C946415A456D6A7"
+    },
+    {
+      "path": "apps/mobile/src/features/containers/api/container.api.ts",
+      "sha256": "0F59AE0B5FC859F442653CF54959F99BCAD3268482A88FC0F602D63D8F2814B5"
+    },
+    {
+      "path": "apps/mobile/src/features/work-queue/components/WorkQueueCard.tsx",
+      "sha256": "9FFB079C173F93E40639498B7907A3913458C5EC4EE9E591B99892A21A51BC93"
+    },
+    {
+      "path": "apps/api/prisma/migrations/20260918154911_add_master_data_tables/migration.sql",
+      "sha256": "183418654C7C6F119C674BA890F82F7E31E97E81C5ED34AA764D9B8E2BB0BBE6"
+    },
+    {
+      "path": "apps/mobile/src/features/handover/components/HandoverSummary.tsx",
+      "sha256": "2712253FF1E45C69AEB46873AA0F88B016689BCEFFD0285D471A5242CB44A4B5"
+    },
+    {
+      "path": "apps/api/prisma/migrations/20260918164552_movement_order/migration.sql",
+      "sha256": "2E2FF2C63DD14D47C9C72061AA57F28A87AEE3A567E5DCAF35390944C46166F0"
+    },
+    {
+      "path": "apps/api/src/common/dto/pagination-query.dto.ts",
+      "sha256": "B587CF2D4B86C43C4F6C4B5642431E803C9E53816DFF814A05D10B75E5F2C64D"
+    },
+    {
+      "path": "apps/api/src/common/dto/pagination-query.dto.spec.ts",
+      "sha256": "640F56E4670816C16BBC8F672D82A26715FA0C126242951A7CE822505ED83CE4"
+    },
+    {
+      "path": "apps/api/src/common/request-context/request-with-id.type.ts",
+      "sha256": "29FAEAE6A5D075EB9549EEBB346C2E4AD6BCB504B85A8F1EFA5E65627D157062"
+    },
+    {
+      "path": "apps/api/src/common/request-context/request-id.middleware.ts",
+      "sha256": "075DE180BA02CF473A051E17CFAB88D00B34F56D27FDC6E1B1FF6F5FB50B5364"
+    },
+    {
+      "path": "apps/api/src/common/request-context/request-context.service.ts",
+      "sha256": "B3B9B252E1F181DE3B6F728155ADEFBCDA45170078C7C8CD6056BDE5266A878A"
+    },
+    {
+      "path": "apps/api/src/common/request-context/request-context.module.ts",
+      "sha256": "318D9BB6372CA4429851069000CEF865485AD3625154B6FDA54D1089FCB8B6F3"
+    },
+    {
+      "path": "apps/api/prisma/migrations/20260918145531_auth_session/migration.sql",
+      "sha256": "B7CA8399FB7635B7C92AA0BB4789D5E0C827AE02407844DDE034BF58673FBA84"
+    },
+    {
+      "path": "apps/api/src/modules/yard/recommendation/yard-recommendation.service.ts",
+      "sha256": "C6ED6BDD9057CBD22B5CCA890E6380DF20B99E2C73BD0C52309087F998869B4F"
+    },
+    {
+      "path": "apps/api/src/modules/yard/recommendation/yard-recommendation.service.spec.ts",
+      "sha256": "C9D4E302283450D0687CC94E06C9A9F8689BF252EA2584BCE87CB19BAC16AA60"
+    },
+    {
+      "path": "apps/api/src/modules/yard/recommendation/ml-client.client.ts",
+      "sha256": "3FEF95EA529484D64B521F9D18EDAD757B5E7822F02C7303591CDF973F3937DC"
+    },
+    {
+      "path": "apps/api/src/modules/yard/recommendation/ml-client.client.spec.ts",
+      "sha256": "A4F380413C68370CD18AC33D5FC57F3ACC9E548670B4A0155677B9FEAB9CBAC0"
+    },
+    {
+      "path": "apps/mobile/src/features/auth/screens/LoginScreen.tsx",
+      "sha256": "28C49D5DC83491077FCD61F165BA9D114CD54B264378D5244A5DE068BEBE43B2"
+    },
+    {
+      "path": "apps/mobile/src/features/auth/RULES.md",
+      "sha256": "39B8B0318A9E347DED62B2480D84CAEE94CCA4E8679D20CEFBF7CE0816AE1896"
+    },
+    {
+      "path": "apps/mobile/src/features/work-queue/api/work-queue.mapper.ts",
+      "sha256": "22E35A251F49B00D7F060F64468B719FA379F0F7DA53BAACDB0C78688EF58E52"
+    },
+    {
+      "path": "apps/mobile/src/features/auth/permissions.ts",
+      "sha256": "FDB501D49D952B7554A3BDA7C3EB733215FFC370B7BD463F6812722F7310903C"
+    },
+    {
+      "path": "apps/mobile/src/features/auth/permissions.spec.ts",
+      "sha256": "9ECC27C21A6531AAA5839BEEBECAD271E1B33B3E0048150988DDD5CC5F6ED9F8"
+    },
+    {
+      "path": "apps/mobile/src/features/work-queue/api/work-queue.api.ts",
+      "sha256": "C774C729C5A25F9C77EF037BD6BB6B99C76CE2A0983CD27F7A9956BB5633470A"
+    },
+    {
+      "path": "apps/api/src/common/decorators/public.decorator.ts",
+      "sha256": "EDD808461F357A1657931B73A89C46382B575F7200971A2CA92E792401B6AAF4"
+    },
+    {
+      "path": "apps/api/src/common/decorators/permissions.decorator.ts",
+      "sha256": "8E28910C54D58B66EED03DF00F29EA68E011EB2ACA6F81CADA929CDF20C3BF30"
+    },
+    {
+      "path": "apps/api/src/common/decorators/current-user.decorator.ts",
+      "sha256": "05FF921D8EFD1C9243F5E493D8A05DE9C3595298FBD23A1DAF177C408A616D1C"
+    },
+    {
+      "path": "apps/api/src/common/interceptors/response.interceptor.ts",
+      "sha256": "B1D71CA47AE3764691E2E733C34F19B3797654454D208AC712306C8D7A9479C5"
+    },
+    {
+      "path": "apps/api/src/common/interceptors/response.interceptor.spec.ts",
+      "sha256": "8A8088E4486999D8E7D216655DEA26B35FB877C57288539DE06212F56FFE4E12"
+    },
+    {
+      "path": "apps/api/src/common/interceptors/request-context.interceptor.ts",
+      "sha256": "5E1E7A21FAFCF2DD6BE5B6C0884AC21BD06A89DE412284F85E8F45726D5EE8BD"
+    },
+    {
+      "path": "apps/mobile/src/features/handover/api/handover.api.ts",
+      "sha256": "0422ED96A0C865AE9C5574BF520C97E82AF7A7E37B3B3C2A4326B7526791461D"
+    },
+    {
+      "path": "apps/api/src/app.module.ts",
+      "sha256": "CDEBB0E70F82B362026DCCDE368FE0A9343A5CF46F317A2AE1E2492B740CF524"
+    },
+    {
+      "path": "apps/mobile/src/features/auth/auth.types.ts",
+      "sha256": "B109B8CB0CD6EFA55BE1E816614BAD158E6B8891E839675E3F068A437750E4D8"
+    },
+    {
+      "path": "apps/api/src/modules/edi/services/edi-route.service.ts",
+      "sha256": "A3C7C6DB7EF879405315AD5D8BC67210E0A8AC4BB320FD5803B537FCF74A87C4"
+    },
+    {
+      "path": "apps/api/src/modules/edi/services/edi-outbox.service.ts",
+      "sha256": "2FC612AF8B4D1C8A0E021CA51A68B09749A95EFA6370E0B5A8B6897A48F16226"
+    },
+    {
+      "path": "apps/api/src/modules/edi/services/edi-dispatcher.service.ts",
+      "sha256": "6B1965511C9BBF2E389B9AEE47870AB5D0E8F03F1D748D16B586F0B1E03E98B5"
+    },
+    {
+      "path": "apps/api/src/modules/edi/services/edi-dispatcher.service.spec.ts",
+      "sha256": "051DDCFD833917C258AAC937ADE048B84EBD12253AFBDCF13A62D022BE72C481"
+    },
+    {
+      "path": "apps/api/src/modules/edi/services/edi-correlation.service.ts",
+      "sha256": "377418AF784A1FDBA8ED798D9354BE6890491FAF206BFE782B84A46D4D790831"
+    },
+    {
+      "path": "apps/api/src/modules/edi/services/edi-correlation.service.spec.ts",
+      "sha256": "FF462552262D7F29CE7D721FC6678260442B3DF350339903B4322D2222BCA765"
+    },
+    {
+      "path": "apps/api/src/modules/edi/services/edi-config.service.ts",
+      "sha256": "774E1EAAD7EFE00248734B4FBCB8DC58FBEC88BC6038EC8FFF02DD425289C358"
+    },
+    {
+      "path": "apps/api/src/modules/edi/services/edi-codeco-snapshot.service.ts",
+      "sha256": "A0F398FEAEE505397403BA986457181778B12B88FD47C8DFFD8B3436E128AD38"
+    },
+    {
+      "path": "apps/api/src/modules/edi/services/edi-alert.service.ts",
+      "sha256": "CF6C128AF8B81BB1C0AC389A02422C9B47F2F113F8ACF32A2CC80F83C1832791"
+    },
+    {
+      "path": "apps/api/src/modules/edi/services/edi-alert.service.spec.ts",
+      "sha256": "A14021DD5816782D47E3A808533D19D0BA1BA3F685C6CCC744F360C115455069"
+    },
+    {
+      "path": "apps/api/src/modules/edi/services/edi-ack.service.ts",
+      "sha256": "2BF0B2D25F27C293073FBB01F68CF9A8118A988854E7C95615E7DCC0668D4764"
+    },
+    {
+      "path": "apps/api/src/modules/edi/services/edi-ack.service.spec.ts",
+      "sha256": "31D0534C5D9760DC0B009A9DD3DE9A0C9135167CC21D85FC2B3348AB05D3BB8F"
+    },
+    {
+      "path": "apps/api/prisma/migrations/20260918144119_foundation_identity_rbac/migration.sql",
+      "sha256": "AAFBC1E490704522805E8193EBC746D4EA0488D99C76F01D3A9DD41BFD2A4F99"
+    },
+    {
+      "path": "apps/api/src/modules/billing/utils/payment-reference.util.ts",
+      "sha256": "85DCEC29EB310A1F78AC49AF7159917DCCBEE67E739F1E259989C224EA93C335"
+    },
+    {
+      "path": "apps/api/src/modules/billing/utils/invoice-number.util.ts",
+      "sha256": "87BBE036A59A22A53DC555825BB88CB2136411C002D73613B90577C54A3FE69A"
+    },
+    {
+      "path": "apps/api/src/modules/billing/tariff.controller.ts",
+      "sha256": "B78C33270DE9D167A5354130C9A7BAE9BCFF13F63FD80A8C1788939987085D49"
+    },
+    {
+      "path": "apps/api/prisma/migrations/20260918162830_add_container_models/migration.sql",
+      "sha256": "D3C9C6DBE6EA0ED160F556765D85BF97FC6AFF0C1FA9F405BDC1A08B071F4414"
+    },
+    {
+      "path": "apps/api/src/modules/billing/billing.controller.ts",
+      "sha256": "4A127C0706A716531317D00ACD0EC6FCD923DC2FFE9EE17A4FE10DF3CCFD7C9C"
+    },
+    {
+      "path": "apps/api/src/modules/billing/billing-readiness.controller.ts",
+      "sha256": "BC5DFE35CE3A8D775D575CC04698EEDA96079CAD4099C7808C7612E5667B7F0C"
+    },
+    {
+      "path": "apps/api/src/modules/yard/policies/yard-movement.policy.ts",
+      "sha256": "D2FC26C391ACE4422282A2E67A4E7865D5D07C78D60D52CD9FC81ED26889624C"
+    },
+    {
+      "path": "apps/api/src/modules/yard/policies/yard-assignment.policy.ts",
+      "sha256": "AF62700787965C53994484A56D51DABDB03DE51654D420D3BC2311A6EF21725E"
+    },
+    {
+      "path": "apps/api/src/modules/yard/policies/in-yard-booking.policy.ts",
+      "sha256": "B9BA45EF00523C6F5ABC87E2F37B8510E20789E5FAF309612AE7D32D9E9B783A"
+    },
+    {
+      "path": "apps/api/src/modules/yard/policies/container-inspection.policy.ts",
+      "sha256": "7097ECFA00F515A2BC248F85773015E05A0E6DCE0E26CF837F3D4B092382F5DD"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/dto/update-master-data.dto.ts",
+      "sha256": "413D6CD9EB108EF87DE2FD15481593F3E1620421DD565B39C085C2CF328F8CB9"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/dto/update-master-data-status.dto.ts",
+      "sha256": "D26EDA515014EE865DD009695FD090674E9D13BE3D32FE916333A433F4CB458D"
+    },
+    {
+      "path": "apps/api/src/bootstrap/configure-app.ts",
+      "sha256": "310421F4E36C6D53529E5D3AA22112B825A9DB340E9DB4F56EF2609CA737567A"
+    },
+    {
+      "path": "apps/api/src/common/constants/role-codes.constants.ts",
+      "sha256": "A6058507D46D2BE2F634EB8559923071FF698FEED7663472F3DC6970516F5E52"
+    },
+    {
+      "path": "apps/api/src/common/constants/permission-codes.constants.ts",
+      "sha256": "3D90899478C03204D218455F390C1061EE94C53A2300B2EDB42B4BC3DEE425E0"
+    },
+    {
+      "path": "apps/api/src/common/constants/http-error-codes.constants.ts",
+      "sha256": "DF23919840B8BC5E5A0A50301610C40C8A16EA9D5F8602586015EA2AA5B46184"
+    },
+    {
+      "path": "apps/api/src/common/constants/error-codes.constants.ts",
+      "sha256": "E7235282C5B26B07F405991F2094AF41EAB4F1818C02CC8C27FB5CB4EE4F2906"
+    },
+    {
+      "path": "apps/api/src/common/constants/auth-metadata.constants.ts",
+      "sha256": "DE4E976A5E3E6DC974A2C638BAE29D652B312CE0CE77F3B9F6942C8976705594"
+    },
+    {
+      "path": "apps/api/src/modules/billing/billing.service.ts",
+      "sha256": "C744D56A5D3C66616C0FE0C4F76044612D32301B430B18E4D7C6B1C8D9786BD3"
+    },
+    {
+      "path": "apps/api/src/modules/billing/billing.module.ts",
+      "sha256": "4B12BEB2996E03408954A8A43EF45E369CA881C82578840A95796C6DD46E8385"
+    },
+    {
+      "path": "apps/api/src/common/guards/permissions.guard.ts",
+      "sha256": "0838B7E6519650198D630D52DE5D1E3B235487BD285088EC48246ECA03B8D613"
+    },
+    {
+      "path": "apps/api/src/common/guards/jwt-auth.guard.ts",
+      "sha256": "2CC81381543CD1B32895B54BB26FAABDC0F2BB3A5662AEEF36881AB650BC1BF9"
+    },
+    {
+      "path": "apps/api/src/modules/yard/movement/yard-movement.policy.ts",
+      "sha256": "7B8C2FFFFB5E68D8A61D56C16E999E5B7E342DC983624036AF3DAE0BA292DBE1"
+    },
+    {
+      "path": "apps/api/src/modules/edi/schemas/edi-routing-snapshot.schema.ts",
+      "sha256": "9778408F4C30E9B0DB24B8611600CD8095D0AC47E3DD4D4DB939D01E815047CE"
+    },
+    {
+      "path": "apps/api/src/modules/edi/schemas/codeco-canonical-payload.interface.ts",
+      "sha256": "376CAC6494420386E11FFE9620DF7AB605911C946796532B0D58FA605F5AA339"
+    },
+    {
+      "path": "apps/api/src/modules/edi/RULES.md",
+      "sha256": "C4108BBB6FC08474CC1E8C0A4B7F8F18405CC90A48CD23B444CBC6764197165C"
+    },
+    {
+      "path": "apps/api/src/modules/billing/dto/update-tariff.dto.ts",
+      "sha256": "496CF5B891A00F0ABDF4A9BA41F239D218703D4E53AA5EF00130BFCFF91E8DF3"
+    },
+    {
+      "path": "apps/api/src/modules/billing/dto/record-payment.dto.ts",
+      "sha256": "F531BF3A577ED71078059290935D15AB17A8EF283AD48EFF844781C74FC34407"
+    },
+    {
+      "path": "apps/api/src/modules/billing/dto/query-tariffs.dto.ts",
+      "sha256": "BBC64E8A7DB4572C66C14127A15141ECEDBD2349473B1B1BC3B083549CECA416"
+    },
+    {
+      "path": "apps/api/src/modules/billing/dto/query-service-orders.dto.ts",
+      "sha256": "E5F567B5F1F8BAA097B7720CB869FE4286BAF70082DAD3C7CFD6DEB34B8EDD31"
+    },
+    {
+      "path": "apps/api/src/modules/billing/dto/preview-billing.dto.ts",
+      "sha256": "FBA09393758A7A9A09FCFF87B89175A88D2E9EC834FAB33090B4CE52EB640639"
+    },
+    {
+      "path": "apps/api/src/modules/billing/calculator/billable-quantity.calculator.ts",
+      "sha256": "5012DD622B4DF1A6B39F9F34EBDE7BF471155F9E6AADD6FC1F9A17BD17A6F2DE"
+    },
+    {
+      "path": "apps/api/src/modules/billing/dto/create-service-order.dto.ts",
+      "sha256": "40C70DA9B8EDEB5E0F195452F4B63CE06EF59D721DAAEDCD2D3F601974986AF4"
+    },
+    {
+      "path": "apps/api/src/modules/billing/dto/cancel-service-order.dto.ts",
+      "sha256": "9F38E39F634F5C9EA3827507871D7C8D14BCF77CB7FD4F4FA95BF1FB2C9C0F92"
+    },
+    {
+      "path": "apps/api/src/modules/billing/dto/add-tariff-rule.dto.ts",
+      "sha256": "EA748FC1755383B57558C0C3471AE811D38451A00A5B066697461EC5A51F32A2"
+    },
+    {
+      "path": "apps/api/src/modules/billing/dto/create-tariff.dto.ts",
+      "sha256": "CCEAB47B10E8AE65AEEB4CD2AE91AB49A3C69140F188B1B8F45482602C0789FA"
+    },
+    {
+      "path": "apps/mobile/src/features/auth/context/AuthProvider.tsx",
+      "sha256": "DF18FC32147430DD916C0EBAD8695AB954F19DDBC3B95AAF22F2D7AEF9D27D8F"
+    },
+    {
+      "path": "apps/api/src/modules/billing/payments.controller.ts",
+      "sha256": "6B64055D634FBFBBA8042F3E964FE5047BE8486A4F7D7CD585D633686C718EED"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/dto/transporter/update-transporter.dto.ts",
+      "sha256": "1C5058BFCC054947B56638420FE0C810F27D39C9021A934B162FBB5975AB6836"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/dto/transporter/create-transporter.dto.ts",
+      "sha256": "46B94DC1A87832945A60D4C015E8863A7527BB8D60648A3DE563D5A4144B4A75"
+    },
+    {
+      "path": "apps/mobile/src/features/auth/api/auth.api.ts",
+      "sha256": "9821C282DEEA4AB7D4809ECD77CE12EA77D8E579B3B107AC83DA8892DDBE7BF7"
+    },
+    {
+      "path": "apps/api/src/modules/billing/invoices.controller.ts",
+      "sha256": "1BAA7AFD7BE49D7F179E2B5298ED80EDD995EAF8320B2C8B6251075CE6412BF5"
+    },
+    {
+      "path": "apps/api/src/modules/edi/policies/edi-retry.policy.ts",
+      "sha256": "EC74654FA05E257CB1502ADB1CA16C5C9EEA0194CD9A817D039482F96A556E69"
+    },
+    {
+      "path": "apps/api/src/modules/yard/mappers/yard.mapper.ts",
+      "sha256": "77D4115185914CAED61259A7A1FB0A02ACA3425BA495A0EA4347E7C1C14DE424"
+    },
+    {
+      "path": "apps/api/src/modules/billing/services/tariff.service.ts",
+      "sha256": "220D2C9CB6D3F9F8405DBF49784397E0FD50C47C7D456678F55919799658BA15"
+    },
+    {
+      "path": "apps/api/src/modules/billing/constants/billing-source-types.constants.ts",
+      "sha256": "B3CF60CDC43AF8A56D48D1A70F8715646E940A9BB214D89DF8F252052D5AD9D1"
+    },
+    {
+      "path": "apps/api/src/modules/billing/services/service-order.service.ts",
+      "sha256": "D9E36634E4AFFF9637F852F0834DF71FA3B37B875A329B4F3244CEC3FF839E7E"
+    },
+    {
+      "path": "apps/api/src/modules/billing/services/payment.service.ts",
+      "sha256": "CA02E0BB8E798D3523EF0CE5F2CA1F1E32146FE8259BDF9637DBF602C23661A9"
+    },
+    {
+      "path": "apps/api/src/modules/billing/services/payment.service.spec.ts",
+      "sha256": "8F2B552095E2FF4F06F88C901B9ABC02628C55695F180129D6628B68B1139163"
+    },
+    {
+      "path": "apps/api/src/modules/billing/constants/billing-service-codes.constants.ts",
+      "sha256": "80A3D496B0AC06092CE07FD41459E8D0071DD878B73CEF7EE7C063CD89003AFA"
+    },
+    {
+      "path": "apps/api/src/modules/billing/services/invoice.service.ts",
+      "sha256": "4D61A1E15C0ED1CF897AB5986CDB8CA923127E3883FB0B0BDA5CE350B1495774"
+    },
+    {
+      "path": "apps/api/src/modules/billing/services/billing-readiness.service.ts",
+      "sha256": "4D6FE07EA50F54791D2E6F0093E4E1CA08877182E940F1FA158AA4C621C4F2D5"
+    },
+    {
+      "path": "apps/api/src/modules/billing/constants/billing-error-codes.constants.ts",
+      "sha256": "CC1F90BD985CDBFA6741B4FF0E30BE413E8B8095B9447D7BEBE0F299FDE538F4"
+    },
+    {
+      "path": "apps/api/src/modules/billing/services/billing-calculation.service.ts",
+      "sha256": "9074AA9471B86ADC3B7D77392C3EB7E4A759EEFE45CCE0B1DEEE1FAE19ECBF9B"
+    },
+    {
+      "path": "apps/api/src/modules/billing/dto/invoice/query-invoices.dto.ts",
+      "sha256": "DCD4F43F6DAB37F86F7F36D65818E808DB9BF4C0C2F56F2C7E956F62722527C2"
+    },
+    {
+      "path": "apps/api/src/modules/billing/dto/payment/record-invoice-payment.dto.ts",
+      "sha256": "698BDEEB03F2CE2F8F86D3CAD83EF6896E6E10565D56F9D9837971A34A8752A1"
+    },
+    {
+      "path": "apps/api/src/modules/billing/dto/invoice/issue-invoice.dto.ts",
+      "sha256": "433DE5A8325612766E3FCCA81382BC27E18BB69A11019DF4194E73C2B187E6D8"
+    },
+    {
+      "path": "apps/api/src/modules/billing/dto/payment/query-payments.dto.ts",
+      "sha256": "14C97BC2FEC40F4A6CA0EB10911DC3040A50E645846E7244370464F2F0BA4ACD"
+    },
+    {
+      "path": "apps/api/src/modules/billing/dto/payment/payment-allocation.dto.ts",
+      "sha256": "D98A63330BF358A864CFD3F2A24F8665AC6B52C2D61C64D189FEE0C64C4F4FD6"
+    },
+    {
+      "path": "apps/api/src/modules/billing/dto/payment/create-payment.dto.ts",
+      "sha256": "9924F0A9BEE53E6383282B64CB5CECDACB04AD9A6D9C9002B1BED49952BBB0B0"
+    },
+    {
+      "path": "apps/api/src/modules/billing/RULES.md",
+      "sha256": "9B488C33ED87CE661328C6E32C9866026AA2B308D827B48F60F1D8A11394F8BD"
+    },
+    {
+      "path": "apps/api/src/modules/edi/edi.controller.ts",
+      "sha256": "D43B261D47D456A08599693727410E960763CACE2FD6C312F3F696DC21E8C7D0"
+    },
+    {
+      "path": "apps/api/src/modules/yard/inspection/inspection.policy.ts",
+      "sha256": "210AB4AD940DDBF767AD19E0C7047CAAF4E59489EC0B32DAFEC9697A4706FB67"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/dto/shipping-line/update-shipping-line.dto.ts",
+      "sha256": "6B876A07F2C717EF4D09B5568907F49ED628F4F52B537A1A367ABF1EED171FF3"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/dto/shipping-line/create-shipping-line.dto.ts",
+      "sha256": "5DA3C0D98191B1E04782092E058CCF1635CDB1805611B156EAA32C41E90962F9"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/dto/query-master-data.dto.ts",
+      "sha256": "534005459EC572F69A76B328347C737B5DC0FFA488CEAA2AD2FEE5344257D78F"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/dto/create-master-data.dto.ts",
+      "sha256": "A88EF993CFCA77B866D4F375D308E68EF9FBC0C5E752041A183E4A71C003F78E"
+    },
+    {
+      "path": "apps/api/src/modules/edi/jobs/edi-dispatch.job.ts",
+      "sha256": "880999EA8410402013B1487234241BCCB252BBD5731CED6C3BFEDD7D2E71E8F5"
+    },
+    {
+      "path": "apps/api/src/modules/edi/edi.service.ts",
+      "sha256": "92F79B7E631C86142F9D125D8D0ADE07D49A7E5D1CA23FF0F1B7B94CDFF17E3C"
+    },
+    {
+      "path": "apps/api/src/modules/edi/edi.module.ts",
+      "sha256": "BA40FDBF194EAE5256C30DAEF3D874BAD603FA3D6CCC5B6508B450BB42E40D0E"
+    },
+    {
+      "path": "apps/api/src/modules/billing/mappers/payment.mapper.ts",
+      "sha256": "9C24CC4F080938707754CD228A612EED1C97B3CD09019B1070F89EB7A4551B33"
+    },
+    {
+      "path": "apps/api/src/modules/billing/mappers/invoice.mapper.ts",
+      "sha256": "99738E6F5BBB13F4AF65EB5CB6B33BC22576C0DEBCE0092A82BA3B23907FB371"
+    },
+    {
+      "path": "apps/api/src/modules/audit/audit.service.ts",
+      "sha256": "5533BD16A4CCEDB7BBFD19DE0C671F6A71DB2E3A0907D68A5A9A1C73919FECC9"
+    },
+    {
+      "path": "apps/api/src/modules/audit/audit.module.ts",
+      "sha256": "FAB33BF3109CF1DA10566C2429D5C857B73F27F15C82D0232227578648B725BB"
+    },
+    {
+      "path": "apps/api/src/modules/audit/audit.controller.ts",
+      "sha256": "0640C3CAD625F308023B655956A7552D3DB22D9F4F0C78380E2A22C248A8D13D"
+    },
+    {
+      "path": "apps/api/src/modules/audit/audit.constants.ts",
+      "sha256": "40A06BD6CE7B3EB434C74DD0B5042BD25F8ADE8C7A3EE0830F69ED52C40F6DEB"
+    },
+    {
+      "path": "apps/mobile/src/features/auth/hooks/useAuth.ts",
+      "sha256": "5D07249BBE801A14E36F0347C29EE82E6DCC4DFED4082849ADD1ABA2F028918E"
+    },
+    {
+      "path": "apps/api/src/modules/billing/policies/tariff.policy.ts",
+      "sha256": "61478B0B2C3CA16575A314D2343A6EDE6834EADE0A211D7AAC9E3FE8C0AED789"
+    },
+    {
+      "path": "apps/api/src/modules/billing/policies/service-order.policy.ts",
+      "sha256": "E61B6B3838C70588F04ED404AC3773132913BFE270913463592E7DE7AC55FE89"
+    },
+    {
+      "path": "apps/api/src/modules/billing/policies/billing.policy.ts",
+      "sha256": "588C837B9C41A122EE71F4E67D5B698669588117F1BAD47584D9F6D34B0BBB4C"
+    },
+    {
+      "path": "apps/api/src/modules/audit/types/audit.types.ts",
+      "sha256": "826787B3B96D7839420E8E2B1B3098EA950FBB7432C26271CFCAFB86A1E9888A"
+    },
+    {
+      "path": "apps/api/src/modules/audit/RULES.md",
+      "sha256": "DAD8687C3AD21B7B98DD75FFBB96445986D023D1D2C441402A0B045485EFB24C"
+    },
+    {
+      "path": "apps/api/src/modules/edi/constants/edi-settings.constants.ts",
+      "sha256": "21B0CDD58CEC8D388B8A878E22B5A07088B39C950F7FD1587C4208CA438AE0E1"
+    },
+    {
+      "path": "apps/api/src/modules/edi/constants/edi-error-codes.constants.ts",
+      "sha256": "1B8BC398DA1307BA594643286E77E74F862C8B5ED75C174D439B91A4B8B6ABA3"
+    },
+    {
+      "path": "apps/api/src/modules/auth/RULES.md",
+      "sha256": "984F6777F94F1F1BCD6CABF817DC6C13A78BEBD5DF117E0FD061C77B9DC47246"
+    },
+    {
+      "path": "apps/api/src/modules/health/RULES.md",
+      "sha256": "08F7DAC46C01755133F1CE73EE35F87CF93DBCB5EFBF4706EFCC7572C6C4B395"
+    },
+    {
+      "path": "apps/api/src/modules/health/health.service.ts",
+      "sha256": "CB10C5648B7700B43A60049082AFAEC65D49C19E8569E5B849C859A3D1863E21"
+    },
+    {
+      "path": "apps/api/src/modules/health/health.module.ts",
+      "sha256": "0F4D4E4FBF6250D059291935C3B0D9600E37FB83D7520181864B6B90372DFCFE"
+    },
+    {
+      "path": "apps/api/src/modules/health/health.controller.ts",
+      "sha256": "A569270A9685FB5786F4FA156580B3AF590830E341754AA752FC424B39464097"
+    },
+    {
+      "path": "apps/api/src/modules/audit/dto/query-audit-log.dto.ts",
+      "sha256": "5A9D16D3A18D3BEDE3068A7A63A347ADFC0B402C9F09945CD134E964DB9A432F"
+    },
+    {
+      "path": "apps/api/src/modules/audit/audit.util.ts",
+      "sha256": "4E87B1BE8E4EBF3BE24FBCD0D06BC7A1BD749AD2AB7B201764818E248B17E9A9"
+    },
+    {
+      "path": "apps/api/src/modules/auth/auth.module.ts",
+      "sha256": "51B64AC219F1E626DFC2C363735549EC3172B48AA94C22931A0333949A29E09F"
+    },
+    {
+      "path": "apps/api/src/modules/auth/auth.controller.ts",
+      "sha256": "C876DDF850541A620454E4406AA813CED77CF7945366C71923160A64867325BF"
+    },
+    {
+      "path": "apps/api/src/modules/auth/auth.service.ts",
+      "sha256": "16D89B3BF00F383AB5800C57DFD89B2285503006B50C5F02F06F9F278AB6138A"
+    },
+    {
+      "path": "apps/api/src/modules/auth/types/auth-token.types.ts",
+      "sha256": "86989726D0BC1FA2599CDED4EAB1899275882A4A3934C64FB50DFB9BB9BBB893"
+    },
+    {
+      "path": "apps/api/src/modules/edi/clients/edi-transport.client.ts",
+      "sha256": "0EA0CE3A85F0C1C889B4011DCE283141A208B0236794E7CF88FE56DC94E9FFFD"
+    },
+    {
+      "path": "apps/api/src/modules/edi/dto/update-edi-route.dto.ts",
+      "sha256": "D16CEA1FE04B464F297F504C4EE980A2F3D319A431E13BEFA47020EC3829DD49"
+    },
+    {
+      "path": "apps/api/src/modules/edi/dto/resolve-edi-alert.dto.ts",
+      "sha256": "DC34F567304F5C4691993034DC3B0697A61C05584E6560A4C13D58E3B3D81AE3"
+    },
+    {
+      "path": "apps/api/src/modules/edi/dto/query-edi.dto.ts",
+      "sha256": "6AAFAA37CE5D7F358D7EC5800ED556AED0BE45D20D27BDB861596ADFE8884A91"
+    },
+    {
+      "path": "apps/api/src/modules/edi/dto/query-edi-outbox.dto.ts",
+      "sha256": "8FA248D0CEF5F152EE7C23179DD007385C8E831C52511E6787FA55F679D90024"
+    },
+    {
+      "path": "apps/api/src/modules/edi/dto/query-edi-alert.dto.ts",
+      "sha256": "6F409AEC38AFB0E685B8D70CABAFCCE6E8D37AFAB1B56194A17691A4414C70B9"
+    },
+    {
+      "path": "apps/api/src/modules/edi/dto/query-edi-ack.dto.ts",
+      "sha256": "B662B6249CC6F3E8BDB2587E487670D91E3867CF6E8508B57423C354FEC8C1D4"
+    },
+    {
+      "path": "apps/api/src/modules/edi/dto/ingest-edi-ack.dto.ts",
+      "sha256": "A6C0E0D1984C4B0634BC715AC816D4298E7970F6141714253B13D118EDF826AC"
+    },
+    {
+      "path": "apps/api/src/modules/gate-pass/gate-pass.module.ts",
+      "sha256": "BA40B81646DD610B04458CE4EECFF6E3E160EA48BFD6FCB8B89A105020D76D1E"
+    },
+    {
+      "path": "apps/api/src/modules/gate-pass/gate-pass.controller.ts",
+      "sha256": "12CC3614C5C117B756BD24E6FBD77DA0DAEABA55CA36A48B33C8EB89E1C7F022"
+    },
+    {
+      "path": "apps/api/src/modules/gate-pass/gate-pass.controller.spec.ts",
+      "sha256": "E51F9ECEB8D8CFEFF7A5146A29BBE28A286D9F7A584C8257AD77B5D0D929EF96"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/dto/consignee/update-consignee.dto.ts",
+      "sha256": "D237779A6FD59F06C26A68522FB24F16A4F76CE3A4C994B179523B375195393C"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/dto/consignee/create-consignee.dto.ts",
+      "sha256": "DBDA08CC9331446DFF5AFC0C8AD65C36B1515C66C057C08477D5170E147A71B3"
+    },
+    {
+      "path": "apps/api/src/modules/auth/dto/refresh-token.dto.ts",
+      "sha256": "154FD101754E1ED027265C64868D7B3072918552DE7F1E6463AC7232A1E358DD"
+    },
+    {
+      "path": "apps/api/src/modules/auth/dto/login.dto.ts",
+      "sha256": "22051A36509CEDE989F716A04DF2B14634C5EFDFA958EDA6FDE4E81E103EF7DE"
+    },
+    {
+      "path": "apps/api/src/modules/auth/constants/auth-error-codes.constants.ts",
+      "sha256": "2FA09C883028DC95EC01B2D7097CC40904533505D92F7BF0F5AB0801156FF3DC"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/constants/master-data-error-codes.constants.ts",
+      "sha256": "F60C4AA50B77DB82070808E38E62A3ABDD52B48BDFB331AA7A490CA6B6E42782"
+    },
+    {
+      "path": "apps/api/src/modules/auth/guards/permissions.guard.ts",
+      "sha256": "62EC62A55467C4CAE8AF59BC6A7DF6FFA1736DA4BE5BED3113136972F72E9BD1"
+    },
+    {
+      "path": "apps/api/src/modules/yard/dto/update-yard-slot.dto.ts",
+      "sha256": "12901EDD9785268694A55A114B8BB1EEC4DC89AA80EF022871A90A3CE4BAB160"
+    },
+    {
+      "path": "apps/api/src/modules/auth/strategies/jwt.strategy.ts",
+      "sha256": "3BDFF8FAC8AC259331DB5AD3FADD6BCB9CF7CA50D389386D559ADACFFE454064"
+    },
+    {
+      "path": "apps/api/src/modules/yard/dto/update-yard-block.dto.ts",
+      "sha256": "9864798EA20DE7EAFA88537DAE1FCC518D202147A392D4D767D67161D0B73FD2"
+    },
+    {
+      "path": "apps/api/src/modules/yard/dto/request-yard-movement.dto.ts",
+      "sha256": "4DF0CD1BF873168363465260017CD794A9655671ACF4D17219ED4CC264AE7C6A"
+    },
+    {
+      "path": "apps/api/src/modules/yard/dto/request-container-inspection.dto.ts",
+      "sha256": "F7783D14688413C41532FB0C3BED1E6B7A6FB28102C4FD57034933923EF76261"
+    },
+    {
+      "path": "apps/api/src/modules/yard/dto/query-yard-slots.dto.ts",
+      "sha256": "C6EC7965BA865704E804C9EDBBC1C02513CE3CF03617915EC38DD689ACA91A7D"
+    },
+    {
+      "path": "apps/api/src/modules/yard/dto/query-yard-movements.dto.ts",
+      "sha256": "852DCEFFBC7CC78B02DC9A9AC893C2A0446FCFC68B0F3E2B41CA93F9C24274A0"
+    },
+    {
+      "path": "apps/api/src/modules/yard/dto/query-in-yard-bookings.dto.ts",
+      "sha256": "BB9D575456987845574017FD4BF324FE5DA875519B9A486BB40C7AA78292B23C"
+    },
+    {
+      "path": "apps/api/src/modules/yard/dto/query-container-inspections.dto.ts",
+      "sha256": "E7346A042BFD795E84721C9A83080DA8B071F2661415492831EA4E137D115342"
+    },
+    {
+      "path": "apps/api/src/modules/yard/dto/create-yard-slot.dto.ts",
+      "sha256": "662F35148E4D3935EE52865D3D97D6167301787700FDE86DF21C024CF5A841E2"
+    },
+    {
+      "path": "apps/api/src/modules/yard/dto/create-yard-block.dto.ts",
+      "sha256": "45128D3301B57D10E873E647C142725C0C52D08B6D52C235D87A7A4513C819E7"
+    },
+    {
+      "path": "apps/api/src/modules/yard/dto/create-in-yard-booking.dto.ts",
+      "sha256": "1AAB8377DFD28F54DC2CC5E530DC0774A3DE59C2B804BDC11156178877989D7B"
+    },
+    {
+      "path": "apps/api/src/modules/yard/dto/complete-in-yard-booking.dto.ts",
+      "sha256": "BD85C43F11073295A16C7DEEF35CF25ACA384B9B9EB134F0C3FEA7BD7002C18E"
+    },
+    {
+      "path": "apps/api/src/modules/yard/dto/complete-container-inspection.dto.ts",
+      "sha256": "C1B389BB2BB770F5CB248A3C14DA546A199F8FDF502073F4EA7FFDECC773EAAB"
+    },
+    {
+      "path": "apps/api/src/modules/yard/dto/check-yard-slot.dto.ts",
+      "sha256": "649E984B37608E9A1E004A3A1A4926B1F28E7B89B7017968F13AA59EEB64C744"
+    },
+    {
+      "path": "apps/api/src/modules/yard/dto/cancel-yard-movement.dto.ts",
+      "sha256": "4379B542BEA5A236A33D8635755F8CDAB6D7588AAEEB84B98015A6DF7341D0F2"
+    },
+    {
+      "path": "apps/api/src/modules/yard/dto/cancel-in-yard-booking.dto.ts",
+      "sha256": "6A45308923BD65B4158207B9983221070F09F0C1CDE96A76895132C10E51CD8F"
+    },
+    {
+      "path": "apps/api/src/modules/yard/dto/cancel-container-inspection.dto.ts",
+      "sha256": "E16FE8BBFF238F564A1750DD3C1CD8F8F3DD09E67AA5EB594B81B8CCAC8B8559"
+    },
+    {
+      "path": "apps/api/src/modules/yard/dto/assign-yard-slot.dto.ts",
+      "sha256": "EB7D181C7B712C6D2062982883C10497E8F9A4D06C2405533FB39787DB3E2A44"
+    },
+    {
+      "path": "apps/api/src/modules/gate-in/gate-in.module.ts",
+      "sha256": "0403C65C83645D0613372652F67ED0CA8A2B927160D7528D6767ACD0E185E9D3"
+    },
+    {
+      "path": "apps/api/src/modules/gate-in/gate-in.controller.ts",
+      "sha256": "2835F6ACD5628407D834C03545157E02526102BA8492EBDC9A014306A1B08D77"
+    },
+    {
+      "path": "apps/api/src/modules/gate-in/validators/truck-visit.validator.ts",
+      "sha256": "0DFA3BC3511A964628D6DE92F2B35FC7EC240303515D6676ABFFDA5F298599CE"
+    },
+    {
+      "path": "apps/api/src/modules/auth/guards/permissions.guard.spec.ts",
+      "sha256": "93848A6A039D93AF65B31C7BEF989EB6CC8662749DB7728C08D1F671A3118B5C"
+    },
+    {
+      "path": "apps/api/src/modules/auth/guards/jwt-auth.guard.ts",
+      "sha256": "2AD170E7F55E3BD1F4B58D7BC3FC6C94A205DE305BE9F6A3C890336E2E71416B"
+    },
+    {
+      "path": "apps/api/src/modules/bills-of-lading/RULES.md",
+      "sha256": "DB8D8A38ADA06A6D1A02ED8932E060BE3D84CB20BE85242FF1DD73D883956E11"
+    },
+    {
+      "path": "apps/api/src/modules/gate-in/validators/seal.validator.ts",
+      "sha256": "61B28D7BEC726C64EBF303E947A614A70A7FBB540E2ACC0E375CAE85A622093B"
+    },
+    {
+      "path": "apps/api/src/modules/gate-in/validators/movement-order.validator.ts",
+      "sha256": "697A93B3FA24B53420C19B272CE94EB56D7306094136A3F24FB40EBA01CAD7E1"
+    },
+    {
+      "path": "apps/api/src/modules/gate-in/RULES.md",
+      "sha256": "4B699B105BE1D0E1401F0793BED68588B8672E381E53352CBD93C1C9029BF6F4"
+    },
+    {
+      "path": "apps/api/src/modules/auth/services/token.service.ts",
+      "sha256": "76E361CA9AEEAB2812AE1644369CC1230FC09F413D8CC3E2EA3C4669220C13FD"
+    },
+    {
+      "path": "apps/api/src/modules/gate-in/gate-in.service.ts",
+      "sha256": "7ADAE5FADEFED1736458E5861C98B8D06F2675127AD7C189C97930A541B68C32"
+    },
+    {
+      "path": "apps/api/src/modules/gate-pass/dto/scan-gate-pass.dto.ts",
+      "sha256": "4CD7639FF5EFA10B49520A80811F77C14C73D8EC6C4305E1D3CD0939EF23D48F"
+    },
+    {
+      "path": "apps/api/src/modules/yard/constants/yard-error-codes.constants.ts",
+      "sha256": "E5CBCBAE1A2E85570724D5C7A4FDBAE4551C227BDC722523309F8207CCF2B8C0"
+    },
+    {
+      "path": "apps/api/src/modules/gate-pass/dto/issue-gate-pass.dto.ts",
+      "sha256": "CC1EEC051245B61F80A369E3A0CEF8FC8B288DDD29F012C9C01D792DC38A129D"
+    },
+    {
+      "path": "apps/api/src/modules/gate-pass/dto/cancel-gate-pass.dto.ts",
+      "sha256": "BA940A59D837128AFF085EAEC6C89883DDEFEF7EB83388C3A22D063211F10C27"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/dto/clearing-agent/update-clearing-agent.dto.ts",
+      "sha256": "E9868CB4884772DF824D73DF5EB73AD6E383A5550231D399FFA46B5A5DDEA58B"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/dto/clearing-agent/create-clearing-agent.dto.ts",
+      "sha256": "C51C2290458EF30AEB5C719973D86F5D715B9C5E9173E06A67AF2A593948AA0C"
+    },
+    {
+      "path": "apps/api/src/modules/gate-pass/utils/gate-pass-qr-token.util.ts",
+      "sha256": "83971CD53B8D889C0A80880B977202F8800B9FD077E4EFA96F40A9ED6E03CDDA"
+    },
+    {
+      "path": "apps/api/src/modules/gate-out/services/gate-out.service.ts",
+      "sha256": "07FB509B3BD15292A8C50CCB4CFF5C0C2876F4CD6F347108E01972E79A07788A"
+    },
+    {
+      "path": "apps/api/src/modules/gate-out/services/gate-out.service.spec.ts",
+      "sha256": "689814F6186A306580CB434FD758C4AD6DB28423D1233CF92A0212C6A112D5D8"
+    },
+    {
+      "path": "apps/api/src/modules/gate-out/RULES.md",
+      "sha256": "795E82CCDC55B7D6F46A9798C0EA59078774E474BA3300A2090D5EC2F826264A"
+    },
+    {
+      "path": "apps/api/src/modules/bills-of-lading/dto/update-bill-of-lading.dto.ts",
+      "sha256": "A764DA62B4FA28E9FE8DD24DE1348E85AD3D95070EA0984DBB06A7AF13185148"
+    },
+    {
+      "path": "apps/api/src/modules/bills-of-lading/dto/create-master-bl.dto.ts",
+      "sha256": "E00CE7A7F19FD4805883ED8A9D3DE2D142CA9416CAACD6044BA7BEF32C28C88C"
+    },
+    {
+      "path": "apps/api/src/modules/bills-of-lading/dto/create-house-bl.dto.ts",
+      "sha256": "3BE259313C21D35AB48FAF9A77539B1DA873D0BF65BD9C627241B56DA45EF423"
+    },
+    {
+      "path": "apps/api/src/modules/bills-of-lading/bills-of-lading.module.ts",
+      "sha256": "2376B6F1D06A98928C8FB57D902EEEC0D0CC56F343E874CB84782C32AE514274"
+    },
+    {
+      "path": "apps/api/src/modules/bills-of-lading/bills-of-lading.controller.ts",
+      "sha256": "728D22032D0BF6E6B1E99CFCC8AA2222713BDDC141EA8D6A74AAAF6A657D56EA"
+    },
+    {
+      "path": "apps/api/src/modules/bills-of-lading/bill-of-lading.service.ts",
+      "sha256": "840F9C397B62376F7BEAC571429BBE5A05BED5A30DA929EA6E81EEDEC8B00C8C"
+    },
+    {
+      "path": "apps/api/src/modules/gate-pass/constants/gate-pass-error-codes.constants.ts",
+      "sha256": "9CE90DB9E086C59B43462DFF362C18B837AB7D251EF8852FD4E423822CB396E2"
+    },
+    {
+      "path": "apps/api/src/modules/gate-pass/constants/gate-pass-blocker-codes.constants.ts",
+      "sha256": "BDFF301EB423A69ED3D0311F10753DA92E92DDA0D675A4B1C89BD8248027AE95"
+    },
+    {
+      "path": "apps/api/src/modules/containers/utils/iso-6346.validator.ts",
+      "sha256": "0827AD6F91D27CC93C209F0C532FDE4FCA0B398C054CFCFF4B665B0A8D9E76CD"
+    },
+    {
+      "path": "apps/api/src/modules/gate-in/constants/gate-in-error-codes.constants.ts",
+      "sha256": "A5E96864FF6D38B1E0C92DA43438D5EBBF0ADCA06EAFA688AF1B64B8FC8D2D6B"
+    },
+    {
+      "path": "apps/api/src/modules/gate-in/policies/gate-in.policy.ts",
+      "sha256": "08605BF44E04E5EC0A8B999ED96D5182137822C0BC708506B1D93B49C6908456"
+    },
+    {
+      "path": "apps/api/src/modules/gate-pass/types/readiness.types.ts",
+      "sha256": "B58FD551485BE8A033AB836E81F749958A2F029A2ECCB9A36FA0D56B8DBDD181"
+    },
+    {
+      "path": "apps/api/src/modules/gate-in/dto/gate-in.dto.ts",
+      "sha256": "12747BE722A1F9B9FDC25A6628BC91C45FC1F3C95A2F5C0B3DA7FCB38DC0B99E"
+    },
+    {
+      "path": "apps/api/src/modules/gate-in/dto/create-container-reception.dto.ts",
+      "sha256": "E5DAAC2CEB7FB8E20AB9963B9DD9D6E47BAD806373848E13B248609F5DA60994"
+    },
+    {
+      "path": "apps/api/src/modules/containers/RULES.md",
+      "sha256": "22599EE5AE25F150AB49920245DFBAD48C903E9440DEE26465D442E839231716"
+    },
+    {
+      "path": "apps/api/src/modules/gate-in/mappers/container-reception.mapper.ts",
+      "sha256": "05A0B45CD959897AB816BC0929D55576B23E772F73CFCB924C01CB3C6C303134"
+    },
+    {
+      "path": "apps/api/src/modules/containers/dto/update-container.dto.ts",
+      "sha256": "779B1A51D35EB19B88E275E3B365861A973EEB84B33B3C0A4F650C253F95A99D"
+    },
+    {
+      "path": "apps/api/src/modules/containers/dto/create-container.dto.ts",
+      "sha256": "1AC4422F0299190155D2349C83829D0EC93415E49E501A44AF5FC3ECD5B2AC43"
+    },
+    {
+      "path": "apps/api/src/modules/containers/containers.service.ts",
+      "sha256": "A0636B723C0D2D70B568B1668FCAE53D0CF54E55562368916272049D6E1BAB37"
+    },
+    {
+      "path": "apps/api/src/modules/containers/containers.module.ts",
+      "sha256": "88E3F31AAB30C9A7D45B788ABD0A4367810676D19DB19CBF0617649D2D4C823B"
+    },
+    {
+      "path": "apps/api/src/modules/containers/containers.controller.ts",
+      "sha256": "227A390046425B6C1AC0886B52246108732D6BD15945E6A312EEA0841E650C91"
+    },
+    {
+      "path": "apps/api/src/modules/containers/container.service.ts",
+      "sha256": "A86B95533D89802A0EB668CED9B2D9953F4281D02A446D4EC50DDEC2B866E9CF"
+    },
+    {
+      "path": "apps/api/src/modules/gate-pass/policies/gate-pass-state.policy.ts",
+      "sha256": "67561612734D4FEF453664B575B46AEA7AAB6773C8C1A69868C2842612CE0415"
+    },
+    {
+      "path": "apps/api/src/modules/gate-pass/gate-readiness.service.ts",
+      "sha256": "3D587A3949F3FADB99929EE13C018F8473BDFF5DFC397717FB48043A8CBA0A11"
+    },
+    {
+      "path": "apps/api/src/modules/gate-pass/RULES.md",
+      "sha256": "45518EBF25CFD5D5CF23DB048625EB84FCF3EEF339C53CF8C21CDE255B65970B"
+    },
+    {
+      "path": "apps/api/src/modules/manifests/manifests.module.ts",
+      "sha256": "6AF6CAF2473DFBAF7FC474A7F32837C034F09A3BCA0F18E50CC624FD992A5D24"
+    },
+    {
+      "path": "apps/api/src/modules/manifests/manifests.controller.ts",
+      "sha256": "7421376630EAC8DFF11413F7E42216DB9160CF4C8022D1376FAFEA9A8A2930D6"
+    },
+    {
+      "path": "apps/api/src/modules/containers/types/container.types.ts",
+      "sha256": "A20CA34650709DEBA4334DEAF2356DCB7425C032B50A6C86208ED579A9C92286"
+    },
+    {
+      "path": "apps/api/src/modules/gate-out/policies/gate-out.policy.ts",
+      "sha256": "3B73AF22EDE1C6B42BA9EE6722549479282E2D0A7C016E9D204311783D557995"
+    },
+    {
+      "path": "apps/api/src/modules/gate-out/gate-out.module.ts",
+      "sha256": "C6D43EDC46A6BBA774A4361F243923D3C047630050C8236E2BCA3E180391BC94"
+    },
+    {
+      "path": "apps/api/src/modules/gate-out/gate-out.controller.ts",
+      "sha256": "BD2EE8B824D068129826978F38CF8A4AAFAAF4301EB80E27890E560C2F9EBC29"
+    },
+    {
+      "path": "apps/api/src/modules/gate-out/dto/gate-out.dto.ts",
+      "sha256": "81E7230E2F446B05B12CC943891987ABDED95CC72F433DBE5672939055D02298"
+    },
+    {
+      "path": "apps/api/src/modules/gate-out/dto/confirm-gate-out.dto.ts",
+      "sha256": "9EE1DC6774E2764467EB9E09695542A5CCB12940265B6504C0218CFA9D679CC9"
+    },
+    {
+      "path": "apps/api/src/modules/manifests/utils/manifest-number.util.ts",
+      "sha256": "2DEB05B7F37D9C6D138E52D08E0327B7F3E7C7DA43B564516D42C68F20D692C0"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/controllers/transporters.controller.ts",
+      "sha256": "6459C191F5E5D9C344B34961887F9EA421E29ABA1B32CEEA5BFA2449CB06D449"
+    },
+    {
+      "path": "apps/api/src/modules/containers/services/container-visit-transition.service.ts",
+      "sha256": "563EAD6605546D50DE5565A41668CB48DE73C02358274CAC936099AFEDBB41AF"
+    },
+    {
+      "path": "apps/api/src/modules/yard/assignment/yard-assignment.policy.ts",
+      "sha256": "7A185A971F6BA9974189DD844589178B94F6F050A9BA227CE77829571BA6BF55"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/controllers/shipping-lines.controller.ts",
+      "sha256": "83EC830715FA6F6FE6AB5806E8F7D170FC7D7A3B1A556C92E60C27F89FE09DD7"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/controllers/master-data.controller.ts",
+      "sha256": "F8A5F7F0796D2F7485B7D35FE4A1EFADBF5EA546B6983419D63BF5257ECC640A"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/controllers/consignees.controller.ts",
+      "sha256": "360CDC4569A845916ACB6008C36A6AA40793D8AEB1118086191D6DA21CDAE3E1"
+    },
+    {
+      "path": "apps/api/src/modules/master-data/controllers/clearing-agents.controller.ts",
+      "sha256": "9ED8DA6D35E4A90875BF636412FDB759E970EBD2CF6202E2F4EBAE886CDB6B14"
+    },
+    {
+      "path": "apps/api/src/modules/containers/dtos/update-container-visit.dto.ts",
+      "sha256": "582B99257700D26E57AFEBC128C16887900C058DAF2C3F704546CB6802CD4BC5"
+    },
+    {
+      "path": "apps/api/src/modules/containers/dtos/query-container-visits.dto.ts",
+      "sha256": "F117705B5C3749A5A0E726F1999DA9AC47FD400E8265BBF47DF1DE535ABF3D66"
+    },
+    {
+      "path": "apps/api/src/modules/containers/dtos/create-container-visit.dto.ts",
+      "sha256": "9DBAB6E4CBFCDC5D5BAF33987B34E89DDC9DBA44569D86CBF8EA95882A734678"
+    },
+    {
+      "path": "apps/api/src/modules/containers/dtos/cancel-container-visit.dto.ts",
+      "sha256": "24EBA8B421FBADE8860D40349664079030DBB1F915D3A7883C8EB27BFC23FADC"
+    },
+    {
+      "path": "apps/api/src/modules/containers/services/container-event.service.ts",
+      "sha256": "6A12F2ED0A71BA66CC959C4BD445D947145C394E48DE365E7D60A6CE8FB841F8"
+    },
+    {
+      "path": "apps/api/src/modules/containers/policies/container-visit-state.policy.ts",
+      "sha256": "FA81CE8F7BD426F2B09123A6E8E4D558C45DDF6D5CA75035C80C598BBEB57F83"
+    },
+    {
+      "path": "apps/api/src/modules/containers/policies/container-state.policy.ts",
+      "sha256": "A40A8877F984461AB9FBD605FF964E995A5A037569A48E838986BF00F99C7A35"
+    },
+    {
+      "path": "apps/api/src/modules/containers/policies/container-state.policy.spec.ts",
+      "sha256": "DA0552506C06F12B6AD9E6EE7614D87665AC11513D62A83C4FB4CA50431C7093"
+    },
+    {
+      "path": "apps/api/src/modules/gate-pass/services/gate-pass.service.ts",
+      "sha256": "2EA14B647FDA9134CBF715B9D92C8E7AADF61613834989E40E52135626ED473E"
+    },
+    {
+      "path": "apps/api/src/modules/gate-pass/services/gate-pass-transition.service.ts",
+      "sha256": "7495E3BFEEB196FA1196FB9D1DEE38C37A64444738D023DE88AAB80149187323"
+    },
+    {
+      "path": "apps/api/src/modules/gate-pass/services/gate-pass-token.service.ts",
+      "sha256": "D46820676B0644D27D459C0EDF4F3D91825C6A9315399A4EA414556D214DB878"
+    },
+    {
+      "path": "apps/api/src/modules/gate-pass/services/gate-pass-token.service.spec.ts",
+      "sha256": "E0034A049C82ACB329DED91F53DE942333961FC1B4F4454AE981F98BD09B6BA0"
+    },
+    {
+      "path": "apps/api/src/modules/gate-pass/services/gate-pass-scan.service.ts",
+      "sha256": "F65C147A98C835C044F73BD2D14BDC24C7C9D60D2DF0D9907E252988B0648F13"
+    },
+    {
+      "path": "apps/api/src/modules/gate-pass/services/gate-pass-scan.service.spec.ts",
+      "sha256": "424A91D8F7CF2D86F1F0773E813AE50CF7B02D01C3052CEA084484CF8050DE11"
+    },
+    {
+      "path": "apps/api/src/modules/gate-pass/services/gate-pass-readiness.service.ts",
+      "sha256": "80774A84555390A98E6E7A708C9EAB021D7DCC36012B7BA496521A69528B33E9"
+    },
+    {
+      "path": "apps/api/src/modules/gate-pass/services/gate-pass-readiness.service.spec.ts",
+      "sha256": "3E0E91527BC4EC3098EFF68C00D2221E6E298FCAB9670F5DBC688ECCE282150E"
+    },
+    {
+      "path": "apps/api/src/modules/gate-pass/services/gate-pass-qr.service.spec.ts",
+      "sha256": "A861D1D1FCAD92EA200539BBF4B20F299949CF9EC4C5028E7375EB6F92C6538A"
+    },
+    {
+      "path": "apps/api/src/modules/gate-pass/services/gate-pass-lookup.service.ts",
+      "sha256": "C06AD864EE3EED2517FB99400793FDCEEB9865191E24B54EA652D91701054A76"
+    },
+    {
+      "path": "apps/api/src/modules/manifests/RULES.md",
+      "sha256": "893E165EB24A4D745281FFCD4A8ABA16D6C88616E9FEF244218E94CDD05E24FD"
+    },
+    {
+      "path": "apps/api/src/modules/gate-out/constants/gate-out-error-codes.constants.ts",
+      "sha256": "834B9B3748409A1E26A7BC1E8F5A204D57A53959E21F6FCC21D0BD16E03792D1"
+    },
+    {
+      "path": "apps/api/src/modules/containers/constants/container-types.constants.ts",
+      "sha256": "5D4DC10B523870107E5FBEE5CEEFF8FC9C9B974AB43C3B1D6C7BA682D66AB268"
+    },
+    {
+      "path": "apps/api/src/modules/containers/constants/container-event-types.constants.ts",
+      "sha256": "8E6FF1BCD6BCC6B6A629192DEB734D0E198E2C8722A965C58FD65BD77E574D86"
+    },
+    {
+      "path": "apps/api/src/modules/containers/constants/container-error-codes.constants.ts",
+      "sha256": "DBF3805234A6E3101227EE65435C0791188E6AC049FDF2B36DD754A7193C1724"
+    },
+    {
+      "path": "apps/api/src/modules/manifests/dto/update-manifest.dto.ts",
+      "sha256": "37AD9CD00EE24EEA35D87B863C0AE74C7898F390C129F0FDC440BAEA04B43833"
+    },
+    {
+      "path": "apps/api/src/modules/roles/RULES.md",
+      "sha256": "5182D57CE26472E8A07D3E6DA23AF046D26D8C5B9A3D8DAC2936D2A27231AC13"
+    },
+    {
+      "path": "apps/api/src/modules/roles/roles.module.ts",
+      "sha256": "E5619D0B009DECDE4796EB1BAFF7598EC3E5556DBA2C5FDE9CEF033E8ADFEB86"
+    },
+    {
+      "path": "apps/api/src/modules/roles/roles.controller.ts",
+      "sha256": "1162313941D196E13270A242A2D5A3C417D41B8400B3B6725224BAEFEBEBA051"
+    },
+    {
+      "path": "apps/api/src/modules/roles/role.service.ts",
+      "sha256": "1124BA305CE1F5265A1398F9BF0E08D0BD1C31C93C5970F9CE9B0C5CDA495477"
+    },
+    {
+      "path": "apps/api/src/modules/work-queue/work-queue.service.ts",
+      "sha256": "79CE3A361E2BAB12F9F409256CC25E779C65572EF10F8A4FF401EA439D953E0E"
+    },
+    {
+      "path": "apps/api/src/modules/work-queue/work-queue.service.spec.ts",
+      "sha256": "12DBDC9EFB0FE65144D8CD485C3E86C01E13C35188BC6681B58D6BAB0E6C40A9"
+    },
+    {
+      "path": "apps/api/src/modules/work-queue/work-queue.module.ts",
+      "sha256": "B6E672C3DFAAE067F5150088E4910E7337FE77C8308BA8263F178EA6B14B86A8"
+    },
+    {
+      "path": "apps/api/src/modules/work-queue/work-queue.controller.ts",
+      "sha256": "60BCB70DF97FED596BAFC821027115F122430A50AA7D1EF90D003045CEAEEEE6"
+    },
+    {
+      "path": "apps/api/src/modules/work-queue/work-queue.constants.ts",
+      "sha256": "126AA606CE9BECFA7CA7F36F55A40D8190250BBBA0E7AFC5A86AB4770365D018"
+    },
+    {
+      "path": "apps/api/src/modules/work-queue/work-queue-urgency.service.ts",
+      "sha256": "D4BFEC3CC5C395B05A169A07E6C880B67A41B6EBD8EE98726C7DAAB3DC1BACAE"
+    },
+    {
+      "path": "apps/api/src/modules/work-queue/RULES.md",
+      "sha256": "400C8D56B4EF54FC8AC7E56DC7EFB714F307C5F3D6BF24C19913F9DD3ECAF5BD"
+    },
+    {
+      "path": "apps/api/src/modules/manifests/constants/manifest-error-codes.constants.ts",
+      "sha256": "3EB9286EF3C65FFBC827BE2E6A643F2F435A3B311A971BD27152CFA70B492D14"
+    },
+    {
+      "path": "apps/api/src/modules/containers/mappers/container.mapper.ts",
+      "sha256": "E623A5ABE432A8BF536F1C47362EFCD0713AC4509F70D9B1F8E0277320CBD633"
+    },
+    {
+      "path": "apps/api/src/modules/manifests/dto/create-manifest.dto.ts",
+      "sha256": "64038676B8481EB3B0CD11F87BDD714559BB963790CF87A571198DD64F81FAB0"
+    },
+    {
+      "path": "apps/api/src/modules/roles/policies/permission.policy.ts",
+      "sha256": "37A6D9C38E32C58AA2DA33F0687E42CF9EC2D1BB6F0C5C77244A26C0F48733F9"
+    },
+    {
+      "path": "apps/api/src/modules/manifests/controllers/master-bls.controller.ts",
+      "sha256": "97C38C18E484509D15881629080844B267FF66EA5A09C13791285D14940A4B10"
+    },
+    {
+      "path": "apps/api/src/modules/roles/permissions.controller.ts",
+      "sha256": "C2EB2BAA2170343D8BA3A5456FF7CFF1F708FA3D90A8727691E20BEF62613E41"
+    },
+    {
+      "path": "apps/api/src/modules/manifests/controllers/manifests.controller.ts",
+      "sha256": "2D0ABE91796AC5885AB57C54AE8AAB2200D7BD7597E49CD518387AE35548680E"
+    },
+    {
+      "path": "apps/api/src/modules/manifests/controllers/house-bls.controller.ts",
+      "sha256": "A807CB80C4BE73C6761B0F3E9118E88547D1189B5A93EAFC1903F7EA8990D9B0"
+    },
+    {
+      "path": "apps/api/src/modules/manifests/services/master-bl.service.ts",
+      "sha256": "6F1E71E0A254961242728EB28DEC05ED399897A848CCA17A9C0B95FDD61DA2EE"
+    },
+    {
+      "path": "apps/api/src/modules/manifests/services/manifest.service.ts",
+      "sha256": "B307E32B05511D174EEA366695E740D1822A80EAD88141C97D75F2776CBD3A21"
+    },
+    {
+      "path": "apps/api/src/modules/manifests/services/house-bl.service.ts",
+      "sha256": "1F86635D24DDD84B3DF42884FA1D8692C9A2F23652D050AB4E73399F421CA619"
+    },
+    {
+      "path": "apps/api/src/modules/work-queue/dto/query-work-queue.dto.ts",
+      "sha256": "F844D32FBEA5BFE537BF89678DD3A7940A3AE91CA79847CD240420B2F321F926"
+    },
+    {
+      "path": "apps/api/src/modules/manifests/policies/manifest-state.policy.ts",
+      "sha256": "BC0BF665D8F042381A9D9EB1FA340B5F146C1106F98458C41DF30B0776C269AA"
+    },
+    {
+      "path": "apps/api/src/modules/movement-orders/RULES.md",
+      "sha256": "DF96639D0D314848E9849F6F24A95CDD25F29AEE7CCA4EC386FAF8C8D720DE0A"
+    },
+    {
+      "path": "apps/api/src/modules/movement-orders/movement-orders.controller.ts",
+      "sha256": "C8B5FDC69BF9D63DC5853524F61A8050AD34AE52A71B843763A4A3DEEBF1BE77"
+    },
+    {
+      "path": "apps/api/src/modules/movement-orders/movement-order.service.ts",
+      "sha256": "08636B632D6822480609B40840819642D454C5D11A63050E1DFCEFF4C1A6D664"
+    },
+    {
+      "path": "apps/api/src/modules/manifests/dto/house-bl/update-house-bl.dto.ts",
+      "sha256": "B45DE4BFFBFC9101063916C969A3035C9E4AFF7952957868F5DE4970CF8AEF33"
+    },
+    {
+      "path": "apps/api/src/modules/manifests/dto/house-bl/query-house-bls.dto.ts",
+      "sha256": "FA054313EA1D4035025916980C78E8646926FE1E836E8F8DE8E5A7BC1665F5E0"
+    },
+    {
+      "path": "apps/api/src/modules/manifests/dto/house-bl/create-house-bl.dto.ts",
+      "sha256": "7D6F6EE1DE211F0DA734A64E41157393251AB9A11F5EF18FF1AB7DC4589CDA09"
+    },
+    {
+      "path": "apps/api/src/modules/operational-holds/operational-holds.controller.ts",
+      "sha256": "A5A7ECD5254228BA5592A8E38401D3301347A6BEA2AED018CBE26A520D739DE5"
+    },
+    {
+      "path": "apps/api/src/modules/manifests/dto/master-bl/update-master-bl.dto.ts",
+      "sha256": "145BB52E6848DBD35A6B7AF26A5F699FDF4C74079C1367E92A7B4F23B1DB7FE0"
+    },
+    {
+      "path": "apps/api/src/modules/manifests/dto/master-bl/query-master-bls.dto.ts",
+      "sha256": "5387A31679F84BC4E058F3905F867D45B995E478011089EDE47DCB7C7F725C67"
+    },
+    {
+      "path": "apps/api/src/modules/manifests/dto/master-bl/create-master-bl.dto.ts",
+      "sha256": "F05C1044B66F63BB95C8C6BB402DE2AD8BF2C41010743AA403C7B2E842C5832B"
+    },
+    {
+      "path": "apps/api/src/modules/operational-holds/operational-holds.module.ts",
+      "sha256": "53C48096E46C39BFE551777DE25278E1BDB5C08E25744BDF468B7E26E8FE6BDA"
+    },
+    {
+      "path": "apps/api/src/modules/operational-holds/RULES.md",
+      "sha256": "F89C9A04ED19075EFC663D770CC9458AF334B29B4A6A5A86D3C924EBA82EAD8F"
+    },
+    {
+      "path": "apps/api/src/modules/manifests/mappers/manifest.mapper.ts",
+      "sha256": "A907E367890F9106D485FA580B19C8E66D94A249CA6C5883184D1362AC4B2C75"
+    },
+    {
+      "path": "apps/api/src/modules/roles/dto/update-role.dto.ts",
+      "sha256": "BC67470400C9548E25FCA26774210BFB3C38AB84B1D9219A33865FC1FB86F152"
+    },
+    {
+      "path": "apps/api/src/modules/roles/dto/replace-role-permissions.dto.ts",
+      "sha256": "839166F01D366FE924D20AFE0FB46EB708F0EB2D889B1B87163D0600D8DB6CDD"
+    },
+    {
+      "path": "apps/api/src/modules/roles/dto/create-role.dto.ts",
+      "sha256": "44F45E307FF52A591ED54F4E00CD6B4F0A50B819308AF48881DB4D702DBE6F63"
+    },
+    {
+      "path": "apps/api/src/modules/manifests/dto/manifest/update-manifest.dto.ts",
+      "sha256": "24BDA79F51760DBA3335C082A339CB05A646BBB69273DCC28F002E9AA2B4659C"
+    },
+    {
+      "path": "apps/api/src/modules/manifests/dto/manifest/query-manifests.dto.ts",
+      "sha256": "5950A5BE3ECCE946D985E5C4B5A816E41DE06C1504DCC26DE7CFD40ABCFF3F7F"
+    },
+    {
+      "path": "apps/api/src/modules/manifests/dto/manifest/create-manifest.dto.ts",
+      "sha256": "FC77FF2C408BF2BA30D1258BC6CF72D57B9278571443758360DB227FD82F8AB9"
+    },
+    {
+      "path": "apps/api/src/modules/movement-orders/movement-orders.module.ts",
+      "sha256": "6D77FC040BD1D6E938A72462A8730F340B853CD40C5E15F998E8174CCCF964B7"
+    },
+    {
+      "path": "apps/api/src/modules/movement-orders/movement-orders.service.ts",
+      "sha256": "C9266980833D8DA5C38A5019FC49241CBD13F9FE8035D19082B3386A0C5A4C2A"
+    },
+    {
+      "path": "apps/api/src/modules/users/users.module.ts",
+      "sha256": "973AAA5799C7AAE99B2A3915C1F826958BEE89D34B7AD1CEDE062E2296E98519"
+    },
+    {
+      "path": "apps/api/src/modules/users/users.controller.ts",
+      "sha256": "642494A44BED3D23E132D929C09894E08A42F644F89BEA642CA262550E9088EF"
+    },
+    {
+      "path": "apps/api/src/modules/users/user.service.ts",
+      "sha256": "6092583DA8AC2C7E873CF7B7C8DB0405F7946155F86F25497231A67070BB923B"
+    },
+    {
+      "path": "apps/api/src/modules/users/RULES.md",
+      "sha256": "11E4BFC90139EC33417A0C376F751C2A324099C3ED65590899B267AEF81A7118"
+    },
+    {
+      "path": "apps/api/src/modules/operational-holds/dto/release-operational-hold.dto.ts",
+      "sha256": "A0AFAEA402F8B22CA738141560E12DA51BDF37A720CC78D165D177532767D837"
+    },
+    {
+      "path": "apps/api/src/modules/operational-holds/dto/create-operational-hold.dto.ts",
+      "sha256": "3AACF2FBF84523E41BC43654D425D19745C9F994F2212ED50A011E7989280FC4"
+    },
+    {
+      "path": "apps/api/src/modules/RULES.md",
+      "sha256": "E968A23E96CE88D70FC7E5836FEF0C11088727CE389E4BEB639DC692D86A8F63"
+    },
+    {
+      "path": "apps/api/src/modules/roles/constants/role-error-codes.constants.ts",
+      "sha256": "1C7111FC7E5D8874AEFD1CC7C97B015DD8534105CED3BD7E83D328868D9EEA54"
+    },
+    {
+      "path": "apps/api/src/modules/movement-orders/policies/movement-order-state.policy.ts",
+      "sha256": "E5F66F47FEC2E08E25E10C78D7BEA960FC0BB796E3AA319A4BF8F216D650A566"
+    },
+    {
+      "path": "apps/api/src/modules/reports/report.service.ts",
+      "sha256": "2DE03CD1FC4E9F4DD3D10C77DC511FAA1CC78165C3975F2DE07CADA247EF03FF"
+    },
+    {
+      "path": "apps/api/src/modules/operational-holds/services/operational-hold.service.ts",
+      "sha256": "0B81D73CB0EE12D2B8D421177037977A6B074F570D77E86CC3595559CABFC058"
+    },
+    {
+      "path": "apps/api/src/modules/operational-holds/services/operational-hold-read.service.ts",
+      "sha256": "5E2C77672143A84BF516705A1283FE2A351F341CE8855C6EA6C8E723A0CC46F8"
+    },
+    {
+      "path": "apps/api/src/modules/movement-orders/constants/movement-order-includes.constants.ts",
+      "sha256": "2BCA6742E2D1110F9A417FCDAF60FA16BBDA1F021DB14E857141F2951519346B"
+    },
+    {
+      "path": "apps/api/src/modules/movement-orders/constants/movement-order-error-codes.constants.ts",
+      "sha256": "3B1A422CF3AB53CC3FDB94252A76159861B07608C50A2C64CA84918DB9F3D49E"
+    },
+    {
+      "path": "apps/api/src/modules/notifications/services/notification.service.ts",
+      "sha256": "C9BEB2F8E6CD3300EEBE2469D230CE3B0C4C2317BF95D56457B42509AD9725A4"
+    },
+    {
+      "path": "apps/api/src/modules/notifications/services/notification.service.spec.ts",
+      "sha256": "7BD2E89063A09CD04D2ACA9564AE2D676B40C1290991A27E3F6AD47C57DC7EBE"
+    },
+    {
+      "path": "apps/api/src/modules/notifications/services/notification-trigger.service.ts",
+      "sha256": "CFCB52CDE375D97905E9EA60983E48061B6C3A7A228CC9A920C226DA97AC3416"
+    },
+    {
+      "path": "apps/api/src/modules/notifications/services/notification-trigger.service.spec.ts",
+      "sha256": "A6A228965359B672B9954420AEFD60262D4595B159BA47018462ED6819E7AD55"
+    },
+    {
+      "path": "apps/api/src/modules/notifications/services/notification-dispatcher.service.ts",
+      "sha256": "31DDE830039C186779C4DB298C35162028FFEAF9ED49506C59D228A8D2A30B11"
+    },
+    {
+      "path": "apps/api/src/modules/notifications/services/notification-dispatcher.service.spec.ts",
+      "sha256": "BFDED33E33321A59BBC9FBFA8F73BA6E88B201B93AE74CB4FF99361FC19417AA"
+    },
+    {
+      "path": "apps/api/src/modules/notifications/services/notification-cron.service.ts",
+      "sha256": "B63D005556069E9D1C4093A9E1CE0DC3ECAD3DA9D0C04AAC08F8A30B4E51DCB5"
+    },
+    {
+      "path": "apps/api/src/modules/notifications/services/invoice-pdf.service.ts",
+      "sha256": "2169518C39CF54C0978357E380BBEFFFFE29F64FA16A59948AEFB4D12653FB69"
+    },
+    {
+      "path": "apps/api/src/modules/notifications/RULES.md",
+      "sha256": "6546AE0E536E739928C40EB0234CFAD169C52906A3DC25193F927690717E6B84"
+    },
+    {
+      "path": "apps/api/src/modules/notifications/interfaces/push-provider.interface.ts",
+      "sha256": "18642A44A94381D2990FF7A3BA223B8AA025D4F6FCB40132C35217688E3F2FEB"
+    },
+    {
+      "path": "apps/api/src/modules/notifications/interfaces/notification-event.interface.ts",
+      "sha256": "90B0A944BF8996B1BC63F707AA9CD581305489CB5AEAC8D154A2EE1BC015B501"
+    },
+    {
+      "path": "apps/api/src/modules/notifications/interfaces/email-provider.interface.ts",
+      "sha256": "B654CA356378B3D1BA4AC594B6D9EE3E9CEFB14EF004D80CD8B6BC581D4B6E67"
+    },
+    {
+      "path": "apps/api/src/modules/notifications/controllers/notifications.controller.ts",
+      "sha256": "D91812FC9FE9B930412CFDCB732B37843553969A92201862D1E6195E2024353B"
+    },
+    {
+      "path": "apps/api/src/modules/settings/settings.module.ts",
+      "sha256": "C9999C53B7D494CA2408711E449A2F7B6547FDEE5DA79085D4AFD964468EE1D1"
+    },
+    {
+      "path": "apps/api/src/modules/settings/settings.controller.ts",
+      "sha256": "92843D6F505ACA3FD8DFE378BF784138EC37AAAD0B5613AF74B6DF4DA131F2F0"
+    },
+    {
+      "path": "apps/api/src/modules/settings/setting.service.ts",
+      "sha256": "B6BE935E1512909269FB935902C1B71327529E1646FC90E03BF857CD915B30AA"
+    },
+    {
+      "path": "apps/api/src/modules/settings/setting.service.spec.ts",
+      "sha256": "FA5D6C6642E1103E489E4DD3DF0E6E54D845D494912B89FB869519E3313F3F78"
+    },
+    {
+      "path": "apps/api/src/modules/settings/RULES.md",
+      "sha256": "CEE10413ACC634018CE55A7613B1B590EFB52EC513BD3E430B05A1A4DBD5239B"
+    },
+    {
+      "path": "apps/api/src/modules/movement-orders/dto/update-movement-order.dto.ts",
+      "sha256": "11177CFB6A589250480D4528F5F7B12B2CBC5B1F1993395D7A3F7675289C122E"
+    },
+    {
+      "path": "apps/api/src/modules/movement-orders/dto/query-movement-orders.dto.ts",
+      "sha256": "3C12CDCD1679526ABD2B4E9410C283A46FD4CC017CA665C409E3229ECF8BF018"
+    },
+    {
+      "path": "apps/api/src/modules/movement-orders/dto/create-movement-order.dto.ts",
+      "sha256": "91505DFAE0FCCB53199350F31B8C44B672129098686A61875E471FFD725F84F8"
+    },
+    {
+      "path": "apps/api/src/modules/movement-orders/dto/cancel-movement-order.dto.ts",
+      "sha256": "873B1D54457B2A7E63C361DA18778543BBD649BED9D8DF5284BAC423EB2F3FA1"
+    },
+    {
+      "path": "apps/api/src/modules/movement-orders/dto/authorize-movement-order.dto.ts",
+      "sha256": "455941A8CF0D99B9BC8A3BF27673992F3943A41953FCEB6B118C35F4CD4B6F8A"
+    },
+    {
+      "path": "apps/api/src/modules/notifications/providers/smtp-email.provider.ts",
+      "sha256": "38F633CB141C498597E2AC18B3E755A616FE3C344E82B92865410F36072D2B28"
+    },
+    {
+      "path": "apps/api/src/modules/notifications/providers/fcm-push.provider.ts",
+      "sha256": "2651A37D95819F7263256C22EB39B694ED3294C8001F7F71D747A04E3DCC6B90"
+    },
+    {
+      "path": "apps/api/src/modules/notifications/providers/apns-push.provider.ts",
+      "sha256": "86CD3A25F271132F09AF19A9A2B12F9C03D7CCEDAEF104BEB74483539EA14EC5"
+    },
+    {
+      "path": "apps/api/src/modules/notifications/notifications.module.ts",
+      "sha256": "FAE283AAC95360F8900087C21A9AAA3EBFC2C6748BFDB322B6C1A4A625EC4312"
+    },
+    {
+      "path": "apps/api/src/modules/notifications/dto/unregister-device.dto.ts",
+      "sha256": "EF977734E5ECF5274355DED0141669239BAF8FF2C5917E081C0431AE4661865E"
+    },
+    {
+      "path": "apps/api/src/modules/notifications/dto/register-device.dto.ts",
+      "sha256": "6080AB5D71420B19C17F57FC6BD25655A838B716D5C9FAAF069B9E6DD8CFE1F8"
+    },
+    {
+      "path": "apps/api/src/modules/notifications/dto/notification-history-query.dto.ts",
+      "sha256": "F134D525294EFA8E21B705E2C5305B458BCB8F7A948CBD77EC091EAB31CED274"
+    },
+    {
+      "path": "apps/api/src/modules/users/dto/update-user.dto.ts",
+      "sha256": "2386B3E59DB7A11FBC3795609CCD5027C98EC8DE684F45B4C99AAE0EAC178751"
+    },
+    {
+      "path": "apps/api/src/modules/users/dto/update-user-status.dto.ts",
+      "sha256": "69ED2D21B93369246B20F5F0E547754CD60E88CCBE728B1512293E01D957B8BD"
+    },
+    {
+      "path": "apps/api/src/modules/users/dto/reset-user-password.dto.ts",
+      "sha256": "BC91ECA5AE64DD1AC5AA3B66E0C616286D12CFC550D6003FD32684200E34BA43"
+    },
+    {
+      "path": "apps/api/src/modules/users/dto/replace-user-roles.dto.ts",
+      "sha256": "5B4F3611A81394B3AB0477A3E2E509F69748D8FFC216ACCE2F63EF739B239907"
+    },
+    {
+      "path": "apps/api/src/modules/users/dto/query-users.dto.ts",
+      "sha256": "C2CE4534563DCA1DE21EA3EBF08EAD907295DB879CAF55EB3441D259C696F508"
+    },
+    {
+      "path": "apps/api/src/modules/users/dto/create-user.dto.ts",
+      "sha256": "5B681A7703C1F095728048384FF9DBC32846921264FF1FC9D0F914EAA9A7435D"
+    },
+    {
+      "path": "apps/api/src/modules/reports/reports.module.ts",
+      "sha256": "8A3C46B64EE943D86F13C62B9237FA71FE9148C4FA031FC3E779B07A7A75BBA7"
+    },
+    {
+      "path": "apps/api/src/modules/reports/reports.controller.ts",
+      "sha256": "0FA3DB8B4BA620461B6A5DA4B6A42C6751035ABFCFD04698ED792EADB6C38C4C"
+    },
+    {
+      "path": "apps/api/src/modules/reports/mappers/report.mapper.ts",
+      "sha256": "C89BE9CE9FFF15F73D9BFC475191F851425B378C17FBD91A0E5681521744E435"
+    },
+    {
+      "path": "apps/api/src/modules/reports/RULES.md",
+      "sha256": "4AD44E1F58B7E76CA195BD1BA70FAEDC987344B2DC185FB93918BA157ABF680D"
+    },
+    {
+      "path": "apps/api/src/modules/reports/dto/yard-inventory-eod.dto.ts",
+      "sha256": "BF5647F5363D79654B6D1621ACC8D1A61D373F619B491E757F878F4253003453"
+    },
+    {
+      "path": "apps/api/src/modules/reports/dto/revenue-report.dto.ts",
+      "sha256": "FA098079691E3C77A7FBAA53297114BD96165DC2CD0049CD757D8C79DA676259"
+    },
+    {
+      "path": "apps/api/src/modules/reports/dto/report-range.dto.ts",
+      "sha256": "28325EE9EE2518E13B8ECF55C855CBAED841A962ED04CCFBFF907FD8447BDDEF"
+    },
+    {
+      "path": "apps/api/src/modules/reports/dto/report-query.dto.ts",
+      "sha256": "FDFE529B79B3F9669170AA4F3E90B1F76816C53DC702203CE91002B631BEC556"
+    },
+    {
+      "path": "apps/api/src/modules/reports/dto/export-reports.dto.ts",
+      "sha256": "CECA9D477C5E4A617CCB011A1075E0BE074968C63E5C31C546BF88DCE11E1D9E"
+    },
+    {
+      "path": "apps/api/src/modules/reports/services/edi-health-report.service.ts",
+      "sha256": "C61908CFB51BA68D8AF6C00460DD3FB726C4C4BB7C226F61B837D069F84318C5"
+    },
+    {
+      "path": "apps/api/src/modules/reports/services/container-turnover-report.service.ts",
+      "sha256": "5579779F163591440B9D5D758A105AFA99FF0E172DDD01C0069B73B9E039FD45"
+    },
+    {
+      "path": "apps/api/src/modules/settings/dto/update-setting.dto.ts",
+      "sha256": "004205AEC7723DFB1F2AB4BCDC4202BC83525620FD29D5DEA4B90B2386CD00F0"
+    },
+    {
+      "path": "apps/api/src/modules/reports/services/container-turnover-report.service.spec.ts",
+      "sha256": "7D1AF03942FCBD79420C5A22912636C4DBB4DBE3D8AEC143E6C3C0FB033F8C75"
+    },
+    {
+      "path": "apps/api/src/modules/reports/services/financial-report.service.ts",
+      "sha256": "C3C0D7FCF96725A615E292DB15B1A77A5FC1CF5D635024903C09C6D012B05956"
+    },
+    {
+      "path": "apps/api/src/modules/reports/services/financial-report.service.spec.ts",
+      "sha256": "AE65115A40571F30AE8D2E518E4072C8038855BB7B5709DE0ED1CBDEC35F0872"
+    },
+    {
+      "path": "apps/api/src/modules/reports/services/gate-activity-report.service.spec.ts",
+      "sha256": "D38F6F08C4D0EFC97A05AECFF05BFB72CF3E6ACF5F030D470CD879A59B60BA05"
+    },
+    {
+      "path": "apps/api/src/modules/notifications/clients/email.client.ts",
+      "sha256": "A01FAFF2D6258DB00363D71480F08A9B8F1CA33EC98C403C7D01A6CA8E9FE194"
+    },
+    {
+      "path": "apps/api/src/modules/notifications/clients/push.client.ts",
+      "sha256": "CDCD09F0936652CAE7DE2F0C309323EA8C045EC6BBE22DC929FA2D2BCD077DBE"
+    },
+    {
+      "path": "apps/api/src/modules/reports/services/gate-activity-report.service.ts",
+      "sha256": "6DD25A5C938CFEEA06032FBED5AD4B48680D535ADEE8E1735E547F1DAE322B02"
+    },
+    {
+      "path": "apps/api/src/modules/reports/services/report-export.service.ts",
+      "sha256": "762156835BE8043FBED4068EF77F6E7436F8C90B6A01E57517E9EA13D3F71FA8"
+    },
+    {
+      "path": "apps/api/src/modules/reports/constants/report.constants.ts",
+      "sha256": "5FFF607FFD8951974D172230A1939B019F61611E7471012CA61623EB5E742E09"
+    },
+    {
+      "path": "apps/api/src/modules/reports/services/report-time.service.spec.ts",
+      "sha256": "C3737DCFF6924DA646246CC878E333DA153B7B912223DA3156B157EDCA496090"
+    },
+    {
+      "path": "apps/api/src/modules/reports/services/report-summary.service.ts",
+      "sha256": "271332AB7FEA70168CF2BC829EED1FB48D068948F9F5734B6BFC8518A152AFB5"
+    },
+    {
+      "path": "apps/api/src/modules/reports/services/report-time.service.ts",
+      "sha256": "7C1AEE1318AF4C1F76FC894E20AF41F9F9ABAA65BB7C6522231BA0C1BD68F78A"
+    },
+    {
+      "path": "apps/api/src/modules/reports/services/yard-inventory-report.service.spec.ts",
+      "sha256": "DF77C965C179B361E7A02AC6A4184F0D7671DB8F9EBD00940E6281D514BB64AF"
+    },
+    {
+      "path": "apps/api/src/modules/reports/services/yard-inventory-report.service.ts",
+      "sha256": "0010D74B69773FF80E4A3FA35252346EDC1641DB9EBB20D416D23B1C41B21F40"
+    },
+    {
+      "path": "apps/api/src/modules/notifications/crypto/token-cipher.service.ts",
+      "sha256": "B2BD800508B5CF9E93BDA05905AE0DFD2D5215C3091C7A7F11AC78656C170654"
+    },
+    {
+      "path": "apps/api/src/modules/notifications/crypto/token-cipher.service.spec.ts",
+      "sha256": "C77381A034C22643926F0DF74F8D65F013EA40B1E4F272514F6E42BA9A393F31"
+    },
+    {
+      "path": "apps/api/src/modules/notifications/jobs/notification-dispatch.job.ts",
+      "sha256": "9EB036FDE46E8A9AE9CBD2BF7449A239C00E6D349E76D37941F7DD116D1E9B16"
+    },
+    {
+      "path": "apps/api/src/modules/users/constants/user-error-codes.constants.ts",
+      "sha256": "ED6B06805D07BB4212D82FD2F27A8BF6E28FA1B42C4154B82135F86BD08DCE27"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/guards/partner-api-key.guard.ts",
+      "sha256": "71FDCEB804A85E9774A28C70EDE77B6A539B99743637D2FBCF9980573D2A9F1E"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/types/partner-handover.types.ts",
+      "sha256": "15DE001D1E77B357E05981E081B6979F4484472A4D705B4907FCC8DA12F4FE3E"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/types/handover.types.ts",
+      "sha256": "25725C369E7D298974C1B1930F2D27A1AD8CB9D0E2C02FFF012315FFC91AE301"
+    },
+    {
+      "path": "apps/api/src/modules/truck-visits/utils/truck-visit-code.util.ts",
+      "sha256": "17EEB13B257967E436086B45A572DADBCEB6D338FD65A2B36585D2F88B5341FA"
+    },
+    {
+      "path": "apps/api/src/modules/truck-visits/truck-visits.module.ts",
+      "sha256": "6A3ADD823DA31708A295E896C9160A3C1604C0B93AF2FB70956A29EB7C522CFC"
+    },
+    {
+      "path": "apps/api/src/modules/truck-visits/truck-visits.controller.ts",
+      "sha256": "C4BA9B3F80F3713213FF070680A6DA588C1D9655AE773FE42D12A5F630DC1FFF"
+    },
+    {
+      "path": "apps/api/src/modules/truck-visits/truck-visit.service.ts",
+      "sha256": "524F4E9D26E24BE08C4FB4FCCDD6BBCD592BE14D9C89979C2ED7FBD322926524"
+    },
+    {
+      "path": "apps/api/src/modules/truck-visits/truck-visit-notifications.spec.ts",
+      "sha256": "80AF78DEFF6D9AF4356D6EA45C35AD123F438A7F1ACD72A38B3A22B0199A2C46"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/partner-handover.module.ts",
+      "sha256": "0DDE578702BB695B53C5C52C4AEB6E36673F842598BC2542AE38FEDF093150F8"
+    },
+    {
+      "path": "apps/api/src/modules/truck-visits/services/truck-visit-transition.service.ts",
+      "sha256": "E97FD882991F4EA83B2DC33B941AC02842F238A76A32C1FAEFFBEA13BBF95422"
+    },
+    {
+      "path": "apps/api/src/modules/truck-visits/RULES.md",
+      "sha256": "FB834309FB83B2839EC543B069B579742D658C6036CBD5F9831DC1BDB11DED15"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/services/transport-handover-review.service.ts",
+      "sha256": "91D590D23A08B526FF6F4CD323DBFA6DF89B581E3A7471BE492012B4792B0AC8"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/services/transport-handover-read.service.ts",
+      "sha256": "6908F16411A007956FF754F7230E40A46E207E05536AEF2A08F06F46F3D2FC3E"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/services/transport-handover-read.service.spec.ts",
+      "sha256": "87A8EA51B593727BA027EE654BC44B54CC7E35DD4C0631ED9BFC4856D85FAC51"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/services/partner-confirmation.service.ts",
+      "sha256": "51BFF18D5238590026373201FC98402BF4F72B0C4E4CD9BCC337A683D1477B56"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/services/partner-client.service.ts",
+      "sha256": "F0AFE49F9495B9F6234FCC8524B075EC551835B5196180EDAE0751B65964C5FC"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/services/partner-client.service.spec.ts",
+      "sha256": "2AE8B2DA60F884B6DDE946E1CC1C8C0274CC417C63C67929A70EBE72A3D62993"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/services/partner-api-log.service.ts",
+      "sha256": "5A2BA6CB86E566892539CC6710EB78CF8DFA59EF77563B59479140EAE3DE7382"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/services/partner-api-log.service.spec.ts",
+      "sha256": "E14B285928F23B60018A7706506FC9F3B7E7EA4E20D44A2CBCEAA0E6DCEDC92C"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/services/handover.service.ts",
+      "sha256": "2BA285047A36A45E598F003C6B75FCADF98D959CE935725AA3282EEABD5B9813"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/services/handover.service.spec.ts",
+      "sha256": "74966867272D63E54B40609165592C074F89F3D9EB33BAF6C0BFF2A756461599"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/services/customer-warehouse.service.ts",
+      "sha256": "F49B1D44BA3C4B8FF1B262492CD8D6B8CD5B6CA183CC6CA9C94EE0365A442573"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/services/customer-warehouse.service.spec.ts",
+      "sha256": "60D68BDEA5D7631D9C77D939E5369561E0CBF7D486189C6D3ACA9ADDE3B9F0E0"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/RULES.md",
+      "sha256": "F9EE70DFC0E076434A544E614673D2D075E39908921CF403DF44F893EE9143CD"
+    },
+    {
+      "path": "apps/api/src/modules/truck-visits/constants/truck-visit-includes.constants.ts",
+      "sha256": "4D9FCF33C139B02D86EE639826A111953C7A218E51D8EE7E213D18BE2FAD58AB"
+    },
+    {
+      "path": "apps/api/src/modules/truck-visits/constants/truck-visit-error-codes.constants.ts",
+      "sha256": "564B9276E31009AE06CA5E74CD1F502851F24DEF481813465337A83ED75BC177"
+    },
+    {
+      "path": "apps/api/src/modules/truck-visits/dto/query-truck-visits.dto.ts",
+      "sha256": "FFAC6C5966A1BF5EE6CD2572185C063FF7F64DF4C7515E97E621FC5EED13B3D5"
+    },
+    {
+      "path": "apps/api/src/modules/truck-visits/dto/create-truck-visit.dto.ts",
+      "sha256": "689B8186D5EE86055F1BF284A7DA8ACF6E3DEE00B2031AEA07CBFB85C902C594"
+    },
+    {
+      "path": "apps/api/src/modules/truck-visits/dto/cancel-truck-visit.dto.ts",
+      "sha256": "258769015A76E0F0894A13DE7B8AD110ED644886CF581601E6082C50CB7F8CC8"
+    },
+    {
+      "path": "apps/api/src/modules/truck-visits/dto/arrive-truck-visit.dto.ts",
+      "sha256": "E8DE05ACF7CBB30DB6BF3D732347FC4D9113321207FC137374B3C0AF01DF2FED"
+    },
+    {
+      "path": "apps/api/src/modules/truck-visits/policies/truck-visit-state.policy.ts",
+      "sha256": "E12F4B9E0F9585523FC50987DF37CD12E17D408DBCE97E55ACE3984DB1D33AB7"
+    },
+    {
+      "path": "apps/api/src/modules/truck-visits/policies/truck-visit-state.policy.spec.ts",
+      "sha256": "9B5E849B9CA5C37239E558403AAB09098150320FF99A364916EAD9C7F0F3A2DC"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/mappers/handover.mapper.ts",
+      "sha256": "33892F14AE8B254875C66740820B9AD2E6DF3CFB49BF47370527EEB44EAA99D9"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/constants/handover.constants.ts",
+      "sha256": "48591DC789D0876BA19AA8335362D6D15EF9FCBADE0E766CF9A45A155741535E"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/policies/idempotency.policy.ts",
+      "sha256": "EA4532243724503040F11DB971F3086983695487B0CBF23BB7B87D35FA93B5C1"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/policies/handover-state.policy.ts",
+      "sha256": "8C844D496F22A4494DD4DF183D6EF6646DBE1FF086FDEAEDD2F972C1890BA584"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/policies/handover-state.policy.spec.ts",
+      "sha256": "C28710AA8A61E3B16E757C4F273D2CDBEB81628ED29D194C2B0B904160872824"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/dto/update-customer-warehouse.dto.ts",
+      "sha256": "66B799E2FCA6C6F0D4225AF14F167D9F3211215DFFBC74F88EA813E334D3166A"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/dto/query-transport-handover.dto.ts",
+      "sha256": "A0D59617E9B90010997EC1DF9B9359E6521468686A3E871A14E78240AB266CD2"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/dto/query-partner-client.dto.ts",
+      "sha256": "76DF98F0451BE20B8840B8DCAA905AE0E37D25DEC2037689C91D658A7BE543DC"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/dto/query-partner-api-logs.dto.ts",
+      "sha256": "B964BE3C02E3BBA48EF6D34B2413B17FAC824468C1B9021CC7A5DC7B6FE13818"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/dto/query-customer-warehouse.dto.ts",
+      "sha256": "40AE9394B02A43A68B7863899A4CB3F3C785C2D0B17838756260B9CECC4DA5C0"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/guards/partner-scope.guard.ts",
+      "sha256": "0AD056900BA0EA4BEE51CF4DB2A15547678784FB4270D1D6740BBC664C7D1DF1"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/guards/partner-guards.spec.ts",
+      "sha256": "89CCD97E6EC819A6D4AB468205B4B768DD3DC72D8A97FD058CCA9A784E586AFF"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/guards/partner-api-key.guard.ts",
+      "sha256": "51A8953DC1A469DD3203E577F489660220B8E19CCE71F58601DEF40A960C0B5C"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/mappers/external-handover.mapper.ts",
+      "sha256": "B1C167DFD42FB65D0DEECA5E372B1E6E750CA81C5B67C18728EA1E61FD3D4BA0"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/controllers/external-handovers.controller.ts",
+      "sha256": "DA543B6D0DA34885695074AA263AE50479FB61AFDA34F7D4ACC10BFB6D2902C4"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/controllers/internal/partner-api-log.controller.ts",
+      "sha256": "D4B9062F17B8C4EE7F66E9CDDFFB615D4E186673BC1A3FD45D3B7D3FFEC0B2E7"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/controllers/internal/customer-warehouse.controller.ts",
+      "sha256": "7D4D8C3728E7B3F38CB8D4C317564488D1564C183EB40B38478D2B2556CB9232"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/controllers/internal/partner-client.controller.ts",
+      "sha256": "0D96A477FAC4C82BFE37428D5E4848772D8FD080500A5DD8F2938A4E3E3A402B"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/controllers/internal/transport-handover.controller.spec.ts",
+      "sha256": "04EABCF681D0CC9D2C1B9D3DCFBFD050CC81A961A6DEC914ED22B813AB6DA91E"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/dto/create-transport-handover.dto.ts",
+      "sha256": "6832D7406A73AAE8D8617ED3FE9156EC2CBA6CEBB651C16EEEFF91AF2E56EA71"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/dto/create-partner-client.dto.ts",
+      "sha256": "8BE6A1544F3606A6AC51AE6F27341081A4C23C11DE5A0B930C6DF330DAB9BC8B"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/dto/create-customer-warehouse.dto.ts",
+      "sha256": "287E0D7CA4793EBC2B5316B0231DF4BAD8B81E718D620A7DE5CD9A6265E45950"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/controllers/internal/transport-handover.controller.ts",
+      "sha256": "648B80846B960DCFAE92265E4D4E6641CB35CEE96F6723086347B938297C97E5"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/dto/internal/dispute-handover.dto.ts",
+      "sha256": "EAB03D3783A9E6D1326B7A27224D55EFE8B83E8326CB7457D09010682F660181"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/dto/internal/create-handover.dto.ts",
+      "sha256": "590CCBBDCFE16A20D894BB1F74B9BDAD40F94929C4D029D411FDEB0E1AE293B5"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/dto/internal/confirm-handover.dto.ts",
+      "sha256": "49C247B144670E1084C48E29C485C0AEF4F5D19D081862FD86F538F817F7065D"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/filters/partner-external-exception.filter.ts",
+      "sha256": "8B5E68B54204666EAF8BD1325FB5A463FC22AA11054A211B4BE5319900F80F7E"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/filters/partner-external-exception.filter.spec.ts",
+      "sha256": "1B1305517B2FDF40B10B80859A13ECF650CAAA4CACCD4170B31840DECC4BF794"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/services/external-handover-command.service.ts",
+      "sha256": "E194BBC00CBD2A9E36D4C5E5F9B734EAD0DC831551A1E96EABE778AD1679D694"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/services/external-handover-command.service.spec.ts",
+      "sha256": "59F91D0C76D1BDE9039C2F82E8A215C00630D609B4C23D1D352E6CB0D8F04AE3"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/services/external-handover-query.service.spec.ts",
+      "sha256": "9DED2886A7B1139ED74F65770A980ADFF447DBF75728B03DD5317FF220F20993"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/utils/partner-request-hash.util.ts",
+      "sha256": "3EEB62DF8A1D2536FD30305DFDE0F1A93D50EC9AC8B6AEC574624711371D647D"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/utils/partner-api-redaction.util.ts",
+      "sha256": "32727C7BF35DC9E4BBCCE806E6629BA2E273A51176FF079B71E38E179DE3E1AC"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/utils/partner-api-error.util.ts",
+      "sha256": "D7BF9BB1CA94B24E3C4D3F8B6C1E5729460FE9068022F0CD693A121C03191CDA"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/services/external-handover-query.service.ts",
+      "sha256": "874765E4D516A2EC69FF2783C2660BFAD0C9B5B9387CD918CD7DAF6A0EFB638A"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/controllers/external/partner-handovers.controller.ts",
+      "sha256": "23F9FF8D317DD8EE0AFE3CA9440A85D8B5A047F05D8F3921DAA031F627EBC921"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/services/partner-api-auth.service.ts",
+      "sha256": "E8B1143DD5DD4921CAAA747025E13E25D50D8E5791AB026FFAEC42254FB5B6CF"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/services/partner-api-auth.service.spec.ts",
+      "sha256": "CA0D0A54CF4EC392DAC7F49326D11498B52221FE35AD58B73A09BB13D2BF0735"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/services/partner-api-command-executor.service.ts",
+      "sha256": "39D21E1896CA837361E2F272AD560962768E8A5A5DB3183C79E9578C188640B8"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/services/partner-api-idempotency.service.ts",
+      "sha256": "E6283C165AA52C26624674A49223288A0468480EBC71740540D96669C1730FBE"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/services/partner-api-idempotency.service.spec.ts",
+      "sha256": "B40AADE926751B704A4ADF6E732993A8B965FEF8085361A314E06EA785CDA8E8"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/interceptors/partner-read-log.interceptor.ts",
+      "sha256": "A075A0277C8D0F83D05FF3B5E5A607939CCB0A1EB67AFDC58EAC3056DE9786BC"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/types/partner-api.types.ts",
+      "sha256": "6628C18D1C371E1B5A9576CD1550ABAB1D1E1D8F00B3721EC7AAB65077C5C8E3"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/dto/external-handover-query.dto.ts",
+      "sha256": "091AE8F3EE087BEDDD2D1DC58F837BD4EC3386C7F96DC55CC3A101775D4EBDB8"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/dto/delivery-failed.dto.ts",
+      "sha256": "67889159189F52374994DF0E7DE8B68D165200FB2F8762186B8BF8D91C79BE93"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/dto/accept-handover.dto.ts",
+      "sha256": "FBA3BD5A64A610F1A38B6A99C2B032B43780D48A19E213848FFF4370E6EE9287"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/dto/mark-in-transit.dto.ts",
+      "sha256": "E9AEC42B65918229F4DC4BBF72B14DD2DE52545BF5D06E4030CD954A3C3E18E9"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/dto/reject-handover.dto.ts",
+      "sha256": "D13D6E9882B627729FD126D739C737732435D90EC8657A37C791519D58468CF1"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/dto/warehouse-received.dto.ts",
+      "sha256": "C90746B264C0EA916D649F8A83E76EDDBA82A7FE664DB8B0FEEA25DAFD2E9642"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/decorators/partner-scopes.decorator.ts",
+      "sha256": "40548F3B3A3FF0D2B0DBCF5E97D9FD5960031E5588E0E1A7362197C837224D9E"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/decorators/partner-principal.decorator.ts",
+      "sha256": "7C7C1E0350FB342ECEEA9912E0F9EC177E0BFFE10091AC27136563EB202C96FD"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/external/constants/partner-api.constants.ts",
+      "sha256": "306E82C09EC23E6DBEAC3EF98CD2ACDD8250AA9138D44B50673A3C67534C8BBB"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/dto/external/warehouse-received.dto.ts",
+      "sha256": "2703B6862EDEF2DCFCF1C1450F62EAB2435DB8ADE3266ABB2A936BA3B1BA399F"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/dto/external/in-transit.dto.ts",
+      "sha256": "4101B7B7B978ED1F5D72C790AB97FF598C5559F1C8B326459AA28659FC5765A1"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/dto/external/accept-handover.dto.ts",
+      "sha256": "D9D1D7CEECD085C543EA768D4B4AE1C90725A0C4392924F2DB03669F68C4E959"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/dto/handover/icd-confirm-handover.dto.ts",
+      "sha256": "3B02F8C188F8A23EAFFBBE3518A11926138A56B6EB2724F2218454C50DA5D1D1"
+    },
+    {
+      "path": "apps/api/src/modules/partner-handover/dto/handover/dispute-handover.dto.ts",
+      "sha256": "5BFC24E72EA67ED248D547F616C67AC5605A202FE404CD6D429C8E09AF09F8D1"
+    },
+    {
+      "path": "package.json",
+      "sha256": "9D2A29F03BB2504A60A3981E952AF530BC7B72E3942D1C9021C3498105F68B46"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "sha256": "2AEF6A846AE69392415CA3A663BBF82B5DE3EAF87A42A9B0C0B662E633510F13"
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "sha256": "60CE4D1DBF137701A4683D171391C51662700C2F3E32A7CAAB8B2EFC22540E65"
+    },
+    {
+      "path": "eslint.config.mjs",
+      "sha256": "8422A860303628C47D9BD1271E83E2E63F99BED48316554D96927AC982545FB7"
+    },
+    {
+      "path": "docker-compose.yml",
+      "sha256": "F8E26E87283DD93CBC7633870EB96B2D1E222B140EB66C31BEB80844DE5A2882"
+    }
+  ],
+  "decisions": {
+    "database": "icd_ux_audit_20261003_e2e",
+    "api_port": 3001,
+    "web_port": 5174,
+    "mobile": "Android first",
+    "target_ux_gap": 95,
+    "target_nielsen": 95,
+    "preserve_design": true,
+    "offline_transactions": false
+  }
+}

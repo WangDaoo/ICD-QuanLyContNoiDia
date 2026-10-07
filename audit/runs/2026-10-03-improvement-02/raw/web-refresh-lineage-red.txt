@@ -1,0 +1,22 @@
+✖ staggered old 401 reuses a proven same-actor rotation without another refresh (9.6211ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1059.1123
+
+✖ failing tests:
+
+test at packages\api-client\src\refresh-recovery.test.ts:1:2373
+✖ staggered old 401 reuses a proven same-actor rotation without another refresh (9.6211ms)
+  Error [ApiError]: Phiên đăng nhập đã thay đổi. Kiểm tra tài khoản hiện tại và thử lại.
+      at changedSession (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:45:10)
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:99:15)
+      at async Axios.request (file:///D:/Project/%C4%90%E1%BB%93%20%C3%81n%204%20+Mobile/icd-management/node_modules/.pnpm/axios@1.20.0/node_modules/axios/lib/core/Axios.js:42:14)
+      at async request (D:\Project\Đồ Án 4 +Mobile\icd-management\packages\api-client\src\index.ts:157:24) {
+    status: 0,
+    payload: { error: { code: 'AUTH_SESSION_CHANGED' } }
+  }

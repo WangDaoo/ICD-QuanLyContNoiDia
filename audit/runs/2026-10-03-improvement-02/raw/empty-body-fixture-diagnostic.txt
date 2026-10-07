@@ -1,0 +1,236 @@
+✖ MovementOrdersView empty body presents loading without inventing a current empty result (286.4085ms)
+✖ MovementOrdersView empty body presents error without inventing a current empty result (25.7935ms)
+✖ MovementOrdersView empty body presents forbidden without inventing a current empty result (22.8455ms)
+✖ MovementOrdersView empty body presents stale without inventing a current empty result (22.0128ms)
+✔ MovementOrdersView ready empty list remains a real empty state (23.6215ms)
+✖ MovementOrdersView read failure can retry then recover to a confirmed empty list (31.3739ms)
+✖ YardView empty body presents loading without inventing a current empty result (40.4888ms)
+✖ YardView empty body presents error without inventing a current empty result (28.168ms)
+✖ YardView empty body presents forbidden without inventing a current empty result (27.5897ms)
+✖ YardView empty body presents stale without inventing a current empty result (26.1861ms)
+✖ YardView ready empty list remains a real empty state (30.24ms)
+✖ YardView read failure can retry then recover to a confirmed empty list (26.6202ms)
+✖ MovementOrdersView ready no-match state can clear its filter and reveal confirmed rows (22.3198ms)
+✖ YardView ready no-match state can clear its filter and reveal confirmed rows (41.0046ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 1
+ℹ fail 13
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6844.7335
+
+✖ failing tests:
+
+test at audit\tools\tests\list-empty-state.test.mjs:48:5
+✖ MovementOrdersView empty body presents loading without inventing a current empty result (286.4085ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Chưa có Movement Order nào phù hợp/. Input:
+  
+  'Chưa có Movement Order nào phù hợp.'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:51:16)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:34:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:49:7)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Chưa có Movement Order nào phù hợp.',
+    expected: /Chưa có Movement Order nào phù hợp/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\list-empty-state.test.mjs:48:5
+✖ MovementOrdersView empty body presents error without inventing a current empty result (25.7935ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Chưa có Movement Order nào phù hợp/. Input:
+  
+  'Chưa có Movement Order nào phù hợp.'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:51:16)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:34:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:49:7)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Chưa có Movement Order nào phù hợp.',
+    expected: /Chưa có Movement Order nào phù hợp/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\list-empty-state.test.mjs:48:5
+✖ MovementOrdersView empty body presents forbidden without inventing a current empty result (22.8455ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Chưa có Movement Order nào phù hợp/. Input:
+  
+  'Chưa có Movement Order nào phù hợp.'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:51:16)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:34:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:49:7)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Chưa có Movement Order nào phù hợp.',
+    expected: /Chưa có Movement Order nào phù hợp/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\list-empty-state.test.mjs:48:5
+✖ MovementOrdersView empty body presents stale without inventing a current empty result (22.0128ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Chưa có Movement Order nào phù hợp/. Input:
+  
+  'Chưa có Movement Order nào phù hợp.'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:51:16)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:34:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:49:7)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Chưa có Movement Order nào phù hợp.',
+    expected: /Chưa có Movement Order nào phù hợp/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\list-empty-state.test.mjs:62:3
+✖ MovementOrdersView read failure can retry then recover to a confirmed empty list (31.3739ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(retry)
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:65:55)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:34:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:64:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\list-empty-state.test.mjs:48:5
+✖ YardView empty body presents loading without inventing a current empty result (40.4888ms)
+  TypeError: yardMovements is not iterable
+      at YardSiteMap (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\yard\YardSiteMap.tsx:78:21)
+      at Object.react_stack_bottom_frame (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:25904:20)
+      at renderWithHooks (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:7662:22)
+      at updateFunctionComponent (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:10166:19)
+      at beginWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:11778:18)
+      at runWithFiberInDEV (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:871:30)
+      at performUnitOfWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17641:22)
+      at workLoopSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17469:41)
+      at renderRootSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17450:11)
+      at performWorkOnRoot (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:16583:35)
+
+test at audit\tools\tests\list-empty-state.test.mjs:48:5
+✖ YardView empty body presents error without inventing a current empty result (28.168ms)
+  TypeError: yardMovements is not iterable
+      at YardSiteMap (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\yard\YardSiteMap.tsx:78:21)
+      at Object.react_stack_bottom_frame (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:25904:20)
+      at renderWithHooks (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:7662:22)
+      at updateFunctionComponent (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:10166:19)
+      at beginWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:11778:18)
+      at runWithFiberInDEV (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:871:30)
+      at performUnitOfWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17641:22)
+      at workLoopSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17469:41)
+      at renderRootSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17450:11)
+      at performWorkOnRoot (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:16583:35)
+
+test at audit\tools\tests\list-empty-state.test.mjs:48:5
+✖ YardView empty body presents forbidden without inventing a current empty result (27.5897ms)
+  TypeError: yardMovements is not iterable
+      at YardSiteMap (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\yard\YardSiteMap.tsx:78:21)
+      at Object.react_stack_bottom_frame (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:25904:20)
+      at renderWithHooks (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:7662:22)
+      at updateFunctionComponent (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:10166:19)
+      at beginWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:11778:18)
+      at runWithFiberInDEV (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:871:30)
+      at performUnitOfWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17641:22)
+      at workLoopSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17469:41)
+      at renderRootSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17450:11)
+      at performWorkOnRoot (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:16583:35)
+
+test at audit\tools\tests\list-empty-state.test.mjs:48:5
+✖ YardView empty body presents stale without inventing a current empty result (26.1861ms)
+  TypeError: yardMovements is not iterable
+      at YardSiteMap (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\yard\YardSiteMap.tsx:78:21)
+      at Object.react_stack_bottom_frame (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:25904:20)
+      at renderWithHooks (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:7662:22)
+      at updateFunctionComponent (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:10166:19)
+      at beginWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:11778:18)
+      at runWithFiberInDEV (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:871:30)
+      at performUnitOfWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17641:22)
+      at workLoopSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17469:41)
+      at renderRootSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17450:11)
+      at performWorkOnRoot (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:16583:35)
+
+test at audit\tools\tests\list-empty-state.test.mjs:56:3
+✖ YardView ready empty list remains a real empty state (30.24ms)
+  TypeError: yardMovements is not iterable
+      at YardSiteMap (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\yard\YardSiteMap.tsx:78:21)
+      at Object.react_stack_bottom_frame (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:25904:20)
+      at renderWithHooks (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:7662:22)
+      at updateFunctionComponent (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:10166:19)
+      at beginWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:11778:18)
+      at runWithFiberInDEV (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:871:30)
+      at performUnitOfWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17641:22)
+      at workLoopSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17469:41)
+      at renderRootSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17450:11)
+      at performWorkOnRoot (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:16583:35)
+
+test at audit\tools\tests\list-empty-state.test.mjs:62:3
+✖ YardView read failure can retry then recover to a confirmed empty list (26.6202ms)
+  TypeError: yardMovements is not iterable
+      at YardSiteMap (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\yard\YardSiteMap.tsx:78:21)
+      at Object.react_stack_bottom_frame (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:25904:20)
+      at renderWithHooks (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:7662:22)
+      at updateFunctionComponent (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:10166:19)
+      at beginWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:11778:18)
+      at runWithFiberInDEV (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:871:30)
+      at performUnitOfWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17641:22)
+      at workLoopSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17469:41)
+      at renderRootSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17450:11)
+      at performWorkOnRoot (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:16583:35)
+
+test at audit\tools\tests\list-empty-state.test.mjs:82:3
+✖ MovementOrdersView ready no-match state can clear its filter and reveal confirmed rows (22.3198ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Không có kết quả khớp bộ lọc/. Input:
+  
+  'Chưa có Movement Order nào phù hợp.'
+  
+      at <anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:84:14)
+      at withView (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:34:11)
+      at async TestContext.<anonymous> (D:\Project\Đồ Án 4 +Mobile\icd-management\audit\tools\tests\list-empty-state.test.mjs:83:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Chưa có Movement Order nào phù hợp.',
+    expected: /Không có kết quả khớp bộ lọc/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at audit\tools\tests\list-empty-state.test.mjs:82:3
+✖ YardView ready no-match state can clear its filter and reveal confirmed rows (41.0046ms)
+  TypeError: yardMovements is not iterable
+      at YardSiteMap (D:\Project\Đồ Án 4 +Mobile\icd-management\apps\web\src\components\yard\YardSiteMap.tsx:78:21)
+      at Object.react_stack_bottom_frame (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:25904:20)
+      at renderWithHooks (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:7662:22)
+      at updateFunctionComponent (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:10166:19)
+      at beginWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:11778:18)
+      at runWithFiberInDEV (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:871:30)
+      at performUnitOfWork (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17641:22)
+      at workLoopSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17469:41)
+      at renderRootSync (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:17450:11)
+      at performWorkOnRoot (D:\Project\Đồ Án 4 +Mobile\icd-management\node_modules\.pnpm\react-dom@19.2.3_react@19.2.3\node_modules\react-dom\cjs\react-dom-client.development.js:16583:35)

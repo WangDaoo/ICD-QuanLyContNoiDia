@@ -1,0 +1,36 @@
+Command: git -c core.whitespace=cr-at-eol diff --check -- apps/mobile
+Exit: 0
+warning: in the working copy of 'apps/mobile/App.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/app.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/package.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/components/AppHeader.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/components/EmptyState.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/components/ErrorState.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/components/PrimaryButton.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/components/StatusBadge.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/features/auth/context/AuthProvider.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/features/auth/screens/LoginScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/features/containers/api/container.api.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/features/gate-in/api/gate-in.api.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/features/gate-in/screens/GateInFormScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/features/gate-in/screens/GateInScanScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/features/gate-in/screens/GateInSuccessScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/features/gate-out/api/gate-out.api.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/features/gate-out/screens/GateOutConfirmScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/features/gate-out/screens/GatePassScanScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/features/handover/api/handover.api.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/features/handover/components/HandoverSummary.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/features/more/screens/MoreScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/features/notifications/screens/NotificationsScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/features/yard/api/yard.api.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/features/yard/screens/YardAssignmentScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/features/yard/screens/YardOperationDetailScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/navigation/GateNavigator.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/navigation/MainTabNavigator.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/navigation/RootNavigator.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/navigation/YardNavigator.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/navigation/types.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/services/api/api-client.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/storage/auth.storage.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/src/theme/colors.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/mobile/tsconfig.json', LF will be replaced by CRLF the next time Git touches it

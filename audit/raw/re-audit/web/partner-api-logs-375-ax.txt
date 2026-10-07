@@ -1,0 +1,54 @@
+Browser tab: 22, Title: "ICD Management System — Quản lý Kho bãi Container Nội địa", URL: "http://127.0.0.1:5173/".
+1 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/
+	2 container root
+		41 container
+			102 button Mở menu điều hướng
+			42 text ICD
+			43 heading ICD Management System, Value: 1
+				44 text ICD Management System
+			46 button Tải lại dữ liệu
+			47 button (collapsed) Description: Thông báo (0 chưa đọc), Secondary Actions: Expand
+			49 button Đăng xuất
+		40 container
+			103 heading Nhật ký API Đối tác (Partner Integration Logs), Value: 2
+				104 text Nhật ký API Đối tác (Partner Integration Logs)
+			105 text Giám sát thời gian thực các cuộc gọi API từ đối tác: Accept chuyến, Xác nhận giao kho, Upload POD, Tọa độ GPS 3  cuộc gọi API đã ghi nhận
+			106 checkbox Value: 1, POST HTTP 200 /api/v1/external/handovers/b3fe3d3b-039d-4c41-9976-141d9cd8327d/warehouse-received Đối tác: Local QA Transport 13:53:43
+				107 text POST
+				108 text HTTP 
+				109 text 200
+				110 text /api/v1/external/handovers/b3fe3d3b-039d-4c41-9976-141d9cd8327d/warehouse-received
+				111 text Đối tác: 
+				112 text Local QA Transport
+				113 text 13:53:43
+			114 checkbox Value: 0, POST HTTP 200 /api/v1/external/handovers/b3fe3d3b-039d-4c41-9976-141d9cd8327d/in-transit Đối tác: Local QA Transport 13:53:43
+				115 text POST
+				116 text HTTP 
+				117 text 200
+				118 text /api/v1/external/handovers/b3fe3d3b-039d-4c41-9976-141d9cd8327d/in-transit
+				119 text Đối tác: 
+				120 text Local QA Transport
+				121 text 13:53:43
+			122 checkbox Value: 0, POST HTTP 200 /api/v1/external/handovers/b3fe3d3b-039d-4c41-9976-141d9cd8327d/accept Đối tác: Local QA Transport 13:53:43
+				123 text POST
+				124 text HTTP 
+				125 text 200
+				126 text /api/v1/external/handovers/b3fe3d3b-039d-4c41-9976-141d9cd8327d/accept
+				127 text Đối tác: 
+				128 text Local QA Transport
+				129 text 13:53:43
+			130 text POST /api/v1/external/handovers/b3fe3d3b-039d-4c41-9976-141d9cd8327d/warehouse-received Độ trễ:  23 ms REQUEST BODY (ĐÃ CHE GIẤU THÔNG TIN NHẠY CẢM) {
+  "note": "Local QA delivery received",
+  "condition": "GOOD",
+  "received_at": "2026-10-01T06:53:43.590Z",
+  "receiver_name": "Local QA Receiver",
+  "receiver_phone": "[REDACTED]",
+  "warehouse_code": "QA-WH-1790837623399"
+} RESPONSE BODY {
+  "status": "PARTNER_CONFIRMED",
+  "handover_id": "b3fe3d3b-039d-4c41-9976-141d9cd8327d",
+  "transport_code": "QA-VC-1790837623424",
+  "partner_confirmed_at": {}
+}
+
+The focused UI element is 1 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/

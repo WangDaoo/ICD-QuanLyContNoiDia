@@ -1,0 +1,21 @@
+{
+  "status": "VERIFIED",
+  "change": "Restore documented partner_api_log.read for GET list/detail; client/key writes remain denied.",
+  "source_evidence": [
+    {
+      "file": "apps/api/src/modules/partner-handover/controllers/internal/partner-api-log.controller.ts",
+      "line": 12,
+      "detail": "PARTNER_API_LOG_READ",
+      "snippet": "  @Permissions(PERMISSION_CODES.PARTNER_API_LOG_READ)\n  findMany(@Query() query: QueryPartnerApiLogsDto) {\n    return this.partnerApiLogService.findMany(query);\n  }"
+    }
+  ],
+  "evidence": [
+    "audit/runs/2026-10-03-improvement-02/raw/web-types-api/partner-log-access-green.json"
+  ],
+  "limitations": "Native/runtime matrix remains separate from fixture result; see coverage.",
+  "method": "Meaningful RED/GREEN source regression; real API only if explicitly linked.",
+  "review_diffs": [
+    "audit/runs/2026-10-03-improvement-02/fixes/source-diffs/apps/api/src/modules/partner-handover/controllers/internal/partner-api-log.controller.ts.diff"
+  ],
+  "isolated_review_diffs": []
+}

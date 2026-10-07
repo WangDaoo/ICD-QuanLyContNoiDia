@@ -1,0 +1,442 @@
+[
+  {
+    "text": "",
+    "label": "Tools",
+    "bounds": "[937,1045][1005,1113]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.ImageView"
+  },
+  {
+    "text": "TOS-MOBILE",
+    "label": "",
+    "bounds": "[60,84][263,127]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "ADMIN",
+    "label": "",
+    "bounds": "[277,84][362,129]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "Quản trị viên Hệ thống",
+    "label": "",
+    "bounds": "[32,134][627,171]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Chuyển sang nền tối",
+    "bounds": "[642,86][721,170]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.Button"
+  },
+  {
+    "text": "",
+    "label": "Quét mã",
+    "bounds": "[731,86][870,170]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.Button"
+  },
+  {
+    "text": "Quét",
+    "label": "",
+    "bounds": "[794,109][852,146]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Thông báo",
+    "bounds": "[881,86][959,170]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.Button"
+  },
+  {
+    "text": "",
+    "label": "Tài khoản và kết thúc ca",
+    "bounds": "[970,86][1049,170]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.Button"
+  },
+  {
+    "text": "PHIÊN ĐĂNG NHẬP CA TRỰC",
+    "label": "",
+    "bounds": "[118,266][792,303]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "ĐÃ ĐĂNG NHẬP",
+    "label": "",
+    "bounds": "[808,261][1016,310]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "Tài khoản: System Administrator",
+    "label": "",
+    "bounds": "[66,331][908,370]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "ADMIN",
+    "label": "",
+    "bounds": "[927,331][1014,370]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Tiếp nhận Vào (Gate-In)",
+    "bounds": "[50,448][532,553]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "true",
+    "class": "android.widget.Button"
+  },
+  {
+    "text": "Tiếp nhận Vào (Gate-In)",
+    "label": "",
+    "bounds": "[171,482][461,519]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Quét Ra (Gate-Out)",
+    "bounds": "[548,448][1030,553]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.Button"
+  },
+  {
+    "text": "Quét Ra (Gate-Out)",
+    "label": "",
+    "bounds": "[698,482][930,519]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "Biên nhận Cổng vào (Gate-In EIR)",
+    "label": "",
+    "bounds": "[76,642][1004,714]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "Số Container*",
+    "label": "",
+    "bounds": "[76,746][763,788]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "QAOU4835930",
+    "label": "Số Container*",
+    "bounds": "[76,801][763,906]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.EditText"
+  },
+  {
+    "text": "",
+    "label": "Tìm hồ sơ container",
+    "bounds": "[778,801][883,906]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.Button"
+  },
+  {
+    "text": "",
+    "label": "Quét mã container",
+    "bounds": "[899,801][1004,906]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.Button"
+  },
+  {
+    "text": "Không có lượt container chờ tiếp nhận phù hợp. Kiểm tra số container hoặc trạng thái đã tiếp nhận.",
+    "label": "",
+    "bounds": "[104,965][974,1065]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "Biển số đầu kéo*",
+    "label": "",
+    "bounds": "[76,1126][530,1168]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "Số Seal thực tế*",
+    "label": "",
+    "bounds": "[550,1126][1004,1168]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "Theo lượt xe",
+    "label": "Biển số đầu kéo*",
+    "bounds": "[76,1181][530,1286]",
+    "enabled": "false",
+    "clickable": "false",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.EditText"
+  },
+  {
+    "text": "Seal đã kiểm tra",
+    "label": "Số Seal thực tế*",
+    "bounds": "[550,1181][1004,1286]",
+    "enabled": "false",
+    "clickable": "false",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.EditText"
+  },
+  {
+    "text": "Tài xế nhận hàng*",
+    "label": "",
+    "bounds": "[76,1318][530,1360]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "Cân Gross (kg)",
+    "label": "",
+    "bounds": "[550,1318][1004,1360]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "Theo lượt xe",
+    "label": "Tài xế nhận hàng*",
+    "bounds": "[76,1373][530,1478]",
+    "enabled": "false",
+    "clickable": "false",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.EditText"
+  },
+  {
+    "text": "Kết quả cân",
+    "label": "Cân Gross (kg)",
+    "bounds": "[550,1373][1004,1478]",
+    "enabled": "false",
+    "clickable": "false",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.EditText"
+  },
+  {
+    "text": "Tình trạng vỏ container",
+    "label": "",
+    "bounds": "[76,1510][1004,1552]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Tình trạng vỏ container",
+    "bounds": "[76,1565][1004,1670]",
+    "enabled": "false",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.Button"
+  },
+  {
+    "text": "Vỏ tốt, seal nguyên",
+    "label": "",
+    "bounds": "[104,1592][919,1642]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Cổng",
+    "bounds": "[0,1708][216,1857]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "true",
+    "class": "android.view.View"
+  },
+  {
+    "text": "Cổng",
+    "label": "",
+    "bounds": "[76,1794][140,1834]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "true",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Bãi",
+    "bounds": "[216,1708][432,1857]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.view.View"
+  },
+  {
+    "text": "Bãi",
+    "label": "",
+    "bounds": "[304,1794][343,1834]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Giám định",
+    "bounds": "[432,1708][648,1857]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.view.View"
+  },
+  {
+    "text": "Giám định",
+    "label": "",
+    "bounds": "[478,1794][602,1834]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Tra cứu",
+    "bounds": "[648,1708][864,1857]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.view.View"
+  },
+  {
+    "text": "Tra cứu",
+    "label": "",
+    "bounds": "[710,1794][802,1834]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Việc ca",
+    "bounds": "[864,1708][1080,1857]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.view.View"
+  },
+  {
+    "text": "Việc ca",
+    "label": "",
+    "bounds": "[927,1794][1016,1834]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  }
+]

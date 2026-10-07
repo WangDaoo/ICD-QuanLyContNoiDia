@@ -1,0 +1,229 @@
+Browser tab: 22, Title: "ICD Management System — Quản lý Kho bãi Container Nội địa", URL: "http://127.0.0.1:5173/".
+1 AXWebArea ICD Management System — Quản lý Kho bãi Container Nội địa, URL: 127.0.0.1:5173/
+	2 container root
+		41 container
+			42 text ICD
+			43 heading ICD Management System, Value: 1
+				44 text ICD Management System
+			45 text Cảng cạn & kho bãi container nội địa 1 lệnh giữ Đã kết nối
+			46 button Tải lại dữ liệu
+			47 button (collapsed) Description: Thông báo (0 chưa đọc), Secondary Actions: Expand
+			48 text System Administrator ADMIN
+			49 button Đăng xuất
+		12 container Điều hướng nghiệp vụ
+			13 container
+				14 text TỔNG QUAN & ĐIỀU PHỐI
+				15 button Tổng quan vận hành
+				16 button Danh sách công việc
+				17 text QUẢN LÝ HÀNG HÓA & CỔNG
+				18 button Bản lược khai (Manifest)
+				19 button Quản lý Container
+				20 button Movement Order
+				21 button Chuyến xe ra/vào
+				22 button Tiếp nhận vào cổng (Gate-in)
+				23 button Vận hành Bãi (Yard)
+				24 text TÀI CHÍNH & RA CỔNG
+				25 button Dịch vụ & Thanh toán
+				26 button Phiếu ra cổng & Gate-out
+				27 button Vận hành EDI (CODECO)
+				28 text TÍCH HỢP ĐỐI TÁC
+				29 button Bàn giao vận chuyển
+				30 button Đối tác tích hợp API
+				31 button Nhật ký API đối tác
+				32 text HỆ THỐNG & QUẢN TRỊ
+				33 button Danh mục dùng chung
+				34 button Người dùng & Phân quyền
+				35 button Báo cáo vận hành
+				36 button Nhật ký kiểm toán
+			37 text System Administrator
+			38 text admin@icd.local
+			39 text ADMIN
+		40 container
+			50 heading Người dùng & Phân quyền (RBAC), Value: 2
+				51 text Người dùng & Phân quyền (RBAC)
+			52 text JwtAuthGuard luôn tải lại role/permission từ DB, không tin dữ liệu role nằm sẵn trong JWT.
+			53 button Người dùng
+			54 button Vai trò
+			55 button Thêm người dùng
+			56 table
+				57 row
+					58 cell
+						59 text HỌ TÊN
+					60 cell
+						61 text EMAIL
+					62 cell
+						63 text VAI TRÒ
+					64 cell
+						65 text TRẠNG THÁI
+					66 cell
+						67 text HÀNH ĐỘNG
+				68 row
+					69 cell
+						70 text Công ty Samsung SEVT
+					71 cell
+						72 text consignee@icd.local
+					73 cell
+						74 text CONSIGNEE
+					75 cell
+						76 text ACTIVE
+					77 cell
+						78 pop up button (collapsed, settable) Value: +/- vai trò..., Secondary Actions: Expand
+							79 menu
+								80 (selected) +/- vai trò...
+								81 Thêm ADMIN
+								82 Thêm AGENT
+								83 Bỏ CONSIGNEE
+								84 Thêm GATE_STAFF
+								85 Thêm MANAGER
+								86 Thêm OPERATOR
+								87 Thêm YARD_STAFF
+						88 button Vô hiệu hóa
+				89 row
+					90 cell
+						91 text Đại Lý Hải Quan TransLog
+					92 cell
+						93 text agent@icd.local
+					94 cell
+						95 text AGENT
+					96 cell
+						97 text ACTIVE
+					98 cell
+						99 pop up button (collapsed, settable) Value: +/- vai trò..., Secondary Actions: Expand
+							100 menu
+								101 (selected) +/- vai trò...
+								102 Thêm ADMIN
+								103 Bỏ AGENT
+								104 Thêm CONSIGNEE
+								105 Thêm GATE_STAFF
+								106 Thêm MANAGER
+								107 Thêm OPERATOR
+								108 Thêm YARD_STAFF
+						109 button Vô hiệu hóa
+				110 row
+					111 cell
+						112 text Phạm Văn Bãi (Yard Staff)
+					113 cell
+						114 text yard@icd.local
+					115 cell
+						116 text YARD_STAFF
+					117 cell
+						118 text ACTIVE
+					119 cell
+						120 pop up button (collapsed, settable) Value: +/- vai trò..., Secondary Actions: Expand
+							121 menu
+								122 (selected) +/- vai trò...
+								123 Thêm ADMIN
+								124 Thêm AGENT
+								125 Thêm CONSIGNEE
+								126 Thêm GATE_STAFF
+								127 Thêm MANAGER
+								128 Thêm OPERATOR
+								129 Bỏ YARD_STAFF
+						130 button Vô hiệu hóa
+				131 row
+					132 cell
+						133 text Lê Văn Cổng (Gate Staff)
+					134 cell
+						135 text gate@icd.local
+					136 cell
+						137 text GATE_STAFF
+					138 cell
+						139 text ACTIVE
+					140 cell
+						141 pop up button (collapsed, settable) Value: +/- vai trò..., Secondary Actions: Expand
+							142 menu
+								143 (selected) +/- vai trò...
+								144 Thêm ADMIN
+								145 Thêm AGENT
+								146 Thêm CONSIGNEE
+								147 Bỏ GATE_STAFF
+								148 Thêm MANAGER
+								149 Thêm OPERATOR
+								150 Thêm YARD_STAFF
+						151 button Vô hiệu hóa
+				152 row
+					153 cell
+						154 text Trần Thị Chứng Từ (Docs)
+					155 cell
+						156 text docs@icd.local
+					157 cell
+						158 text OPERATOR
+					159 cell
+						160 text ACTIVE
+					161 cell
+						162 pop up button (collapsed, settable) Value: +/- vai trò..., Secondary Actions: Expand
+							163 menu
+								164 (selected) +/- vai trò...
+								165 Thêm ADMIN
+								166 Thêm AGENT
+								167 Thêm CONSIGNEE
+								168 Thêm GATE_STAFF
+								169 Thêm MANAGER
+								170 Bỏ OPERATOR
+								171 Thêm YARD_STAFF
+						172 button Vô hiệu hóa
+				173 row
+					174 cell
+						175 text Nguyễn Thị Lan (Điều Phối)
+					176 cell
+						177 text operator@icd.local
+					178 cell
+						179 text OPERATOR
+					180 cell
+						181 text ACTIVE
+					182 cell
+						183 pop up button (collapsed, settable) Value: +/- vai trò..., Secondary Actions: Expand
+							184 menu
+								185 (selected) +/- vai trò...
+								186 Thêm ADMIN
+								187 Thêm AGENT
+								188 Thêm CONSIGNEE
+								189 Thêm GATE_STAFF
+								190 Thêm MANAGER
+								191 Bỏ OPERATOR
+								192 Thêm YARD_STAFF
+						193 button Vô hiệu hóa
+				194 row
+					195 cell
+						196 text Trần Quản Lý (Manager)
+					197 cell
+						198 text manager@icd.local
+					199 cell
+						200 text MANAGER
+					201 cell
+						202 text ACTIVE
+					203 cell
+						204 pop up button (collapsed, settable) Value: +/- vai trò..., Secondary Actions: Expand
+							205 menu
+								206 (selected) +/- vai trò...
+								207 Thêm ADMIN
+								208 Thêm AGENT
+								209 Thêm CONSIGNEE
+								210 Thêm GATE_STAFF
+								211 Bỏ MANAGER
+								212 Thêm OPERATOR
+								213 Thêm YARD_STAFF
+						214 button Vô hiệu hóa
+				215 row
+					216 cell
+						217 text System Administrator
+					218 cell
+						219 text admin@icd.local
+					220 cell
+						221 text ADMIN
+					222 cell
+						223 text ACTIVE
+					224 cell
+						225 pop up button (collapsed, settable) Value: +/- vai trò..., Secondary Actions: Expand
+							226 menu
+								227 (selected) +/- vai trò...
+								228 Bỏ ADMIN
+								229 Thêm AGENT
+								230 Thêm CONSIGNEE
+								231 Thêm GATE_STAFF
+								232 Thêm MANAGER
+								233 Thêm OPERATOR
+								234 Thêm YARD_STAFF
+						235 button Vô hiệu hóa
+
+The focused UI element is 34 button Người dùng & Phân quyền

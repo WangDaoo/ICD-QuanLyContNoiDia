@@ -1,0 +1,439 @@
+[
+  {
+    "file": "apps/web/src/components/ManifestsView.tsx",
+    "id": "manifests-new-vessel",
+    "visibleLabel": "Tên Tàu (Vessel)*",
+    "type": "input",
+    "binding": "newVessel"
+  },
+  {
+    "file": "apps/web/src/components/ManifestsView.tsx",
+    "id": "manifests-new-voyage",
+    "visibleLabel": "Số Chuyến (Voyage)*",
+    "type": "input",
+    "binding": "newVoyage"
+  },
+  {
+    "file": "apps/web/src/components/ManifestsView.tsx",
+    "id": "manifests-new-shipping-line",
+    "visibleLabel": "Hãng tàu (Shipping Line)*",
+    "type": "select",
+    "binding": "newShippingLine"
+  },
+  {
+    "file": "apps/web/src/components/ManifestsView.tsx",
+    "id": "manifests-new-eta",
+    "visibleLabel": "Ngày tàu đến (ETA)*",
+    "type": "input",
+    "binding": "newEta"
+  },
+  {
+    "file": "apps/web/src/components/ManifestsView.tsx",
+    "id": "manifests-new-pol",
+    "visibleLabel": "Cảng xếp hàng (POL)",
+    "type": "input",
+    "binding": "newPol"
+  },
+  {
+    "file": "apps/web/src/components/ManifestsView.tsx",
+    "id": "manifests-new-pod",
+    "visibleLabel": "Cảng dỡ / Cảng đích (POD)",
+    "type": "input",
+    "binding": "newPod"
+  },
+  {
+    "file": "apps/web/src/components/ManifestsView.tsx",
+    "id": "manifests-mbl-number",
+    "visibleLabel": "Số MBL*",
+    "type": "input",
+    "binding": "mblNumber"
+  },
+  {
+    "file": "apps/web/src/components/ManifestsView.tsx",
+    "id": "manifests-mbl-line",
+    "visibleLabel": "Hãng tàu*",
+    "type": "select",
+    "binding": "mblLine"
+  },
+  {
+    "file": "apps/web/src/components/ManifestsView.tsx",
+    "id": "manifests-hbl-form-hbl-number",
+    "visibleLabel": "Số HBL*",
+    "type": "input",
+    "binding": "hblForm.hblNumber"
+  },
+  {
+    "file": "apps/web/src/components/ManifestsView.tsx",
+    "id": "manifests-hbl-form-consignee-name",
+    "visibleLabel": "Chủ hàng (Consignee)*",
+    "type": "select",
+    "binding": "hblForm.consigneeName"
+  },
+  {
+    "file": "apps/web/src/components/ManifestsView.tsx",
+    "id": "manifests-hbl-form-clearing-agent-name",
+    "visibleLabel": "Đại lý thông quan",
+    "type": "select",
+    "binding": "hblForm.clearingAgentName"
+  },
+  {
+    "file": "apps/web/src/components/ManifestsView.tsx",
+    "id": "manifests-hbl-form-cargo-description",
+    "visibleLabel": "Mô tả hàng hóa",
+    "type": "input",
+    "binding": "hblForm.cargoDescription"
+  },
+  {
+    "file": "apps/web/src/components/ManifestsView.tsx",
+    "id": "manifests-hbl-form-gross-weight-kg",
+    "visibleLabel": "Trọng lượng (kg)",
+    "type": "input",
+    "binding": "hblForm.grossWeightKg"
+  },
+  {
+    "file": "apps/web/src/components/ManifestsView.tsx",
+    "id": "manifests-hbl-form-package-count",
+    "visibleLabel": "Số kiện",
+    "type": "input",
+    "binding": "hblForm.packageCount"
+  },
+  {
+    "file": "apps/web/src/components/ContainersView.tsx",
+    "id": "containers-gp-plate",
+    "visibleLabel": "Biển số xe nhận",
+    "type": "input",
+    "binding": "gpPlate"
+  },
+  {
+    "file": "apps/web/src/components/ContainersView.tsx",
+    "id": "containers-gp-receiver",
+    "visibleLabel": "Tên người nhận",
+    "type": "input",
+    "binding": "gpReceiver"
+  },
+  {
+    "file": "apps/web/src/components/ContainersView.tsx",
+    "id": "containers-gp-cccd",
+    "visibleLabel": "Số CMND / CCCD",
+    "type": "input",
+    "binding": "gpCccd"
+  },
+  {
+    "file": "apps/web/src/components/ContainersView.tsx",
+    "id": "containers-new-hold-type",
+    "visibleLabel": "Loại lệnh giữ",
+    "type": "select",
+    "binding": "newHoldType"
+  },
+  {
+    "file": "apps/web/src/components/ContainersView.tsx",
+    "id": "containers-new-hold-reason",
+    "visibleLabel": "Lý do chi tiết*",
+    "type": "input",
+    "binding": "newHoldReason"
+  },
+  {
+    "file": "apps/web/src/components/ContainersView.tsx",
+    "id": "containers-cv-form-container-number",
+    "visibleLabel": "Số container* (ISO 6346)",
+    "type": "input",
+    "binding": "cvForm.containerNumber"
+  },
+  {
+    "file": "apps/web/src/components/ContainersView.tsx",
+    "id": "containers-cv-form-container-type",
+    "visibleLabel": "Loại container",
+    "type": "select",
+    "binding": "cvForm.containerType"
+  },
+  {
+    "file": "apps/web/src/components/ContainersView.tsx",
+    "id": "containers-cv-form-manifest-seal",
+    "visibleLabel": "Seal Manifest*",
+    "type": "input",
+    "binding": "cvForm.manifestSeal"
+  },
+  {
+    "file": "apps/web/src/components/ContainersView.tsx",
+    "id": "containers-cv-form-gross-weight-kg",
+    "visibleLabel": "Trọng lượng (kg)",
+    "type": "input",
+    "binding": "cvForm.grossWeightKg"
+  },
+  {
+    "file": "apps/web/src/components/TruckVisitsView.tsx",
+    "id": "truck-visits-plate",
+    "visibleLabel": "Biển số đầu kéo*",
+    "type": "input",
+    "binding": "plate"
+  },
+  {
+    "file": "apps/web/src/components/TruckVisitsView.tsx",
+    "id": "truck-visits-driver",
+    "visibleLabel": "Tên tài xế*",
+    "type": "input",
+    "binding": "driver"
+  },
+  {
+    "file": "apps/web/src/components/TruckVisitsView.tsx",
+    "id": "truck-visits-phone",
+    "visibleLabel": "Số điện thoại*",
+    "type": "input",
+    "binding": "phone"
+  },
+  {
+    "file": "apps/web/src/components/TruckVisitsView.tsx",
+    "id": "truck-visits-transporter",
+    "visibleLabel": "Hãng vận tải (Transporter)",
+    "type": "input",
+    "binding": "transporter"
+  },
+  {
+    "file": "apps/web/src/components/TruckVisitsView.tsx",
+    "id": "truck-visits-selected-conts",
+    "visibleLabel": "Số Container gắn chuyến*",
+    "type": "input",
+    "binding": "selectedConts"
+  },
+  {
+    "file": "apps/web/src/components/BillingView.tsx",
+    "id": "billing-tariff-name",
+    "visibleLabel": "Tên bảng giá*",
+    "type": "input",
+    "binding": "tariffName"
+  },
+  {
+    "file": "apps/web/src/components/BillingView.tsx",
+    "id": "billing-tariff-from",
+    "visibleLabel": "Hiệu lực từ*",
+    "type": "input",
+    "binding": "tariffFrom"
+  },
+  {
+    "file": "apps/web/src/components/BillingView.tsx",
+    "id": "billing-tariff-to",
+    "visibleLabel": "Hiệu lực đến",
+    "type": "input",
+    "binding": "tariffTo"
+  },
+  {
+    "file": "apps/web/src/components/BillingView.tsx",
+    "id": "billing-rule-form-service-type",
+    "visibleLabel": "Mã loại dịch vụ*",
+    "type": "select",
+    "binding": "ruleForm.serviceType"
+  },
+  {
+    "file": "apps/web/src/components/BillingView.tsx",
+    "id": "billing-rule-form-unit-price-vnd",
+    "visibleLabel": "Đơn giá (VNĐ)",
+    "type": "input",
+    "binding": "ruleForm.unitPriceVnd"
+  },
+  {
+    "file": "apps/web/src/components/BillingView.tsx",
+    "id": "billing-selected-visit-id",
+    "visibleLabel": "Chọn Container*",
+    "type": "select",
+    "binding": "selectedVisitId"
+  },
+  {
+    "file": "apps/web/src/components/BillingView.tsx",
+    "id": "billing-pay-amount",
+    "visibleLabel": "Số tiền thanh toán (VNĐ)*",
+    "type": "input",
+    "binding": "payAmount"
+  },
+  {
+    "file": "apps/web/src/components/BillingView.tsx",
+    "id": "billing-pay-method",
+    "visibleLabel": "Phương thức thanh toán*",
+    "type": "select",
+    "binding": "payMethod"
+  },
+  {
+    "file": "apps/web/src/components/GatePassView.tsx",
+    "id": "gate-pass-issue-visit-id",
+    "visibleLabel": "Chọn container trong bãi*",
+    "type": "select",
+    "binding": "issueVisitId"
+  },
+  {
+    "file": "apps/web/src/components/HandoversView.tsx",
+    "id": "handovers-transport-code-input",
+    "visibleLabel": "Mã chuyến vận chuyển*",
+    "type": "input",
+    "binding": "transportCodeInput"
+  },
+  {
+    "file": "apps/web/src/components/HandoversView.tsx",
+    "id": "handovers-selected-cont-visit-id",
+    "visibleLabel": "Chọn Container cần bàn giao*",
+    "type": "select",
+    "binding": "selectedContVisitId"
+  },
+  {
+    "file": "apps/web/src/components/HandoversView.tsx",
+    "id": "handovers-selected-partner-client-id",
+    "visibleLabel": "Đối tác vận tải (Partner)*",
+    "type": "select",
+    "binding": "selectedPartnerClientId"
+  },
+  {
+    "file": "apps/web/src/components/HandoversView.tsx",
+    "id": "handovers-selected-warehouse-id",
+    "visibleLabel": "Kho nhận đích (Warehouse)*",
+    "type": "select",
+    "binding": "selectedWarehouseId"
+  },
+  {
+    "file": "apps/web/src/components/MasterDataView.tsx",
+    "id": "master-data-form-name",
+    "visibleLabel": "Tên*",
+    "type": "input",
+    "binding": "form.name"
+  },
+  {
+    "file": "apps/web/src/components/MasterDataView.tsx",
+    "id": "master-data-form-code",
+    "visibleLabel": "Mã SCAC",
+    "type": "input",
+    "binding": "form.code"
+  },
+  {
+    "file": "apps/web/src/components/MasterDataView.tsx",
+    "id": "master-data-form-tax-code",
+    "visibleLabel": "Mã số thuế",
+    "type": "input",
+    "binding": "form.taxCode"
+  },
+  {
+    "file": "apps/web/src/components/MasterDataView.tsx",
+    "id": "master-data-form-phone",
+    "visibleLabel": "Điện thoại",
+    "type": "input",
+    "binding": "form.phone"
+  },
+  {
+    "file": "apps/web/src/components/MasterDataView.tsx",
+    "id": "master-data-form-address",
+    "visibleLabel": "Địa chỉ",
+    "type": "input",
+    "binding": "form.address"
+  },
+  {
+    "file": "apps/web/src/components/MasterDataView.tsx",
+    "id": "master-data-form-email",
+    "visibleLabel": "Email",
+    "type": "input",
+    "binding": "form.email"
+  },
+  {
+    "file": "apps/web/src/components/UsersRolesView.tsx",
+    "id": "users-roles-user-form-name",
+    "visibleLabel": "Họ tên*",
+    "type": "input",
+    "binding": "userForm.name"
+  },
+  {
+    "file": "apps/web/src/components/UsersRolesView.tsx",
+    "id": "users-roles-user-form-email",
+    "visibleLabel": "Email*",
+    "type": "input",
+    "binding": "userForm.email"
+  },
+  {
+    "file": "apps/web/src/components/PartnerManagementView.tsx",
+    "id": "partner-management-new-code",
+    "visibleLabel": "Mã đối tác (Partner Code)*",
+    "type": "input",
+    "binding": "newCode"
+  },
+  {
+    "file": "apps/web/src/components/PartnerManagementView.tsx",
+    "id": "partner-management-new-name",
+    "visibleLabel": "Tên công ty đối tác*",
+    "type": "input",
+    "binding": "newName"
+  },
+  {
+    "file": "apps/web/src/components/ContainersView.tsx",
+    "id": "containers-create-shipping-line",
+    "visibleLabel": "Hãng tàu",
+    "type": "input",
+    "binding": "{formManifest?.shippingLine || ''}",
+    "preserved_aria_label": "Hãng tàu theo Manifest",
+    "readonly": true,
+    "supplement": "audit/fixes/W-S-002/supplement"
+  },
+  {
+    "file": "apps/web/src/components/ContainersView.tsx",
+    "id": "containers-create-consignee",
+    "visibleLabel": "Chủ hàng (Consignee)*",
+    "type": "select",
+    "binding": "{cvForm.consigneeName}",
+    "preserved_aria_label": "Chủ hàng",
+    "readonly": false,
+    "supplement": "audit/fixes/W-S-002/supplement"
+  },
+  {
+    "file": "apps/web/src/components/ContainersView.tsx",
+    "id": "containers-create-manifest",
+    "visibleLabel": "Manifest No.",
+    "type": "select",
+    "binding": "{cvForm.manifestNo}",
+    "preserved_aria_label": "Manifest",
+    "readonly": false,
+    "supplement": "audit/fixes/W-S-002/supplement"
+  },
+  {
+    "file": "apps/web/src/components/ContainersView.tsx",
+    "id": "containers-create-mbl",
+    "visibleLabel": "MBL No.",
+    "type": "select",
+    "binding": "{cvForm.mblNumber}",
+    "preserved_aria_label": "Master BL",
+    "readonly": false,
+    "supplement": "audit/fixes/W-S-002/supplement"
+  },
+  {
+    "file": "apps/web/src/components/ContainersView.tsx",
+    "id": "containers-create-hbl",
+    "visibleLabel": "HBL No.",
+    "type": "select",
+    "binding": "{cvForm.hblNumber}",
+    "preserved_aria_label": "House BL",
+    "readonly": false,
+    "supplement": "audit/fixes/W-S-002/supplement"
+  },
+  {
+    "file": "apps/web/src/components/GatePassView.tsx",
+    "id": "gate-pass-receiver-vehicle-plate",
+    "visibleLabel": "Biển số xe nhận hàng*",
+    "type": "input",
+    "binding": "{vehiclePlate}",
+    "preserved_aria_label": "Biển số xe nhận hàng",
+    "readonly": false,
+    "supplement": "audit/fixes/W-S-002/supplement"
+  },
+  {
+    "file": "apps/web/src/components/GatePassView.tsx",
+    "id": "gate-pass-receiver-name",
+    "visibleLabel": "Tên tài xế / Người nhận*",
+    "type": "input",
+    "binding": "{receiverName}",
+    "preserved_aria_label": "Tên tài xế / Người nhận",
+    "readonly": false,
+    "supplement": "audit/fixes/W-S-002/supplement"
+  },
+  {
+    "file": "apps/web/src/components/GatePassView.tsx",
+    "id": "gate-pass-receiver-cccd",
+    "visibleLabel": "Số CMND / CCCD*",
+    "type": "input",
+    "binding": "{receiverCccd}",
+    "preserved_aria_label": "Số CMND / CCCD",
+    "readonly": false,
+    "supplement": "audit/fixes/W-S-002/supplement"
+  }
+]

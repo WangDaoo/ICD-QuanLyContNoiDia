@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-10-02T01:55:24.177Z",
+  "apiPid": 14544,
+  "mysqlPid": 47064,
+  "readinessStatus": 200,
+  "build": {
+    "command": "scripts/start-local-runtime.ps1 -RestartApi",
+    "exitCode": 0,
+    "owner": "root final restart run"
+  },
+  "databaseMigrationPerformed": false,
+  "seedingPerformed": false,
+  "finalAggregate": {
+    "suites": 16,
+    "tests": 78,
+    "exitCode": 0
+  },
+  "note": "Health HTTP200 and recorded API PID independently read after the root final build/restart. Durable comparison ran against this runtime."
+}

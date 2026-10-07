@@ -1,0 +1,722 @@
+[
+  {
+    "text": "",
+    "label": "Tools",
+    "bounds": "[937,1045][1005,1113]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.ImageView"
+  },
+  {
+    "text": "TOS-MOBILE",
+    "label": "",
+    "bounds": "[60,84][263,127]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "ADMIN",
+    "label": "",
+    "bounds": "[277,84][362,129]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "Quản trị viên Hệ thống",
+    "label": "",
+    "bounds": "[32,134][627,171]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Chuyển sang nền tối",
+    "bounds": "[642,86][721,170]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.Button"
+  },
+  {
+    "text": "",
+    "label": "Quét mã",
+    "bounds": "[731,86][870,170]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.Button"
+  },
+  {
+    "text": "Quét",
+    "label": "",
+    "bounds": "[794,109][852,146]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Thông báo",
+    "bounds": "[881,86][959,170]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.Button"
+  },
+  {
+    "text": "",
+    "label": "Tài khoản và kết thúc ca",
+    "bounds": "[970,86][1049,170]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.Button"
+  },
+  {
+    "text": "",
+    "label": "Danh sách tác nghiệp và đặt lịch",
+    "bounds": "[37,195][1043,196]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.Button"
+  },
+  {
+    "text": "Sơ đồ vị trí bãi — Tổng quan",
+    "label": "",
+    "bounds": "[76,272][1004,345]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "Đang hiển thị 48 / 48 ô bãi",
+    "label": "",
+    "bounds": "[76,375][1004,417]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "Slot trống",
+    "label": "",
+    "bounds": "[97,464][216,501]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "Có container",
+    "label": "",
+    "bounds": "[274,464][428,501]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "Bảo trì / Ngưng dùng",
+    "label": "",
+    "bounds": "[486,464][739,501]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "Slot lạnh trống",
+    "label": "",
+    "bounds": "[796,464][974,501]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "Đang giữ (Hold)",
+    "label": "",
+    "bounds": "[97,548][288,585]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "Đang kiểm định",
+    "label": "",
+    "bounds": "[346,548][536,585]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "Block · Khu bãi",
+    "label": "",
+    "bounds": "[76,633][1004,672]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Chọn Block",
+    "bounds": "[76,685][1004,800]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.HorizontalScrollView"
+  },
+  {
+    "text": "",
+    "label": "Block A",
+    "bounds": "[76,685][244,800]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "true",
+    "class": "android.widget.Button"
+  },
+  {
+    "text": "A",
+    "label": "",
+    "bounds": "[110,721][210,764]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Block B",
+    "bounds": "[260,685][428,800]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.Button"
+  },
+  {
+    "text": "B",
+    "label": "",
+    "bounds": "[294,721][394,764]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Block C",
+    "bounds": "[444,685][612,800]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.Button"
+  },
+  {
+    "text": "C",
+    "label": "",
+    "bounds": "[478,721][579,764]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Block D",
+    "bounds": "[627,685][795,800]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.Button"
+  },
+  {
+    "text": "D",
+    "label": "",
+    "bounds": "[661,721][762,764]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "Khu A — Hàng khô Dry Cargo",
+    "label": "",
+    "bounds": "[76,813][1004,852]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "Tier · Tầng",
+    "label": "",
+    "bounds": "[76,885][1004,924]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Chọn Tier",
+    "bounds": "[76,937][1004,1053]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.HorizontalScrollView"
+  },
+  {
+    "text": "",
+    "label": "Tier 1",
+    "bounds": "[76,937][213,1053]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "true",
+    "class": "android.widget.Button"
+  },
+  {
+    "text": "1",
+    "label": "",
+    "bounds": "[110,973][179,1016]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Tier 2",
+    "bounds": "[228,937][365,1053]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.Button"
+  },
+  {
+    "text": "2",
+    "label": "",
+    "bounds": "[262,973][331,1016]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "Row · Hàng × Bay · Dãy — vuốt ngang để xem các dãy.",
+    "label": "",
+    "bounds": "[76,1084][1004,1123]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Sơ đồ Block A, Tier 1",
+    "bounds": "[76,1139][1004,1559]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.HorizontalScrollView"
+  },
+  {
+    "text": "Row / Bay",
+    "label": "",
+    "bounds": "[76,1140][244,1177]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "1",
+    "label": "",
+    "bounds": "[259,1139][532,1178]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "2",
+    "label": "",
+    "bounds": "[548,1139][821,1178]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "3",
+    "label": "",
+    "bounds": "[837,1139][1004,1178]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "1",
+    "label": "",
+    "bounds": "[76,1258][244,1297]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Slot A-01-01-1, Có container, TCSU8849201",
+    "bounds": "[260,1194][533,1362]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.Button"
+  },
+  {
+    "text": "A-01-01-1",
+    "label": "",
+    "bounds": "[281,1236][512,1275]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "TCSU8849201",
+    "label": "",
+    "bounds": "[281,1282][512,1319]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Slot A-01-02-1, Có container, GLDU5739201",
+    "bounds": "[549,1194][822,1362]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.Button"
+  },
+  {
+    "text": "A-01-02-1",
+    "label": "",
+    "bounds": "[570,1236][801,1275]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "GLDU5739201",
+    "label": "",
+    "bounds": "[570,1282][801,1319]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Slot A-01-03-1, Có container, VFCU7482910",
+    "bounds": "[837,1194][1004,1362]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.Button"
+  },
+  {
+    "text": "A-01-03-1",
+    "label": "",
+    "bounds": "[858,1236][1004,1275]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "VFCU7482910",
+    "label": "",
+    "bounds": "[858,1282][1004,1319]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "2",
+    "label": "",
+    "bounds": "[76,1442][244,1481]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Slot A-02-01-1, Slot trống",
+    "bounds": "[260,1378][533,1546]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.Button"
+  },
+  {
+    "text": "A-02-01-1",
+    "label": "",
+    "bounds": "[281,1420][512,1459]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "Slot trống",
+    "label": "",
+    "bounds": "[281,1466][512,1503]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Slot A-02-02-1, Có container, QAOU6004067",
+    "bounds": "[549,1378][822,1546]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.Button"
+  },
+  {
+    "text": "A-02-02-1",
+    "label": "",
+    "bounds": "[570,1420][801,1459]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "QAOU6004067",
+    "label": "",
+    "bounds": "[570,1466][801,1503]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Slot A-02-03-1, Có container, QAOU4835930",
+    "bounds": "[837,1378][1004,1546]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.widget.Button"
+  },
+  {
+    "text": "A-02-03-1",
+    "label": "",
+    "bounds": "[858,1420][1004,1459]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "QAOU4835930",
+    "label": "",
+    "bounds": "[858,1466][1004,1503]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "— Không có slot tại tọa độ này. Chạm một slot để xem chi tiết.",
+    "label": "",
+    "bounds": "[76,1574][1004,1611]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Cổng",
+    "bounds": "[0,1708][216,1857]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.view.View"
+  },
+  {
+    "text": "Cổng",
+    "label": "",
+    "bounds": "[76,1794][140,1834]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Bãi",
+    "bounds": "[216,1708][432,1857]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "true",
+    "class": "android.view.View"
+  },
+  {
+    "text": "Bãi",
+    "label": "",
+    "bounds": "[304,1794][343,1834]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "true",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Giám định",
+    "bounds": "[432,1708][648,1857]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.view.View"
+  },
+  {
+    "text": "Giám định",
+    "label": "",
+    "bounds": "[478,1794][602,1834]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Tra cứu",
+    "bounds": "[648,1708][864,1857]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.view.View"
+  },
+  {
+    "text": "Tra cứu",
+    "label": "",
+    "bounds": "[710,1794][802,1834]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  },
+  {
+    "text": "",
+    "label": "Việc ca",
+    "bounds": "[864,1708][1080,1857]",
+    "enabled": "true",
+    "clickable": "true",
+    "focusable": "true",
+    "selected": "false",
+    "class": "android.view.View"
+  },
+  {
+    "text": "Việc ca",
+    "label": "",
+    "bounds": "[927,1794][1016,1834]",
+    "enabled": "true",
+    "clickable": "false",
+    "focusable": "false",
+    "selected": "false",
+    "class": "android.widget.TextView"
+  }
+]
