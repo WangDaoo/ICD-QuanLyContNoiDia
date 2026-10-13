@@ -1,0 +1,11 @@
+{
+  "command": "node --test audit/tools/audit-target.test.mjs audit/tools/audit-api-target.test.mjs",
+  "startedAt": "2026-10-11T09:20:52.5884145+07:00",
+  "finishedAt": "2026-10-11T09:20:53.0064883+07:00",
+  "durationSeconds": 0.392,
+  "exitCode": 0,
+  "evidenceRun": "2026-10-11-native-01",
+  "scope": "source regression only; not native acceptance",
+  "stdout": "audit-target.stdout.log",
+  "stderr": "audit-target.stderr.log"
+}

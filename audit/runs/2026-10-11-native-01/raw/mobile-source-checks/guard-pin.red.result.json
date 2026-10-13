@@ -1,0 +1,13 @@
+{
+  "phase": "RED before production fix",
+  "command": "node --test audit/tools/audit-target.test.mjs audit/tools/audit-api-target.test.mjs",
+  "startedAt": "2026-10-11T09:23:06.0228796+07:00",
+  "finishedAt": "2026-10-11T09:23:06.3407797+07:00",
+  "durationSeconds": 0.308,
+  "exitCode": 1,
+  "expected": "5 missing expected exception failures for alternative matching MySQL ports and API ports",
+  "evidenceRun": "2026-10-11-native-01",
+  "scope": "source regression only; not native acceptance",
+  "stdout": "guard-pin.red.stdout.log",
+  "stderr": "guard-pin.red.stderr.log"
+}

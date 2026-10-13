@@ -1,0 +1,12 @@
+{
+  "phase": "GREEN after minimal guard fix",
+  "command": "node --test audit/tools/audit-target.test.mjs audit/tools/audit-api-target.test.mjs",
+  "startedAt": "2026-10-11T09:23:22.8904432+07:00",
+  "finishedAt": "2026-10-11T09:23:23.2654197+07:00",
+  "durationSeconds": 0.361,
+  "exitCode": 0,
+  "evidenceRun": "2026-10-11-native-01",
+  "scope": "source regression only; not native acceptance",
+  "stdout": "guard-pin.green.stdout.log",
+  "stderr": "guard-pin.green.stderr.log"
+}

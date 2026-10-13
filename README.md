@@ -104,6 +104,14 @@ Hướng dẫn: [scripts/README.md](scripts/README.md). Log: `logs/launcher/`. B
 
 Runtime chuẩn có Swagger `/api/docs` và JSON `/api/docs-json` khi cấu hình bật Swagger trong [main.ts](apps/api/src/main.ts). Không tính hai route hạ tầng này vào 205 endpoint controller. Audit server dùng bootstrap test riêng; khả năng mở Swagger phải kiểm ở runtime đó.
 
+### 2.3. Chạy Mobile trên thiết bị thật (Expo Go)
+
+Để test app Mobile trên điện thoại thật qua chung mạng Wi-Fi (LAN):
+1. Đảm bảo Backend đang chạy (qua Docker hoặc Local).
+2. Sửa file `apps/mobile/.env`, đổi biến `EXPO_PUBLIC_API_BASE_URL` từ `127.0.0.1` sang **địa chỉ IPv4 của máy tính LAN** (VD: `http://192.168.1.x:3000/api`).
+3. (Nếu Backend dùng MySQL Docker) Đảm bảo chuỗi kết nối trong PrismaService có cờ `allowPublicKeyRetrieval=true` để tránh lỗi chứng chỉ.
+4. Chạy `pnpm --filter @icd/mobile start` và dùng điện thoại quét mã QR.
+
 ## 3. Nghiệp vụ xuyên suốt
 
 ```mermaid

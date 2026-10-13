@@ -1,0 +1,11 @@
+{
+  "sourceDiffExitCode": 1,
+  "testDiffExitCode": 1,
+  "explanation": "git diff --no-index exit 1 means differences captured",
+  "asciiSource": "pass",
+  "sourceFiles": [
+    "audit/tools/audit-target.mjs",
+    "audit/tools/audit-target.test.mjs"
+  ],
+  "patch": "guard-pin.diff"
+}

@@ -1,0 +1,32 @@
+name: icd-native-audit-20261011
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: icd-native-audit-mysql-20261011
+    ports:
+      - '127.0.0.1:3308:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Missing private audit root password}
+      MYSQL_DATABASE: icd_ux_audit_20261003_e2e
+      MYSQL_USER: ${MYSQL_USER:?Missing private audit user}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?Missing private audit password}
+      TZ: UTC
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - mysql_data:/var/lib/mysql
+    labels:
+      icd.audit.run: 2026-10-11-native-01
+      icd.audit.purpose: isolated-android-acceptance
+    healthcheck:
+      test: ['CMD-SHELL', 'MYSQL_PWD="$$MYSQL_ROOT_PASSWORD" mysqladmin ping -h 127.0.0.1 -u root --silent']
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 30s
+volumes:
+  mysql_data:
+    name: icd-native-audit-20261011-mysql
+    labels:
+      icd.audit.run: 2026-10-11-native-01

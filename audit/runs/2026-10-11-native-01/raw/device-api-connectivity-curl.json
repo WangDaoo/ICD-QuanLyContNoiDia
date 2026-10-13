@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-11T09:22:59.475477+07:00",
+  "serial": "emulator-5554",
+  "request": "GET http://127.0.0.1:3001/api/health from Android shell",
+  "method": "native curl over ADB reverse",
+  "status": "HTTP/1.1 200 OK",
+  "body": {
+    "data": {
+      "status": "ok",
+      "service": "icd-api",
+      "database": "up",
+      "timestamp": "2026-10-11T02:22:59.432Z"
+    }
+  },
+  "passed": true,
+  "scope": "Device network only; not proof of app API configuration"
+}

@@ -1,0 +1,50 @@
+{
+  "scope": "source guard fix only; not native acceptance",
+  "sourceFiles": [
+    "audit/tools/audit-target.mjs",
+    "audit/tools/audit-target.test.mjs"
+  ],
+  "fixedContract": {
+    "preserve": [
+      "loopback host allowlist",
+      "URL/environment hostname and port equality",
+      "database fields",
+      "audit run",
+      "actual selected database"
+    ],
+    "apiPort": "3001",
+    "mysqlPort": "3308"
+  },
+  "red": {
+    "failureReason": "Missing expected exception",
+    "exitCode": 1,
+    "fail": 5,
+    "durationSeconds": 0.308,
+    "tests": 7,
+    "pass": 2,
+    "metadata": "guard-pin.red.result.json"
+  },
+  "green": {
+    "exitCode": 0,
+    "fail": 0,
+    "durationSeconds": 0.361,
+    "tests": 7,
+    "pass": 7,
+    "metadata": "guard-pin.green.result.json"
+  },
+  "review": {
+    "concreteDefects": 0,
+    "callsiteCompatibility": "runtime consumers use audit dotenv strings; setup pins 3308 and 3001",
+    "verdict": "approved",
+    "standaloneGuardTestsExitCode": 0
+  },
+  "reflection": {
+    "sharedRuleEdits": "none",
+    "outcome": "PROJECT-ONLY and FIX-CHECK",
+    "what": "The existing generic guard and its port mismatch check accepted a synchronized alternative MYSQL_PORT and DATABASE_URL port.",
+    "evidence": "5 RED failures became 7 GREEN passes",
+    "artifactLocationReason": "Task ownership is limited to two source files and raw evidence artifacts.",
+    "prevention": "Parameterized regressions independently reject 3306, 3307 and 3309; API port regressions reject 3000 and 3002."
+  },
+  "patch": "guard-pin.diff"
+}

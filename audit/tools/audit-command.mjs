@@ -9,7 +9,8 @@ const require = createRequire(resolve(api, 'package.json'));
 const environment = { ...process.env, ...require('dotenv').parse(readFileSync(resolve(root, 'audit/runs', AUDIT_RUN, '.env.local'))) };
 assertAuditTarget(environment);
 const connection = await require('mariadb').createConnection({ host: environment.MYSQL_HOST,
-  port: Number(environment.MYSQL_PORT), user: environment.MYSQL_USER, password: environment.MYSQL_PASSWORD, database: environment.MYSQL_DATABASE });
+  port: Number(environment.MYSQL_PORT), user: environment.MYSQL_USER, password: environment.MYSQL_PASSWORD,
+  database: environment.MYSQL_DATABASE, allowPublicKeyRetrieval: true });
 const actual = await connection.query('SELECT DATABASE() AS databaseName');
 assertAuditTarget(environment, actual[0]?.databaseName);
 if (process.argv[2] === 'schema') {

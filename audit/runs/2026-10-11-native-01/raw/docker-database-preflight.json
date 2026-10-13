@@ -1,0 +1,46 @@
+{
+  "at": "2026-10-11T02:21:54.147Z",
+  "passed": true,
+  "database": "icd_ux_audit_20261003_e2e",
+  "mysqlVersion": "8.4.11",
+  "container": {
+    "id": "3cacaddf76618c6ce9a7fcf9cdc35ec65da9fd26d3b4d9a19a4498480ee74c74",
+    "name": "/icd-native-audit-mysql-20261011",
+    "image": "mysql:8.4",
+    "imageId": "sha256:85b9bf2e29cf836ecb8c2a15a935d4ba0c606631dff1dd79531a11983c638f2a",
+    "health": "healthy",
+    "bindings": [
+      {
+        "HostIp": "127.0.0.1",
+        "HostPort": "3308"
+      }
+    ],
+    "volumes": [
+      {
+        "name": "icd-native-audit-20261011-mysql",
+        "destination": "/var/lib/mysql"
+      }
+    ]
+  },
+  "counts": {
+    "user": 8,
+    "container_visit": 10,
+    "yard_slot": 48,
+    "yard_movement": 0,
+    "container_inspection": 0,
+    "in_yard_booking": 0,
+    "gate_pass": 0
+  },
+  "visitStates": [
+    {
+      "state": "AUTHORIZED",
+      "count": 1
+    },
+    {
+      "state": "IN_YARD",
+      "count": 9
+    }
+  ],
+  "supersedes": "Initial local MySQL preflight; local API/MySQL were stopped after user requested Docker",
+  "scope": "Read-only database/container identity evidence; not Android app acceptance"
+}

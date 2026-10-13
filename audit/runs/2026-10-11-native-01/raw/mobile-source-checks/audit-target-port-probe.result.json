@@ -1,0 +1,11 @@
+{
+  "command": "node --input-type=module - (pure guard probe)",
+  "startedAt": "2026-10-11T09:21:23.3300007+07:00",
+  "finishedAt": "2026-10-11T09:21:23.5237681+07:00",
+  "durationSeconds": 0.183,
+  "exitCode": 0,
+  "evidenceRun": "2026-10-11-native-01",
+  "scope": "source regression only; no network/DB; not native acceptance",
+  "stdout": "audit-target-port-probe.stdout.log",
+  "stderr": "audit-target-port-probe.stderr.log"
+}

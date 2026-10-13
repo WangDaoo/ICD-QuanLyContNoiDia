@@ -4,6 +4,7 @@ export function assertAuditTarget(environment, actualDatabase) {
   const url = new URL(environment.DATABASE_URL);
   const validHost = ['127.0.0.1', 'localhost'].includes(environment.MYSQL_HOST);
   if (!validHost || url.hostname !== environment.MYSQL_HOST ||
+      environment.MYSQL_PORT !== '3308' || environment.API_PORT !== '3001' ||
       Number(url.port) !== Number(environment.MYSQL_PORT) ||
       url.pathname !== '/' + AUDIT_DATABASE || environment.MYSQL_DATABASE !== AUDIT_DATABASE ||
       environment.ICD_AUDIT_RUN !== AUDIT_RUN ||

@@ -8,7 +8,11 @@ export const root = resolve(import.meta.dirname, '../..');
 const require = createRequire(resolve(root, 'apps/api/package.json'));
 export const privateFile = resolve(root, 'audit/runs', AUDIT_RUN, '.env.local');
 export const env = require('dotenv').parse(readFileSync(privateFile));
-export const artifactDir = resolve(root, 'audit/runs', AUDIT_RUN, 'raw/web-types-api');
+const evidenceRun = process.env.ICD_AUDIT_EVIDENCE_RUN;
+if (evidenceRun && !/^\d{4}-\d{2}-\d{2}-native-\d+$/.test(evidenceRun)) {
+  throw new Error('Invalid native audit evidence run directory.');
+}
+export const artifactDir = resolve(root, 'audit/runs', evidenceRun ?? AUDIT_RUN, 'raw/web-types-api');
 mkdirSync(artifactDir, { recursive: true });
 
 export function assertExactAuditApiTarget(environment, baseUrl) {
@@ -28,7 +32,8 @@ let lastHealthyAt = 0;
 
 export async function guardAuditRuntime() {
   assertExactAuditApiTarget(env, baseUrl);
-  connection ??= await require('mariadb').createConnection({ host: env.MYSQL_HOST, port: Number(env.MYSQL_PORT), user: env.MYSQL_USER, password: env.MYSQL_PASSWORD, database: env.MYSQL_DATABASE });
+  connection ??= await require('mariadb').createConnection({ host: env.MYSQL_HOST, port: Number(env.MYSQL_PORT),
+    user: env.MYSQL_USER, password: env.MYSQL_PASSWORD, database: env.MYSQL_DATABASE, allowPublicKeyRetrieval: true });
   const actual = await connection.query('SELECT DATABASE() AS databaseName');
   assertAuditTarget(env, actual[0]?.databaseName);
   if (!runtimePid) {

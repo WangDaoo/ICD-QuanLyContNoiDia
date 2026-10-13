@@ -21,7 +21,7 @@ export class PrismaService extends PrismaClient implements OnModuleInit, OnModul
     const adapter = new PrismaMariaDb({
       host: configService.getOrThrow<string>('MYSQL_HOST'),
 
-      port: configService.getOrThrow<number>('MYSQL_PORT'),
+      port: Number(configService.getOrThrow<string>('MYSQL_PORT')),
 
       user: configService.getOrThrow<string>('MYSQL_USER'),
 
@@ -29,9 +29,11 @@ export class PrismaService extends PrismaClient implements OnModuleInit, OnModul
 
       database: configService.getOrThrow<string>('MYSQL_DATABASE'),
 
-      connectionLimit: configService.getOrThrow<number>('MYSQL_CONNECTION_LIMIT'),
+      connectionLimit: Number(configService.getOrThrow<string>('MYSQL_CONNECTION_LIMIT')),
 
       connectTimeout: 5_000,
+
+      allowPublicKeyRetrieval: true,
     });
 
     super({

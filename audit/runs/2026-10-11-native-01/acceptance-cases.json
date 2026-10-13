@@ -1,0 +1,129 @@
+{
+  "source_status_is_not_native_acceptance": true,
+  "cases": [
+    {
+      "finding": "M-004",
+      "title": "Dense header and field actions invite adjacent mis-taps",
+      "baseline_status": "FIXED",
+      "acceptance": [
+        "Measured external gaps are≥8dp in native screenshots/hierarchy.",
+        "320dp layout reflows without reducing target sizes or spacing."
+      ],
+      "native_status": "PENDING"
+    },
+    {
+      "finding": "M-005",
+      "title": "Large type on a narrow screen clips the role and spills the gate icon",
+      "baseline_status": "FIXED",
+      "acceptance": [
+        "At320dp width and150% type, full role is readable and no icon/text crosses its target.",
+        "All tab labels remain distinguishable; inspect at200% separately."
+      ],
+      "native_status": "PENDING"
+    },
+    {
+      "finding": "M-006",
+      "title": "Raw enums and mixed language leak into operational screens",
+      "baseline_status": "FIXED",
+      "acceptance": [
+        "Each currently observed enum renders a Vietnamese business label on list/detail/confirmation screens.",
+        "Known backend English notification templates are localized or clearly marked language-specific."
+      ],
+      "native_status": "PENDING"
+    },
+    {
+      "finding": "M-007",
+      "title": "Seal checks still ask for damage severity",
+      "baseline_status": "FIXED",
+      "acceptance": [
+        "Seal and condition checks show relevant fields/copy only.",
+        "Damage surveys retain their current severity choices and submitted notes."
+      ],
+      "native_status": "PENDING"
+    },
+    {
+      "finding": "M-008",
+      "title": "Inspection history starts with a false empty message",
+      "baseline_status": "FIXED",
+      "acceptance": [
+        "Under a delayed GET, history shows loading rather than empty.",
+        "Under a failed GET, history shows a local retry; successful empty/populated results are distinct."
+      ],
+      "native_status": "PENDING"
+    },
+    {
+      "finding": "M-009",
+      "title": "Unread total is passed but never rendered",
+      "baseline_status": "FIXED",
+      "acceptance": [
+        "Native header/content shows the server unread count for zero and nonzero states.",
+        "Mark-read actions update the displayed count; verify with authorized fixture state."
+      ],
+      "native_status": "PENDING"
+    },
+    {
+      "finding": "M-010",
+      "title": "Booking date requires a manually formatted timestamp",
+      "baseline_status": "FIXED",
+      "acceptance": [
+        "User can enter a valid date/time without recalling separators.",
+        "Helper/timezone remains visible after entry and validation points to this field."
+      ],
+      "native_status": "PENDING"
+    },
+    {
+      "finding": "M-011",
+      "title": "Theme selection resets to light when the session reloads",
+      "baseline_status": "FIXED",
+      "acceptance": [
+        "Choose dark, close/reopen the app and retain dark with the existing auth session.",
+        "Initial unconfigured appearance follows the selected documented default/system preference."
+      ],
+      "native_status": "PENDING"
+    },
+    {
+      "finding": "M-012",
+      "title": "Missing-field error remains after both survey fields are filled",
+      "baseline_status": "FIXED",
+      "acceptance": [
+        "Blank review produces clear field-specific messages.",
+        "Filling each required field removes its missing-field error before another submit; server failures remain visible."
+      ],
+      "native_status": "PENDING"
+    },
+    {
+      "finding": "M-014",
+      "title": "Shared card headings are plain Text without heading semantics",
+      "baseline_status": "FIXED",
+      "acceptance": [
+        "TalkBack heading navigation reaches each meaningful card/title once in logical order.",
+        "Ordinary content and controls remain individually reachable."
+      ],
+      "native_status": "PENDING"
+    },
+    {
+      "finding": "M-013",
+      "title": "Shared header/layout repeat values outside existing tokens",
+      "baseline_status": "FIXED",
+      "acceptance": [
+        "Affected consumers reference named tokens; literals are limited to token definitions and documented geometry.",
+        "Preserve existing layout and test both themes plus320dp/font scale1.5."
+      ],
+      "native_status": "PENDING"
+    },
+    {
+      "finding": "M-N-001",
+      "title": "Logout could be undone by a late token refresh or cleanup.",
+      "baseline_status": "FIXED",
+      "acceptance": [],
+      "native_status": "PENDING"
+    },
+    {
+      "finding": "M-N-002",
+      "title": "Late old cache writes/clears could remove a newer same-user cache.",
+      "baseline_status": "FIXED",
+      "acceptance": [],
+      "native_status": "PENDING"
+    }
+  ]
+}

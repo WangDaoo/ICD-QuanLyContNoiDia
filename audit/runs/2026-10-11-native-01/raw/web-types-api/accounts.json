@@ -1,0 +1,363 @@
+{
+  "run": "2026-10-03-improvement-02",
+  "target": {
+    "apiPort": 3001,
+    "mysqlPort": 3308,
+    "database": "icd_ux_audit_20261003_e2e"
+  },
+  "accounts": [
+    {
+      "id": "f2c0419f-9688-4492-b328-9b0598bb3178",
+      "role": "ADMIN",
+      "permissionCount": 56,
+      "emailKey": "AUDIT_USER_ADMIN_EMAIL",
+      "passwordKey": "AUDIT_USER_PASSWORD"
+    },
+    {
+      "id": "0ebb1c32-e408-4971-9e89-d010d7f9db2d",
+      "role": "GATE_STAFF",
+      "permissionCount": 12,
+      "emailKey": "AUDIT_USER_GATE_STAFF_EMAIL",
+      "passwordKey": "AUDIT_USER_PASSWORD"
+    },
+    {
+      "id": "eee451f7-cb36-465c-9fb7-407555daf749",
+      "role": "YARD_STAFF",
+      "permissionCount": 10,
+      "emailKey": "AUDIT_USER_YARD_STAFF_EMAIL",
+      "passwordKey": "AUDIT_USER_PASSWORD"
+    },
+    {
+      "id": "9534ff6c-af4e-4876-9310-c419ddb5079b",
+      "role": "OPERATOR",
+      "permissionCount": 41,
+      "emailKey": "AUDIT_USER_OPERATOR_EMAIL",
+      "passwordKey": "AUDIT_USER_PASSWORD"
+    },
+    {
+      "id": "d8e8ad43-d7c6-4ebe-82fc-6d71281cbf1d",
+      "role": "MANAGER",
+      "permissionCount": 25,
+      "emailKey": "AUDIT_USER_MANAGER_EMAIL",
+      "passwordKey": "AUDIT_USER_PASSWORD"
+    },
+    {
+      "id": "d5b8e40d-8f4e-47e6-8c08-88bc84bc0565",
+      "role": "AUDIT_READ_ONLY",
+      "permissionCount": 17,
+      "emailKey": "AUDIT_USER_AUDIT_READ_ONLY_EMAIL",
+      "passwordKey": "AUDIT_USER_PASSWORD"
+    },
+    {
+      "id": "7a797c58-3ac3-4b52-b6f9-5b0f8f52d9b9",
+      "role": "AUDIT_NONE",
+      "permissionCount": 0,
+      "emailKey": "AUDIT_USER_AUDIT_NONE_EMAIL",
+      "passwordKey": "AUDIT_USER_PASSWORD"
+    }
+  ],
+  "results": [
+    {
+      "name": "POST /auth/login",
+      "status": 200,
+      "expected": [
+        200
+      ],
+      "passed": true
+    },
+    {
+      "name": "GET /admin/permissions",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "GET /admin/roles",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /admin/roles",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "PUT /admin/roles/895898a7-3f70-4da4-b49b-36885642818b/permissions",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /admin/roles",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "PUT /admin/roles/f9345f00-3f67-403c-9aeb-91d77114a636/permissions",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "GET /admin/users?pageSize=100",
+      "status": 200,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /admin/users",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /auth/login",
+      "status": 200,
+      "expected": [
+        200
+      ],
+      "passed": true
+    },
+    {
+      "name": "Real login ADMIN",
+      "passed": true,
+      "evidence": {
+        "userId": "f2c0419f-9688-4492-b328-9b0598bb3178",
+        "roleCodes": [
+          "ADMIN"
+        ],
+        "permissionCount": 56
+      }
+    },
+    {
+      "name": "POST /admin/users",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /auth/login",
+      "status": 200,
+      "expected": [
+        200
+      ],
+      "passed": true
+    },
+    {
+      "name": "Real login GATE_STAFF",
+      "passed": true,
+      "evidence": {
+        "userId": "0ebb1c32-e408-4971-9e89-d010d7f9db2d",
+        "roleCodes": [
+          "GATE_STAFF"
+        ],
+        "permissionCount": 12
+      }
+    },
+    {
+      "name": "POST /admin/users",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /auth/login",
+      "status": 200,
+      "expected": [
+        200
+      ],
+      "passed": true
+    },
+    {
+      "name": "Real login YARD_STAFF",
+      "passed": true,
+      "evidence": {
+        "userId": "eee451f7-cb36-465c-9fb7-407555daf749",
+        "roleCodes": [
+          "YARD_STAFF"
+        ],
+        "permissionCount": 10
+      }
+    },
+    {
+      "name": "POST /admin/users",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /auth/login",
+      "status": 200,
+      "expected": [
+        200
+      ],
+      "passed": true
+    },
+    {
+      "name": "Real login OPERATOR",
+      "passed": true,
+      "evidence": {
+        "userId": "9534ff6c-af4e-4876-9310-c419ddb5079b",
+        "roleCodes": [
+          "OPERATOR"
+        ],
+        "permissionCount": 41
+      }
+    },
+    {
+      "name": "POST /admin/users",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /auth/login",
+      "status": 200,
+      "expected": [
+        200
+      ],
+      "passed": true
+    },
+    {
+      "name": "Real login MANAGER",
+      "passed": true,
+      "evidence": {
+        "userId": "d8e8ad43-d7c6-4ebe-82fc-6d71281cbf1d",
+        "roleCodes": [
+          "MANAGER"
+        ],
+        "permissionCount": 25
+      }
+    },
+    {
+      "name": "POST /admin/users",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /auth/login",
+      "status": 200,
+      "expected": [
+        200
+      ],
+      "passed": true
+    },
+    {
+      "name": "Real login AUDIT_READ_ONLY",
+      "passed": true,
+      "evidence": {
+        "userId": "d5b8e40d-8f4e-47e6-8c08-88bc84bc0565",
+        "roleCodes": [
+          "AUDIT_READ_ONLY"
+        ],
+        "permissionCount": 17
+      }
+    },
+    {
+      "name": "GET /containers",
+      "status": 200,
+      "expected": [
+        200
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /manifests",
+      "status": 403,
+      "expected": [
+        403
+      ],
+      "passed": true,
+      "errorCode": "AUTH_PERMISSION_DENIED"
+    },
+    {
+      "name": "POST /admin/users",
+      "status": 201,
+      "expected": [
+        200,
+        201
+      ],
+      "passed": true
+    },
+    {
+      "name": "POST /auth/login",
+      "status": 200,
+      "expected": [
+        200
+      ],
+      "passed": true
+    },
+    {
+      "name": "Real login AUDIT_NONE",
+      "passed": true,
+      "evidence": {
+        "userId": "7a797c58-3ac3-4b52-b6f9-5b0f8f52d9b9",
+        "roleCodes": [
+          "AUDIT_NONE"
+        ],
+        "permissionCount": 0
+      }
+    },
+    {
+      "name": "GET /containers",
+      "status": 403,
+      "expected": [
+        403
+      ],
+      "passed": true,
+      "errorCode": "AUTH_PERMISSION_DENIED"
+    },
+    {
+      "name": "POST /manifests",
+      "status": 403,
+      "expected": [
+        403
+      ],
+      "passed": true,
+      "errorCode": "AUTH_PERMISSION_DENIED"
+    }
+  ]
+}
