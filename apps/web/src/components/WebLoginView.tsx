@@ -39,10 +39,9 @@ export const WebLoginView: React.FC = () => {
 
   return (
     <div className="min-h-dvh bg-slate-950 text-slate-100 flex flex-col relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(var(--icd-login-grid)_1px,transparent_1px)] [background-size:28px_28px] opacity-25 pointer-events-none" />
       <div className="absolute -top-40 -left-40 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
       <header className="relative px-5 py-5 sm:px-8 border-b border-slate-800/80 flex items-center gap-3">
-        <div className="h-10 w-10 rounded-xl bg-gradient-to-tr from-blue-700 to-sky-500 flex items-center justify-center font-black text-sm">
+        <div className="h-10 w-10 rounded-xl bg-blue-700 flex items-center justify-center font-black text-sm">
           ICD
         </div>
         <div>
@@ -57,7 +56,7 @@ export const WebLoginView: React.FC = () => {
             Không gian vận hành tập trung
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight">
-            Quản lý vòng đời container <span className="text-sky-400">từ cổng đến bãi.</span>
+            Quản lý vòng đời container <span className="text-blue-400">từ cổng đến bãi.</span>
           </h2>
           <p className="text-sm leading-relaxed text-slate-300">
             Theo dõi lược khai, chuyến xe, vị trí bãi, dịch vụ và bàn giao vận chuyển trong cùng một
@@ -65,7 +64,7 @@ export const WebLoginView: React.FC = () => {
           </p>
           <div className="hidden sm:grid grid-cols-2 gap-3">
             <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-4">
-              <Boxes className="h-5 w-5 text-sky-400 mb-3" />
+              <Boxes className="h-5 w-5 text-blue-400 mb-3" />
               <p className="font-semibold text-sm">Vận hành cổng & bãi</p>
               <p className="text-xs text-slate-400 mt-2 leading-relaxed">
                 Điều phối vị trí, tác nghiệp và công việc của ca.
@@ -147,7 +146,7 @@ export const WebLoginView: React.FC = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-sky-600 p-3 text-sm font-bold hover:from-blue-500 hover:to-sky-500 disabled:opacity-50"
+              className="w-full flex items-center justify-center gap-2 rounded-xl bg-blue-600 p-3 text-sm font-bold hover:bg-blue-700 disabled:opacity-50"
             >
               {isSubmitting ? (
                 <>

@@ -65,7 +65,7 @@ test('existing Gate Pass route wins over the linked visit and never opens anothe
     await render(GatePassView, {}, { targetGatePassId: pass.id, targetVisitId: visit.id });
     assert.ok(document.querySelector('dialog') === null, 'existing pass destination must not open issue dialog');
     assert.match(document.body.textContent, /GP-FIXTURE/);
-    assert.match(document.body.textContent, /Xác nhận Ra cổng/);
+    assert.match(document.body.textContent, /Xác nhận xuất cổng/);
   });
 });
 
@@ -209,7 +209,7 @@ test('refreshed expired pass removes token QR and Gate-out action from its selec
       clock = 200000;
       await render(GatePassView, { gatePasses: [{ ...pass, expiresAt: new Date(150000).toISOString() }] });
       assert.ok(!document.querySelector('[data-testid="gate-pass-qr"]'), 'expired token QR must disappear');
-      assert.doesNotMatch(document.body.textContent, /Xác nhận Ra cổng/);
+      assert.doesNotMatch(document.body.textContent, /Xác nhận xuất cổng/);
       assert.match(document.body.textContent, /hết hạn/i);
     });
   } finally { Date.now = originalNow; }

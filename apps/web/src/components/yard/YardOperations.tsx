@@ -50,7 +50,7 @@ function StatusBadge({ status }: { status: string }) {
   };
   return (
     <span
-      className={`inline-flex whitespace-nowrap rounded-full px-2 py-1 text-caption font-semibold ${colors[status] ?? 'bg-slate-100 text-slate-700'}`}
+      className={`status-frame inline-flex whitespace-nowrap rounded-full px-2 py-1 text-caption font-semibold ${colors[status] ?? 'bg-slate-100 text-slate-700'}`}
     >
       {STATUS_LABELS[status] ?? status}
     </span>

@@ -84,6 +84,8 @@ export const ManifestsView: React.FC = () => {
   const {
     currentUser,
     detailStatus,
+    resourceStatus,
+    isLoading,
     manifests,
     shippingLines,
     consignees,
@@ -95,6 +97,8 @@ export const ManifestsView: React.FC = () => {
     cancelManifest,
   } = useApp();
   const can = (permission: string) => hasWebPermission(currentUser, permission);
+  const activeShippingLines = shippingLines.filter((line) => line.active);
+  const shippingLineState = resourceStatus?.shippingLines ?? (isLoading ? 'loading' : 'ready');
 
   const action = useCommandAction();
   const validation = useFormValidation();
@@ -205,11 +209,11 @@ export const ManifestsView: React.FC = () => {
         <CommandNotice notice={action.notice} />
       )}
       {/* Header Bar */}
-      <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="page-heading flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h2 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
             <FileText className="w-5 h-5 text-blue-600" />
-            <span>Bản lược khai hàng hóa (Manifest) & Vận đơn</span>
+            <span>Manifest và vận đơn</span>
           </h2>
           <p className="text-xs text-slate-500 mt-1">
             Quản lý danh sách tàu cập, Master Bill (MBL), House Bill (HBL) và đối soát chuẩn
@@ -319,7 +323,7 @@ export const ManifestsView: React.FC = () => {
                         {m.manifestNo}
                       </span>
                       <span
-                        className={`px-2 py-1 text-caption font-bold rounded-full ${
+                        className={`status-frame px-2 py-1 text-caption font-bold rounded-full ${
                           m.status === 'SUBMITTED'
                             ? 'bg-emerald-100 text-emerald-800'
                             : m.status === 'CANCELLED'
@@ -358,7 +362,7 @@ export const ManifestsView: React.FC = () => {
                     <h3 className="text-base font-bold text-slate-900">
                       {selectedManifest.manifestNo}
                     </h3>
-                    <span className="px-3 py-1 text-xs font-bold bg-blue-100 text-blue-800 rounded-full">
+                    <span className="status-frame px-3 py-1 text-xs font-bold bg-blue-100 text-blue-800 rounded-full">
                       Hãng tàu: {selectedManifest.shippingLine}
                     </span>
                   </div>
@@ -563,19 +567,35 @@ export const ManifestsView: React.FC = () => {
                   </label>
                   <select
                     id="manifests-new-shipping-line"
+                    required
                     value={newShippingLine}
                     onChange={(e) => setNewShippingLine(e.target.value)}
-                    className="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white"
+                    disabled={activeShippingLines.length === 0}
+                    aria-describedby={activeShippingLines.length === 0 ? 'manifests-new-shipping-line-notice' : undefined}
+                    className="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white disabled:bg-slate-100 disabled:text-slate-400"
                   >
                     <option value="">Chọn hãng tàu</option>
-                    {shippingLines
-                      .filter((line) => line.active)
-                      .map((line) => (
-                        <option key={line.id} value={line.id}>
-                          {line.name}
-                        </option>
-                      ))}
+                    {activeShippingLines.map((line) => (
+                      <option key={line.id} value={line.id}>
+                        {line.name}
+                      </option>
+                    ))}
                   </select>
+                  {activeShippingLines.length === 0 && (
+                    <p
+                      id="manifests-new-shipping-line-notice"
+                      role="status"
+                      className={`text-xs mt-1 ${shippingLineState === 'loading' ? 'text-slate-500' : 'text-rose-600'}`}
+                    >
+                      {shippingLineState === 'loading'
+                        ? 'Đang tải danh sách hãng tàu…'
+                        : shippingLineState === 'forbidden'
+                          ? 'Tài khoản không có quyền xem danh sách hãng tàu; không thể tạo Manifest.'
+                          : shippingLineState === 'error' || shippingLineState === 'stale'
+                            ? 'Chưa tải được danh sách hãng tàu; không thể tạo Manifest.'
+                            : 'Chưa có hãng tàu đang hoạt động; không thể tạo Manifest.'}
+                    </p>
+                  )}
                 </div>
                 <div>
                   <label

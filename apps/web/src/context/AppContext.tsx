@@ -99,6 +99,7 @@ export interface AppContextType {
   warehouses: CustomerWarehouse[];
   partnerClients: PartnerApiClient[];
   handovers: TransportHandover[];
+  handoverPartnerOptions: HandoverPartnerOption[];
   partnerApiLogs: PartnerApiLog[];
   auditLogs: AuditLog[];
 
@@ -305,6 +306,13 @@ import { loadAllPages } from '../services/api/load-list';
 import { asRecord, asRecords, asString, asStrings, asOptionalString, asNumber } from '../services/mappers/api-response.mapper';
 import { errorStatus, errorMessage, readFailureState, type ResourceStatus, type DetailStatus } from './resource-data';
 import { getSafetyReadStatus, mergeSafetyRecords, type VisitSafetyStatus } from '../services/visit-safety-data';
+import { canReadRoute } from '../services/read-permissions';
+
+export interface HandoverPartnerOption {
+  id: string;
+  partnerCode: string;
+  partnerName: string;
+}
 
 const DATA_ROUTES: Record<string, string> = {
   containerVisits: '/containers', manifests: '/manifests', truckVisits: '/gate/truck-visits',
@@ -337,7 +345,7 @@ async function loadList(path: string): Promise<Record<string, unknown>[]> {
   return asRecords(await loadAllPages(params => apiClient.get<unknown>(path, { params })));
 }
 
-const emptyData = () => ({ ...mapLiveCollections({}, ''), visitSafetyStatus: {} as VisitSafetyStatus });
+const emptyData = () => ({ ...mapLiveCollections({}, ''), visitSafetyStatus: {} as VisitSafetyStatus, handoverPartnerOptions: [] as HandoverPartnerOption[] });
 const isoDate = (value?: string) => value ? new Date(value).toISOString() : undefined;
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -373,6 +381,13 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       if (version !== sessionVersion.current) return;
       setApiReady(Boolean(health));
       const previous = currentData.current;
+      // Permission-gating wrappers: skip API calls the server would reject with 403.
+      const actor = latestActor.current;
+      const forbiddenRead = () => Object.assign(new Error('Không có quyền đọc dữ liệu.'), { status: 403 });
+      const readList = (path: string): Promise<Record<string, unknown>[]> =>
+        canReadRoute(actor, path) ? loadList(path) : Promise.reject(forbiddenRead());
+      const readOne = (path: string): Promise<unknown> =>
+        canReadRoute(actor, path) ? apiClient.get<unknown>(path) : Promise.reject(forbiddenRead());
       const raw: Record<string, unknown[]> = {};
       const statuses: ResourceStatus = {};
       const details: DetailStatus = {
@@ -381,7 +396,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         handovers: Object.fromEntries(previous.handovers.map(row => [row.id, 'loading'])),
       };
       const failures: string[] = [];
-      setResourceStatus(old => Object.fromEntries(Object.keys(DATA_ROUTES).map(key => [key, key !== 'yardSlots' && (old[key] === 'ready' || old[key] === 'stale') ? old[key] : 'loading'])));
+      setResourceStatus(old => ({
+        ...Object.fromEntries(Object.keys(DATA_ROUTES).map(key => [key, key !== 'yardSlots' && (old[key] === 'ready' || old[key] === 'stale') ? old[key] : 'loading'])),
+        handoverPartnerOptions: (old.handoverPartnerOptions === 'ready' || old.handoverPartnerOptions === 'stale') ? old.handoverPartnerOptions : 'loading',
+      }));
       setDetailStatus(old => activeSession() ? {
         manifests: { ...details.manifests }, roles: { ...details.roles }, handovers: { ...details.handovers },
       } : old);
@@ -430,7 +448,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       };
       await Promise.all(Object.entries(DATA_ROUTES).map(async ([key, path]) => {
         try {
-          const rows = await loadList(path);
+          const rows = await readList(path);
           if (!activeSession()) return;
           // Validate the complete paginated resource before publishing it, including financial fields.
           mapLiveCollections({ [key]: rows }, latestActor.current.role);
@@ -461,15 +479,15 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         }
       };
       raw.manifests = await Promise.all(asRecords(raw.manifests).map(m => detailRead('manifests', m, async () => {
-        const masterBls = await loadList('/manifests/' + asString(m.id) + '/master-bls');
-        const masterBills = await Promise.all(masterBls.map(async b => ({ ...b, houseBills: await loadList('/manifests/' + asString(m.id) + '/master-bls/' + asString(b.id) + '/house-bls') })));
+        const masterBls = await readList('/manifests/' + asString(m.id) + '/master-bls');
+        const masterBills = await Promise.all(masterBls.map(async b => ({ ...b, houseBills: await readList('/manifests/' + asString(m.id) + '/master-bls/' + asString(b.id) + '/house-bls') })));
         return { ...m, masterBills };
       })));
-      raw.roles = await Promise.all(asRecords(raw.roles).map(r => detailRead('roles', r, async () => unwrapData<unknown>(await apiClient.get('/admin/roles/' + asString(r.id))))));
-      raw.handovers = await Promise.all(asRecords(raw.handovers).map(h => detailRead('handovers', h, async () => unwrapData<unknown>(await apiClient.get('/handovers/' + asString(h.id))))));
+      raw.roles = await Promise.all(asRecords(raw.roles).map(r => detailRead('roles', r, async () => unwrapData<unknown>(await readOne('/admin/roles/' + asString(r.id))))));
+      raw.handovers = await Promise.all(asRecords(raw.handovers).map(h => detailRead('handovers', h, async () => unwrapData<unknown>(await readOne('/handovers/' + asString(h.id))))));
       const visits = asRecords(raw.containerVisits);
       try {
-        const summary = asRecord(unwrapData<unknown>(await apiClient.get('/reports/summary')));
+        const summary = asRecord(unwrapData<unknown>(await readOne('/reports/summary')));
         const limit = asRecord(summary.freeDayWarnings).freeDaysLimit;
         statuses.freeDayWarnings = typeof limit === 'number' && Number.isFinite(limit) && limit >= 0 ? 'ready' : 'error';
         if (typeof limit === 'number' && Number.isFinite(limit) && limit >= 0) {
@@ -481,7 +499,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       }
       const visitSafetyStatus: VisitSafetyStatus = {};
       const perVisit = await Promise.all(visits.map(async v => {
-        const [holds, passes] = await Promise.allSettled([loadList('/containers/' + v.id + '/holds'), loadList('/containers/' + v.id + '/gate-passes')]);
+        const [holds, passes] = await Promise.allSettled([readList('/containers/' + v.id + '/holds'), readList('/containers/' + v.id + '/gate-passes')]);
         visitSafetyStatus[asString(v.id)] = { holds: getSafetyReadStatus(holds), gatePasses: getSafetyReadStatus(passes) };
         for (const [kind, status] of Object.entries(visitSafetyStatus[asString(v.id)])) {
           if (status !== 'ready') failures.push(`/containers/${v.id}/${kind === 'holds' ? 'holds' : 'gate-passes'}: ${status === 'forbidden' ? 'Không có quyền đọc dữ liệu.' : 'Chưa thể kiểm tra; dữ liệu cũ chỉ để tham khảo. Tải lại để thử lại.'}`);
@@ -493,13 +511,32 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       if (latestActor.current.permissionCodes?.some(p => p === 'gate_pass.create' || p === '*')) {
         raw.gatePasses = await Promise.all(asRecords(raw.gatePasses).map(async pass => {
           if (pass.status !== 'ACTIVE' || new Date(asString(pass.expiresAt)).getTime() <= Date.now()) return pass;
-          try { return { ...pass, ...asRecord(unwrapData<unknown>(await apiClient.get('/gate-passes/' + asString(pass.id) + '/qr'))) }; }
+          try { return { ...pass, ...asRecord(unwrapData<unknown>(await readOne('/gate-passes/' + asString(pass.id) + '/qr'))) }; }
           catch { return pass; }
         }));
       }
       if (version !== sessionVersion.current) return;
       if (!tokenStorage.getAccessToken()) {
         setIsAuthenticated(false); setData(emptyData()); setIsLoading(false); return;
+      }
+      // Load handover partner options (gated by handover.create permission via read-permissions.ts)
+      let handoverPartnerOptionsData: HandoverPartnerOption[] = [];
+      try {
+        const rows = await readList('/handovers/partner-clients');
+        if (activeSession()) {
+          handoverPartnerOptionsData = asRecords(rows).map(r => ({
+            id: asString(r.id),
+            partnerCode: asString(r.partnerCode),
+            partnerName: asString(r.partnerName),
+          }));
+          statuses.handoverPartnerOptions = 'ready';
+        }
+      } catch (error: unknown) {
+        if (activeSession()) {
+          statuses.handoverPartnerOptions = readFailureState(error, previous.handoverPartnerOptions.length > 0);
+          if (![401, 403].includes(errorStatus(error) ?? 0))
+            failures.push('/handovers/partner-clients: ' + errorMessage(error));
+        }
       }
       for (const key of ['invoices','payments','serviceOrders','tariffs']) {
         try { mapLiveCollections({ [key]: raw[key] ?? [] }, latestActor.current.role); }
@@ -519,6 +556,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       setResourceStatus(statuses); setDetailStatus(details);
       refreshFailed.current = failures.length > 0 || !health;
       setData((previous: ReturnType<typeof emptyData>) => ({ ...next, visitSafetyStatus,
+        handoverPartnerOptions: statuses.handoverPartnerOptions === 'stale' ? previous.handoverPartnerOptions : handoverPartnerOptionsData,
         holds: mergeSafetyRecords(next.holds, previous.holds, visitSafetyStatus, 'holds'),
         gatePasses: mergeSafetyRecords(next.gatePasses, previous.gatePasses, visitSafetyStatus, 'gatePasses'),
       }));

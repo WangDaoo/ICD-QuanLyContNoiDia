@@ -21,6 +21,9 @@ test('a stale notification count identifies that it has not been refreshed',()=>
   const result=label({resourceStatus:{notifications:'stale'},notifications:[{id:'n1',read:false}]});
   assert.match(result.value,/1 chưa đọc/);assert.match(result.value,/chưa cập nhật/i);
 });
-test('failed container read leaves the global Holds check explicitly incomplete',()=>{
-  assert.match(label({resourceStatus:{containerVisits:'error',notifications:'ready'}}).text,/Holds chưa kiểm tra đủ/);
+test('failed container read leaves the global Holds check explicitly incomplete for hold-readers',()=>{
+  // A user with operational_hold.read sees the incomplete badge when container reads fail
+  assert.match(label({currentUser:{name:'Fixture',role:'VIEWER',permissionCodes:['operational_hold.read']},resourceStatus:{containerVisits:'error',notifications:'ready'}}).text,/Chưa tải đủ lệnh giữ/);
+  // A user without that permission never sees a permanent incomplete-holds badge
+  assert.doesNotMatch(label({resourceStatus:{containerVisits:'error',notifications:'ready'}}).text,/Chưa tải đủ lệnh giữ/);
 });

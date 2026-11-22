@@ -57,3 +57,47 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   .app-content .fixed .flex.items-center.justify-between { gap: .75rem; flex-wrap: wrap; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+
+/* Operational workspace tokens: restrained chrome, dense data, clear actions. */
+@theme {
+  --color-blue-50: #eff3f7;
+  --color-blue-100: #dce5ef;
+  --color-blue-200: #b8cadc;
+  --color-blue-300: #8da9c4;
+  --color-blue-500: #345a80;
+  --color-blue-600: #244767;
+  --color-blue-700: #1c3954;
+  --color-blue-800: #172f46;
+  --radius-lg: 6px;
+  --radius-xl: 6px;
+  --radius-2xl: 6px;
+  --shadow-xs: none;
+  --shadow-sm: none;
+}
+:root { --icd-focus: #244767; --icd-state-hover: #eff3f7; --icd-radius: 6px; }
+.app-content { background: #f3f5f7; }
+.app-content :is(h2,h3) { letter-spacing: -.015em; }
+.app-content :is(th,td) { height: 44px; padding-top: 10px; padding-bottom: 10px; font-variant-numeric: tabular-nums; }
+.app-content th { background: #f5f7f9; font-weight: 600; }
+.app-content tbody tr:hover { background: #f7f9fb; }
+.app-content :is(input,select,textarea) { border-radius: var(--icd-radius); }
+.app-content :is(input,select) { min-height: 40px; }
+.app-content :is(.shadow,.shadow-md) { box-shadow: none; }
+.app-content .fixed > div { box-shadow: 0 8px 32px #0f172a1a; }
+.app-content :is(.rounded-xl,.rounded-2xl,.rounded-3xl) { border-radius: var(--icd-radius); }
+.app-content :is(.tracking-widest,.tracking-wider) { letter-spacing: .025em; }
+aside button { min-height: 40px; }
+header button { min-width: 40px; min-height: 40px; }
+@media (min-width: 768px) { .app-content { padding: 20px; } }
+.page-heading { padding: 0 0 16px; border-bottom: 1px solid #dce2e8; }
+.page-heading h2 { font-size: 20px; font-weight: 600; }
+.app-content .font-mono { font-variant-numeric: tabular-nums; letter-spacing: .015em; }
+
+/* Stable table frames: labels vary, column geometry does not. */
+.container-state-badge { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; width: 144px; min-height: 32px; line-height: 20px; white-space: nowrap; border-radius: 6px; }
+.container-location-frame { display: inline-flex; align-items: center; box-sizing: border-box; min-width: 224px; min-height: 32px; line-height: 20px; padding: 4px 8px; white-space: nowrap; }
+
+/* Shared textual status frames across operational pages. */
+.app-content .status-frame { display: inline-flex; box-sizing: border-box; align-items: center; justify-content: center; min-width: 144px; min-height: 32px; padding: 4px 10px; line-height: 20px; border-radius: 6px; white-space: nowrap; vertical-align: middle; }
+.app-content :is(input:not([type=checkbox]):not([type=radio]):not([type=file]), select) { min-height: 40px; box-sizing: border-box; }
+.app-content textarea { min-height: 88px; box-sizing: border-box; }

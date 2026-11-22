@@ -7,6 +7,11 @@ export interface PreviewBillingPayload {
   containerVisitId: string;
   asOfDate?: string;
   tariffId?: string;
+}
+
+export interface CreateServiceOrderPayload {
+  asOfDate?: string;
+  tariffId?: string;
   notes?: string;
 }
 export interface QueryServiceOrdersParams extends PaginationParams {
@@ -26,7 +31,7 @@ export const billingService = {
   },
   async createServiceOrder(
     visitId: string,
-    payload: Omit<PreviewBillingPayload, 'containerVisitId'>,
+    payload: CreateServiceOrderPayload = {},
   ): Promise<ServiceOrder> {
     return viewList('serviceOrders', {
       data: [

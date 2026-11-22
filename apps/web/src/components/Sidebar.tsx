@@ -71,20 +71,20 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, isOpe
     {
       group: 'Quản lý Hàng hóa & Cổng',
       items: [
-        { id: 'manifests', label: 'Bản lược khai (Manifest)', icon: FileText },
-        { id: 'containers', label: 'Quản lý Container', icon: Boxes },
-        { id: 'movement-orders', label: 'Movement Order', icon: Route },
+        { id: 'manifests', label: 'Manifest', icon: FileText },
+        { id: 'containers', label: 'Container', icon: Boxes },
+        { id: 'movement-orders', label: 'Lệnh di chuyển', icon: Route },
         { id: 'truck-visits', label: 'Chuyến xe ra/vào', icon: Truck },
-        { id: 'gate-in', label: 'Tiếp nhận vào cổng (Gate-in)', icon: LogIn },
-        { id: 'yard', label: 'Vận hành Bãi (Yard)', icon: Warehouse },
+        { id: 'gate-in', label: 'Nhập cổng', icon: LogIn },
+        { id: 'yard', label: 'Bãi container', icon: Warehouse },
       ],
     },
     {
       group: 'Tài chính & Ra cổng',
       items: [
         { id: 'billing', label: 'Dịch vụ & Thanh toán', icon: Receipt },
-        { id: 'gate-pass', label: 'Phiếu ra cổng & Gate-out', icon: QrCode },
-        { id: 'edi', label: 'Vận hành EDI (CODECO)', icon: Radio },
+        { id: 'gate-pass', label: 'Xuất cổng', icon: QrCode },
+        { id: 'edi', label: 'EDI / CODECO', icon: Radio },
       ],
     },
     {
@@ -106,15 +106,15 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, isOpe
       items: [
         { id: 'master-data', label: 'Danh mục dùng chung', icon: Database },
         { id: 'users-roles', label: 'Người dùng & Phân quyền', icon: Users },
-        { id: 'admin', label: 'Báo cáo vận hành', icon: Settings },
+        { id: 'admin', label: 'Báo cáo', icon: Settings },
         { id: 'activity', label: 'Nhật ký kiểm toán', icon: History },
       ],
     },
   ];
 
   return (
-    <aside aria-label="Điều hướng nghiệp vụ" className={`${isOpen ? 'flex' : 'hidden'} fixed left-0 top-16 bottom-0 z-40 w-64 bg-slate-900 text-slate-300 flex-col border-r border-slate-800 shrink-0 select-none md:static md:flex`}>
-      <div className="flex-1 overflow-y-auto py-4 px-3 space-y-6 text-xs">
+    <aside aria-label="Điều hướng nghiệp vụ" className={`${isOpen ? 'flex' : 'hidden'} fixed left-0 top-14 bottom-0 z-40 w-56 bg-slate-900 text-slate-300 flex-col border-r border-slate-800 shrink-0 select-none md:static md:flex`}>
+      <div className="flex-1 overflow-y-auto py-4 px-3 space-y-4 text-xs">
         {navItems.map(group => ({...group,items:group.items.filter(item => canAccessWebTab(currentUser,item.id))})).filter(group => group.items.length).map((group, idx) => (
           <div key={idx} className="space-y-1">
             <div className="px-3 text-caption font-bold uppercase tracking-wider text-slate-400">

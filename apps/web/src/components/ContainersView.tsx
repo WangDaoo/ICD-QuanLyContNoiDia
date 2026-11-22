@@ -222,49 +222,51 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
     switch (state) {
       case 'PENDING':
         return (
-          <span className="px-2 py-1 rounded-full text-caption font-bold bg-slate-100 text-slate-700">
-            PENDING
+          <span className="container-state-badge px-2 py-1 rounded-full text-caption font-bold bg-slate-100 text-slate-700">
+            Chờ tiếp nhận
           </span>
         );
       case 'AUTHORIZED':
         return (
-          <span className="px-2 py-1 rounded-full text-caption font-bold bg-blue-100 text-blue-800">
-            AUTHORIZED
+          <span className="container-state-badge px-2 py-1 rounded-full text-caption font-bold bg-blue-100 text-blue-800">
+            Đã duyệt
           </span>
         );
       case 'IN_YARD':
         return (
-          <span className="px-2 py-1 rounded-full text-caption font-bold bg-emerald-100 text-emerald-800">
-            IN_YARD
+          <span className="container-state-badge px-2 py-1 rounded-full text-caption font-bold bg-emerald-100 text-emerald-800">
+            Đang ở bãi
           </span>
         );
       case 'UNDER_INSPECTION':
         return (
-          <span className="px-2 py-1 rounded-full text-caption font-bold bg-amber-100 text-amber-800">
-            UNDER_INSPECTION
+          <span className="container-state-badge px-2 py-1 rounded-full text-caption font-bold bg-amber-100 text-amber-800">
+            Đang kiểm định
           </span>
         );
       case 'IN_STRIPPING':
         return (
-          <span className="px-2 py-1 rounded-full text-caption font-bold bg-purple-100 text-purple-800">
-            IN_STRIPPING
+          <span className="container-state-badge px-2 py-1 rounded-full text-caption font-bold bg-purple-100 text-purple-800">
+            Đang rút hàng
           </span>
         );
       case 'GATE_PASS_ISSUED':
         return (
-          <span className="px-2 py-1 rounded-full text-caption font-bold bg-indigo-100 text-indigo-800">
-            GATE_PASS_ISSUED
+          <span className="container-state-badge px-2 py-1 rounded-full text-caption font-bold bg-indigo-100 text-indigo-800">
+            Đã cấp phiếu
           </span>
         );
       case 'EXITED':
         return (
-          <span className="px-2 py-1 rounded-full text-caption font-bold bg-slate-200 text-slate-800">
-            EXITED
+          <span className="container-state-badge px-2 py-1 rounded-full text-caption font-bold bg-slate-200 text-slate-800">
+            Đã ra cổng
           </span>
         );
+      case 'CANCELLED':
+        return <span className="container-state-badge px-2 py-1 rounded-full bg-slate-100 text-slate-600 text-caption font-bold">Đã hủy</span>;
       default:
         return (
-          <span className="px-2 py-1 rounded-full text-caption font-bold bg-slate-100 text-slate-600">
+          <span className="container-state-badge px-2 py-1 rounded-full text-caption font-bold bg-slate-100 text-slate-600">
             {state}
           </span>
         );
@@ -274,15 +276,14 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
   return (
     <div className="space-y-5">
       {/* Header */}
-      <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="page-heading flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h2 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
             <Boxes className="w-5 h-5 text-blue-600" />
-            <span>Container 360 · Danh sách & vòng đời</span>
+            <span>Container</span>
           </h2>
           <p className="text-xs text-slate-500 mt-1">
-            Theo dõi trạng thái vòng đời, vị trí bãi Yard, thời gian lưu bãi (Dwell days), Holds và
-            kiểm tra điều kiện ra cổng (Readiness)
+            Tra cứu vị trí, trạng thái và điều kiện xuất cổng.
           </p>
         </div>
 
@@ -414,11 +415,11 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                     </td>
                     <td className="py-3 px-4 font-mono font-semibold text-slate-900">
                       {v.currentLocation && !yardLocationForbidden ? (
-                        <span className="px-2 py-1 bg-blue-50 text-blue-800 rounded border border-blue-200">
+                        <span className="container-location-frame px-2 py-1 bg-blue-50 text-blue-800 rounded border border-blue-200">
                           {yardLocationLabel(v)}
                         </span>
                       ) : (
-                        <span className="text-slate-400 italic">{yardLocationLabel(v)}</span>
+                        <span className="container-location-frame text-slate-500 border border-transparent">{yardLocationLabel(v)}</span>
                       )}
                     </td>
                     <td className="py-3 px-4">{getStateBadge(v.state)}</td>
@@ -628,7 +629,7 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                         Kiểm tra Điều kiện Sẵn sàng Cấp Phiếu Ra Cổng (Readiness Checklist)
                       </span>
                       <span
-                        className={`px-3 py-1 rounded-full text-caption font-bold ${
+                        className={`status-frame px-3 py-1 rounded-full text-caption font-bold ${
                           readiness?.blockers.length === 0
                             ? 'bg-emerald-100 text-emerald-800'
                             : 'bg-rose-100 text-rose-800'
@@ -724,7 +725,7 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                         );
                         return readable(movementOrderState) && mo ? (
                           <span
-                            className={`px-3 py-1 rounded-full text-caption font-bold ${
+                            className={`status-frame px-3 py-1 rounded-full text-caption font-bold ${
                               mo.status === 'AUTHORIZED'
                                 ? 'bg-emerald-100 text-emerald-800'
                                 : mo.status === 'DRAFT'
@@ -790,16 +791,16 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                   </div>
 
                   {/* Transport Handover (Module 13) Card inside Container Detail */}
-                  <div className="bg-indigo-50/70 p-4 rounded-xl border border-indigo-200">
+                  <div className="bg-blue-50/70 p-4 rounded-xl border border-blue-200">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center space-x-2">
-                        <Send className="w-4 h-4 text-indigo-700" />
-                        <span className="font-bold text-indigo-950">
+                        <Send className="w-4 h-4 text-blue-700" />
+                        <span className="font-bold text-blue-950">
                           Bàn giao vận chuyển ngoài ICD
                         </span>
                       </div>
                       {readable(handoverState) && activeVisitHandover ? (
-                        <span className="px-3 py-1 rounded-full text-caption font-bold bg-indigo-200 text-indigo-900 border border-indigo-300">
+                        <span className="status-frame px-3 py-1 rounded-full text-caption font-bold bg-blue-200 text-blue-900 border border-blue-300">
                           {activeVisitHandover.status}
                         </span>
                       ) : (
@@ -809,11 +810,11 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
 
                     {handoverState !== 'ready' && <CollectionState resource="handovers" count={handovers.length} />}
                     {readable(handoverState) && activeVisitHandover ? (
-                      <div className="bg-white p-3 rounded-lg border border-indigo-200 space-y-2">
+                      <div className="bg-white p-3 rounded-lg border border-blue-200 space-y-2">
                         <div className="flex items-center justify-between">
                           <div>
                             <span className="text-slate-500">Mã vận chuyển:</span>{' '}
-                            <strong className="font-mono text-indigo-700">
+                            <strong className="font-mono text-blue-700">
                               {activeVisitHandover.transportCode}
                             </strong>
                           </div>
@@ -836,7 +837,7 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                               setActiveModalVisitId(null);
                               onNavigate('handovers', activeVisitHandover.id);
                             }}
-                            className="font-bold text-indigo-600 hover:text-indigo-800 flex items-center"
+                            className="font-bold text-blue-600 hover:text-blue-800 flex items-center"
                           >
                             <span>Xem tiến độ Bàn giao & Duyệt POD</span>
                             <ChevronRight className="w-3.5 h-3.5 ml-1" />
@@ -857,7 +858,7 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                             setActiveModalVisitId(null);
                             onNavigate('handovers');
                           }}
-                          className="px-3 py-2 bg-indigo-600 text-white rounded-lg font-bold hover:bg-indigo-700"
+                          className="px-3 py-2 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700"
                         >
                           + Tạo Handover
                         </button>
@@ -993,7 +994,7 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                         <div className="flex items-center justify-between">
                           <span className="font-mono font-bold text-blue-700">{inv.invoiceNo}</span>
                           <span
-                            className={`px-2 py-1 rounded-full text-caption font-bold ${
+                            className={`status-frame px-2 py-1 rounded-full text-caption font-bold ${
                               inv.status === 'PAID'
                                 ? 'bg-emerald-100 text-emerald-800'
                                 : 'bg-amber-100 text-amber-800'
@@ -1025,7 +1026,7 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                   {!passesReady ? (
                     <CriticalDataNotice kind="gatePasses" visitId={activeVisit.id} />
                   ) : activeVisitGatePass ? (
-                    <div className="border border-indigo-200 bg-indigo-50/40 rounded-xl p-5 text-center space-y-3">
+                    <div className="border border-blue-200 bg-blue-50/40 rounded-xl p-5 text-center space-y-3">
                       <div className="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 font-bold rounded-full">
                         PHIẾU RA CỔNG ĐANG HIỆU LỰC (ACTIVE)
                       </div>
@@ -1256,7 +1257,7 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                           <div className="flex items-center space-x-2">
                             <span className="font-bold text-slate-900">[{h.holdType}]</span>
                             <span
-                              className={`px-2 py-0.2 rounded-full text-caption font-bold ${
+                              className={`status-frame px-2 py-0.2 rounded-full text-caption font-bold ${
                                 h.status === 'ACTIVE'
                                   ? 'bg-rose-100 text-rose-800'
                                   : 'bg-slate-200 text-slate-600'

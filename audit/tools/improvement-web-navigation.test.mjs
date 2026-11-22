@@ -118,10 +118,12 @@ test('accepted Back suspends the native dialog and Forward restores the same dra
 
 test('pending save blocks browser Back without issuing a second command', async () => {
   let settle; let calls = 0;
-  await withLayout({ createManagedUser: () => { calls++; return new Promise(resolve => { settle = resolve; }); } },
+  await withLayout({ createManagedUser: () => { calls++; return new Promise(resolve => { settle = resolve; }); }, roles: [{id:'r1',code:'VIEWER',name:'Viewer',permissionCodes:[]}] },
     async ({ dom, router, click, input, flush }) => {
       await click(/Thêm người dùng/); await input('users-roles-user-form-name', 'Pending draft');
-      await input('users-roles-user-form-email', 'fixture@example.test'); await click(/^Tạo$/);
+      await input('users-roles-user-form-email', 'fixture@example.test');
+      await click(/^VIEWER$/); await input('users-roles-user-form-password', 'FixturePass12345');
+      await click(/^Tạo$/);
       let prompts = 0; dom.window.confirm = () => { prompts++; return true; };
       await flush(() => router.navigate(-1));
       try {

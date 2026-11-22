@@ -143,7 +143,7 @@ test('W-S-016 review: an existing visit missing its status must not reassure wit
   const dashboard = render(DashboardView, {}, { onNavigate: () => {} });
   assert.doesNotMatch(dashboard, />0 \u0111ang kh\u00f3a</);
   const header = render(Header, {}, { currentTab: 'dashboard', onMenuClick: () => {} });
-  assert.match(header, /Holds ch\u01b0a ki\u1ec3m tra \u0111\u1ee7/);
+  assert.match(header, /Chưa tải đủ lệnh giữ/);
   const yard = new JSDOM(render(YardSiteMap, {}, { onContainer: () => {}, onAssign: () => {}, onOperation: () => {} }));
   try {
     const card = [...yard.window.document.querySelectorAll('div')].find(element =>

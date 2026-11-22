@@ -22,6 +22,11 @@ export function parseDestination(pathname: string, search: string): { tab: NavTa
   if (params.get('action') === 'create') context.action = 'create';
   return { tab, context };
 }
+export function isKnownAppPath(pathname: string): boolean {
+  if (pathname === '/') return true;
+  const [empty, prefix, segment, ...rest] = pathname.replace(/\/+$/, '').split('/');
+  return empty === '' && prefix === 'app' && rest.length === 0 && tabs.some(t => t === segment);
+}
 export function taskDestination(task: WorkQueueTask): { tab: NavTabId; context: NavigationContext } {
   if (task.taskType === 'HANDOVER_REVIEW') return { tab: 'handovers', context: { handoverId: task.entityType === 'TRANSPORT_HANDOVER' || task.entityType === 'HANDOVER' ? task.entityId : undefined } };
   if (task.taskType === 'GATE_OUT') return { tab: 'gate-pass', context: { gatePassId: task.entityType === 'GATE_PASS' ? task.entityId : undefined, visitId: task.containerVisitId || undefined } };

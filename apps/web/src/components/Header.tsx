@@ -3,6 +3,7 @@ import { AlertTriangle, Bell, CheckCircle2, LogOut, Menu, RefreshCw, UserCircle,
 import { useApp } from '../context/AppContext';
 import { areSafetyReadsReady } from '../services/visit-safety-data';
 import { CollectionState } from './CollectionState';
+import { canReadRoute } from '../services/read-permissions';
 
 interface HeaderProps { currentTab: string; onMenuClick: () => void; }
 
@@ -48,7 +49,9 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onMenuClick }) => {
     : 'Thông báo (chưa tải được)';
   const activeHoldCount = holds.filter((hold) => hold.status === 'ACTIVE').length;
   const containerState = resourceStatus.containerVisits ?? (isLoading ? 'loading' : 'ready');
-  const holdsIncomplete = containerState !== 'ready' || !areSafetyReadsReady(containerVisits.map(v => v.id), visitSafetyStatus, 'holds');
+  // Show holds status only for users who have the permission to read holds
+  const canReadHolds = canReadRoute(currentUser, '/containers/x/holds');
+  const holdsIncomplete = canReadHolds && (containerState !== 'ready' || !areSafetyReadsReady(containerVisits.map(v => v.id), visitSafetyStatus, 'holds'));
 
   const handleLogout = async () => {
     setIsSigningOut(true);
@@ -56,15 +59,15 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onMenuClick }) => {
   };
 
   return (
-    <header className="h-16 shrink-0 border-b border-slate-200 bg-white px-3 sm:px-6 flex items-center justify-between gap-3 z-40">
+    <header className="h-14 shrink-0 border-b border-slate-200 bg-white px-3 sm:px-6 flex items-center justify-between gap-3 z-40">
       <div className="flex min-w-0 items-center gap-3">
         <button type="button" onClick={onMenuClick} aria-label="Mở menu điều hướng" className="rounded-lg p-2 text-slate-600 hover:bg-slate-100 md:hidden"><Menu className="h-5 w-5" /></button>
         <div className="h-9 w-9 shrink-0 rounded-xl bg-blue-600 text-white flex items-center justify-center font-black text-xs shadow-sm">ICD</div>
-        <div className="min-w-0"><h1 className="truncate text-sm sm:text-base font-bold tracking-tight text-slate-800">ICD Management System</h1><p className="hidden sm:block text-xs text-slate-500">Cảng cạn & kho bãi container nội địa</p></div>
+        <div className="min-w-0"><h1 className="truncate text-sm sm:text-base font-bold tracking-tight text-slate-800">Điều hành ICD</h1><p className="hidden sm:block text-xs text-slate-500">Quản lý cổng và bãi container</p></div>
       </div>
       <div className="flex shrink-0 items-center gap-2 sm:gap-3">
         <div className="hidden xl:flex items-center gap-2 text-xs">
-          {(holdsIncomplete || activeHoldCount > 0) && <span className="flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-amber-800"><AlertTriangle className="h-3.5 w-3.5" />{holdsIncomplete ? 'Holds chưa kiểm tra đủ' : `${activeHoldCount} lệnh giữ`}</span>}
+          {(holdsIncomplete || activeHoldCount > 0) && <span className="flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-amber-800"><AlertTriangle className="h-3.5 w-3.5" />{holdsIncomplete ? 'Chưa tải đủ lệnh giữ' : `${activeHoldCount} lệnh giữ`}</span>}
           <span className={`flex items-center gap-2 rounded-full border px-3 py-1 ${apiReady ? 'border-emerald-200 bg-emerald-50 text-emerald-700' : 'border-amber-200 bg-amber-50 text-amber-800'}`}><CheckCircle2 className="h-3.5 w-3.5" />{apiReady ? 'Đã kết nối' : 'Chưa kết nối'}</span>
         </div>
         <button type="button" onClick={() => void refreshData()} disabled={isLoading} aria-label="Tải lại dữ liệu" title="Tải lại dữ liệu" className="rounded-lg p-2 text-slate-500 hover:bg-slate-100 disabled:opacity-50"><RefreshCw className={`h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} /></button>

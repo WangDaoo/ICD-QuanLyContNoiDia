@@ -27,8 +27,14 @@ export const UsersRolesView: React.FC = () => {
   const [tabValue, setTab] = useViewQueryState('users-roles', 'section', 'USERS');
   const tab = tabValue === 'USERS' || tabValue === 'ROLES' ? tabValue : 'USERS';
   const [showUserForm, setShowUserForm] = useState(false);
-  const [userForm, setUserForm] = useState({ name: '', email: '', roleCodes: [] as string[] });
+  const [userForm, setUserForm] = useState({ name: '', email: '', roleCodes: [] as string[], password: '' });
+  const [roleError, setRoleError] = useState('');
   const [editingRoleId, setEditingRoleId] = useState<string | null>(null);
+
+  const resetUserForm = () => {
+    setUserForm({ name: '', email: '', roleCodes: [], password: '' });
+    setRoleError('');
+  };
 
   const PERMISSIONS_CATALOG = permissions.map((permission) => permission.code);
 
@@ -43,19 +49,26 @@ export const UsersRolesView: React.FC = () => {
 
   const createUser = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!can('users.manage') || action.isPending() || !validation.validate(e.currentTarget)) return;
+    if (!can('users.manage') || action.isPending()) return;
+    const nativeOk = validation.validate(e.currentTarget);
+    if (userForm.roleCodes.length === 0) {
+      setRoleError('Phải chọn ít nhất một vai trò.');
+    } else {
+      setRoleError('');
+    }
+    if (!nativeOk || userForm.roleCodes.length === 0) return;
     const result = await action.run(() =>
-      createManagedUser(userForm.name.trim(), userForm.email.trim(), userForm.roleCodes),
+      createManagedUser(userForm.name.trim(), userForm.email.trim(), userForm.roleCodes, userForm.password),
     );
     if (result?.success) {
-      setUserForm({ name: '', email: '', roleCodes: [] });
+      resetUserForm();
       setShowUserForm(false);
     }
   };
 
   return (
     <div className="space-y-5">
-      <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="page-heading flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h2 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
             <Users className="w-5 h-5 text-blue-600" />
@@ -96,8 +109,8 @@ export const UsersRolesView: React.FC = () => {
 
       {!showUserForm && <CommandNotice notice={action.notice} />}
       {tab === 'USERS' ? (
-        <div className="bg-white rounded-xl border border-slate-200 shadow-xs overflow-hidden">
-          <table className="w-full text-xs">
+        <div className="bg-white rounded-xl border border-slate-200 shadow-xs overflow-x-auto">
+          <table className="w-full min-w-[720px] text-xs">
             <thead className="bg-slate-50 text-slate-500 uppercase text-caption">
               <tr>
                 <th className="text-left px-4 py-3">Họ tên</th>
@@ -117,7 +130,7 @@ export const UsersRolesView: React.FC = () => {
                       {u.roleCodes.map((rc) => (
                         <span
                           key={rc}
-                          className="px-2 py-1 bg-indigo-50 text-indigo-700 rounded text-caption font-bold"
+                          className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-caption font-bold"
                         >
                           {rc}
                         </span>
@@ -126,7 +139,7 @@ export const UsersRolesView: React.FC = () => {
                   </td>
                   <td className="px-4 py-3">
                     <span
-                      className={`px-2 py-1 rounded-full text-caption font-bold ${u.active ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-200 text-slate-600'}`}
+                      className={`status-frame px-2 py-1 rounded-full text-caption font-bold ${u.active ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-200 text-slate-600'}`}
                     >
                       {u.active ? 'ACTIVE' : 'INACTIVE'}
                     </span>
@@ -255,7 +268,7 @@ export const UsersRolesView: React.FC = () => {
           pending={action.pending}
           aria-labelledby="users-roles-dialog-1-title"
           onClose={() => {
-            if (!action.isPending()) setShowUserForm(false);
+            if (!action.isPending()) { resetUserForm(); setShowUserForm(false); }
           }}
           className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center z-50 p-4"
         >
@@ -301,27 +314,51 @@ export const UsersRolesView: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="block font-semibold text-slate-700 mb-1">Vai trò</label>
+                  <label className="block font-semibold text-slate-700 mb-1">Vai trò*</label>
                   <div className="flex flex-wrap gap-2">
                     {roles.map((r) => (
                       <button
                         key={r.id}
                         type="button"
                         aria-pressed={userForm.roleCodes.includes(r.code)}
-                        onClick={() => toggleRoleCode(r.code)}
+                        onClick={() => { toggleRoleCode(r.code); setRoleError(''); }}
                         className={`px-2 py-1 rounded-md text-caption font-bold border ${userForm.roleCodes.includes(r.code) ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-slate-500 border-slate-200'}`}
                       >
                         {r.code}
                       </button>
                     ))}
                   </div>
+                  {roleError && (
+                    <p role="alert" className="mt-1 text-rose-700 text-caption">{roleError}</p>
+                  )}
+                </div>
+                <div>
+                  <label
+                    htmlFor="users-roles-user-form-password"
+                    className="block font-semibold text-slate-700 mb-1"
+                  >
+                    Mật khẩu khởi tạo*
+                  </label>
+                  <input
+                    id="users-roles-user-form-password"
+                    type="password"
+                    required
+                    minLength={12}
+                    maxLength={128}
+                    autoComplete="new-password"
+                    {...validation.props('users-roles-user-form-password')}
+                    value={userForm.password}
+                    onChange={(e) => setUserForm({ ...userForm, password: e.target.value })}
+                    className="w-full px-3 py-2 border border-slate-300 rounded-lg"
+                  />
+                  <p className="mt-1 text-slate-400 text-caption">Tối thiểu 12 ký tự, tối đa 128 ký tự.</p>
                 </div>
               </fieldset>
               <div className="flex justify-end space-x-2 pt-4 mt-2 border-t border-slate-200">
                 <button
                   type="button"
                   disabled={action.pending}
-                  onClick={() => setShowUserForm(false)}
+                  onClick={() => { resetUserForm(); setShowUserForm(false); }}
                   className="px-4 py-2 border border-slate-300 text-slate-700 rounded-lg font-medium"
                 >
                   Hủy

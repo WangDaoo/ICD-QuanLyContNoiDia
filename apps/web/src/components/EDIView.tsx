@@ -59,11 +59,11 @@ export const EDIView: React.FC = () => {
     <div className="space-y-6">
       <CommandNotice notice={action.notice} />
       {/* Header */}
-      <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="page-heading flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h2 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
             <FileCode2 className="w-5 h-5 text-blue-600" />
-            <span>Trung tâm Trao đổi Dữ liệu Điện tử (EDI Center)</span>
+            <span>EDI / CODECO</span>
           </h2>
           <p className="text-xs text-slate-500 mt-1">
             Theo dõi điện tín CODECO và payload JSON canonical được backend lưu để gửi cho đối tác.
@@ -171,7 +171,7 @@ export const EDIView: React.FC = () => {
                   </td>
                   <td className="px-4 py-3">
                     <span
-                      className={`px-2 py-1 rounded-full text-caption font-bold ${r.enabled ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-200 text-slate-600'}`}
+                      className={`status-frame px-2 py-1 rounded-full text-caption font-bold ${r.enabled ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-200 text-slate-600'}`}
                     >
                       {r.enabled ? 'ENABLED' : 'DISABLED'}
                     </span>
@@ -205,7 +205,7 @@ export const EDIView: React.FC = () => {
               <div>
                 <div className="flex items-center gap-2 mb-1">
                   <span
-                    className={`px-2 py-1 rounded-full text-caption font-bold ${
+                    className={`status-frame px-2 py-1 rounded-full text-caption font-bold ${
                       a.status === 'OPEN'
                         ? 'bg-rose-100 text-rose-800'
                         : a.status === 'ACKNOWLEDGED'
@@ -281,7 +281,7 @@ export const EDIView: React.FC = () => {
                       {edi.messageType}
                     </span>
                     <span
-                      className={`px-2 py-1 rounded-full text-caption font-bold ${
+                      className={`status-frame px-2 py-1 rounded-full text-caption font-bold ${
                         edi.status === 'SENT'
                           ? 'bg-emerald-100 text-emerald-800'
                           : edi.status === 'PROCESSING'

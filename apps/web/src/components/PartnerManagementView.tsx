@@ -69,11 +69,11 @@ export const PartnerManagementView: React.FC<PartnerManagementViewProps> = ({ mo
   if (mode === 'CLIENTS') {
     return (
       <div className="space-y-6">
-        <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="page-heading flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <h2 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
-              <KeyRound className="w-5 h-5 text-indigo-600" />
-              <span>Đối tác Tích hợp API Vận chuyển (Mô đun 13)</span>
+              <KeyRound className="w-5 h-5 text-blue-600" />
+              <span>Đối tác tích hợp API</span>
             </h2>
             <p className="text-xs text-slate-500 mt-1">
               Quản lý API Key, phân quyền phạm vi (Scopes), cơ chế xoay vòng khóa bí mật (Rotation)
@@ -88,7 +88,7 @@ export const PartnerManagementView: React.FC<PartnerManagementViewProps> = ({ mo
               setNewName('');
               setShowAddModal(true);
             }}
-            className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-lg shadow-xs flex items-center space-x-2 transition"
+            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg shadow-xs flex items-center space-x-2 transition"
           >
             <Plus className="w-4 h-4" />
             <span>Thêm Đối tác API mới</span>
@@ -101,17 +101,17 @@ export const PartnerManagementView: React.FC<PartnerManagementViewProps> = ({ mo
           {partnerClients.map((client) => (
             <div
               key={client.id}
-              className="bg-white rounded-xl border border-slate-200 p-5 shadow-xs space-y-4 hover:border-indigo-300 transition"
+              className="bg-white rounded-xl border border-slate-200 p-5 shadow-xs space-y-4 hover:border-blue-300 transition"
             >
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-sm font-bold text-slate-900">{client.partnerName}</div>
-                  <span className="font-mono text-indigo-700 font-semibold">
+                  <span className="font-mono text-blue-700 font-semibold">
                     {client.partnerCode}
                   </span>
                 </div>
                 <span
-                  className={`px-3 py-1 rounded-full font-bold text-caption ${
+                  className={`status-frame px-3 py-1 rounded-full font-bold text-caption ${
                     client.status === 'ACTIVE'
                       ? 'bg-emerald-100 text-emerald-800'
                       : 'bg-rose-100 text-rose-800'
@@ -145,7 +145,7 @@ export const PartnerManagementView: React.FC<PartnerManagementViewProps> = ({ mo
                     {client.scopes.map((s) => (
                       <span
                         key={s}
-                        className="px-2 py-1 bg-indigo-50 text-indigo-700 rounded text-caption font-mono"
+                        className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-caption font-mono"
                       >
                         {s}
                       </span>
@@ -169,7 +169,7 @@ export const PartnerManagementView: React.FC<PartnerManagementViewProps> = ({ mo
                   onClick={() => handleRotateKey(client)}
                   className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-lg flex items-center space-x-2 transition"
                 >
-                  <RotateCw className="w-3.5 h-3.5 text-indigo-600" />
+                  <RotateCw className="w-3.5 h-3.5 text-blue-600" />
                   <span>Xoay vòng Khóa (Rotate Key)</span>
                 </button>
               </div>
@@ -214,7 +214,7 @@ export const PartnerManagementView: React.FC<PartnerManagementViewProps> = ({ mo
                     </button>
                     <button
                       onClick={() => setShowAddModal(false)}
-                      className="px-4 py-2 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-700"
+                      className="px-4 py-2 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700"
                     >
                       Hoàn tất
                     </button>
@@ -275,7 +275,7 @@ export const PartnerManagementView: React.FC<PartnerManagementViewProps> = ({ mo
                     <button
                       type="submit"
                       disabled={action.pending}
-                      className="px-4 py-2 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-700"
+                      className="px-4 py-2 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700"
                     >
                       Tạo & Cấp API Key
                     </button>
@@ -292,11 +292,11 @@ export const PartnerManagementView: React.FC<PartnerManagementViewProps> = ({ mo
   // mode === 'LOGS'
   return (
     <div className="space-y-6">
-      <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="page-heading flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h2 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
-            <FileCode className="w-5 h-5 text-indigo-600" />
-            <span>Nhật ký API Đối tác (Partner Integration Logs)</span>
+            <FileCode className="w-5 h-5 text-blue-600" />
+            <span>Nhật ký API đối tác</span>
           </h2>
           <p className="text-xs text-slate-500 mt-1">
             Giám sát thời gian thực các cuộc gọi API từ đối tác: Accept chuyến, Xác nhận giao kho,
@@ -322,12 +322,12 @@ export const PartnerManagementView: React.FC<PartnerManagementViewProps> = ({ mo
                 onClick={() => setSelectedLogId(log.id)}
                 className={`block w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 p-4 rounded-xl border cursor-pointer transition text-xs ${
                   isSelected
-                    ? 'bg-indigo-50/70 border-indigo-500 shadow-xs'
+                    ? 'bg-blue-50/70 border-blue-500 shadow-xs'
                     : 'bg-white border-slate-200 hover:border-slate-300'
                 }`}
               >
                 <span className="block flex items-center justify-between">
-                  <span className="px-2 py-1 bg-indigo-100 text-indigo-800 font-mono font-bold rounded text-caption">
+                  <span className="px-2 py-1 bg-blue-100 text-blue-800 font-mono font-bold rounded text-caption">
                     {log.method}
                   </span>
                   <span
@@ -358,7 +358,7 @@ export const PartnerManagementView: React.FC<PartnerManagementViewProps> = ({ mo
             <div className="bg-white rounded-xl border border-slate-200 shadow-xs p-5 space-y-4 text-xs">
               <div className="flex items-center justify-between border-b border-slate-200 pb-3">
                 <div className="flex items-center space-x-2">
-                  <span className="px-2 py-1 bg-indigo-600 text-white font-mono font-bold rounded">
+                  <span className="px-2 py-1 bg-blue-600 text-white font-mono font-bold rounded">
                     {selectedLog.method}
                   </span>
                   <span className="font-mono font-bold text-slate-900 text-sm">

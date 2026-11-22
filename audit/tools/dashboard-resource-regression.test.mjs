@@ -32,7 +32,7 @@ test('loading dashboard metrics do not show numeric zero; stale values are expli
   assert.match(loading.window.document.body.textContent,/Đang tải dữ liệu/);
   loading.window.close();
   const stale=render({resourceStatus:{invoices:'stale'},invoices:[{totalAmountVnd:1000000,paidAmountVnd:500000}]});
-  assert.match(stale.window.document.body.textContent,/0\.5 tr₫/);
+  assert.match(stale.window.document.body.textContent,/500\.000\s*₫/);
   assert.match(stale.window.document.body.textContent,/chỉ để tham khảo/);
   stale.window.close();
 });

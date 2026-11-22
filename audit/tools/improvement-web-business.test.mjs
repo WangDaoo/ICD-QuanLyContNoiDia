@@ -80,7 +80,7 @@ test('truck shortcut opens a create dialog with its linked container', async()=>
 
 test('expired and cancelled passes never offer exit or handover and explain their status',async()=>{
   for(const status of ['ACTIVE','CANCELLED']) await withView(GatePassView,{gatePasses:[{id:'gp',code:'GP-TEST',containerVisitId:'v1',containerNumber:visit.containerNumber,status,expiresAt:'2020-01-01T00:00:00Z',issuedAt:'2020-01-01T00:00:00Z',vehiclePlate:'TEST',receiverName:'Receiver',qrToken:'TOKEN'}]}, {},async()=>{
-    assert.doesNotMatch(document.body.textContent,/Xác nhận Ra cổng|Tiến hành bàn giao vận chuyển/);
+    assert.doesNotMatch(document.body.textContent,/Xác nhận xuất cổng|Tiến hành bàn giao vận chuyển/);
     assert.match(document.body.textContent,status==='ACTIVE'?/hết hạn/i:/đã hủy/i);
     assert.equal(document.querySelectorAll('.qr-token').length,0);
   });
@@ -163,9 +163,9 @@ test('successful save followed by refresh failure reports saved without inviting
 test('active pass changes to expired at its deadline without a user interaction',async()=>{
   const pass={id:'gp',code:'GP-T',containerVisitId:'v1',containerNumber:visit.containerNumber,status:'ACTIVE',expiresAt:new Date(Date.now()+600).toISOString(),issuedAt:'2026-01-01',qrToken:'T'};
   await withView(GatePassView,{gatePasses:[pass]}, {},async()=>{
-    assert.match(document.body.textContent,/Xác nhận Ra cổng/);
+    assert.match(document.body.textContent,/Xác nhận xuất cổng/);
     await React.act(async()=>new Promise(resolve=>setTimeout(resolve,650)));
-    assert.doesNotMatch(document.body.textContent,/Xác nhận Ra cổng/);
+    assert.doesNotMatch(document.body.textContent,/Xác nhận xuất cổng/);
     assert.match(document.body.textContent,/hết hạn/i);
   });
 });
@@ -194,6 +194,7 @@ test('User creation keeps the entered identity until a rejected save settles and
   let settle;let calls=0;
   await withView(UsersRolesView,{createManagedUser:()=>{calls++;return new Promise(resolve=>settle=resolve);}},{},async({click,input})=>{
     await click(/Thêm người dùng/);await input('users-roles-user-form-name','Draft user');await input('users-roles-user-form-email','draft@example.test');
+    await click(/^VIEWER$/);await input('users-roles-user-form-password','FixturePass12345');
     await click(/^Tạo$/);await click(/Tạo|Đang lưu/);assert.equal(calls,1);assert.equal(document.getElementById('users-roles-user-form-email').value,'draft@example.test');
     await React.act(async()=>settle({success:false,message:'User save rejected'}));assert.match(document.querySelector('dialog').textContent,/User save rejected/);
   });
@@ -210,10 +211,44 @@ test('Partner creation sends once and retains its draft after rejection',async()
 
 test('Handover creation sends once and retains transport code after rejection',async()=>{
   let settle;let calls=0;
-  await withView(HandoversView,{partnerClients:[{id:'p1',partnerName:'Partner',partnerCode:'P'}],warehouses:[{id:'w1',name:'Warehouse'}],createHandover:()=>{calls++;return new Promise(resolve=>settle=resolve);}},{},async({click,input})=>{
+  // The API only accepts EXITED containers; fixture must include one so the submit button is enabled
+  const exitedVisit={id:'v2',containerNumber:'EXIT0000001',containerType:'20GP',state:'EXITED',consigneeName:'Fixture'};
+  await withView(HandoversView,{containerVisits:[exitedVisit],partnerClients:[{id:'p1',partnerName:'Partner',partnerCode:'P',status:'ACTIVE'}],warehouses:[{id:'w1',name:'Warehouse'}],createHandover:()=>{calls++;return new Promise(resolve=>settle=resolve);}},{},async({click,input})=>{
     await click(/Tạo Lệnh Bàn giao mới/);await input('handovers-transport-code-input','DRAFT-TRIP');
     await click(/Tạo Lệnh Bàn Giao$/);await click(/Tạo Lệnh Bàn Giao$/);assert.equal(calls,1);
     await React.act(async()=>settle({success:false,message:'Handover save rejected'}));assert.equal(document.getElementById('handovers-transport-code-input').value,'DRAFT-TRIP');assert.match(document.querySelector('dialog').textContent,/Handover save rejected/);
+  });
+});
+
+test('Handover partner fallback never offers revoked partners',async()=>{
+  const exitedVisit={id:'v2',containerNumber:'EXIT0000001',containerType:'20GP',state:'EXITED',consigneeName:'Fixture'};
+  const partnerClients=[{id:'p1',partnerName:'Revoked Partner',partnerCode:'R',status:'REVOKED'},{id:'p2',partnerName:'Active Partner',partnerCode:'A',status:'ACTIVE'}];
+  await withView(HandoversView,{containerVisits:[exitedVisit],partnerClients,handoverPartnerOptions:[],warehouses:[{id:'w1',name:'Warehouse'}]},{},async({click})=>{
+    await click(/Tạo Lệnh Bàn giao mới/);
+    const options=[...document.getElementById('handovers-selected-partner-client-id').options].map(option=>option.value);
+    assert.deepEqual(options,['p2']);
+  });
+});
+
+test('Handover fallback submits the active partner, never a revoked default',async()=>{
+  const exitedVisit={id:'v2',containerNumber:'EXIT0000001',containerType:'20GP',state:'EXITED',consigneeName:'Fixture'};
+  const partnerClients=[{id:'p1',partnerName:'Revoked Partner',partnerCode:'R',status:'REVOKED'},{id:'p2',partnerName:'Active Partner',partnerCode:'A',status:'ACTIVE'}];
+  const payloads=[];
+  await withView(HandoversView,{containerVisits:[exitedVisit],partnerClients,handoverPartnerOptions:[],warehouses:[{id:'w1',name:'Warehouse'}],createHandover:payload=>{payloads.push(payload);return Promise.resolve({success:false,message:'stop'});}},{},async({click,input})=>{
+    await click(/Tạo Lệnh Bàn giao mới/);await input('handovers-transport-code-input','TRIP-1');
+    await click(/Tạo Lệnh Bàn Giao$/);
+    assert.deepEqual(payloads.map(p=>p.partnerClientId),['p2']);
+  });
+});
+
+test('Handover creation works from dedicated partner options without the admin partner list',async()=>{
+  // MANAGER/OPERATOR hold handover.create but not partner_client.manage, so partnerClients stays empty.
+  const exitedVisit={id:'v2',containerNumber:'EXIT0000001',containerType:'20GP',state:'EXITED',consigneeName:'Fixture'};
+  const payloads=[];
+  await withView(HandoversView,{containerVisits:[exitedVisit],partnerClients:[],handoverPartnerOptions:[{id:'p9',partnerCode:'OPS',partnerName:'Ops Partner'}],warehouses:[{id:'w1',name:'Warehouse'}],createHandover:payload=>{payloads.push(payload);return Promise.resolve({success:false,message:'stop'});}},{},async({click,input})=>{
+    await click(/Tạo Lệnh Bàn giao mới/);await input('handovers-transport-code-input','TRIP-2');
+    await click(/Tạo Lệnh Bàn Giao$/);
+    assert.deepEqual(payloads.map(p=>p.partnerClientId),['p9']);
   });
 });
 

@@ -3,7 +3,8 @@ import { ModalOverlay } from './ModalOverlay';
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
 import { ReadOnlyNotice } from './ReadOnlyNotice';
-import { TransportHandover, HandoverStatus } from '../types';
+import { TransportHandover, HandoverStatus, PartnerApiClient } from '../types';
+import type { HandoverPartnerOption } from '../context/AppContext';
 import {
   Plus,
   Search,
@@ -25,6 +26,18 @@ interface HandoversViewProps {
   targetHandoverId?: string;
 }
 
+// Partners a new handover may use: the dedicated endpoint (readable with handover.create)
+// wins; otherwise fall back to the admin partner list. Revoked partners are never offered.
+function handoverPartnerChoices(
+  options: HandoverPartnerOption[],
+  clients: PartnerApiClient[],
+): HandoverPartnerOption[] {
+  if (options.length > 0) return options;
+  return clients
+    .filter(p => p.status === 'ACTIVE')
+    .map(p => ({ id: p.id, partnerCode: p.partnerCode, partnerName: p.partnerName }));
+}
+
 export const HandoversView: React.FC<HandoversViewProps> = ({ onNavigate, targetHandoverId }) => {
   const {
     currentUser,
@@ -34,12 +47,24 @@ export const HandoversView: React.FC<HandoversViewProps> = ({ onNavigate, target
     refreshData,
     detailStatus,
     partnerClients,
+    handoverPartnerOptions = [],
     warehouses,
     containerVisits,
     createHandover,
     publishHandover,
     icdConfirmHandover,
   } = useApp();
+  // Containers that have already exited — only these can be handed over
+  const exitedVisits = containerVisits.filter(c => c.state === 'EXITED');
+  const partnerSelectOptions = handoverPartnerChoices(handoverPartnerOptions, partnerClients);
+  const loadState = (key: string) => resourceStatus?.[key] ?? (isLoading ? 'loading' : 'ready');
+  const emptyNotice = (key: string, empty: string) => {
+    const state = loadState(key);
+    if (state === 'loading') return 'Đang tải dữ liệu…';
+    if (state === 'forbidden') return 'Tài khoản không có quyền xem danh sách này.';
+    if (state === 'error' || state === 'stale') return 'Chưa tải được danh sách; vui lòng thử tải lại.';
+    return empty;
+  };
   const can = (permission: string) => currentUser.permissionCodes?.some(code => code === '*' || code === permission) ?? false;
 
   const action = useCommandAction();
@@ -72,14 +97,43 @@ export const HandoversView: React.FC<HandoversViewProps> = ({ onNavigate, target
 
   const [showCreateModal, setShowCreateModal] = useState(false);
 
-  // New Handover form
+  // New Handover form — initial defaults from first valid option; effects keep them valid as data changes
   const [selectedContVisitId, setSelectedContVisitId] = useState(
-    containerVisits.find((c) => c.state === 'EXITED')?.id || containerVisits[0]?.id || '',
+    exitedVisits[0]?.id || '',
   );
   const [selectedPartnerClientId, setSelectedPartnerClientId] = useState(
-    partnerClients[0]?.id || '',
+    partnerSelectOptions[0]?.id || '',
   );
   const [selectedWarehouseId, setSelectedWarehouseId] = useState(warehouses[0]?.id || '');
+
+  // Keep the container selection valid whenever the exited visit list changes
+  useEffect(() => {
+    setSelectedContVisitId(prev => {
+      const exited = containerVisits.filter(c => c.state === 'EXITED');
+      if (exited.length === 0) return '';
+      if (exited.find(c => c.id === prev)) return prev;
+      return exited[0].id;
+    });
+  }, [containerVisits]);
+
+  // Keep the partner selection valid whenever the options change
+  useEffect(() => {
+    const opts = handoverPartnerChoices(handoverPartnerOptions, partnerClients);
+    setSelectedPartnerClientId(prev => {
+      if (opts.length === 0) return '';
+      if (opts.find(p => p.id === prev)) return prev;
+      return opts[0].id;
+    });
+  }, [handoverPartnerOptions, partnerClients]);
+
+  // Keep the warehouse selection valid whenever warehouses change
+  useEffect(() => {
+    setSelectedWarehouseId(prev => {
+      if (warehouses.length === 0) return '';
+      if (warehouses.find(w => w.id === prev)) return prev;
+      return warehouses[0].id;
+    });
+  }, [warehouses]);
   const [transportCodeInput, setTransportCodeInput] = useState('');
 
   const filteredHandovers = handovers.filter((h) => {
@@ -98,7 +152,8 @@ export const HandoversView: React.FC<HandoversViewProps> = ({ onNavigate, target
     e.preventDefault();
     if (!can('handover.create') || action.isPending() || !validation.validate(e.currentTarget)) return;
     const cont = containerVisits.find((c) => c.id === selectedContVisitId);
-    const client = partnerClients.find((p) => p.id === selectedPartnerClientId);
+    // partnerClients is empty for roles without partner_client.manage, so resolve from the offered options.
+    const client = partnerSelectOptions.find((p) => p.id === selectedPartnerClientId);
     const wh = warehouses.find((w) => w.id === selectedWarehouseId);
     if (!cont || !client || !wh) return;
 
@@ -134,44 +189,44 @@ export const HandoversView: React.FC<HandoversViewProps> = ({ onNavigate, target
     switch (status) {
       case 'DRAFT':
         return (
-          <span className="px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-700">
+          <span className="status-frame px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-700">
             DRAFT
           </span>
         );
       case 'READY_FOR_HANDOVER':
         return (
-          <span className="px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-800">
+          <span className="status-frame px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-800">
             READY_FOR_HANDOVER
           </span>
         );
       case 'PARTNER_ACCEPTED':
         return (
-          <span className="px-3 py-1 rounded-full text-xs font-bold bg-indigo-100 text-indigo-800">
+          <span className="status-frame px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-800">
             PARTNER_ACCEPTED
           </span>
         );
       case 'IN_TRANSIT':
         return (
-          <span className="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 animate-pulse">
+          <span className="status-frame px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 animate-pulse">
             IN_TRANSIT
           </span>
         );
       case 'PARTNER_CONFIRMED':
         return (
-          <span className="px-3 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-800">
+          <span className="status-frame px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-800">
             CONFIRMED (CHỜ DUYỆT)
           </span>
         );
       case 'ICD_CONFIRMED':
       case 'COMPLETED':
         return (
-          <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">
+          <span className="status-frame px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">
             COMPLETED
           </span>
         );
       default:
         return (
-          <span className="px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600">
+          <span className="status-frame px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600">
             {status}
           </span>
         );
@@ -202,10 +257,10 @@ export const HandoversView: React.FC<HandoversViewProps> = ({ onNavigate, target
     <div className="space-y-6">
       {!showCreateModal && <CommandNotice notice={action.notice} />}
       {/* Header */}
-      <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="page-heading flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <div className="flex items-center space-x-2">
-            <span className="px-3 py-1 bg-indigo-600 text-white font-mono font-bold text-xs rounded">
+            <span className="px-3 py-1 bg-blue-600 text-white font-mono font-bold text-xs rounded">
               BÀN GIAO ĐỐI TÁC
             </span>
             <h2 className="text-lg font-bold text-slate-900">
@@ -230,7 +285,7 @@ export const HandoversView: React.FC<HandoversViewProps> = ({ onNavigate, target
           <button
             hidden={!can('handover.create')}
             onClick={() => setShowCreateModal(true)}
-            className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-lg transition shadow-xs flex items-center space-x-2"
+            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg transition shadow-xs flex items-center space-x-2"
           >
             <Plus className="w-4 h-4" />
             <span>Tạo Lệnh Bàn giao mới</span>
@@ -250,7 +305,7 @@ export const HandoversView: React.FC<HandoversViewProps> = ({ onNavigate, target
               aria-label="Tìm lệnh bàn giao"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 border border-slate-200 rounded-lg bg-slate-50 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+              className="w-full pl-9 pr-3 py-2 border border-slate-200 rounded-lg bg-slate-50 focus:outline-none focus:ring-1 focus:ring-blue-500"
             />
           </div>
 
@@ -302,12 +357,12 @@ export const HandoversView: React.FC<HandoversViewProps> = ({ onNavigate, target
                 }}
                 className={`block w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 p-4 rounded-xl border cursor-pointer transition ${
                   isSelected
-                    ? 'bg-indigo-50/50 border-indigo-500 shadow-xs'
+                    ? 'bg-blue-50/50 border-blue-500 shadow-xs'
                     : 'bg-white border-slate-200 hover:border-slate-300'
                 }`}
               >
                 <span className="block flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold text-indigo-700">
+                  <span className="text-xs font-mono font-bold text-blue-700">
                     {h.transportCode}
                   </span>
                   {getStatusBadge(h.status)}
@@ -386,7 +441,7 @@ export const HandoversView: React.FC<HandoversViewProps> = ({ onNavigate, target
                         key={step.key}
                         className={`p-2 rounded-lg border font-semibold text-caption transition ${
                           isCurrent
-                            ? 'bg-indigo-600 text-white border-indigo-700 shadow-xs'
+                            ? 'bg-blue-600 text-white border-blue-700 shadow-xs'
                             : isPassed
                               ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
                               : 'bg-slate-50 text-slate-400 border-slate-200'
@@ -403,7 +458,7 @@ export const HandoversView: React.FC<HandoversViewProps> = ({ onNavigate, target
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
                   <div className="font-bold text-slate-800 flex items-center space-x-2">
-                    <Building2 className="w-4 h-4 text-indigo-600" />
+                    <Building2 className="w-4 h-4 text-blue-600" />
                     <span>Đối tác Vận tải ngoài</span>
                   </div>
                   <div>
@@ -411,7 +466,7 @@ export const HandoversView: React.FC<HandoversViewProps> = ({ onNavigate, target
                   </div>
                   <div>
                     Mã đối tác:{' '}
-                    <strong className="font-mono text-indigo-700">
+                    <strong className="font-mono text-blue-700">
                       {selectedHandover.partnerClientId}
                     </strong>
                   </div>
@@ -445,10 +500,10 @@ export const HandoversView: React.FC<HandoversViewProps> = ({ onNavigate, target
               </div>
 
               {/* Operational Action Bar (Depending on current state) */}
-              <div className="bg-indigo-50/70 border border-indigo-200 p-4 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div className="bg-blue-50/70 border border-blue-200 p-4 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
-                  <div className="font-bold text-indigo-950">Trạng thái bàn giao:</div>
-                  <div className="text-indigo-800 text-caption">
+                  <div className="font-bold text-blue-950">Trạng thái bàn giao:</div>
+                  <div className="text-blue-800 text-caption">
                     {selectedHandover.status === 'DRAFT' &&
                       'Chuyển sang READY_FOR_HANDOVER để khóa dữ liệu và cấp API token cho đối tác.'}
                     {selectedHandover.status === 'READY_FOR_HANDOVER' &&
@@ -471,7 +526,7 @@ export const HandoversView: React.FC<HandoversViewProps> = ({ onNavigate, target
                       hidden={!can('handover.create')}
                       disabled={action.pending}
                       onClick={handlePublish}
-                      className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg shadow-xs"
+                      className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-xs"
                     >
                       Sẵn sàng Bàn giao
                     </button>
@@ -480,7 +535,7 @@ export const HandoversView: React.FC<HandoversViewProps> = ({ onNavigate, target
                   {['READY_FOR_HANDOVER', 'PARTNER_ACCEPTED', 'IN_TRANSIT'].includes(
                     selectedHandover.status,
                   ) && (
-                    <p className="text-sm text-indigo-700">
+                    <p className="text-sm text-blue-700">
                       Đang chờ xác nhận qua API của đối tác. Dùng Tải lại dữ liệu để cập nhật tiến
                       trình.
                     </p>
@@ -494,7 +549,7 @@ export const HandoversView: React.FC<HandoversViewProps> = ({ onNavigate, target
                       className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow-xs flex items-center space-x-2"
                     >
                       <CheckCircle2 className="w-3.5 h-3.5" />
-                      <span>Duyệt Nghiệm thu POD (COMPLETED)</span>
+                      <span>Duyệt nghiệm thu POD</span>
                     </button>
                   )}
 
@@ -511,8 +566,8 @@ export const HandoversView: React.FC<HandoversViewProps> = ({ onNavigate, target
               {/* Confirmations & Milestones History */}
               <div className="space-y-3">
                 <div className="font-bold text-slate-800 flex items-center space-x-2 border-b border-slate-200 pb-1">
-                  <FileCheck className="w-4 h-4 text-indigo-600" />
-                  <span>Biên bản & Lịch sử Xác nhận Bàn giao (Confirmations Timeline)</span>
+                  <FileCheck className="w-4 h-4 text-blue-600" />
+                  <span>Lịch sử bàn giao</span>
                 </div>
 
                 {!detailReady ? (
@@ -530,7 +585,7 @@ export const HandoversView: React.FC<HandoversViewProps> = ({ onNavigate, target
                       >
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-2">
-                            <span className="px-2 py-1 bg-indigo-100 text-indigo-800 font-mono font-bold text-caption rounded">
+                            <span className="px-2 py-1 bg-blue-100 text-blue-800 font-mono font-bold text-caption rounded">
                               {conf.confirmationType}
                             </span>
                             <span className="font-bold text-slate-800">{conf.actor}</span>
@@ -543,7 +598,7 @@ export const HandoversView: React.FC<HandoversViewProps> = ({ onNavigate, target
                         <div className="text-slate-700">{conf.note || 'Xác nhận hợp lệ'}</div>
 
                         {conf.proofImageUrl && (
-                          <div className="text-indigo-600 font-semibold flex items-center pt-1 text-caption">
+                          <div className="text-blue-600 font-semibold flex items-center pt-1 text-caption">
                             ✓ Đã đính kèm ảnh POD & Chữ ký giao nhận
                           </div>
                         )}
@@ -649,14 +704,24 @@ export const HandoversView: React.FC<HandoversViewProps> = ({ onNavigate, target
                     id="handovers-selected-cont-visit-id"
                     value={selectedContVisitId}
                     onChange={(e) => setSelectedContVisitId(e.target.value)}
-                    className="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono font-bold bg-white"
+                    disabled={exitedVisits.length === 0}
+                    className="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono font-bold bg-white disabled:bg-slate-100 disabled:text-slate-400"
                   >
-                    {containerVisits.map((c) => (
-                      <option key={c.id} value={c.id}>
-                        {c.containerNumber} — {c.consigneeName} ({c.state})
-                      </option>
-                    ))}
+                    {exitedVisits.length === 0 ? (
+                      <option value="">— Không có container EXITED —</option>
+                    ) : (
+                      exitedVisits.map((c) => (
+                        <option key={c.id} value={c.id}>
+                          {c.containerNumber} — {c.consigneeName} (EXITED)
+                        </option>
+                      ))
+                    )}
                   </select>
+                  {exitedVisits.length === 0 && (
+                    <p className="text-xs text-amber-700 mt-1" role="status">
+                      {emptyNotice('containerVisits', 'Không có container nào đã ra cổng (EXITED) để bàn giao.')}
+                    </p>
+                  )}
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
@@ -673,14 +738,24 @@ export const HandoversView: React.FC<HandoversViewProps> = ({ onNavigate, target
                       id="handovers-selected-partner-client-id"
                       value={selectedPartnerClientId}
                       onChange={(e) => setSelectedPartnerClientId(e.target.value)}
-                      className="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white font-medium"
+                      disabled={partnerSelectOptions.length === 0}
+                      className="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white font-medium disabled:bg-slate-100 disabled:text-slate-400"
                     >
-                      {partnerClients.map((p) => (
-                        <option key={p.id} value={p.id}>
-                          {p.partnerName} ({p.partnerCode})
-                        </option>
-                      ))}
+                      {partnerSelectOptions.length === 0 ? (
+                        <option value="">— Chưa có đối tác —</option>
+                      ) : (
+                        partnerSelectOptions.map((p) => (
+                          <option key={p.id} value={p.id}>
+                            {p.partnerName} ({p.partnerCode})
+                          </option>
+                        ))
+                      )}
                     </select>
+                    {partnerSelectOptions.length === 0 && (
+                      <p className="text-xs text-amber-700 mt-1" role="status">
+                        {emptyNotice('handoverPartnerOptions', 'Chưa có đối tác vận tải đang hoạt động.')}
+                      </p>
+                    )}
                   </div>
 
                   <div>
@@ -718,8 +793,8 @@ export const HandoversView: React.FC<HandoversViewProps> = ({ onNavigate, target
                 </button>
                 <button
                   type="submit"
-                  disabled={action.pending}
-                  className="px-4 py-2 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-700"
+                  disabled={action.pending || exitedVisits.length === 0 || partnerSelectOptions.length === 0}
+                  className="px-4 py-2 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 disabled:opacity-50"
                 >
                   Tạo Lệnh Bàn Giao
                 </button>

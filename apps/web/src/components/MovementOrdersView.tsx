@@ -41,7 +41,7 @@ export const MovementOrdersView: React.FC<MovementOrdersViewProps> = ({
     };
     return (
       <span
-        className={`px-2 py-1 rounded-full text-caption font-bold ${map[status] || 'bg-slate-100 text-slate-600'}`}
+        className={`status-frame px-2 py-1 rounded-full text-caption font-bold ${map[status] || 'bg-slate-100 text-slate-600'}`}
       >
         {status}
       </span>
@@ -63,7 +63,7 @@ export const MovementOrdersView: React.FC<MovementOrdersViewProps> = ({
 
   return (
     <div className="space-y-5">
-      <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="page-heading flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h2 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
             <Route className="w-5 h-5 text-blue-600" />

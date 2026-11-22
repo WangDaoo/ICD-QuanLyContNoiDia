@@ -69,8 +69,8 @@ export function GateInView({
   const field = 'w-full rounded-lg border border-slate-300 px-3 py-3 text-sm';
   return (
     <div className="mx-auto max-w-3xl space-y-5">
-      <div className="rounded-xl border border-slate-200 bg-white p-5">
-        <h2 className="text-lg font-bold">Tiếp nhận container vào cổng</h2>
+      <div className="page-heading">
+        <h2 className="text-lg font-bold">Nhập cổng</h2>
         <p className="mt-1 text-sm text-slate-500">
           Đối chiếu xe đã đến, seal và trọng lượng thực tế trước khi tiếp nhận.
         </p>

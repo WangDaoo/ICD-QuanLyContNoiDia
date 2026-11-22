@@ -77,7 +77,7 @@ export const TruckVisitsView: React.FC<TruckVisitsViewProps> = ({ onNavigate, ta
 
   return (
     <div className="space-y-6">
-      <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="page-heading flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h2 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
             <Truck className="w-5 h-5 text-blue-600" />
@@ -147,7 +147,7 @@ export const TruckVisitsView: React.FC<TruckVisitsViewProps> = ({ onNavigate, ta
                 <span className="font-mono font-bold text-sm text-slate-900">{tv.visitCode}</span>
               </div>
               <span
-                className={`px-3 py-1 rounded-full text-xs font-bold ${
+                className={`status-frame px-3 py-1 rounded-full text-xs font-bold ${
                   tv.status === 'ARRIVED'
                     ? 'bg-amber-100 text-amber-800 border border-amber-300'
                     : tv.status === 'COMPLETED'

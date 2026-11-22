@@ -20,11 +20,11 @@ export const ReportsView: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="page-heading flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h2 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
             <BarChart3 className="w-5 h-5 text-blue-600" />
-            <span>Báo cáo Quản trị & Phân tích Hoạt động ICD (Analytics & Reports)</span>
+            <span>Báo cáo</span>
           </h2>
           <p className="text-xs text-slate-500 mt-1">
             Tổng hợp hồ sơ container hiện có, công suất bãi, thời gian lưu bãi và số tiền đã thu
@@ -75,7 +75,7 @@ export const ReportsView: React.FC = () => {
             Chuyến bàn giao ngoại ICD
           </span>
           <ResourceContent resource="handovers" count={handovers.length}>
-          <div className="text-2xl font-bold text-indigo-600 mt-1">{handovers.length} chuyến</div>
+          <div className="text-2xl font-bold text-blue-600 mt-1">{handovers.length} chuyến</div>
           <div className="text-slate-400 mt-1">Số hồ sơ bàn giao đã lưu</div>
           </ResourceContent>
         </div>
@@ -116,7 +116,7 @@ export const ReportsView: React.FC = () => {
 
         <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs space-y-4">
           <h3 className="text-sm font-bold text-slate-900 flex items-center space-x-2">
-            <Layers className="w-4 h-4 text-indigo-600" />
+            <Layers className="w-4 h-4 text-blue-600" />
             <span>Tình trạng Container Trong Bãi (Yard Dwell Time)</span>
           </h3>
 
