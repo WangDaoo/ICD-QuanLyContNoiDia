@@ -1,5 +1,5 @@
 import { ConfigService } from '@nestjs/config';
-import { UnauthorizedException } from '@nestjs/common';
+import { BadRequestException } from '@nestjs/common';
 import { GatePassTokenService } from './gate-pass-token.service';
 
 describe('GatePassTokenService', () => {
@@ -37,12 +37,12 @@ describe('GatePassTokenService', () => {
     expect(hash1).toHaveLength(64);
   });
 
-  it('should throw UnauthorizedException if token format is invalid', () => {
-    expect(() => service.verify('invalid-token')).toThrow(UnauthorizedException);
-    expect(() => service.verify('gp2.invalid.sig')).toThrow(UnauthorizedException);
+  it('should throw BadRequestException if token format is invalid', () => {
+    expect(() => service.verify('invalid-token')).toThrow(BadRequestException);
+    expect(() => service.verify('gp2.invalid.sig')).toThrow(BadRequestException);
   });
 
-  it('should throw UnauthorizedException if signature is tampered', () => {
+  it('should throw BadRequestException if signature is tampered', () => {
     const expiresAt = Date.now() + 3600000;
     const token = service.create({
       gatePassId: 'gp-123',
@@ -52,6 +52,6 @@ describe('GatePassTokenService', () => {
     const parts = token.split('.');
     const tampered = `${parts[0]}.${parts[1]}.tampered_signature`;
 
-    expect(() => service.verify(tampered)).toThrow(UnauthorizedException);
+    expect(() => service.verify(tampered)).toThrow(BadRequestException);
   });
 });

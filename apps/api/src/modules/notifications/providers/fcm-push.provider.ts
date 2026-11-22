@@ -42,7 +42,7 @@ export class FcmPushProvider implements IPushProvider {
       }
     } else {
       this.logger.warn(
-        'FCM credentials not provided. FcmPushProvider running in mock/dry-run mode.',
+        'FCM credentials not provided. Push delivery is unavailable.',
       );
     }
   }
@@ -50,12 +50,9 @@ export class FcmPushProvider implements IPushProvider {
   async sendPush(payload: PushNotificationPayload): Promise<PushNotificationResult> {
     try {
       if (!this.firebaseApp) {
-        this.logger.log(
-          `[MOCK_FCM] Sending push to token [${payload.token.substring(0, 8)}...]: Title="${payload.title}", Body="${payload.body}"`,
-        );
         return {
-          success: true,
-          messageId: `mock-fcm-${Date.now()}`,
+          success: false,
+          error: 'FCM provider is not configured or initialization failed.',
         };
       }
 

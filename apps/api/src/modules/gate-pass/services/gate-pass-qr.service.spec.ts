@@ -5,7 +5,14 @@ describe('Gate pass QR retrieval', () => {
   const expiresAt = new Date(Date.now()+60000);
   const prisma = {gatePass:{findFirst:jest.fn()}};
   const tokens = {create:jest.fn().mockReturnValue('signed-qr'),hash:jest.fn().mockReturnValue('hash')};
-  const service = new GatePassService(prisma as any,{} as any,{} as any,{} as any,tokens as any);
+  type Dependencies = ConstructorParameters<typeof GatePassService>;
+  const service = new GatePassService(
+    prisma as unknown as Dependencies[0],
+    {} as Dependencies[1],
+    {} as Dependencies[2],
+    {} as Dependencies[3],
+    tokens as unknown as Dependencies[4],
+  );
   it('recreates the original signed QR only within the actor ICD', async () => {
     prisma.gatePass.findFirst.mockResolvedValue({id:'pass',expiresAt,qrTokenHash:'hash',status:GatePassStatus.ACTIVE});
     expect(await service.getQrToken('pass','site')).toEqual({qrToken:'signed-qr'});

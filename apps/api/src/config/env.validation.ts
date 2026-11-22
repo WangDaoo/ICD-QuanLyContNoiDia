@@ -29,6 +29,17 @@ const environmentSchema = z
 
     MYSQL_CONNECTION_LIMIT: z.coerce.number().int().positive().default(5),
 
+    /**
+     * Rate limit toàn cục theo IP. Web tải nhiều danh sách khi đăng nhập và nhiều máy
+     * trong depot có thể dùng chung một IP NAT, nên mặc định phải đủ rộng cho vận hành.
+     */
+    API_THROTTLE_TTL_MS: z.coerce.number().int().min(1000).default(60_000),
+
+    API_THROTTLE_LIMIT: z.coerce.number().int().positive().default(600),
+
+    /** Rate limit riêng (chặt hơn) cho đăng nhập / refresh token để chống dò mật khẩu. */
+    AUTH_THROTTLE_LIMIT: z.coerce.number().int().positive().default(20),
+
     JWT_ACCESS_SECRET: z.string().min(32),
 
     JWT_REFRESH_SECRET: z.string().min(32),

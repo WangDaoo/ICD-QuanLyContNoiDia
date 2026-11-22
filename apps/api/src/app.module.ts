@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
 import { APP_GUARD } from '@nestjs/core';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ScheduleModule } from '@nestjs/schedule';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 
-import { validateEnvironment } from './config/env.validation';
+import { createThrottlerOptions } from './common/security/throttler-options';
+import { type EnvironmentVariables, validateEnvironment } from './config/env.validation';
 import { PrismaModule } from './database/prisma.module';
 
 import { AuthModule } from './modules/auth/auth.module';
@@ -61,12 +63,19 @@ import { SettingsModule } from './modules/settings/settings.module';
       validate: validateEnvironment,
     }),
 
-    ThrottlerModule.forRoot([
-      {
-        ttl: 60000,
-        limit: 100,
-      },
-    ]),
+    ThrottlerModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (config: ConfigService<EnvironmentVariables, true>) =>
+        createThrottlerOptions({
+          ttlMs: config.get('API_THROTTLE_TTL_MS', { infer: true }),
+          limit: config.get('API_THROTTLE_LIMIT', { infer: true }),
+          authLimit: config.get('AUTH_THROTTLE_LIMIT', { infer: true }),
+        }),
+    }),
+
+    // Registered once for the whole app: each forRoot() import re-registers every @Cron handler.
+    ScheduleModule.forRoot(),
 
     RequestContextModule,
 

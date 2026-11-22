@@ -1,4 +1,4 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { createHash, createHmac, timingSafeEqual } from 'node:crypto';
 
@@ -60,8 +60,12 @@ export class GatePassTokenService {
     return createHmac('sha256', this.secret).update(payload, 'utf8').digest('base64url');
   }
 
-  private invalid(): UnauthorizedException {
-    return new UnauthorizedException({
+  /**
+   * QR sai định dạng/chữ ký là lỗi dữ liệu nghiệp vụ (400), không phải lỗi xác thực phiên (401):
+   * trả 401 sẽ khiến client tưởng phiên hết hạn và làm mới token/đăng xuất.
+   */
+  private invalid(): BadRequestException {
+    return new BadRequestException({
       code: 'GATE_PASS_TOKEN_INVALID',
       message: 'QR Phiếu ra cổng không hợp lệ.',
     });

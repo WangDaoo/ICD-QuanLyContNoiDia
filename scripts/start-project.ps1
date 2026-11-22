@@ -92,7 +92,13 @@ try {
     if ($Service) {
         switch ($Service) {
             'mysql' {
-                & $MysqlExecutable --no-defaults "--datadir=$mysqlDirectory" --port=3308 --bind-address=127.0.0.1 --mysqlx=OFF --console
+                # MySQL on Windows can reject a Unicode working directory (error 267).
+                Push-Location -LiteralPath (Split-Path -Parent $MysqlExecutable)
+                try {
+                    & $MysqlExecutable --no-defaults "--datadir=$mysqlDirectory" --port=3308 --bind-address=127.0.0.1 --mysqlx=OFF --console
+                } finally {
+                    Pop-Location
+                }
             }
             'api' {
                 if ($Mode -ne 'Audit') { throw 'The API worker is for Audit mode only. Local uses start-local-runtime.ps1.' }

@@ -37,7 +37,7 @@ export class SmtpEmailProvider implements IEmailProvider {
       this.logger.log(`SMTP Email Provider initialized with host ${host}:${port}`);
     } else {
       this.logger.warn(
-        'SMTP credentials not fully provided. SmtpEmailProvider running in mock/dry-run mode.',
+        'SMTP credentials not fully provided. Email delivery is unavailable.',
       );
     }
   }
@@ -45,12 +45,9 @@ export class SmtpEmailProvider implements IEmailProvider {
   async sendEmail(options: SendEmailOptions): Promise<SendEmailResult> {
     try {
       if (!this.transporter) {
-        this.logger.log(
-          `[MOCK_SMTP] Sending email to: ${options.to}, Subject: ${options.subject}`,
-        );
         return {
-          success: true,
-          messageId: `mock-email-${Date.now()}`,
+          success: false,
+          error: 'SMTP provider is not configured.',
         };
       }
 

@@ -15,6 +15,7 @@ import { DisputeHandoverDto } from '../../dto/handover/dispute-handover.dto';
 import { IcdConfirmHandoverDto } from '../../dto/handover/icd-confirm-handover.dto';
 import { QueryTransportHandoverDto } from '../../dto/query-transport-handover.dto';
 import { HandoverService } from '../../services/handover.service';
+import { PartnerClientService } from '../../services/partner-client.service';
 import { TransportHandoverReadService } from '../../services/transport-handover-read.service';
 
 @Controller('handovers')
@@ -22,6 +23,7 @@ export class TransportHandoverController {
   constructor(
     private readonly handoverService: HandoverService,
     private readonly readService: TransportHandoverReadService,
+    private readonly partnerClientService: PartnerClientService,
   ) {}
 
   @Permissions(PERMISSION_CODES.HANDOVER_CREATE)
@@ -48,6 +50,14 @@ export class TransportHandoverController {
     @CurrentUser() actor: AuthenticatedUser,
   ) {
     return this.readService.findMany(actor.icdId, query);
+  }
+
+  /** Danh sách đối tác đang hoạt động – dùng cho dropdown tạo biên bản bàn giao. */
+  @Permissions(PERMISSION_CODES.HANDOVER_CREATE)
+  @Get('partner-clients')
+  async getPartnerClientOptions() {
+    const data = await this.partnerClientService.listActiveOptions();
+    return { data };
   }
 
   @Permissions(PERMISSION_CODES.HANDOVER_READ)

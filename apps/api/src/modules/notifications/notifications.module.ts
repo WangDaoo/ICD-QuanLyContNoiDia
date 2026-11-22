@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { ScheduleModule } from '@nestjs/schedule';
 import { PrismaModule } from '../../database/prisma.module';
 import { TokenCipherService } from './crypto/token-cipher.service';
 import { SmtpEmailProvider } from './providers/smtp-email.provider';
@@ -13,7 +12,7 @@ import { NotificationCronService } from './services/notification-cron.service';
 import { NotificationsController } from './controllers/notifications.controller';
 
 @Module({
-  imports: [PrismaModule, ScheduleModule.forRoot()],
+  imports: [PrismaModule],
   controllers: [NotificationsController],
   providers: [
     TokenCipherService,
