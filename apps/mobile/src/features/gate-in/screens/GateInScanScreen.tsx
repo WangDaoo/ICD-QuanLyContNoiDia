@@ -6,7 +6,7 @@ import type { GateStackParamList } from '../../../navigation/types';
 export function GateInScanScreen() {
   const { params } = useRoute<RouteProp<GateStackParamList, 'GateInScan'>>();
   return (
-    <ScreenLayout title="Cổng">
+    <ScreenLayout title="Nhập cổng">
       <GateModeSwitch mode="IN" />
       <GateInReceipt openScanner={params?.openScanner} />
     </ScreenLayout>

@@ -295,7 +295,7 @@ export function YardHomeScreen() {
   };
   return (
     <ScreenLayout title="Tác nghiệp bãi" onRefresh={() => void load()} refreshing={loading}>
-      <Card title="Lệnh Tác nghiệp Bãi (Yard Stacking)">
+      <Card title="Xếp và chuyển vị trí">
         <SelectField
           label="Chọn Container cần xếp/dời vị trí"
           value={visitId}

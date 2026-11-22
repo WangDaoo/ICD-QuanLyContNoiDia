@@ -139,7 +139,7 @@ test('shared heading styles preserve font and weight with line-height no greater
   ratio(typography.h1); ratio(typography.h2); ratio(typography.h3);
   assert.equal(typography.h3.fontSize, 16); assert.equal(typography.h3.fontWeight, '600');
   for (const [file, headingText, size] of [
-    ['src/components/AppHeader.tsx', 'Screen title', 13],
+    ['src/components/AppHeader.tsx', 'Screen title', 16],
     ['src/components/SessionCard.tsx', 'PHIÊN ĐĂNG NHẬP CA TRỰC', 11],
   ]) {
     const fixture = screenFixture(file, { './ConnectionBanner': { ConnectionBanner: 'ConnectionBanner' } });

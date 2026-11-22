@@ -29,7 +29,7 @@ export function mapWorkQueueItem(item: ApiWorkQueueItem): WorkQueueTask | null {
     licensePlate: item.metadata?.licensePlate,
     title: item.title,
     subtitle: item.description,
-    urgency: item.urgency === 'CRITICAL' ? 'HIGH' : (['OVERDUE', 'HIGH', 'MEDIUM', 'NORMAL'].includes(item.urgency) ? item.urgency as WorkQueueTask['urgency'] : 'NORMAL'),
+    urgency: (['OVERDUE', 'CRITICAL', 'HIGH', 'MEDIUM', 'NORMAL'].includes(item.urgency) ? item.urgency as WorkQueueTask['urgency'] : 'NORMAL'),
     timeInfo: typeof item.minutesRemaining === 'number' ? (item.minutesRemaining < 0 ? `Quá hạn ${Math.abs(item.minutesRemaining)} phút` : `Còn ${item.minutesRemaining} phút`) : undefined,
   };
 }

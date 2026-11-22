@@ -64,7 +64,7 @@ export type WorkQueueTask = {
   visitId?: string;
   operationType?: 'MOVEMENT' | 'INSPECTION' | 'BOOKING';
   containerNo?: string;
-  urgency: 'OVERDUE' | 'HIGH' | 'MEDIUM' | 'NORMAL';
+  urgency: 'OVERDUE' | 'CRITICAL' | 'HIGH' | 'MEDIUM' | 'NORMAL';
   title?: string;
   subtitle?: string;
   timeInfo?: string;

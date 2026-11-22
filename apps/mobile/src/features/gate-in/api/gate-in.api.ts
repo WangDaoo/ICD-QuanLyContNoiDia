@@ -16,7 +16,7 @@ export type GateInContext = {
     };
     houseBl?: {
       id: string;
-      houseBlNo?: string;
+      hblNumber?: string;
       consignee?: {
         name?: string;
       };

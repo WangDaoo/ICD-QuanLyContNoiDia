@@ -4,7 +4,7 @@ import type { TextInputProps } from 'react-native';
 import { AppHeader } from './AppHeader';
 import type { Theme } from '../theme/theme';
 import { useTheme } from '../theme/ThemeProvider';
-import { SessionCard } from './SessionCard';
+
 import { ConnectionBanner } from './ConnectionBanner';
 import { layout } from '../theme/layout';
 
@@ -18,7 +18,7 @@ export function ScreenLayout({ title, subtitle, onBack, children, refreshing, on
     <ConnectionBanner />
     <ScrollView style={{ flex: 1 }} contentContainerStyle={fieldStyles.content} keyboardShouldPersistTaps="handled"
       refreshControl={onRefresh ? <RefreshControl refreshing={!!refreshing} onRefresh={onRefresh} tintColor={theme.colors.primary} /> : undefined}>
-      {!onBack ? <SessionCard /> : null}
+
       {children}
     </ScrollView>
   </KeyboardAvoidingView>;
@@ -54,7 +54,7 @@ export function DetailRow({ label, value }: { label: string; value?: string | nu
 const createFieldStyles = (theme: Theme) => StyleSheet.create({
   screen: { flex: 1, backgroundColor: theme.colors.background },
   content: { padding: theme.spacing.lg, gap: theme.spacing.lg, paddingBottom: theme.spacing.xxl, flexGrow: 1, width: '100%', maxWidth: layout.contentMaxWidth, alignSelf: 'center' },
-  card: { backgroundColor: theme.colors.surface, borderColor: theme.colors.border, borderWidth: layout.hairlineBorder, borderRadius: theme.borderRadius.lg, padding: theme.spacing.lg, gap: theme.spacing.md },
+  card: { backgroundColor: theme.colors.surface, borderColor: theme.colors.border, borderWidth: layout.hairlineBorder, borderRadius: theme.borderRadius.sm, padding: theme.spacing.lg, gap: theme.spacing.md },
   cardTitle: { ...theme.typography.sectionHeading, color: theme.colors.textPrimary, borderBottomWidth: layout.hairlineBorder, borderBottomColor: theme.colors.border, paddingBottom: theme.spacing.sm },
   label: { ...theme.typography.captionBold, color: theme.colors.textSecondary },
   input: { ...theme.typography.body, backgroundColor: theme.colors.surfaceSubtle, color: theme.colors.textPrimary, minWidth: layout.touchTarget, minHeight: layout.touchTarget, paddingHorizontal: theme.spacing.md, paddingVertical: theme.spacing.sm, borderWidth: layout.hairlineBorder, borderColor: theme.colors.borderDark, borderRadius: theme.borderRadius.md },

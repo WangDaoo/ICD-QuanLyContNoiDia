@@ -29,6 +29,8 @@ export interface CodeScannerProps {
 const ACCENT = '#22D3EE';
 const SHADE = 'rgba(3, 7, 18, 0.68)';
 const FILL = { position: 'absolute', top: 0, right: 0, bottom: 0, left: 0 } as const;
+// react-native-web 0.21 cảnh báo props.pointerEvents đã lỗi thời; dùng style.pointerEvents.
+const NO_POINTER = { pointerEvents: 'none' } as const;
 
 export function CodeScanner({ visible, focused, mode, onClose, onScan }: CodeScannerProps) {
   const insets = useSafeAreaInsets();
@@ -223,7 +225,7 @@ export function CodeScanner({ visible, focused, mode, onClose, onScan }: CodeSca
                 onBarcodeScanned={({ data }) => readCode(data)}
               />
             ) : null}
-            <View pointerEvents="none" style={FILL}>
+            <View style={[FILL, NO_POINTER]}>
               <View style={{ flex: 1, backgroundColor: SHADE }} />
               <View style={{ flexDirection: 'row', height: frameSize }}>
                 <View style={{ flex: 1, backgroundColor: SHADE }} />
@@ -357,22 +359,21 @@ export function CodeScanner({ visible, focused, mode, onClose, onScan }: CodeSca
               </View>
             ) : !ready ? (
               <View
-                pointerEvents="none"
-                style={[FILL, { justifyContent: 'center', alignItems: 'center', gap: 12 }]}
+                style={[FILL, NO_POINTER, { justifyContent: 'center', alignItems: 'center', gap: 12 }]}
               >
                 <ActivityIndicator color={ACCENT} size="large" />
                 <Text style={styles.message}>Đang mở camera…</Text>
               </View>
             ) : null}
             <View
-              pointerEvents="none"
               style={{
+                pointerEvents: 'none',
                 position: 'absolute',
                 top: 16,
                 alignSelf: 'center',
                 paddingVertical: 7,
                 paddingHorizontal: 12,
-                borderRadius: 20,
+                borderRadius: 8,
                 backgroundColor: '#0B1220CC',
                 flexDirection: 'row',
                 alignItems: 'center',
@@ -443,7 +444,7 @@ const styles = StyleSheet.create({
     minHeight: 48,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 12,
+    borderRadius: 8,
     backgroundColor: '#182235',
   },
   corner: { position: 'absolute', width: 36, height: 36, borderColor: ACCENT },
@@ -451,7 +452,7 @@ const styles = StyleSheet.create({
   permissionButton: {
     minWidth: 48,
     minHeight: 48,
-    borderRadius: 10,
+    borderRadius: 8,
     paddingHorizontal: 14,
     backgroundColor: ACCENT,
     flexDirection: 'row',
@@ -464,7 +465,7 @@ const styles = StyleSheet.create({
     minWidth: 48,
     minHeight: 48,
     paddingHorizontal: 16,
-    borderRadius: 12,
+    borderRadius: 8,
     backgroundColor: '#182235',
     flexDirection: 'row',
     alignItems: 'center',

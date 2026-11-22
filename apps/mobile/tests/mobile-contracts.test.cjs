@@ -55,6 +55,16 @@ test('work queue never invents container, vehicle or visit identifiers', () => {
   assert.equal(mapping.mapWorkQueueItem({ type: 'UNKNOWN' }), null);
 });
 
+test('work queue keeps the backend CRITICAL urgency distinct from HIGH', () => {
+  const mapping = loadTypeScript('src/features/work-queue/api/work-queue.mapper.ts');
+  const base = { id: 'q', type: 'GATE_IN', entityId: 'visit', entityType: 'CONTAINER_VISIT' };
+  assert.equal(mapping.mapWorkQueueItem({ ...base, urgency: 'CRITICAL' }).urgency, 'CRITICAL');
+  assert.equal(mapping.mapWorkQueueItem({ ...base, urgency: 'HIGH' }).urgency, 'HIGH');
+  assert.equal(mapping.mapWorkQueueItem({ ...base, urgency: 'BOGUS' }).urgency, 'NORMAL');
+  const screen = fs.readFileSync(path.resolve(__dirname, '..', 'src/features/work-queue/screens/WorkQueueScreen.tsx'), 'utf8');
+  assert.match(screen, /task\.urgency === 'CRITICAL' \? 'SẮP ĐẾN HẠN'/);
+});
+
 test('gate-in refuses missing truck and seal mismatch without notes', () => {
   const validation = loadTypeScript('src/features/gate-in/api/gate-in.validation.ts');
   assert.equal(typeof validation.validateGateInInput, 'function');

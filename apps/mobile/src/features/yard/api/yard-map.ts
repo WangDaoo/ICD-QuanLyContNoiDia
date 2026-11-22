@@ -21,9 +21,9 @@ export const YARD_SLOT_LEGEND: readonly YardLegendEntry[] = [
   {
     key: 'occupied',
     label: 'Có container',
-    background: '#2563EB',
+    background: '#183B56',
     color: '#FFFFFF',
-    border: '#1D4ED8',
+    border: '#102A40',
   },
   {
     key: 'maintenance',

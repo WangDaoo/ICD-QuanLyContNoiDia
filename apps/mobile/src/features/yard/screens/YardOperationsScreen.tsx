@@ -60,7 +60,7 @@ export function YardOperationsScreen() {
     catch(err) {setError(err instanceof Error ? err.message : 'Không tạo được lịch tác nghiệp.');}
     finally {setBusy(false);}
   };
-  return <ScreenLayout title="Danh sách tác nghiệp bãi" subtitle={params?.containerNo} onBack={() => navigation.goBack()} onRefresh={() => void load()} refreshing={loading}>
+  return <ScreenLayout title="Lệnh bãi" subtitle={params?.containerNo} onBack={() => navigation.goBack()} onRefresh={() => void load()} refreshing={loading}>
     <Card title="Tra cứu lệnh">
       <SelectField label="Loại tác nghiệp" value={type} options={[{value:'MOVEMENT',label:'Đảo chuyển'},{value:'INSPECTION',label:'Giám định'},{value:'BOOKING',label:'Dịch vụ tại bãi'}]} onChange={value => {request.current++;setRows([]);setType(value as OperationType);}} />
       <SelectField label="Trạng thái" value={status} options={[{value:'ALL',label:'Tất cả'},{value:'PENDING',label:'Chờ thực hiện'},{value:'IN_PROGRESS',label:'Đang thực hiện'},{value:'COMPLETED',label:'Hoàn tất'},{value:'CANCELLED',label:'Đã hủy'}]} onChange={setStatus} />

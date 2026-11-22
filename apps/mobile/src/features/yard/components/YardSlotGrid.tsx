@@ -381,7 +381,7 @@ export function YardSlotGrid({
               width: '100%',
               maxWidth: 480,
               maxHeight: '90%',
-              borderRadius: 12,
+              borderRadius: 8,
               backgroundColor: theme.colors.surface,
               borderWidth: 1,
               borderColor: theme.colors.borderDark,

@@ -13,7 +13,7 @@ export function ActionDialog({ visible, title, message, confirmLabel = 'Xác nh�
   return <Modal visible={visible} transparent animationType="fade" onRequestClose={close}>
     <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }}>
       <View style={{ flex: 1, backgroundColor: '#00000088', padding: 16, justifyContent: 'center', alignItems: 'center' }}>
-        <View accessibilityViewIsModal style={{ width: '100%', maxWidth: 480, maxHeight: '90%', backgroundColor: theme.colors.surface, borderWidth: 1, borderColor: theme.colors.border, borderRadius: 12, padding: 16, gap: 14 }}>
+        <View accessibilityViewIsModal style={{ width: '100%', maxWidth: 480, maxHeight: '90%', backgroundColor: theme.colors.surface, borderWidth: 1, borderColor: theme.colors.border, borderRadius: 8, padding: 16, gap: 14 }}>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
             <Text accessibilityRole="header" style={{ flex: 1, fontSize: 16, fontWeight: '700', color: theme.colors.textPrimary }}>{title}</Text>
             <TouchableOpacity accessibilityRole="button" accessibilityLabel="Đóng hộp thoại" disabled={busy} onPress={close} style={{ minWidth: 48, minHeight: 48, justifyContent: 'center', alignItems: 'center' }}><X size={20} color={theme.colors.textSecondary} /></TouchableOpacity>

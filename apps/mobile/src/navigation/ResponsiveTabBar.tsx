@@ -21,7 +21,7 @@ export function ResponsiveTabBar({ state, descriptors, navigation, visibleTabs }
       const focused = state.routes[state.index].key === route.key;
       const options = descriptors[route.key].options;
       const color = focused ? theme.colors.info : theme.colors.textMuted;
-      return <TouchableOpacity key={route.key} accessibilityRole="tab" accessibilityLabel={labels[route.name as keyof MainTabParamList]} accessibilityState={{ selected: focused }}
+      return <TouchableOpacity key={route.key} accessibilityRole="tab" accessibilityLabel={labels[route.name as keyof MainTabParamList]} accessibilityState={{ selected: focused }} aria-selected={focused}
         onPress={() => { const event = navigation.emit({ type: 'tabPress', target: route.key, canPreventDefault: true }); if (!focused && !event.defaultPrevented) navigation.navigate(route.name, route.params); }}
         onLongPress={() => navigation.emit({ type: 'tabLongPress', target: route.key })}
         style={{ flex: 1, minWidth: 48, minHeight: 48, alignItems: 'center', justifyContent: 'center', gap: theme.spacing.xs, paddingVertical: theme.spacing.xs }}>

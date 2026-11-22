@@ -107,7 +107,7 @@ test('legend and cell colors share the six approved semantic appearances', () =>
   assert.equal(typeof model.getYardSlotAppearance, 'function');
   const cases = [
     [slot('empty'), [], [], 'empty', '#F8FAFC'],
-    [occupied(), [], [], 'occupied', '#2563EB'],
+    [occupied(), [], [], 'occupied', '#183B56'],
     [slot('maintenance', { status: 'MAINTENANCE' }), [], [], 'maintenance', '#64748B'],
     [slot('reefer', { reeferPower: true }), [], [], 'reefer', '#06B6D4'],
     [occupied(), [{ containerVisitId: 'visit-1', status: 'ACTIVE' }], [], 'hold', '#DC2626'],

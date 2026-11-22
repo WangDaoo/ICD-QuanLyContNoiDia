@@ -43,11 +43,11 @@ export function MonitorScreen() {
   );
   return (
     <ScreenLayout
-      title="Monitor & Điều phối ca trực"
+      title="Điều phối ca trực"
       onRefresh={() => void load()}
       refreshing={loading}
     >
-      <Card title="Bảng Monitor & Điều phối Ca trực Thực địa">
+      <Card title="Công việc hiện trường">
         <Text style={styles.muted}>Theo dõi hiện trường · {snapshot?.slots.length ?? 0} ô bãi</Text>
         {error ? <Notice message={error} /> : null}
         {snapshot?.warnings.map((message) => (
