@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="4550" height="3280" viewBox="0 0 4550 3280">
+<rect width="100%" height="100%" fill="white"/>
+<text x="2275" y="95" text-anchor="middle" font-family="Arial" font-size="66" font-weight="700" fill="#222222">Biểu đồ lớp thực thể tổng quát của hệ thống ICD</text>
+<line x1="855" y1="400" x2="1010" y2="400" stroke="#647782" stroke-width="3.2"/>
+<line x1="1745" y1="400" x2="1900" y2="400" stroke="#647782" stroke-width="3.2"/>
+<line x1="2635" y1="400" x2="2790" y2="400" stroke="#647782" stroke-width="3.2"/>
+<line x1="488" y1="530" x2="488" y2="710" stroke="#647782" stroke-width="3.2"/>
+<line x1="855" y1="840" x2="1010" y2="840" stroke="#647782" stroke-width="3.2"/>
+<line x1="1745" y1="840" x2="1900" y2="840" stroke="#647782" stroke-width="3.2"/>
+<line x1="2268" y1="970" x2="2278" y2="1150" stroke="#647782" stroke-width="3.2"/>
+<line x1="3158" y1="970" x2="2278" y2="1150" stroke="#647782" stroke-width="3.2"/>
+<line x1="1910" y1="1308" x2="488" y2="1700" stroke="#647782" stroke-width="3.2"/>
+<line x1="2278" y1="1465" x2="2268" y2="1700" stroke="#647782" stroke-width="3.2"/>
+<line x1="1745" y1="1830" x2="1900" y2="1830" stroke="#647782" stroke-width="3.2"/>
+<line x1="3525" y1="1830" x2="3680" y2="1830" stroke="#647782" stroke-width="3.2"/>
+<line x1="855" y1="2820" x2="1010" y2="2820" stroke="#647782" stroke-width="3.2"/>
+<line x1="1745" y1="2820" x2="1900" y2="2820" stroke="#647782" stroke-width="3.2"/>
+<line x1="2790" y1="2820" x2="2635" y2="2820" stroke="#647782" stroke-width="3.2"/>
+<rect x="120" y="270" width="735" height="260" fill="white" stroke="#222222" stroke-width="4"/>
+<rect x="120" y="270" width="735" height="82" fill="#C0E4FF" stroke="#222222" stroke-width="4"/>
+<text x="487.5" y="326" text-anchor="middle" font-family="Arial" font-size="43" font-weight="700" fill="#222222">IcdSite</text>
+<text x="154" y="392" font-family="Arial" font-size="31" fill="#222222">+ id: String</text>
+<text x="154" y="434" font-family="Arial" font-size="31" fill="#222222">  code: String</text>
+<text x="154" y="476" font-family="Arial" font-size="31" fill="#222222">  name: String</text>
+<rect x="1010" y="270" width="735" height="260" fill="white" stroke="#222222" stroke-width="4"/>
+<rect x="1010" y="270" width="735" height="82" fill="#C0E4FF" stroke="#222222" stroke-width="4"/>
+<text x="1377.5" y="326" text-anchor="middle" font-family="Arial" font-size="43" font-weight="700" fill="#222222">User</text>
+<text x="1044" y="392" font-family="Arial" font-size="31" fill="#222222">+ id: String</text>
+<text x="1044" y="434" font-family="Arial" font-size="31" fill="#222222">  icdId: String</text>
+<text x="1044" y="476" font-family="Arial" font-size="31" fill="#222222">  email: String</text>
+<rect x="1900" y="270" width="735" height="260" fill="white" stroke="#222222" stroke-width="4"/>
+<rect x="1900" y="270" width="735" height="82" fill="#C0E4FF" stroke="#222222" stroke-width="4"/>
+<text x="2267.5" y="326" text-anchor="middle" font-family="Arial" font-size="43" font-weight="700" fill="#222222">UserRole</text>
+<text x="1934" y="392" font-family="Arial" font-size="31" fill="#222222">  userId: String</text>
+<text x="1934" y="434" font-family="Arial" font-size="31" fill="#222222">  roleId: String</text>
+<rect x="2790" y="270" width="735" height="260" fill="white" stroke="#222222" stroke-width="4"/>
+<rect x="2790" y="270" width="735" height="82" fill="#C0E4FF" stroke="#222222" stroke-width="4"/>
+<text x="3157.5" y="326" text-anchor="middle" font-family="Arial" font-size="43" font-weight="700" fill="#222222">Role</text>
+<text x="2824" y="392" font-family="Arial" font-size="31" fill="#222222">+ id: String</text>
+<text x="2824" y="434" font-family="Arial" font-size="31" fill="#222222">  code: String</text>
+<rect x="120" y="710" width="735" height="260" fill="white" stroke="#222222" stroke-width="4"/>
+<rect x="120" y="710" width="735" height="82" fill="#C0E4FF" stroke="#222222" stroke-width="4"/>
+<text x="487.5" y="766" text-anchor="middle" font-family="Arial" font-size="43" font-weight="700" fill="#222222">Manifest</text>
+<text x="154" y="832" font-family="Arial" font-size="31" fill="#222222">+ id: String</text>
+<text x="154" y="874" font-family="Arial" font-size="31" fill="#222222">  manifestNo: String</text>
+<text x="154" y="916" font-family="Arial" font-size="31" fill="#222222">  status: ManifestStatus</text>
+<rect x="1010" y="710" width="735" height="260" fill="white" stroke="#222222" stroke-width="4"/>
+<rect x="1010" y="710" width="735" height="82" fill="#C0E4FF" stroke="#222222" stroke-width="4"/>
+<text x="1377.5" y="766" text-anchor="middle" font-family="Arial" font-size="43" font-weight="700" fill="#222222">MasterBl</text>
+<text x="1044" y="832" font-family="Arial" font-size="31" fill="#222222">+ id: String</text>
+<text x="1044" y="874" font-family="Arial" font-size="31" fill="#222222">  manifestId: String</text>
+<text x="1044" y="916" font-family="Arial" font-size="31" fill="#222222">  mblNumber: String</text>
+<rect x="1900" y="710" width="735" height="260" fill="white" stroke="#222222" stroke-width="4"/>
+<rect x="1900" y="710" width="735" height="82" fill="#C0E4FF" stroke="#222222" stroke-width="4"/>
+<text x="2267.5" y="766" text-anchor="middle" font-family="Arial" font-size="43" font-weight="700" fill="#222222">HouseBl</text>
+<text x="1934" y="832" font-family="Arial" font-size="31" fill="#222222">+ id: String</text>
+<text x="1934" y="874" font-family="Arial" font-size="31" fill="#222222">  masterBlId: String</text>
+<text x="1934" y="916" font-family="Arial" font-size="31" fill="#222222">  hblNumber: String</text>
+<rect x="2790" y="710" width="735" height="260" fill="white" stroke="#222222" stroke-width="4"/>
+<rect x="2790" y="710" width="735" height="82" fill="#C0E4FF" stroke="#222222" stroke-width="4"/>
+<text x="3157.5" y="766" text-anchor="middle" font-family="Arial" font-size="43" font-weight="700" fill="#222222">Container</text>
+<text x="2824" y="832" font-family="Arial" font-size="31" fill="#222222">+ id: String</text>
+<text x="2824" y="874" font-family="Arial" font-size="31" fill="#222222">  containerNumber: String</text>
+<text x="2824" y="916" font-family="Arial" font-size="31" fill="#222222">  type: ContainerType</text>
+<rect x="1910" y="1150" width="735" height="315" fill="white" stroke="#222222" stroke-width="4"/>
+<rect x="1910" y="1150" width="735" height="82" fill="#C0E4FF" stroke="#222222" stroke-width="4"/>
+<text x="2277.5" y="1206" text-anchor="middle" font-family="Arial" font-size="43" font-weight="700" fill="#222222">ContainerVisit</text>
+<text x="1944" y="1272" font-family="Arial" font-size="31" fill="#222222">+ id: String</text>
+<text x="1944" y="1314" font-family="Arial" font-size="31" fill="#222222">  containerId: String</text>
+<text x="1944" y="1356" font-family="Arial" font-size="31" fill="#222222">  state: ContainerVisitStatus</text>
+<text x="1944" y="1398" font-family="Arial" font-size="31" fill="#222222">  gateInAt: DateTime?</text>
+<text x="1944" y="1440" font-family="Arial" font-size="31" fill="#222222">  gateOutAt: DateTime?</text>
+<rect x="120" y="1700" width="735" height="260" fill="white" stroke="#222222" stroke-width="4"/>
+<rect x="120" y="1700" width="735" height="82" fill="#C0E4FF" stroke="#222222" stroke-width="4"/>
+<text x="487.5" y="1756" text-anchor="middle" font-family="Arial" font-size="43" font-weight="700" fill="#222222">MovementOrder</text>
+<text x="154" y="1822" font-family="Arial" font-size="31" fill="#222222">+ id: String</text>
+<text x="154" y="1864" font-family="Arial" font-size="31" fill="#222222">  containerVisitId: String</text>
+<text x="154" y="1906" font-family="Arial" font-size="31" fill="#222222">  status: MovementOrderStatus</text>
+<rect x="1010" y="1700" width="735" height="260" fill="white" stroke="#222222" stroke-width="4"/>
+<rect x="1010" y="1700" width="735" height="82" fill="#C0E4FF" stroke="#222222" stroke-width="4"/>
+<text x="1377.5" y="1756" text-anchor="middle" font-family="Arial" font-size="43" font-weight="700" fill="#222222">TruckVisit</text>
+<text x="1044" y="1822" font-family="Arial" font-size="31" fill="#222222">+ id: String</text>
+<text x="1044" y="1864" font-family="Arial" font-size="31" fill="#222222">  visitCode: String</text>
+<text x="1044" y="1906" font-family="Arial" font-size="31" fill="#222222">  status: TruckVisitStatus</text>
+<rect x="1900" y="1700" width="735" height="260" fill="white" stroke="#222222" stroke-width="4"/>
+<rect x="1900" y="1700" width="735" height="82" fill="#C0E4FF" stroke="#222222" stroke-width="4"/>
+<text x="2267.5" y="1756" text-anchor="middle" font-family="Arial" font-size="43" font-weight="700" fill="#222222">ContainerReception</text>
+<text x="1934" y="1822" font-family="Arial" font-size="31" fill="#222222">+ id: String</text>
+<text x="1934" y="1864" font-family="Arial" font-size="31" fill="#222222">  containerVisitId: String</text>
+<text x="1934" y="1906" font-family="Arial" font-size="31" fill="#222222">  receivedAt: DateTime</text>
+<rect x="2790" y="1700" width="735" height="260" fill="white" stroke="#222222" stroke-width="4"/>
+<rect x="2790" y="1700" width="735" height="82" fill="#C0E4FF" stroke="#222222" stroke-width="4"/>
+<text x="3157.5" y="1756" text-anchor="middle" font-family="Arial" font-size="43" font-weight="700" fill="#222222">YardBlock</text>
+<text x="2824" y="1822" font-family="Arial" font-size="31" fill="#222222">+ id: String</text>
+<text x="2824" y="1864" font-family="Arial" font-size="31" fill="#222222">  code: String</text>
+<rect x="3680" y="1700" width="735" height="260" fill="white" stroke="#222222" stroke-width="4"/>
+<rect x="3680" y="1700" width="735" height="82" fill="#C0E4FF" stroke="#222222" stroke-width="4"/>
+<text x="4047.5" y="1756" text-anchor="middle" font-family="Arial" font-size="43" font-weight="700" fill="#222222">YardSlot</text>
+<text x="3714" y="1822" font-family="Arial" font-size="31" fill="#222222">+ id: String</text>
+<text x="3714" y="1864" font-family="Arial" font-size="31" fill="#222222">  yardBlockId: String</text>
+<text x="3714" y="1906" font-family="Arial" font-size="31" fill="#222222">  slotCode: String?</text>
+<rect x="120" y="2190" width="735" height="260" fill="white" stroke="#222222" stroke-width="4"/>
+<rect x="120" y="2190" width="735" height="82" fill="#C0E4FF" stroke="#222222" stroke-width="4"/>
+<text x="487.5" y="2246" text-anchor="middle" font-family="Arial" font-size="43" font-weight="700" fill="#222222">YardMovement</text>
+<text x="154" y="2312" font-family="Arial" font-size="31" fill="#222222">+ id: String</text>
+<text x="154" y="2354" font-family="Arial" font-size="31" fill="#222222">  containerVisitId: String</text>
+<text x="154" y="2396" font-family="Arial" font-size="31" fill="#222222">  status: YardMovementStatus</text>
+<rect x="1010" y="2190" width="735" height="260" fill="white" stroke="#222222" stroke-width="4"/>
+<rect x="1010" y="2190" width="735" height="82" fill="#C0E4FF" stroke="#222222" stroke-width="4"/>
+<text x="1377.5" y="2246" text-anchor="middle" font-family="Arial" font-size="43" font-weight="700" fill="#222222">ContainerInspection</text>
+<text x="1044" y="2312" font-family="Arial" font-size="31" fill="#222222">+ id: String</text>
+<text x="1044" y="2354" font-family="Arial" font-size="31" fill="#222222">  containerVisitId: String</text>
+<text x="1044" y="2396" font-family="Arial" font-size="31" fill="#222222">  result: ContainerInspectionResult?</text>
+<rect x="1900" y="2190" width="735" height="260" fill="white" stroke="#222222" stroke-width="4"/>
+<rect x="1900" y="2190" width="735" height="82" fill="#C0E4FF" stroke="#222222" stroke-width="4"/>
+<text x="2267.5" y="2246" text-anchor="middle" font-family="Arial" font-size="43" font-weight="700" fill="#222222">InYardBooking</text>
+<text x="1934" y="2312" font-family="Arial" font-size="31" fill="#222222">+ id: String</text>
+<text x="1934" y="2354" font-family="Arial" font-size="31" fill="#222222">  containerVisitId: String</text>
+<text x="1934" y="2396" font-family="Arial" font-size="31" fill="#222222">  scheduledAt: DateTime</text>
+<rect x="2790" y="2190" width="735" height="260" fill="white" stroke="#222222" stroke-width="4"/>
+<rect x="2790" y="2190" width="735" height="82" fill="#C0E4FF" stroke="#222222" stroke-width="4"/>
+<text x="3157.5" y="2246" text-anchor="middle" font-family="Arial" font-size="43" font-weight="700" fill="#222222">OperationalHold</text>
+<text x="2824" y="2312" font-family="Arial" font-size="31" fill="#222222">+ id: String</text>
+<text x="2824" y="2354" font-family="Arial" font-size="31" fill="#222222">  containerVisitId: String</text>
+<text x="2824" y="2396" font-family="Arial" font-size="31" fill="#222222">  status: OperationalHoldStatus</text>
+<rect x="3680" y="2190" width="735" height="260" fill="white" stroke="#222222" stroke-width="4"/>
+<rect x="3680" y="2190" width="735" height="82" fill="#C0E4FF" stroke="#222222" stroke-width="4"/>
+<text x="4047.5" y="2246" text-anchor="middle" font-family="Arial" font-size="43" font-weight="700" fill="#222222">GatePass</text>
+<text x="3714" y="2312" font-family="Arial" font-size="31" fill="#222222">+ id: String</text>
+<text x="3714" y="2354" font-family="Arial" font-size="31" fill="#222222">  containerVisitId: String</text>
+<text x="3714" y="2396" font-family="Arial" font-size="31" fill="#222222">  status: GatePassStatus</text>
+<rect x="120" y="2690" width="735" height="260" fill="white" stroke="#222222" stroke-width="4"/>
+<rect x="120" y="2690" width="735" height="82" fill="#C0E4FF" stroke="#222222" stroke-width="4"/>
+<text x="487.5" y="2746" text-anchor="middle" font-family="Arial" font-size="43" font-weight="700" fill="#222222">ServiceOrder</text>
+<text x="154" y="2812" font-family="Arial" font-size="31" fill="#222222">+ id: String</text>
+<text x="154" y="2854" font-family="Arial" font-size="31" fill="#222222">  containerVisitId: String</text>
+<text x="154" y="2896" font-family="Arial" font-size="31" fill="#222222">  totalAmount: Decimal</text>
+<rect x="1010" y="2690" width="735" height="260" fill="white" stroke="#222222" stroke-width="4"/>
+<rect x="1010" y="2690" width="735" height="82" fill="#C0E4FF" stroke="#222222" stroke-width="4"/>
+<text x="1377.5" y="2746" text-anchor="middle" font-family="Arial" font-size="43" font-weight="700" fill="#222222">Invoice</text>
+<text x="1044" y="2812" font-family="Arial" font-size="31" fill="#222222">+ id: String</text>
+<text x="1044" y="2854" font-family="Arial" font-size="31" fill="#222222">  serviceOrderId: String</text>
+<text x="1044" y="2896" font-family="Arial" font-size="31" fill="#222222">  status: InvoiceStatus</text>
+<rect x="1900" y="2690" width="735" height="260" fill="white" stroke="#222222" stroke-width="4"/>
+<rect x="1900" y="2690" width="735" height="82" fill="#C0E4FF" stroke="#222222" stroke-width="4"/>
+<text x="2267.5" y="2746" text-anchor="middle" font-family="Arial" font-size="43" font-weight="700" fill="#222222">PaymentAllocation</text>
+<text x="1934" y="2812" font-family="Arial" font-size="31" fill="#222222">  paymentId: String</text>
+<text x="1934" y="2854" font-family="Arial" font-size="31" fill="#222222">  invoiceId: String</text>
+<text x="1934" y="2896" font-family="Arial" font-size="31" fill="#222222">  amount: Decimal</text>
+<rect x="2790" y="2690" width="735" height="260" fill="white" stroke="#222222" stroke-width="4"/>
+<rect x="2790" y="2690" width="735" height="82" fill="#C0E4FF" stroke="#222222" stroke-width="4"/>
+<text x="3157.5" y="2746" text-anchor="middle" font-family="Arial" font-size="43" font-weight="700" fill="#222222">Payment</text>
+<text x="2824" y="2812" font-family="Arial" font-size="31" fill="#222222">+ id: String</text>
+<text x="2824" y="2854" font-family="Arial" font-size="31" fill="#222222">  paymentRef: String</text>
+<text x="2824" y="2896" font-family="Arial" font-size="31" fill="#222222">  amount: Decimal</text>
+<rect x="3680" y="2690" width="735" height="260" fill="white" stroke="#222222" stroke-width="4"/>
+<rect x="3680" y="2690" width="735" height="82" fill="#C0E4FF" stroke="#222222" stroke-width="4"/>
+<text x="4047.5" y="2746" text-anchor="middle" font-family="Arial" font-size="43" font-weight="700" fill="#222222">TransportHandover</text>
+<text x="3714" y="2812" font-family="Arial" font-size="31" fill="#222222">+ id: String</text>
+<text x="3714" y="2854" font-family="Arial" font-size="31" fill="#222222">  containerVisitId: String</text>
+<text x="3714" y="2896" font-family="Arial" font-size="31" fill="#222222">  status: TransportHandoverStatus</text>
+<rect x="859" y="355" width="32" height="36" fill="white"/>
+<text x="875" y="383" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">1</text>
+<rect x="950" y="355" width="80" height="36" fill="white"/>
+<text x="990" y="383" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">0..*</text>
+<rect x="1749" y="355" width="32" height="36" fill="white"/>
+<text x="1765" y="383" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">1</text>
+<rect x="1840" y="355" width="80" height="36" fill="white"/>
+<text x="1880" y="383" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">0..*</text>
+<rect x="2615" y="355" width="80" height="36" fill="white"/>
+<text x="2655" y="383" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">0..*</text>
+<rect x="2754" y="355" width="32" height="36" fill="white"/>
+<text x="2770" y="383" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">1</text>
+<rect x="472" y="508" width="32" height="36" fill="white"/>
+<text x="488" y="536" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">1</text>
+<rect x="448" y="642" width="80" height="36" fill="white"/>
+<text x="488" y="670" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">0..*</text>
+<rect x="859" y="795" width="32" height="36" fill="white"/>
+<text x="875" y="823" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">1</text>
+<rect x="950" y="795" width="80" height="36" fill="white"/>
+<text x="990" y="823" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">0..*</text>
+<rect x="1749" y="795" width="32" height="36" fill="white"/>
+<text x="1765" y="823" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">1</text>
+<rect x="1840" y="795" width="80" height="36" fill="white"/>
+<text x="1880" y="823" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">0..*</text>
+<rect x="2229" y="948" width="80" height="36" fill="white"/>
+<text x="2269" y="976" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">0..1</text>
+<rect x="2236" y="1082" width="80" height="36" fill="white"/>
+<text x="2276" y="1110" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">0..*</text>
+<rect x="3027" y="948" width="32" height="36" fill="white"/>
+<text x="3043" y="976" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">1</text>
+<rect x="2352" y="1082" width="80" height="36" fill="white"/>
+<text x="2392" y="1110" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">0..*</text>
+<rect x="1709" y="1314" width="32" height="36" fill="white"/>
+<text x="1725" y="1342" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">1</text>
+<rect x="632" y="1604" width="80" height="36" fill="white"/>
+<text x="672" y="1632" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">0..*</text>
+<rect x="2260" y="1451" width="32" height="36" fill="white"/>
+<text x="2276" y="1479" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">1</text>
+<rect x="2229" y="1624" width="80" height="36" fill="white"/>
+<text x="2269" y="1652" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">0..1</text>
+<rect x="1725" y="1785" width="80" height="36" fill="white"/>
+<text x="1765" y="1813" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">0..1</text>
+<rect x="1840" y="1785" width="80" height="36" fill="white"/>
+<text x="1880" y="1813" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">0..*</text>
+<rect x="3529" y="1785" width="32" height="36" fill="white"/>
+<text x="3545" y="1813" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">1</text>
+<rect x="3620" y="1785" width="80" height="36" fill="white"/>
+<text x="3660" y="1813" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">0..*</text>
+<rect x="859" y="2775" width="32" height="36" fill="white"/>
+<text x="875" y="2803" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">1</text>
+<rect x="950" y="2775" width="80" height="36" fill="white"/>
+<text x="990" y="2803" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">0..1</text>
+<rect x="1749" y="2775" width="32" height="36" fill="white"/>
+<text x="1765" y="2803" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">1</text>
+<rect x="1840" y="2775" width="80" height="36" fill="white"/>
+<text x="1880" y="2803" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">0..*</text>
+<rect x="2754" y="2775" width="32" height="36" fill="white"/>
+<text x="2770" y="2803" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">1</text>
+<rect x="2615" y="2775" width="80" height="36" fill="white"/>
+<text x="2655" y="2803" text-anchor="middle" font-family="Arial" font-size="30" fill="#222222">0..*</text>
+<text x="2275" y="3140" text-anchor="middle" font-family="Arial" font-size="36" fill="#647782">Sơ đồ rút gọn theo Prisma schema; đường nối thể hiện quan hệ chính.</text>
+<text x="2275" y="3190" text-anchor="middle" font-family="Arial" font-size="34" fill="#647782">Các trường containerVisitId và khóa ngoại còn lại biểu thị liên kết được lược bớt để giữ hình dễ đọc.</text>
+</svg>
