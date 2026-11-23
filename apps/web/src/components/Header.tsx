@@ -1,21 +1,37 @@
 import React, { useEffect, useId, useRef, useState } from 'react';
-import { AlertTriangle, Bell, CheckCircle2, LogOut, Menu, RefreshCw, UserCircle, X } from 'lucide-react';
+import { AlertTriangle, Bell, CheckCircle2, LogOut, Menu, RefreshCw, Search, UserCircle, X } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { areSafetyReadsReady } from '../services/visit-safety-data';
 import { CollectionState } from './CollectionState';
+import { businessLabel } from '../lib/business-labels';
 
-interface HeaderProps { currentTab: string; onMenuClick: () => void; }
+interface HeaderProps { currentTab: string; onMenuClick: () => void; onNavigate?: (tab: import('./Sidebar').NavTabId, contextId?: string, context?: import('../navigation').NavigationContext) => void; }
 
-export const Header: React.FC<HeaderProps> = ({ currentTab, onMenuClick }) => {
-  const { currentUser, containerVisits, holds, visitSafetyStatus = {}, resourceStatus = {}, notifications, markNotificationRead, markAllNotificationsRead, logout, isLoading, apiReady, refreshData } = useApp();
+interface SearchResult {
+  kind: 'container' | 'truck' | 'manifest';
+  id: string;
+  label: string;
+  sub: string;
+}
+
+export const Header: React.FC<HeaderProps> = ({ currentTab, onMenuClick, onNavigate }) => {
+  const { currentUser, containerVisits, truckVisits, manifests, holds, visitSafetyStatus = {}, resourceStatus = {}, notifications, markNotificationRead, markAllNotificationsRead, logout, isLoading, apiReady, refreshData, roles } = useApp();
   const [showNotifs, setShowNotifs] = useState(false);
   const [isSigningOut, setIsSigningOut] = useState(false);
   const [notice, setNotice] = useState<{ error: boolean; text: string }>();
   const [pendingNotification, setPendingNotification] = useState<string>();
+  // SHELL-07: quick search state
+  const [searchQuery, setSearchQuery] = useState('');
+  const [showSearchResults, setShowSearchResults] = useState(false);
+  const searchRef = useRef<HTMLDivElement>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+
   const pending = useRef(false);
   const panelGroup = useRef<HTMLDivElement>(null);
   const notificationTrigger = useRef<HTMLButtonElement>(null);
   const panelId = useId();
+  const searchPanelId = useId();
+
   useEffect(() => { setShowNotifs(false); }, [currentTab]);
   useEffect(() => {
     if (!showNotifs) return;
@@ -29,6 +45,21 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onMenuClick }) => {
     document.addEventListener('pointerdown', outside);
     return () => { document.removeEventListener('keydown', keyDown); document.removeEventListener('pointerdown', outside); };
   }, [showNotifs]);
+
+  // SHELL-07: close search results on outside click or Escape
+  useEffect(() => {
+    if (!showSearchResults) return;
+    const keyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') { setShowSearchResults(false); setSearchQuery(''); searchInputRef.current?.blur(); }
+    };
+    const outside = (event: PointerEvent) => {
+      if (event.target instanceof Node && !searchRef.current?.contains(event.target)) setShowSearchResults(false);
+    };
+    document.addEventListener('keydown', keyDown);
+    document.addEventListener('pointerdown', outside);
+    return () => { document.removeEventListener('keydown', keyDown); document.removeEventListener('pointerdown', outside); };
+  }, [showSearchResults]);
+
   const readNotification = async (id?: string) => {
     if (pending.current) return;
     pending.current = true; setPendingNotification(id ?? 'all'); setNotice(undefined);
@@ -38,6 +69,54 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onMenuClick }) => {
     } catch { setNotice({ error: true, text: 'Không thể cập nhật thông báo. Kiểm tra kết nối rồi thử lại.' }); }
     finally { pending.current = false; setPendingNotification(undefined); }
   };
+
+  // SHELL-07: client-side search over loaded data, debounced by rendering (q trimmed)
+  const q = searchQuery.trim().toUpperCase();
+  const searchResults: SearchResult[] = q.length >= 2 ? [
+    // Containers by number
+    ...containerVisits
+      .filter(c => c.containerNumber.toUpperCase().includes(q))
+      .slice(0, 5)
+      .map(c => ({
+        kind: 'container' as const,
+        id: c.id,
+        label: c.containerNumber,
+        sub: `Container · ${c.consigneeName || '—'} · ${businessLabel('containerVisitStatus', c.state)}`,
+      })),
+    // Truck visits by plate
+    ...truckVisits
+      .filter(tv => tv.vehiclePlate.toUpperCase().includes(q))
+      .slice(0, 5)
+      .map(tv => ({
+        kind: 'truck' as const,
+        id: tv.id,
+        label: tv.vehiclePlate,
+        sub: `Chuyến xe · ${tv.driverName || '—'} · ${businessLabel('truckVisitStatus', tv.status)}`,
+      })),
+    // Manifests by manifest number or master B/L
+    ...manifests
+      .filter(m => {
+        if (m.manifestNo.toUpperCase().includes(q)) return true;
+        return m.masterBills.some(mb => mb.mblNumber.toUpperCase().includes(q));
+      })
+      .slice(0, 5)
+      .map(m => ({
+        kind: 'manifest' as const,
+        id: m.id,
+        label: m.manifestNo,
+        sub: `Lược khai · B/L: ${m.masterBills[0]?.mblNumber || '—'}`,
+      })),
+  ].slice(0, 10) : [];
+
+  const handleSearchSelect = (result: SearchResult) => {
+    if (!onNavigate) return;
+    setShowSearchResults(false);
+    setSearchQuery('');
+    if (result.kind === 'container') onNavigate('containers', result.id);
+    else if (result.kind === 'truck') onNavigate('truck-visits', result.id);
+    else if (result.kind === 'manifest') onNavigate('manifests', result.id);
+  };
+
   const unreadCount = notifications.filter((notification) => !notification.read).length;
   const notificationState = resourceStatus.notifications ?? (isLoading ? 'loading' : 'ready');
   const notificationsAvailable = notificationState === 'ready' || notificationState === 'stale';
@@ -49,6 +128,9 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onMenuClick }) => {
   const activeHoldCount = holds.filter((hold) => hold.status === 'ACTIVE').length;
   const containerState = resourceStatus.containerVisits ?? (isLoading ? 'loading' : 'ready');
   const holdsIncomplete = containerState !== 'ready' || !areSafetyReadsReady(containerVisits.map(v => v.id), visitSafetyStatus, 'holds');
+
+  // SHELL-08: resolve role display name in Vietnamese
+  const roleName = roles.find(r => r.code === currentUser.role)?.name ?? businessLabel('role', currentUser.role);
 
   const handleLogout = async () => {
     setIsSigningOut(true);
@@ -62,9 +144,61 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onMenuClick }) => {
         <div className="h-9 w-9 shrink-0 rounded-xl bg-blue-600 text-white flex items-center justify-center font-black text-xs shadow-sm">ICD</div>
         <div className="min-w-0"><h1 className="truncate text-sm sm:text-base font-bold tracking-tight text-slate-800">ICD Management System</h1><p className="hidden sm:block text-xs text-slate-500">Cảng cạn & kho bãi container nội địa</p></div>
       </div>
+
+      {/* SHELL-07: quick search bar */}
+      <div className="hidden md:flex flex-1 max-w-xs relative" ref={searchRef}>
+        <label htmlFor="global-search" className="sr-only">Tìm kiếm nhanh</label>
+        <div className="relative w-full">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-slate-400 pointer-events-none" aria-hidden="true" />
+          <input
+            id="global-search"
+            ref={searchInputRef}
+            type="search"
+            placeholder="Tìm: số container, biển số, B/L…"
+            aria-label="Tìm kiếm nhanh theo số container, biển số xe hoặc số B/L"
+            aria-controls={searchPanelId}
+            aria-expanded={showSearchResults}
+            value={searchQuery}
+            onChange={(e) => { setSearchQuery(e.target.value); setShowSearchResults(e.target.value.trim().length >= 2); }}
+            onFocus={() => { if (searchQuery.trim().length >= 2) setShowSearchResults(true); }}
+            className="w-full rounded-lg border border-slate-200 bg-slate-50 py-2 pl-9 pr-4 text-xs placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-400"
+          />
+        </div>
+        {showSearchResults && (
+          <div
+            id={searchPanelId}
+            role="listbox"
+            aria-label="Kết quả tìm kiếm"
+            className="absolute top-full mt-1 w-full min-w-[320px] rounded-xl border border-slate-200 bg-white shadow-xl text-xs overflow-hidden z-50"
+          >
+            {searchResults.length === 0 ? (
+              <p className="px-4 py-3 text-slate-400">Không tìm thấy kết quả phù hợp.</p>
+            ) : (
+              <ul>
+                {searchResults.map((result) => (
+                  <li key={`${result.kind}-${result.id}`}>
+                    <button
+                      type="button"
+                      role="option"
+                      aria-selected={false}
+                      onClick={() => handleSearchSelect(result)}
+                      className="w-full text-left px-4 py-3 hover:bg-blue-50 flex flex-col gap-0.5"
+                    >
+                      <span className="font-semibold text-slate-800 font-mono">{result.label}</span>
+                      <span className="text-slate-500">{result.sub}</span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        )}
+      </div>
+
       <div className="flex shrink-0 items-center gap-2 sm:gap-3">
         <div className="hidden xl:flex items-center gap-2 text-xs">
-          {(holdsIncomplete || activeHoldCount > 0) && <span className="flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-amber-800"><AlertTriangle className="h-3.5 w-3.5" />{holdsIncomplete ? 'Holds chưa kiểm tra đủ' : `${activeHoldCount} lệnh giữ`}</span>}
+          {/* SHELL-12: "Lệnh giữ chưa kiểm tra đủ" instead of "Holds chưa kiểm tra đủ" */}
+          {(holdsIncomplete || activeHoldCount > 0) && <span className="flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-amber-800"><AlertTriangle className="h-3.5 w-3.5" />{holdsIncomplete ? 'Lệnh giữ chưa kiểm tra đủ' : `${activeHoldCount} lệnh giữ`}</span>}
           <span className={`flex items-center gap-2 rounded-full border px-3 py-1 ${apiReady ? 'border-emerald-200 bg-emerald-50 text-emerald-700' : 'border-amber-200 bg-amber-50 text-amber-800'}`}><CheckCircle2 className="h-3.5 w-3.5" />{apiReady ? 'Đã kết nối' : 'Chưa kết nối'}</span>
         </div>
         <button type="button" onClick={() => void refreshData()} disabled={isLoading} aria-label="Tải lại dữ liệu" title="Tải lại dữ liệu" className="rounded-lg p-2 text-slate-500 hover:bg-slate-100 disabled:opacity-50"><RefreshCw className={`h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} /></button>
@@ -77,7 +211,8 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onMenuClick }) => {
             {notificationsAvailable && <div className="max-h-80 overflow-y-auto divide-y divide-slate-100">{notificationState === 'ready' && notifications.length === 0 && <p className="p-5 text-center text-slate-400">Không có thông báo mới. Thông báo vận hành sẽ xuất hiện tại đây.</p>}{notifications.map((notification) => <button type="button" key={notification.id} disabled={Boolean(pendingNotification)} onClick={() => void readNotification(notification.id)} className={`block w-full text-left px-4 py-3 hover:bg-slate-50 disabled:opacity-50 ${!notification.read ? 'bg-blue-50/40' : ''}`}><span className="block font-bold text-slate-800">{notification.title}</span><span className="block mt-1 text-slate-500">{notification.body}</span><span className="block mt-1 text-slate-400">{new Date(notification.createdAt).toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })}</span></button>)}</div>}
           </div>}
         </div>
-        <div className="flex items-center gap-2 border-l border-slate-200 pl-2 sm:pl-3"><UserCircle className="h-7 w-7 text-slate-400 hidden sm:block" /><div className="hidden lg:block text-right"><div className="text-xs font-semibold text-slate-800">{currentUser.name}</div><div className="text-caption text-slate-500">{currentUser.role}</div></div><button type="button" onClick={() => void handleLogout()} disabled={isSigningOut} aria-label="Đăng xuất" title="Đăng xuất" className="rounded-lg p-2 text-slate-500 hover:bg-rose-50 hover:text-rose-700 disabled:opacity-50"><LogOut className="h-4 w-4" /></button></div>
+        {/* SHELL-08: show Vietnamese role name */}
+        <div className="flex items-center gap-2 border-l border-slate-200 pl-2 sm:pl-3"><UserCircle className="h-7 w-7 text-slate-400 hidden sm:block" /><div className="hidden lg:block text-right"><div className="text-xs font-semibold text-slate-800">{currentUser.name}</div><div className="text-caption text-slate-500">{roleName}</div></div><button type="button" onClick={() => void handleLogout()} disabled={isSigningOut} aria-label="Đăng xuất" title="Đăng xuất" className="rounded-lg p-2 text-slate-500 hover:bg-rose-50 hover:text-rose-700 disabled:opacity-50"><LogOut className="h-4 w-4" /></button></div>
       </div>
     </header>
   );

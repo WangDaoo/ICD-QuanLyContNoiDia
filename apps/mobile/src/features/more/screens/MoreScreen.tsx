@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { displayCode } from '../../../presentation/labels';
 import { Platform, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useAuth } from '../../auth/hooks/useAuth';
@@ -28,7 +29,7 @@ export function MoreScreen() {
     <Card title="Thông tin tài khoản">
       {writesReady === false ? <Text accessibilityLiveRegion="polite" style={styles.muted}>Hồ sơ và quyền đã lưu chỉ dùng để xem. Kết nối lại để xác minh quyền hiện tại.</Text> : null}
       <DetailRow label="Họ tên" value={user?.name} /><DetailRow label="Email" value={user?.email} />
-      <DetailRow label="Vai trò" value={user?.roleCodes.join(', ')} /><DetailRow label="Mã ICD" value={user?.icdId} />
+      <DetailRow label="Vai trò" value={user?.roleCodes.map(r => displayCode(r)).join(', ')} /><DetailRow label="Mã ICD" value={user?.icdId} />
       <PrimaryButton title="Xem quyền được cấp" variant="secondary" onPress={() => setPermissions(true)} />
     </Card>
     <Card title="Ứng dụng và kết nối">

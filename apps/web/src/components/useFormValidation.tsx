@@ -15,7 +15,7 @@ export function useFormValidation() {
         element.disabled
       )
         continue;
-      const label = element.labels?.[0]?.textContent?.trim().replace(/\*$/, '') || 'Trường này';
+      const label = element.labels?.[0]?.textContent?.trim().replace(/\s*\*$/, '') || 'Trường này';
       if (element.required && !element.value.trim()) next[element.id] = `Nhập hoặc chọn ${label}.`;
       else if (element.value && !element.validity.valid)
         next[element.id] =

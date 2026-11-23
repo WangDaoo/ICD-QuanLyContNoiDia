@@ -186,6 +186,7 @@ test('work queue uses scoped recent read cache only for network failure and visi
   assert.match(text(tree), /Cached queue record/);
   assert.match(text(tree), /Dữ liệu đã lưu|dữ liệu cũ/i);
   assert.deepEqual(cachedScope, { userId: 'u', icdId: 'i', apiBaseUrl: 'https://api.test' });
+  f.blur(); // leaving the screen stops the 60s auto-refresh
 });
 test('work queue does not restore cached privileged rows after a server403', async () => {
   let reads = 0;
@@ -194,6 +195,7 @@ test('work queue does not restore cached privileged rows after a server403', asy
     '../../../storage/read-cache-store': { cacheScope: user => user, readCache: { read: async () => { reads++; return null; } } },
   });
   f.render(); await f.settle(); assert.equal(reads, 0);
+  f.blur(); // leaving the screen stops the 60s auto-refresh
 });
 test('viewed container detail restores only the exact scoped visit after network failure and never presents cached readiness as current', async () => {
   const f = screenFixture('src/features/containers/screens/ContainerDetailScreen.tsx', {

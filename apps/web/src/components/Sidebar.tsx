@@ -1,6 +1,7 @@
 import React from 'react';
 import { canAccessWebTab } from '../services/permissions';
 import { useApp } from '../context/AppContext';
+import { businessLabel } from '../lib/business-labels';
 import {
   LayoutDashboard,
   ListTodo,
@@ -15,7 +16,7 @@ import {
   TruckIcon,
   KeyRound,
   FileCode,
-  Settings,
+  BarChart3,
   History,
   Route,
   Database,
@@ -49,19 +50,21 @@ interface SidebarProps {
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, isOpen = false }) => {
-  const { currentUser, workQueue, handovers } = useApp();
+  const { currentUser, workQueue, handovers, roles } = useApp();
+  const roleName = roles.find((role) => role.code === currentUser.role)?.name || businessLabel('role', currentUser.role);
 
   const workQueueCount = workQueue.length;
   const pendingHandoverReviewCount = handovers.filter((h) => h.status === 'PARTNER_CONFIRMED').length;
 
+  // Grouped in the order a container moves through the ICD (spec end-to-end flow).
   const navItems = [
     {
-      group: 'Tổng quan & Điều phối',
+      group: 'Việc hôm nay',
       items: [
         { id: 'dashboard', label: 'Tổng quan vận hành', icon: LayoutDashboard },
         {
           id: 'work-queue',
-          label: 'Danh sách công việc',
+          label: 'Việc cần xử lý',
           icon: ListTodo,
           badge: workQueueCount > 0 ? workQueueCount : undefined,
           badgeColor: 'bg-rose-700 text-white',
@@ -69,27 +72,26 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, isOpe
       ],
     },
     {
-      group: 'Quản lý Hàng hóa & Cổng',
+      group: '1. Hồ sơ hàng đến',
       items: [
         { id: 'manifests', label: 'Bản lược khai (Manifest)', icon: FileText },
-        { id: 'containers', label: 'Quản lý Container', icon: Boxes },
-        { id: 'movement-orders', label: 'Movement Order', icon: Route },
-        { id: 'truck-visits', label: 'Chuyến xe ra/vào', icon: Truck },
-        { id: 'gate-in', label: 'Tiếp nhận vào cổng (Gate-in)', icon: LogIn },
-        { id: 'yard', label: 'Vận hành Bãi (Yard)', icon: Warehouse },
+        { id: 'containers', label: 'Hồ sơ container', icon: Boxes },
+        { id: 'movement-orders', label: 'Lệnh cho phép vào cổng', icon: Route },
       ],
     },
     {
-      group: 'Tài chính & Ra cổng',
+      group: '2. Cổng vào & Bãi',
+      items: [
+        { id: 'truck-visits', label: 'Lịch xe ra/vào', icon: Truck },
+        { id: 'gate-in', label: 'Tiếp nhận vào cổng', icon: LogIn },
+        { id: 'yard', label: 'Vận hành bãi', icon: Warehouse },
+      ],
+    },
+    {
+      group: '3. Thu phí & Ra cổng',
       items: [
         { id: 'billing', label: 'Dịch vụ & Thanh toán', icon: Receipt },
-        { id: 'gate-pass', label: 'Phiếu ra cổng & Gate-out', icon: QrCode },
-        { id: 'edi', label: 'Vận hành EDI (CODECO)', icon: Radio },
-      ],
-    },
-    {
-      group: 'Tích hợp đối tác',
-      items: [
+        { id: 'gate-pass', label: 'Phiếu ra cổng & Xác nhận ra', icon: QrCode },
         {
           id: 'handovers',
           label: 'Bàn giao vận chuyển',
@@ -97,17 +99,23 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, isOpe
           badge: pendingHandoverReviewCount > 0 ? `${pendingHandoverReviewCount} chờ duyệt` : undefined,
           badgeColor: 'bg-amber-500 text-white',
         },
-        { id: 'partner-clients', label: 'Đối tác tích hợp API', icon: KeyRound },
-        { id: 'partner-api-logs', label: 'Nhật ký API đối tác', icon: FileCode },
       ],
     },
     {
-      group: 'Hệ thống & Quản trị',
+      group: 'Giám sát & Báo cáo',
+      items: [
+        { id: 'admin', label: 'Báo cáo vận hành', icon: BarChart3 },
+        { id: 'edi', label: 'Điện EDI gửi hãng tàu', icon: Radio },
+        { id: 'activity', label: 'Nhật ký thao tác', icon: History },
+      ],
+    },
+    {
+      group: 'Quản trị hệ thống',
       items: [
         { id: 'master-data', label: 'Danh mục dùng chung', icon: Database },
         { id: 'users-roles', label: 'Người dùng & Phân quyền', icon: Users },
-        { id: 'admin', label: 'Báo cáo vận hành', icon: Settings },
-        { id: 'activity', label: 'Nhật ký kiểm toán', icon: History },
+        { id: 'partner-clients', label: 'Đối tác kết nối API', icon: KeyRound },
+        { id: 'partner-api-logs', label: 'Nhật ký API đối tác', icon: FileCode },
       ],
     },
   ];
@@ -153,7 +161,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, isOpe
       <div className="p-3 border-t border-slate-800 bg-slate-950/60 text-caption text-slate-400 space-y-1">
         <div className="font-semibold text-slate-200 truncate">{currentUser.name}</div>
         <div className="truncate">{currentUser.email}</div>
-        <div className="text-blue-300">{currentUser.role}</div>
+        <div className="text-blue-300">{roleName}</div>
       </div>
     </aside>
   );

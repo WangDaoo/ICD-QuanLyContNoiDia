@@ -6,5 +6,5 @@ import type { GateStackParamList } from '../../../navigation/types';
 export function GateInFormScreen() {
   const navigation = useNavigation();
   const { params } = useRoute<RouteProp<GateStackParamList, 'GateInForm'>>();
-  return <ScreenLayout title="Biên nhận Cổng vào" onBack={() => navigation.goBack()}><GateModeSwitch mode="IN" /><GateInReceipt initialVisitId={params.visitId} /></ScreenLayout>;
+  return <ScreenLayout title="Biên nhận Cổng vào" subtitle="Bước 2/3: Nhập thông tin tiếp nhận" onBack={() => navigation.goBack()}><GateModeSwitch mode="IN" /><GateInReceipt initialVisitId={params.visitId} /></ScreenLayout>;
 }

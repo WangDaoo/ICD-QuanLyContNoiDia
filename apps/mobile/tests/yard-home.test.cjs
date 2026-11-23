@@ -65,7 +65,10 @@ function createScreen({
     'PrimaryButton',
     'LoadingState',
     'YardSlotGrid',
+    'YardRecommendationCard',
     'Text',
+    'TextInput',
+    'View',
   ];
   const components = Object.fromEntries(componentNames.map((name) => [name, name]));
   const filename = path.resolve(__dirname, '../src/features/yard/screens/YardHomeScreen.tsx');
@@ -151,6 +154,8 @@ function createScreen({
       );
       return map.exports;
     }
+    if (name.endsWith('/ThemeProvider'))
+      return { useTheme: () => ({ theme: { colors: new Proxy({}, { get: () => '#000000' }) } }) };
     return { ...components, useFieldStyles: () => ({}) };
   };
   loaded._compile(

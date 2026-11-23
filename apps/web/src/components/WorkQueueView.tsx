@@ -12,6 +12,7 @@ import { taskDestination, type NavigationContext } from '../navigation';
 import { useViewQueryState } from '../context/useViewQueryState';
 import { CollectionState, ConfirmedResourceValue } from './CollectionState';
 import { NavTabId } from './Sidebar';
+import { businessLabel } from '../lib/business-labels';
 
 interface WorkQueueViewProps {
   onNavigate: (tab: NavTabId, contextId?: string, context?: NavigationContext) => void;
@@ -20,7 +21,7 @@ interface WorkQueueViewProps {
 export const WorkQueueView: React.FC<WorkQueueViewProps> = ({
   onNavigate,
 }) => {
-  const { workQueue, currentUser } = useApp();
+  const { workQueue, currentUser, roles } = useApp();
 
   const [urgencyFilter, setUrgencyFilter] = useViewQueryState('work-queue', 'urgency', 'ALL');
   const [taskTypeFilter, setTaskTypeFilter] = useViewQueryState('work-queue', 'type', 'ALL');
@@ -32,6 +33,13 @@ export const WorkQueueView: React.FC<WorkQueueViewProps> = ({
     if (filterMyRoleOnly && !task.assignedRoles.some(role => (currentUser.roleCodes ?? [currentUser.role]).includes(role))) return false;
     return true;
   });
+
+  // SHELL-08: resolve current user's role display name
+  const myRoleName = roles.find(r => r.code === currentUser.role)?.name ?? businessLabel('role', currentUser.role);
+
+  // SHELL-15: resolve role names for tasks
+  const resolveRoleName = (code: string): string =>
+    roles.find(r => r.code === code)?.name ?? businessLabel('role', code);
 
   const getUrgencyBadge = (urgency: TaskUrgency) => {
     switch (urgency) {
@@ -56,12 +64,14 @@ export const WorkQueueView: React.FC<WorkQueueViewProps> = ({
       {/* Header */}
       <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
+          {/* SHELL-14: removed (Work Queue) English jargon */}
           <h2 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
             <ListTodo className="w-5 h-5 text-blue-600" />
-            <span>Danh sách công việc thông minh (Work Queue)</span>
+            <span>Danh sách công việc theo ca</span>
           </h2>
+          {/* SHELL-14: removed (Urgency) and (SLA) English jargon */}
           <p className="text-xs text-slate-500 mt-1">
-            Tự động sắp xếp các tác vụ theo mức độ khẩn cấp (Urgency) và cam kết thời gian hoàn thành (SLA)
+            Tự động sắp xếp theo mức độ khẩn cấp và hạn xử lý cam kết
           </p>
         </div>
 
@@ -88,6 +98,7 @@ export const WorkQueueView: React.FC<WorkQueueViewProps> = ({
             <Filter className="w-3.5 h-3.5 mr-1" /> Bộ lọc:
           </span>
 
+          {/* SHELL-09: pure Vietnamese labels, no English in parentheses */}
           <select
             aria-label="Mức độ khẩn cấp"
             value={urgencyFilter}
@@ -95,10 +106,10 @@ export const WorkQueueView: React.FC<WorkQueueViewProps> = ({
             className="border border-slate-200 rounded-lg px-3 py-2 bg-slate-50 text-slate-700 font-medium"
           >
             <option value="ALL">Tất cả mức độ khẩn cấp</option>
-            <option value="OVERDUE">Quá hạn (OVERDUE)</option>
-            <option value="HIGH">Ưu tiên cao (HIGH)</option>
-            <option value="MEDIUM">Trung bình (MEDIUM)</option>
-            <option value="NORMAL">Bình thường (NORMAL)</option>
+            <option value="OVERDUE">Quá hạn</option>
+            <option value="HIGH">Ưu tiên cao</option>
+            <option value="MEDIUM">Trung bình</option>
+            <option value="NORMAL">Bình thường</option>
           </select>
 
           <select
@@ -108,13 +119,14 @@ export const WorkQueueView: React.FC<WorkQueueViewProps> = ({
             className="border border-slate-200 rounded-lg px-3 py-2 bg-slate-50 text-slate-700 font-medium"
           >
             <option value="ALL">Tất cả loại nghiệp vụ</option>
-            <option value="GATE_IN">Tiếp nhận vào cổng (Gate-in)</option>
-            <option value="YARD_ASSIGN">Xếp vị trí bãi (Yard Assign)</option>
-            <option value="BILLING">Thu phí dịch vụ (Billing)</option>
-            <option value="GATE_OUT">Xác nhận ra cổng (Gate-out)</option>
-            <option value="HANDOVER_REVIEW">Duyệt bàn giao đối tác (Review POD)</option>
+            <option value="GATE_IN">Tiếp nhận vào cổng</option>
+            <option value="YARD_ASSIGN">Phân bổ vị trí bãi</option>
+            <option value="BILLING">Thu phí dịch vụ</option>
+            <option value="GATE_OUT">Xác nhận ra cổng</option>
+            <option value="HANDOVER_REVIEW">Duyệt bàn giao vận chuyển</option>
           </select>
 
+          {/* SHELL-08: show Vietnamese role name in filter label */}
           <label className="flex items-center space-x-2 cursor-pointer ml-2 text-slate-700 select-none">
             <input
               type="checkbox"
@@ -122,7 +134,7 @@ export const WorkQueueView: React.FC<WorkQueueViewProps> = ({
               onChange={(e) => setFilterMyRoleOnly(e.target.checked)}
               className="rounded border-slate-300 text-blue-600 focus:ring-blue-500"
             />
-            <span>Chỉ việc thuộc vai trò của tôi ({currentUser.role})</span>
+            <span>Chỉ việc thuộc vai trò của tôi ({myRoleName})</span>
           </label>
         </div>
 
@@ -171,8 +183,9 @@ export const WorkQueueView: React.FC<WorkQueueViewProps> = ({
                       <Clock className="w-3.5 h-3.5 mr-1 text-slate-400" />
                       Thời hạn: <strong className="ml-1 text-slate-700">{task.timeRemainingText}</strong>
                     </span>
+                    {/* SHELL-15: resolve role names to Vietnamese */}
                     <span>
-                      Vai trò xử lý: <strong className="text-slate-600">{task.assignedRoles.join(', ')}</strong>
+                      Vai trò xử lý: <strong className="text-slate-600">{task.assignedRoles.map(resolveRoleName).join(', ')}</strong>
                     </span>
                   </div>
                 </div>

@@ -15,9 +15,14 @@ import { CriticalDataNotice } from './CriticalDataNotice';
 import { areSafetyReadsReady } from '../services/visit-safety-data';
 import { ResourceContent as DashboardResource } from './CollectionState';
 import { canAccessWebTab } from '../services/permissions';
+import type { NavigationContext } from '../navigation';
+import { businessLabel } from '../lib/business-labels';
+import { formatVietnamDate } from '../lib/time';
+
 
 interface DashboardViewProps {
-  onNavigate: (tab: NavTabId) => void;
+  // SHELL-01/02: widened signature to pass contextId and context
+  onNavigate: (tab: NavTabId, contextId?: string, context?: NavigationContext) => void;
 }
 
 export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
@@ -34,6 +39,32 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
     resourceStatus = {},
     isLoading,
   } = useApp();
+
+  // A KPI card only acts as a link when the user can open the target screen.
+  const cardLink = (tab: NavTabId, label: string) =>
+    canAccessWebTab(currentUser, tab)
+      ? {
+          role: 'button' as const,
+          tabIndex: 0,
+          'aria-label': label,
+          onClick: () => onNavigate(tab),
+          onKeyDown: (e: React.KeyboardEvent) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              onNavigate(tab);
+            }
+          },
+        }
+      : {};
+
+  // Trucks at the gate go straight to reception; others open the truck schedule at that truck.
+  const openTruck = (tv: (typeof truckVisits)[number]) => {
+    if ((tv.status === 'ARRIVED' || tv.status === 'IN_PROGRESS') && tv.visitType !== 'GATE_OUT' && canAccessWebTab(currentUser, 'gate-in')) {
+      onNavigate('gate-in', undefined, { truckVisitId: tv.id });
+    } else if (canAccessWebTab(currentUser, 'truck-visits')) {
+      onNavigate('truck-visits', undefined, { truckVisitId: tv.id });
+    }
+  };
 
   // Metrics
   const inYardContainers = containerVisits.filter((c) => c.state === 'IN_YARD' || c.state === 'UNDER_INSPECTION' || c.state === 'IN_STRIPPING');
@@ -61,8 +92,6 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
   const totalPaid = invoices.reduce((sum, i) => sum + i.paidAmountVnd, 0);
   const totalOutstanding = totalInvoiced - totalPaid;
 
-  // Handover status
-
   return (
     <div className="space-y-6">
       {/* Top Banner Alert if any OVERDUE work queue */}
@@ -74,7 +103,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
             </div>
             <div>
               <h2 className="text-sm font-bold text-rose-900">
-                Có {overdueTasks.length} tác vụ QUÁ HẠN SLA trong Danh sách công việc!
+                Có {overdueTasks.length} tác vụ QUÁ HẠN trong Danh sách công việc!
               </h2>
               <p className="text-xs text-rose-700">
                 {overdueTasks.map((t) => t.title).join(' | ')}
@@ -92,9 +121,13 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
       )}
 
       {/* KPI Stats Grid */}
+      {/* SHELL-11: each card is now fully clickable */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {/* Card 1 */}
-        <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs hover:border-blue-300 transition">
+        {/* Card 1 – Container trong Bãi */}
+        <div
+          {...cardLink('containers', 'Xem danh sách container')}
+          className={`bg-white p-5 rounded-xl border border-slate-200 shadow-xs hover:border-blue-300 hover:shadow-md transition ${canAccessWebTab(currentUser, 'containers') ? 'cursor-pointer' : ''}`}
+        >
           <div className="flex items-center justify-between">
             <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Container trong Bãi</span>
             <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
@@ -118,10 +151,13 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
           </DashboardResource>
         </div>
 
-        {/* Card 2 */}
-        <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs hover:border-amber-300 transition">
+        {/* Card 2 – Cần xử lý */}
+        <div
+          {...cardLink('work-queue', 'Xem danh sách công việc')}
+          className={`bg-white p-5 rounded-xl border border-slate-200 shadow-xs hover:border-amber-300 hover:shadow-md transition ${canAccessWebTab(currentUser, 'work-queue') ? 'cursor-pointer' : ''}`}
+        >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Cần xử lý (Work Queue)</span>
+            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Cần xử lý</span>
             <div className="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center">
               <Clock className="w-4 h-4" />
             </div>
@@ -129,24 +165,25 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
           <DashboardResource resource="workQueue" count={workQueue.length}>
           <div className="mt-2 flex items-baseline space-x-2">
             <span className="text-2xl font-bold text-slate-900">{workQueue.length}</span>
-            <span className="text-xs text-rose-600 font-semibold">{overdueTasks.length} Quá hạn SLA</span>
+            <span className="text-xs text-rose-600 font-semibold">{overdueTasks.length} Quá hạn</span>
           </div>
           <div className="mt-3 flex items-center justify-between text-xs text-slate-600">
             <span>Độ ưu tiên cao:</span>
             <span className="font-semibold text-amber-700">{highTasks.length} tác vụ</span>
           </div>
-          <button
-            hidden={!canAccessWebTab(currentUser, 'work-queue')}
-            onClick={() => onNavigate('work-queue')}
-            className="w-full mt-2 text-center text-xs font-semibold text-blue-600 hover:text-blue-800 transition"
-          >
-            Xem danh sách công việc →
-          </button>
+          {canAccessWebTab(currentUser, 'work-queue') && (
+            <div className="w-full mt-2 text-center text-xs font-semibold text-blue-600">
+              Xem danh sách công việc →
+            </div>
+          )}
           </DashboardResource>
         </div>
 
-        {/* Card 3 */}
-        <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs hover:border-emerald-300 transition">
+        {/* Card 3 – Doanh thu & Công nợ */}
+        <div
+          {...cardLink('billing', 'Xem báo cáo doanh thu')}
+          className={`bg-white p-5 rounded-xl border border-slate-200 shadow-xs hover:border-emerald-300 hover:shadow-md transition ${canAccessWebTab(currentUser, 'billing') ? 'cursor-pointer' : ''}`}
+        >
           <div className="flex items-center justify-between">
             <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Doanh thu & Công nợ</span>
             <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
@@ -171,8 +208,11 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
           </DashboardResource>
         </div>
 
-        {/* Card 4 - Gate Pass & Sẵn sàng xuất cổng */}
-        <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs hover:border-blue-300 transition">
+        {/* Card 4 - Phiếu Ra Cổng */}
+        <div
+          {...cardLink('gate-pass', 'Xem phiếu ra cổng')}
+          className={`bg-white p-5 rounded-xl border border-slate-200 shadow-xs hover:border-blue-300 hover:shadow-md transition ${canAccessWebTab(currentUser, 'gate-pass') ? 'cursor-pointer' : ''}`}
+        >
           <div className="flex items-center justify-between">
             <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Phiếu Ra Cổng & Xuất Bãi</span>
             <div className="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center">
@@ -188,13 +228,11 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
             <span>Sẵn sàng ra cổng:</span>
             <span className="font-semibold text-slate-800">Kiểm tra phiếu & điều kiện</span>
           </div>
-          <button
-            hidden={!canAccessWebTab(currentUser, 'gate-pass')}
-            onClick={() => onNavigate('gate-pass')}
-            className="w-full mt-2 text-center text-xs font-semibold text-indigo-600 hover:text-indigo-800 transition"
-          >
-            Quản lý Phiếu ra cổng & Gate-out →
-          </button>
+          {canAccessWebTab(currentUser, 'gate-pass') && (
+            <div className="w-full mt-2 text-center text-xs font-semibold text-indigo-600">
+              Quản lý Phiếu ra cổng →
+            </div>
+          )}
           </DashboardResource>
         </div>
       </div>
@@ -204,11 +242,12 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
         {/* Left 2 Cols: Gate & Yard Activity + Free Days Alert */}
         <div className="lg:col-span-2 space-y-6">
           {/* Section: Chuyến xe & Tiếp nhận hôm nay */}
+          {/* SHELL-14: removed (Truck Visits) English */}
           <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs">
             <div className="flex items-center justify-between mb-4">
               <div>
-                <h2 className="text-sm font-bold text-slate-800">Hoạt động Cổng & Chuyến xe (Truck Visits)</h2>
-                <p className="text-xs text-slate-500">Lịch hẹn Gate Appointment và tình trạng tiếp nhận</p>
+                <h2 className="text-sm font-bold text-slate-800">Hoạt động Cổng & Chuyến xe hôm nay</h2>
+                <p className="text-xs text-slate-500">Lịch hẹn và tình trạng tiếp nhận xe vào cổng</p>
               </div>
               <button
                 hidden={!canAccessWebTab(currentUser, 'truck-visits')}
@@ -223,9 +262,20 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
             <DashboardResource resource="truckVisits" count={truckVisits.length}>
             <div className="space-y-3">
               {truckVisits.map((tv) => (
+                /* SHELL-02: clicking truck visit card navigates contextually */
                 <div
                   key={tv.id}
-                  className="flex items-center justify-between p-3 rounded-lg border border-slate-100 bg-slate-50/60 hover:bg-white hover:border-slate-300 transition"
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Mở chuyến xe ${tv.vehiclePlate}`}
+                  onClick={() => openTruck(tv)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      openTruck(tv);
+                    }
+                  }}
+                  className="flex items-center justify-between p-3 rounded-lg border border-slate-100 bg-slate-50/60 hover:bg-white hover:border-slate-300 transition cursor-pointer"
                 >
                   <div className="flex items-center space-x-3">
                     <div className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold text-xs ${
@@ -250,7 +300,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
                       tv.status === 'ARRIVED' ? 'bg-amber-100 text-amber-800 border border-amber-300' :
                       tv.status === 'COMPLETED' ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-200 text-slate-700'
                     }`}>
-                      {tv.status}
+                      {businessLabel('truckVisitStatus', tv.status)}
                     </span>
                     {tv.gateLane && <div className="text-caption text-slate-400 mt-1">{tv.gateLane}</div>}
                   </div>
@@ -270,7 +320,8 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
                     {(resourceStatus.freeDayWarnings ?? (isLoading ? 'loading' : 'ready')) === 'ready' ? `${nearFreeDaysEnd.length} container` : 'Chưa kiểm tra'}
                   </span>
                 </h2>
-                <p className="text-xs text-slate-500">Container gần hoặc vượt ngưỡng cảnh báo từ backend. Phí thực tế xem tại Dịch vụ & Thanh toán.</p>
+                {/* SHELL-10: removed "backend" jargon */}
+                <p className="text-xs text-slate-500">Danh sách container sắp hoặc đã vượt ngưỡng miễn phí lưu bãi. Phí thực tế xem tại Dịch vụ & Thanh toán.</p>
               </div>
               <button
                 hidden={!canAccessWebTab(currentUser, 'billing')}
@@ -288,7 +339,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
                 <thead>
                   <tr className="border-b border-slate-200 text-slate-500">
                     <th className="pb-2 font-medium">Số Container</th>
-                    <th className="pb-2 font-medium">Chủ hàng (Consignee)</th>
+                    <th className="pb-2 font-medium">Chủ hàng</th>
                     <th className="pb-2 font-medium">Vị trí</th>
                     <th className="pb-2 font-medium">Ngày vào cổng</th>
                     <th className="pb-2 font-medium text-right">Tình trạng</th>
@@ -296,12 +347,21 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
                 </thead>
                 <tbody className="divide-y divide-slate-100">
                   {nearFreeDaysEnd.map((c) => (
-                    <tr key={c.id} className="hover:bg-slate-50">
+                    /* SHELL-01: clicking container row navigates to container detail */
+                    <tr
+                      key={c.id}
+                      role="button"
+                      tabIndex={0}
+                      aria-label={`Xem chi tiết container ${c.containerNumber}`}
+                      onClick={() => onNavigate('containers', c.id)}
+                      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onNavigate('containers', c.id); } }}
+                      className="hover:bg-slate-50 cursor-pointer"
+                    >
                       <td className="py-3 font-mono font-bold text-slate-900">{c.containerNumber}</td>
                       <td className="py-3 text-slate-700">{c.consigneeName}</td>
                       <td className="py-3 font-mono text-blue-600 font-semibold">{c.currentLocation || 'Chưa xếp'}</td>
                       <td className="py-3 text-slate-500">
-                        {c.gateInAt ? new Date(c.gateInAt).toLocaleDateString('vi-VN') : '—'}
+                        {c.gateInAt ? formatVietnamDate(c.gateInAt) : '—'}
                       </td>
                       <td className="py-3 text-right">
                         <span className="px-2 py-1 text-caption font-bold rounded-full bg-rose-50 text-rose-700 border border-rose-200">
@@ -324,7 +384,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
             <div className="flex items-center justify-between mb-3">
               <h2 className="text-sm font-bold text-slate-800 flex items-center space-x-2">
                 <ShieldAlert className="w-4 h-4 text-rose-600" />
-                <span>Kiểm soát Lệnh Giữ (Operational Holds)</span>
+                <span>Kiểm soát Lệnh Giữ Container</span>
               </h2>
               <span className={`px-2 py-1 text-caption font-bold rounded-full ${
                 holdsIncomplete || holds.filter(h => h.status === 'ACTIVE').length > 0
@@ -350,8 +410,9 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
                       <span className="font-mono font-bold text-slate-800">
                         {containerVisits.find((v) => v.id === hold.containerVisitId)?.containerNumber || '—'}
                       </span>
+                      {/* SHELL-04: Vietnamese hold type label */}
                       <span className="px-2 py-1 text-caption font-bold rounded bg-slate-200 text-slate-700">
-                        {hold.holdType}
+                        {businessLabel('holdType', hold.holdType)}
                       </span>
                     </div>
                     <div className="text-caption text-slate-500 mt-1 line-clamp-1">{hold.reason}</div>
@@ -372,7 +433,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
               onClick={() => onNavigate('gate-pass')}
               className="w-full mt-3 py-2 text-center text-xs font-semibold text-blue-600 hover:text-blue-800 transition"
             >
-              Kiểm tra điều kiện xuất cổng (Readiness) →
+              Kiểm tra điều kiện xuất cổng →
             </button>
           </div>
 
@@ -383,10 +444,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
                 <Radio className="w-4 h-4 text-blue-600" />
                 <span>Vận hành EDI (CODECO)</span>
               </h2>
-              <span className="text-caption text-slate-400">Shipping Lines</span>
+              <span className="text-caption text-slate-400">Hãng tàu</span>
             </div>
             <p className="text-xs text-slate-500 mb-3">
-              Thông điệp gửi tự động cho hãng tàu khi Gate-in và Gate-out thành công.
+              Điện tín gửi tự động cho hãng tàu khi vào cổng và ra cổng thành công.
             </p>
 
             <DashboardResource resource="ediMessages" count={ediMessages.length}>
@@ -399,14 +460,19 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
                   <div>
                     <div className="font-semibold text-slate-800 font-mono">{edi.containerNumber}</div>
                     <div className="text-caption text-slate-500">
-                      {edi.messageType} · Hãng: {edi.shippingLine}
+                      {businessLabel('ediMessageType', edi.messageType)} · Hãng: {edi.shippingLine}
                     </div>
                   </div>
+                  {/* SHELL-05: Vietnamese EDI status */}
                   <div className="text-right">
                     <span className={`px-2 py-1 text-caption font-bold rounded-full ${edi.status === 'SENT' ? 'bg-emerald-100 text-emerald-800' : edi.status === 'FAILED' || edi.status === 'DEAD' ? 'bg-rose-100 text-rose-800' : 'bg-slate-200 text-slate-800'}`}>
-                      Gửi: {edi.status}
+                      {businessLabel('ediOutboxStatus', edi.status)}
                     </span>
-                    {edi.ackStatus && <div className="text-caption text-slate-600 mt-1">ACK: {edi.ackStatus}</div>}
+                    {edi.ackStatus && (
+                      <div className="text-caption text-slate-600 mt-1">
+                        Phản hồi: {businessLabel('ediAckStatus', edi.ackStatus)}
+                      </div>
+                    )}
                     <div className="text-caption font-mono text-slate-400 mt-1">{edi.ackReference}</div>
                   </div>
                 </div>
@@ -419,7 +485,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
               onClick={() => onNavigate('edi')}
               className="w-full mt-3 py-2 text-center text-xs font-semibold text-blue-600 hover:text-blue-800 transition"
             >
-              Xem toàn bộ Outbox EDI →
+              Xem toàn bộ hộp thư gửi EDI →
             </button>
           </div>
         </div>

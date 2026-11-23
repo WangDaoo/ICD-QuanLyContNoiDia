@@ -130,6 +130,7 @@ export const WebLoginView: React.FC = () => {
                   type={showPassword ? 'text' : 'password'}
                   autoComplete="current-password"
                   required
+                  aria-describedby="login-password-hint"
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
                   className="w-full rounded-xl border border-slate-700 bg-slate-950 py-3 pl-10 pr-12 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -143,6 +144,7 @@ export const WebLoginView: React.FC = () => {
                   {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                 </button>
               </div>
+              <p id="login-password-hint" className="mt-1 text-xs text-slate-500">Nhập mật khẩu tài khoản của bạn.</p>
             </div>
             <button
               type="submit"

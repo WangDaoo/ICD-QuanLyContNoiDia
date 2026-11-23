@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState } from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { useFocusEffect, useNavigation, useRoute, type RouteProp } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { ScreenLayout, Card, Field, Notice, useFieldStyles } from '../../../components/ScreenLayout';
@@ -66,7 +66,23 @@ export function YardOperationsScreen() {
       <SelectField label="Trạng thái" value={status} options={[{value:'ALL',label:'Tất cả'},{value:'PENDING',label:'Chờ thực hiện'},{value:'IN_PROGRESS',label:'Đang thực hiện'},{value:'COMPLETED',label:'Hoàn tất'},{value:'CANCELLED',label:'Đã hủy'}]} onChange={setStatus} />
       {error && !confirm ? <Notice message={error} /> : null}
       {!loading && !rows.some(row => status === 'ALL' || row.status === status) ? <Text style={styles.muted}>Không có tác nghiệp phù hợp.</Text> : null}
-      {rows.filter(row => status === 'ALL' || row.status === status).map(row => <TouchableOpacity key={row.id} accessibilityRole="button" onPress={() => navigation.navigate('YardOperationDetail',{operationId:row.id,operationType:type,visitId:row.containerVisitId})} style={{ minWidth:48, minHeight:48, paddingVertical:12, gap:8, marginBottom:8 }}><Text style={styles.value}>{row.containerVisit?.container.containerNumber || row.id}</Text><StatusBadge label={displayCode(row.status)} /><Text style={styles.muted}>{row.inspectionType || row.bookingType ? displayCode(row.inspectionType || row.bookingType) : `${row.fromSlot?.slotCode || '-'} -> ${row.toSlot?.slotCode || '-'}`}</Text></TouchableOpacity>)}
+      {rows.filter(row => status === 'ALL' || row.status === status).map(row => {
+        const timeValue = type === 'BOOKING' ? (row.scheduledAt || row.createdAt) : row.createdAt;
+        const timeLabel = timeValue
+          ? new Date(timeValue).toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })
+          : null;
+        const containerLabel = row.containerVisit?.container.containerNumber || 'Lệnh chưa gắn container';
+        return (
+          <TouchableOpacity key={row.id} accessibilityRole="button" onPress={() => navigation.navigate('YardOperationDetail',{operationId:row.id,operationType:type,visitId:row.containerVisitId})} style={{ minWidth:48, minHeight:48, paddingVertical:12, gap:8, marginBottom:8 }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+              <Text style={[styles.value, { flex: 1 }]}>{containerLabel}</Text>
+              {timeLabel ? <Text style={[styles.muted, { fontSize: 12 }]}>{timeLabel}</Text> : null}
+            </View>
+            <StatusBadge label={displayCode(row.status)} />
+            <Text style={styles.muted}>{row.inspectionType || row.bookingType ? displayCode(row.inspectionType || row.bookingType) : `${row.fromSlot?.slotCode || '-'} → ${row.toSlot?.slotCode || '-'}`}</Text>
+          </TouchableOpacity>
+        );
+      })}
     </Card>
     {canBook ? <Card title="Đặt lịch dịch vụ tại bãi">
       <SelectField label="Container đang ở bãi*" value={visitId} options={containers.map(row => ({value:row.id,label:row.container.containerNumber}))} onChange={setVisitId} disabled={busy} />

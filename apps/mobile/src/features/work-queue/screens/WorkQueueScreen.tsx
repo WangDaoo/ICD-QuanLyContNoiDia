@@ -1,4 +1,5 @@
 import { useCallback, useRef, useState } from 'react';
+import { useWorkQueueBadge } from '../work-queue-badge-context';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import type { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
@@ -36,6 +37,7 @@ export function WorkQueueScreen() {
   const [feedback, setFeedback] = useState('');
   const request = useRef(0);
   const [stats, setStats] = useState<{ total: number; overdue: number } | null>(null);
+  const { setOverdue } = useWorkQueueBadge();
   const [cachedAt, setCachedAt] = useState<number | null>(null);
   const currentQuery = useRef('');
   type QueueResponse = { data: ApiWorkQueueItem[]; meta: { totalPages: number }; summary?: { total: number; overdue: number } };
@@ -50,7 +52,9 @@ export function WorkQueueScreen() {
     const apply = (response: QueueResponse) => {
       setPages(response.meta.totalPages);
       setItems(response.data.map(mapWorkQueueItem).filter((task): task is WorkQueueTask => !!task));
-      setStats(response.summary ?? null);
+      const summary = response.summary ?? null;
+      setStats(summary);
+      setOverdue?.(summary?.overdue ?? 0);
     };
     try {
       const response = await apiClient.get<QueueResponse>(`/containers/work-queue?pageSize=20&page=${page}${filter ? '&type=' + filter : ''}${urgency ? '&urgency=' + urgency : ''}`);
@@ -62,12 +66,16 @@ export function WorkQueueScreen() {
       const cached = err instanceof TypeError ? await readCache.read<QueueResponse>(scope, 'work-queue', query) : null;
       if (ticket !== request.current) return;
       if (cached) { apply(cached.data); setCachedAt(cached.savedAt); }
-      else { setItems([]); setStats(null); setPages(0); setCachedAt(null); }
+      else { setItems([]); setStats(null); setOverdue?.(0); setPages(0); setCachedAt(null); }
       setError(err instanceof Error ? err.message : 'Không thể tải công việc.');
     }
     finally { if (ticket === request.current) { setLoading(false); setRefreshing(false); } }
   }, [page, filter, urgency, user, online]);
-  useFocusEffect(useCallback(() => { void fetchData(); return () => { request.current++; }; }, [fetchData]));
+  useFocusEffect(useCallback(() => {
+    void fetchData();
+    const intervalId = setInterval(() => { void fetchData(); }, 60000);
+    return () => { clearInterval(intervalId); request.current++; };
+  }, [fetchData]));
 
   const handleOpenTask = (task: WorkQueueTask) => {
     const destination = getWorkQueueDestination(user, task);
@@ -90,7 +98,7 @@ export function WorkQueueScreen() {
     {cachedAt !== null ? <><Text accessibilityLiveRegion="polite" style={fieldStyles.muted}>Dữ liệu đã lưu lúc {new Date(cachedAt).toLocaleString('vi-VN')} có thể đã cũ. Chỉ dùng để xem; kết nối lại và tải mới trước khi thao tác.</Text><PrimaryButton title="Tải lại dữ liệu" variant="secondary" onPress={() => void fetchData()} /></> : null}
     {loading && !items.length ? <LoadingState /> : error && cachedAt === null ? <ErrorState message={error} onRetry={() => void fetchData()} /> : visibleItems.length === 0 ? <Card><EmptyState title="Không có tác vụ cần xử lý" description="Không có việc phù hợp với bộ lọc và quyền trong ca trực." /></Card> : visibleItems.map(task =>
       <TouchableOpacity accessibilityRole="button" key={`${task.type}-${task.entityId}-${task.visitId ?? ''}`} onPress={() => handleOpenTask(task)}>
-        <Card><View style={{ flexDirection: 'row', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8 }}><StatusBadge label={task.urgency === 'OVERDUE' ? 'QUÁ HẠN' : task.urgency === 'HIGH' ? 'ƯU TIÊN CAO' : 'CHỜ XỬ LÝ'} variant={task.urgency === 'OVERDUE' ? 'danger' : 'info'} /><Text style={fieldStyles.muted}>{task.timeInfo}</Text></View>
+        <Card><View style={{ flexDirection: 'row', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8 }}><StatusBadge label={task.urgency === 'OVERDUE' ? 'QUÁ HẠN' : task.urgency === 'HIGH' ? 'ƯU TIÊN CAO' : task.urgency === 'MEDIUM' ? 'TRUNG BÌNH' : 'BÌNH THƯỜNG'} variant={task.urgency === 'OVERDUE' ? 'danger' : (task.urgency === 'HIGH' || task.urgency === 'MEDIUM') ? 'warning' : 'neutral'} /><Text style={fieldStyles.muted}>{task.timeInfo}</Text></View>
           <Text style={{ color: theme.colors.info, fontSize: 12, fontWeight: '700' }}>{task.containerNo}</Text>
           <Text style={fieldStyles.value}>{task.title}</Text>{task.licensePlate ? <Text style={fieldStyles.muted}>Xe: {task.licensePlate}</Text> : null}
           <Text style={fieldStyles.muted}>{task.subtitle}</Text><Text style={{ color: theme.colors.info }}>Mở công việc →</Text>

@@ -23,3 +23,42 @@ export function vietnamBusinessDateToIso(value: string): string | null {
   const date = new Date(value);
   return Number.isFinite(date.getTime()) ? date.toISOString() : null;
 }
+
+/**
+ * A due date picked as a business day stays payable through the whole Vietnam day,
+ * so the deadline instant is 23:59:59.999 (UTC+7) of that day.
+ */
+export function vietnamEndOfBusinessDayIso(value: string): string | null {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value) || !vietnamBusinessDateToIso(value)) return null;
+  return new Date(`${value}T23:59:59.999+07:00`).toISOString();
+}
+
+const VIETNAM_DATE_DISPLAY = new Intl.DateTimeFormat('vi-VN', {
+  timeZone: 'Asia/Ho_Chi_Minh',
+  day: '2-digit',
+  month: '2-digit',
+  year: 'numeric',
+});
+
+/** Display the Vietnam calendar day of an instant (dd/mm/yyyy) whatever the device timezone is. */
+export function formatVietnamDate(value?: string | number | Date | null): string {
+  if (value === undefined || value === null || value === '') return '—';
+  const date = value instanceof Date ? value : new Date(value);
+  return Number.isFinite(date.getTime()) ? VIETNAM_DATE_DISPLAY.format(date) : '—';
+}
+
+const VIETNAM_DISPLAY = new Intl.DateTimeFormat('vi-VN', {
+  timeZone: 'Asia/Ho_Chi_Minh',
+  hour: '2-digit',
+  minute: '2-digit',
+  day: '2-digit',
+  month: '2-digit',
+  year: 'numeric',
+});
+
+/** Display an instant in Vietnam time (UTC+7) whatever the device timezone is. */
+export function formatVietnamDateTime(value?: string | number | Date | null): string {
+  if (value === undefined || value === null || value === '') return '—';
+  const date = value instanceof Date ? value : new Date(value);
+  return Number.isFinite(date.getTime()) ? VIETNAM_DISPLAY.format(date) : '—';
+}

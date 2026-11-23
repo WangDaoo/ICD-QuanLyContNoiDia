@@ -1,7 +1,8 @@
 import { useCallback, useRef, useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { Camera, ChevronRight } from 'lucide-react-native';
-import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation, useRoute } from '@react-navigation/native';
+import type { RouteProp } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import {
   ScreenLayout,
@@ -27,10 +28,11 @@ import type { YardStackParamList } from '../../../navigation/types';
 
 export function SurveyHomeScreen() {
   const navigation = useNavigation<NativeStackNavigationProp<YardStackParamList>>();
+  const { params } = useRoute<RouteProp<YardStackParamList, 'SurveyHome'>>();
   const { user } = useAuth();
   const { theme } = useTheme();
   const styles = useFieldStyles();
-  const [containerNo, setContainerNo] = useState('');
+  const [containerNo, setContainerNo] = useState(params?.containerNo?.toUpperCase() ?? '');
   const [notes, setNotes] = useState('');
   const [inspectionType, setInspectionType] = useState('DAMAGE_SURVEY');
   const [confirm, setConfirm] = useState(false);
@@ -91,6 +93,8 @@ export function SurveyHomeScreen() {
       setConfirm(false);
       setSuccess('Đã gửi yêu cầu giám định. Mở biên bản bên dưới để bắt đầu và xác nhận kết quả.');
       setNotes('');
+      setContainerNo('');
+      setInspectionType('DAMAGE_SURVEY');
       await load();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Không gửi được biên bản.');
