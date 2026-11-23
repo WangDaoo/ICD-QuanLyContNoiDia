@@ -293,7 +293,7 @@ test('real slot cells open detail in read-only mode with 44-point touch targets'
   tree = harness.render();
   assert.equal(findNodes(tree, (node) => node.type === 'Modal')[0].props.visible, true);
   assert.equal(
-    findNodes(tree, (node) => node.props.accessibilityLabel === 'Chọn slot làm vị trí đích').length,
+    findNodes(tree, (node) => node.props.accessibilityLabel === 'Chọn làm vị trí xếp').length,
     0,
   );
 });
@@ -314,7 +314,7 @@ test('slot target selection requires an explicit detail action and never fires f
   tree = harness.render();
   const choose = findNodes(
     tree,
-    (node) => node.props.accessibilityLabel === 'Chọn slot làm vị trí đích',
+    (node) => node.props.accessibilityLabel === 'Chọn làm vị trí xếp',
   )[0];
   assert.ok(choose);
   choose.props.onPress();
@@ -341,7 +341,7 @@ test('occupied detail opens the actual Visit ID and exposes Hold context without
   cell.props.onPress();
   tree = harness.render();
   assert.equal(
-    findNodes(tree, (node) => node.props.accessibilityLabel === 'Chọn slot làm vị trí đích').length,
+    findNodes(tree, (node) => node.props.accessibilityLabel === 'Chọn làm vị trí xếp').length,
     0,
   );
   assert.ok(
@@ -371,7 +371,7 @@ test('Block and Tier controls isolate real slots and show sparse holes as inert 
   let tree = harness.render();
   assert.deepEqual(ids(tree), ['yard-slot-a', 'yard-slot-b']);
   const holes = findNodes(tree, (node) =>
-    node.props.accessibilityLabel?.startsWith('Không có slot tại'),
+    node.props.accessibilityLabel?.startsWith('Không có ô tại'),
   );
   assert.equal(holes.length, 2);
   for (const hole of holes) assert.equal(hole.props.onPress, undefined);
@@ -397,7 +397,7 @@ test('a supplied selection callback stays unavailable until selection is enabled
   assert.equal(
     findNodes(
       harness.render(),
-      (node) => node.props.accessibilityLabel === 'Chọn slot làm vị trí đích',
+      (node) => node.props.accessibilityLabel === 'Chọn làm vị trí xếp',
     ).length,
     0,
   );

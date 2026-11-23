@@ -14,7 +14,7 @@ export async function confirmGateOutReceipt(
   const receipt = await confirm(visitId, qrToken);
   if (receipt.containerVisitId !== visitId || receipt.status !== 'EXITED' || !receipt.gateOutAt) {
     throw new Error(
-      'Chưa nhận được biên nhận xác nhận EXITED hợp lệ. Vui lòng kiểm tra lại phiếu.',
+      'Hệ thống chưa xác nhận xe ra cổng thành công. Vui lòng kiểm tra lại phiếu hoặc liên hệ điều phối.',
     );
   }
   return receipt;

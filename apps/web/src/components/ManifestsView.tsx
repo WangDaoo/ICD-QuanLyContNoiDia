@@ -4,14 +4,19 @@ import React, { useEffect, useState } from 'react';
 import { useApp } from '../context/AppContext';
 import { ReadOnlyNotice } from './ReadOnlyNotice';
 import { Manifest } from '../types';
-import { FileText, Plus, Search, CheckCircle2, Ship, Layers, Check, X } from 'lucide-react';
+import { FileText, Plus, Search, CheckCircle2, Ship, Layers, Check, X, Package } from 'lucide-react';
 
 import { useCommandAction, CommandNotice } from './useCommandAction';
 import { useFormValidation, FormErrors } from './useFormValidation';
 import { CollectionState, DetailAvailability } from './CollectionState';
-import { vietnamDateInput } from '../lib/time';
+import { vietnamDateInput, formatVietnamDate } from '../lib/time';
 import { asRecord, asString } from '../services/mappers/api-response.mapper';
 import { hasWebPermission } from '../services/permissions';
+import { ConfirmDialog } from './ConfirmDialog';
+import { SearchableSelect } from './SearchableSelect';
+import { StatusBadge } from './StatusBadge';
+import type { NavTabId } from './Sidebar';
+import type { NavigationContext } from '../navigation';
 
 // ISO 6346 Container Number Check Digit Validator
 export function validateISO6346(containerNumber: string): { isValid: boolean; message: string } {
@@ -80,7 +85,13 @@ export function validateISO6346(containerNumber: string): { isValid: boolean; me
   }
 }
 
-export const ManifestsView: React.FC = () => {
+interface ManifestsViewProps {
+  onNavigate?: (tab: NavTabId, contextId?: string, context?: NavigationContext) => void;
+}
+
+type StatusFilter = 'ALL' | 'DRAFT' | 'SUBMITTED' | 'CANCELLED';
+
+export const ManifestsView: React.FC<ManifestsViewProps> = ({ onNavigate }) => {
   const {
     currentUser,
     detailStatus,
@@ -100,6 +111,8 @@ export const ManifestsView: React.FC = () => {
   const validation = useFormValidation();
   const [showMblModal, setShowMblModal] = useState(false);
   const [showHblModal, setShowHblModal] = useState<{ mblId: string } | null>(null);
+  const [showSubmitConfirm, setShowSubmitConfirm] = useState(false);
+  const [showCancelConfirm, setShowCancelConfirm] = useState(false);
   const [mblNumber, setMblNumber] = useState('');
   const [mblLine, setMblLine] = useState('');
   const [hblForm, setHblForm] = useState({
@@ -119,6 +132,7 @@ export const ManifestsView: React.FC = () => {
   const selectedManifest = manifests.find((m) => m.id === selectedManifestId) || null;
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [searchTerm, setSearchTerm] = useViewQueryState('manifests', 'search', '');
+  const [statusFilter, setStatusFilter] = useState<StatusFilter>('ALL');
 
   // Form State for new Manifest
   const [newVessel, setNewVessel] = useState('');
@@ -134,6 +148,17 @@ export const ManifestsView: React.FC = () => {
   useEffect(() => {
     if (!selectedManifestId && manifests.length) setSelectedManifestId(manifests[0].id);
   }, [manifests, selectedManifestId]);
+
+  // Pre-fill mblLine from manifest's shippingLine when modal opens (MANI-06)
+  useEffect(() => {
+    if (showMblModal && selectedManifest) {
+      // Manifest stores the line name; the select uses ids, so resolve by id or name.
+      const line = shippingLines.find(
+        (item) => item.id === selectedManifest.shippingLine || item.name === selectedManifest.shippingLine,
+      );
+      setMblLine(line?.id ?? '');
+    }
+  }, [showMblModal, selectedManifest, shippingLines]);
 
   const handleCreateManifest = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -168,9 +193,11 @@ export const ManifestsView: React.FC = () => {
     );
     if (result?.success) {
       setMblNumber('');
+      setMblLine('');
       setShowMblModal(false);
     }
   };
+
   const saveHbl = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (
@@ -181,6 +208,8 @@ export const ManifestsView: React.FC = () => {
       !validation.validate(e.currentTarget)
     )
       return;
+    // Backend requires both parties (consigneeId + clearingAgentId) on a House B/L.
+    if (!hblForm.consigneeName || !hblForm.clearingAgentName) return;
     const result = await action.run(() =>
       addHouseBl(selectedManifest.id, showHblModal.mblId, hblForm),
     );
@@ -197,11 +226,59 @@ export const ManifestsView: React.FC = () => {
     }
   };
 
+  // Filter manifests by search term (manifestNo, vesselName, voyageNo, MBL numbers) and status
+  const filteredManifests = manifests.filter((m) => {
+    const term = searchTerm.toLowerCase();
+    const matchesSearch =
+      !term ||
+      m.manifestNo.toLowerCase().includes(term) ||
+      m.vesselName.toLowerCase().includes(term) ||
+      m.voyageNo.toLowerCase().includes(term) ||
+      m.masterBills.some((mbl) => mbl.mblNumber.toLowerCase().includes(term));
+    const matchesStatus = statusFilter === 'ALL' || m.status === statusFilter;
+    return matchesSearch && matchesStatus;
+  });
+
+  const hasActiveFilter = !!searchTerm || statusFilter !== 'ALL';
+
   const isoCheck = validateISO6346(testContainerInput);
+
+  // Counts for selected manifest
+  const totalHbl = selectedManifest
+    ? selectedManifest.masterBills.reduce((sum, mbl) => sum + mbl.houseBills.length, 0)
+    : 0;
+  const totalContainers = selectedManifest
+    ? selectedManifest.masterBills.reduce(
+        (sum, mbl) => sum + mbl.houseBills.reduce((s, hbl) => s + (hbl.containersCount ?? 0), 0),
+        0,
+      )
+    : 0;
+
+  // MBL number lookup for HBL modal title (MANI-07)
+  const hblModalMbl = showHblModal
+    ? selectedManifest?.masterBills.find((mbl) => mbl.id === showHblModal.mblId)
+    : null;
+
+  // Consignee picker options
+  const consigneeOptions = consignees
+    .filter((item) => item.active)
+    .map((item) => ({ value: item.id, label: item.name }));
+
+  // Clearing agent picker options
+  const clearingAgentOptions = clearingAgents
+    .filter((item) => item.active)
+    .map((item) => ({ value: item.id, label: item.name }));
+
+  const STATUS_FILTER_TABS: { value: StatusFilter; label: string }[] = [
+    { value: 'ALL', label: 'Tất cả' },
+    { value: 'DRAFT', label: 'Bản nháp' },
+    { value: 'SUBMITTED', label: 'Đã nộp' },
+    { value: 'CANCELLED', label: 'Đã hủy' },
+  ];
 
   return (
     <div className="space-y-6">
-      {!showCreateModal && !showMblModal && !showHblModal && (
+      {!showCreateModal && !showMblModal && !showHblModal && !showSubmitConfirm && !showCancelConfirm && (
         <CommandNotice notice={action.notice} />
       )}
       {/* Header Bar */}
@@ -268,11 +345,12 @@ export const ManifestsView: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Left Column: List */}
         <div className="space-y-3">
+          {/* Search */}
           <div className="relative">
             <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
             <input
               type="text"
-              placeholder="Tìm mã Manifest, tên tàu, voyage..."
+              placeholder="Tìm mã Manifest, tên tàu, voyage, MBL..."
               aria-label="Tìm Manifest"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -280,70 +358,107 @@ export const ManifestsView: React.FC = () => {
             />
           </div>
 
+          {/* Status filter tabs (MANI-03) */}
+          <div className="flex gap-1 flex-wrap">
+            {STATUS_FILTER_TABS.map((tab) => (
+              <button
+                key={tab.value}
+                type="button"
+                onClick={() => setStatusFilter(tab.value)}
+                className={`px-3 py-1 rounded-full text-caption font-semibold transition ${
+                  statusFilter === tab.value
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+
           <div className="space-y-2">
             <CollectionState
               resource="manifests"
-              count={
-                manifests.filter(
-                  (m) =>
-                    m.manifestNo.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                    m.vesselName.toLowerCase().includes(searchTerm.toLowerCase()),
-                ).length
-              }
+              count={filteredManifests.length}
               total={manifests.length}
-              filtered={!!searchTerm}
-              onClear={() => setSearchTerm('')}
+              filtered={hasActiveFilter}
+              onClear={() => { setSearchTerm(''); setStatusFilter('ALL'); }}
             />
-            {manifests
-              .filter(
-                (m) =>
-                  m.manifestNo.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                  m.vesselName.toLowerCase().includes(searchTerm.toLowerCase()),
-              )
-              .map((m) => {
-                const isSelected = selectedManifest?.id === m.id;
-                return (
+
+            {/* Full empty state when no manifests at all (MANI-11) */}
+            {manifests.length === 0 && (
+              <div className="bg-white rounded-xl border border-slate-200 p-8 text-center space-y-3">
+                <FileText className="w-10 h-10 text-slate-300 mx-auto" />
+                <p className="text-sm font-semibold text-slate-600">Chưa có Manifest nào</p>
+                <p className="text-xs text-slate-400">Tạo Manifest đầu tiên để bắt đầu nhập danh sách tàu cập và vận đơn.</p>
+                {can('manifest.create') && (
                   <button
                     type="button"
-                    aria-pressed={isSelected}
-                    key={m.id}
-                    onClick={() => setSelectedManifestId(m.id)}
-                    className={`block w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 p-4 rounded-xl border cursor-pointer transition ${
-                      isSelected
-                        ? 'bg-blue-50/50 border-blue-500 shadow-xs'
-                        : 'bg-white border-slate-200 hover:border-slate-300'
-                    }`}
+                    onClick={() => setShowCreateModal(true)}
+                    className="inline-flex items-center space-x-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg"
                   >
-                    <span className="block flex items-center justify-between">
-                      <span className="text-xs font-mono font-bold text-blue-700">
-                        {m.manifestNo}
-                      </span>
-                      <span
-                        className={`px-2 py-1 text-caption font-bold rounded-full ${
-                          m.status === 'SUBMITTED'
-                            ? 'bg-emerald-100 text-emerald-800'
-                            : m.status === 'CANCELLED'
-                              ? 'bg-rose-100 text-rose-800'
-                              : 'bg-amber-100 text-amber-800'
-                        }`}
-                      >
-                        {m.status}
-                      </span>
-                    </span>
-                    <span className="block text-xs font-bold text-slate-800 mt-1 flex items-center space-x-2">
-                      <Ship className="w-3.5 h-3.5 text-slate-500" />
-                      <span>{m.vesselName}</span>
-                      <span className="text-slate-400 font-normal">({m.voyageNo})</span>
-                    </span>
-                    <span className="block flex items-center justify-between mt-2 text-caption text-slate-500">
-                      <span>
-                        Hãng: <strong className="text-slate-700">{m.shippingLine}</strong>
-                      </span>
-                      <span>ETA: {new Date(m.eta).toLocaleDateString('vi-VN')}</span>
-                    </span>
+                    <Plus className="w-4 h-4" />
+                    <span>Tạo Manifest đầu tiên</span>
                   </button>
-                );
-              })}
+                )}
+              </div>
+            )}
+
+            {/* No results from filter (MANI-11) */}
+            {manifests.length > 0 && filteredManifests.length === 0 && (
+              <div className="bg-white rounded-xl border border-slate-200 p-6 text-center space-y-2">
+                <p className="text-xs text-slate-500">Không tìm thấy manifest phù hợp.</p>
+                <button
+                  type="button"
+                  onClick={() => { setSearchTerm(''); setStatusFilter('ALL'); }}
+                  className="text-xs text-blue-600 underline"
+                >
+                  Xóa bộ lọc
+                </button>
+              </div>
+            )}
+
+            {filteredManifests.map((m) => {
+              const isSelected = selectedManifest?.id === m.id;
+              const mblCount = m.masterBills.length;
+              const hblCount = m.masterBills.reduce((sum, mbl) => sum + mbl.houseBills.length, 0);
+              return (
+                <button
+                  type="button"
+                  aria-pressed={isSelected}
+                  key={m.id}
+                  onClick={() => setSelectedManifestId(m.id)}
+                  className={`block w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 p-4 rounded-xl border cursor-pointer transition ${
+                    isSelected
+                      ? 'bg-blue-50/50 border-blue-500 shadow-xs'
+                      : 'bg-white border-slate-200 hover:border-slate-300'
+                  }`}
+                >
+                  <span className="block flex items-center justify-between">
+                    <span className="text-xs font-mono font-bold text-blue-700">
+                      {m.manifestNo}
+                    </span>
+                    {/* MANI-02: Use StatusBadge for Vietnamese labels */}
+                    <StatusBadge domain="manifestStatus" value={m.status} />
+                  </span>
+                  <span className="block text-xs font-bold text-slate-800 mt-1 flex items-center space-x-2">
+                    <Ship className="w-3.5 h-3.5 text-slate-500" />
+                    <span>{m.vesselName}</span>
+                    <span className="text-slate-400 font-normal">({m.voyageNo})</span>
+                  </span>
+                  <span className="block flex items-center justify-between mt-2 text-caption text-slate-500">
+                    <span>
+                      Hãng: <strong className="text-slate-700">{m.shippingLine}</strong>
+                    </span>
+                    <span>ETA: {formatVietnamDate(m.eta)}</span>
+                  </span>
+                  {/* MANI-08: MBL/HBL counts on card */}
+                  <span className="block mt-2 text-caption text-slate-400">
+                    {mblCount} MBL · {hblCount} HBL
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </div>
 
@@ -352,59 +467,85 @@ export const ManifestsView: React.FC = () => {
           {selectedManifest ? (
             <div className="bg-white rounded-xl border border-slate-200 shadow-xs p-5 space-y-6">
               {/* Manifest Metadata */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-200 gap-3">
-                <div>
-                  <div className="flex items-center space-x-2">
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between pb-4 border-b border-slate-200 gap-3">
+                <div className="space-y-1">
+                  <div className="flex items-center space-x-2 flex-wrap gap-y-1">
                     <h3 className="text-base font-bold text-slate-900">
                       {selectedManifest.manifestNo}
                     </h3>
+                    {/* MANI-02: StatusBadge in detail header */}
+                    <StatusBadge domain="manifestStatus" value={selectedManifest.status} />
                     <span className="px-3 py-1 text-xs font-bold bg-blue-100 text-blue-800 rounded-full">
                       Hãng tàu: {selectedManifest.shippingLine}
                     </span>
                   </div>
-                  <p className="text-xs text-slate-500 mt-1">
+                  <p className="text-xs text-slate-500">
                     Tàu: <strong>{selectedManifest.vesselName}</strong> · Voyage:{' '}
                     <strong>{selectedManifest.voyageNo}</strong>
                   </p>
+                  {/* MANI-08: Summary counts in detail header */}
+                  <p className="text-xs text-slate-500 flex items-center gap-3">
+                    <span>
+                      <span className="font-bold text-slate-800">{selectedManifest.masterBills.length}</span> MBL
+                    </span>
+                    <span>
+                      <span className="font-bold text-slate-800">{totalHbl}</span> HBL
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Package className="w-3.5 h-3.5" />
+                      <span className="font-bold text-slate-800">{totalContainers}</span> container
+                    </span>
+                    {/* MANI-04: Link to containers view — no manifest-scoped filter exists in navigation,
+                        so label clearly that this opens the full unfiltered containers list */}
+                    {onNavigate && (
+                      <button
+                        type="button"
+                        onClick={() => onNavigate('containers')}
+                        className="text-blue-600 underline text-xs"
+                      >
+                        Xem tất cả containers
+                      </button>
+                    )}
+                  </p>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex items-start gap-3 shrink-0">
                   <div className="text-right text-xs">
                     <div className="text-slate-500">ETA Ngày đến:</div>
                     <div className="font-bold text-slate-800">
-                      {new Date(selectedManifest.eta).toLocaleDateString('vi-VN')}
+                      {formatVietnamDate(selectedManifest.eta)}
                     </div>
                   </div>
                   {selectedManifest.status === 'DRAFT' && (
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      {/* MANI-05: Primary button style when no MBLs */}
                       <button
                         hidden={!can('manifest.update')}
                         onClick={() => setShowMblModal(true)}
-                        className="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-caption font-bold rounded-lg"
+                        className={`px-3 py-2 text-caption font-bold rounded-lg ${
+                          selectedManifest.masterBills.length === 0
+                            ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                            : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                        }`}
                       >
-                        + Master BL
+                        + Thêm Master BL
                       </button>
+                      {/* MANI-01 & MANI-02: ConfirmDialog for submit, Vietnamese label */}
                       <button
                         hidden={!can('manifest.submit')}
                         disabled={action.pending}
-                        onClick={async () => {
-                          await action.run(() => submitManifest(selectedManifest.id));
-                        }}
+                        onClick={() => setShowSubmitConfirm(true)}
                         className="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-caption font-bold rounded-lg"
                       >
-                        Submit Manifest
+                        Nộp Manifest
                       </button>
+                      {/* MANI-01: ConfirmDialog for cancel instead of window.prompt */}
                       <button
                         hidden={!can('manifest.cancel')}
                         disabled={action.pending}
-                        onClick={async () => {
-                          const reason = window.prompt('Lý do hủy Manifest:');
-                          if (reason) {
-                            await action.run(() => cancelManifest(selectedManifest.id, reason));
-                          }
-                        }}
+                        onClick={() => setShowCancelConfirm(true)}
                         className="px-3 py-2 bg-rose-50 hover:bg-rose-100 text-rose-700 text-caption font-bold rounded-lg border border-rose-200"
                       >
-                        Hủy
+                        Hủy Manifest
                       </button>
                     </div>
                   )}
@@ -418,6 +559,28 @@ export const ManifestsView: React.FC = () => {
                   <Layers className="w-4 h-4 text-blue-600" />
                   <span>Danh sách Master BL & House BL liên kết</span>
                 </h4>
+
+                {/* MANI-05: Empty state CTA when no MBLs */}
+                {selectedManifest.masterBills.length === 0 &&
+                  selectedManifest.status === 'DRAFT' && (
+                    <div className="rounded-xl border-2 border-dashed border-blue-200 bg-blue-50/40 p-8 text-center space-y-3">
+                      <Layers className="w-8 h-8 text-blue-300 mx-auto" />
+                      <p className="text-sm font-semibold text-slate-700">Chưa có Master BL nào</p>
+                      <p className="text-xs text-slate-500">
+                        Thêm Master BL đầu tiên để bắt đầu khai báo vận đơn gốc.
+                      </p>
+                      {can('manifest.update') && (
+                        <button
+                          type="button"
+                          onClick={() => setShowMblModal(true)}
+                          className="inline-flex items-center space-x-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg"
+                        >
+                          <Plus className="w-4 h-4" />
+                          <span>Thêm Master BL đầu tiên</span>
+                        </button>
+                      )}
+                    </div>
+                  )}
 
                 <div className="space-y-3">
                   {selectedManifest.masterBills.map((mbl) => (
@@ -450,11 +613,14 @@ export const ManifestsView: React.FC = () => {
                         </div>
                       </div>
 
+                      {/* MANI-05: Empty state for HBL */}
                       {mbl.houseBills.length === 0 &&
                         (!detailStatus?.manifests?.[selectedManifest.id] ||
                           detailStatus.manifests[selectedManifest.id] === 'ready') && (
-                          <div className="text-caption text-slate-400 italic pl-4">
-                            Chưa có House BL nào.
+                          <div className={`text-caption italic pl-4 ${selectedManifest.status === 'DRAFT' ? 'text-blue-500' : 'text-slate-400'}`}>
+                            {selectedManifest.status === 'DRAFT'
+                              ? 'Chưa có House BL — Thêm ngay'
+                              : 'Chưa có House BL nào.'}
                           </div>
                         )}
 
@@ -469,10 +635,17 @@ export const ManifestsView: React.FC = () => {
                               <span className="font-mono font-bold text-blue-700">
                                 {hbl.hblNumber}
                               </span>
-                              <span className="text-slate-500 font-semibold">
-                                {hbl.packageCount} kiện ·{' '}
-                                {(hbl.grossWeightKg ?? 0).toLocaleString()} kg
-                              </span>
+                              <div className="flex items-center gap-2">
+                                {/* MANI-08: Show containersCount per HBL */}
+                                <span className="text-slate-400 flex items-center gap-1">
+                                  <Package className="w-3 h-3" />
+                                  {hbl.containersCount ?? 0} container
+                                </span>
+                                <span className="text-slate-500 font-semibold">
+                                  {hbl.packageCount} kiện ·{' '}
+                                  {(hbl.grossWeightKg ?? 0).toLocaleString()} kg
+                                </span>
+                              </div>
                             </div>
                             <div className="text-slate-800">
                               Chủ hàng (Consignee): <strong>{hbl.consigneeName}</strong>
@@ -492,12 +665,66 @@ export const ManifestsView: React.FC = () => {
               </div>
             </div>
           ) : (
+            /* MANI-11: Empty state when nothing selected */
             <div className="bg-white rounded-xl border border-slate-200 p-12 text-center text-slate-400">
-              Chọn một Manifest bên trái để xem chi tiết
+              {manifests.length === 0
+                ? 'Chưa có Manifest nào. Nhấn "Tạo Manifest mới" để bắt đầu.'
+                : 'Chọn một Manifest bên trái để xem chi tiết'}
             </div>
           )}
         </div>
       </div>
+
+      {/* MANI-01: Submit Confirmation Dialog */}
+      {showSubmitConfirm && selectedManifest && (
+        <ConfirmDialog
+          title="Xác nhận nộp Manifest"
+          message="Sau khi nộp, Manifest sẽ chuyển sang trạng thái Đã nộp và không thể chỉnh sửa thêm."
+          summary={[
+            { label: 'Mã Manifest', value: selectedManifest.manifestNo },
+            { label: 'Tàu / Chuyến', value: `${selectedManifest.vesselName} · ${selectedManifest.voyageNo}` },
+            { label: 'Số MBL', value: `${selectedManifest.masterBills.length} MBL` },
+            { label: 'Số HBL', value: `${totalHbl} HBL` },
+            { label: 'Số container', value: `${totalContainers} container` },
+            { label: 'ETA', value: formatVietnamDate(selectedManifest.eta) },
+          ]}
+          confirmLabel="Nộp Manifest"
+          tone="primary"
+          pending={action.pending}
+          notice={action.notice}
+          onClose={() => setShowSubmitConfirm(false)}
+          onConfirm={async () => {
+            const result = await action.run(() => submitManifest(selectedManifest.id));
+            if (result?.success) setShowSubmitConfirm(false);
+          }}
+        />
+      )}
+
+      {/* MANI-01: Cancel Confirmation Dialog with reason */}
+      {showCancelConfirm && selectedManifest && (
+        <ConfirmDialog
+          title="Xác nhận hủy Manifest"
+          message="Hủy Manifest sẽ không thể hoàn tác. Toàn bộ MBL và HBL liên kết sẽ không còn hiệu lực."
+          summary={[
+            { label: 'Mã Manifest', value: selectedManifest.manifestNo },
+            { label: 'Tàu / Chuyến', value: `${selectedManifest.vesselName} · ${selectedManifest.voyageNo}` },
+          ]}
+          reason={{
+            label: 'Lý do hủy',
+            placeholder: 'Nhập lý do hủy Manifest...',
+            minLength: 5,
+          }}
+          confirmLabel="Xác nhận hủy"
+          tone="danger"
+          pending={action.pending}
+          notice={action.notice}
+          onClose={() => setShowCancelConfirm(false)}
+          onConfirm={async (reason) => {
+            const result = await action.run(() => cancelManifest(selectedManifest.id, reason));
+            if (result?.success) setShowCancelConfirm(false);
+          }}
+        />
+      )}
 
       {/* Create Modal */}
       {showCreateModal && (
@@ -690,7 +917,7 @@ export const ManifestsView: React.FC = () => {
                     htmlFor="manifests-mbl-line"
                     className="block font-semibold text-slate-700 mb-1"
                   >
-                    Hãng tàu*
+                    Hãng tàu* <span className="text-slate-400 font-normal">(tự động điền từ Manifest)</span>
                   </label>
                   <select
                     id="manifests-mbl-line"
@@ -744,8 +971,9 @@ export const ManifestsView: React.FC = () => {
           className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center z-50 p-4"
         >
           <div className="bg-white rounded-xl max-w-md w-full p-6 shadow-xl border border-slate-200 text-xs">
+            {/* MANI-07: Show MBL number in title */}
             <h3 id="manifests-dialog-3-title" className="text-base font-bold text-slate-900 mb-4">
-              Thêm House BL
+              Thêm House BL{hblModalMbl ? ` cho MBL ${hblModalMbl.mblNumber}` : ''}
             </h3>
             <form noValidate onSubmit={saveHbl} className="space-y-3">
               <FormErrors errors={validation.errors} />
@@ -768,64 +996,50 @@ export const ManifestsView: React.FC = () => {
                     className="w-full px-3 py-2 border border-slate-300 rounded-lg"
                   />
                 </div>
-                <div>
-                  <label
-                    htmlFor="manifests-hbl-form-consignee-name"
-                    className="block font-semibold text-slate-700 mb-1"
-                  >
-                    Chủ hàng (Consignee)*
-                  </label>
-                  <select
-                    id="manifests-hbl-form-consignee-name"
-                    required
-                    {...validation.props('manifests-hbl-form-consignee-name')}
-                    value={hblForm.consigneeName}
-                    onChange={(e) => setHblForm({ ...hblForm, consigneeName: e.target.value })}
-                    className="w-full px-3 py-2 border border-slate-300 rounded-lg"
-                  >
-                    <option value="">Chọn từ danh mục</option>
-                    {consignees
-                      .filter((item) => item.active)
-                      .map((item) => (
-                        <option key={item.id} value={item.id}>
-                          {item.name}
-                        </option>
-                      ))}
-                  </select>
-                </div>
-                <div>
-                  <label
-                    htmlFor="manifests-hbl-form-clearing-agent-name"
-                    className="block font-semibold text-slate-700 mb-1"
-                  >
-                    Đại lý thông quan
-                  </label>
-                  <select
-                    id="manifests-hbl-form-clearing-agent-name"
-                    value={hblForm.clearingAgentName}
-                    onChange={(e) => setHblForm({ ...hblForm, clearingAgentName: e.target.value })}
-                    className="w-full px-3 py-2 border border-slate-300 rounded-lg"
-                  >
-                    <option value="">Chọn từ danh mục</option>
-                    {clearingAgents
-                      .filter((item) => item.active)
-                      .map((item) => (
-                        <option key={item.id} value={item.id}>
-                          {item.name}
-                        </option>
-                      ))}
-                  </select>
-                </div>
+                {(consigneeOptions.length === 0 || clearingAgentOptions.length === 0) && (
+                  <p role="alert" className="rounded-lg border border-amber-200 bg-amber-50 p-2 text-amber-800">
+                    {consigneeOptions.length === 0 && clearingAgentOptions.length === 0
+                      ? 'Chưa có chủ hàng và đại lý thông quan nào đang hoạt động.'
+                      : consigneeOptions.length === 0
+                        ? 'Chưa có chủ hàng nào đang hoạt động.'
+                        : 'Chưa có đại lý thông quan nào đang hoạt động.'}{' '}
+                    Thêm hoặc kích hoạt ở mục "Danh mục dùng chung" trước khi tạo House B/L.
+                  </p>
+                )}
+                {/* MANI-09: SearchableSelect for consignee */}
+                <SearchableSelect
+                  id="manifests-hbl-form-consignee-name"
+                  label="Chủ hàng (Consignee)*"
+                  options={consigneeOptions}
+                  value={hblForm.consigneeName}
+                  onChange={(value) => setHblForm({ ...hblForm, consigneeName: value })}
+                  placeholder="Gõ để tìm chủ hàng..."
+                  required
+                  emptyText="Không tìm thấy chủ hàng phù hợp."
+                />
+                {/* MANI-09: SearchableSelect for clearing agent */}
+                <SearchableSelect
+                  id="manifests-hbl-form-clearing-agent-name"
+                  label="Đại lý thông quan*"
+                  options={clearingAgentOptions}
+                  value={hblForm.clearingAgentName}
+                  onChange={(value) => setHblForm({ ...hblForm, clearingAgentName: value })}
+                  placeholder="Gõ để tìm đại lý..."
+                  required
+                  emptyText="Không tìm thấy đại lý phù hợp."
+                />
                 <div>
                   <label
                     htmlFor="manifests-hbl-form-cargo-description"
                     className="block font-semibold text-slate-700 mb-1"
                   >
-                    Mô tả hàng hóa
+                    Mô tả hàng hóa*
                   </label>
                   <input
                     id="manifests-hbl-form-cargo-description"
                     type="text"
+                    required
+                    {...validation.props('manifests-hbl-form-cargo-description')}
                     value={hblForm.cargoDescription}
                     onChange={(e) => setHblForm({ ...hblForm, cargoDescription: e.target.value })}
                     className="w-full px-3 py-2 border border-slate-300 rounded-lg"
@@ -837,34 +1051,48 @@ export const ManifestsView: React.FC = () => {
                       htmlFor="manifests-hbl-form-gross-weight-kg"
                       className="block font-semibold text-slate-700 mb-1"
                     >
-                      Trọng lượng (kg)
+                      Trọng lượng (kg)*
                     </label>
                     <input
                       id="manifests-hbl-form-gross-weight-kg"
                       type="number"
-                      value={hblForm.grossWeightKg}
+                      required
+                      min="0.001"
+                      step="0.001"
+                      inputMode="decimal"
+                      placeholder="VD: 12500"
+                      {...validation.props('manifests-hbl-form-gross-weight-kg')}
+                      value={hblForm.grossWeightKg || ''}
                       onChange={(e) =>
                         setHblForm({ ...hblForm, grossWeightKg: Number(e.target.value) })
                       }
                       className="w-full px-3 py-2 border border-slate-300 rounded-lg"
                     />
+                    <p className="mt-1 text-caption text-slate-500">Lớn hơn 0, tối đa 3 chữ số thập phân.</p>
                   </div>
                   <div>
                     <label
                       htmlFor="manifests-hbl-form-package-count"
                       className="block font-semibold text-slate-700 mb-1"
                     >
-                      Số kiện
+                      Số kiện*
                     </label>
                     <input
                       id="manifests-hbl-form-package-count"
                       type="number"
-                      value={hblForm.packageCount}
+                      required
+                      min="1"
+                      step="1"
+                      inputMode="numeric"
+                      placeholder="VD: 20"
+                      {...validation.props('manifests-hbl-form-package-count')}
+                      value={hblForm.packageCount || ''}
                       onChange={(e) =>
                         setHblForm({ ...hblForm, packageCount: Number(e.target.value) })
                       }
                       className="w-full px-3 py-2 border border-slate-300 rounded-lg"
                     />
+                    <p className="mt-1 text-caption text-slate-500">Số nguyên, ít nhất 1 kiện.</p>
                   </div>
                 </div>
               </fieldset>

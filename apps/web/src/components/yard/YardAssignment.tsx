@@ -2,13 +2,18 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import { yardService, type YardAssignmentCheck } from '../../services/api/yard.service';
 import { getBlockGeometry, getSlotsAt } from './yard-model';
+import { businessLabel } from '../../lib/business-labels';
+import type { YardRecommendation } from '../../types';
 
 export function YardAssignment({
   targetVisitId,
   initialSlotCode,
+  onOperation,
 }: {
   targetVisitId?: string;
   initialSlotCode?: string;
+  /** Navigate to OPS tab with the given action pre-selected for a visitId. */
+  onOperation?: (action: 'BOOKING' | 'INSPECTION' | 'MOVE', visitId: string) => void;
 }) {
   const {
     containerVisits,
@@ -18,6 +23,7 @@ export function YardAssignment({
     currentUser,
     isLoading,
     apiReady,
+    getSlotRecommendations,
   } = useApp();
   const initialSlot = yardSlots.find((s) => s.slotCode === initialSlotCode);
   const [visitId, setVisitId] = useState(
@@ -33,6 +39,8 @@ export function YardAssignment({
   const [checkedKey, setCheckedKey] = useState('');
   const [pending, setPending] = useState(false);
   const [feedback, setFeedback] = useState<{ success: boolean; message: string }>();
+  const [recommendations, setRecommendations] = useState<YardRecommendation[]>([]);
+  const [recsLoading, setRecsLoading] = useState(false);
   const requestSequence = useRef(0);
   const canAssign =
     currentUser.permissionCodes?.some((p) => p === '*' || p === 'yard.update') ?? false;
@@ -50,6 +58,35 @@ export function YardAssignment({
   const slot = getSlotsAt(slots, resolvedRow, resolvedBay, resolvedTier)[0];
   const visit = containerVisits.find((v) => v.id === visitId);
   const key = `${visitId}:${slot?.id ?? ''}`;
+
+  // Keep the latest loader without refetching on every context render.
+  const loadRecommendations = useRef(getSlotRecommendations);
+  loadRecommendations.current = getSlotRecommendations;
+
+  // YARD-01: Fetch slot recommendations whenever visitId changes
+  useEffect(() => {
+    if (!visitId || !apiReady) {
+      setRecommendations([]);
+      return;
+    }
+    let cancelled = false;
+    setRecsLoading(true);
+    loadRecommendations
+      .current(visitId)
+      .then((recs) => {
+        if (!cancelled) setRecommendations(recs.slice(0, 3));
+      })
+      .catch(() => {
+        if (!cancelled) setRecommendations([]);
+      })
+      .finally(() => {
+        if (!cancelled) setRecsLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [visitId, apiReady]);
+
   // Changing selection invalidates a previous check, including an in-flight response.
   useEffect(() => {
     requestSequence.current++;
@@ -57,6 +94,7 @@ export function YardAssignment({
     setCheckedKey('');
     setFeedback(undefined);
   }, [key]);
+
   const localBlocker = !visit
     ? 'Chọn container cần xếp vị trí.'
     : visit.state !== 'IN_YARD'
@@ -70,6 +108,17 @@ export function YardAssignment({
             : slot.occupiedByContainerId
               ? 'Vị trí đang có container.'
               : '';
+
+  const hasLocationBlocker = !!(visit?.currentLocation);
+
+  // YARD-01: Apply a recommended slot to the manual selector fields
+  const applyRecommendation = (rec: YardRecommendation) => {
+    setBlock(rec.slot.blockCode);
+    setRow(String(rec.slot.rowNo));
+    setBay(String(rec.slot.bayNo));
+    setTier(String(rec.slot.tierNo));
+  };
+
   const check = async () => {
     if (!visit || !slot || busy || !canAssign) return;
     const sequence = ++requestSequence.current;
@@ -93,6 +142,7 @@ export function YardAssignment({
       setPending(false);
     }
   };
+
   const assign = async () => {
     if (
       !visit ||
@@ -106,7 +156,10 @@ export function YardAssignment({
       return;
     setPending(true);
     try {
-      setFeedback(await assignYardSlot(visit.id, slot.slotCode));
+      // Picking a recommended slot (by button or same coordinates) reports it back as feedback.
+      const chosenRecommendation = recommendations.find((rec) => rec.slot.id === slot.id);
+      const fb = await assignYardSlot(visit.id, slot.slotCode, chosenRecommendation);
+      setFeedback(fb);
       setResult(undefined);
       setCheckedKey('');
     } catch (error) {
@@ -118,17 +171,60 @@ export function YardAssignment({
       setPending(false);
     }
   };
+
   return (
     <div className="space-y-4">
-      <div className="border border-amber-200 bg-amber-50 rounded-xl p-4">
-        <h3 className="font-bold text-sm text-amber-900">Thuật toán đề xuất vị trí</h3>
-        <p className="text-sm text-amber-800 mt-1">Đang trong quá trình phát triển</p>
-        <p className="text-xs text-amber-800 mt-2">
-          Chọn vị trí thủ công theo nghiệp vụ; backend kiểm tra điều kiện trước khi ghi nhận.
-        </p>
-      </div>
+      {/* YARD-01: Slot recommendations panel */}
+      {visitId && (
+        <div className="bg-white border border-slate-200 rounded-xl p-5 space-y-3">
+          <h3 className="text-sm font-bold text-slate-900">Gợi ý vị trí xếp</h3>
+          {recsLoading ? (
+            <p className="text-xs text-slate-500">Đang tải gợi ý vị trí…</p>
+          ) : recommendations.length > 0 ? (
+            <div className="space-y-2">
+              {recommendations.map((rec, idx) => {
+                // Without an ML probability the backend ranks by rule score only.
+                const score =
+                  rec.mlProbability !== null
+                    ? Math.round((rec.ruleScore + rec.mlProbability * 100) / 2)
+                    : Math.round(rec.ruleScore);
+                return (
+                  <div
+                    key={rec.slot.id}
+                    className="flex items-center justify-between gap-3 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs"
+                  >
+                    <div>
+                      <span className="font-semibold text-slate-700">
+                        #{idx + 1} {rec.slot.slotCode}
+                      </span>
+                      <span className="ml-2 text-slate-500">Điểm: {score}</span>
+                      {rec.reasons.length > 0 && (
+                        <span className="ml-2 text-slate-500">— {rec.reasons.join(', ')}</span>
+                      )}
+                    </div>
+                    {canAssign && (
+                      <button
+                        type="button"
+                        onClick={() => applyRecommendation(rec)}
+                        className="whitespace-nowrap rounded-md border border-blue-300 px-3 py-1 text-blue-700 hover:bg-blue-50"
+                      >
+                        Chọn
+                      </button>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <p className="text-xs text-slate-500">
+              Không có gợi ý tự động. Chọn vị trí thủ công bên dưới.
+            </p>
+          )}
+        </div>
+      )}
+
       <section className="bg-white border border-slate-200 rounded-xl p-5 space-y-4">
-        <h3 className="text-sm font-bold">Xếp vị trí thủ công</h3>
+        <h3 className="text-sm font-bold">Xếp vị trí bãi</h3>
         {!canAssign && (
           <p className="text-xs text-slate-500">
             Tài khoản chỉ có quyền xem bãi, không được xếp vị trí.
@@ -144,20 +240,27 @@ export function YardAssignment({
             className="block w-full border border-slate-300 rounded-lg p-2 mt-1 bg-white"
           >
             <option value="">— Chọn container —</option>
+            {/* YARD-07: add MBL + consignee info to container options */}
             {containerVisits
               .filter((v) => v.state === 'IN_YARD' || v.id === targetVisitId)
               .map((v) => (
                 <option key={v.id} value={v.id}>
                   {v.containerNumber} · {v.containerType}
-                  {v.currentLocation ? ` · Đã có vị trí ${v.currentLocation}` : ' · Chờ xếp vị trí'}
+                  {v.mblNumber ? ` · MBL: ${v.mblNumber}` : ''}
+                  {v.consigneeName ? ` · ${v.consigneeName}` : ''}
+                  {v.currentLocation
+                    ? ` · Đã có vị trí ${v.currentLocation}`
+                    : ' · Chờ xếp vị trí'}
                 </option>
               ))}
           </select>
         </label>
         {visit && (
           <div className="text-xs text-slate-600 bg-slate-50 rounded-lg p-3">
+            {/* YARD-02: show Vietnamese state label */}
             {visit.containerNumber} · {visit.containerType} ·{' '}
-            {visit.grossWeightKg.toLocaleString('vi-VN')} kg · {visit.state}
+            {visit.grossWeightKg.toLocaleString('vi-VN')} kg ·{' '}
+            {businessLabel('containerVisitStatus', visit.state)}
           </div>
         )}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
@@ -175,9 +278,10 @@ export function YardAssignment({
               }}
               className="block w-full border border-slate-300 rounded-lg p-2 mt-1"
             >
+              {/* YARD-12: show full block name */}
               {yardBlocks.map((b) => (
                 <option key={b.id} value={b.blockCode}>
-                  {b.blockCode}
+                  {b.name ? `${b.blockCode} — ${b.name}` : `Block ${b.blockCode}`}
                 </option>
               ))}
             </select>
@@ -247,18 +351,39 @@ export function YardAssignment({
             · {slot.reeferPower ? 'Có điện lạnh' : 'Không điện lạnh'}
           </p>
         )}
-        {localBlocker && !feedback?.success && (
+        {/* YARD-06: blocker with move shortcut when container already has a location */}
+        {hasLocationBlocker && !feedback?.success && (
+          <div className="flex flex-wrap items-center gap-3 rounded-lg bg-amber-50 border border-amber-200 px-3 py-2 text-xs text-amber-800">
+            <span>
+              Container đã có vị trí {visit!.currentLocation}. Dùng lệnh đảo chuyển để di dời.
+            </span>
+            {canAssign && onOperation && (
+              <button
+                type="button"
+                onClick={() => onOperation('MOVE', visitId)}
+                className="whitespace-nowrap rounded-md bg-amber-800 text-white px-3 py-1 font-semibold hover:bg-amber-900"
+              >
+                Tạo lệnh đảo chuyển
+              </button>
+            )}
+          </div>
+        )}
+        {/* regular blocker (not location-based) */}
+        {localBlocker && !hasLocationBlocker && !feedback?.success && (
           <p role="status" className="text-xs text-amber-800 bg-amber-50 rounded-lg p-3">
             {localBlocker}
           </p>
         )}
+        {/* YARD-02: fix check result messages */}
         {result && (
           <div
             role="status"
             className={`rounded-lg p-3 text-xs ${result.eligible ? 'bg-emerald-50 text-emerald-800' : 'bg-red-50 text-red-800'}`}
           >
             <strong>
-              {result.eligible ? 'Backend xác nhận vị trí phù hợp.' : 'Backend từ chối vị trí.'}
+              {result.eligible
+                ? 'Vị trí phù hợp — có thể xếp.'
+                : 'Vị trí không phù hợp — xem chi tiết bên dưới.'}
             </strong>
             {result.blockers.map((b) => (
               <p key={b.code} className="mt-1">
@@ -280,6 +405,26 @@ export function YardAssignment({
             {feedback.message}
           </p>
         )}
+        {/* YARD-05: next-step actions after successful assignment */}
+        {feedback?.success && onOperation && visitId && (
+          <div className="flex flex-wrap gap-2 text-xs pt-1">
+            <span className="text-slate-500 self-center">Bước tiếp theo:</span>
+            <button
+              type="button"
+              onClick={() => onOperation('BOOKING', visitId)}
+              className="px-4 py-2 bg-blue-600 rounded-lg text-white"
+            >
+              Đặt lịch tác nghiệp bãi
+            </button>
+            <button
+              type="button"
+              onClick={() => onOperation('INSPECTION', visitId)}
+              className="px-4 py-2 border border-blue-300 rounded-lg text-blue-700"
+            >
+              Tạo yêu cầu kiểm định
+            </button>
+          </div>
+        )}
         {canAssign && (
           <div className="flex flex-wrap gap-2 text-xs">
             <button
@@ -287,6 +432,7 @@ export function YardAssignment({
               onClick={check}
               className="px-4 py-2 border border-blue-300 rounded-lg text-blue-700 disabled:opacity-40"
             >
+              {/* YARD-02: removed 'backend' wording */}
               {pending ? 'Đang xử lý…' : 'Kiểm tra vị trí'}
             </button>
             <button
@@ -294,7 +440,7 @@ export function YardAssignment({
               onClick={assign}
               className="px-4 py-2 bg-blue-600 rounded-lg text-white disabled:opacity-40"
             >
-              Xác nhận xếp vị trí
+              Xác nhận xếp vị trí bãi
             </button>
           </div>
         )}

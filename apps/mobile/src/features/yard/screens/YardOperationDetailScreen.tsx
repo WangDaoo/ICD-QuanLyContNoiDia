@@ -4,6 +4,7 @@ import { Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import type { RouteProp } from '@react-navigation/native';
 import { ScreenLayout, Card, Field, Notice, DetailRow, useFieldStyles } from '../../../components/ScreenLayout';
+import { useTheme } from '../../../theme/ThemeProvider';
 import { PrimaryButton } from '../../../components/PrimaryButton';
 import { ErrorState } from '../../../components/ErrorState';
 import { LoadingState } from '../../../components/LoadingState';
@@ -21,6 +22,7 @@ export function YardOperationDetailScreen() {
 
 function YardOperationDetail() {
   const fieldStyles = useFieldStyles();
+  const { theme } = useTheme();
   const navigation = useNavigation();
   const {params} = useRoute<RouteProp<YardStackParamList,'YardOperationDetail'>>();
     const {user} = useAuth();const [record,setRecord] = useState<Awaited<ReturnType<typeof yardApi.getOperation>> | null>(null);const [loading,setLoading] = useState(true);const [busy,setBusy] = useState(false);
@@ -62,8 +64,18 @@ function YardOperationDetail() {
   return <ScreenLayout title={params?.operationType === 'INSPECTION' ? 'Giám định hiện trường' : 'Tác nghiệp bãi'} subtitle={record?.containerVisit?.container?.containerNumber} onBack={() => navigation.goBack()}>
     {loading ? <LoadingState /> : !record ? <ErrorState message={error} onRetry={() => void load()} /> : <>
       <Card title={record.containerVisit?.container?.containerNumber}><StatusBadge label={displayCode(record.status)} variant="info" /><DetailRow label="Loại lệnh" value={displayCode(record.inspectionType || record.bookingType || 'MOVEMENT')} />{params?.operationType === 'MOVEMENT' ? <><DetailRow label="Vị trí đi" value={record.fromSlot?.slotCode} /><DetailRow label="Vị trí đến" value={record.toSlot?.slotCode} /></> : null}<DetailRow label="Ghi chú" value={record.notes || record.conditionNotes || record.reason} /></Card>
-      {error ? <Notice message={error} /> : null}{success ? <Notice message={success} success /> : null}
-      {record.result ? <Card title="Kết quả đã ghi nhận"><DetailRow label="Kết luận" value={record.result === 'PASS' ? 'Đạt' : record.result === 'FAIL' ? 'Không đạt' : 'Giữ (HOLD)'} />{record.result === 'HOLD' ? <Notice message="Container đang bị chặn cấp phiếu ra cổng do kết quả HOLD. Liên hệ điều hành để xử lý." /> : null}</Card> : null}
+      {error ? <Notice message={error} /> : null}
+      {success ? (
+        <>
+          <Notice message={success} success />
+          <PrimaryButton
+            title="Về danh sách tác nghiệp"
+            variant="secondary"
+            onPress={() => navigation.goBack()}
+          />
+        </>
+      ) : null}
+      {record.result ? <Card title="Kết quả đã ghi nhận"><DetailRow label="Kết luận" value={record.result === 'PASS' ? 'Đạt' : record.result === 'FAIL' ? 'Không đạt' : 'Giữ container'} />{record.result === 'HOLD' ? <Notice message="Container bị chặn xuất cổng. Liên hệ điều hành để xử lý." /> : null}</Card> : null}
       {params.operationType === 'BOOKING' ? <Card title="Thông tin lịch tác nghiệp"><DetailRow label="Lịch thực hiện" value={record.scheduledAt ? new Date(record.scheduledAt).toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' }) + ' (UTC+7)' : undefined} /><DetailRow label="Số kiện thực tế" value={record.actualPackageCount} /><DetailRow label="Trọng lượng thực tế (kg)" value={record.actualWeight} /></Card> : null}
       {allowed && record.status === 'PENDING' ? <PrimaryButton requiresOnline title="Bắt đầu tác nghiệp" onPress={() => review('start')} loading={busy} /> : null}
       {allowed && record.status === 'IN_PROGRESS' ? <>
@@ -71,7 +83,14 @@ function YardOperationDetail() {
         {params?.operationType === 'BOOKING' ? <Card title="Kết quả thực tế"><Field label="Số kiện" value={packages} onChangeText={setPackages} keyboardType="numeric" /><Field label="Trọng lượng (kg)" value={weight} onChangeText={setWeight} keyboardType="numeric" /><Field label="Ghi chú" value={notes} onChangeText={setNotes} multiline /></Card> : null}
         <PrimaryButton requiresOnline title="Xác nhận hoàn tất" onPress={() => review('complete')} loading={busy} />
       </> : null}
-      {allowed && ['PENDING','IN_PROGRESS'].includes(record.status) ? <PrimaryButton requiresOnline title="Hủy tác nghiệp" variant="danger" onPress={() => review('cancel')} disabled={busy} /> : null}
+      {allowed && ['PENDING','IN_PROGRESS'].includes(record.status) ? (
+        <View style={{ marginTop: 32, gap: 4 }}>
+          <Text style={{ fontSize: 12, color: theme.colors.textMuted, textAlign: 'center' }}>
+            Chỉ hủy khi lệnh không thể thực hiện
+          </Text>
+          <PrimaryButton requiresOnline title="Hủy tác nghiệp" variant="danger" onPress={() => review('cancel')} disabled={busy} />
+        </View>
+      ) : null}
       <ActionDialog requiresOnline visible={!!action} title={action === 'cancel' ? 'Hủy tác nghiệp' : action === 'complete' ? 'Xác nhận hoàn tất' : 'Bắt đầu tác nghiệp'} message={record.containerVisit?.container.containerNumber} danger={action === 'cancel' || (action === 'complete' && result === 'HOLD' && params.operationType === 'INSPECTION')} busy={busy} confirmLabel={action === 'cancel' ? 'Xác nhận hủy' : 'Xác nhận'} onClose={() => setAction(null)} onConfirm={() => void execute()}>
         {action === 'cancel' ? <Field label="Lý do hủy*" value={reason} onChangeText={setReason} multiline editable={!busy} /> : <Text style={fieldStyles.value}>{action === 'start' ? 'Xác nhận bắt đầu thực hiện lệnh này?' : params.operationType === 'MOVEMENT' ? 'Container đã đến đúng vị trí '+record.toSlot?.slotCode+'?' : params.operationType === 'INSPECTION' ? 'Kết luận: '+({PASS:'Đạt',FAIL:'Không đạt',HOLD:'Giữ — chặn cấp phiếu ra cổng'}[result] || result)+'\n'+notes : 'Số kiện: '+(packages || 'Chưa ghi nhận')+' · Trọng lượng: '+(weight || 'Chưa ghi nhận')+' kg\n'+notes}</Text>}
         {dialogError ? <Notice message={dialogError} /> : null}

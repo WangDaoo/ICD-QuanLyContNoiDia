@@ -16,6 +16,8 @@ import {
 export interface YardOperationsProps {
   initialVisitId?: string;
   initialAction?: YardOperationAction;
+  /** Opens the container record (holds, timeline) from an operation. */
+  onOpenContainer?: (visitId: string) => void;
 }
 
 type OperationDialogState =
@@ -134,6 +136,7 @@ function OperationDialog({
 export const YardOperations: React.FC<YardOperationsProps> = ({
   initialVisitId,
   initialAction,
+  onOpenContainer,
 }) => {
   const app = useApp();
   const {
@@ -177,6 +180,13 @@ export const YardOperations: React.FC<YardOperationsProps> = ({
   const isWriteDisabled = pending || app.isLoading || !app.apiReady;
   const inYardVisits = containerVisits.filter((visit) => visit.state === 'IN_YARD');
   const moveVisits = inYardVisits.filter((visit) => !!visit.currentLocation);
+  const operationVisitIds = new Set(
+    [...yardMovements, ...bookings, ...inspections].map((record) => record.containerVisitId),
+  );
+  const filterVisits = [
+    ...inYardVisits,
+    ...containerVisits.filter((visit) => visit.state !== 'IN_YARD' && operationVisitIds.has(visit.id)),
+  ];
   const selectedVisit = containerVisits.find((visit) => visit.id === form.visitId);
   const destinations = findMovementDestinations(yardSlots, yardBlocks, selectedVisit);
   const query = search.trim().toLocaleLowerCase('vi-VN');
@@ -264,7 +274,7 @@ export const YardOperations: React.FC<YardOperationsProps> = ({
     if (!dialog || pendingRef.current) return;
     if (dialog.kind === 'CREATE') {
       if (!selectedVisit || selectedVisit.state !== 'IN_YARD') {
-        failValidation('Vui lòng chọn container đang ở trạng thái IN_YARD.');
+        failValidation('Vui lòng chọn container đang có mặt trong bãi.');
         return;
       }
       if (dialog.action === 'MOVE') {
@@ -368,6 +378,8 @@ export const YardOperations: React.FC<YardOperationsProps> = ({
         failValidation(error);
         return;
       }
+      // YARD-09: for HOLD result, keep dialog open and show prominent warning
+      const isHoldResult = completion.result === 'HOLD';
       await runCommand(
         'INSPECTION',
         () =>
@@ -376,8 +388,10 @@ export const YardOperations: React.FC<YardOperationsProps> = ({
             completion.result,
             completion.notes.trim() || undefined,
           ),
-        'Đã ghi nhận kết quả kiểm định.',
-        true,
+        isHoldResult
+          ? 'Đã lưu kết quả Chờ xử lý. Container này đang bị chặn cấp phiếu ra cổng.'
+          : 'Đã ghi nhận kết quả kiểm định.',
+        !isHoldResult, // PASS/FAIL: auto-close; HOLD: keep dialog open
       );
     }
   };
@@ -467,7 +481,8 @@ export const YardOperations: React.FC<YardOperationsProps> = ({
             className={INPUT_CLASS}
           >
             <option value="">Tất cả container</option>
-            {containerVisits.map((visit) => (
+            {/* In-yard containers first, then any container that still has operations on record. */}
+            {filterVisits.map((visit) => (
               <option key={visit.id} value={visit.id}>
                 {visit.containerNumber}
               </option>
@@ -508,7 +523,10 @@ export const YardOperations: React.FC<YardOperationsProps> = ({
                 <th className="px-4 py-3">Container</th>
                 <th className="px-4 py-3">Từ / Đến</th>
                 <th className="px-4 py-3">Trạng thái</th>
-                <th className="px-4 py-3">Lý do / Thời gian</th>
+                {/* YARD-11: split into separate Lý do and Thời điểm columns */}
+                <th className="px-4 py-3">Lý do</th>
+                <th className="px-4 py-3 whitespace-nowrap">Thời điểm</th>
+                <th className="px-4 py-3 whitespace-nowrap">Vị trí sau di chuyển</th>
                 {canMove && <th className="px-4 py-3">Thao tác</th>}
               </tr>
             </thead>
@@ -526,11 +544,24 @@ export const YardOperations: React.FC<YardOperationsProps> = ({
                   <td className="px-4 py-3">
                     <StatusBadge status={record.status} />
                   </td>
+                  {/* YARD-11: separate reason column */}
                   <td className="max-w-xs px-4 py-3 text-slate-600">
                     <div className="break-words">{record.reason || '—'}</div>
-                    <div className="mt-1 whitespace-nowrap text-caption text-slate-400">
-                      {formatOperationTime(record.completedAt ?? record.createdAt)}
+                  </td>
+                  {/* YARD-11: separate time column */}
+                  <td className="px-4 py-3 text-slate-600">
+                    <div className="whitespace-nowrap text-xs">
+                      {formatOperationTime(record.createdAt)}
                     </div>
+                    {record.completedAt && (
+                      <div className="mt-1 whitespace-nowrap text-caption text-slate-400">
+                        Hoàn tất: {formatOperationTime(record.completedAt)}
+                      </div>
+                    )}
+                  </td>
+                  {/* YARD-11: position after move */}
+                  <td className="px-4 py-3 font-mono text-xs text-slate-700">
+                    {record.status === 'COMPLETED' ? record.toSlot : '—'}
                   </td>
                   {canMove && (
                     <td className="px-4 py-3">
@@ -581,7 +612,7 @@ export const YardOperations: React.FC<YardOperationsProps> = ({
               ))}
               {!movementsToShow.length && (
                 <tr>
-                  <td colSpan={canMove ? 5 : 4} className="px-4 py-8 text-center text-slate-500">
+                  <td colSpan={canMove ? 7 : 6} className="px-4 py-8 text-center text-slate-500">
                     Chưa có lệnh di chuyển phù hợp bộ lọc.
                   </td>
                 </tr>
@@ -736,18 +767,41 @@ export const YardOperations: React.FC<YardOperationsProps> = ({
                     <StatusBadge status={record.status} />
                   </td>
                   <td className="max-w-xs px-4 py-3">
-                    <div
-                      className={`font-semibold ${record.result === 'HOLD' ? 'text-amber-800' : record.result === 'FAIL' ? 'text-red-700' : 'text-slate-700'}`}
-                    >
-                      {record.result ?? 'Chưa có kết quả'}
-                    </div>
-                    <div className="mt-1 break-words text-slate-500">{record.notes || '—'}</div>
+                    {/* YARD-08: inspection result badges */}
+                    {record.result ? (
+                      <span
+                        className={`inline-flex items-center gap-1 rounded-full px-2 py-1 text-caption font-semibold whitespace-nowrap ${
+                          record.result === 'PASS'
+                            ? 'bg-emerald-100 text-emerald-800'
+                            : record.result === 'FAIL'
+                              ? 'bg-red-100 text-red-900'
+                              : 'bg-amber-100 text-amber-900'
+                        }`}
+                        title={
+                          record.result === 'HOLD'
+                            ? 'Kết quả này đang chặn cấp phiếu ra cổng cho container này.'
+                            : undefined
+                        }
+                      >
+                        {record.result === 'HOLD' && (
+                          <span aria-hidden="true">⚠</span>
+                        )}
+                        {record.result === 'PASS'
+                          ? 'Đạt'
+                          : record.result === 'FAIL'
+                            ? 'Không đạt'
+                            : 'Chờ xử lý — chặn gate-out'}
+                      </span>
+                    ) : (
+                      <span className="text-slate-500">Chưa có kết quả</span>
+                    )}
+                    <div className="mt-1 break-words text-xs text-slate-500">{record.notes || '—'}</div>
                     {record.documentUrl && (
                       <a
                         href={record.documentUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="mt-1 inline-block text-blue-700 underline"
+                        className="mt-1 inline-block text-blue-700 underline text-xs"
                       >
                         Xem biên bản
                       </a>
@@ -842,7 +896,7 @@ export const YardOperations: React.FC<YardOperationsProps> = ({
                   </FormField>
                   {!(dialog.action === 'MOVE' ? moveVisits : inYardVisits).length && (
                     <p className="text-xs text-amber-800">
-                      Chưa có container IN_YARD phù hợp để tạo tác nghiệp.
+                      Chưa có container trong bãi phù hợp để tạo tác nghiệp.
                     </p>
                   )}
                   {dialog.action === 'MOVE' && (
@@ -900,9 +954,10 @@ export const YardOperations: React.FC<YardOperationsProps> = ({
                           }
                           className={INPUT_CLASS}
                         >
+                          {/* YARD-04: show Vietnamese label only, no enum code */}
                           {Object.entries(BOOKING_LABELS).map(([value, label]) => (
                             <option key={value} value={value}>
-                              {label} ({value})
+                              {label}
                             </option>
                           ))}
                         </select>
@@ -1046,9 +1101,9 @@ export const YardOperations: React.FC<YardOperationsProps> = ({
                       }
                       className={INPUT_CLASS}
                     >
-                      <option value="PASS">PASS — Đạt</option>
-                      <option value="FAIL">FAIL — Không đạt</option>
-                      <option value="HOLD">HOLD — Chờ xử lý</option>
+                      <option value="PASS">Đạt</option>
+                      <option value="FAIL">Không đạt</option>
+                      <option value="HOLD">Chờ xử lý (chặn gate-out)</option>
                     </select>
                   </FormField>
                   <FormField
@@ -1066,10 +1121,30 @@ export const YardOperations: React.FC<YardOperationsProps> = ({
                     />
                   </FormField>
                   {completion.result === 'HOLD' && (
-                    <p className="text-xs text-amber-800">
-                      Kết quả HOLD sẽ được hệ thống ghi nhận và có thể chặn cấp phiếu ra cổng cho
-                      đến khi được xử lý.
-                    </p>
+                    <div className="rounded-lg bg-amber-50 border border-amber-300 p-3 text-xs text-amber-900">
+                      <strong>⚠ Chờ xử lý — sẽ chặn cấp phiếu ra cổng.</strong>
+                      <p className="mt-1">
+                        Container sẽ bị chặn cấp phiếu ra cổng cho đến khi lệnh giữ được xử lý.
+                      </p>
+                    </div>
+                  )}
+                  {/* YARD-09: post-completion HOLD warning inside dialog */}
+                  {feedback?.kind === 'success' && completion.result === 'HOLD' && (
+                    <div className="rounded-lg bg-amber-100 border border-amber-400 p-3 text-xs text-amber-900">
+                      <strong>⚠ Container đang bị chặn cấp phiếu ra cổng.</strong>
+                      <p className="mt-1">
+                        Cần xử lý lệnh giữ trước khi có thể cấp phiếu ra cổng cho container này.
+                      </p>
+                      {onOpenContainer && (
+                        <button
+                          type="button"
+                          onClick={() => onOpenContainer(dialog.record.containerVisitId)}
+                          className="mt-2 font-semibold underline"
+                        >
+                          Mở hồ sơ container để xử lý →
+                        </button>
+                      )}
+                    </div>
                   )}
                 </>
               )}

@@ -41,7 +41,7 @@ export type GateStackParamList = {
 export type YardStackParamList = {
   YardHome: undefined;
   YardOperations: { visitId?: string; containerNo?: string } | undefined;
-  SurveyHome: undefined;
+  SurveyHome: { containerNo?: string; visitId?: string } | undefined;
   ContainerSearch: undefined;
   ContainerDetail: {
     containerNo?: string;

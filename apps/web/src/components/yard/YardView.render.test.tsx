@@ -13,11 +13,13 @@ const data = {
   containerVisits: [], holds: [], inspections: [], yardMovements: [], bookings: [],
 } as unknown as AppContextType;
 
-test('yard overview labels the illustrative site and visibly suspends optimization', () => {
+test('yard overview labels the illustrative site and shows business-ready text', () => {
   const html = renderToStaticMarkup(<AppContext.Provider value={data}><YardView onNavigate={() => {}} /></AppContext.Provider>);
   assert.match(html, /Sơ đồ tổng thể ICD/);
-  assert.match(html, /Đang trong quá trình phát triển/);
+  assert.match(html, /Quản lý vị trí và công việc trong bãi container/);
   assert.doesNotMatch(html, /ML Rerank|ML\/Rule ranking/);
+  // YARD-10: dev-only "in development" banner must not appear in production UI
+  assert.doesNotMatch(html, /Đang trong quá trình phát triển/);
 });
 
 test('read-only yard users receive viewing controls without move/booking actions', () => {

@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState } from 'react';
-import { Text } from 'react-native';
+import { Text, TextInput, View } from 'react-native';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { YardStackParamList } from '../../../navigation/types';
@@ -21,12 +21,16 @@ import { yardApi, type YardSlot, type YardRecommendations, type SlotCheck } from
 import { loadYardSnapshot, type YardSnapshot } from '../api/yard-snapshot';
 import { canSelectYardSlot } from '../api/yard-map';
 import { YardSlotGrid } from '../components/YardSlotGrid';
+import { YardRecommendationCard } from '../components/YardRecommendationCard';
+import { useTheme } from '../../../theme/ThemeProvider';
 
 export function YardHomeScreen() {
   const navigation = useNavigation<NativeStackNavigationProp<YardStackParamList>>();
   const { user } = useAuth();
+  const { theme } = useTheme();
   const styles = useFieldStyles();
   const [containers, setContainers] = useState<ContainerRecord[]>([]);
+  const [containerFilter, setContainerFilter] = useState('');
   const [snapshot, setSnapshot] = useState<YardSnapshot | null>(null);
   const slots = snapshot?.slots ?? [];
   const totalSlots = snapshot?.total ?? 0;
@@ -295,19 +299,48 @@ export function YardHomeScreen() {
   };
   return (
     <ScreenLayout title="Tác nghiệp bãi" onRefresh={() => void load()} refreshing={loading}>
-      <Card title="Lệnh Tác nghiệp Bãi (Yard Stacking)">
+      <Card title="Lệnh Tác nghiệp Bãi">
+        <View>
+          <TextInput
+            accessibilityLabel="Lọc theo số container"
+            placeholder="Lọc theo số container..."
+            value={containerFilter}
+            onChangeText={setContainerFilter}
+            autoCapitalize="characters"
+            editable={!busy && !loading}
+            style={{
+              borderWidth: 1,
+              borderColor: theme.colors.borderDark,
+              borderRadius: 6,
+              paddingHorizontal: 10,
+              paddingVertical: 8,
+              fontSize: 14,
+              marginBottom: 6,
+              minHeight: 44,
+              color: theme.colors.textPrimary,
+              backgroundColor: theme.colors.surfaceSubtle,
+            }}
+          />
+        </View>
         <SelectField
           label="Chọn Container cần xếp/dời vị trí"
           value={visitId}
-          options={containers.map((row) => ({
-            value: row.id,
-            label:
-              row.container.containerNumber +
-              ' — ' +
-              (slots.find((slot) => slot.currentContainer?.containerVisitId === row.id)?.slotCode ||
-                row.currentLocation?.slotCode ||
-                'Chọn để xem vị trí'),
-          }))}
+          options={containers
+            .filter((row) =>
+              !containerFilter.trim() ||
+              row.container.containerNumber
+                .toLowerCase()
+                .includes(containerFilter.trim().toLowerCase()),
+            )
+            .map((row) => ({
+              value: row.id,
+              label:
+                row.container.containerNumber +
+                ' — ' +
+                (slots.find((slot) => slot.currentContainer?.containerVisitId === row.id)?.slotCode ||
+                  row.currentLocation?.slotCode ||
+                  'Chọn để xem vị trí'),
+            }))}
           onChange={(id) => void chooseVisit(id)}
           disabled={busy || loading || resolvingLocation || !hasAnyPermission(user, ['yard.read'])}
         />
@@ -339,21 +372,27 @@ export function YardHomeScreen() {
             Nhập mã ô trống trong sơ đồ. Lệnh đảo chuyển cần được bắt đầu và xác nhận hoàn tất.
           </Text>
         ) : null}
-        {recommendation ? (
-          <SelectField
-            label={'Vị trí phù hợp (' + recommendation.data.length + ')'}
-            value={target}
-            options={recommendation.data.map((row) => ({
-              value: row.slotCode,
-              label: row.slotCode + ' · Khu ' + row.blockCode,
-            }))}
-            onChange={(value) => {
-              targetGeneration.current++;
-              setTarget(value);
-              setCheck(null);
-            }}
-            disabled={busy}
-          />
+        {recommendation && recommendation.data.length > 0 ? (
+          <View style={{ gap: 0 }}>
+            <Text style={[styles.muted, { marginBottom: 4 }]}>
+              Vị trí phù hợp ({recommendation.data.length}):
+            </Text>
+            {recommendation.data.map((row) => (
+              <YardRecommendationCard
+                key={row.yardSlotId}
+                candidate={row}
+                selected={target === row.slotCode}
+                disabled={busy}
+                onPress={() => {
+                  targetGeneration.current++;
+                  setTarget(row.slotCode);
+                  setCheck(null);
+                  setSuccess('');
+                  setError('');
+                }}
+              />
+            ))}
+          </View>
         ) : null}
         {canAssign && !isMovement ? (
           <PrimaryButton
@@ -380,7 +419,27 @@ export function YardHomeScreen() {
           </>
         ) : null}
         {error ? <Notice message={error} /> : null}
-        {success ? <Notice message={success} success /> : null}
+        {success ? (
+          <>
+            <Notice message={success} success />
+            <PrimaryButton
+              title="Xem tác nghiệp bãi cho container này"
+              variant="secondary"
+              onPress={() =>
+                navigation.navigate('YardOperations', {
+                  visitId,
+                  containerNo:
+                    containers.find((r) => r.id === visitId)?.container.containerNumber,
+                })
+              }
+            />
+            <PrimaryButton
+              title="Về danh sách tác nghiệp"
+              variant="secondary"
+              onPress={() => navigation.navigate('YardOperations')}
+            />
+          </>
+        ) : null}
         {canAct ? (
           <PrimaryButton
             requiresOnline

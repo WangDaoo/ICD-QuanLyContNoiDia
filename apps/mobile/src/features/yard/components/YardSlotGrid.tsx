@@ -22,7 +22,7 @@ export type YardSlotGridProps = {
   onOpenContainer?: (visitId: string) => void;
 };
 
-const CELL_WIDTH = 104;
+const CELL_WIDTH = 116;
 const CELL_GAP = 8;
 const ROW_LABEL_WIDTH = 64;
 const INSPECTION_STATUS_LABELS: Record<string, string> = {
@@ -80,7 +80,7 @@ export function YardSlotGrid({
         key={slot.id}
         testID={`yard-slot-${slot.id}`}
         accessibilityRole="button"
-        accessibilityLabel={`Slot ${slot.slotCode}, ${appearance.label}${slot.currentContainer ? `, ${slot.currentContainer.containerNumber}` : ''}`}
+        accessibilityLabel={`Ô bãi ${slot.slotCode}, ${appearance.label}${slot.currentContainer ? `, ${slot.currentContainer.containerNumber}` : ''}`}
         accessibilityHint="Mở thông tin vị trí trong bãi"
         onPress={() => setSelectedSlotId(slot.id)}
         style={{
@@ -98,17 +98,17 @@ export function YardSlotGrid({
       >
         <Text
           numberOfLines={1}
-          style={{ fontSize: 11, fontWeight: '700', color: appearance.color }}
+          style={{ fontSize: 13, fontWeight: '700', color: appearance.color }}
         >
           {slot.slotCode}
         </Text>
-        <Text numberOfLines={1} style={{ fontSize: 10, color: appearance.color }}>
+        <Text numberOfLines={1} style={{ fontSize: 12, color: appearance.color }}>
           {slot.currentContainer?.containerNumber || appearance.label}
         </Text>
         {slot.currentContainer && (appearance.key === 'hold' || appearance.key === 'inspection') ? (
           <Text
             numberOfLines={1}
-            style={{ fontSize: 10, fontWeight: '600', color: appearance.color }}
+            style={{ fontSize: 12, fontWeight: '600', color: appearance.color }}
           >
             {appearance.label}
           </Text>
@@ -253,7 +253,7 @@ export function YardSlotGrid({
           {tier !== undefined ? (
             <View style={{ gap: 6 }}>
               <Text style={{ fontSize: 11, color: theme.colors.textMuted }}>
-                Row · Hàng × Bay · Dãy — vuốt ngang để xem các dãy.
+                Hàng × Dãy — vuốt ngang để xem các dãy.
               </Text>
               <ScrollView
                 horizontal
@@ -272,7 +272,7 @@ export function YardSlotGrid({
                         color: theme.colors.textSecondary,
                       }}
                     >
-                      Row / Bay
+                      Hàng / Dãy
                     </Text>
                     {geometry.bays.map((bay) => (
                       <Text
@@ -317,7 +317,7 @@ export function YardSlotGrid({
                             ) : (
                               <View
                                 accessible
-                                accessibilityLabel={`Không có slot tại Row ${row}, Bay ${bay}, Tier ${tier}`}
+                                accessibilityLabel={`Không có ô tại Hàng ${row}, Dãy ${bay}, Tầng ${tier}`}
                                 style={{
                                   flex: 1,
                                   minHeight: 64,
@@ -342,7 +342,7 @@ export function YardSlotGrid({
                 </View>
               </ScrollView>
               <Text style={{ fontSize: 10, color: theme.colors.textMuted }}>
-                — Không có slot tại tọa độ này. Chạm một slot để xem chi tiết.
+                — Không có ô tại tọa độ này. Chạm một ô để xem chi tiết.
               </Text>
             </View>
           ) : null}
@@ -350,7 +350,7 @@ export function YardSlotGrid({
           {block.unlocatedSlots.length ? (
             <View style={{ gap: 6 }}>
               <Text style={{ fontSize: 11, color: theme.colors.textMuted }}>
-                Slot chưa có đủ tọa độ Row / Bay / Tier
+                Ô bãi chưa có đủ tọa độ Hàng / Dãy / Tầng
               </Text>
               <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: CELL_GAP }}>
                 {block.unlocatedSlots.map(renderSlot)}
@@ -399,11 +399,11 @@ export function YardSlotGrid({
                   color: theme.colors.textPrimary,
                 }}
               >
-                {selectedSlot ? `Slot ${selectedSlot.slotCode}` : 'Chi tiết slot'}
+                {selectedSlot ? `Ô bãi ${selectedSlot.slotCode}` : 'Chi tiết ô bãi'}
               </Text>
               <TouchableOpacity
                 accessibilityRole="button"
-                accessibilityLabel="Đóng chi tiết slot"
+                accessibilityLabel="Đóng chi tiết ô bãi"
                 onPress={() => setSelectedSlotId(null)}
                 style={{
                   minWidth: 48,
@@ -458,7 +458,7 @@ export function YardSlotGrid({
                   : null}
                 {selectedSlot.currentContainer
                   ? renderDetail(
-                      'Container tại slot',
+                      'Container tại ô bãi',
                       selectedSlot.currentContainer.containerNumber,
                     )
                   : null}
@@ -516,7 +516,7 @@ export function YardSlotGrid({
                 {selectionEnabled && onSelectSlot && canSelectYardSlot(selectedSlot) ? (
                   <TouchableOpacity
                     accessibilityRole="button"
-                    accessibilityLabel="Chọn slot làm vị trí đích"
+                    accessibilityLabel="Chọn làm vị trí xếp"
                     onPress={handleChooseSlot}
                     style={{
                       minWidth: 48,
@@ -529,7 +529,7 @@ export function YardSlotGrid({
                     }}
                   >
                     <Text style={{ fontSize: 13, fontWeight: '700', color: '#FFFFFF' }}>
-                      Chọn slot làm vị trí đích
+                      Chọn làm vị trí xếp
                     </Text>
                   </TouchableOpacity>
                 ) : null}

@@ -144,8 +144,13 @@ export interface YardSlot {
 export interface YardRecommendation {
   slot: YardSlot;
   ruleScore: number;
-  mlProbability: number;
+  /** null when the backend ranked by rules only (no ML model). */
+  mlProbability: number | null;
   reasons: string[];
+  /** Tracking from the recommendation response, sent back when the operator picks this slot. */
+  recommendationId?: string;
+  contextToken?: string;
+  source?: 'RULE' | 'ML';
 }
 
 export interface YardMovement {

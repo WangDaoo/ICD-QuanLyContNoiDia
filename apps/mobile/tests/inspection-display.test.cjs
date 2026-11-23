@@ -25,7 +25,7 @@ test('completed HOLD keeps completion separate from the blocking result', () => 
   const display = loadDisplay()(record);
   assert.equal(display.statusLabel, 'Hoàn tất');
   assert.equal(display.variant, 'danger');
-  assert.equal(display.resultLabel, 'HOLD · Giữ container để kiểm định, chặn xuất cổng.');
+  assert.equal(display.resultLabel, 'Giữ container — chặn xuất cổng');
   assert.deepEqual(record, { status: 'COMPLETED', result: 'HOLD' });
 });
 
@@ -33,14 +33,14 @@ test('completed FAIL explains the failed result with a danger badge', () => {
   const display = loadDisplay()({ status: 'COMPLETED', result: 'FAIL' });
   assert.equal(display.statusLabel, 'Hoàn tất');
   assert.equal(display.variant, 'danger');
-  assert.equal(display.resultLabel, 'FAIL · Không đạt giám định.');
+  assert.equal(display.resultLabel, 'Không đạt');
 });
 
 test('completed PASS shows success without asserting container readiness', () => {
   const display = loadDisplay()({ status: 'COMPLETED', result: 'PASS' });
   assert.equal(display.statusLabel, 'Hoàn tất');
   assert.equal(display.variant, 'success');
-  assert.equal(display.resultLabel, 'PASS · Đạt giám định.');
+  assert.equal(display.resultLabel, 'Đạt giám định');
 });
 
 test('active inspection stays yellow without presenting an unconfirmed result', () => {

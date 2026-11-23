@@ -5,10 +5,12 @@ import { ReadOnlyNotice } from './ReadOnlyNotice';
 import { Route, CheckCircle2, XCircle, Clock, Search } from 'lucide-react';
 import { NavTabId } from './Sidebar';
 
-import { vietnamDateTimeInput, vietnamDateTimeToIso } from '../lib/time';
+import { vietnamDateTimeInput, vietnamDateTimeToIso, formatVietnamDateTime } from '../lib/time';
 import { useCommandAction, CommandNotice } from './useCommandAction';
 import { hasWebPermission } from '../services/permissions';
 import { CollectionState } from './CollectionState';
+import { ConfirmDialog } from './ConfirmDialog';
+import { businessLabel } from '../lib/business-labels';
 
 interface MovementOrdersViewProps {
   onNavigate?: (tab: NavTabId, contextId?: string) => void;
@@ -30,10 +32,27 @@ export const MovementOrdersView: React.FC<MovementOrdersViewProps> = ({
   const can = (permission: string) => hasWebPermission(currentUser, permission);
   const action = useCommandAction();
   const [searchTerm, setSearchTerm] = useViewQueryState('movement-orders', 'search', '');
-  const [expiresAt, setExpiresAt] = useState(vietnamDateTimeInput(Date.now() + 86400000));
+
+  // Authorize dialog state (per-row expiry)
+  const [authorizeTarget, setAuthorizeTarget] = useState<{
+    id: string;
+    orderCode: string;
+    containerNumber: string;
+  } | null>(null);
+  const [authorizeExpiresAt, setAuthorizeExpiresAt] = useState(() =>
+    vietnamDateTimeInput(Date.now() + 86400000),
+  );
+  const [authorizeError, setAuthorizeError] = useState('');
+
+  // Cancel dialog state
+  const [cancelTarget, setCancelTarget] = useState<{
+    id: string;
+    orderCode: string;
+    containerNumber: string;
+  } | null>(null);
 
   const statusBadge = (status: string) => {
-    const map: Record<string, string> = {
+    const colorMap: Record<string, string> = {
       DRAFT: 'bg-amber-100 text-amber-800',
       AUTHORIZED: 'bg-emerald-100 text-emerald-800',
       EXPIRED: 'bg-slate-200 text-slate-600',
@@ -41,9 +60,9 @@ export const MovementOrdersView: React.FC<MovementOrdersViewProps> = ({
     };
     return (
       <span
-        className={`px-2 py-1 rounded-full text-caption font-bold ${map[status] || 'bg-slate-100 text-slate-600'}`}
+        className={`px-2 py-1 rounded-full text-caption font-bold ${colorMap[status] || 'bg-slate-100 text-slate-600'}`}
       >
-        {status}
+        {businessLabel('movementOrderStatus', status)}
       </span>
     );
   };
@@ -61,17 +80,107 @@ export const MovementOrdersView: React.FC<MovementOrdersViewProps> = ({
         o.containerNumber.toLowerCase().includes(searchTerm.toLowerCase())),
   );
 
+  /** Days remaining until expiry; 0 = expires today; negative = already expired; null = no expiry set */
+  const daysRemaining = (expiresAt: string | undefined): number | null => {
+    if (!expiresAt) return null;
+    const diff = new Date(expiresAt).getTime() - Date.now();
+    return Math.ceil(diff / 86400000);
+  };
+
   return (
     <div className="space-y-5">
+      {/* Authorize dialog with per-row expiry input */}
+      {authorizeTarget && (
+        <ConfirmDialog
+          title="Duyệt lệnh cho phép vào cổng"
+          message="Lệnh sẽ có hiệu lực ngay sau khi duyệt. Container đủ điều kiện làm thủ tục vào cổng đến hết thời hạn."
+          summary={[
+            { label: 'Mã lệnh', value: authorizeTarget.orderCode },
+            { label: 'Số container', value: authorizeTarget.containerNumber },
+          ]}
+          confirmLabel="Duyệt lệnh"
+          tone="primary"
+          pending={action.pending}
+          notice={action.notice}
+          onClose={() => {
+            if (!action.pending) {
+              setAuthorizeTarget(null);
+              setAuthorizeError('');
+            }
+          }}
+          onConfirm={async () => {
+            const instant = vietnamDateTimeToIso(authorizeExpiresAt);
+            if (!instant || new Date(instant).getTime() <= Date.now()) {
+              setAuthorizeError('Vui lòng chọn thời hạn trong tương lai.');
+              return;
+            }
+            setAuthorizeError('');
+            const result = await action.run(() =>
+              authorizeMovementOrder(authorizeTarget.id, instant),
+            );
+            if (result?.success) setAuthorizeTarget(null);
+          }}
+        >
+          <div className="space-y-1">
+            <label className="block text-sm font-semibold text-slate-700">
+              Thời hạn hết hạn lệnh (Giờ Việt Nam UTC+7)*
+            </label>
+            <input
+              type="datetime-local"
+              value={authorizeExpiresAt}
+              onChange={(e) => {
+                setAuthorizeExpiresAt(e.target.value);
+                setAuthorizeError('');
+              }}
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+              required
+            />
+            {authorizeError && (
+              <p role="alert" className="text-xs text-rose-700 font-semibold mt-1">
+                {authorizeError}
+              </p>
+            )}
+          </div>
+        </ConfirmDialog>
+      )}
+
+      {/* Cancel dialog with reason */}
+      {cancelTarget && (
+        <ConfirmDialog
+          title="Hủy lệnh cho phép vào cổng"
+          message="Thao tác này sẽ hủy lệnh vận chuyển. Container sẽ trở về trạng thái chờ cấp lệnh mới."
+          summary={[
+            { label: 'Mã lệnh', value: cancelTarget.orderCode },
+            { label: 'Số container', value: cancelTarget.containerNumber },
+          ]}
+          reason={{
+            label: 'Lý do hủy',
+            placeholder: 'Nhập lý do hủy lệnh...',
+            minLength: 5,
+          }}
+          confirmLabel="Xác nhận hủy"
+          tone="danger"
+          pending={action.pending}
+          notice={action.notice}
+          onClose={() => {
+            if (!action.pending) setCancelTarget(null);
+          }}
+          onConfirm={async (reason) => {
+            const result = await action.run(() => cancelMovementOrder(cancelTarget.id, reason));
+            if (result?.success) setCancelTarget(null);
+          }}
+        />
+      )}
+
       <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h2 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
             <Route className="w-5 h-5 text-blue-600" />
-            <span>Movement Order — Lệnh cho phép container di chuyển về ICD</span>
+            <span>Lệnh cho phép vào cổng (Movement Order)</span>
           </h2>
           <p className="text-xs text-slate-500 mt-1">
-            Mắt xích bắt buộc giữa Container Visit (PENDING) và Truck Visit/Gate-in. Chỉ khi
-            Authorize thành công, container mới đủ điều kiện vào cổng.
+            Liên kết bắt buộc giữa Container và Chuyến xe vào cổng. Chỉ khi lệnh được duyệt,
+            container mới đủ điều kiện làm thủ tục vào cổng.
           </p>
         </div>
         <div className="relative w-64">
@@ -87,21 +196,18 @@ export const MovementOrdersView: React.FC<MovementOrdersViewProps> = ({
       </div>
 
       <CommandNotice notice={action.notice} />
-      <ReadOnlyNotice writePermissions={['movement_order.create', 'movement_order.authorize', 'movement_order.cancel']} />
-      <label hidden={!can('movement_order.authorize')} className="block text-sm text-slate-700">
-        Thời hạn khi duyệt lệnh (giờ Việt Nam UTC+7)
-        <input
-          aria-label="Thời hạn khi duyệt lệnh (giờ Việt Nam UTC+7)"
-          type="datetime-local"
-          value={expiresAt}
-          onChange={(e) => setExpiresAt(e.target.value)}
-          className="ml-3 rounded-lg border border-slate-300 px-3 py-2"
-        />
-      </label>
+      <ReadOnlyNotice
+        writePermissions={[
+          'movement_order.create',
+          'movement_order.authorize',
+          'movement_order.cancel',
+        ]}
+      />
+
       {eligibleVisits.length > 0 && can('movement_order.create') && (
         <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
           <h4 className="text-xs font-bold text-amber-900 mb-2">
-            {eligibleVisits.length} Container Visit đang PENDING chưa có Movement Order:
+            {eligibleVisits.length} container đang chờ cấp lệnh chưa có lệnh cho phép vào cổng:
           </h4>
           <div className="flex flex-wrap gap-2">
             {eligibleVisits.map((v) => (
@@ -111,9 +217,12 @@ export const MovementOrdersView: React.FC<MovementOrdersViewProps> = ({
                 onClick={async () => {
                   await action.run(() => createMovementOrder(v.id));
                 }}
-                className="px-3 py-2 bg-white hover:bg-amber-100 border border-amber-300 rounded-lg text-xs font-bold text-amber-900"
+                className="px-3 py-2 bg-white hover:bg-amber-100 border border-amber-300 rounded-lg text-xs font-bold text-amber-900 text-left"
               >
-                + Tạo lệnh cho {v.containerNumber}
+                <div className="font-mono">{v.containerNumber}</div>
+                <div className="font-normal text-amber-700 mt-0.5">
+                  {v.containerType} · {v.consigneeName}
+                </div>
               </button>
             ))}
           </div>
@@ -126,6 +235,7 @@ export const MovementOrdersView: React.FC<MovementOrdersViewProps> = ({
             <tr>
               <th className="text-left px-4 py-3">Mã lệnh</th>
               <th className="text-left px-4 py-3">Container</th>
+              <th className="text-left px-4 py-3">Khách hàng</th>
               <th className="text-left px-4 py-3">Trạng thái</th>
               <th className="text-left px-4 py-3">Tạo lúc</th>
               <th className="text-left px-4 py-3">Hết hạn</th>
@@ -134,65 +244,91 @@ export const MovementOrdersView: React.FC<MovementOrdersViewProps> = ({
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-100">
-            {filtered.map((o) => (
-              <tr key={o.id} className="hover:bg-slate-50">
-                <td className="px-4 py-3 font-mono font-bold text-slate-800">{o.orderCode}</td>
-                <td className="px-4 py-3 font-mono">{o.containerNumber}</td>
-                <td className="px-4 py-3">{statusBadge(o.status)}</td>
-                <td className="px-4 py-3 text-slate-500">
-                  {new Date(o.createdAt).toLocaleString('vi-VN')}
-                </td>
-                <td className="px-4 py-3 text-slate-500">
-                  {o.expiresAt ? new Date(o.expiresAt).toLocaleString('vi-VN') : '—'}
-                </td>
-                <td className="px-4 py-3 text-slate-500">{o.authorizedBy || '—'}</td>
-                <td className="px-4 py-3 text-right space-x-2">
-                  {o.status === 'DRAFT' && (
-                    <>
+            {filtered.map((o) => {
+              const visit = containerVisits.find((v) => v.id === o.containerVisitId);
+              const days = daysRemaining(o.expiresAt);
+              return (
+                <tr key={o.id} className="hover:bg-slate-50">
+                  <td className="px-4 py-3 font-mono font-bold text-slate-800">{o.orderCode}</td>
+                  <td className="px-4 py-3 font-mono">
+                    <div>{o.containerNumber}</div>
+                    {visit && (
+                      <div className="text-slate-500 text-caption">{visit.containerType}</div>
+                    )}
+                  </td>
+                  <td className="px-4 py-3 text-slate-600">{visit?.consigneeName || '—'}</td>
+                  <td className="px-4 py-3">{statusBadge(o.status)}</td>
+                  <td className="px-4 py-3 text-slate-500">
+                    {formatVietnamDateTime(o.createdAt)}
+                  </td>
+                  <td className="px-4 py-3 text-slate-500">
+                    {o.expiresAt ? (
+                      <div>
+                        <div>{formatVietnamDateTime(o.expiresAt)}</div>
+                        {o.status === 'AUTHORIZED' && days !== null && (
+                          <div
+                            className={`font-bold mt-0.5 ${days <= 1 ? 'text-rose-700' : 'text-slate-500'}`}
+                          >
+                            {days <= 0 ? 'Hết hạn hôm nay' : `Còn ${days} ngày`}
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      '—'
+                    )}
+                  </td>
+                  <td className="px-4 py-3 text-slate-500">{o.authorizedBy || '—'}</td>
+                  <td className="px-4 py-3 text-right space-x-2">
+                    {o.status === 'DRAFT' && (
+                      <>
+                        <button
+                          hidden={!can('movement_order.authorize')}
+                          disabled={action.pending}
+                          onClick={() => {
+                            if (!can('movement_order.authorize')) return;
+                            setAuthorizeExpiresAt(vietnamDateTimeInput(Date.now() + 86400000));
+                            setAuthorizeTarget({
+                              id: o.id,
+                              orderCode: o.orderCode,
+                              containerNumber: o.containerNumber,
+                            });
+                          }}
+                          className="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-md font-bold inline-flex items-center gap-1"
+                        >
+                          <CheckCircle2 className="w-3 h-3" /> Duyệt lệnh
+                        </button>
+                        <button
+                          hidden={!can('movement_order.cancel')}
+                          disabled={action.pending}
+                          onClick={() => {
+                            if (!can('movement_order.cancel')) return;
+                            setCancelTarget({
+                              id: o.id,
+                              orderCode: o.orderCode,
+                              containerNumber: o.containerNumber,
+                            });
+                          }}
+                          className="px-3 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded-md font-bold border border-rose-200 inline-flex items-center gap-1"
+                        >
+                          <XCircle className="w-3 h-3" /> Hủy
+                        </button>
+                      </>
+                    )}
+                    {o.status === 'AUTHORIZED' && can('truck_visit.create') && onNavigate && (
                       <button
-                        hidden={!can('movement_order.authorize')}
-                        disabled={action.pending}
-                        onClick={async () => {
-                          if (!can('movement_order.authorize')) return;
-                          const instant = vietnamDateTimeToIso(expiresAt);
-                          if (!instant || new Date(instant).getTime() <= Date.now()) {
-                            alert('Chọn thời hạn trong tương lai.');
-                            return;
-                          }
-                          await action.run(() => authorizeMovementOrder(o.id, instant));
-                        }}
-                        className="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-md font-bold inline-flex items-center gap-1"
+                        onClick={() => onNavigate('truck-visits', o.containerVisitId)}
+                        className="px-3 py-1 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-md font-bold border border-blue-200 inline-flex items-center gap-1"
                       >
-                        <CheckCircle2 className="w-3 h-3" /> Authorize
+                        <Clock className="w-3 h-3" /> Tạo Chuyến xe →
                       </button>
-                      <button
-                        hidden={!can('movement_order.cancel')}
-                        onClick={async () => {
-                          if (!can('movement_order.cancel')) return;
-                          const reason = window.prompt('Lý do hủy:');
-                          if (reason && window.confirm(`Hủy lệnh ${o.orderCode}?`))
-                            await action.run(() => cancelMovementOrder(o.id, reason));
-                        }}
-                        className="px-3 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded-md font-bold border border-rose-200 inline-flex items-center gap-1"
-                      >
-                        <XCircle className="w-3 h-3" /> Hủy
-                      </button>
-                    </>
-                  )}
-                  {o.status === 'AUTHORIZED' && can('truck_visit.create') && onNavigate && (
-                    <button
-                      onClick={() => onNavigate('truck-visits', o.containerVisitId)}
-                      className="px-3 py-1 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-md font-bold border border-blue-200 inline-flex items-center gap-1"
-                    >
-                      <Clock className="w-3 h-3" /> Tạo Truck Visit
-                    </button>
-                  )}
-                </td>
-              </tr>
-            ))}
+                    )}
+                  </td>
+                </tr>
+              );
+            })}
             {filtered.length === 0 && (
               <tr>
-                <td colSpan={7} className="px-4 py-10 text-center text-slate-400">
+                <td colSpan={8} className="px-4 py-10 text-center text-slate-400">
                   <CollectionState
                     resource="movementOrders"
                     count={filtered.length}

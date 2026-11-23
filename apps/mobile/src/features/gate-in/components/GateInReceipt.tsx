@@ -282,6 +282,14 @@ export function GateInReceipt({
           }))}
         />
       ) : null}
+      {context ? (
+        <Field
+          label="Seal khai báo (hồ sơ)"
+          value={context.containerVisit.expectedSeal || '—'}
+          editable={false}
+          placeholder="—"
+        />
+      ) : null}
       <View style={{ flexDirection: 'row', gap: 8 }}>
         <View style={{ flex: 1 }}>
           <Field
@@ -302,10 +310,13 @@ export function GateInReceipt({
           />
         </View>
       </View>
-      {context ? (
+      {context && seal.trim() && context.containerVisit.expectedSeal && seal.trim().toUpperCase() !== context.containerVisit.expectedSeal.trim().toUpperCase() ? (
+        <Notice message="Seal lệch hồ sơ — cần ghi chú giải thích." />
+      ) : null}
+      {context && context.movementOrder ? (
         <Text style={styles.muted}>
-          Lệnh: {context.movementOrder?.status || 'Chưa có'} · Seal khai báo:{' '}
-          {context.containerVisit.expectedSeal || '—'}
+          Lệnh: {displayCode(context.movementOrder.status)}
+          {context.movementOrder.expiresAt ? ` · Hết hạn: ${new Date(context.movementOrder.expiresAt).toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })}` : ''}
         </Text>
       ) : null}
       <View style={{ flexDirection: 'row', gap: 8 }}>

@@ -14,9 +14,9 @@ export function GateInSuccessScreen() {
   const navigation = useNavigation<CompositeNavigationProp<NativeStackNavigationProp<GateStackParamList>, BottomTabNavigationProp<MainTabParamList>>>();
   const {params} = useRoute<RouteProp<GateStackParamList,'GateInSuccess'>>();
   const {user} = useAuth();
-  return <ScreenLayout title="Biên nhận tiếp nhận" subtitle={params.containerNumber}>
-    <Notice success message="Backend đã xác nhận tiếp nhận container vào ICD." />
-    <Card title={params.containerNumber}><Text style={fieldStyles.value}>Tiếp nhận thành công</Text><Text style={fieldStyles.muted}>Bước tiếp theo là xếp vị trí bãi. Nhân viên có quyền bãi sẽ nhận công việc từ máy chủ.</Text></Card>
+  return <ScreenLayout title="Biên nhận tiếp nhận" subtitle="Bước 3/3: Hoàn tất">
+    <Notice success message="Hệ thống đã xác nhận tiếp nhận container vào ICD." />
+    <Card title={params.containerNumber}><Text style={fieldStyles.value}>Tiếp nhận thành công</Text><Text style={fieldStyles.muted}>Bước tiếp theo: nhân viên bãi sẽ xếp vị trí trong bãi.</Text></Card>
     {canAccessMobileScreen(user,'yard.assign') ? <PrimaryButton title="XẾP VỊ TRÍ BÃI" onPress={() => navigation.navigate('YardTab',{screen:'YardAssignment',params:{visitId:params.visitId,containerNo:params.containerNumber}})} /> : null}
     <PrimaryButton title="TIẾP NHẬN CONTAINER TIẾP THEO" onPress={() => navigation.reset({ index: 0, routes: [{ name: 'GateInScan' }] })} />
     <PrimaryButton title="VỀ DANH SÁCH CÔNG VIỆC" variant="secondary" onPress={() => navigation.navigate('WorkQueueTab')} />

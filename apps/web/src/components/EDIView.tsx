@@ -6,6 +6,13 @@ import { FileCode2, Send, Copy, Check, RefreshCw } from 'lucide-react';
 
 import { useCommandAction, CommandNotice } from './useCommandAction';
 import { CollectionState } from './CollectionState';
+import { StatusBadge } from './StatusBadge';
+import { ConfirmDialog } from './ConfirmDialog';
+
+const ROUTE_STATUS_LABEL: Record<string, string> = {
+  ENABLED: 'Hoạt động',
+  DISABLED: 'Tạm dừng',
+};
 
 export const EDIView: React.FC = () => {
   const {
@@ -34,9 +41,18 @@ export const EDIView: React.FC = () => {
   const selectedEdi = ediMessages.find((m) => m.id === selectedEdiId) || null;
   const [copied, setCopied] = useState(false);
   const [filterType, setFilterType] = useViewQueryState('edi', 'type', 'ALL');
+  const [filterStatus, setFilterStatus] = useViewQueryState('edi', 'status', 'ALL');
+
+  // Resolve alert modal state
+  const [resolveModal, setResolveModal] = useState<{
+    id: string;
+    containerNumber: string;
+    message: string;
+  } | null>(null);
 
   const filteredEdi = ediMessages.filter((m) => {
     if (filterType !== 'ALL' && m.messageType !== filterType) return false;
+    if (filterStatus !== 'ALL' && m.status !== filterStatus) return false;
     return true;
   });
 
@@ -63,10 +79,10 @@ export const EDIView: React.FC = () => {
         <div>
           <h2 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
             <FileCode2 className="w-5 h-5 text-blue-600" />
-            <span>Trung tâm Trao đổi Dữ liệu Điện tử (EDI Center)</span>
+            <span>Điện EDI gửi hãng tàu</span>
           </h2>
           <p className="text-xs text-slate-500 mt-1">
-            Theo dõi điện tín CODECO và payload JSON canonical được backend lưu để gửi cho đối tác.
+            Theo dõi điện tín CODECO/COREOR và phản hồi xác nhận từ hãng tàu.
           </p>
         </div>
 
@@ -77,21 +93,21 @@ export const EDIView: React.FC = () => {
               onClick={() => setTab('OUTBOX')}
               className={`px-3 py-2 rounded-md font-bold ${tab === 'OUTBOX' ? 'bg-white shadow-xs text-blue-700' : 'text-slate-500'}`}
             >
-              Outbox
+              Thư đi
             </button>
             <button
               aria-pressed={tab === 'ROUTES'}
               onClick={() => setTab('ROUTES')}
               className={`px-3 py-2 rounded-md font-bold ${tab === 'ROUTES' ? 'bg-white shadow-xs text-blue-700' : 'text-slate-500'}`}
             >
-              Routes
+              Tuyến kết nối
             </button>
             <button
               aria-pressed={tab === 'ALERTS'}
               onClick={() => setTab('ALERTS')}
               className={`px-3 py-2 rounded-md font-bold relative ${tab === 'ALERTS' ? 'bg-white shadow-xs text-blue-700' : 'text-slate-500'}`}
             >
-              Alerts
+              Cảnh báo
               {ediAlerts.some((a) => a.status === 'OPEN') && (
                 <span className="absolute -top-1 -right-1 w-2 h-2 bg-rose-500 rounded-full"></span>
               )}
@@ -109,6 +125,19 @@ export const EDIView: React.FC = () => {
                 <option value="CODECO_GATE_IN">CODECO Gate In</option>
                 <option value="CODECO_GATE_OUT">CODECO Gate Out</option>
                 <option value="COREOR">COREOR Release Order</option>
+              </select>
+              <select
+                aria-label="Lọc trạng thái điện tín"
+                value={filterStatus}
+                onChange={(e) => setFilterStatus(e.target.value)}
+                className="px-3 py-2 border border-slate-200 rounded-lg bg-slate-50 font-semibold text-slate-700"
+              >
+                <option value="ALL">Tất cả trạng thái</option>
+                <option value="PENDING">Chờ gửi</option>
+                <option value="PROCESSING">Đang gửi</option>
+                <option value="SENT">Đã gửi</option>
+                <option value="FAILED">Gửi lỗi</option>
+                <option value="DEAD">Hết thử lại</option>
               </select>
               <button
                 disabled={action.pending || !can('edi.dispatch')}
@@ -130,9 +159,9 @@ export const EDIView: React.FC = () => {
             <thead className="bg-slate-50 text-slate-500 uppercase text-caption">
               <tr>
                 <th className="text-left px-4 py-3">Hãng tàu</th>
-                <th className="text-left px-4 py-3">Transport</th>
-                <th className="text-left px-4 py-3">Outbound Format</th>
-                <th className="text-left px-4 py-3">Đích (Partner Target)</th>
+                <th className="text-left px-4 py-3">Phương thức kết nối</th>
+                <th className="text-left px-4 py-3">Định dạng gửi</th>
+                <th className="text-left px-4 py-3">Điểm nhận đối tác</th>
                 <th className="text-left px-4 py-3">Trạng thái</th>
                 <th className="text-right px-4 py-3">Hành động</th>
               </tr>
@@ -148,7 +177,7 @@ export const EDIView: React.FC = () => {
                   <td className="px-4 py-3 font-bold text-slate-800">{r.shippingLineName}</td>
                   <td className="px-4 py-3">
                     <select
-                      aria-label={`Transport ${r.shippingLineName}`}
+                      aria-label={`Phương thức kết nối ${r.shippingLineName}`}
                       disabled={action.pending || !can('edi.manage')}
                       value={r.transport}
                       onChange={(e) => {
@@ -173,7 +202,7 @@ export const EDIView: React.FC = () => {
                     <span
                       className={`px-2 py-1 rounded-full text-caption font-bold ${r.enabled ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-200 text-slate-600'}`}
                     >
-                      {r.enabled ? 'ENABLED' : 'DISABLED'}
+                      {ROUTE_STATUS_LABEL[r.enabled ? 'ENABLED' : 'DISABLED'] ?? (r.enabled ? 'Hoạt động' : 'Tạm dừng')}
                     </span>
                   </td>
                   <td className="px-4 py-3 text-right">
@@ -204,23 +233,13 @@ export const EDIView: React.FC = () => {
             >
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <span
-                    className={`px-2 py-1 rounded-full text-caption font-bold ${
-                      a.status === 'OPEN'
-                        ? 'bg-rose-100 text-rose-800'
-                        : a.status === 'ACKNOWLEDGED'
-                          ? 'bg-amber-100 text-amber-800'
-                          : 'bg-emerald-100 text-emerald-800'
-                    }`}
-                  >
-                    {a.status}
-                  </span>
+                  <StatusBadge domain="ediAlertStatus" value={a.status} />
                   <span className="font-mono font-bold text-slate-800">{a.containerNumber}</span>
                   <span className="text-slate-400">· {a.shippingLine}</span>
                 </div>
                 <p className="text-slate-600">{a.message}</p>
                 <p className="text-slate-400 mt-1">
-                  {new Date(a.createdAt).toLocaleString('vi-VN')}
+                  {new Date(a.createdAt).toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })}
                 </p>
                 {a.resolutionNote && <p className="text-emerald-700 mt-1">✓ {a.resolutionNote}</p>}
               </div>
@@ -236,10 +255,14 @@ export const EDIView: React.FC = () => {
                     </button>
                   )}
                   <button
-                    onClick={() => {
-                      const note = window.prompt('Ghi chú xử lý:');
-                      if (note) void action.run(() => resolveEdiAlert(a.id, note));
-                    }}
+                    disabled={action.pending || !can('edi.alert.manage')}
+                    onClick={() =>
+                      setResolveModal({
+                        id: a.id,
+                        containerNumber: a.containerNumber,
+                        message: a.message,
+                      })
+                    }
                     className="px-3 py-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-md font-bold border border-emerald-200"
                   >
                     Đánh dấu đã xử lý
@@ -259,8 +282,8 @@ export const EDIView: React.FC = () => {
               resource="ediMessages"
               count={filteredEdi.length}
               total={ediMessages.length}
-              filtered={filterType !== 'ALL'}
-              onClear={() => setFilterType('ALL')}
+              filtered={filterType !== 'ALL' || filterStatus !== 'ALL'}
+              onClear={() => { setFilterType('ALL'); setFilterStatus('ALL'); }}
             />
             {filteredEdi.map((edi) => {
               const isSelected = selectedEdi?.id === edi.id;
@@ -276,33 +299,41 @@ export const EDIView: React.FC = () => {
                       : 'bg-white border-slate-200 hover:border-slate-300'
                   }`}
                 >
-                  <span className="block flex items-center justify-between">
-                    <span className="font-mono font-bold text-xs text-blue-700">
-                      {edi.messageType}
-                    </span>
-                    <span
-                      className={`px-2 py-1 rounded-full text-caption font-bold ${
-                        edi.status === 'SENT'
-                          ? 'bg-emerald-100 text-emerald-800'
-                          : edi.status === 'PROCESSING'
-                            ? 'bg-blue-100 text-blue-800'
-                            : edi.status === 'FAILED'
-                              ? 'bg-rose-100 text-rose-800'
-                              : 'bg-amber-100 text-amber-800'
-                      }`}
-                    >
-                      {edi.status}
-                    </span>
+                  <span className="block flex items-center justify-between gap-1">
+                    <StatusBadge domain="ediMessageType" value={edi.messageType} />
+                    <StatusBadge domain="ediOutboxStatus" value={edi.status} />
                   </span>
                   <span className="block font-mono font-bold text-slate-800 text-xs mt-1">
                     {edi.containerNumber}
                   </span>
+                  {/* ACK badge if present */}
+                  {edi.ackStatus && (
+                    <span className="block mt-1">
+                      <StatusBadge domain="ediAckStatus" value={edi.ackStatus} />
+                    </span>
+                  )}
+                  {/* Retry count warning */}
+                  {edi.retryCount > 0 && (
+                    <span className="block mt-1 text-caption text-amber-700 font-semibold">
+                      🔁 {edi.retryCount} lần thử lại
+                    </span>
+                  )}
                   <span className="block flex items-center justify-between text-caption text-slate-500 mt-2">
                     <span>
                       Hãng tàu: <strong className="text-slate-700">{edi.shippingLine}</strong>
                     </span>
-                    <span>{new Date(edi.createdAt).toLocaleTimeString('vi-VN')}</span>
+                    <span>
+                      {edi.status === 'SENT' && edi.sentAt
+                        ? `Gửi: ${new Date(edi.sentAt).toLocaleTimeString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })}`
+                        : new Date(edi.createdAt).toLocaleTimeString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })}
+                    </span>
                   </span>
+                  {/* Error preview in list for FAILED/DEAD */}
+                  {(edi.status === 'FAILED' || edi.status === 'DEAD') && edi.lastError && (
+                    <span className="block mt-1 text-caption text-rose-700 truncate">
+                      Lỗi: {edi.lastError.slice(0, 80)}
+                    </span>
+                  )}
                 </button>
               );
             })}
@@ -314,10 +345,9 @@ export const EDIView: React.FC = () => {
               <div className="bg-white rounded-xl border border-slate-200 shadow-xs p-6 space-y-5 text-xs">
                 <div className="flex items-center justify-between border-b border-slate-200 pb-4">
                   <div>
-                    <div className="flex items-center space-x-2">
-                      <span className="text-base font-bold text-slate-900 font-mono">
-                        Điện tín {selectedEdi.messageType}
-                      </span>
+                    <div className="flex items-center space-x-2 flex-wrap gap-y-1">
+                      <span className="text-base font-bold text-slate-900">Điện tín:</span>
+                      <StatusBadge domain="ediMessageType" value={selectedEdi.messageType} />
                       <span className="px-2 py-1 bg-blue-100 text-blue-800 font-bold rounded">
                         Hãng nhận: {selectedEdi.shippingLine}
                       </span>
@@ -326,13 +356,11 @@ export const EDIView: React.FC = () => {
                       Container liên quan:{' '}
                       <strong className="font-mono text-slate-800">
                         {selectedEdi.containerNumber}
-                      </strong>{' '}
-                      · Idempotency Key:{' '}
-                      <span className="font-mono text-slate-600">{selectedEdi.idempotencyKey}</span>
+                      </strong>
                     </p>
                   </div>
 
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-2 flex-wrap gap-y-1">
                     <button
                       disabled={selectedEdi.payloadSnapshot == null}
                       onClick={() =>
@@ -345,7 +373,7 @@ export const EDIView: React.FC = () => {
                       ) : (
                         <Copy className="w-3.5 h-3.5" />
                       )}
-                      <span>{copied ? 'Đã sao chép' : 'Copy'}</span>
+                      <span>{copied ? 'Đã sao chép' : 'Sao chép'}</span>
                     </button>
                     {selectedEdi.status !== 'SENT' && can('edi.manage') && (
                       <button
@@ -354,7 +382,7 @@ export const EDIView: React.FC = () => {
                         className="px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg flex items-center space-x-1"
                       >
                         <RefreshCw className="w-3.5 h-3.5" />
-                        <span>Gửi lại (Retry Transmission)</span>
+                        <span>Gửi lại</span>
                       </button>
                     )}
                   </div>
@@ -364,30 +392,66 @@ export const EDIView: React.FC = () => {
                 <div className="grid grid-cols-3 gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200">
                   <div>
                     <span className="text-slate-400">Trạng thái truyền:</span>
-                    <div className="font-bold text-slate-800 mt-1">{selectedEdi.status}</div>
+                    <div className="mt-1">
+                      <StatusBadge domain="ediOutboxStatus" value={selectedEdi.status} />
+                    </div>
                   </div>
                   <div>
                     <span className="text-slate-400">Thời gian tạo:</span>
                     <div className="font-semibold text-slate-800 mt-1">
-                      {new Date(selectedEdi.createdAt).toLocaleString('vi-VN')}
+                      {new Date(selectedEdi.createdAt).toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })}
                     </div>
                   </div>
                   <div>
                     <span className="text-slate-400">Số lần thử lại:</span>
-                    <div className="font-semibold text-slate-800 mt-1">
+                    <div className={`font-semibold mt-1 ${selectedEdi.retryCount > 0 ? 'text-amber-700' : 'text-slate-800'}`}>
                       {selectedEdi.retryCount} lần
                     </div>
                   </div>
+                  {selectedEdi.sentAt && (
+                    <div>
+                      <span className="text-slate-400">Thời gian gửi:</span>
+                      <div className="font-semibold text-slate-800 mt-1">
+                        {new Date(selectedEdi.sentAt).toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })}
+                      </div>
+                    </div>
+                  )}
+                  {selectedEdi.ackStatus && (
+                    <div className="col-span-2">
+                      <span className="text-slate-400">Phản hồi hãng tàu (ACK):</span>
+                      <div className="mt-1">
+                        <StatusBadge domain="ediAckStatus" value={selectedEdi.ackStatus} />
+                        {selectedEdi.ackReference && (
+                          <span className="ml-2 font-mono text-slate-500">{selectedEdi.ackReference}</span>
+                        )}
+                      </div>
+                    </div>
+                  )}
                 </div>
+
+                {/* REJECTED warning */}
+                {selectedEdi.ackStatus === 'REJECTED' && (
+                  <div className="p-3 bg-rose-50 border border-rose-200 rounded-lg text-rose-800 font-semibold">
+                    ⚠ Hãng tàu từ chối điện tín này – kiểm tra lại dữ liệu container trước khi gửi lại.
+                  </div>
+                )}
+
+                {/* Error detail for FAILED/DEAD */}
+                {(selectedEdi.status === 'FAILED' || selectedEdi.status === 'DEAD') && selectedEdi.lastError && (
+                  <div className="p-3 bg-rose-50 border border-rose-200 rounded-lg">
+                    <div className="font-bold text-rose-800 mb-1">Lý do lỗi:</div>
+                    <EdiErrorDetail error={selectedEdi.lastError} />
+                  </div>
+                )}
 
                 {/* Raw EDI Payload Output */}
                 <div>
                   <div className="font-bold text-slate-700 uppercase tracking-wider text-caption mb-2">
-                    Bản ghi payload từ backend (JSON):
+                    Nội dung điện tín EDI:
                   </div>
                   <pre className="p-4 bg-slate-900 text-emerald-400 font-mono text-xs rounded-xl overflow-x-auto leading-relaxed border border-slate-800">
                     {selectedEdi.payloadSnapshot == null
-                      ? 'Backend chưa cung cấp bản ghi payload cho điện tín này.'
+                      ? 'Chưa có nội dung điện tín cho bản ghi này.'
                       : JSON.stringify(selectedEdi.payloadSnapshot, null, 2)}
                   </pre>
                 </div>
@@ -400,6 +464,53 @@ export const EDIView: React.FC = () => {
           </div>
         </div>
       )}
+
+      {/* Resolve alert modal */}
+      {resolveModal && (
+        <ConfirmDialog
+          title="Xác nhận đã xử lý cảnh báo"
+          message="Vui lòng mô tả cách bạn đã xử lý cảnh báo này để lưu lại vết thao tác."
+          summary={[
+            { label: 'Container', value: resolveModal.containerNumber },
+            { label: 'Nội dung cảnh báo', value: resolveModal.message },
+          ]}
+          reason={{
+            label: 'Ghi chú xử lý',
+            placeholder: 'Mô tả cách xử lý cảnh báo...',
+            minLength: 10,
+          }}
+          confirmLabel="Xác nhận đã xử lý"
+          tone="primary"
+          pending={action.pending}
+          notice={action.notice}
+          onConfirm={async (note) => {
+            const result = await action.run(() => resolveEdiAlert(resolveModal.id, note));
+            if (result?.success) setResolveModal(null);
+          }}
+          onClose={() => setResolveModal(null)}
+        />
+      )}
     </div>
   );
 };
+
+/** Shows lastError with expand/collapse for long messages */
+function EdiErrorDetail({ error }: { error: string }) {
+  const [expanded, setExpanded] = useState(false);
+  const SHORT_LIMIT = 200;
+  const isLong = error.length > SHORT_LIMIT;
+  return (
+    <div className="text-rose-700 font-mono text-caption break-all">
+      {expanded || !isLong ? error : error.slice(0, SHORT_LIMIT) + '…'}
+      {isLong && (
+        <button
+          type="button"
+          onClick={() => setExpanded((v) => !v)}
+          className="ml-2 text-rose-600 underline font-sans font-semibold"
+        >
+          {expanded ? 'Thu gọn' : 'Xem thêm'}
+        </button>
+      )}
+    </div>
+  );
+}

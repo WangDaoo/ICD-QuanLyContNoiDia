@@ -115,7 +115,11 @@ export interface AppContextType {
     conditionNotes?: string;
   }) => Promise<{ success: boolean; message: string }>;
 
-  assignYardSlot: (visitId: string, slotCode: string) => Promise<{ success: boolean; message: string }>;
+  assignYardSlot: (
+    visitId: string,
+    slotCode: string,
+    recommendation?: Pick<YardRecommendation, 'recommendationId' | 'contextToken' | 'source'>,
+  ) => Promise<{ success: boolean; message: string }>;
   getSlotRecommendations: (visitId: string) => Promise<YardRecommendation[]>;
 
   checkReadiness: (visitId: string) => Promise<ReadinessCheck>;
@@ -132,7 +136,12 @@ export interface AppContextType {
   releaseOperationalHold: (holdId: string, releaseReason: string) => Promise<CommandResult>;
 
   createServiceOrder: (visitId: string) => Promise<CommandResult>;
-  recordPayment: (invoiceId: string, amount: number, method: 'CHUYEN_KHOAN' | 'TIEN_MAT' | 'THE') => Promise<CommandResult>;
+  recordPayment: (
+    invoiceId: string,
+    amount: number,
+    method: 'CHUYEN_KHOAN' | 'TIEN_MAT' | 'THE',
+    options?: { paidAt?: string; referenceNo?: string },
+  ) => Promise<CommandResult>;
 
   createInspection: (visitId: string, inspectionType: 'Hải quan' | 'Nội bộ' | 'Kiểm dịch', notes?: string) => Promise<CommandResult>;
   startInspection: (inspectionId: string) => Promise<CommandResult>;
@@ -148,7 +157,6 @@ export interface AppContextType {
     warehouseId: string;
     transportCode: string;
     expectedDeliveryAt?: string;
-    notes?: string;
     publishNow?: boolean;
   }) => Promise<{ success: boolean; message: string; handover?: TransportHandover }>;
 
@@ -297,7 +305,7 @@ import { apiClient } from '../services/api/client';
 import { unwrapData, mapYardRecommendationDto } from '../services/mappers';
 import { mapLiveCollections, mapBillingPreview, type LiveCollections } from '../services/mappers/live-view.mapper';
 import { executeOperation, type CommandResult } from '../services/api/operation';
-import { vietnamBusinessDateToIso } from '../lib/time';
+import { vietnamBusinessDateToIso, vietnamDateTimeToIso, vietnamEndOfBusinessDayIso } from '../lib/time';
 import { requiredWritePermission } from '../services/write-permissions';
 import { hasWebPermission } from '../services/permissions';
 import { isValidPaymentAmount, PAYMENT_AMOUNT_ERROR } from '../services/payment-amount';
@@ -338,7 +346,14 @@ async function loadList(path: string): Promise<Record<string, unknown>[]> {
 }
 
 const emptyData = () => ({ ...mapLiveCollections({}, ''), visitSafetyStatus: {} as VisitSafetyStatus });
-const isoDate = (value?: string) => value ? new Date(value).toISOString() : undefined;
+// Date-only and datetime-local inputs are Vietnam business time (UTC+7), whatever the browser timezone.
+const isoDate = (value?: string) => {
+  if (!value) return undefined;
+  if (/^\d{4}-\d{2}-\d{2}$/.test(value)) return vietnamBusinessDateToIso(value) ?? undefined;
+  if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(value)) return vietnamDateTimeToIso(value) ?? undefined;
+  const date = new Date(value);
+  return Number.isFinite(date.getTime()) ? date.toISOString() : undefined;
+};
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [currentUser, setCurrentUser] = useState<User>(DEFAULT_USER);
@@ -630,12 +645,25 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     ...data, currentUser, isAuthenticated, isLoading, apiReady, apiError, sessionRestoreError, retrySessionRestore, resourceStatus, detailStatus, refreshData, login, logout,
     gateInContainer: async p => {
       const visit = data.containerVisits.find((v) => v.id === p.visitId);
-      const truck = visit && data.truckVisits.find((t) => t.status === 'ARRIVED' && t.containerNumbers.includes(visit.containerNumber) && (p.truckVisitId ? t.id === p.truckVisitId : !p.vehiclePlate || t.vehiclePlate === p.vehiclePlate));
-      if (!truck) return { success: false, message: 'Cần chuyến xe đã đến cổng (ARRIVED) chứa container này. Kiểm tra biển số và chuyến xe.' };
+      const truck = visit && data.truckVisits.find((t) => (t.status === 'ARRIVED' || t.status === 'IN_PROGRESS') && t.containerNumbers.includes(visit.containerNumber) && (p.truckVisitId ? t.id === p.truckVisitId : !p.vehiclePlate || t.vehiclePlate === p.vehiclePlate));
+      if (!truck) return { success: false, message: 'Cần chuyến xe đã đến cổng có chở container này. Kiểm tra biển số và lịch xe.' };
       return command('/containers/' + p.visitId + '/gate-in', { truckVisitId: truck.id, actualSeal: p.actualSeal, actualWeight: p.actualWeightKg, conditionNotes: p.conditionNotes });
     },
-    assignYardSlot: (id, code) => command('/containers/' + id + '/yard/assign', { yardSlotId: slotId(code), source: 'MANUAL' }),
-    getSlotRecommendations: async id => unwrapList(await apiClient.get('/containers/' + id + '/yard/recommendations')).map(mapYardRecommendationDto),
+    assignYardSlot: (id, code, recommendation) => command('/containers/' + id + '/yard/assign', {
+      yardSlotId: slotId(code),
+      // Recommendation feedback lets the backend learn which suggested slot was chosen.
+      source: recommendation?.recommendationId ? (recommendation.source ?? 'RULE') : 'MANUAL',
+      ...(recommendation?.recommendationId ? { recommendationId: recommendation.recommendationId } : {}),
+      ...(recommendation?.recommendationId && recommendation.contextToken ? { contextToken: recommendation.contextToken } : {}),
+    }),
+    getSlotRecommendations: async id => {
+      const response = await apiClient.get('/containers/' + id + '/yard/recommendations');
+      const envelope = asRecord(unwrapData(response));
+      const recommendationId = asOptionalString(envelope.recommendationId);
+      const contextToken = asOptionalString(envelope.contextToken);
+      const source: YardRecommendation['source'] = envelope.algorithm === 'ML_RERANK' ? 'ML' : 'RULE';
+      return unwrapList(response).map((item) => ({ ...mapYardRecommendationDto(item), recommendationId, contextToken, source }));
+    },
     checkReadiness: async id => mapReadinessDto(unwrapData(await apiClient.get('/containers/' + id + '/gate-pass/readiness'))),
     createGatePass: async p => {
       const result = await command('/containers/' + p.visitId + '/gate-pass', { vehiclePlate: p.vehiclePlate, receiverName: p.receiverName, receiverIdNumber: p.receiverIdNumber });
@@ -661,11 +689,11 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       return command('/containers/' + hold?.containerVisitId + '/holds/' + id + '/release', { releaseReason });
     },
     createServiceOrder: (id) => command('/containers/' + id + '/service-orders', { containerVisitId: id }),
-    recordPayment: async (id, amount, method) => {
+    recordPayment: async (id, amount, method, options) => {
       if (!isValidPaymentAmount(amount)) return { success: false, message: PAYMENT_AMOUNT_ERROR };
       if (method !== 'TIEN_MAT' && method !== 'CHUYEN_KHOAN')
         return { success: false, message: 'Backend chỉ hỗ trợ tiền mặt hoặc chuyển khoản.' };
-      return command('/invoices/' + id + '/payments', { amount, method: method === 'TIEN_MAT' ? 'CASH' : 'BANK_TRANSFER', paidAt: new Date().toISOString(), referenceNo: 'WEB-' + crypto.randomUUID() });
+      return command('/invoices/' + id + '/payments', { amount, method: method === 'TIEN_MAT' ? 'CASH' : 'BANK_TRANSFER', paidAt: options?.paidAt ?? new Date().toISOString(), referenceNo: options?.referenceNo?.trim() || 'WEB-' + crypto.randomUUID() });
     },
     createInspection: (id, inspectionType, notes) => command('/containers/' + id + '/inspections', { inspectionType: inspectionType === 'Hải quan' ? 'CUSTOMS' : inspectionType === 'Kiểm dịch' ? 'QUARANTINE' : 'DAMAGE_CHECK', notes }),
     startInspection: id => command('/inspections/' + id + '/start'),
@@ -735,7 +763,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     previewServiceOrder: async id => mapBillingPreview(unwrapData(await apiClient.post('/service-orders/preview', { containerVisitId: id }))),
     recalculateServiceOrder: id => command('/service-orders/' + id + '/recalculate'), confirmServiceOrder: id => command('/service-orders/' + id + '/confirm'),
     cancelServiceOrder: (id, reason) => command('/service-orders/' + id + '/cancel', { reason }),
-    issueInvoice: (id, dueAt) => command('/service-orders/' + id + '/invoice', { dueAt: isoDate(dueAt) }),
+    issueInvoice: (id, dueAt) => command('/service-orders/' + id + '/invoice', { dueAt: vietnamEndOfBusinessDayIso(dueAt) ?? isoDate(dueAt) }),
     cancelGatePass: (id, cancelReason) => command('/gate-passes/' + id + '/cancel', { cancelReason }),
     createShippingLine: (name, scacCode) => masterCommand('shipping-lines', { name, scacCode }),
     updateShippingLine: (id, p) => masterCommand('shipping-lines', { name: p.name, scacCode: p.scacCode }, id),

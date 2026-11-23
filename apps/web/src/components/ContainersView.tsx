@@ -2,13 +2,10 @@ import { useViewQueryState } from '../context/useViewQueryState';
 import { ModalOverlay } from './ModalOverlay';
 import React, { useEffect, useState } from 'react';
 import { useApp } from '../context/AppContext';
-import { readinessLabel } from '../services/readiness-labels';
 import { ContainerVisit, ContainerState, HoldType } from '../types';
 import {
   Boxes,
   Search,
-  CheckCircle2,
-  XCircle,
   Warehouse,
   Receipt,
   ShieldAlert,
@@ -17,10 +14,15 @@ import {
   ChevronRight,
 } from 'lucide-react';
 import { NavTabId } from './Sidebar';
+import { NavigationContext } from '../navigation';
 import { useBackendReadiness } from './useBackendReadiness';
 import { CriticalDataNotice } from './CriticalDataNotice';
 
 import { useCommandAction, CommandNotice } from './useCommandAction';
+import { ConfirmDialog } from './ConfirmDialog';
+import { StatusBadge } from './StatusBadge';
+import { businessLabel } from '../lib/business-labels';
+import { vietnamBusinessDateToIso, formatVietnamDate, formatVietnamDateTime } from '../lib/time';
 
 import QRCode from 'react-qr-code';
 import { effectiveGatePassStatus } from '../lib/gate-pass';
@@ -32,7 +34,7 @@ import { hasWebPermission } from '../services/permissions';
 import { ReadOnlyNotice } from './ReadOnlyNotice';
 
 interface ContainersViewProps {
-  onNavigate: (tab: NavTabId, contextId?: string) => void;
+  onNavigate: (tab: NavTabId, contextId?: string, context?: NavigationContext) => void;
   selectedVisitId?: string;
 }
 
@@ -52,6 +54,7 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
     createGatePass,
     createContainerVisit,
     cancelContainerVisit,
+    updateContainerVisit,
     createMovementOrder,
     movementOrders,
     resourceStatus = {},
@@ -99,6 +102,20 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
   const formMaster = formManifest?.masterBills.find((m) => m.mblNumber === cvForm.mblNumber);
   const [stateFilter, setStateFilter] = useViewQueryState('containers', 'state', 'ALL');
   const [hasBlockerOnly, setHasBlockerOnly] = useState(false);
+  const [manifestFilter, setManifestFilter] = useState('');
+  const [dateFrom, setDateFrom] = useState('');
+  const [dateTo, setDateTo] = useState('');
+
+  // Confirm dialogs (replace window.prompt/confirm)
+  const [showCancelConfirm, setShowCancelConfirm] = useState(false);
+  const [releaseHoldTarget, setReleaseHoldTarget] = useState<string | null>(null);
+
+  // Notes edit
+  const [notesText, setNotesText] = useState('');
+  const [showNotesEdit, setShowNotesEdit] = useState(false);
+
+  // Timeline filter
+  const [timelineFilter, setTimelineFilter] = useState<'ALL' | 'LOCATION' | 'FINANCE' | 'HOLDS' | 'GATE'>('ALL');
 
   // Selected container modal
   const [activeModalVisitId, setActiveModalVisitId] = useState<string | null>(
@@ -128,16 +145,36 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
     }
   }, [selectedVisitId]);
 
+  // Reset notes editor state when switching between containers (fix stale draft text bug)
+  useEffect(() => {
+    setShowNotesEdit(false);
+    setNotesText('');
+  }, [activeModalVisitId]);
+
   const filteredVisits = containerVisits.filter((v) => {
     if (searchTerm) {
       const q = searchTerm.toLowerCase();
       const matchNo = v.containerNumber.toLowerCase().includes(q);
       const matchCsg = v.consigneeName.toLowerCase().includes(q);
       const matchMnf = v.manifestNo.toLowerCase().includes(q);
-      if (!matchNo && !matchCsg && !matchMnf) return false;
+      const matchMbl = (v.mblNumber ?? '').toLowerCase().includes(q);
+      const matchHbl = (v.hblNumber ?? '').toLowerCase().includes(q);
+      if (!matchNo && !matchCsg && !matchMnf && !matchMbl && !matchHbl) return false;
     }
 
     if (stateFilter !== 'ALL' && v.state !== stateFilter) return false;
+
+    if (manifestFilter && v.manifestNo !== manifestFilter) return false;
+
+    // Business dates are Vietnam calendar days (UTC+7), independent of the browser time zone.
+    if (dateFrom && v.gateInAt) {
+      const fromIso = vietnamBusinessDateToIso(dateFrom);
+      if (fromIso && new Date(v.gateInAt).getTime() < new Date(fromIso).getTime()) return false;
+    }
+    if (dateTo && v.gateInAt) {
+      const toIso = vietnamBusinessDateToIso(dateTo);
+      if (toIso && new Date(v.gateInAt).getTime() >= new Date(toIso).getTime() + 24 * 60 * 60 * 1000) return false;
+    }
 
     if (hasBlockerOnly) {
       const activeHolds = holds.filter((h) => h.containerVisitId === v.id && h.status === 'ACTIVE');
@@ -218,58 +255,10 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
     }
   };
 
-  const getStateBadge = (state: ContainerState) => {
-    switch (state) {
-      case 'PENDING':
-        return (
-          <span className="px-2 py-1 rounded-full text-caption font-bold bg-slate-100 text-slate-700">
-            PENDING
-          </span>
-        );
-      case 'AUTHORIZED':
-        return (
-          <span className="px-2 py-1 rounded-full text-caption font-bold bg-blue-100 text-blue-800">
-            AUTHORIZED
-          </span>
-        );
-      case 'IN_YARD':
-        return (
-          <span className="px-2 py-1 rounded-full text-caption font-bold bg-emerald-100 text-emerald-800">
-            IN_YARD
-          </span>
-        );
-      case 'UNDER_INSPECTION':
-        return (
-          <span className="px-2 py-1 rounded-full text-caption font-bold bg-amber-100 text-amber-800">
-            UNDER_INSPECTION
-          </span>
-        );
-      case 'IN_STRIPPING':
-        return (
-          <span className="px-2 py-1 rounded-full text-caption font-bold bg-purple-100 text-purple-800">
-            IN_STRIPPING
-          </span>
-        );
-      case 'GATE_PASS_ISSUED':
-        return (
-          <span className="px-2 py-1 rounded-full text-caption font-bold bg-indigo-100 text-indigo-800">
-            GATE_PASS_ISSUED
-          </span>
-        );
-      case 'EXITED':
-        return (
-          <span className="px-2 py-1 rounded-full text-caption font-bold bg-slate-200 text-slate-800">
-            EXITED
-          </span>
-        );
-      default:
-        return (
-          <span className="px-2 py-1 rounded-full text-caption font-bold bg-slate-100 text-slate-600">
-            {state}
-          </span>
-        );
-    }
-  };
+  /** Vietnamese state badge — raw code stays in tooltip for support staff. */
+  const getStateBadge = (state: ContainerState) => (
+    <StatusBadge domain="containerVisitStatus" value={state} />
+  );
 
   return (
     <div className="space-y-5">
@@ -298,7 +287,7 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
             className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg transition shadow-xs flex items-center space-x-2"
           >
             <Plus className="w-4 h-4" />
-            <span>Tạo Container Visit</span>
+            <span>Tiếp nhận Container Mới</span>
           </button>
         </div>
       </div>
@@ -319,13 +308,13 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
       {!activeVisit && !showCreateVisit && <CommandNotice notice={action.notice} />}
 
       {/* Filter Bar */}
-      <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs flex flex-wrap items-center justify-between gap-3 text-xs">
+      <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs flex flex-col gap-3 text-xs">
         <div className="flex flex-wrap items-center gap-3">
-          <div className="relative w-64">
+          <div className="relative w-72">
             <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
             <input
               type="text"
-              placeholder="Tìm theo số cont, chủ hàng, manifest..."
+              placeholder="Số cont, MBL, HBL, chủ hàng, manifest..."
               aria-label="Tìm container"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -340,26 +329,59 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
             className="border border-slate-200 rounded-lg px-3 py-2 bg-slate-50 text-slate-700 font-medium"
           >
             <option value="ALL">Tất cả trạng thái</option>
-            <option value="PENDING">Pending</option>
-            <option value="AUTHORIZED">Authorized (Chờ cổng)</option>
-            <option value="IN_YARD">In Yard (Trong bãi)</option>
-            <option value="UNDER_INSPECTION">Under Inspection</option>
-            <option value="GATE_PASS_ISSUED">Gate Pass Issued</option>
-            <option value="EXITED">Exited (Đã ra cổng)</option>
+            <option value="PENDING">Chờ cấp lệnh</option>
+            <option value="AUTHORIZED">Chờ vào cổng</option>
+            <option value="IN_YARD">Trong bãi</option>
+            <option value="UNDER_INSPECTION">Đang kiểm hóa</option>
+            <option value="IN_STRIPPING">Đang rút hàng</option>
+            <option value="STRIPPED">Đã rút hàng xong</option>
+            <option value="GATE_PASS_ISSUED">Đã cấp phiếu ra cổng</option>
+            <option value="EXITED">Đã ra cổng</option>
+            <option value="CANCELLED">Đã hủy</option>
           </select>
 
-          <label className="flex items-center space-x-2 cursor-pointer ml-2 text-slate-700 select-none">
+          <select
+            aria-label="Lọc theo Manifest"
+            value={manifestFilter}
+            onChange={(e) => setManifestFilter(e.target.value)}
+            className="border border-slate-200 rounded-lg px-3 py-2 bg-slate-50 text-slate-700 font-medium"
+          >
+            <option value="">Tất cả Manifest</option>
+            {manifests
+              .filter((m) => m.status !== 'CANCELLED')
+              .map((m) => (
+                <option key={m.id} value={m.manifestNo}>{m.manifestNo}</option>
+              ))}
+          </select>
+        </div>
+        <div className="flex flex-wrap items-center gap-3">
+          <label className="text-slate-600 font-medium">Vào cổng từ:</label>
+          <input
+            type="date"
+            aria-label="Từ ngày vào cổng"
+            value={dateFrom}
+            onChange={(e) => setDateFrom(e.target.value)}
+            className="border border-slate-200 rounded-lg px-3 py-2 bg-slate-50 text-slate-700"
+          />
+          <label className="text-slate-600 font-medium">đến:</label>
+          <input
+            type="date"
+            aria-label="Đến ngày vào cổng"
+            value={dateTo}
+            onChange={(e) => setDateTo(e.target.value)}
+            className="border border-slate-200 rounded-lg px-3 py-2 bg-slate-50 text-slate-700"
+          />
+          <label className="flex items-center space-x-2 cursor-pointer text-slate-700 select-none">
             <input
               type="checkbox"
               checked={hasBlockerOnly}
               onChange={(e) => setHasBlockerOnly(e.target.checked)}
               className="rounded border-slate-300 text-blue-600 focus:ring-blue-500"
             />
-            <span>Chỉ container có Blocker (Lệnh giữ / Chưa thanh toán / Chưa vị trí)</span>
+            <span>Chỉ container có vướng mắc (lệnh giữ / chưa thanh toán / chưa có vị trí)</span>
           </label>
+          <span className="ml-auto text-slate-400"><ConfirmedResourceValue resource="containerVisits">Hiển thị {filteredVisits.length} containers</ConfirmedResourceValue></span>
         </div>
-
-        <span className="text-slate-400"><ConfirmedResourceValue resource="containerVisits">Hiển thị {filteredVisits.length} containers</ConfirmedResourceValue></span>
       </div>
 
       <CollectionState
@@ -371,6 +393,9 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
           setSearchTerm('');
           setStateFilter('ALL');
           setHasBlockerOnly(false);
+          setManifestFilter('');
+          setDateFrom('');
+          setDateTo('');
         }}
       />
       {/* Container Table */}
@@ -381,12 +406,13 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
               <tr>
                 <th className="py-3 px-4">Số Container</th>
                 <th className="py-3 px-4">Loại</th>
-                <th className="py-3 px-4">Chủ hàng (Consignee)</th>
+                <th className="py-3 px-4">Chủ hàng</th>
+                <th className="py-3 px-4 hidden sm:table-cell">Manifest</th>
                 <th className="py-3 px-4">Vị trí Bãi</th>
                 <th className="py-3 px-4">Trạng thái</th>
                 <th className="py-3 px-4">Vào cổng</th>
                 <th className="py-3 px-4">Ngày lưu</th>
-                <th className="py-3 px-4">Blockers</th>
+                <th className="py-3 px-4">Vướng mắc</th>
                 <th className="py-3 px-4 text-right">Thao tác</th>
               </tr>
             </thead>
@@ -408,9 +434,14 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                     <td className="py-3 px-4 font-mono font-bold text-blue-700">
                       {v.containerNumber}
                     </td>
-                    <td className="py-3 px-4 font-semibold text-slate-700">{v.containerType}</td>
-                    <td className="py-3 px-4 text-slate-800 max-w-[200px] truncate">
+                    <td className="py-3 px-4 font-semibold text-slate-700">
+                      <StatusBadge domain="containerType" value={v.containerType} />
+                    </td>
+                    <td className="py-3 px-4 text-slate-800 max-w-[180px] truncate">
                       {v.consigneeName}
+                    </td>
+                    <td className="py-3 px-4 hidden sm:table-cell text-slate-600 font-mono text-caption">
+                      {v.manifestNo || '—'}
                     </td>
                     <td className="py-3 px-4 font-mono font-semibold text-slate-900">
                       {v.currentLocation && !yardLocationForbidden ? (
@@ -423,7 +454,7 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                     </td>
                     <td className="py-3 px-4">{getStateBadge(v.state)}</td>
                     <td className="py-3 px-4 text-slate-500">
-                      {v.gateInAt ? new Date(v.gateInAt).toLocaleDateString('vi-VN') : '—'}
+                      {v.gateInAt ? formatVietnamDate(v.gateInAt) : '—'}
                     </td>
                     <td className="py-3 px-4">
                       {v.gateInAt ? (
@@ -440,35 +471,25 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                       )}
                     </td>
                     <td className="py-3 px-4">
-                      <div className="flex items-center space-x-2">
+                      <div className="flex flex-wrap gap-1">
                         {visitSafetyStatus[v.id]?.holds !== 'ready' && (
-                          <span className="text-amber-900" title="Chưa xác minh lệnh giữ">
-                            Holds chưa kiểm tra
+                          <span className="px-1.5 py-0.5 bg-amber-50 text-amber-800 border border-amber-200 rounded text-caption">
+                            Chưa xác minh
                           </span>
                         )}
                         {visitSafetyStatus[v.id]?.holds === 'ready' && activeHoldsCount > 0 && (
-                          <span
-                            title="Có lệnh giữ (Hold)"
-                            className="p-1 bg-amber-100 text-amber-800 rounded-md inline-flex items-center"
-                          >
-                            <ShieldAlert className="w-3.5 h-3.5" />
+                          <span className="px-1.5 py-0.5 bg-rose-100 text-rose-800 border border-rose-200 rounded text-caption flex items-center gap-1">
+                            <ShieldAlert className="w-3 h-3" /> Lệnh giữ
                           </span>
                         )}
-                        {invoiceState !== 'ready' && <span className="text-amber-900">Thanh toán chưa kiểm tra</span>}
                         {hasUnpaid && (
-                          <span
-                            title="Còn công nợ chưa thanh toán"
-                            className="p-1 bg-rose-100 text-rose-800 rounded-md inline-flex items-center"
-                          >
-                            <Receipt className="w-3.5 h-3.5" />
+                          <span className="px-1.5 py-0.5 bg-orange-100 text-orange-800 border border-orange-200 rounded text-caption flex items-center gap-1">
+                            <Receipt className="w-3 h-3" /> Chưa TT
                           </span>
                         )}
                         {yardLocationReady && !v.currentLocation && v.state === 'IN_YARD' && (
-                          <span
-                            title="Chưa xếp vị trí bãi"
-                            className="p-1 bg-blue-100 text-blue-800 rounded-md inline-flex items-center"
-                          >
-                            <Warehouse className="w-3.5 h-3.5" />
+                          <span className="px-1.5 py-0.5 bg-blue-100 text-blue-800 border border-blue-200 rounded text-caption flex items-center gap-1">
+                            <Warehouse className="w-3 h-3" /> Chưa vị trí
                           </span>
                         )}
                         {visitSafetyStatus[v.id]?.holds === 'ready' &&
@@ -476,9 +497,7 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                           !hasUnpaid &&
                           yardLocationReady &&
                           v.currentLocation && (
-                            <span className="text-emerald-600 inline-flex items-center">
-                              <CheckCircle2 className="w-4 h-4" />
-                            </span>
+                            <span className="text-emerald-600 text-caption font-semibold">✓ Sẵn sàng</span>
                           )}
                       </div>
                     </td>
@@ -550,7 +569,7 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                     : 'border-transparent text-slate-500 hover:text-slate-800'
                 }`}
               >
-                Tổng quan & Readiness
+                Tổng quan & Điều kiện
               </button>
               <button
                 disabled={action.pending}
@@ -598,7 +617,7 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                     : 'border-transparent text-slate-500 hover:text-slate-800'
                 }`}
               >
-                Lệnh giữ Holds (
+                Lệnh giữ (
                 {holdsReady ? activeVisitHolds.filter((h) => h.status === 'ACTIVE').length : '?'})
               </button>
               <button
@@ -621,128 +640,182 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
               {/* TAB 1: OVERVIEW */}
               {activeDetailTab === 'OVERVIEW' && (
                 <div className="space-y-5">
-                  {/* Readiness Checklist Card */}
+                  {/* Next Step Banner (CONT-06) */}
+                  {(() => {
+                    const hasMO = readable(movementOrderState) && movementOrders.some(
+                      (o) => o.containerVisitId === activeVisit.id && o.status !== 'CANCELLED',
+                    );
+                    const hasUnpaidInvoice = readable(invoiceState) && activeVisitInvoices.some(
+                      (i) => i.status !== 'PAID' && i.status !== 'VOID',
+                    );
+                    const hasHandover = readable(handoverState) && !!activeVisitHandover;
+                    if (activeVisit.state === 'PENDING' && !hasMO) {
+                      return (
+                        <div className="flex items-center gap-3 p-3 bg-blue-50 border border-blue-200 rounded-xl">
+                          <ChevronRight className="w-5 h-5 text-blue-600 shrink-0" />
+                          <span className="font-semibold text-blue-900">Bước tiếp theo: Tạo lệnh vào ICD</span>
+                          <button
+                            hidden={!can('movement_order.create')}
+                            disabled={action.pending}
+                            onClick={() => void action.run(() => createMovementOrder(activeVisit.id))}
+                            className="ml-auto px-3 py-1.5 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 shrink-0"
+                          >
+                            + Tạo lệnh vào ICD (Movement Order)
+                          </button>
+                        </div>
+                      );
+                    }
+                    if (activeVisit.state === 'AUTHORIZED') {
+                      return (
+                        <div className="flex items-center gap-3 p-3 bg-indigo-50 border border-indigo-200 rounded-xl">
+                          <ChevronRight className="w-5 h-5 text-indigo-600 shrink-0" />
+                          <span className="font-semibold text-indigo-900">Bước tiếp theo: Chờ xe vào cổng — xem lệnh vào ICD</span>
+                          <button
+                            disabled={action.pending}
+                            onClick={() => { setActiveModalVisitId(null); onNavigate('movement-orders' as NavTabId, activeVisit.id); }}
+                            className="ml-auto px-3 py-1.5 bg-indigo-600 text-white rounded-lg font-bold hover:bg-indigo-700 shrink-0"
+                          >
+                            Xem lệnh vào ICD →
+                          </button>
+                        </div>
+                      );
+                    }
+                    if (activeVisit.state === 'IN_YARD' && !activeVisit.currentLocation) {
+                      return (
+                        <div className="flex items-center gap-3 p-3 bg-amber-50 border border-amber-200 rounded-xl">
+                          <ChevronRight className="w-5 h-5 text-amber-600 shrink-0" />
+                          <span className="font-semibold text-amber-900">Bước tiếp theo: Chỉ định vị trí bãi</span>
+                          <button
+                            disabled={action.pending}
+                            hidden={!can('yard.update')}
+                            onClick={() => { setActiveModalVisitId(null); onNavigate('yard', activeVisit.id); }}
+                            className="ml-auto px-3 py-1.5 bg-amber-600 text-white rounded-lg font-bold hover:bg-amber-700 shrink-0"
+                          >
+                            Đến Tác nghiệp bãi →
+                          </button>
+                        </div>
+                      );
+                    }
+                    if (activeVisit.state === 'IN_YARD' && hasUnpaidInvoice) {
+                      return (
+                        <div className="flex items-center gap-3 p-3 bg-orange-50 border border-orange-200 rounded-xl">
+                          <ChevronRight className="w-5 h-5 text-orange-600 shrink-0" />
+                          <span className="font-semibold text-orange-900">Bước tiếp theo: Lập hóa đơn / thu phí dịch vụ</span>
+                          <button
+                            disabled={action.pending}
+                            hidden={!can('billing.manage')}
+                            onClick={() => { setActiveModalVisitId(null); onNavigate('billing', activeVisit.id); }}
+                            className="ml-auto px-3 py-1.5 bg-orange-600 text-white rounded-lg font-bold hover:bg-orange-700 shrink-0"
+                          >
+                            Đến Dịch vụ & Thanh toán →
+                          </button>
+                        </div>
+                      );
+                    }
+                    const activeHoldCount = activeVisitHolds.filter((h) => h.status === 'ACTIVE').length;
+                    if (activeVisit.state === 'IN_YARD' && activeHoldCount > 0) {
+                      return (
+                        <div className="flex items-center gap-3 p-3 bg-rose-50 border border-rose-200 rounded-xl">
+                          <ChevronRight className="w-5 h-5 text-rose-600 shrink-0" />
+                          <span className="font-semibold text-rose-900">
+                            Bước tiếp theo: Xử lý {activeHoldCount} lệnh giữ đang hiệu lực trước khi cấp phiếu ra cổng
+                          </span>
+                          <button
+                            disabled={action.pending}
+                            onClick={() => setActiveDetailTab('HOLDS')}
+                            className="ml-auto px-3 py-1.5 bg-rose-600 text-white rounded-lg font-bold hover:bg-rose-700 shrink-0"
+                          >
+                            Xem lệnh giữ →
+                          </button>
+                        </div>
+                      );
+                    }
+                    if (activeVisit.state === 'IN_YARD') {
+                      return (
+                        <div className="flex items-center gap-3 p-3 bg-emerald-50 border border-emerald-200 rounded-xl">
+                          <ChevronRight className="w-5 h-5 text-emerald-600 shrink-0" />
+                          <span className="font-semibold text-emerald-900">Bước tiếp theo: Cấp phiếu ra cổng</span>
+                          <button
+                            disabled={action.pending}
+                            onClick={() => setActiveDetailTab('GATE_PASS')}
+                            className="ml-auto px-3 py-1.5 bg-emerald-600 text-white rounded-lg font-bold hover:bg-emerald-700 shrink-0"
+                          >
+                            Đến tab Phiếu ra cổng →
+                          </button>
+                        </div>
+                      );
+                    }
+                    if (activeVisit.state === 'GATE_PASS_ISSUED') {
+                      return (
+                        <div className="flex items-center gap-3 p-3 bg-indigo-50 border border-indigo-200 rounded-xl">
+                          <ChevronRight className="w-5 h-5 text-indigo-600 shrink-0" />
+                          <span className="font-semibold text-indigo-900">Chờ xe ra cổng — phiếu ra cổng đang hiệu lực</span>
+                        </div>
+                      );
+                    }
+                    if (activeVisit.state === 'EXITED' && !hasHandover) {
+                      return (
+                        <div className="flex items-center gap-3 p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                          <ChevronRight className="w-5 h-5 text-slate-500 shrink-0" />
+                          <span className="font-semibold text-slate-700">Hoàn tất — xem xét tạo lệnh bàn giao vận chuyển</span>
+                          <button
+                            disabled={action.pending}
+                            hidden={!can('handover.create')}
+                            onClick={() => { setActiveModalVisitId(null); onNavigate('handovers', undefined, { visitId: activeVisit.id }); }}
+                            className="ml-auto px-3 py-1.5 bg-slate-600 text-white rounded-lg font-bold hover:bg-slate-700 shrink-0"
+                          >
+                            Tạo lệnh bàn giao →
+                          </button>
+                        </div>
+                      );
+                    }
+                    return null;
+                  })()}
+
+                  {/* Readiness Checklist Card (uses ReadinessNotice with resolveBlocker) */}
                   <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                    <h4 className="font-bold text-slate-800 mb-2 flex items-center justify-between">
-                      <span>
-                        Kiểm tra Điều kiện Sẵn sàng Cấp Phiếu Ra Cổng (Readiness Checklist)
-                      </span>
-                      <span
-                        className={`px-3 py-1 rounded-full text-caption font-bold ${
-                          readiness?.blockers.length === 0
-                            ? 'bg-emerald-100 text-emerald-800'
-                            : 'bg-rose-100 text-rose-800'
-                        }`}
-                      >
-                        {isCheckingReadiness
-                          ? 'ĐANG KIỂM TRA'
-                          : readiness
-                            ? readiness.blockers.length === 0
-                              ? 'ĐẠT'
-                              : `${readiness.blockers.length} ĐIỀU KIỆN CHƯA ĐẠT`
-                            : 'CHƯA CÓ KẾT QUẢ'}
-                      </span>
+                    <h4 className="font-bold text-slate-800 mb-3">
+                      Điều kiện cấp phiếu ra cổng
                     </h4>
-
-                    {readinessError && (
-                      <p role="alert" className="mt-3 text-rose-700">
-                        {readinessError}
-                      </p>
-                    )}
-                    {readiness && (
-                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-3">
-                        <div className="flex items-center space-x-2 bg-white p-3 rounded-lg border border-slate-200">
-                          {readiness?.isContainerInYard ? (
-                            <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                          ) : (
-                            <XCircle className="w-4 h-4 text-rose-600" />
-                          )}
-                          <span>Trong bãi (IN_YARD)</span>
-                        </div>
-                        <div className="flex items-center space-x-2 bg-white p-3 rounded-lg border border-slate-200">
-                          {readiness?.hasYardPosition ? (
-                            <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                          ) : (
-                            <XCircle className="w-4 h-4 text-rose-600" />
-                          )}
-                          <span>Đã có vị trí bãi</span>
-                        </div>
-                        <div className="flex items-center space-x-2 bg-white p-3 rounded-lg border border-slate-200">
-                          {readiness?.isBillingCompleted ? (
-                            <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                          ) : (
-                            <XCircle className="w-4 h-4 text-rose-600" />
-                          )}
-                          <span>Thanh toán đủ 100%</span>
-                        </div>
-                        <div className="flex items-center space-x-2 bg-white p-3 rounded-lg border border-slate-200">
-                          {readiness?.hasNoActiveYardOps ? (
-                            <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                          ) : (
-                            <XCircle className="w-4 h-4 text-rose-600" />
-                          )}
-                          <span>Không vướng tác nghiệp</span>
-                        </div>
-                        <div className="flex items-center space-x-2 bg-white p-3 rounded-lg border border-slate-200">
-                          {readiness?.hasNoInspectionHold ? (
-                            <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                          ) : (
-                            <XCircle className="w-4 h-4 text-rose-600" />
-                          )}
-                          <span>Không giữ kiểm định</span>
-                        </div>
-                        <div className="flex items-center space-x-2 bg-white p-3 rounded-lg border border-slate-200">
-                          {readiness?.hasNoOperationalHold ? (
-                            <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                          ) : (
-                            <XCircle className="w-4 h-4 text-rose-600" />
-                          )}
-                          <span>Không lệnh giữ (Hold)</span>
-                        </div>
-                      </div>
-                    )}
-
-                    {readiness && readiness.blockers.length > 0 && (
-                      <div className="mt-3 p-3 bg-rose-50 border border-rose-200 rounded-lg text-rose-800">
-                        <strong>Các nguyên nhân chưa thể cấp Phiếu ra cổng:</strong>
-                        <ul className="list-disc pl-4 mt-1 space-y-1">
-                          {readiness.blockers.map((b, idx) => (
-                            <li key={idx}>{readinessLabel(b)}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
+                    <ReadinessNotice
+                      evaluation={evaluation}
+                      resolveBlocker={(code) => {
+                        if (['NO_YARD_POSITION', 'ACTIVE_YARD_OPERATION', 'INSPECTION_HOLD'].includes(code)) {
+                          return { label: 'Đến Tác nghiệp bãi', onClick: () => setActiveDetailTab('YARD_OPS') };
+                        }
+                        if (['NO_BILLING', 'BILLING_INCOMPLETE', 'UNBILLED_SERVICES', 'BILLING_CONFIGURATION_MISSING'].includes(code)) {
+                          return { label: 'Đến Dịch vụ & Thanh toán', onClick: () => { setActiveModalVisitId(null); onNavigate('billing', activeVisit.id); } };
+                        }
+                        if (code === 'OPERATIONAL_HOLD') {
+                          return { label: 'Xem lệnh giữ', onClick: () => setActiveDetailTab('HOLDS') };
+                        }
+                        return null;
+                      }}
+                    />
                   </div>
 
                   {/* Movement Order & Visit Actions */}
                   <div className="bg-white p-4 rounded-xl border border-slate-200">
                     <h4 className="font-bold text-slate-800 mb-2 flex items-center justify-between">
-                      <span>Movement Order (Lệnh cho phép di chuyển về ICD)</span>
+                      <span>Lệnh vào ICD (Movement Order)</span>
                       {(() => {
                         const mo = movementOrders.find(
                           (o) => o.containerVisitId === activeVisit.id && o.status !== 'CANCELLED',
                         );
                         return readable(movementOrderState) && mo ? (
-                          <span
-                            className={`px-3 py-1 rounded-full text-caption font-bold ${
-                              mo.status === 'AUTHORIZED'
-                                ? 'bg-emerald-100 text-emerald-800'
-                                : mo.status === 'DRAFT'
-                                  ? 'bg-amber-100 text-amber-800'
-                                  : 'bg-slate-100 text-slate-600'
-                            }`}
-                          >
-                            {mo.orderCode} · {mo.status}
+                          <span className="flex items-center gap-2 text-caption">
+                            <span className="font-mono text-slate-700">{mo.orderCode}</span>
+                            <StatusBadge domain="movementOrderStatus" value={mo.status} />
                           </span>
                         ) : (
                           <span className="text-slate-400 italic text-caption">
-                            {movementOrderState === 'ready' ? 'Chưa có Movement Order' : 'Chưa xác nhận Movement Order'}
+                            {movementOrderState === 'ready' ? 'Chưa có lệnh vào ICD' : 'Chưa xác nhận lệnh vào ICD'}
                           </span>
                         );
                       })()}
                     </h4>
                     {movementOrderState !== 'ready' && <CollectionState resource="movementOrders" count={movementOrders.length} />}
-                    <div className="flex items-center gap-2 mt-2">
+                    <div className="flex flex-wrap items-center gap-2 mt-2">
                       {movementOrderState === 'ready' && !movementOrders.some(
                         (o) => o.containerVisitId === activeVisit.id && o.status !== 'CANCELLED',
                       ) &&
@@ -755,25 +828,17 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                             }
                             className="px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold"
                           >
-                            + Tạo Movement Order
+                            + Tạo lệnh vào ICD
                           </button>
                         )}
                       {['PENDING', 'AUTHORIZED'].includes(activeVisit.state) && (
                         <button
                           hidden={!can('container.cancel')}
                           disabled={action.pending}
-                          onClick={async () => {
-                            const reason = window.prompt('Lý do hủy Container Visit:');
-                            if (reason) {
-                              const res = await action.run(() =>
-                                cancelContainerVisit(activeVisit.id, reason),
-                              );
-                              if (res?.success) setActiveModalVisitId(null);
-                            }
-                          }}
+                          onClick={() => setShowCancelConfirm(true)}
                           className="px-3 py-2 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded-lg font-bold border border-rose-200"
                         >
-                          Hủy Container Visit
+                          Hủy hồ sơ container
                         </button>
                       )}
                       <button
@@ -784,12 +849,12 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                         }}
                         className="px-3 py-2 text-blue-600 font-bold hover:underline"
                       >
-                        Xem tất cả Movement Order →
+                        Xem tất cả lệnh vào ICD →
                       </button>
                     </div>
                   </div>
 
-                  {/* Transport Handover (Module 13) Card inside Container Detail */}
+                  {/* Transport Handover Card */}
                   <div className="bg-indigo-50/70 p-4 rounded-xl border border-indigo-200">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center space-x-2">
@@ -799,11 +864,9 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                         </span>
                       </div>
                       {readable(handoverState) && activeVisitHandover ? (
-                        <span className="px-3 py-1 rounded-full text-caption font-bold bg-indigo-200 text-indigo-900 border border-indigo-300">
-                          {activeVisitHandover.status}
-                        </span>
+                        <StatusBadge domain="handoverStatus" value={activeVisitHandover.status} />
                       ) : (
-                        <span className="text-slate-400 italic">{handoverState === 'ready' ? 'Chưa tạo Handover' : 'Chưa xác nhận hồ sơ Bàn giao'}</span>
+                        <span className="text-slate-400 italic">{handoverState === 'ready' ? 'Chưa tạo lệnh bàn giao' : 'Chưa xác nhận hồ sơ bàn giao'}</span>
                       )}
                     </div>
 
@@ -829,7 +892,7 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                           {activeVisitHandover.warehouseAddress})
                         </div>
                         <div className="flex items-center justify-between text-caption text-slate-500 pt-1 border-t border-slate-100">
-                          <span>Số mốc xác nhận: {detailStatus?.handovers?.[activeVisitHandover.id] && detailStatus.handovers[activeVisitHandover.id] !== 'ready' ? 'Chưa xác nhận số mốc' : activeVisitHandover.confirmations.length}</span>
+                          <span>Số mốc xác nhận: {detailStatus?.handovers?.[activeVisitHandover.id] && detailStatus.handovers[activeVisitHandover.id] !== 'ready' ? 'Chưa xác nhận' : activeVisitHandover.confirmations.length}</span>
                           <button
                             disabled={action.pending}
                             onClick={() => {
@@ -838,7 +901,7 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                             }}
                             className="font-bold text-indigo-600 hover:text-indigo-800 flex items-center"
                           >
-                            <span>Xem tiến độ Bàn giao & Duyệt POD</span>
+                            <span>Xem tiến độ bàn giao & duyệt biên bản</span>
                             <ChevronRight className="w-3.5 h-3.5 ml-1" />
                           </button>
                         </div>
@@ -847,22 +910,82 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                       <div className="text-slate-500 flex items-center justify-between">
                         <span>
                           {activeVisit.state === 'EXITED'
-                            ? 'Container đã Exited, sẵn sàng tạo lệnh bàn giao cho đối tác vận chuyển.'
-                            : 'Container chưa hoàn tất Gate-out. Có thể lập trước bản nháp DRAFT.'}
+                            ? 'Container đã ra cổng, sẵn sàng tạo lệnh bàn giao cho đối tác vận chuyển.'
+                            : 'Container chưa ra cổng. Có thể lập trước bản nháp lệnh bàn giao.'}
                         </span>
                         <button
                           hidden={!can('handover.create')}
                           disabled={action.pending}
                           onClick={() => {
                             setActiveModalVisitId(null);
-                            onNavigate('handovers');
+                            onNavigate('handovers', undefined, { visitId: activeVisit.id });
                           }}
-                          className="px-3 py-2 bg-indigo-600 text-white rounded-lg font-bold hover:bg-indigo-700"
+                          className="ml-4 px-3 py-2 bg-indigo-600 text-white rounded-lg font-bold hover:bg-indigo-700 shrink-0"
                         >
-                          + Tạo Handover
+                          + Tạo lệnh bàn giao
                         </button>
                       </div>
                     ) : null}
+                  </div>
+
+                  {/* Ghi chú nội bộ (CONT-14) */}
+                  <div className="bg-white p-4 rounded-xl border border-slate-200">
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="font-bold text-slate-800">Ghi chú nội bộ</h4>
+                      {!showNotesEdit && (
+                        <button
+                          disabled={action.pending}
+                          hidden={!can('container.update')}
+                          onClick={() => {
+                            // Backend returns cargoDescription; fall back to the typed notes field for compatibility
+                            const current = (activeVisit as ContainerVisit & { cargoDescription?: string }).cargoDescription ?? activeVisit.notes ?? '';
+                            setNotesText(current);
+                            setShowNotesEdit(true);
+                          }}
+                          className="px-3 py-1 text-blue-600 font-semibold hover:underline text-xs"
+                        >
+                          Chỉnh sửa
+                        </button>
+                      )}
+                    </div>
+                    {showNotesEdit ? (
+                      <div className="space-y-2">
+                        <textarea
+                          rows={3}
+                          value={notesText}
+                          onChange={(e) => setNotesText(e.target.value)}
+                          placeholder="Nhập ghi chú nội bộ (ví dụ: Hàng dễ vỡ — đặt tầng 1)..."
+                          className="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs"
+                        />
+                        <div className="flex gap-2 justify-end">
+                          <button
+                            disabled={action.pending}
+                            onClick={() => setShowNotesEdit(false)}
+                            className="px-3 py-1 border border-slate-300 text-slate-600 rounded-lg text-xs"
+                          >
+                            Hủy
+                          </button>
+                          <button
+                            disabled={action.pending}
+                            onClick={async () => {
+                              const res = await action.run(() => updateContainerVisit(activeVisit.id, { notes: notesText.trim() || undefined }));
+                              if (res?.success) setShowNotesEdit(false);
+                            }}
+                            className="px-3 py-1 bg-blue-600 text-white rounded-lg font-bold text-xs hover:bg-blue-700"
+                          >
+                            Lưu ghi chú
+                          </button>
+                        </div>
+                      </div>
+                    ) : (() => {
+                        // Backend returns field as cargoDescription; fall back to typed notes for compatibility
+                        const displayNotes = (activeVisit as ContainerVisit & { cargoDescription?: string }).cargoDescription ?? activeVisit.notes;
+                        return (
+                          <p className={`text-xs ${displayNotes ? 'text-slate-800 whitespace-pre-wrap' : 'text-slate-400 italic'}`}>
+                            {displayNotes || 'Chưa có ghi chú nội bộ'}
+                          </p>
+                        );
+                      })()}
                   </div>
 
                   {/* Metadata Specs */}
@@ -907,7 +1030,7 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                         Ngày vào cổng:{' '}
                         <strong>
                           {activeVisit.gateInAt
-                            ? new Date(activeVisit.gateInAt).toLocaleString('vi-VN')
+                            ? formatVietnamDateTime(activeVisit.gateInAt)
                             : '—'}
                         </strong>
                       </div>
@@ -915,7 +1038,7 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                         Ngày ra cổng:{' '}
                         <strong>
                           {activeVisit.gateOutAt
-                            ? new Date(activeVisit.gateOutAt).toLocaleString('vi-VN')
+                            ? formatVietnamDateTime(activeVisit.gateOutAt)
                             : '—'}
                         </strong>
                       </div>
@@ -935,6 +1058,7 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
               {/* TAB 2: YARD OPS */}
               {activeDetailTab === 'YARD_OPS' && (
                 <div className="space-y-4">
+                  {/* Current Position */}
                   <div className="flex items-center justify-between bg-slate-50 p-3 rounded-lg border border-slate-200">
                     <div>
                       <div className="font-bold text-slate-800">Vị trí hiện tại trong bãi:</div>
@@ -951,13 +1075,48 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                       }}
                       className="px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold"
                     >
-                      Đổi vị trí / Điều chuyển
+                      Xếp / Đổi vị trí bãi
                     </button>
                   </div>
-                  <p className="text-slate-500 italic text-center py-4">
-                    Nhật ký di chuyển và kiểm tra bãi được cập nhật từ thiết bị di động của nhân
-                    viên bãi (Yard Staff).
-                  </p>
+
+                  {/* Inspections section */}
+                  <div className="bg-white p-4 rounded-xl border border-slate-200">
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="font-bold text-slate-800">Lệnh kiểm hóa / giám định</h4>
+                      <button
+                        disabled={action.pending}
+                        hidden={!can('yard.update')}
+                        onClick={() => { setActiveModalVisitId(null); onNavigate('yard', activeVisit.id); }}
+                        className="px-3 py-1.5 bg-amber-600 text-white rounded-lg font-semibold text-xs hover:bg-amber-700"
+                      >
+                        Tạo lệnh kiểm hóa →
+                      </button>
+                    </div>
+                    <p className="text-slate-500 italic text-xs">
+                      Danh sách lệnh kiểm hóa và kết quả được quản lý tại màn hình Vận hành Bãi.
+                      Nhân viên bãi cập nhật trạng thái qua thiết bị di động.
+                    </p>
+                  </div>
+
+                  {/* Yard Bookings */}
+                  <div className="bg-white p-4 rounded-xl border border-slate-200">
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="font-bold text-slate-800">Đặt lịch tác nghiệp bãi (rút hàng / đóng hàng)</h4>
+                      <button
+                        disabled={action.pending}
+                        hidden={!can('yard.update')}
+                        onClick={() => { setActiveModalVisitId(null); onNavigate('yard', activeVisit.id); }}
+                        className="px-3 py-1.5 bg-blue-600 text-white rounded-lg font-semibold text-xs hover:bg-blue-700"
+                      >
+                        Đến Vận hành Bãi →
+                      </button>
+                    </div>
+                    <p className="text-slate-500 italic text-xs">
+                      Lịch sử di chuyển trong bãi và các lần tác nghiệp được nhân viên bãi cập nhật
+                      trực tiếp qua thiết bị di động. Truy cập màn hình Vận hành Bãi để xem lịch sử
+                      đầy đủ và phân công công việc.
+                    </p>
+                  </div>
                 </div>
               )}
 
@@ -965,7 +1124,7 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
               {activeDetailTab === 'BILLING' && (
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <h4 className="font-bold text-slate-800">Danh sách Hóa đơn & Đơn dịch vụ</h4>
+                    <h4 className="font-bold text-slate-800">Danh sách hóa đơn & đơn dịch vụ</h4>
                     <button
                       disabled={action.pending}
                       hidden={!can('billing.manage')}
@@ -975,14 +1134,40 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                       }}
                       className="px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold"
                     >
-                      + Tạo Đơn Dịch Vụ
+                      + Tạo đơn dịch vụ
                     </button>
                   </div>
+
+                  {/* Billing summary bar (CONT-07) */}
+                  {readable(invoiceState) && activeVisitInvoices.length > 0 && (() => {
+                    const totalVnd = activeVisitInvoices.reduce((s, i) => s + (i.totalAmountVnd ?? 0), 0);
+                    const paidVnd = activeVisitInvoices.reduce((s, i) => s + (i.paidAmountVnd ?? 0), 0);
+                    const remaining = totalVnd - paidVnd;
+                    return (
+                      <div className="flex flex-wrap gap-4 p-3 bg-slate-50 rounded-xl border border-slate-200 font-semibold">
+                        <span className="text-slate-700">Tổng phí: <strong>{totalVnd.toLocaleString()}₫</strong></span>
+                        <span className="text-emerald-700">Đã thanh toán: <strong>{paidVnd.toLocaleString()}₫</strong></span>
+                        <span className={remaining > 0 ? 'text-rose-700' : 'text-emerald-700'}>
+                          Còn lại: <strong>{remaining.toLocaleString()}₫</strong>
+                          {remaining > 0 && <span className="ml-1 text-caption font-normal">(chưa thanh toán đủ)</span>}
+                        </span>
+                      </div>
+                    );
+                  })()}
 
                   {invoiceState !== 'ready' && <CollectionState resource="invoices" count={activeVisitInvoices.length} />}
                   {invoiceState === 'ready' && activeVisitInvoices.length === 0 ? (
                     <div className="p-8 text-center text-slate-400 bg-slate-50 rounded-xl">
-                      Chưa phát sinh hóa đơn nào
+                      Chưa phát sinh hóa đơn nào.{' '}
+                      {can('billing.manage') && (
+                        <button
+                          disabled={action.pending}
+                          onClick={() => { setActiveModalVisitId(null); onNavigate('billing', activeVisit.id); }}
+                          className="text-blue-600 font-semibold hover:underline"
+                        >
+                          Tạo đơn dịch vụ →
+                        </button>
+                      )}
                     </div>
                   ) : (
                     readable(invoiceState) && activeVisitInvoices.map((inv) => (
@@ -992,15 +1177,7 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                       >
                         <div className="flex items-center justify-between">
                           <span className="font-mono font-bold text-blue-700">{inv.invoiceNo}</span>
-                          <span
-                            className={`px-2 py-1 rounded-full text-caption font-bold ${
-                              inv.status === 'PAID'
-                                ? 'bg-emerald-100 text-emerald-800'
-                                : 'bg-amber-100 text-amber-800'
-                            }`}
-                          >
-                            {inv.status}
-                          </span>
+                          <StatusBadge domain="invoiceStatus" value={inv.status} />
                         </div>
                         <div className="flex justify-between text-slate-600">
                           <span>
@@ -1027,7 +1204,7 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                   ) : activeVisitGatePass ? (
                     <div className="border border-indigo-200 bg-indigo-50/40 rounded-xl p-5 text-center space-y-3">
                       <div className="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 font-bold rounded-full">
-                        PHIẾU RA CỔNG ĐANG HIỆU LỰC (ACTIVE)
+                        Phiếu ra cổng đang hiệu lực
                       </div>
                       <div className="text-xl font-mono font-bold text-slate-900">
                         {activeVisitGatePass.code}
@@ -1045,7 +1222,7 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                             data-testid="container-gate-pass-qr"
                           />
                         ) : (
-                          <p>Backend chưa cung cấp mã QR cho phiếu này.</p>
+                          <p>Phiếu ra cổng chưa có mã QR. Vui lòng tải lại trang hoặc liên hệ bộ phận kỹ thuật.</p>
                         )}
                         <div className="text-caption font-mono text-slate-400 mt-1">
                           {activeVisitGatePass.qrToken}
@@ -1054,9 +1231,28 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                       <div className="text-slate-500">
                         Hạn sử dụng:{' '}
                         <strong>
-                          {new Date(activeVisitGatePass.expiresAt).toLocaleString('vi-VN')}
+                          {formatVietnamDateTime(activeVisitGatePass.expiresAt)}
                         </strong>
                       </div>
+                      {(() => {
+                        const expiresMs = new Date(activeVisitGatePass.expiresAt).getTime() - now;
+                        if (expiresMs <= 0) {
+                          return (
+                            <div className="text-rose-700 font-semibold">
+                              Phiếu đã hết hạn — cần cấp lại
+                            </div>
+                          );
+                        }
+                        const hoursLeft = Math.floor(expiresMs / (3600 * 1000));
+                        const minutesLeft = Math.floor((expiresMs % (3600 * 1000)) / 60000);
+                        const isNearExpiry = expiresMs < 2 * 3600 * 1000;
+                        return (
+                          <div className={`font-semibold ${isNearExpiry ? 'text-amber-700' : 'text-emerald-700'}`}>
+                            ⏱ Còn hiệu lực: {hoursLeft} giờ {minutesLeft} phút
+                            {isNearExpiry && <span className="ml-2 text-caption font-normal">(sắp hết hạn)</span>}
+                          </div>
+                        );
+                      })()}
                     </div>
                   ) : (
                     <div className="p-6 border border-slate-200 rounded-xl bg-slate-50 space-y-4">
@@ -1140,7 +1336,21 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                         </form>
                       ) : (
                         <div className="p-3 bg-amber-50 border border-amber-200 text-amber-900 rounded-lg">
-                          <ReadinessNotice evaluation={evaluation} />
+                          <ReadinessNotice
+                            evaluation={evaluation}
+                            resolveBlocker={(code) => {
+                              if (['NO_YARD_POSITION', 'ACTIVE_YARD_OPERATION', 'INSPECTION_HOLD'].includes(code)) {
+                                return { label: 'Đến Tác nghiệp bãi', onClick: () => setActiveDetailTab('YARD_OPS') };
+                              }
+                              if (['NO_BILLING', 'BILLING_INCOMPLETE', 'UNBILLED_SERVICES', 'BILLING_CONFIGURATION_MISSING'].includes(code)) {
+                                return { label: 'Đến Dịch vụ & Thanh toán', onClick: () => { setActiveModalVisitId(null); onNavigate('billing', activeVisit.id); } };
+                              }
+                              if (code === 'OPERATIONAL_HOLD') {
+                                return { label: 'Xem lệnh giữ', onClick: () => setActiveDetailTab('HOLDS') };
+                              }
+                              return null;
+                            }}
+                          />
                         </div>
                       )}
                     </div>
@@ -1254,16 +1464,8 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                       >
                         <div>
                           <div className="flex items-center space-x-2">
-                            <span className="font-bold text-slate-900">[{h.holdType}]</span>
-                            <span
-                              className={`px-2 py-0.2 rounded-full text-caption font-bold ${
-                                h.status === 'ACTIVE'
-                                  ? 'bg-rose-100 text-rose-800'
-                                  : 'bg-slate-200 text-slate-600'
-                              }`}
-                            >
-                              {h.status}
-                            </span>
+                            <StatusBadge domain="holdType" value={h.holdType} />
+                            <StatusBadge domain="holdStatus" value={h.status} />
                           </div>
                           <div className="text-slate-700 mt-1">{h.reason}</div>
                           <div className="text-caption text-slate-400 mt-1">
@@ -1275,19 +1477,10 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                           <button
                             hidden={!can('operational_hold.manage')}
                             disabled={action.pending}
-                            onClick={async () => {
-                              const note = prompt('Nhập lý do giải phóng lệnh giữ:');
-                              if (
-                                note &&
-                                window.confirm(
-                                  `Giải phóng lệnh giữ ${h.holdType} cho ${activeVisit.containerNumber}?`,
-                                )
-                              )
-                                await action.run(() => releaseOperationalHold(h.id, note));
-                            }}
+                            onClick={() => setReleaseHoldTarget(h.id)}
                             className="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg"
                           >
-                            Release Hold
+                            Giải phóng lệnh giữ
                           </button>
                         )}
                       </div>
@@ -1297,51 +1490,63 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
               )}
 
               {/* TAB 6: TIMELINE */}
-              {activeDetailTab === 'TIMELINE' && (
-                <div className="space-y-4">
-                  <h4 className="font-bold text-slate-800">
-                    Dòng thời gian sự kiện (Container Lifecycle Events)
-                  </h4>
-                  <div className="pl-4 border-l-2 border-blue-400 space-y-4">
-                    {activeVisit.gateOutAt && (
-                      <div className="relative">
-                        <div className="w-2.5 h-2.5 rounded-full bg-slate-900 absolute -left-[21px] top-1"></div>
-                        <div className="font-bold text-slate-800">Xác nhận ra cổng (Gate-out)</div>
-                        <div className="text-slate-500">
-                          {new Date(activeVisit.gateOutAt).toLocaleString('vi-VN')}
-                        </div>
+              {activeDetailTab === 'TIMELINE' && (() => {
+                type TLEvent = { ts: number; label: string; detail: string; color: string; category: 'LOCATION' | 'FINANCE' | 'HOLDS' | 'GATE' | 'ALL' };
+                const events: TLEvent[] = [];
+
+                if (activeVisit.gateOutAt)
+                  events.push({ ts: new Date(activeVisit.gateOutAt).getTime(), label: 'Xác nhận ra cổng', detail: formatVietnamDateTime(activeVisit.gateOutAt) + ' (UTC+7)', color: 'bg-slate-900', category: 'GATE' });
+                if (activeVisit.currentLocation && !yardLocationForbidden)
+                  events.push({ ts: 0, label: `Xếp vị trí bãi: ${yardLocationLabel(activeVisit)}`, detail: yardLocationReady ? 'Đã xếp vào khu vực bãi' : 'Vị trí tải trước; chưa xác nhận.', color: 'bg-blue-600', category: 'LOCATION' });
+                if (activeVisit.gateInAt)
+                  events.push({ ts: new Date(activeVisit.gateInAt).getTime(), label: 'Tiếp nhận vào cổng (Gate-in)', detail: formatVietnamDateTime(activeVisit.gateInAt) + ' (UTC+7)', color: 'bg-emerald-600', category: 'GATE' });
+                activeVisitHolds.forEach((h) => {
+                  events.push({ ts: 0, label: `Đặt lệnh giữ: ${businessLabel('holdType', h.holdType)}`, detail: h.reason + (h.placedBy ? ` — ${h.placedBy}` : ''), color: 'bg-rose-600', category: 'HOLDS' });
+                  if (h.status === 'RELEASED')
+                    events.push({ ts: 0, label: `Giải phóng lệnh giữ: ${businessLabel('holdType', h.holdType)}`, detail: h.reason, color: 'bg-emerald-500', category: 'HOLDS' });
+                });
+                activeVisitInvoices.forEach((inv) => {
+                  events.push({ ts: 0, label: `Hóa đơn ${inv.invoiceNo}: ${businessLabel('invoiceStatus', inv.status)}`, detail: `Tổng: ${inv.totalAmountVnd.toLocaleString()}₫ — Đã TT: ${inv.paidAmountVnd.toLocaleString()}₫`, color: 'bg-amber-600', category: 'FINANCE' });
+                });
+                if (activeVisitGatePass) {
+                  events.push({ ts: 0, label: `Cấp phiếu ra cổng: ${activeVisitGatePass.code}`, detail: `Xe: ${activeVisitGatePass.vehiclePlate} — Người nhận: ${activeVisitGatePass.receiverName}`, color: 'bg-indigo-600', category: 'GATE' });
+                }
+                events.push({ ts: 0, label: 'Khai báo Manifest', detail: activeVisit.manifestNo, color: 'bg-slate-400', category: 'LOCATION' });
+
+                const shown = timelineFilter === 'ALL' ? events : events.filter(e => e.category === timelineFilter);
+
+                return (
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between flex-wrap gap-2">
+                      <h4 className="font-bold text-slate-800">Dòng thời gian sự kiện (UTC+7)</h4>
+                      <div className="flex flex-wrap gap-1 text-caption">
+                        {(['ALL', 'LOCATION', 'FINANCE', 'HOLDS', 'GATE'] as const).map((f) => (
+                          <button
+                            key={f}
+                            onClick={() => setTimelineFilter(f)}
+                            className={`px-2 py-1 rounded font-semibold border transition ${timelineFilter === f ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-slate-600 border-slate-300 hover:bg-slate-50'}`}
+                          >
+                            {f === 'ALL' ? 'Tất cả' : f === 'LOCATION' ? 'Vị trí' : f === 'FINANCE' ? 'Tài chính' : f === 'HOLDS' ? 'Lệnh giữ' : 'Cổng'}
+                          </button>
+                        ))}
                       </div>
-                    )}
-                    {activeVisit.currentLocation && !yardLocationForbidden && (
-                      <div className="relative">
-                        <div className="w-2.5 h-2.5 rounded-full bg-blue-600 absolute -left-[21px] top-1"></div>
-                        <div className="font-bold text-slate-800">
-                          Xếp vị trí bãi {yardLocationLabel(activeVisit)}
-                        </div>
-                        <div className="text-slate-500">
-                          {yardLocationReady
-                            ? 'Đã lưu trữ an toàn trong khu vực bãi'
-                            : 'Vị trí đã tải trước; chưa xác nhận hiện tại.'}
-                        </div>
-                      </div>
-                    )}
-                    {activeVisit.gateInAt && (
-                      <div className="relative">
-                        <div className="w-2.5 h-2.5 rounded-full bg-emerald-600 absolute -left-[21px] top-1"></div>
-                        <div className="font-bold text-slate-800">Tiếp nhận vào cổng (Gate-in)</div>
-                        <div className="text-slate-500">
-                          {new Date(activeVisit.gateInAt).toLocaleString('vi-VN')}
-                        </div>
-                      </div>
-                    )}
-                    <div className="relative">
-                      <div className="w-2.5 h-2.5 rounded-full bg-slate-400 absolute -left-[21px] top-1"></div>
-                      <div className="font-bold text-slate-800">Khai báo Manifest</div>
-                      <div className="text-slate-500">{activeVisit.manifestNo}</div>
+                    </div>
+                    <div className="pl-4 border-l-2 border-blue-400 space-y-4">
+                      {shown.length === 0 ? (
+                        <p className="text-slate-400 italic">Không có sự kiện nào trong nhóm này.</p>
+                      ) : (
+                        shown.map((ev, idx) => (
+                          <div key={idx} className="relative">
+                            <div className={`w-2.5 h-2.5 rounded-full ${ev.color} absolute -left-[21px] top-1`}></div>
+                            <div className="font-bold text-slate-800">{ev.label}</div>
+                            <div className="text-slate-500">{ev.detail}</div>
+                          </div>
+                        ))
+                      )}
                     </div>
                   </div>
-                </div>
-              )}
+                );
+              })()}
             </div>
 
             {/* Modal Footer */}
@@ -1358,6 +1563,59 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
         </ModalOverlay>
       )}
 
+      {/* Confirm: Cancel Container Visit (CONT-02) */}
+      {showCancelConfirm && activeVisit && (
+        <ConfirmDialog
+          title="Xác nhận hủy hồ sơ container"
+          message="Thao tác này sẽ hủy toàn bộ hồ sơ container và không thể hoàn tác."
+          summary={[
+            { label: 'Số container', value: activeVisit.containerNumber },
+            { label: 'Trạng thái hiện tại', value: businessLabel('containerVisitStatus', activeVisit.state) },
+            { label: 'Chủ hàng', value: activeVisit.consigneeName },
+          ]}
+          reason={{ label: 'Lý do hủy', placeholder: 'Nhập lý do hủy hồ sơ...', minLength: 5 }}
+          confirmLabel="Xác nhận hủy"
+          tone="danger"
+          pending={action.pending}
+          notice={action.notice}
+          onClose={() => setShowCancelConfirm(false)}
+          onConfirm={async (reason) => {
+            const res = await action.run(() => cancelContainerVisit(activeVisit.id, reason));
+            if (res?.success) {
+              setShowCancelConfirm(false);
+              setActiveModalVisitId(null);
+            }
+          }}
+        />
+      )}
+
+      {/* Confirm: Release Operational Hold (CONT-02) */}
+      {releaseHoldTarget && activeVisit && (() => {
+        const targetHold = activeVisitHolds.find((h) => h.id === releaseHoldTarget);
+        if (!targetHold) return null;
+        return (
+          <ConfirmDialog
+            title="Xác nhận giải phóng lệnh giữ"
+            message="Giải phóng lệnh giữ sẽ cho phép container tiếp tục quy trình. Vui lòng nhập lý do để lưu vết."
+            summary={[
+              { label: 'Container', value: activeVisit.containerNumber },
+              { label: 'Loại lệnh giữ', value: businessLabel('holdType', targetHold.holdType) },
+              { label: 'Lý do ban đầu', value: targetHold.reason },
+            ]}
+            reason={{ label: 'Lý do giải phóng', placeholder: 'Nhập lý do giải phóng lệnh giữ...', minLength: 5 }}
+            confirmLabel="Giải phóng lệnh giữ"
+            tone="primary"
+            pending={action.pending}
+            notice={action.notice}
+            onClose={() => setReleaseHoldTarget(null)}
+            onConfirm={async (reason) => {
+              const res = await action.run(() => releaseOperationalHold(targetHold.id, reason));
+              if (res?.success) setReleaseHoldTarget(null);
+            }}
+          />
+        );
+      })()}
+
       {/* Create Container Visit Modal */}
       {showCreateVisit && (
         <ModalOverlay
@@ -1368,7 +1626,7 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
         >
           <div className="bg-white rounded-xl max-w-lg w-full p-6 shadow-xl border border-slate-200 text-xs">
             <h3 id="containers-dialog-2-title" className="text-base font-bold text-slate-900 mb-4">
-              Tạo Container Visit thủ công
+              Tiếp nhận Container Mới vào ICD
             </h3>
             <form noValidate onSubmit={saveContainerVisit} className="space-y-3">
               <FormErrors errors={validation.errors} />
@@ -1384,15 +1642,18 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                   <input
                     id="containers-cv-form-container-number"
                     required
+                    pattern="[A-Z]{4}[0-9]{7}"
+                    title="Số container phải có định dạng ISO 6346: 4 chữ hoa + 7 số (ví dụ: MSCU1234567)"
                     {...validation.props('containers-cv-form-container-number')}
                     type="text"
                     value={cvForm.containerNumber}
                     onChange={(e) =>
                       setCvForm({ ...cvForm, containerNumber: e.target.value.toUpperCase() })
                     }
-                    placeholder="Ví dụ: MSCU1234567"
+                    placeholder="Ví dụ: MSCU1234567 (4 chữ hoa + 7 số)"
                     className="w-full px-3 py-2 border border-slate-300 rounded-lg uppercase font-mono"
                   />
+                  <p className="text-caption text-slate-500 mt-1">Định dạng ISO 6346: 4 chữ hoa + 7 số (ví dụ: MSCU1234567)</p>
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
@@ -1413,11 +1674,11 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                       }
                       className="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white"
                     >
-                      <option value="20GP">20GP</option>
-                      <option value="40GP">40GP</option>
-                      <option value="40HC">40HC</option>
-                      <option value="20RF">20RF</option>
-                      <option value="45HC">45HC</option>
+                      <option value="20GP">20' khô (20GP)</option>
+                      <option value="40GP">40' khô (40GP)</option>
+                      <option value="40HC">40' cao (40HC)</option>
+                      <option value="20RF">20' lạnh (20RF)</option>
+                      <option value="45HC">45' cao (45HC)</option>
                     </select>
                   </div>
                   <div>
@@ -1583,6 +1844,7 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                     <input
                       id="containers-cv-form-gross-weight-kg"
                       type="number"
+                      min="1"
                       value={cvForm.grossWeightKg}
                       onChange={(e) =>
                         setCvForm({ ...cvForm, grossWeightKg: Number(e.target.value) })
@@ -1606,7 +1868,7 @@ export const ContainersView: React.FC<ContainersViewProps> = ({ onNavigate, sele
                   type="submit"
                   className="px-4 py-2 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700"
                 >
-                  Tạo Container Visit
+                  Tiếp nhận container
                 </button>
               </div>
             </form>

@@ -2,7 +2,7 @@ import { useViewQueryState } from '../context/useViewQueryState';
 import { ModalOverlay } from './ModalOverlay';
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
-import { Database, Plus, Ship, Building2, ClipboardCheck, TruckIcon } from 'lucide-react';
+import { Database, Plus, Ship, Building2, ClipboardCheck, TruckIcon, Search } from 'lucide-react';
 
 import type { LucideIcon } from 'lucide-react';
 import { useCommandAction, CommandNotice } from './useCommandAction';
@@ -41,6 +41,8 @@ export const MasterDataView: React.FC = () => {
     tabValue === 'TRANSPORTERS'
       ? tabValue
       : 'SHIPPING_LINES';
+  const [searchText, setSearchText] = useState('');
+  const [showActiveOnly, setShowActiveOnly] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({
     name: '',
@@ -94,9 +96,18 @@ export const MasterDataView: React.FC = () => {
     setShowForm(false);
   };
 
+  const filterItems = <T extends { name: string; active: boolean }>(items: T[]): T[] => {
+    const q = searchText.trim().toLowerCase();
+    return items.filter((item) => {
+      if (showActiveOnly && !item.active) return false;
+      if (q && !item.name.toLowerCase().includes(q)) return false;
+      return true;
+    });
+  };
+
   const renderList = () => {
     if (tab === 'SHIPPING_LINES') {
-      return shippingLines.map((s) => (
+      return filterItems(shippingLines).map((s) => (
         <tr key={s.id} className="hover:bg-slate-50">
           <td className="px-4 py-3 font-bold text-slate-800">{s.name}</td>
           <td className="px-4 py-3 font-mono text-slate-500">{s.scacCode || '—'}</td>
@@ -108,7 +119,7 @@ export const MasterDataView: React.FC = () => {
       ));
     }
     if (tab === 'CONSIGNEES') {
-      return consignees.map((c) => (
+      return filterItems(consignees).map((c) => (
         <tr key={c.id} className="hover:bg-slate-50">
           <td className="px-4 py-3 font-bold text-slate-800">{c.name}</td>
           <td className="px-4 py-3 font-mono text-slate-500">{c.taxCode}</td>
@@ -120,7 +131,7 @@ export const MasterDataView: React.FC = () => {
       ));
     }
     if (tab === 'CLEARING_AGENTS') {
-      return clearingAgents.map((c) => (
+      return filterItems(clearingAgents).map((c) => (
         <tr key={c.id} className="hover:bg-slate-50">
           <td className="px-4 py-3 font-bold text-slate-800">{c.name}</td>
           <td className="px-4 py-3 font-mono text-slate-500">{c.taxCode || '—'}</td>
@@ -131,7 +142,7 @@ export const MasterDataView: React.FC = () => {
         </tr>
       ));
     }
-    return transporters.map((t) => (
+    return filterItems(transporters).map((t) => (
       <tr key={t.id} className="hover:bg-slate-50">
         <td className="px-4 py-3 font-bold text-slate-800">{t.name}</td>
         <td className="px-4 py-3 font-mono text-slate-500">{t.taxCode || '—'}</td>
@@ -147,7 +158,7 @@ export const MasterDataView: React.FC = () => {
     <span
       className={`px-2 py-1 rounded-full text-caption font-bold ${active ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-200 text-slate-600'}`}
     >
-      {active ? 'ACTIVE' : 'INACTIVE'}
+      {active ? 'Đang hoạt động' : 'Đã khóa'}
     </span>
   );
   const toggleBtn = (
@@ -176,11 +187,10 @@ export const MasterDataView: React.FC = () => {
         <div>
           <h2 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
             <Database className="w-5 h-5 text-blue-600" />
-            <span>Danh mục dùng chung (Master Data)</span>
+            <span>Danh mục dùng chung</span>
           </h2>
           <p className="text-xs text-slate-500 mt-1">
-            Catalog dùng chung cho Manifest/HBL/Truck Visit. Không hard-delete — chỉ khóa
-            (active=false) để giữ lịch sử.
+            Danh mục dùng chung cho Lược khai / Vận đơn / Chuyến xe. Không xóa vĩnh viễn — chỉ khóa để giữ lịch sử.
           </p>
         </div>
         {canManage && (
@@ -215,6 +225,30 @@ export const MasterDataView: React.FC = () => {
             </button>
           );
         })}
+      </div>
+
+      {/* Search & filter bar */}
+      <div className="bg-white p-3 rounded-xl border border-slate-200 shadow-xs flex flex-wrap items-center gap-3 text-xs">
+        <div className="relative flex-1 min-w-48">
+          <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
+          <input
+            type="text"
+            aria-label="Tìm theo tên"
+            placeholder="Tìm theo tên..."
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            className="w-full pl-9 pr-3 py-2 border border-slate-200 rounded-lg bg-slate-50 focus:outline-none focus:ring-1 focus:ring-blue-500"
+          />
+        </div>
+        <label className="flex items-center gap-2 cursor-pointer select-none font-semibold text-slate-600">
+          <input
+            type="checkbox"
+            checked={showActiveOnly}
+            onChange={(e) => setShowActiveOnly(e.target.checked)}
+            className="rounded"
+          />
+          Chỉ hiện đang hoạt động
+        </label>
       </div>
 
       <div className="bg-white rounded-xl border border-slate-200 shadow-xs overflow-hidden">

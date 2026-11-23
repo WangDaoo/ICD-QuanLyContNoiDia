@@ -23,19 +23,19 @@ export function getInspectionDisplay(inspection: {
           return {
             statusLabel: 'Hoàn tất',
             variant: 'danger',
-            resultLabel: 'HOLD · Giữ container để kiểm định, chặn xuất cổng.',
+            resultLabel: 'Giữ container — chặn xuất cổng',
           };
         case 'FAIL':
           return {
             statusLabel: 'Hoàn tất',
             variant: 'danger',
-            resultLabel: 'FAIL · Không đạt giám định.',
+            resultLabel: 'Không đạt',
           };
         case 'PASS':
           return {
             statusLabel: 'Hoàn tất',
             variant: 'success',
-            resultLabel: 'PASS · Đạt giám định.',
+            resultLabel: 'Đạt giám định',
           };
         default:
           return {

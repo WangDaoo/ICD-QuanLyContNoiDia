@@ -3,6 +3,7 @@ import { useNavigation, type NavigationProp } from '@react-navigation/native';
 import { Camera, ClipboardList, Radio, Search, Truck, Warehouse } from 'lucide-react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { WorkQueueScreen } from '../features/work-queue/screens/WorkQueueScreen';
+import { WorkQueueBadgeProvider, useWorkQueueBadge } from '../features/work-queue/work-queue-badge-context';
 import { MonitorScreen } from '../features/yard/screens/MonitorScreen';
 import { GateNavigator } from './GateNavigator';
 import { YardNavigator, LookupNavigator, SurveyNavigator } from './YardNavigator';
@@ -18,11 +19,12 @@ const labels = { GateTab: 'Cổng', YardTab: 'Bãi', SurveyTab: 'Giám định',
 const icons = { GateTab: Truck, YardTab: Warehouse, SurveyTab: Camera, LookupTab: Search, WorkQueueTab: ClipboardList, MonitorTab: Radio };
 const screens = { GateTab: GateNavigator, YardTab: YardNavigator, SurveyTab: SurveyNavigator, LookupTab: LookupNavigator, WorkQueueTab: WorkQueueScreen, MonitorTab: MonitorScreen };
 
-export function MainTabNavigator() {
+function MainTabNavigatorInner() {
   const insets = useSafeAreaInsets();
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const { user } = useAuth();
   const { theme } = useTheme();
+  const { overdue } = useWorkQueueBadge();
   const tabs = getTerminalTabs(user);
   if (!tabs.length) return <ForbiddenScreen message="Tài khoản chưa được cấp quyền sử dụng chức năng hiện trường. Liên hệ quản trị viên để được cấp quyền." onOpenAccount={() => navigation.navigate('Account')} />;
   return <Tab.Navigator tabBar={props => <ResponsiveTabBar {...props} visibleTabs={tabs} />} screenOptions={{ headerShown: false,
@@ -33,8 +35,18 @@ export function MainTabNavigator() {
   }}>{getRegisteredTerminalTabs(user).map(name => {
     const Icon = icons[name];
     const hidden = !tabs.includes(name);
+    const badge = name === 'WorkQueueTab' && overdue > 0 ? overdue : undefined;
     return <Tab.Screen key={name} name={name} component={screens[name]} options={{ tabBarLabel: labels[name],
+      tabBarBadge: badge,
       tabBarButton: hidden ? () => null : undefined, tabBarItemStyle: hidden ? { display: 'none' } : undefined,
       tabBarIcon: ({ color }) => <Icon size={20} strokeWidth={1.8} color={color} /> }} />;
   })}</Tab.Navigator>;
+}
+
+export function MainTabNavigator() {
+  return (
+    <WorkQueueBadgeProvider>
+      <MainTabNavigatorInner />
+    </WorkQueueBadgeProvider>
+  );
 }

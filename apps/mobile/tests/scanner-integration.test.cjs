@@ -175,22 +175,25 @@ test('Gate Out exposes shared frame on web and native with existing manual input
       'GatePassScanScreen',
       { platform },
     );
-    assert.equal(screen.find('CodeScanner').props.visible, false);
-    screen.find('PrimaryButton', 'Quét QR bằng camera').props.onPress();
+    // Camera opens by default so field staff can scan immediately on arrival
     assert.equal(screen.find('CodeScanner').props.visible, true);
     screen.find('CodeScanner').props.onClose();
     assert.equal(screen.find('CodeScanner').props.visible, false);
+    // Manual input fallback remains available
     screen.find('Field');
+    // Camera can be reopened via button
+    screen.find('PrimaryButton', 'Quét QR bằng camera').props.onPress();
+    assert.equal(screen.find('CodeScanner').props.visible, true);
   }
 });
 
 test('scanner result reaches actual Gate Pass API without auto-confirming Gate Out', async () => {
   const screen = loadView('features/gate-out/screens/GatePassScanScreen.tsx', 'GatePassScanScreen');
-  screen.find('PrimaryButton', 'Quét QR bằng camera').props.onPress();
+  // Camera is open by default; scanning closes it and loads the gate pass
   await screen.find('CodeScanner').props.onScan('gp1.Abc.Signature');
   assert.deepEqual(screen.scans, ['gp1.Abc.Signature']);
   assert.equal(screen.find('CodeScanner').props.visible, false);
-  assert.equal(screen.find('PrimaryButton', 'Mở màn xác nhận gate-out').props.disabled, true);
+  assert.equal(screen.find('PrimaryButton', 'Tiến hành xác nhận ra cổng').props.disabled, true);
   assert.equal(screen.navigation.length, 0);
 });
 

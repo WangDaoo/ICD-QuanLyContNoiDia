@@ -256,7 +256,7 @@ function YardAssignment() {
       }
     } catch (error) {
       if (mounted.current && current.current.visitId === target.visitId)
-        setError(error instanceof Error ? error.message : 'Backend chưa xác nhận xếp bãi.');
+        setError(error instanceof Error ? error.message : 'Chưa thể xác nhận xếp bãi. Thử lại hoặc liên hệ điều hành.');
     } finally {
       if (mounted.current && current.current.visitId === target.visitId) {
         pending.current = false;
@@ -282,7 +282,22 @@ function YardAssignment() {
         <>
           <Notice message={success} success />
           <PrimaryButton
+            title="Xem tác nghiệp bãi cho container này"
+            onPress={() =>
+              navigation.navigate('YardOperations', {
+                visitId,
+                containerNo: params?.containerNo,
+              })
+            }
+          />
+          <PrimaryButton
+            title="Về danh sách tác nghiệp"
+            variant="secondary"
+            onPress={() => navigation.navigate('YardOperations')}
+          />
+          <PrimaryButton
             title="Về tra cứu container"
+            variant="secondary"
             onPress={() => navigation.navigate('ContainerSearch')}
           />
         </>
@@ -299,7 +314,7 @@ function YardAssignment() {
                 {recommendations.data.length === 0 ? (
                   <EmptyState
                     title="Chưa có vị trí phù hợp"
-                    description="Backend không tìm được ô bãi đáp ứng điều kiện container."
+                    description="Hệ thống chưa tìm được ô bãi phù hợp cho container này. Vui lòng chọn ô thủ công hoặc liên hệ điều hành."
                   />
                 ) : (
                   recommendations.data.slice(0, showAll ? undefined : 5).map((row) => (
@@ -359,6 +374,7 @@ function YardAssignment() {
                   setManual(code);
                   current.current.manual = code;
                 }}
+                placeholder="VD: A-01-01-1"
                 editable={!submitting && !slotsLoading && !slotsError}
               />
               <PrimaryButton

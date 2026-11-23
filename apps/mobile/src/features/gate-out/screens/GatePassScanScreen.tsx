@@ -24,7 +24,7 @@ export function GatePassScanScreen() {
   const navigation = useNavigation<NativeStackNavigationProp<GateStackParamList>>();
   const focused = useIsFocused();
   const { params } = useRoute<RouteProp<GateStackParamList, 'GatePassScan'>>();
-  const [camera, setCamera] = useState(false);
+  const [camera, setCamera] = useState(true);
   const [token, setToken] = useState('');
   const [scan, setScan] = useState<GatePassScan | null>(null);
   const [loading, setLoading] = useState(false);
@@ -56,7 +56,7 @@ export function GatePassScanScreen() {
     }
   };
   return (
-    <ScreenLayout title="Cổng · Quét phiếu ra" subtitle="Máy chủ kiểm tra readiness và hạn phiếu">
+    <ScreenLayout title="Cổng · Quét phiếu ra" subtitle="Kiểm tra điều kiện xuất cổng và hạn phiếu">
       <GateModeSwitch mode="OUT" />
       <Card title="Xác thực phiếu ra cổng">
         <Field
@@ -73,7 +73,7 @@ export function GatePassScanScreen() {
           editable={!loading}
         />
         <PrimaryButton
-          title="Kiểm tra phiếu & readiness"
+          title="Kiểm tra phiếu & điều kiện xuất cổng"
           loading={loading}
           onPress={() => void handleScan(token)}
         />
@@ -115,7 +115,7 @@ export function GatePassScanScreen() {
             </Text>
           ))}
           <PrimaryButton
-            title="Mở màn xác nhận gate-out"
+            title="Tiến hành xác nhận ra cổng"
             disabled={!scan.canGateOut || !scan.visitId}
             onPress={() =>
               navigation.navigate('GateOutConfirm', {

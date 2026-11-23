@@ -12,7 +12,7 @@ export function getWorkQueueDestination(
       params: { screen: 'GateInForm', params: { visitId: task.visitId } },
     };
   if (task.type === 'GATE_OUT' && canAccessMobileScreen(user, 'gate.out'))
-    return { screen: 'GateTab', params: { screen: 'GatePassScan' } };
+    return { screen: 'GateTab', params: { screen: 'GatePassScan', params: { openScanner: true } } };
   if (task.type === 'YARD_ASSIGN' && task.visitId && canAccessMobileScreen(user, 'yard.assign'))
     return {
       screen: 'YardTab',

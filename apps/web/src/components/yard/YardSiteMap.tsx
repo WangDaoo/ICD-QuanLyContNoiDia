@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import type { YardSlot } from '../../types';
+import { businessLabel } from '../../lib/business-labels';
 import {
   getBlockGeometry,
   getSlotsAt,
@@ -156,7 +157,7 @@ export function YardSiteMap({ onContainer, onAssign, onOperation }: Props) {
               Sơ đồ tổng thể ICD
             </h3>
             <p className="text-xs text-slate-500 mt-1">
-              Khung cảng demo · Block và vị trí lấy từ backend · Chọn ô để xem chi tiết
+              Sơ đồ ICD · Chọn ô để xem chi tiết và thao tác
             </p>
           </div>
           <div className="flex gap-1 rounded-lg bg-slate-100 p-1 text-xs">
@@ -492,7 +493,7 @@ export function YardSiteMap({ onContainer, onAssign, onOperation }: Props) {
                         ? `${a.container.containerType} / ${a.container.grossWeightKg.toLocaleString('vi-VN')} kg`
                         : '—',
                     ],
-                    ['Trạng thái backend', a.container?.state ?? '—'],
+                    ['Trạng thái container', a.container?.state ? businessLabel('containerVisitStatus', a.container.state) : '—'],
                   ].map(([label, value]) => (
                     <div key={label}>
                       <dt className="text-slate-500">{label}</dt>

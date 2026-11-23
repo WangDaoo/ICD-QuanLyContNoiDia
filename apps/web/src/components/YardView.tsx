@@ -123,7 +123,7 @@ export function YardView({ onNavigate, targetAssignVisitId }: Props) {
             Vận hành Bãi Container
           </h2>
           <p className="text-xs text-slate-500 mt-1">
-            Sơ đồ cảng demo, quản lý vị trí và công việc trong bãi
+            Quản lý vị trí và công việc trong bãi container
           </p>
         </div>
         <nav
@@ -155,14 +155,26 @@ export function YardView({ onNavigate, targetAssignVisitId }: Props) {
       </header>
       {tab === 'MAP' && (
         <>
-          <div className="border border-amber-200 bg-amber-50 rounded-lg px-4 py-3 text-xs text-amber-900">
-            <strong>Thuật toán xếp vị trí:</strong> Đang trong quá trình phát triển
-            {can('yard.update') && (
-              <button onClick={() => setTab('ASSIGN')} className="ml-3 underline font-semibold">
-                Chọn vị trí thủ công
-              </button>
-            )}
-          </div>
+          {(() => {
+            const waiting = containerVisits.filter(
+              (v) => v.state === 'IN_YARD' && !v.currentLocation,
+            ).length;
+            return waiting > 0 ? (
+              <div className="border border-blue-200 bg-blue-50 rounded-lg px-4 py-3 text-xs text-blue-900 flex items-center justify-between gap-3">
+                <span>
+                  <strong>{waiting}</strong> container trong bãi chưa được xếp vị trí.
+                </span>
+                {can('yard.update') && (
+                  <button
+                    onClick={() => setTab('ASSIGN')}
+                    className="underline font-semibold whitespace-nowrap"
+                  >
+                    Xếp vị trí ngay
+                  </button>
+                )}
+              </div>
+            ) : null;
+          })()}
           <YardSiteMap
             onContainer={(id) => onNavigate('containers', id)}
             onAssign={(code) => {
@@ -181,6 +193,10 @@ export function YardView({ onNavigate, targetAssignVisitId }: Props) {
           key={`${targetAssignVisitId ?? ''}:${assignSlot}`}
           targetVisitId={targetAssignVisitId}
           initialSlotCode={assignSlot}
+          onOperation={(action, visitId) => {
+            setOperation({ action, visitId });
+            setTab('OPS');
+          }}
         />
       )}
       {tab === 'OPS' && (
@@ -188,6 +204,7 @@ export function YardView({ onNavigate, targetAssignVisitId }: Props) {
           key={`${operation.action ?? ''}:${operation.visitId ?? ''}`}
           initialAction={operation.action}
           initialVisitId={operation.visitId}
+          onOpenContainer={(id) => onNavigate('containers', id)}
         />
       )}
       {tab === 'LIST' && (

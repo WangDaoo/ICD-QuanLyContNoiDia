@@ -24,6 +24,8 @@ function fixture({ dark = false, width = 411, fontScale = 1, permissionCodes = [
     },
     useRef(initial) { const index = cursor++; return states[index] ?? (states[index] = { current: initial }); },
     useMemo: fn => fn(), useEffect() {}, useCallback: fn => fn,
+    createContext: defaultValue => ({ Provider: 'Provider', _default: defaultValue }),
+    useContext: ctx => (ctx && ctx._default !== undefined ? ctx._default : {}),
   };
   react.default = react;
   const native = new Proxy({
@@ -203,7 +205,7 @@ test('M-003 zero-tab fixture reaches Account and existing controlled logout', as
   assert.deepEqual(f.navigations.at(-1), ['Account']);
   const accountFixture = fixture({ permissionCodes: [] });
   const More = accountFixture.load('src/features/more/screens/MoreScreen.tsx').MoreScreen;
-  assert.match(text(accountFixture.render(More)), /ADMIN/, 'Account displays the current role');
+  assert.match(text(accountFixture.render(More)), /Quản trị viên/, 'Account displays the current role in Vietnamese');
   const openLogout = () => actions(accountFixture.render(More)).find(n => text(n) === 'Đăng xuất tài khoản').props.onPress();
   openLogout();
   const dialog = nodes(accountFixture.render(More), n => n.type === 'Modal')[0];

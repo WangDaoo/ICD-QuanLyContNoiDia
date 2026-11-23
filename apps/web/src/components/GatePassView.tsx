@@ -5,7 +5,7 @@ import QRCode from 'react-qr-code';
 import { useApp } from '../context/AppContext';
 
 import { GatePass } from '../types';
-import { QrCode, LogOut, CheckCircle2, AlertCircle, Send, Plus, Search, Scan } from 'lucide-react';
+import { QrCode, LogOut, CheckCircle2, AlertCircle, Send, Plus, Search, Scan, Printer } from 'lucide-react';
 import { NavTabId } from './Sidebar';
 import { useBackendReadiness } from './useBackendReadiness';
 import { CriticalDataNotice } from './CriticalDataNotice';
@@ -16,6 +16,19 @@ import { CollectionState } from './CollectionState';
 import { effectiveGatePassStatus, gatePassStatusMessage } from '../lib/gate-pass';
 import { ReadinessNotice } from './ReadinessNotice';
 import { useGatePassExpiry } from './useGatePassExpiry';
+import { ConfirmDialog } from './ConfirmDialog';
+import { SearchableSelect } from './SearchableSelect';
+import type { PickerOption } from './SearchableSelect';
+import { businessLabel } from '../lib/business-labels';
+import { formatVietnamDateTime } from '../lib/time';
+
+/** Format seconds as HH:MM:SS */
+function formatCountdown(totalSeconds: number): string {
+  const h = Math.floor(totalSeconds / 3600);
+  const m = Math.floor((totalSeconds % 3600) / 60);
+  const s = totalSeconds % 60;
+  return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+}
 
 interface GatePassViewProps {
   targetGatePassId?: string;
@@ -54,6 +67,21 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
   const selectedStatus = selectedGatePass ? effectiveGatePassStatus(selectedGatePass, now) : null;
   const [showIssueModal, setShowIssueModal] = useState(false);
 
+  // Confirm gate-out dialog state
+  const [pendingGateOutPass, setPendingGateOutPass] = useState<GatePass | null>(null);
+  // Confirm cancel dialog state
+  const [pendingCancelPass, setPendingCancelPass] = useState<GatePass | null>(null);
+  // Success banner after gate-out
+  const [gateOutSuccessMsg, setGateOutSuccessMsg] = useState<string | null>(null);
+
+  // Live countdown for ACTIVE gate pass
+  const [countdownNow, setCountdownNow] = useState(() => Date.now());
+  useEffect(() => {
+    if (selectedStatus !== 'ACTIVE') return;
+    const interval = setInterval(() => setCountdownNow(Date.now()), 1000);
+    return () => clearInterval(interval);
+  }, [selectedStatus]);
+
   // Tra cứu phiếu từ dữ liệu backend; xác nhận Gate-out là command riêng.
   const [scannerInput, setScannerInput] = useState('');
   const [scanResult, setScanResult] = useState<{ success: boolean; message: string } | null>(null);
@@ -67,6 +95,14 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
   const [receiverName, setReceiverName] = useState('');
   const [receiverCccd, setReceiverCccd] = useState('');
   const evaluation = useBackendReadiness(showIssueModal ? issueVisitId : null);
+
+  // Container picker options
+  const containerOptions: PickerOption[] = eligibleContainers.map((c) => ({
+    value: c.id,
+    label: c.containerNumber,
+    description: `${c.consigneeName} · ${c.currentLocation}`,
+    keywords: `${c.containerNumber} ${c.consigneeName}`,
+  }));
 
   useEffect(() => {
     if (
@@ -138,19 +174,66 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
     }
 
     setSelectedGatePassId(target.id);
+    const statusLabel = businessLabel('gatePassStatus', effectiveGatePassStatus(target));
     setScanResult({
       success: true,
-      message: `Tìm thấy phiếu ${target.code} (${target.containerNumber}) · ${target.status}. Backend kiểm tra lại khi xác nhận ra cổng.`,
+      message: `Tìm thấy phiếu ${target.code} · Cont: ${target.containerNumber} · Trạng thái: ${statusLabel}. Hệ thống kiểm tra điều kiện khi xác nhận ra cổng.`,
     });
   };
 
-  const handleConfirmExit = async (pass: GatePass) => {
+  /** Step 1: show confirmation dialog before gate-out */
+  const handleConfirmExit = (pass: GatePass) => {
     if (!can('gate_pass.use') || effectiveGatePassStatus(pass) !== 'ACTIVE') return;
+    setPendingGateOutPass(pass);
+  };
+
+  /** Step 2: user confirmed in dialog — execute the command */
+  const handleActualGateOut = async () => {
+    if (!pendingGateOutPass) return;
+    const pass = pendingGateOutPass;
+    // Keep dialog mounted during the async call so it can show pending/error state.
     const res = await action.run(() => scanAndGateOut(pass.qrToken || pass.code));
+    setPendingGateOutPass(null);
     if (res?.success) {
       setSelectedGatePassId(pass.id);
+      const timeStr = new Date().toLocaleString('vi-VN', {
+        timeZone: 'Asia/Ho_Chi_Minh',
+        day: '2-digit', month: '2-digit', year: 'numeric',
+        hour: '2-digit', minute: '2-digit',
+      });
+      setGateOutSuccessMsg(
+        `Ra cổng thành công: ${pass.containerNumber} · Xe ${pass.vehiclePlate} · Tài xế ${pass.receiverName} · ${timeStr}`,
+      );
     }
   };
+
+  /** Show cancel dialog */
+  const handleCancelGatePass = (pass: GatePass) => {
+    if (!can('gate_pass.create')) return;
+    setPendingCancelPass(pass);
+  };
+
+  /** Execute cancel after dialog confirmation */
+  const handleActualCancel = async (reason: string) => {
+    if (!pendingCancelPass) return;
+    const pass = pendingCancelPass;
+    // Keep dialog mounted during the async call so it can show pending/error state.
+    await action.run(() => cancelGatePass(pass.id, reason));
+    setPendingCancelPass(null);
+  };
+
+  // Compute seconds remaining for countdown
+  const secondsLeft =
+    selectedStatus === 'ACTIVE' && selectedGatePass
+      ? Math.max(0, Math.floor((new Date(selectedGatePass.expiresAt).getTime() - countdownNow) / 1000))
+      : null;
+
+  // Expiry hint for issue form: now + 24h
+  const expiryHintStr = new Date(Date.now() + 24 * 60 * 60 * 1000).toLocaleString('vi-VN', {
+    timeZone: 'Asia/Ho_Chi_Minh',
+    day: '2-digit', month: '2-digit', year: 'numeric',
+    hour: '2-digit', minute: '2-digit',
+  });
 
   return (
     <div className="space-y-6">
@@ -160,11 +243,10 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
         <div>
           <h2 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
             <QrCode className="w-5 h-5 text-indigo-600" />
-            <span>Phiếu ra cổng (Gate Pass) & Kiểm soát Xuất kho</span>
+            <span>Phiếu ra cổng & Kiểm soát Xuất bãi</span>
           </h2>
           <p className="text-xs text-slate-500 mt-1">
-            Phát hành mã QR Code ra cổng có thời hạn 24 giờ, đối soát cổng Outbound và xác nhận
-            Gate-out
+            Phát hành mã QR Code ra cổng có thời hạn 24 giờ, đối soát cổng ra và xác nhận xe xuất bãi
           </p>
         </div>
 
@@ -181,6 +263,24 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
           </button>
         )}
       </div>
+
+      {/* Success banner after gate-out */}
+      {gateOutSuccessMsg && (
+        <div className="p-3 rounded-lg text-xs font-semibold flex items-center justify-between space-x-2 bg-emerald-50 text-emerald-800 border border-emerald-200">
+          <span className="flex items-center space-x-2">
+            <CheckCircle2 className="w-4 h-4 shrink-0" />
+            <span>{gateOutSuccessMsg}</span>
+          </span>
+          <button
+            type="button"
+            aria-label="Đóng thông báo"
+            onClick={() => setGateOutSuccessMsg(null)}
+            className="shrink-0 text-emerald-600 hover:text-emerald-800 font-bold ml-2"
+          >
+            ✕
+          </button>
+        </div>
+      )}
 
       {/* Tra cứu mã phiếu */}
       <div className="bg-slate-900 text-white p-4 rounded-xl shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs">
@@ -199,8 +299,8 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
         <form onSubmit={handleFindPass} className="flex items-center space-x-2">
           <input
             type="text"
-            placeholder="Nhập mã QR Token hoặc GP Code..."
-            aria-label="Mã QR hoặc mã Gate Pass"
+            placeholder="Nhập mã QR hoặc mã GP-XXXX..."
+            aria-label="Mã QR hoặc mã Phiếu ra cổng"
             value={scannerInput}
             onChange={(e) => setScannerInput(e.target.value)}
             className="px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white font-mono text-xs w-64 focus:outline-none focus:ring-1 focus:ring-indigo-400"
@@ -241,7 +341,7 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
             <input
               type="text"
               placeholder="Tìm mã GP, số cont, biển số xe..."
-              aria-label="Tìm Gate Pass"
+              aria-label="Tìm Phiếu ra cổng"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full pl-9 pr-3 py-2 text-xs bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-indigo-500"
@@ -259,6 +359,7 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
             {filteredPasses.map((gp) => {
               const isSelected = selectedGatePass?.id === gp.id;
               const effectiveStatus = effectiveGatePassStatus(gp, now);
+              const statusLabel = businessLabel('gatePassStatus', effectiveStatus);
               return (
                 <button
                   type="button"
@@ -282,7 +383,7 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
                             : 'bg-rose-100 text-rose-800'
                       }`}
                     >
-                      {effectiveStatus}
+                      {statusLabel}
                     </span>
                   </span>
                   <span className="block font-mono font-bold text-slate-800 text-xs mt-1">
@@ -298,7 +399,7 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
           </div>
         </div>
 
-        {/* Right 2 Columns: Gate Pass Inspection & Gate-out Execution */}
+        {/* Right 2 Columns: Gate Pass Detail & Gate-out */}
         <div className="lg:col-span-2">
           {selectedGatePass ? (
             <div className="bg-white rounded-xl border border-slate-200 shadow-xs p-6 space-y-6 text-xs">
@@ -317,19 +418,36 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
                             : 'bg-rose-100 text-rose-800'
                       }`}
                     >
-                      {selectedStatus}
+                      {businessLabel('gatePassStatus', selectedStatus ?? 'UNKNOWN')}
                     </span>
                   </div>
                   <p className="text-slate-500 mt-1">
-                    Phát hành lúc: {new Date(selectedGatePass.issuedAt).toLocaleString('vi-VN')}
+                    Phát hành lúc: {formatVietnamDateTime(selectedGatePass.issuedAt)}
                   </p>
                 </div>
 
-                <div className="text-right">
-                  <span className="text-slate-400">Hiệu lực đến:</span>
-                  <div className="font-bold text-slate-800">
-                    {new Date(selectedGatePass.expiresAt).toLocaleString('vi-VN')}
+                <div className="text-right space-y-1">
+                  <div>
+                    <span className="text-slate-400">Hiệu lực đến: </span>
+                    <span className="font-bold text-slate-800">
+                      {new Date(selectedGatePass.expiresAt).toLocaleString('vi-VN', {
+                        timeZone: 'Asia/Ho_Chi_Minh',
+                        day: '2-digit', month: '2-digit', year: 'numeric',
+                        hour: '2-digit', minute: '2-digit',
+                      })}
+                    </span>
                   </div>
+                  {secondsLeft !== null && (
+                    <div
+                      className={`font-bold font-mono text-sm ${
+                        secondsLeft < 3600 ? 'text-rose-700' : 'text-emerald-700'
+                      }`}
+                      aria-live="polite"
+                      aria-label={`Còn hiệu lực: ${formatCountdown(secondsLeft)}`}
+                    >
+                      Còn hiệu lực: {formatCountdown(secondsLeft)}
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -346,9 +464,17 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
                     <p>QR chỉ hiển thị với phiếu còn hiệu lực và tài khoản có quyền phát hành.</p>
                   )}
                 </div>
-                <div className="font-mono text-slate-500 font-semibold break-all text-caption max-w-full">
-                  {selectedStatus === 'ACTIVE' ? selectedGatePass.qrToken : ''}
-                </div>
+                {selectedStatus === 'ACTIVE' && (
+                  <div>
+                    <div className="font-mono font-bold text-indigo-700 text-sm">
+                      {selectedGatePass.code}
+                    </div>
+                    <div className="text-slate-500 text-caption mt-1">
+                      Tài xế quét QR từ app di động hoặc nhân viên cổng nhập mã{' '}
+                      <span className="font-mono font-semibold">{selectedGatePass.code}</span>
+                    </div>
+                  </div>
+                )}
                 <div className="text-slate-600 max-w-sm mx-auto">
                   {selectedStatus && gatePassStatusMessage(selectedStatus)}
                 </div>
@@ -379,37 +505,50 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
                       {selectedGatePass.containerNumber}
                     </strong>
                   </div>
-                  <div>
-                    Mã chuyến tiếp nhận:{' '}
-                    <strong className="font-mono text-slate-600">
-                      {selectedGatePass.containerVisitId}
-                    </strong>
-                  </div>
+                  {selectedGatePass.consigneeName && (
+                    <div>
+                      Chủ hàng: <strong>{selectedGatePass.consigneeName}</strong>
+                    </div>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => onNavigate('containers', selectedGatePass.containerVisitId)}
+                    className="text-indigo-600 underline hover:text-indigo-800 text-caption"
+                  >
+                    Xem chi tiết container →
+                  </button>
                   <div className="text-slate-500">
-                    Điều kiện được backend kiểm tra lại khi xác nhận ra cổng.
+                    Hệ thống tự kiểm tra điều kiện xuất cổng khi xác nhận.
                   </div>
                 </div>
               </div>
 
               {/* Gate-out Action */}
-              <div className="pt-4 border-t border-slate-200 flex items-center justify-between">
+              <div className="pt-4 border-t border-slate-200 flex items-center justify-between flex-wrap gap-2">
                 <div className="text-slate-500">
                   {selectedStatus && gatePassStatusMessage(selectedStatus)}
                 </div>
 
                 {selectedStatus === 'ACTIVE' ? (
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    {/* Print button */}
+                    <button
+                      type="button"
+                      onClick={() => window.print()}
+                      className="px-4 py-3 bg-slate-50 hover:bg-slate-100 text-slate-700 font-bold rounded-lg border border-slate-200 transition flex items-center space-x-2"
+                      title="In phiếu ra cổng"
+                    >
+                      <Printer className="w-4 h-4" />
+                      <span>In Phiếu</span>
+                    </button>
+
                     {can('gate_pass.create') && (
                       <button
                         disabled={action.pending}
-                        onClick={async () => {
-                          const reason = window.prompt('Lý do hủy Gate Pass:');
-                          if (reason && window.confirm(`Hủy phiếu ${selectedGatePass.code}?`))
-                            await action.run(() => cancelGatePass(selectedGatePass.id, reason));
-                        }}
+                        onClick={() => handleCancelGatePass(selectedGatePass)}
                         className="px-4 py-3 bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold rounded-lg border border-rose-200 transition"
                       >
-                        Hủy Gate Pass
+                        Huỷ phiếu
                       </button>
                     )}
                     {can('gate_pass.use') && (
@@ -419,7 +558,7 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
                         className="px-5 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow-sm flex items-center space-x-2 transition"
                       >
                         <LogOut className="w-4 h-4" />
-                        <span>Xác nhận Ra cổng (Gate-out)</span>
+                        <span>Xác nhận Ra cổng</span>
                       </button>
                     )}
                   </div>
@@ -454,11 +593,10 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
         >
           <div className="bg-white rounded-xl max-w-md w-full p-6 shadow-xl border border-slate-200 text-xs">
             <h3 id="gate-pass-dialog-1-title" className="text-base font-bold text-slate-900 mb-2">
-              Phát hành Phiếu ra cổng (Gate Pass)
+              Phát hành Phiếu ra cổng
             </h3>
             <p className="text-slate-500 mb-4">
-              Chọn container để kiểm tra hồ sơ, thanh toán và lệnh giữ từ backend trước khi phát
-              hành.
+              Chọn container để kiểm tra hồ sơ, thanh toán và lệnh giữ trước khi phát hành.
             </p>
 
             <form noValidate onSubmit={handleIssueGatePass} className="space-y-4">
@@ -466,36 +604,44 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
               <CommandNotice notice={action.notice} />
               <fieldset disabled={action.pending} className="space-y-4">
                 <div>
-                  <label
-                    htmlFor="gate-pass-issue-visit-id"
-                    className="block font-semibold text-slate-700 mb-1"
-                  >
-                    Chọn container trong bãi*
-                  </label>
                   {eligibleContainers.length === 0 ? (
                     <div className="p-3 bg-amber-50 border border-amber-200 text-amber-900 rounded-lg">
                       Chưa có container trong bãi để kiểm tra.
                     </div>
                   ) : (
-                    <select
-                      required
-                      {...validation.props('gate-pass-issue-visit-id')}
+                    <SearchableSelect
                       id="gate-pass-issue-visit-id"
+                      label="Container trong bãi*"
+                      options={containerOptions}
                       value={issueVisitId}
-                      onChange={(e) => setIssueVisitId(e.target.value)}
-                      className="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono font-bold bg-white"
-                    >
-                      <option value="">Chọn container…</option>
-                      {eligibleContainers.map((c) => (
-                        <option key={c.id} value={c.id}>
-                          {c.containerNumber} — {c.consigneeName} ({c.currentLocation})
-                        </option>
-                      ))}
-                    </select>
+                      onChange={setIssueVisitId}
+                      placeholder="Nhập số container hoặc tên chủ hàng…"
+                      required
+                      emptyText="Không tìm thấy container phù hợp"
+                      hint="Chỉ hiện container đang trong bãi chờ xuất"
+                    />
                   )}
                 </div>
 
-                <ReadinessNotice evaluation={evaluation} />
+                <ReadinessNotice
+                  evaluation={evaluation}
+                  resolveBlocker={(code) => {
+                    if (!issueVisitId) return null;
+                    if (['NO_BILLING', 'BILLING_INCOMPLETE', 'UNBILLED_SERVICES', 'BILLING_CONFIGURATION_MISSING'].includes(code)) {
+                      return { label: 'Mở Thanh toán', onClick: () => { setShowIssueModal(false); onNavigate('billing', issueVisitId); } };
+                    }
+                    if (['CONTAINER_NOT_IN_YARD', 'NO_YARD_POSITION', 'ACTIVE_YARD_OPERATION'].includes(code)) {
+                      return { label: 'Xem vị trí bãi', onClick: () => { setShowIssueModal(false); onNavigate('yard', issueVisitId); } };
+                    }
+                    if (code === 'INSPECTION_HOLD') {
+                      return { label: 'Xem kiểm hóa', onClick: () => { setShowIssueModal(false); onNavigate('containers', issueVisitId); } };
+                    }
+                    if (code === 'OPERATIONAL_HOLD') {
+                      return { label: 'Xem lệnh giữ', onClick: () => { setShowIssueModal(false); onNavigate('containers', issueVisitId); } };
+                    }
+                    return null;
+                  }}
+                />
 
                 <div>
                   <label
@@ -511,7 +657,7 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
                     required
                     value={vehiclePlate}
                     aria-label="Biển số xe nhận hàng"
-                    onChange={(e) => setVehiclePlate(e.target.value)}
+                    onChange={(e) => setVehiclePlate(e.target.value.toUpperCase())}
                     className="w-full px-3 py-2 border border-slate-300 rounded-lg uppercase font-mono"
                   />
                 </div>
@@ -553,6 +699,10 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
                   </div>
                 </div>
               </fieldset>
+              <p className="text-slate-500 text-caption">
+                Phiếu có hiệu lực 24 giờ kể từ thời điểm phát hành (đến{' '}
+                <strong>{expiryHintStr}</strong> nếu phát hành ngay bây giờ).
+              </p>
               <div className="flex justify-end space-x-2 pt-3 border-t border-slate-200">
                 <button
                   type="button"
@@ -573,6 +723,53 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
             </form>
           </div>
         </ModalOverlay>
+      )}
+
+      {/* Gate-out confirmation dialog */}
+      {pendingGateOutPass && (
+        <ConfirmDialog
+          title="Xác nhận xe ra cổng"
+          message="Thao tác này không thể hoàn tác. Container sẽ chuyển sang trạng thái Đã ra cổng và phiếu sẽ bị đánh dấu Đã sử dụng."
+          summary={[
+            { label: 'Số container', value: <span className="font-mono">{pendingGateOutPass.containerNumber}</span> },
+            { label: 'Biển số xe', value: <span className="font-mono">{pendingGateOutPass.vehiclePlate}</span> },
+            { label: 'Tài xế / Người nhận', value: pendingGateOutPass.receiverName },
+            { label: 'Số CMND/CCCD', value: <span className="font-mono">{pendingGateOutPass.receiverIdNumber}</span> },
+            { label: 'Mã phiếu', value: <span className="font-mono">{pendingGateOutPass.code}</span> },
+          ]}
+          confirmLabel="Xác nhận Ra cổng"
+          cancelLabel="Quay lại kiểm tra"
+          tone="primary"
+          pending={action.pending}
+          notice={action.notice}
+          onConfirm={handleActualGateOut}
+          onClose={() => setPendingGateOutPass(null)}
+        />
+      )}
+
+      {/* Cancel gate pass confirmation dialog */}
+      {pendingCancelPass && (
+        <ConfirmDialog
+          title="Huỷ Phiếu ra cổng"
+          message={`Phiếu ${pendingCancelPass.code} sẽ bị huỷ và không thể dùng để ra cổng nữa.`}
+          summary={[
+            { label: 'Số container', value: <span className="font-mono">{pendingCancelPass.containerNumber}</span> },
+            { label: 'Biển số xe', value: <span className="font-mono">{pendingCancelPass.vehiclePlate}</span> },
+            { label: 'Tài xế / Người nhận', value: pendingCancelPass.receiverName },
+          ]}
+          reason={{
+            label: 'Lý do huỷ phiếu',
+            placeholder: 'Nhập lý do huỷ (ví dụ: xe sai biển số, chủ hàng yêu cầu huỷ...)',
+            minLength: 10,
+          }}
+          confirmLabel="Xác nhận Huỷ"
+          cancelLabel="Không huỷ"
+          tone="danger"
+          pending={action.pending}
+          notice={action.notice}
+          onConfirm={handleActualCancel}
+          onClose={() => setPendingCancelPass(null)}
+        />
       )}
     </div>
   );

@@ -186,15 +186,27 @@ const MainLayout: React.FC = () => {
       case 'work-queue':
         return <WorkQueueView onNavigate={handleNavigate} />;
       case 'manifests':
-        return <ManifestsView />;
+        return <ManifestsView onNavigate={handleNavigate} />;
       case 'containers':
         return <ContainersView onNavigate={handleNavigate} selectedVisitId={activeContextId} />;
       case 'movement-orders':
         return <MovementOrdersView onNavigate={handleNavigate} targetVisitId={activeContextId} />;
       case 'truck-visits':
-        return <TruckVisitsView onNavigate={handleNavigate} targetVisitId={target.visitId} />;
+        return (
+          <TruckVisitsView
+            onNavigate={handleNavigate}
+            targetVisitId={target.visitId}
+            highlightTruckVisitId={target.truckVisitId}
+          />
+        );
       case 'gate-in':
-        return <GateInView onNavigate={handleNavigate} defaultVisitId={activeContextId} />;
+        return (
+          <GateInView
+            onNavigate={handleNavigate}
+            defaultVisitId={activeContextId}
+            defaultTruckVisitId={target.truckVisitId}
+          />
+        );
       case 'yard':
         return <YardView onNavigate={handleNavigate} targetAssignVisitId={activeContextId} />;
       case 'billing':
@@ -209,7 +221,13 @@ const MainLayout: React.FC = () => {
           />
         );
       case 'handovers':
-        return <HandoversView onNavigate={handleNavigate} targetHandoverId={target.handoverId} />;
+        return (
+          <HandoversView
+            onNavigate={handleNavigate}
+            targetHandoverId={target.handoverId}
+            targetVisitId={target.visitId}
+          />
+        );
       case 'partner-clients':
         return <PartnerManagementView mode="CLIENTS" />;
       case 'partner-api-logs':
@@ -238,6 +256,7 @@ const MainLayout: React.FC = () => {
       <Header
         currentTab={`${activeTab}:${location.search}`}
         onMenuClick={() => setIsSidebarOpen((open) => !open)}
+        onNavigate={handleNavigate}
       />
       <div className="flex min-h-0 flex-1">
         {isSidebarOpen && (

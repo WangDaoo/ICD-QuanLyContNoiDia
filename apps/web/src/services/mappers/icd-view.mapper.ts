@@ -215,7 +215,10 @@ export function mapYardRecommendationDto(input: unknown): YardRecommendation {
   return {
     slot,
     ruleScore: asNumber(dto?.ruleScore ?? dto?.score),
-    mlProbability: asNumber(dto?.mlProbability ?? dto?.probability),
+    mlProbability:
+      dto?.mlProbability === null || (dto?.mlProbability === undefined && dto?.probability == null)
+        ? null
+        : asNumber(dto?.mlProbability ?? dto?.probability),
     reasons: asStrings(dto.reasons),
   };
 }
