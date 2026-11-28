@@ -1,4 +1,4 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, Optional } from '@nestjs/common';
 import { Cron, CronExpression } from '@nestjs/schedule';
 import {
   EdiAlertSeverity,
@@ -19,6 +19,7 @@ import {
 } from '../transports/edi-transport.interface';
 import { EdiRoutingSnapshot } from '../schemas/edi-routing-snapshot.schema';
 import { EDI_DEFAULT_CONFIG } from '../constants/edi-settings.constants';
+import { RealtimeService } from '../../realtime/realtime.service';
 
 @Injectable()
 export class EdiDispatcherService {
@@ -32,6 +33,7 @@ export class EdiDispatcherService {
     private readonly mockTransport: EdiMockTransport,
     private readonly httpsTransport: EdiHttpsTransport,
     private readonly sftpTransport: EdiSftpTransport,
+    @Optional() private readonly realtime?: RealtimeService,
   ) {}
 
   @Cron(CronExpression.EVERY_30_SECONDS)
@@ -98,6 +100,7 @@ export class EdiDispatcherService {
 
     let sentCount = 0;
     let failedCount = 0;
+    const changedIcdIds = new Set<string | null>();
 
     for (const msg of messages) {
       const lockAcquired = await this.prisma.ediOutboxMessage.updateMany({
@@ -118,6 +121,7 @@ export class EdiDispatcherService {
 
       const routingSnapshot = msg.routingSnapshot as unknown as EdiRoutingSnapshot;
       const payloadSnapshot = msg.payloadSnapshot as unknown;
+      changedIcdIds.add(routingSnapshot?.icdId ?? null);
 
       const input: EdiDeliveryInput = {
         messageId: msg.id,
@@ -195,11 +199,25 @@ export class EdiDispatcherService {
       }
     }
 
+    this.publishRealtime(changedIcdIds);
+
     return {
       processed: messages.length,
       sent: sentCount,
       failed: failedCount,
     };
+  }
+
+  /** Báo cho màn hình EDI của từng ICD tải lại trạng thái outbox và cảnh báo. */
+  private publishRealtime(icdIds: ReadonlySet<string | null>): void {
+    if (!this.realtime) return;
+    for (const icdId of icdIds) {
+      try {
+        this.realtime.publish({ topics: ['edi'], source: 'system', icdId });
+      } catch (error) {
+        this.logger.warn(`Không phát được sự kiện realtime EDI: ${String(error)}`);
+      }
+    }
   }
 
   private async sendViaTransport(

@@ -5,6 +5,7 @@ import { AuthProvider } from './src/features/auth/context/AuthProvider';
 import { RootNavigator } from './src/navigation/RootNavigator';
 import { ThemeProvider, useTheme } from './src/theme/ThemeProvider';
 import { ApiConnectionProvider } from './src/services/api/ApiConnectionProvider';
+import { RealtimeProvider } from './src/services/realtime/RealtimeProvider';
 import { useGuardedDeepLinks } from './src/navigation/useGuardedDeepLinks';
 import type { RootStackParamList } from './src/navigation/types';
 const navigationRef = createNavigationContainerRef<RootStackParamList>();
@@ -21,5 +22,5 @@ function TerminalApp() {
   </NavigationContainer>;
 }
 export default function App() {
-  return <SafeAreaProvider><ThemeProvider><ApiConnectionProvider><AuthProvider><TerminalApp /></AuthProvider></ApiConnectionProvider></ThemeProvider></SafeAreaProvider>;
+  return <SafeAreaProvider><ThemeProvider><ApiConnectionProvider><AuthProvider><RealtimeProvider><TerminalApp /></RealtimeProvider></AuthProvider></ApiConnectionProvider></ThemeProvider></SafeAreaProvider>;
 }

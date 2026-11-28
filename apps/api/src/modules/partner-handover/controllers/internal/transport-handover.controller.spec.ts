@@ -1,6 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { PERMISSION_CODES } from '../../../../common/constants/permission-codes.constants';
+import { REQUIRED_PERMISSIONS_KEY } from '../../../../common/constants/auth-metadata.constants';
 import type { AuthenticatedUser } from '../../../../common/types/authenticated-user.types';
 import { HandoverService } from '../../services/handover.service';
+import { PartnerClientService } from '../../services/partner-client.service';
 import { TransportHandoverReadService } from '../../services/transport-handover-read.service';
 import {
   ContainerHandoverSummaryController,
@@ -20,6 +23,7 @@ describe('Transport handover query controllers', () => {
     findById: jest.Mock;
     findSummaryByContainerVisit: jest.Mock;
   };
+  let partnerClientService: { listActiveOptions: jest.Mock };
 
   const actor = {
     id: 'user-1',
@@ -46,6 +50,11 @@ describe('Transport handover query controllers', () => {
         .fn()
         .mockResolvedValue({ source: 'read' }),
     };
+    partnerClientService = {
+      listActiveOptions: jest.fn().mockResolvedValue([
+        { id: 'pc-1', partnerCode: 'PARTNER_A', partnerName: 'Đối tác A' },
+      ]),
+    };
 
     const module: TestingModule = await Test.createTestingModule({
       controllers: [
@@ -55,6 +64,7 @@ describe('Transport handover query controllers', () => {
       providers: [
         { provide: HandoverService, useValue: commandService },
         { provide: TransportHandoverReadService, useValue: readService },
+        { provide: PartnerClientService, useValue: partnerClientService },
       ],
     }).compile();
 
@@ -86,5 +96,32 @@ describe('Transport handover query controllers', () => {
       'icd-1',
     );
     expect(commandService.findSummaryByContainerVisit).not.toHaveBeenCalled();
+  });
+
+  it('getPartnerClientOptions returns {data} from partnerClientService', async () => {
+    const result = await transportController.getPartnerClientOptions();
+    expect(result).toEqual({
+      data: [{ id: 'pc-1', partnerCode: 'PARTNER_A', partnerName: 'Đối tác A' }],
+    });
+    expect(partnerClientService.listActiveOptions).toHaveBeenCalled();
+  });
+
+  it('getPartnerClientOptions is guarded by HANDOVER_CREATE permission', () => {
+    // Verify the Permissions decorator is applied with HANDOVER_CREATE on the prototype method
+    const metadataKey = Reflect.getMetadata(
+      REQUIRED_PERMISSIONS_KEY,
+      TransportHandoverController.prototype.getPartnerClientOptions,
+    );
+    expect(metadataKey).toContain(PERMISSION_CODES.HANDOVER_CREATE);
+  });
+
+  it('getPartnerClientOptions is declared before findById in the prototype', () => {
+    // Ensures Express resolves /handovers/partner-clients before /handovers/:id
+    const methodNames = Object.getOwnPropertyNames(TransportHandoverController.prototype);
+    const partnerClientsIdx = methodNames.indexOf('getPartnerClientOptions');
+    const findByIdIdx = methodNames.indexOf('findById');
+    expect(partnerClientsIdx).toBeGreaterThan(-1);
+    expect(findByIdIdx).toBeGreaterThan(-1);
+    expect(partnerClientsIdx).toBeLessThan(findByIdIdx);
   });
 });

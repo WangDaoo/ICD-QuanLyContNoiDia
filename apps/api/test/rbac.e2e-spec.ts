@@ -10,6 +10,7 @@ import { PrismaService } from '../src/database/prisma.service';
 import { assertE2EDatabase } from './helpers/assert-e2e-database';
 import { disableE2ENotificationTriggers } from './helpers/disable-e2e-notification-triggers';
 import { stopE2ECronJobs } from './helpers/stop-e2e-cron-jobs';
+import { unwrapData } from './helpers/api-envelope';
 
 config({ path: path.resolve(__dirname, '../../../.env') });
 
@@ -44,7 +45,7 @@ describe('RBAC E2E', () => {
       })
       .expect(200);
 
-    return response.body as AuthResult;
+    return unwrapData<AuthResult>(response.body);
   }
 
   beforeAll(async () => {
@@ -137,7 +138,9 @@ describe('RBAC E2E', () => {
     const permissions = permissionResponse.body.data.permissions;
     // permissions can be string[] or object[] with code
     if (permissions && permissions.length > 0 && typeof permissions[0] === 'object') {
-      expect(permissions.map((p: any) => p.code ?? p.permission?.code)).toContain('users.read');
+      expect(
+        permissions.map((p: { code?: string; permission?: { code?: string } }) => p.code ?? p.permission?.code),
+      ).toContain('users.read');
     } else {
       expect(permissions).toContain('users.read');
     }

@@ -3,6 +3,7 @@ import { NotificationTriggerService } from './notification-trigger.service';
 import { PrismaService } from '../../../database/prisma.service';
 import { InvoicePdfService } from './invoice-pdf.service';
 import { SmtpEmailProvider } from '../providers/smtp-email.provider';
+import { RealtimeService } from '../../realtime/realtime.service';
 import {
   NotificationDevicePlatform,
   NotificationType,
@@ -28,6 +29,9 @@ describe('NotificationTriggerService', () => {
   let smtpEmailProvider: {
     sendEmail: jest.Mock;
   };
+  let realtime: {
+    publish: jest.Mock;
+  };
 
   beforeEach(async () => {
     prisma = {
@@ -51,12 +55,17 @@ describe('NotificationTriggerService', () => {
       sendEmail: jest.fn(),
     };
 
+    realtime = {
+      publish: jest.fn(),
+    };
+
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         NotificationTriggerService,
         { provide: PrismaService, useValue: prisma },
         { provide: InvoicePdfService, useValue: invoicePdfService },
         { provide: SmtpEmailProvider, useValue: smtpEmailProvider },
+        { provide: RealtimeService, useValue: realtime },
       ],
     }).compile();
 
@@ -79,6 +88,7 @@ describe('NotificationTriggerService', () => {
 
     expect(result).toBe('existing-id');
     expect(prisma.notification.create).not.toHaveBeenCalled();
+    expect(realtime.publish).not.toHaveBeenCalled();
   });
 
   it('should create notification and materialize email and push delivery outbox rows', async () => {
@@ -106,6 +116,54 @@ describe('NotificationTriggerService', () => {
     expect(prisma.notification.create).toHaveBeenCalled();
     // 1 email + 2 push deliveries = 3 calls
     expect(prisma.notificationDelivery.upsert).toHaveBeenCalledTimes(3);
+    expect(realtime.publish).toHaveBeenCalledWith({
+      topics: ['notifications'],
+      source: 'system',
+      audience: 'user',
+      icdId: 'icd-1',
+      userId: 'user-1',
+    });
+  });
+
+  it('does not publish realtime events for email-only notifications', async () => {
+    prisma.notification.findUnique.mockResolvedValue(null);
+    prisma.notification.create.mockResolvedValue({ id: 'email-only-1' });
+    prisma.notificationDelivery.upsert.mockResolvedValue({});
+
+    await service.emitNotification({
+      type: NotificationType.GATE_OUT_COMPLETED,
+      icdId: 'icd-1',
+      recipientEmail: 'consignee@example.com',
+      title: 'Gate Out',
+      body: 'Body',
+      sourceType: 'ContainerVisit',
+      sourceId: 'visit-2',
+      dedupeKey: 'GATE_OUT:visit-2',
+    });
+
+    expect(realtime.publish).not.toHaveBeenCalled();
+  });
+
+  it('keeps the notification when the realtime publish fails', async () => {
+    prisma.notification.findUnique.mockResolvedValue(null);
+    prisma.notification.create.mockResolvedValue({ id: 'new-notif-2' });
+    prisma.notificationDevice.findMany.mockResolvedValue([]);
+    realtime.publish.mockImplementation(() => {
+      throw new Error('bus down');
+    });
+
+    const result = await service.emitNotification({
+      type: NotificationType.GATE_OUT_COMPLETED,
+      icdId: 'icd-1',
+      recipientUserId: 'user-1',
+      title: 'Gate Out',
+      body: 'Body',
+      sourceType: 'ContainerVisit',
+      sourceId: 'visit-3',
+      dedupeKey: 'GATE_OUT:visit-3',
+    });
+
+    expect(result).toBe('new-notif-2');
   });
 
   it('keeps a separate idempotent HOLD record for each operator recipient', async () => {

@@ -9,22 +9,20 @@ export const AuditsView: React.FC = () => {
   const { auditLogs } = useApp();
   const [searchTerm, setSearchTerm] = useViewQueryState('activity', 'search', '');
 
-  const filteredLogs = auditLogs.filter(
-    (log) =>
-      log.action.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      log.entityType.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      log.entityId.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      log.actor.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      log.details.toLowerCase().includes(searchTerm.toLowerCase()),
+  const needle = searchTerm.trim().toLowerCase();
+  const filteredLogs = auditLogs.filter((log) =>
+    [log.action, log.entityType, log.entityId, log.actor, log.details, log.requestId].some((value) =>
+      (value ?? '').toLowerCase().includes(needle),
+    ),
   );
 
   return (
     <div className="space-y-6">
-      <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="page-heading flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h2 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
             <ShieldCheck className="w-5 h-5 text-blue-600" />
-            <span>Nhật ký Kiểm toán & An ninh (Audit Logs)</span>
+            <span>Nhật ký kiểm toán</span>
           </h2>
           <p className="text-xs text-slate-500 mt-1">
             Ghi nhận vết can thiệp nghiệp vụ (Ai đã làm gì, lúc nào, đối tượng và thông tin chi
@@ -42,7 +40,7 @@ export const AuditsView: React.FC = () => {
           <input
             type="text"
             aria-label="Tìm nhật ký kiểm toán"
-            placeholder="Tìm theo hành động, đối tượng, người thực hiện..."
+            placeholder="Tìm theo hành động, đối tượng, người thực hiện, mã request..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full pl-9 pr-3 py-2 border border-slate-200 rounded-lg bg-slate-50 focus:outline-none focus:ring-1 focus:ring-blue-500"
@@ -50,8 +48,8 @@ export const AuditsView: React.FC = () => {
         </div>
       </div>
 
-      <div role="region" aria-label="Nhật ký kiểm toán, cuộn ngang để xem các cột" tabIndex={0} className="bg-white rounded-xl border border-slate-200 shadow-xs overflow-hidden">
-        <table className="w-full text-left text-xs">
+      <div role="region" aria-label="Nhật ký kiểm toán, cuộn ngang để xem các cột" tabIndex={0} className="bg-white rounded-xl border border-slate-200 shadow-xs overflow-x-auto">
+        <table className="w-full min-w-[900px] text-left text-xs">
           <thead className="bg-slate-50 border-b border-slate-200 text-slate-600 font-semibold">
             <tr>
               <th className="py-3 px-4">Thời gian</th>

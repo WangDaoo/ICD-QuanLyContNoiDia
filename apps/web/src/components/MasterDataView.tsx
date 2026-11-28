@@ -145,7 +145,7 @@ export const MasterDataView: React.FC = () => {
 
   const statusBadge = (active: boolean) => (
     <span
-      className={`px-2 py-1 rounded-full text-caption font-bold ${active ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-200 text-slate-600'}`}
+      className={`status-frame px-2 py-1 rounded-full text-caption font-bold ${active ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-200 text-slate-600'}`}
     >
       {active ? 'ACTIVE' : 'INACTIVE'}
     </span>
@@ -172,11 +172,11 @@ export const MasterDataView: React.FC = () => {
 
   return (
     <div className="space-y-5">
-      <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="page-heading flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h2 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
             <Database className="w-5 h-5 text-blue-600" />
-            <span>Danh mục dùng chung (Master Data)</span>
+            <span>Danh mục dùng chung</span>
           </h2>
           <p className="text-xs text-slate-500 mt-1">
             Catalog dùng chung cho Manifest/HBL/Truck Visit. Không hard-delete — chỉ khóa
@@ -217,8 +217,8 @@ export const MasterDataView: React.FC = () => {
         })}
       </div>
 
-      <div className="bg-white rounded-xl border border-slate-200 shadow-xs overflow-hidden">
-        <table className="w-full text-xs">
+      <div className="bg-white rounded-xl border border-slate-200 shadow-xs overflow-x-auto">
+        <table className="w-full min-w-[560px] text-xs">
           <thead className="bg-slate-50 text-slate-500 uppercase text-caption">
             <tr>
               <th className="text-left px-4 py-3">Tên</th>

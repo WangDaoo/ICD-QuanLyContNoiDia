@@ -21,6 +21,7 @@ import { yardApi, type YardSlot, type YardRecommendations, type SlotCheck } from
 import { loadYardSnapshot, type YardSnapshot } from '../api/yard-snapshot';
 import { canSelectYardSlot } from '../api/yard-map';
 import { YardSlotGrid } from '../components/YardSlotGrid';
+import { useRealtimeRefresh } from '../../../services/realtime/useRealtimeRefresh';
 
 export function YardHomeScreen() {
   const navigation = useNavigation<NativeStackNavigationProp<YardStackParamList>>();
@@ -85,13 +86,19 @@ export function YardHomeScreen() {
       if (locationGeneration.current === generation) setResolvingLocation(false);
     }
   };
-  const load = useCallback(async () => {
+  const load = useCallback(async (options: { silent?: boolean } = {}) => {
+    // `silent`: tải lại sơ đồ do realtime. Bỏ qua khi người dùng đang chọn container/vị trí,
+    // vì tải lại sẽ hủy kết quả kiểm tra vị trí đang chờ; sau khi thao tác xong màn hình tự tải lại.
+    const silent = options.silent === true;
+    if (silent && selectedVisit.current) return;
     const ticket = ++loadGeneration.current;
     const activeVisit = selectedVisit.current;
     const generation = activeVisit ? ++locationGeneration.current : locationGeneration.current;
     const shouldReadLocation = !!activeVisit && hasAnyPermission(user, ['yard.read']);
-    setLoading(true);
-    setError('');
+    if (!silent) {
+      setLoading(true);
+      setError('');
+    }
     if (activeVisit) {
       setCurrentSlot(null);
       setResolvingLocation(shouldReadLocation);
@@ -147,9 +154,9 @@ export function YardHomeScreen() {
               : 'Không tải được vị trí hiện tại. Kéo để thử lại.',
           );
       }
-      if (ticket === loadGeneration.current) setError(errors.join('\n'));
+      if (ticket === loadGeneration.current && !silent) setError(errors.join('\n'));
     } catch (err) {
-      if (ticket === loadGeneration.current)
+      if (ticket === loadGeneration.current && !silent)
         setError(err instanceof Error ? err.message : 'Không tải được dữ liệu bãi.');
     } finally {
       if (ticket === loadGeneration.current) {
@@ -168,6 +175,9 @@ export function YardHomeScreen() {
       };
     }, [load]),
   );
+  useRealtimeRefresh(() => load({ silent: true }), {
+    topics: ['yard', 'containers', 'gate', 'inspections', 'holds', 'movement-orders'],
+  });
   const chooseSlot = (slot: YardSlot) => {
     if (!visitId || busy || loading || !canAct || !canSelectYardSlot(slot)) return;
     targetGeneration.current++;
@@ -295,7 +305,7 @@ export function YardHomeScreen() {
   };
   return (
     <ScreenLayout title="Tác nghiệp bãi" onRefresh={() => void load()} refreshing={loading}>
-      <Card title="Lệnh Tác nghiệp Bãi (Yard Stacking)">
+      <Card title="Xếp và chuyển vị trí">
         <SelectField
           label="Chọn Container cần xếp/dời vị trí"
           value={visitId}

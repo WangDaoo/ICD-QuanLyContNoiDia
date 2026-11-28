@@ -157,7 +157,7 @@ export function GateOutConfirmScreen() {
           {Platform.OS === 'web' ? (
             <PrimaryButton
               requiresOnline
-              title="Xem lại & xác nhận gate-out"
+              title="Xem lại và xác nhận xuất cổng"
               onPress={() => void review()}
               disabled={!eligible}
               loading={busy}
@@ -177,7 +177,7 @@ export function GateOutConfirmScreen() {
                 justifyContent: 'center',
                 alignItems: 'center',
                 padding: 16,
-                borderRadius: 10,
+                borderRadius: 8,
                 backgroundColor:
                   !eligible || busy
                     ? theme.colors.borderDark

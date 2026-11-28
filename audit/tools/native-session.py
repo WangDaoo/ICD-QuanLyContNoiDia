@@ -9,7 +9,11 @@ import subprocess
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[2]
-RUN = ROOT / 'audit/runs/2026-10-11-native-01'
+RUN_NAME = os.environ.get('ICD_AUDIT_EVIDENCE_RUN', '2026-10-11-native-01')
+import re
+if not re.fullmatch(r'\d{4}-\d{2}-\d{2}-native-\d+', RUN_NAME):
+    raise ValueError('Invalid native audit run directory')
+RUN = ROOT / 'audit/runs' / RUN_NAME
 ADB = Path(os.environ['LOCALAPPDATA']) / 'Android/Sdk/platform-tools/adb.exe'
 SERIAL = 'emulator-5554'
 
@@ -106,6 +110,10 @@ def capture(name):
 def tap(label):
     candidates = [n for n in tree().iter('node')
                   if n.get('content-desc') == label or n.get('text') == label]
+    if len(candidates) > 1:
+        actionable = [n for n in candidates if n.get('clickable') == 'true']
+        if len(actionable) == 1:
+            candidates = actionable
     if len(candidates) != 1:
         raise RuntimeError(f'Expected one visible node, found {len(candidates)}')
     b = bounds(candidates[0].get('bounds', ''))

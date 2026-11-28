@@ -6,7 +6,7 @@ import {
   useLocation,
   useNavigate,
 } from 'react-router-dom';
-import { makeDestination, parseDestination, type NavigationContext } from './navigation';
+import { makeDestination, parseDestination, isKnownAppPath, type NavigationContext } from './navigation';
 import { clearViewState, ViewQueryContext } from './context/useViewQueryState';
 import { canAccessWebTab } from './services/permissions';
 import { AppProvider, useApp } from './context/AppContext';
@@ -103,6 +103,8 @@ const MainLayout: React.FC = () => {
   };
   const blocker = useBlocker(({ currentLocation, nextLocation }) => {
     if (!isAuthenticated) return false;
+    // Don't block redirects away from paths that are not valid app destinations.
+    if (!isKnownAppPath(currentLocation.pathname)) return false;
     const current = parseDestination(currentLocation.pathname, currentLocation.search);
     const next = parseDestination(nextLocation.pathname, nextLocation.search);
     if (
@@ -119,15 +121,28 @@ const MainLayout: React.FC = () => {
   }, [blocker]);
   contexts.current.set(activeTab, context);
   useEffect(() => {
-    if (previousUser.current && (!isAuthenticated || previousUser.current !== currentUser.id)) {
-      clearViewState(previousUser.current);
-      setVisited([]);
-      contexts.current.clear();
-      scrolls.current.clear();
-      navigate('/app/dashboard', { replace: true });
+    if (previousUser.current) {
+      if (!isAuthenticated || previousUser.current !== currentUser.id) {
+        clearViewState(previousUser.current);
+        setVisited([]);
+        contexts.current.clear();
+        scrolls.current.clear();
+        // S2: on logout go back to login root; on user-switch go to dashboard.
+        navigate(!isAuthenticated ? '/' : '/app/dashboard', { replace: true });
+      }
+    } else if (isAuthenticated) {
+      // S1: fresh login – preserve valid deep-links, redirect everything else to dashboard.
+      const isValidAppTab = location.pathname.startsWith('/app/') && isKnownAppPath(location.pathname);
+      if (!isValidAppTab) navigate('/app/dashboard', { replace: true });
     }
     previousUser.current = isAuthenticated ? currentUser.id : undefined;
   }, [isAuthenticated, currentUser.id, navigate]);
+  // S3: redirect authenticated users away from the login root and any unknown path.
+  useEffect(() => {
+    if (isAuthenticated && (location.pathname === '/' || !isKnownAppPath(location.pathname))) {
+      navigate('/app/dashboard', { replace: true });
+    }
+  }, [isAuthenticated, location.pathname, navigate]);
   useEffect(() => {
     setVisited((old) => (old.includes(activeTab) ? old : [...old, activeTab]));
   }, [activeTab]);

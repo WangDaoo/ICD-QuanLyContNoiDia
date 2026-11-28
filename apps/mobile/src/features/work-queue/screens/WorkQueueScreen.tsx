@@ -17,7 +17,11 @@ import { useTheme } from '../../../theme/ThemeProvider';
 import { PrimaryButton } from '../../../components/PrimaryButton';
 import { readCache, cacheScope } from '../../../storage/read-cache-store';
 import { useApiConnection } from '../../../services/api/ApiConnectionProvider';
+import { useRealtimeRefresh } from '../../../services/realtime/useRealtimeRefresh';
 import type { MainTabParamList, RootStackParamList, WorkQueueTask } from '../../../navigation/types';
+
+/** Hàng đợi gom việc Gate, bãi, kiểm hóa, lệnh giữ và chứng từ nên theo dõi mọi nhóm nghiệp vụ container. */
+const QUEUE_TOPICS = ['containers', 'gate', 'gate-passes', 'yard', 'movement-orders', 'inspections', 'holds', 'billing', 'manifests'] as const;
 
 export function WorkQueueScreen() {
   const { theme } = useTheme();
@@ -40,13 +44,15 @@ export function WorkQueueScreen() {
   const currentQuery = useRef('');
   type QueueResponse = { data: ApiWorkQueueItem[]; meta: { totalPages: number }; summary?: { total: number; overdue: number } };
 
-  const fetchData = useCallback(async () => {
+  const fetchData = useCallback(async (options: { silent?: boolean } = {}) => {
+    // `silent`: tải lại do realtime, giữ danh sách đang hiển thị và không bật vòng xoay.
+    const silent = options.silent === true;
     const ticket = ++request.current;
     if (!user) return;
     const scope = cacheScope(user);
     const query = JSON.stringify([page, filter, urgency, [...user.permissionCodes].sort()]);
     if (currentQuery.current !== query) { setItems([]); setStats(null); setPages(0); setCachedAt(null); currentQuery.current = query; }
-    setError(null); setLoading(true);
+    if (!silent) { setError(null); setLoading(true); }
     const apply = (response: QueueResponse) => {
       setPages(response.meta.totalPages);
       setItems(response.data.map(mapWorkQueueItem).filter((task): task is WorkQueueTask => !!task));
@@ -55,10 +61,12 @@ export function WorkQueueScreen() {
     try {
       const response = await apiClient.get<QueueResponse>(`/containers/work-queue?pageSize=20&page=${page}${filter ? '&type=' + filter : ''}${urgency ? '&urgency=' + urgency : ''}`);
       if (ticket !== request.current) return;
-      apply(response); setCachedAt(null);
+      apply(response); setCachedAt(null); setError(null);
       void readCache.write(scope, 'work-queue', query, response).catch(() => {});
     } catch (err) {
       if (ticket !== request.current) return;
+      // Lỗi khi tải nền: giữ danh sách đang hiển thị, lần tải sau sẽ thử lại.
+      if (silent) return;
       const cached = err instanceof TypeError ? await readCache.read<QueueResponse>(scope, 'work-queue', query) : null;
       if (ticket !== request.current) return;
       if (cached) { apply(cached.data); setCachedAt(cached.savedAt); }
@@ -68,6 +76,7 @@ export function WorkQueueScreen() {
     finally { if (ticket === request.current) { setLoading(false); setRefreshing(false); } }
   }, [page, filter, urgency, user, online]);
   useFocusEffect(useCallback(() => { void fetchData(); return () => { request.current++; }; }, [fetchData]));
+  useRealtimeRefresh(() => fetchData({ silent: true }), { topics: QUEUE_TOPICS });
 
   const handleOpenTask = (task: WorkQueueTask) => {
     const destination = getWorkQueueDestination(user, task);
@@ -90,7 +99,7 @@ export function WorkQueueScreen() {
     {cachedAt !== null ? <><Text accessibilityLiveRegion="polite" style={fieldStyles.muted}>Dữ liệu đã lưu lúc {new Date(cachedAt).toLocaleString('vi-VN')} có thể đã cũ. Chỉ dùng để xem; kết nối lại và tải mới trước khi thao tác.</Text><PrimaryButton title="Tải lại dữ liệu" variant="secondary" onPress={() => void fetchData()} /></> : null}
     {loading && !items.length ? <LoadingState /> : error && cachedAt === null ? <ErrorState message={error} onRetry={() => void fetchData()} /> : visibleItems.length === 0 ? <Card><EmptyState title="Không có tác vụ cần xử lý" description="Không có việc phù hợp với bộ lọc và quyền trong ca trực." /></Card> : visibleItems.map(task =>
       <TouchableOpacity accessibilityRole="button" key={`${task.type}-${task.entityId}-${task.visitId ?? ''}`} onPress={() => handleOpenTask(task)}>
-        <Card><View style={{ flexDirection: 'row', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8 }}><StatusBadge label={task.urgency === 'OVERDUE' ? 'QUÁ HẠN' : task.urgency === 'HIGH' ? 'ƯU TIÊN CAO' : 'CHỜ XỬ LÝ'} variant={task.urgency === 'OVERDUE' ? 'danger' : 'info'} /><Text style={fieldStyles.muted}>{task.timeInfo}</Text></View>
+        <Card><View style={{ flexDirection: 'row', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8 }}><StatusBadge label={task.urgency === 'OVERDUE' ? 'QUÁ HẠN' : task.urgency === 'CRITICAL' ? 'SẮP ĐẾN HẠN' : task.urgency === 'HIGH' ? 'ƯU TIÊN CAO' : 'CHỜ XỬ LÝ'} variant={task.urgency === 'OVERDUE' ? 'danger' : task.urgency === 'CRITICAL' ? 'warning' : 'info'} /><Text style={fieldStyles.muted}>{task.timeInfo}</Text></View>
           <Text style={{ color: theme.colors.info, fontSize: 12, fontWeight: '700' }}>{task.containerNo}</Text>
           <Text style={fieldStyles.value}>{task.title}</Text>{task.licensePlate ? <Text style={fieldStyles.muted}>Xe: {task.licensePlate}</Text> : null}
           <Text style={fieldStyles.muted}>{task.subtitle}</Text><Text style={{ color: theme.colors.info }}>Mở công việc →</Text>

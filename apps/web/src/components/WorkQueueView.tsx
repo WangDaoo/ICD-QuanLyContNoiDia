@@ -36,13 +36,13 @@ export const WorkQueueView: React.FC<WorkQueueViewProps> = ({
   const getUrgencyBadge = (urgency: TaskUrgency) => {
     switch (urgency) {
       case 'OVERDUE':
-        return <span className="px-3 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-800 border border-rose-300">QUÁ HẠN</span>;
+        return <span className="status-frame px-3 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-800 border border-rose-300">QUÁ HẠN</span>;
       case 'HIGH':
-        return <span className="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-300">ƯU TIÊN CAO</span>;
+        return <span className="status-frame px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-300">ƯU TIÊN CAO</span>;
       case 'MEDIUM':
-        return <span className="px-3 py-1 rounded-full text-xs font-bold bg-yellow-100 text-yellow-800 border border-yellow-300">TRUNG BÌNH</span>;
+        return <span className="status-frame px-3 py-1 rounded-full text-xs font-bold bg-yellow-100 text-yellow-800 border border-yellow-300">TRUNG BÌNH</span>;
       case 'NORMAL':
-        return <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">BÌNH THƯỜNG</span>;
+        return <span className="status-frame px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">BÌNH THƯỜNG</span>;
     }
   };
 
@@ -58,7 +58,7 @@ export const WorkQueueView: React.FC<WorkQueueViewProps> = ({
         <div>
           <h2 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
             <ListTodo className="w-5 h-5 text-blue-600" />
-            <span>Danh sách công việc thông minh (Work Queue)</span>
+            <span>Công việc cần xử lý</span>
           </h2>
           <p className="text-xs text-slate-500 mt-1">
             Tự động sắp xếp các tác vụ theo mức độ khẩn cấp (Urgency) và cam kết thời gian hoàn thành (SLA)

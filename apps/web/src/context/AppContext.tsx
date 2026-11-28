@@ -73,6 +73,8 @@ export interface AppContextType {
   sessionRestoreError?: string;
   retrySessionRestore?: () => Promise<void>;
   refreshData: () => Promise<void>;
+  /** Live-update channel state: `live` while server change events are arriving. */
+  realtimeStatus?: RealtimeStatus;
   resourceStatus?: ResourceStatus;
   detailStatus?: DetailStatus;
   currentUser: User;
@@ -99,6 +101,7 @@ export interface AppContextType {
   warehouses: CustomerWarehouse[];
   partnerClients: PartnerApiClient[];
   handovers: TransportHandover[];
+  handoverPartnerOptions: HandoverPartnerOption[];
   partnerApiLogs: PartnerApiLog[];
   auditLogs: AuditLog[];
 
@@ -293,7 +296,7 @@ const mapAuthUserToView = (input: unknown): User => {
     active: user.active !== false, consigneeId: asOptionalString(user.consigneeId), permissionCodes: asStrings(user.permissionCodes) };
 };
 
-import { apiClient } from '../services/api/client';
+import { apiClient, API_BASE_URL } from '../services/api/client';
 import { unwrapData, mapYardRecommendationDto } from '../services/mappers';
 import { mapLiveCollections, mapBillingPreview, type LiveCollections } from '../services/mappers/live-view.mapper';
 import { executeOperation, type CommandResult } from '../services/api/operation';
@@ -303,10 +306,21 @@ import { hasWebPermission } from '../services/permissions';
 import { isValidPaymentAmount, PAYMENT_AMOUNT_ERROR } from '../services/payment-amount';
 import { loadAllPages } from '../services/api/load-list';
 import { asRecord, asRecords, asString, asStrings, asOptionalString, asNumber } from '../services/mappers/api-response.mapper';
-import { errorStatus, errorMessage, readFailureState, type ResourceStatus, type DetailStatus } from './resource-data';
+import { errorStatus, errorMessage, readFailureState, type ResourceState, type ResourceStatus, type DetailStatus } from './resource-data';
 import { getSafetyReadStatus, mergeSafetyRecords, type VisitSafetyStatus } from '../services/visit-safety-data';
+import { canReadRoute } from '../services/read-permissions';
+import { DATA_KEYS, FOREGROUND_FULL_REFRESH, mergeRefreshScopes, RESYNC_CHANGE, type DataKey, type RefreshScope } from '../services/realtime/refresh-plan';
+import { createRefreshScheduler } from '../services/realtime/refresh-scheduler';
+import { createRealtimeStream, type RealtimeStatus } from '../services/realtime/realtime-stream';
+import { REALTIME_CLIENT_ID } from '../services/realtime/client-id';
 
-const DATA_ROUTES: Record<string, string> = {
+export interface HandoverPartnerOption {
+  id: string;
+  partnerCode: string;
+  partnerName: string;
+}
+
+const DATA_ROUTES: Record<DataKey, string> = {
   containerVisits: '/containers', manifests: '/manifests', truckVisits: '/gate/truck-visits',
   movementOrders: '/movement-orders', yardBlocks: '/yard/blocks', yardSlots: '/yard/slots',
   yardMovements: '/yard/movements', inspections: '/yard/inspections', bookings: '/yard/bookings',
@@ -337,7 +351,22 @@ async function loadList(path: string): Promise<Record<string, unknown>[]> {
   return asRecords(await loadAllPages(params => apiClient.get<unknown>(path, { params })));
 }
 
-const emptyData = () => ({ ...mapLiveCollections({}, ''), visitSafetyStatus: {} as VisitSafetyStatus });
+type DetailResource = keyof DetailStatus;
+type SafetyEntry = { status: VisitSafetyStatus[string]; holds: Record<string, unknown>[]; passes: Record<string, unknown>[] };
+/** Result of the last complete pass, reused by background passes for the lists that did not change. */
+interface RefreshSnapshot {
+  version: number;
+  healthy: boolean;
+  raw: Record<string, unknown[]>;
+  statuses: ResourceStatus;
+  details: DetailStatus;
+  safety: Map<string, SafetyEntry>;
+  partnerOptions: HandoverPartnerOption[];
+  failures: Map<string, string[]>;
+}
+type QueuedRefresh = { scope: RefreshScope; version: number; promise: Promise<void> };
+
+const emptyData = () => ({ ...mapLiveCollections({}, ''), visitSafetyStatus: {} as VisitSafetyStatus, handoverPartnerOptions: [] as HandoverPartnerOption[] });
 const isoDate = (value?: string) => value ? new Date(value).toISOString() : undefined;
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -355,36 +384,95 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const refreshFailed = useRef(false);
   const sessionVersion = useRef(0);
   const pendingRefresh = useRef<Promise<void> | null>(null);
+  const queuedRefresh = useRef<QueuedRefresh | null>(null);
+  const refreshSnapshot = useRef<RefreshSnapshot | null>(null);
+  const [realtimeStatus, setRealtimeStatus] = useState<RealtimeStatus>('offline');
   const latestActor = useRef<User>(DEFAULT_USER);
   const restoreMounted = useRef(false);
   const restoreAttempt = useRef(0);
   const pendingSessionRestore = useRef<{ version: number; promise: Promise<void> } | null>(null);
 
-  const refreshData = useCallback(async () => {
-    if (!tokenStorage.getAccessToken()) return;
-    if (pendingRefresh.current) return pendingRefresh.current;
+  const runRefresh = useCallback(function runRefresh(scope: RefreshScope): Promise<void> {
+    if (!tokenStorage.getAccessToken()) return Promise.resolve();
     const version = sessionVersion.current;
+    const inFlight = pendingRefresh.current;
+    if (inFlight) {
+      // The running pass may have read before this change: queue one more pass and merge later requests into it.
+      if (!scope.background) setIsLoading(true);
+      const queued = queuedRefresh.current;
+      if (queued?.version === version) {
+        queued.scope = mergeRefreshScopes(queued.scope, scope);
+        return queued.promise;
+      }
+      const entry: QueuedRefresh = { scope, version, promise: Promise.resolve() };
+      entry.promise = inFlight.catch(() => undefined).then(() => {
+        if (queuedRefresh.current !== entry) return;
+        queuedRefresh.current = null;
+        if (version !== sessionVersion.current) return;
+        return runRefresh(entry.scope);
+      });
+      queuedRefresh.current = entry;
+      return entry.promise;
+    }
+    const foreground = !scope.background;
     const refresh = async () => {
       const activeSession = () => version === sessionVersion.current && Boolean(tokenStorage.getAccessToken());
-      setIsLoading(true);
+      // A background pass re-reads only the changed lists when a complete pass of this session exists.
+      const snapshot = refreshSnapshot.current;
+      const partial = !scope.full && snapshot?.version === version ? snapshot : null;
+      const inScope = (key: string) => !partial || scope.keys.has(key as DataKey);
+      const rereadSafety = (id: string) => !partial || scope.safety === 'all' || scope.safety.has(id) || !partial.safety.has(id);
+      if (foreground) setIsLoading(true);
       // Old safety reads cannot authorize actions while a fresh authoritative read is pending.
-      setData(old => activeSession() ? { ...old, visitSafetyStatus: {} } : old);
-      const health = await apiClient.get<unknown>('/health/ready').catch(() => null);
+      setData(old => {
+        if (!activeSession()) return old;
+        if (!partial || scope.safety === 'all') return { ...old, visitSafetyStatus: {} };
+        if (scope.safety.size === 0) return old;
+        const visitSafetyStatus = { ...old.visitSafetyStatus };
+        for (const id of scope.safety) delete visitSafetyStatus[id];
+        return { ...old, visitSafetyStatus };
+      });
+      const health = partial ? partial.healthy : Boolean(await apiClient.get<unknown>('/health/ready').catch(() => null));
       if (version !== sessionVersion.current) return;
-      setApiReady(Boolean(health));
+      setApiReady(health);
       const previous = currentData.current;
+      // Permission-gating wrappers: skip API calls the server would reject with 403.
+      const actor = latestActor.current;
+      const forbiddenRead = () => Object.assign(new Error('Không có quyền đọc dữ liệu.'), { status: 403 });
+      const readList = (path: string): Promise<Record<string, unknown>[]> =>
+        canReadRoute(actor, path) ? loadList(path) : Promise.reject(forbiddenRead());
+      const readOne = (path: string): Promise<unknown> =>
+        canReadRoute(actor, path) ? apiClient.get<unknown>(path) : Promise.reject(forbiddenRead());
       const raw: Record<string, unknown[]> = {};
       const statuses: ResourceStatus = {};
-      const details: DetailStatus = {
-        manifests: Object.fromEntries(previous.manifests.map(row => [row.id, 'loading'])),
-        roles: Object.fromEntries(previous.roles.map(row => [row.id, 'loading'])),
-        handovers: Object.fromEntries(previous.handovers.map(row => [row.id, 'loading'])),
-      };
-      const failures: string[] = [];
-      setResourceStatus(old => Object.fromEntries(Object.keys(DATA_ROUTES).map(key => [key, key !== 'yardSlots' && (old[key] === 'ready' || old[key] === 'stale') ? old[key] : 'loading'])));
-      setDetailStatus(old => activeSession() ? {
-        manifests: { ...details.manifests }, roles: { ...details.roles }, handovers: { ...details.handovers },
-      } : old);
+      const readKeys = DATA_KEYS.filter(key => inScope(key));
+      if (partial) {
+        for (const key of DATA_KEYS) {
+          if (inScope(key)) continue;
+          raw[key] = partial.raw[key] ?? [];
+          statuses[key] = partial.statuses[key];
+        }
+      }
+      // Failure messages grouped by what produced them, so a partial pass replaces only the groups it re-read.
+      const failureGroups = new Map(partial?.failures ?? []);
+      const fail = (group: string, message: string) => failureGroups.set(group, [...(failureGroups.get(group) ?? []), message]);
+      const detailsFor = (resource: DetailResource): Record<string, ResourceState> => partial && !inScope(resource)
+        ? { ...partial.details[resource] }
+        : Object.fromEntries((previous[resource] as Array<{ id: string }>).map(row => [row.id, 'loading' as const]));
+      const details: DetailStatus = { manifests: detailsFor('manifests'), roles: detailsFor('roles'), handovers: detailsFor('handovers') };
+      if (foreground) {
+        const rereadPartnerOptions = !partial || scope.partnerOptions;
+        setResourceStatus(old => ({
+          ...(partial ? old : {}),
+          ...Object.fromEntries(readKeys.map(key => [key, key !== 'yardSlots' && (old[key] === 'ready' || old[key] === 'stale') ? old[key] : 'loading'])),
+          ...(rereadPartnerOptions ? {
+            handoverPartnerOptions: (old.handoverPartnerOptions === 'ready' || old.handoverPartnerOptions === 'stale') ? old.handoverPartnerOptions : 'loading',
+          } : {}),
+        }));
+        setDetailStatus(old => activeSession() ? {
+          manifests: { ...details.manifests }, roles: { ...details.roles }, handovers: { ...details.handovers },
+        } : old);
+      }
       const reconcileDependentFields = (key: keyof LiveCollections, mapped: LiveCollections, fresh: LiveCollections = mapped) => {
         const rules = DEPENDENT_FIELDS.filter(rule => rule.resource === key);
         const rows = statuses[key] === 'stale' ? previous[key] : mapped[key];
@@ -428,9 +516,11 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         if (key === 'manifests' || key === 'roles' || key === 'handovers')
           setDetailStatus(old => activeSession() ? { ...old, [key]: { ...details[key] } } : old);
       };
-      await Promise.all(Object.entries(DATA_ROUTES).map(async ([key, path]) => {
+      await Promise.all(readKeys.map(async key => {
+        const path = DATA_ROUTES[key];
+        failureGroups.delete(key);
         try {
-          const rows = await loadList(path);
+          const rows = await readList(path);
           if (!activeSession()) return;
           // Validate the complete paginated resource before publishing it, including financial fields.
           mapLiveCollections({ [key]: rows }, latestActor.current.role);
@@ -446,68 +536,122 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           statuses[key] = readFailureState(error, hasPrevious);
           if (key === 'manifests' || key === 'roles' || key === 'handovers')
             details[key] = statuses[key] === 'stale' ? Object.fromEntries(previous[key].map(row => [row.id, 'stale'])) : {};
-          if (![401,403].includes(errorStatus(error) ?? 0)) failures.push(path + ': ' + errorMessage(error));
+          if (![401,403].includes(errorStatus(error) ?? 0)) fail(key, path + ': ' + errorMessage(error));
         }
-        publishResource(key as keyof LiveCollections);
+        // A background pass publishes everything at once at the end instead of list by list.
+        if (foreground) publishResource(key as keyof LiveCollections);
       }));
       if (version !== sessionVersion.current) return;
-      const detailRead = async (resource: 'manifests' | 'roles' | 'handovers', row: Record<string, unknown>, read: () => Promise<unknown>) => {
+      const detailRead = async (resource: DetailResource, row: Record<string, unknown>, read: () => Promise<unknown>) => {
         const id = asString(row.id);
         try { const result = asRecord(await read()); details[resource][id] = 'ready'; return result; }
         catch (error: unknown) {
           details[resource][id] = readFailureState(error, previous[resource].some(item => item.id === id));
-          if (errorStatus(error) !== 403) failures.push(resource + '/' + id + ': ' + errorMessage(error));
+          if (errorStatus(error) !== 403) fail('detail:' + resource, resource + '/' + id + ': ' + errorMessage(error));
           return row;
         }
       };
-      raw.manifests = await Promise.all(asRecords(raw.manifests).map(m => detailRead('manifests', m, async () => {
-        const masterBls = await loadList('/manifests/' + asString(m.id) + '/master-bls');
-        const masterBills = await Promise.all(masterBls.map(async b => ({ ...b, houseBills: await loadList('/manifests/' + asString(m.id) + '/master-bls/' + asString(b.id) + '/house-bls') })));
-        return { ...m, masterBills };
-      })));
-      raw.roles = await Promise.all(asRecords(raw.roles).map(r => detailRead('roles', r, async () => unwrapData<unknown>(await apiClient.get('/admin/roles/' + asString(r.id))))));
-      raw.handovers = await Promise.all(asRecords(raw.handovers).map(h => detailRead('handovers', h, async () => unwrapData<unknown>(await apiClient.get('/handovers/' + asString(h.id))))));
+      if (inScope('manifests')) {
+        failureGroups.delete('detail:manifests');
+        raw.manifests = await Promise.all(asRecords(raw.manifests).map(m => detailRead('manifests', m, async () => {
+          const masterBls = await readList('/manifests/' + asString(m.id) + '/master-bls');
+          const masterBills = await Promise.all(masterBls.map(async b => ({ ...b, houseBills: await readList('/manifests/' + asString(m.id) + '/master-bls/' + asString(b.id) + '/house-bls') })));
+          return { ...m, masterBills };
+        })));
+      }
+      if (inScope('roles')) {
+        failureGroups.delete('detail:roles');
+        raw.roles = await Promise.all(asRecords(raw.roles).map(r => detailRead('roles', r, async () => unwrapData<unknown>(await readOne('/admin/roles/' + asString(r.id))))));
+      }
+      if (inScope('handovers')) {
+        failureGroups.delete('detail:handovers');
+        raw.handovers = await Promise.all(asRecords(raw.handovers).map(h => detailRead('handovers', h, async () => unwrapData<unknown>(await readOne('/handovers/' + asString(h.id))))));
+      }
       const visits = asRecords(raw.containerVisits);
-      try {
-        const summary = asRecord(unwrapData<unknown>(await apiClient.get('/reports/summary')));
-        const limit = asRecord(summary.freeDayWarnings).freeDaysLimit;
-        statuses.freeDayWarnings = typeof limit === 'number' && Number.isFinite(limit) && limit >= 0 ? 'ready' : 'error';
-        if (typeof limit === 'number' && Number.isFinite(limit) && limit >= 0) {
-          for (const visit of visits) visit.freeDays = visit.freeDays ?? limit;
+      if (inScope('containerVisits')) {
+        failureGroups.delete('summary');
+        try {
+          const summary = asRecord(unwrapData<unknown>(await readOne('/reports/summary')));
+          const limit = asRecord(summary.freeDayWarnings).freeDaysLimit;
+          statuses.freeDayWarnings = typeof limit === 'number' && Number.isFinite(limit) && limit >= 0 ? 'ready' : 'error';
+          if (typeof limit === 'number' && Number.isFinite(limit) && limit >= 0) {
+            for (const visit of visits) visit.freeDays = visit.freeDays ?? limit;
+          }
+        } catch (error: unknown) {
+          statuses.freeDayWarnings = errorStatus(error) === 403 ? 'forbidden' : 'error';
+          if (![401,403].includes(errorStatus(error) ?? 0)) fail('summary', '/reports/summary: ' + errorMessage(error));
         }
-      } catch (error: unknown) {
-        statuses.freeDayWarnings = errorStatus(error) === 403 ? 'forbidden' : 'error';
-        if (![401,403].includes(errorStatus(error) ?? 0)) failures.push('/reports/summary: ' + errorMessage(error));
+      } else {
+        // Visits reused from the last pass already carry their free-day limit.
+        statuses.freeDayWarnings = partial?.statuses.freeDayWarnings;
       }
-      const visitSafetyStatus: VisitSafetyStatus = {};
-      const perVisit = await Promise.all(visits.map(async v => {
-        const [holds, passes] = await Promise.allSettled([loadList('/containers/' + v.id + '/holds'), loadList('/containers/' + v.id + '/gate-passes')]);
-        visitSafetyStatus[asString(v.id)] = { holds: getSafetyReadStatus(holds), gatePasses: getSafetyReadStatus(passes) };
-        for (const [kind, status] of Object.entries(visitSafetyStatus[asString(v.id)])) {
-          if (status !== 'ready') failures.push(`/containers/${v.id}/${kind === 'holds' ? 'holds' : 'gate-passes'}: ${status === 'forbidden' ? 'Không có quyền đọc dữ liệu.' : 'Chưa thể kiểm tra; dữ liệu cũ chỉ để tham khảo. Tải lại để thử lại.'}`);
-        }
-        return { holds: holds.status === 'fulfilled' ? holds.value : [], passes: passes.status === 'fulfilled' ? passes.value : [] };
+      const canReadQr = actor.permissionCodes?.some(p => p === 'gate_pass.create' || p === '*');
+      const withQr = (passes: Record<string, unknown>[]) => !canReadQr ? Promise.resolve(passes) : Promise.all(passes.map(async pass => {
+        if (pass.status !== 'ACTIVE' || new Date(asString(pass.expiresAt)).getTime() <= Date.now()) return pass;
+        try { return { ...pass, ...asRecord(unwrapData<unknown>(await readOne('/gate-passes/' + asString(pass.id) + '/qr'))) }; }
+        catch { return pass; }
       }));
-      raw.holds = perVisit.flatMap(v => v.holds);
-      raw.gatePasses = perVisit.flatMap(v => v.passes);
-      if (latestActor.current.permissionCodes?.some(p => p === 'gate_pass.create' || p === '*')) {
-        raw.gatePasses = await Promise.all(asRecords(raw.gatePasses).map(async pass => {
-          if (pass.status !== 'ACTIVE' || new Date(asString(pass.expiresAt)).getTime() <= Date.now()) return pass;
-          try { return { ...pass, ...asRecord(unwrapData<unknown>(await apiClient.get('/gate-passes/' + asString(pass.id) + '/qr'))) }; }
-          catch { return pass; }
-        }));
-      }
+      const perVisit = await Promise.all(visits.map(async (v): Promise<SafetyEntry> => {
+        const cached = partial?.safety.get(asString(v.id));
+        if (cached && !rereadSafety(asString(v.id))) return cached;
+        const [holds, passes] = await Promise.allSettled([readList('/containers/' + v.id + '/holds'), readList('/containers/' + v.id + '/gate-passes')]);
+        return {
+          status: { holds: getSafetyReadStatus(holds), gatePasses: getSafetyReadStatus(passes) },
+          holds: holds.status === 'fulfilled' ? holds.value : [],
+          passes: passes.status === 'fulfilled' ? await withQr(passes.value) : [],
+        };
+      }));
+      // Safety messages are rebuilt from every visit's current status, reused or re-read.
+      for (const group of [...failureGroups.keys()]) if (group.startsWith('safety:')) failureGroups.delete(group);
+      const visitSafetyStatus: VisitSafetyStatus = {};
+      const safety = new Map<string, SafetyEntry>();
+      visits.forEach((v, index) => {
+        const entry = perVisit[index];
+        safety.set(asString(v.id), entry);
+        visitSafetyStatus[asString(v.id)] = entry.status;
+        for (const [kind, status] of Object.entries(entry.status)) {
+          if (status !== 'ready') fail('safety:' + asString(v.id), `/containers/${v.id}/${kind === 'holds' ? 'holds' : 'gate-passes'}: ${status === 'forbidden' ? 'Không có quyền đọc dữ liệu.' : 'Chưa thể kiểm tra; dữ liệu cũ chỉ để tham khảo. Tải lại để thử lại.'}`);
+        }
+      });
+      raw.holds = perVisit.flatMap(entry => entry.holds);
+      raw.gatePasses = perVisit.flatMap(entry => entry.passes);
       if (version !== sessionVersion.current) return;
       if (!tokenStorage.getAccessToken()) {
+        refreshSnapshot.current = null;
         setIsAuthenticated(false); setData(emptyData()); setIsLoading(false); return;
+      }
+      // Load handover partner options (gated by handover.create permission via read-permissions.ts)
+      let handoverPartnerOptionsData: HandoverPartnerOption[] = [];
+      if (!partial || scope.partnerOptions) {
+        failureGroups.delete('partnerOptions');
+        try {
+          const rows = await readList('/handovers/partner-clients');
+          if (activeSession()) {
+            handoverPartnerOptionsData = asRecords(rows).map(r => ({
+              id: asString(r.id),
+              partnerCode: asString(r.partnerCode),
+              partnerName: asString(r.partnerName),
+            }));
+            statuses.handoverPartnerOptions = 'ready';
+          }
+        } catch (error: unknown) {
+          if (activeSession()) {
+            statuses.handoverPartnerOptions = readFailureState(error, previous.handoverPartnerOptions.length > 0);
+            if (![401, 403].includes(errorStatus(error) ?? 0))
+              fail('partnerOptions', '/handovers/partner-clients: ' + errorMessage(error));
+          }
+        }
+      } else {
+        handoverPartnerOptionsData = partial.partnerOptions;
+        statuses.handoverPartnerOptions = partial.statuses.handoverPartnerOptions;
       }
       for (const key of ['invoices','payments','serviceOrders','tariffs']) {
         try { mapLiveCollections({ [key]: raw[key] ?? [] }, latestActor.current.role); }
-        catch (error: unknown) { statuses[key] = readFailureState(error, previous[key as keyof LiveCollections].length > 0); raw[key] = []; failures.push(key + ': ' + errorMessage(error)); }
+        catch (error: unknown) { statuses[key] = readFailureState(error, previous[key as keyof LiveCollections].length > 0); raw[key] = []; fail(key, key + ': ' + errorMessage(error)); }
       }
       const mapped = mapLiveCollections(raw, latestActor.current.role);
       const next = { ...mapped };
-      for (const key of Object.keys(DATA_ROUTES) as Array<keyof LiveCollections>) {
+      for (const key of DATA_KEYS as readonly (keyof LiveCollections)[]) {
         if (statuses[key] === 'stale') Object.assign(next, { [key]: previous[key] });
       }
       if (statuses.tariffs === 'stale') next.tariffRules = previous.tariffRules;
@@ -516,23 +660,70 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       next.handovers = next.handovers.map(row => details.handovers[row.id] === 'stale' ? previous.handovers.find(old => old.id === row.id) ?? row : row);
       for (const key of new Set(DEPENDENT_FIELDS.map(rule => rule.resource)))
         Object.assign(next, { [key]: reconcileDependentFields(key, next, mapped) });
+      const failures = [...failureGroups.values()].flat();
       setResourceStatus(statuses); setDetailStatus(details);
       refreshFailed.current = failures.length > 0 || !health;
       setData((previous: ReturnType<typeof emptyData>) => ({ ...next, visitSafetyStatus,
+        handoverPartnerOptions: statuses.handoverPartnerOptions === 'stale' ? previous.handoverPartnerOptions : handoverPartnerOptionsData,
         holds: mergeSafetyRecords(next.holds, previous.holds, visitSafetyStatus, 'holds'),
         gatePasses: mergeSafetyRecords(next.gatePasses, previous.gatePasses, visitSafetyStatus, 'gatePasses'),
       }));
       setApiError(failures.length ? 'Không tải được một số dữ liệu: ' + failures.join(' | ') : !health ? 'Backend hoặc MySQL chưa sẵn sàng.' : '');
-      setIsLoading(false);
+      refreshSnapshot.current = {
+        version, healthy: health, raw, statuses, details, safety, failures: failureGroups,
+        partnerOptions: statuses.handoverPartnerOptions === 'stale' ? previous.handoverPartnerOptions : handoverPartnerOptionsData,
+      };
+      if (foreground) setIsLoading(false);
     };
     const pending = refresh().finally(() => {
       if (version !== sessionVersion.current || pendingRefresh.current !== pending) return;
       pendingRefresh.current = null;
-      setIsLoading(false);
+      // Keep the spinner when a foreground pass is queued right behind this one.
+      if (foreground && queuedRefresh.current?.scope.background !== false) setIsLoading(false);
     });
     pendingRefresh.current = pending;
     return pending;
   }, []);
+
+  const refreshData = useCallback(() => runRefresh(FOREGROUND_FULL_REFRESH), [runRefresh]);
+
+  const renewSession = useCallback(async (): Promise<boolean> => {
+    try {
+      // Any authenticated read lets the API client refresh an expired access token.
+      await apiClient.get<unknown>('/auth/me');
+      return Boolean(tokenStorage.getAccessToken());
+    } catch (error: unknown) {
+      if ([401, 403].includes(errorStatus(error) ?? 0)) return false;
+      throw error;
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isAuthenticated || !currentUser.id) return;
+    const scheduler = createRefreshScheduler({
+      run: runRefresh,
+      isVisible: () => document.visibilityState !== 'hidden',
+    });
+    const stream = createRealtimeStream({
+      url: API_BASE_URL.replace(/\/+$/, '') + '/realtime/events',
+      clientId: REALTIME_CLIENT_ID,
+      getAccessToken: () => tokenStorage.getAccessToken(),
+      renewSession,
+      // This tab already re-reads after its own commands.
+      onChange: change => { if (change.origin !== REALTIME_CLIENT_ID) scheduler.push(change); },
+      onResync: () => scheduler.push(RESYNC_CHANGE),
+      onStatus: setRealtimeStatus,
+    });
+    const onVisibilityChange = () => scheduler.visibilityChanged();
+    document.addEventListener('visibilitychange', onVisibilityChange);
+    stream.start();
+    return () => {
+      document.removeEventListener('visibilitychange', onVisibilityChange);
+      stream.stop();
+      scheduler.dispose();
+      setRealtimeStatus('offline');
+    };
+  }, [isAuthenticated, currentUser.id, runRefresh, renewSession]);
 
   const retrySessionRestore = useCallback((): Promise<void> => {
     if (!restoreMounted.current) return Promise.resolve();
@@ -540,7 +731,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       return pendingSessionRestore.current.promise;
     const version = ++sessionVersion.current;
     const attempt = ++restoreAttempt.current;
-    pendingRefresh.current = null;
+    pendingRefresh.current = null; queuedRefresh.current = null; refreshSnapshot.current = null;
     const active = () => restoreMounted.current && version === sessionVersion.current && attempt === restoreAttempt.current;
     const restore = async () => {
       setSessionRestoreError(''); setIsAuthenticated(false); setData(emptyData());
@@ -586,7 +777,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const login = async (email: string, password: string): Promise<CommandResult> => {
     try {
       const response = await authService.login({ email, password });
-      sessionVersion.current++; pendingRefresh.current = null; setData(emptyData());
+      sessionVersion.current++; pendingRefresh.current = null; queuedRefresh.current = null; refreshSnapshot.current = null; setData(emptyData());
       setSessionRestoreError('');
       setResourceStatus({}); setDetailStatus({ manifests: {}, roles: {}, handovers: {} });
       setApiReady(false); setApiError('');
@@ -596,7 +787,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     } catch (error: unknown) { return { success: false, message: errorMessage(error) || 'Đăng nhập thất bại.' }; }
   };
   const logout = async () => {
-    const version = ++sessionVersion.current; pendingRefresh.current = null;
+    const version = ++sessionVersion.current; pendingRefresh.current = null; queuedRefresh.current = null; refreshSnapshot.current = null;
     const credentialsVersion = tokenStorage.getSessionVersion();
     try { await authService.logout(); } finally {
       // Login commits credentials before its awaited continuation commits the new actor.
@@ -627,7 +818,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const unsupportedPartner = async () => ({ success: false, message: 'Xác nhận đối tác phải được gửi qua API của đối tác. Web ICD chỉ tiếp nhận và xác nhận cuối.' });
 
   const value: AppContextType = {
-    ...data, currentUser, isAuthenticated, isLoading, apiReady, apiError, sessionRestoreError, retrySessionRestore, resourceStatus, detailStatus, refreshData, login, logout,
+    ...data, currentUser, isAuthenticated, isLoading, apiReady, apiError, sessionRestoreError, retrySessionRestore, resourceStatus, detailStatus, refreshData, realtimeStatus, login, logout,
     gateInContainer: async p => {
       const visit = data.containerVisits.find((v) => v.id === p.visitId);
       const truck = visit && data.truckVisits.find((t) => t.status === 'ARRIVED' && t.containerNumbers.includes(visit.containerNumber) && (p.truckVisitId ? t.id === p.truckVisitId : !p.vehiclePlate || t.vehiclePlate === p.vehiclePlate));

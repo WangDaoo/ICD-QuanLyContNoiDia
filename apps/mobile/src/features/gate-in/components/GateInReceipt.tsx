@@ -202,7 +202,7 @@ export function GateInReceipt({
   const eligibleTrucks = context ? getEligibleGateInTrucks(context.eligibleTruckVisits) : [];
   const editable = !!context && !busy && !blocker && online !== false;
   return (
-    <Card title="Biên nhận Cổng vào (Gate-In EIR)">
+    <Card title="Thông tin nhập cổng">
       <View style={{ flexDirection: 'row', alignItems: 'flex-end', gap: theme.spacing.sm }}>
         <View style={{ flex: 1 }}>
           <Field
@@ -354,7 +354,7 @@ export function GateInReceipt({
       ) : null}
       <PrimaryButton
         title={
-          context?.alreadyReceived ? 'Container đã được tiếp nhận' : 'Xác nhận tiếp nhận Gate-In'
+          context?.alreadyReceived ? 'Container đã được tiếp nhận' : 'Xác nhận nhập cổng'
         }
         onPress={review}
         disabled={!editable || !truckVisitId}

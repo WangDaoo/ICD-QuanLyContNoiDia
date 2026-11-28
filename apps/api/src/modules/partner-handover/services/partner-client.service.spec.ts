@@ -132,6 +132,25 @@ describe('PartnerClientService', () => {
     });
   });
 
+  describe('listActiveOptions', () => {
+    it('queries only ACTIVE clients with id/partnerCode/partnerName ordered by partnerName', async () => {
+      const mockRows = [
+        { id: 'pc-1', partnerCode: 'PARTNER_B', partnerName: 'Công ty B' },
+        { id: 'pc-2', partnerCode: 'PARTNER_A', partnerName: 'Công ty A' },
+      ];
+      prisma.partnerApiClient.findMany.mockResolvedValue(mockRows);
+
+      const result = await service.listActiveOptions();
+
+      expect(prisma.partnerApiClient.findMany).toHaveBeenCalledWith({
+        where: { status: PartnerApiClientStatus.ACTIVE },
+        select: { id: true, partnerCode: true, partnerName: true },
+        orderBy: { partnerName: 'asc' },
+      });
+      expect(result).toEqual(mockRows);
+    });
+  });
+
   describe('revoke', () => {
     it('revokes partner client access', async () => {
       prisma.partnerApiClient.findUnique.mockResolvedValue({

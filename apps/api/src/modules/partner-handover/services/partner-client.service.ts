@@ -184,6 +184,15 @@ export class PartnerClientService {
     };
   }
 
+  /** Danh sách đối tác đang hoạt động (dùng cho dropdown tạo biên bản bàn giao). */
+  async listActiveOptions(): Promise<Array<{ id: string; partnerCode: string; partnerName: string }>> {
+    return this.prisma.partnerApiClient.findMany({
+      where: { status: PartnerApiClientStatus.ACTIVE },
+      select: { id: true, partnerCode: true, partnerName: true },
+      orderBy: { partnerName: 'asc' },
+    });
+  }
+
   async revoke(id: string, _actorId: string) {
     const client = await this.prisma.partnerApiClient.findUnique({
       where: { id },

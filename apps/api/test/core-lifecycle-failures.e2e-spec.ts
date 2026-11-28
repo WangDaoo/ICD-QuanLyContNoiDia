@@ -11,6 +11,7 @@ import { assertE2EDatabase } from './helpers/assert-e2e-database';
 import { createCoreScenario } from './helpers/core-lifecycle-fixture';
 import { disableE2ENotificationTriggers } from './helpers/disable-e2e-notification-triggers';
 import { stopE2ECronJobs } from './helpers/stop-e2e-cron-jobs';
+import { unwrapData } from './helpers/api-envelope';
 
 config({ path: path.resolve(__dirname, '../../../.env') });
 
@@ -86,7 +87,7 @@ describe('Core Lifecycle Failures & Concurrency E2E', () => {
       })
       .expect(200);
 
-    accessToken = (loginResponse.body as AuthResult).accessToken;
+    accessToken = unwrapData<AuthResult>(loginResponse.body).accessToken;
     expect(accessToken).toEqual(expect.any(String));
   });
 

@@ -113,7 +113,7 @@ test('M-001 header actions retain 48dp targets at 320dp and 150% text', () => {
     const f = fixture({ dark, width: 320, fontScale: 1.5 });
     const tree = f.render(f.load('src/components/AppHeader.tsx').AppHeader, { title: 'Account', onBack() {} });
     for (const action of actions(tree)) target(action, action.props.accessibilityLabel);
-    assert.equal(actions(tree).length, 5);
+    assert.equal(actions(tree).length, 3);
   }
 });
 

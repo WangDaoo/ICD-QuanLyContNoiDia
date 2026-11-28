@@ -33,7 +33,7 @@ export function configureApp(app: INestApplication): void {
     origin: allowedOrigins,
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
     credentials: true,
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-Request-Id', 'x-icd-id'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Request-Id', 'x-icd-id', 'X-Client-Id'],
   });
 
   // 3. Prefix toàn bộ API là /api

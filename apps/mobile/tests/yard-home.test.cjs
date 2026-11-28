@@ -85,6 +85,7 @@ function createScreen({
         },
         useNavigation: () => ({ navigate: (...args) => navigation.push(args) }),
       };
+    if (name.endsWith('/useRealtimeRefresh')) return { useRealtimeRefresh: () => {} };
     if (name.endsWith('/useAuth')) return { useAuth: () => ({ user: {} }) };
     if (name.endsWith('/permissions')) return { hasAnyPermission: () => true };
     if (name.endsWith('/container.api'))

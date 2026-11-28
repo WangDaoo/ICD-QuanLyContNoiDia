@@ -20,16 +20,16 @@ export class ApnsPushProvider implements IPushProvider {
     const bundleId = this.configService.get<string>('APNS_BUNDLE_ID');
 
     if (keyId && teamId && bundleId) {
-      this.logger.log(`APNs Provider initialized for bundle ${bundleId}`);
+      this.logger.warn(`Native APNs credentials for ${bundleId} are not used by this provider. iOS delivery requires FCM registration tokens and Firebase APNs configuration.`);
     } else {
       this.logger.warn(
-        'APNs native credentials not specified. Using FCM/Mock fallback for iOS devices.',
+        'iOS delivery uses FCM registration tokens and requires Firebase APNs configuration.',
       );
     }
   }
 
   async sendPush(payload: PushNotificationPayload): Promise<PushNotificationResult> {
-    // If native APNs is not configured separately, FCM handles iOS tokens seamlessly via Firebase APNs integration
+    // This adapter accepts FCM registration tokens, not raw APNs device tokens.
     return this.fcmProvider.sendPush(payload);
   }
 }

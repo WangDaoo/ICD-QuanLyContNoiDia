@@ -1,4 +1,4 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, Optional } from '@nestjs/common';
 import { PrismaService } from '../../../database/prisma.service';
 import {
   NotificationChannel,
@@ -11,6 +11,7 @@ import {
 import { BaseNotificationEvent } from '../interfaces/notification-event.interface';
 import { InvoicePdfData, InvoicePdfService } from './invoice-pdf.service';
 import { SmtpEmailProvider } from '../providers/smtp-email.provider';
+import { RealtimeService } from '../../realtime/realtime.service';
 
 @Injectable()
 export class NotificationTriggerService {
@@ -20,6 +21,7 @@ export class NotificationTriggerService {
     private readonly prisma: PrismaService,
     private readonly invoicePdfService: InvoicePdfService,
     private readonly smtpEmailProvider: SmtpEmailProvider,
+    @Optional() private readonly realtime?: RealtimeService,
   ) {}
 
   async emitNotification(event: BaseNotificationEvent): Promise<string | null> {
@@ -98,6 +100,8 @@ export class NotificationTriggerService {
         }
       }
 
+      this.publishRealtime(event);
+
       return notification.id;
     } catch (err: unknown) {
       const errMsg = err instanceof Error ? err.message : String(err);
@@ -107,6 +111,26 @@ export class NotificationTriggerService {
         stack,
       );
       return null;
+    }
+  }
+
+  /**
+   * Báo cho các phiên của người nhận tải lại danh sách thông báo.
+   * Danh sách thông báo lọc theo người nhận, nên thông báo chỉ gửi email
+   * (không có recipientUserId) không cần phát sự kiện.
+   */
+  private publishRealtime(event: BaseNotificationEvent): void {
+    if (!this.realtime || !event.recipientUserId) return;
+    try {
+      this.realtime.publish({
+        topics: ['notifications'],
+        source: 'system',
+        audience: 'user',
+        icdId: event.icdId,
+        userId: event.recipientUserId,
+      });
+    } catch (error) {
+      this.logger.warn(`Không phát được sự kiện realtime cho thông báo: ${String(error)}`);
     }
   }
 

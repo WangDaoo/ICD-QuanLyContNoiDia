@@ -35,6 +35,7 @@ export function GatePassScanScreen() {
       navigation.setParams({ openScanner: false });
     }
   }, [params?.openScanner, focused, navigation]);
+  useEffect(() => { if (!focused) setScan(null); }, [focused]);
   const handleScan = async (value: string) => {
     if (!value.trim()) {
       setError('Vui lòng nhập QR token của phiếu ra cổng.');
@@ -56,7 +57,7 @@ export function GatePassScanScreen() {
     }
   };
   return (
-    <ScreenLayout title="Cổng · Quét phiếu ra" subtitle="Máy chủ kiểm tra readiness và hạn phiếu">
+    <ScreenLayout title="Xuất cổng" subtitle="Kiểm tra phiếu và điều kiện ra cổng">
       <GateModeSwitch mode="OUT" />
       <Card title="Xác thực phiếu ra cổng">
         <Field
@@ -73,7 +74,7 @@ export function GatePassScanScreen() {
           editable={!loading}
         />
         <PrimaryButton
-          title="Kiểm tra phiếu & readiness"
+          title="Kiểm tra phiếu"
           loading={loading}
           onPress={() => void handleScan(token)}
         />

@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { ScheduleModule } from '@nestjs/schedule';
 import { PrismaModule } from '../../database/prisma.module';
 import { AuditModule } from '../audit/audit.module';
 import { EdiController } from './edi.controller';
@@ -16,7 +15,7 @@ import { EdiHttpsTransport } from './transports/edi-https.transport';
 import { EdiSftpTransport } from './transports/edi-sftp.transport';
 
 @Module({
-  imports: [ScheduleModule.forRoot(), PrismaModule, AuditModule],
+  imports: [PrismaModule, AuditModule],
   controllers: [EdiController],
   providers: [
     EdiConfigService,

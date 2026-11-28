@@ -11,6 +11,7 @@ import { assertE2EDatabase } from './helpers/assert-e2e-database';
 import { createCoreScenario } from './helpers/core-lifecycle-fixture';
 import { disableE2ENotificationTriggers } from './helpers/disable-e2e-notification-triggers';
 import { stopE2ECronJobs } from './helpers/stop-e2e-cron-jobs';
+import { unwrapData, unwrapList } from './helpers/api-envelope';
 
 config({ path: path.resolve(__dirname, '../../../.env') });
 
@@ -43,13 +44,6 @@ type EdiAlertItem = {
   status: string;
   sourceId: string;
 };
-
-function unwrap<T>(body: unknown): T {
-  if (typeof body === 'object' && body !== null && 'data' in body) {
-    return (body as { data: T }).data;
-  }
-  return body as T;
-}
 
 describe('EDI Integration E2E', () => {
   let app: INestApplication;
@@ -92,7 +86,7 @@ describe('EDI Integration E2E', () => {
       })
       .expect(200);
 
-    accessToken = (loginResponse.body as AuthResult).accessToken;
+    accessToken = unwrapData<AuthResult>(loginResponse.body).accessToken;
     expect(accessToken).toEqual(expect.any(String));
 
     const icd = await prisma.icdSite.findFirstOrThrow();
@@ -156,9 +150,7 @@ describe('EDI Integration E2E', () => {
       });
       expect(outboxListRes.status).toBe(200);
 
-      const outboxData = unwrap<{ data: EdiOutboxItem[]; meta: { total: number } }>(
-        outboxListRes.body,
-      );
+      const outboxData = unwrapList<EdiOutboxItem>(outboxListRes.body);
       expect(outboxData.meta.total).toBeGreaterThanOrEqual(1);
 
       const outboxMsg = outboxData.data[0]!;
@@ -183,7 +175,7 @@ describe('EDI Integration E2E', () => {
         request(app.getHttpServer()).post('/api/integrations/edi/dispatch'),
       );
       expect(dispatchRes.status).toBe(201);
-      const result = unwrap<{ processed: number; sent: number; failed: number }>(
+      const result = unwrapData<{ processed: number; sent: number; failed: number }>(
         dispatchRes.body,
       );
       expect(result.processed).toBeGreaterThanOrEqual(1);
@@ -197,9 +189,7 @@ describe('EDI Integration E2E', () => {
       });
       expect(outboxListRes.status).toBe(200);
 
-      const outboxData = unwrap<{ data: EdiOutboxItem[]; meta: { total: number } }>(
-        outboxListRes.body,
-      );
+      const outboxData = unwrapList<EdiOutboxItem>(outboxListRes.body);
       expect(outboxData.meta.total).toBeGreaterThanOrEqual(1);
       const sentMsg = outboxData.data[0]!;
       expect(sentMsg).toBeDefined();
@@ -222,7 +212,7 @@ describe('EDI Integration E2E', () => {
         status: 'SENT',
         pageSize: 1,
       });
-      const outboxData = unwrap<{ data: EdiOutboxItem[] }>(outboxListRes.body);
+      const outboxData = unwrapList<EdiOutboxItem>(outboxListRes.body);
       const outboxMsg = outboxData.data[0]!;
       expect(outboxMsg).toBeDefined();
 
@@ -238,7 +228,7 @@ describe('EDI Integration E2E', () => {
         rawPayload: `<CONTRL><REF>${externalRef}</REF><STATUS>ACCEPTED</STATUS></CONTRL>`,
       });
       expect(ingestRes.status).toBe(201);
-      const ack = unwrap<EdiAckItem>(ingestRes.body);
+      const ack = unwrapData<EdiAckItem>(ingestRes.body);
       expect(ack.id).toBeDefined();
       expect(ack.status).toBe('ACCEPTED');
       expect(ack.outboxMessageId).toBe(outboxMsg.id);
@@ -248,7 +238,7 @@ describe('EDI Integration E2E', () => {
         request(app.getHttpServer()).get(`/api/integrations/edi/acks/${ack.id}`),
       );
       expect(getAckRes.status).toBe(200);
-      const fetchedAck = unwrap<EdiAckItem>(getAckRes.body);
+      const fetchedAck = unwrapData<EdiAckItem>(getAckRes.body);
       expect(fetchedAck.status).toBe('ACCEPTED');
     },
     60_000,
@@ -267,7 +257,7 @@ describe('EDI Integration E2E', () => {
         status: 'SENT',
         pageSize: 1,
       });
-      const outboxData = unwrap<{ data: EdiOutboxItem[] }>(outboxListRes.body);
+      const outboxData = unwrapList<EdiOutboxItem>(outboxListRes.body);
       const outboxMsg = outboxData.data[0]!;
       expect(outboxMsg).toBeDefined();
 
@@ -283,7 +273,7 @@ describe('EDI Integration E2E', () => {
         rawPayload: `<APERAK><REF>${externalRef}</REF><ERR>INVALID_SEAL</ERR></APERAK>`,
       });
       expect(ingestRes.status).toBe(201);
-      const ack = unwrap<EdiAckItem>(ingestRes.body);
+      const ack = unwrapData<EdiAckItem>(ingestRes.body);
       expect(ack.status).toBe('REJECTED');
 
       // Check that EDI alert was created
@@ -293,9 +283,7 @@ describe('EDI Integration E2E', () => {
         alertType: 'ACK_REJECTED',
       });
       expect(alertListRes.status).toBe(200);
-      const alertData = unwrap<{ data: EdiAlertItem[]; meta: { total: number } }>(
-        alertListRes.body,
-      );
+      const alertData = unwrapList<EdiAlertItem>(alertListRes.body);
       expect(alertData.meta.total).toBeGreaterThanOrEqual(1);
 
       const matchingAlert = alertData.data.find((a) => a.sourceId === ack.id);
@@ -320,7 +308,7 @@ describe('EDI Integration E2E', () => {
         resolutionNote: 'Verified seal discrepancy manually with carrier desk',
       });
       expect(resolveAlertRes.status).toBe(201);
-      const resolvedAlert = unwrap<EdiAlertItem>(resolveAlertRes.body);
+      const resolvedAlert = unwrapData<EdiAlertItem>(resolveAlertRes.body);
       expect(resolvedAlert.status).toBe('RESOLVED');
     },
     60_000,
@@ -339,9 +327,7 @@ describe('EDI Integration E2E', () => {
         status: 'SENT',
         pageSize: 1,
       });
-      const outboxMsg = unwrap<{ data: EdiOutboxItem[] }>(
-        outboxListRes.body,
-      ).data[0]!;
+      const outboxMsg = unwrapList<EdiOutboxItem>(outboxListRes.body).data[0]!;
       expect(outboxMsg).toBeDefined();
       expect(outboxMsg.status).toBe('SENT');
 
@@ -392,7 +378,7 @@ describe('EDI Integration E2E', () => {
         request(app.getHttpServer()).post(`/api/integrations/edi/outbox/${failedMsg.id}/retry`),
       );
       expect(retryRes.status).toBe(201);
-      const retried = unwrap<EdiOutboxItem>(retryRes.body);
+      const retried = unwrapData<EdiOutboxItem>(retryRes.body);
       expect(retried.status).toBe('PENDING');
 
       // Verify no duplicate record was created

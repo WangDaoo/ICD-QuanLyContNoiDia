@@ -194,10 +194,12 @@ test('scanner result reaches actual Gate Pass API without auto-confirming Gate O
   assert.equal(screen.navigation.length, 0);
 });
 
-test('header Quét requests scanner in permission-appropriate Gate route', () => {
+test('compact header keeps account and notifications while scanners stay contextual', () => {
   const header = loadView('components/AppHeader.tsx', 'AppHeader');
-  header.find('TouchableOpacity', 'Quét mã').props.onPress();
-  assert.equal(header.navigation[0][1].params.params.openScanner, true);
+  header.find('TouchableOpacity', 'Thông báo').props.onPress();
+  assert.equal(header.navigation[0][0], 'Notifications');
+  header.find('TouchableOpacity', 'Tài khoản và kết thúc ca').props.onPress();
+  assert.equal(header.navigation[1][0], 'Account');
 });
 
 test('Gate In forwards scanner entry intent to receipt without removing manual form', () => {

@@ -1,5 +1,6 @@
 import { ApiError, createApiClient, type ApiClient, type ApiErrorPayload } from '@icd/api-client';
 import { readAuthTokens } from './auth-response';
+import { REALTIME_CLIENT_ID } from '../realtime/client-id';
 
 export const API_BASE_URL = import.meta.env?.VITE_API_URL || 'http://localhost:3000/api';
 
@@ -87,3 +88,6 @@ export const apiClient: ApiClient = createApiClient({
     tokenStorage.clear();
   },
 });
+
+// Server ghi mã tab vào sự kiện realtime để tab bỏ qua thay đổi do chính mình tạo ra.
+apiClient.raw.defaults.headers.common['X-Client-Id'] = REALTIME_CLIENT_ID;

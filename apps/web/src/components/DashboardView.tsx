@@ -1,11 +1,7 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
 import {
-  Boxes,
   Truck,
-  Receipt,
-  QrCode,
-  Clock,
   ArrowUpRight,
   ShieldAlert,
   Radio,
@@ -39,8 +35,6 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
   const inYardContainers = containerVisits.filter((c) => c.state === 'IN_YARD' || c.state === 'UNDER_INSPECTION' || c.state === 'IN_STRIPPING');
   const holdsIncomplete = (resourceStatus.containerVisits && resourceStatus.containerVisits !== 'ready') ||
     (isLoading && !containerVisits.length) || !areSafetyReadsReady(containerVisits.map(v => v.id), visitSafetyStatus, 'holds');
-  const exitedContainers = containerVisits.filter((c) => c.state === 'EXITED');
-  const gatePassIssuedContainers = containerVisits.filter((c) => c.state === 'GATE_PASS_ISSUED');
 
   const occupiedSlots = yardSlots.filter((s) => s.occupiedByContainerId).length;
   const totalSlots = yardSlots.length;
@@ -67,17 +61,17 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
     <div className="space-y-6">
       {/* Top Banner Alert if any OVERDUE work queue */}
       {overdueTasks.length > 0 && (
-        <div className="bg-rose-50 border border-rose-200 rounded-xl p-4 flex items-center justify-between">
+        <div className="bg-rose-50 border border-rose-200 rounded-xl p-4 flex flex-wrap gap-3 items-center justify-between">
           <div className="flex items-center space-x-3">
             <div className="w-9 h-9 rounded-lg bg-rose-600 text-white flex items-center justify-center shrink-0">
               <ShieldAlert className="w-5 h-5" />
             </div>
             <div>
               <h2 className="text-sm font-bold text-rose-900">
-                Có {overdueTasks.length} tác vụ QUÁ HẠN SLA trong Danh sách công việc!
+                {overdueTasks.length} công việc quá hạn
               </h2>
               <p className="text-xs text-rose-700">
-                {overdueTasks.map((t) => t.title).join(' | ')}
+                Mở danh sách để ưu tiên xử lý theo thời hạn và mức độ khẩn cấp.
               </p>
             </div>
           </div>
@@ -91,112 +85,19 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
         </div>
       )}
 
-      {/* KPI Stats Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {/* Card 1 */}
-        <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs hover:border-blue-300 transition">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Container trong Bãi</span>
-            <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
-              <Boxes className="w-4 h-4" />
-            </div>
-          </div>
-          <DashboardResource resource="containerVisits" count={containerVisits.length}>
-          <div className="mt-2 flex items-baseline space-x-2">
-            <span className="text-2xl font-bold text-slate-900">{inYardContainers.length}</span>
-            <span className="text-xs text-slate-500">/ {(resourceStatus.yardSlots ?? (isLoading ? 'loading' : 'ready')) === 'ready' || resourceStatus.yardSlots === 'stale' ? totalSlots : '—'} vị trí</span>
-          </div>
-          </DashboardResource>
-          <DashboardResource resource="yardSlots" count={yardSlots.length}>
-          <div className="mt-3 flex items-center justify-between text-xs text-slate-600">
-            <span>Sức chứa bãi:</span>
-            <span className="font-semibold text-blue-700">{yardCapacityPercent}%</span>
-          </div>
-          <div className="w-full bg-slate-100 rounded-full h-1.5 mt-1 overflow-hidden">
-            <div className="bg-blue-600 h-1.5 rounded-full" style={{ width: `${yardCapacityPercent}%` }}></div>
-          </div>
-          </DashboardResource>
-        </div>
-
-        {/* Card 2 */}
-        <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs hover:border-amber-300 transition">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Cần xử lý (Work Queue)</span>
-            <div className="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center">
-              <Clock className="w-4 h-4" />
-            </div>
-          </div>
-          <DashboardResource resource="workQueue" count={workQueue.length}>
-          <div className="mt-2 flex items-baseline space-x-2">
-            <span className="text-2xl font-bold text-slate-900">{workQueue.length}</span>
-            <span className="text-xs text-rose-600 font-semibold">{overdueTasks.length} Quá hạn SLA</span>
-          </div>
-          <div className="mt-3 flex items-center justify-between text-xs text-slate-600">
-            <span>Độ ưu tiên cao:</span>
-            <span className="font-semibold text-amber-700">{highTasks.length} tác vụ</span>
-          </div>
-          <button
-            hidden={!canAccessWebTab(currentUser, 'work-queue')}
-            onClick={() => onNavigate('work-queue')}
-            className="w-full mt-2 text-center text-xs font-semibold text-blue-600 hover:text-blue-800 transition"
-          >
-            Xem danh sách công việc →
-          </button>
-          </DashboardResource>
-        </div>
-
-        {/* Card 3 */}
-        <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs hover:border-emerald-300 transition">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Doanh thu & Công nợ</span>
-            <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
-              <Receipt className="w-4 h-4" />
-            </div>
-          </div>
-          <DashboardResource resource="invoices" count={invoices.length}>
-          <div className="mt-2 flex items-baseline space-x-2">
-            <span className="text-xl font-bold text-slate-900">{(totalPaid / 1000000).toFixed(1)} tr₫</span>
-            <span className="text-xs text-slate-400">đã thu</span>
-          </div>
-          <div className="mt-3 flex items-center justify-between text-xs text-slate-600">
-            <span>Công nợ chưa thu:</span>
-            <span className="font-semibold text-rose-600">{(totalOutstanding / 1000000).toFixed(1)} tr₫</span>
-          </div>
-          <div className="w-full bg-slate-100 rounded-full h-1.5 mt-1 overflow-hidden">
-            <div
-              className="bg-emerald-600 h-1.5 rounded-full"
-              style={{ width: `${totalInvoiced > 0 ? (totalPaid / totalInvoiced) * 100 : 0}%` }}
-            ></div>
-          </div>
-          </DashboardResource>
-        </div>
-
-        {/* Card 4 - Gate Pass & Sẵn sàng xuất cổng */}
-        <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs hover:border-blue-300 transition">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Phiếu Ra Cổng & Xuất Bãi</span>
-            <div className="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center">
-              <QrCode className="w-4 h-4" />
-            </div>
-          </div>
-          <DashboardResource resource="containerVisits" count={containerVisits.length}>
-          <div className="mt-2 flex items-baseline space-x-2">
-            <span className="text-2xl font-bold text-slate-900">{gatePassIssuedContainers.length}</span>
-            <span className="text-xs text-emerald-700 font-semibold">{exitedContainers.length} đã xuất cổng</span>
-          </div>
-          <div className="mt-3 flex items-center justify-between text-xs text-slate-600">
-            <span>Sẵn sàng ra cổng:</span>
-            <span className="font-semibold text-slate-800">Kiểm tra phiếu & điều kiện</span>
-          </div>
-          <button
-            hidden={!canAccessWebTab(currentUser, 'gate-pass')}
-            onClick={() => onNavigate('gate-pass')}
-            className="w-full mt-2 text-center text-xs font-semibold text-indigo-600 hover:text-indigo-800 transition"
-          >
-            Quản lý Phiếu ra cổng & Gate-out →
-          </button>
-          </DashboardResource>
-        </div>
+      <div><h2 className="text-page font-semibold">Tổng quan vận hành</h2><p className="text-body text-slate-500 mt-1">Tình hình bãi và công việc cần xử lý</p></div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        {[
+          { label: 'Container trong bãi', value: String(inYardContainers.length), detail: 'Xem danh sách container', tab: 'containers' as NavTabId, resource: 'containerVisits' as const, count: containerVisits.length },
+          { label: 'Công suất bãi', value: `${yardCapacityPercent}%`, detail: `${occupiedSlots} / ${totalSlots} vị trí đang dùng`, tab: 'yard' as NavTabId, resource: 'yardSlots' as const, count: yardSlots.length },
+          { label: 'Việc cần xử lý', value: String(workQueue.length), detail: `${overdueTasks.length} quá hạn · ${highTasks.length} ưu tiên cao`, tab: 'work-queue' as NavTabId, resource: 'workQueue' as const, count: workQueue.length },
+          { label: 'Khoản phải thu', value: totalOutstanding.toLocaleString('vi-VN') + ' ₫', detail: 'Xem hóa đơn và thanh toán', tab: 'billing' as NavTabId, resource: 'invoices' as const, count: invoices.length },
+        ].map(metric => <div key={metric.tab} className="bg-white border border-slate-200 rounded-md p-4">
+          <p className="text-body text-slate-500">{metric.label}</p>
+          <DashboardResource resource={metric.resource} count={metric.count}><p className="text-2xl font-semibold tabular-nums my-2">{metric.value}</p>
+          <p className="text-caption text-slate-500">{metric.detail}</p></DashboardResource>
+          {canAccessWebTab(currentUser, metric.tab) ? <button className="mt-3 text-body font-semibold text-blue-700 min-h-11" onClick={() => onNavigate(metric.tab)}>Mở danh sách →</button> : null}
+        </div>)}
       </div>
 
       {/* Main Operations Grid */}
@@ -207,7 +108,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
           <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs">
             <div className="flex items-center justify-between mb-4">
               <div>
-                <h2 className="text-sm font-bold text-slate-800">Hoạt động Cổng & Chuyến xe (Truck Visits)</h2>
+                <h2 className="text-sm font-bold text-slate-800">Hoạt động cổng và chuyến xe</h2>
                 <p className="text-xs text-slate-500">Lịch hẹn Gate Appointment và tình trạng tiếp nhận</p>
               </div>
               <button
@@ -246,7 +147,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
                     </div>
                   </div>
                   <div className="text-right">
-                    <span className={`inline-block px-2 py-1 text-caption font-bold rounded-full ${
+                    <span className={`status-frame inline-block px-2 py-1 text-caption font-bold rounded-full ${
                       tv.status === 'ARRIVED' ? 'bg-amber-100 text-amber-800 border border-amber-300' :
                       tv.status === 'COMPLETED' ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-200 text-slate-700'
                     }`}>
@@ -266,7 +167,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
               <div>
                 <h2 className="text-sm font-bold text-slate-800 flex items-center space-x-2">
                   <span>Cảnh báo thời gian lưu bãi</span>
-                  <span className="px-2 py-1 bg-amber-100 text-amber-800 text-caption font-bold rounded-full">
+                  <span className="status-frame px-2 py-1 bg-amber-100 text-amber-800 text-caption font-bold rounded-full">
                     {(resourceStatus.freeDayWarnings ?? (isLoading ? 'loading' : 'ready')) === 'ready' ? `${nearFreeDaysEnd.length} container` : 'Chưa kiểm tra'}
                   </span>
                 </h2>
@@ -304,7 +205,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
                         {c.gateInAt ? new Date(c.gateInAt).toLocaleDateString('vi-VN') : '—'}
                       </td>
                       <td className="py-3 text-right">
-                        <span className="px-2 py-1 text-caption font-bold rounded-full bg-rose-50 text-rose-700 border border-rose-200">
+                        <span className="status-frame px-2 py-1 text-caption font-bold rounded-full bg-rose-50 text-rose-700 border border-rose-200">
                           Sắp tính phí lưu bãi
                         </span>
                       </td>
@@ -324,9 +225,9 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
             <div className="flex items-center justify-between mb-3">
               <h2 className="text-sm font-bold text-slate-800 flex items-center space-x-2">
                 <ShieldAlert className="w-4 h-4 text-rose-600" />
-                <span>Kiểm soát Lệnh Giữ (Operational Holds)</span>
+                <span>Lệnh giữ container</span>
               </h2>
-              <span className={`px-2 py-1 text-caption font-bold rounded-full ${
+              <span className={`status-frame px-2 py-1 text-caption font-bold rounded-full ${
                 holdsIncomplete || holds.filter(h => h.status === 'ACTIVE').length > 0
                   ? 'bg-rose-100 text-rose-800'
                   : 'bg-emerald-100 text-emerald-800'
@@ -356,7 +257,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
                     </div>
                     <div className="text-caption text-slate-500 mt-1 line-clamp-1">{hold.reason}</div>
                   </div>
-                  <span className={`px-2 py-1 text-caption font-bold rounded-full shrink-0 ${
+                  <span className={`status-frame px-2 py-1 text-caption font-bold rounded-full shrink-0 ${
                     hold.status === 'ACTIVE'
                       ? 'bg-rose-100 text-rose-700 border border-rose-200'
                       : 'bg-emerald-100 text-emerald-700'
@@ -381,7 +282,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
             <div className="flex items-center justify-between mb-3">
               <h2 className="text-sm font-bold text-slate-800 flex items-center space-x-2">
                 <Radio className="w-4 h-4 text-blue-600" />
-                <span>Vận hành EDI (CODECO)</span>
+                <span>EDI / CODECO</span>
               </h2>
               <span className="text-caption text-slate-400">Shipping Lines</span>
             </div>
@@ -403,7 +304,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate }) => {
                     </div>
                   </div>
                   <div className="text-right">
-                    <span className={`px-2 py-1 text-caption font-bold rounded-full ${edi.status === 'SENT' ? 'bg-emerald-100 text-emerald-800' : edi.status === 'FAILED' || edi.status === 'DEAD' ? 'bg-rose-100 text-rose-800' : 'bg-slate-200 text-slate-800'}`}>
+                    <span className={`status-frame px-2 py-1 text-caption font-bold rounded-full ${edi.status === 'SENT' ? 'bg-emerald-100 text-emerald-800' : edi.status === 'FAILED' || edi.status === 'DEAD' ? 'bg-rose-100 text-rose-800' : 'bg-slate-200 text-slate-800'}`}>
                       Gửi: {edi.status}
                     </span>
                     {edi.ackStatus && <div className="text-caption text-slate-600 mt-1">ACK: {edi.ackStatus}</div>}

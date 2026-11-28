@@ -156,15 +156,14 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
     <div className="space-y-6">
       <CriticalDataNotice kind="gatePasses" />
       {/* Header */}
-      <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="page-heading flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h2 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
-            <QrCode className="w-5 h-5 text-indigo-600" />
-            <span>Phiếu ra cổng (Gate Pass) & Kiểm soát Xuất kho</span>
+            <QrCode className="w-5 h-5 text-blue-600" />
+            <span>Xuất cổng</span>
           </h2>
           <p className="text-xs text-slate-500 mt-1">
-            Phát hành mã QR Code ra cổng có thời hạn 24 giờ, đối soát cổng Outbound và xác nhận
-            Gate-out
+            Cấp phiếu và kiểm tra điều kiện trước khi xác nhận xe ra cổng.
           </p>
         </div>
 
@@ -174,7 +173,7 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
               action.clear();
               setShowIssueModal(true);
             }}
-            className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-lg transition shadow-xs flex items-center space-x-2"
+            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-lg transition shadow-xs flex items-center space-x-2"
           >
             <Plus className="w-4 h-4" />
             <span>Cấp Phiếu ra cổng mới</span>
@@ -185,7 +184,7 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
       {/* Tra cứu mã phiếu */}
       <div className="bg-slate-900 text-white p-4 rounded-xl shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs">
         <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 rounded-lg bg-indigo-500 text-white flex items-center justify-center shrink-0">
+          <div className="w-8 h-8 rounded-lg bg-blue-500 text-white flex items-center justify-center shrink-0">
             <Scan className="w-4 h-4" />
           </div>
           <div>
@@ -203,11 +202,11 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
             aria-label="Mã QR hoặc mã Gate Pass"
             value={scannerInput}
             onChange={(e) => setScannerInput(e.target.value)}
-            className="px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white font-mono text-xs w-64 focus:outline-none focus:ring-1 focus:ring-indigo-400"
+            className="px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white font-mono text-xs w-64 focus:outline-none focus:ring-1 focus:ring-blue-400"
           />
           <button
             type="submit"
-            className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-lg transition"
+            className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition"
           >
             Quét mã
           </button>
@@ -216,6 +215,7 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
 
       {scanResult && (
         <div
+          role={scanResult.success ? 'status' : 'alert'}
           className={`p-3 rounded-lg text-xs font-semibold flex items-center space-x-2 ${
             scanResult.success
               ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
@@ -244,7 +244,7 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
               aria-label="Tìm Gate Pass"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 text-xs bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-indigo-500"
+              className="w-full pl-9 pr-3 py-2 text-xs bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
             />
           </div>
 
@@ -267,14 +267,14 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
                   onClick={() => setSelectedGatePassId(gp.id)}
                   className={`block w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 p-4 rounded-xl border cursor-pointer transition ${
                     isSelected
-                      ? 'bg-indigo-50/60 border-indigo-500 shadow-xs'
+                      ? 'bg-blue-50/60 border-blue-500 shadow-xs'
                       : 'bg-white border-slate-200 hover:border-slate-300'
                   }`}
                 >
                   <span className="block flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold text-indigo-700">{gp.code}</span>
+                    <span className="text-xs font-mono font-bold text-blue-700">{gp.code}</span>
                     <span
-                      className={`px-2 py-1 text-caption font-bold rounded-full ${
+                      className={`status-frame px-2 py-1 text-caption font-bold rounded-full ${
                         effectiveStatus === 'ACTIVE'
                           ? 'bg-emerald-100 text-emerald-800'
                           : gp.status === 'USED'
@@ -309,7 +309,7 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
                       {selectedGatePass.code}
                     </h3>
                     <span
-                      className={`px-3 py-1 rounded-full text-xs font-bold ${
+                      className={`status-frame px-3 py-1 rounded-full text-xs font-bold ${
                         selectedStatus === 'ACTIVE'
                           ? 'bg-emerald-100 text-emerald-800'
                           : selectedGatePass.status === 'USED'
@@ -375,7 +375,7 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
                   <div className="font-bold text-slate-800">Hồ sơ Container</div>
                   <div>
                     Số container:{' '}
-                    <strong className="font-mono text-indigo-700">
+                    <strong className="font-mono text-blue-700">
                       {selectedGatePass.containerNumber}
                     </strong>
                   </div>
@@ -419,14 +419,14 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
                         className="px-5 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow-sm flex items-center space-x-2 transition"
                       >
                         <LogOut className="w-4 h-4" />
-                        <span>Xác nhận Ra cổng (Gate-out)</span>
+                        <span>Xác nhận xuất cổng</span>
                       </button>
                     )}
                   </div>
                 ) : selectedStatus === 'USED' && can('handover.read') ? (
                   <button
                     onClick={() => onNavigate('handovers')}
-                    className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg flex items-center space-x-2"
+                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg flex items-center space-x-2"
                   >
                     <Send className="w-3.5 h-3.5" />
                     <span>Tiến hành bàn giao vận chuyển</span>
@@ -565,7 +565,7 @@ export const GatePassView: React.FC<GatePassViewProps> = ({
                 <button
                   type="submit"
                   disabled={action.pending || evaluation.status !== 'ready'}
-                  className="px-4 py-2 bg-indigo-600 text-white rounded-lg font-bold hover:bg-indigo-700 disabled:opacity-50"
+                  className="px-4 py-2 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 disabled:opacity-50"
                 >
                   Phát hành & Sinh mã QR
                 </button>

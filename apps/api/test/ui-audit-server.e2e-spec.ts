@@ -10,7 +10,11 @@ import { EdiSftpTransport } from '../src/modules/edi/transports/edi-sftp.transpo
 import { stopE2ECronJobs } from './helpers/stop-e2e-cron-jobs';
 import { resolve } from 'node:path';
 import { createAuditFaultMiddleware, UI_AUDIT_RUN } from './helpers/ui-audit-faults';
-test('serve the guarded isolated UI audit runtime', async () => {
+// Tệp này là trình khởi chạy API cho công cụ rà soát UI (audit/tools, scripts/start-project.ps1),
+// không phải bài kiểm thử. Khi chạy bộ e2e thông thường (không đặt ICD_AUDIT_RUN) thì bỏ qua;
+// khi công cụ rà soát đặt ICD_AUDIT_RUN, guard bên dưới vẫn từ chối mọi cấu hình lệch.
+const serveAuditRuntime = process.env.ICD_AUDIT_RUN === undefined ? test.skip : test;
+serveAuditRuntime('serve the guarded isolated UI audit runtime', async () => {
   if (process.env.ICD_AUDIT_RUN !== '2026-10-03-improvement-02' || process.env.MYSQL_DATABASE !== 'icd_ux_audit_20261003_e2e' ||
       process.env.MYSQL_HOST !== '127.0.0.1' || process.env.MYSQL_PORT !== '3308' || process.env.API_PORT !== '3001') {
     throw new Error('UI audit runtime guard rejected configuration.');

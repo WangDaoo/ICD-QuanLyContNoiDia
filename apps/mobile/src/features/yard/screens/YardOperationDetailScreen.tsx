@@ -14,6 +14,7 @@ import type { YardStackParamList } from '../../../navigation/types';
 import { useAuth } from '../../auth/hooks/useAuth';
 import { hasAnyPermission } from '../../auth/permissions';
 import { mergeInspectionCompletionNotes } from '../api/inspection-notes';
+import { useRealtimeRefresh } from '../../../services/realtime/useRealtimeRefresh';
 export function YardOperationDetailScreen() {
   const { params } = useRoute<RouteProp<YardStackParamList, 'YardOperationDetail'>>();
   return <YardOperationDetail key={`${params?.operationType}:${params?.operationId}`} />;
@@ -29,13 +30,17 @@ function YardOperationDetail() {
   const [action,setAction] = useState<'start'|'complete'|'cancel'|null>(null);
   const [reason,setReason] = useState('');
   const [dialogError,setDialogError] = useState('');
-  const load = useCallback(async () => {
+  const load = useCallback(async (options: { silent?: boolean } = {}) => {
     if (!params?.operationId || !params.operationType) {setError('Chọn lệnh tác nghiệp từ danh sách công việc.');setLoading(false);return;}
-    setLoading(true);setError('');
+    // `silent`: lệnh vừa được người khác cập nhật, tải lại mà giữ nội dung đang hiển thị.
+    const silent = options.silent === true;
+    if (!silent) {setLoading(true);setError('');}
     try {setRecord(await yardApi.getOperation(params.operationId,params.operationType));}
-    catch(err) {setError(err instanceof Error ? err.message : 'Không tải được lệnh tác nghiệp.');} finally {setLoading(false);}
+    catch(err) {if (!silent) setError(err instanceof Error ? err.message : 'Không tải được lệnh tác nghiệp.');} finally {if (!silent) setLoading(false);}
   },[params?.operationId,params?.operationType]);
   useEffect(() => {void load();},[load]);
+  // Bỏ qua khi đang gửi thao tác: kết quả thao tác sẽ tự cập nhật lệnh.
+  useRealtimeRefresh(() => load({ silent: true }), { topics: ['yard', 'movement-orders', 'inspections'], accept: () => !busy });
   const allowed = hasAnyPermission(user,[params?.operationType === 'MOVEMENT' ? 'yard.move' : params?.operationType === 'INSPECTION' ? 'yard.inspect' : 'yard.booking']);
   const review = (next:'start'|'complete'|'cancel') => {
     setError('');setDialogError('');

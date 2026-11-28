@@ -9,7 +9,20 @@ if (!apiBaseUrl) {
   throw new Error('EXPO_PUBLIC_API_BASE_URL is not configured.');
 }
 
-const API_BASE_URL = apiBaseUrl.replace(/\/+$/, '');
+export const API_BASE_URL = apiBaseUrl.replace(/\/+$/, '');
+
+/**
+ * Mã phiên của lần mở ứng dụng này, gửi kèm mọi request qua header `X-Client-Id`.
+ * Server ghi mã này vào sự kiện realtime (`origin`) để ứng dụng bỏ qua thay đổi do
+ * chính mình tạo ra (màn hình đã tải lại ngay sau thao tác). Không dùng để xác thực.
+ */
+function createClientId(): string {
+  const cryptoApi = (globalThis as { crypto?: { randomUUID?: () => string } }).crypto;
+  if (typeof cryptoApi?.randomUUID === 'function') return `mobile-${cryptoApi.randomUUID()}`;
+  return `mobile-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 12)}`;
+}
+
+export const MOBILE_CLIENT_ID = createClientId();
 
 export class ApiError extends Error {
   constructor(
@@ -136,6 +149,7 @@ export async function apiRequest<T>(path: string, options: RequestOptions = {}):
 
   const headers: Record<string, string> = {
     Accept: 'application/json',
+    'X-Client-Id': MOBILE_CLIENT_ID,
   };
 
   if (body !== undefined) {

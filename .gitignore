@@ -34,6 +34,9 @@ coverage/
 
 *.log
 logs/
+# Log dẫn chứng của đợt kiểm thử hồi quy được giữ lại trong kho
+!test-artifacts/*-full-regression/logs/
+!test-artifacts/*-full-regression/logs/*.log
 
 npm-debug.log*
 pnpm-debug.log*
@@ -96,6 +99,15 @@ venv/
 
 services/ml-service/artifacts/*
 !services/ml-service/artifacts/.gitkeep
+
+# ==============================
+# Test runners output
+# ==============================
+
+test-results/
+playwright-report/
+blob-report/
+.playwright-mcp/
 
 # ==============================
 # Temporary files

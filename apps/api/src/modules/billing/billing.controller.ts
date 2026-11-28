@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, HttpStatus, Param, Post, Query } from '@nestjs/common';
 import { PERMISSION_CODES } from '../../common/constants/permission-codes.constants';
 import { CurrentUser } from '../../common/decorators/current-user.decorator';
 import { Permissions } from '../../common/decorators/permissions.decorator';
@@ -14,6 +14,8 @@ export class BillingController {
   constructor(private readonly serviceOrderService: ServiceOrderService) {}
 
   @Permissions(PERMISSION_CODES.BILLING_READ)
+  // Xem trước phí chỉ tính toán, không tạo tài nguyên → 200 OK thay vì 201 mặc định của POST.
+  @HttpCode(HttpStatus.OK)
   @Post('service-orders/preview')
   async previewBilling(@Body() dto: PreviewBillingDto, @CurrentUser() actor: AuthenticatedUser) {
     const data = await this.serviceOrderService.previewBilling(dto, actor);

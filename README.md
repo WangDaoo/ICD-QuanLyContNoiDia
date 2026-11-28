@@ -565,7 +565,7 @@ Các bảng dưới đây tái tạo từ source; link #L ghi dòng lúc export,
 
 <!-- SYSTEM-INVENTORY:START -->
 
-Source export: **2026-10-04**, UTC `2026-10-04T14:16:00.191Z`. Phạm vi: source working tree, không chạy giao dịch.
+Source export: **2026-11-28**, UTC `2026-11-28T15:06:22.970Z`. Phạm vi: source working tree, không chạy giao dịch.
 
 ### 11.1. Số lượng API theo module
 
@@ -585,7 +585,8 @@ Source export: **2026-10-04**, UTC `2026-10-04T14:16:00.191Z`. Phạm vi: source
 | `movement-orders` | 2 | 3 | 1 | 0 | 0 | 6 |
 | `notifications` | 1 | 2 | 1 | 0 | 1 | 5 |
 | `operational-holds` | 2 | 2 | 0 | 0 | 0 | 4 |
-| `partner-handover` | 11 | 13 | 1 | 0 | 0 | 25 |
+| `partner-handover` | 12 | 13 | 1 | 0 | 0 | 26 |
+| `realtime` | 1 | 0 | 0 | 0 | 0 | 1 |
 | `reports` | 8 | 0 | 0 | 0 | 0 | 8 |
 | `roles` | 3 | 1 | 1 | 1 | 0 | 6 |
 | `settings` | 1 | 0 | 1 | 0 | 0 | 2 |
@@ -630,17 +631,17 @@ Return type suy luận được ghi ở inventory JSON; response thực tế the
 | `POST /api/admin/tariffs/:id/rules` | `JWT`<br>`tariff.manage` | Param(`id`): `string`<br>Body: [AddTariffRuleDto](apps/api/src/modules/billing/dto/add-tariff-rule.dto.ts) | `addTariffRule` [source](apps/api/src/modules/billing/tariff.controller.ts#L54) |
 | `DELETE /api/admin/tariffs/:id/rules/:ruleId` | `JWT`<br>`tariff.manage` | Param(`id`): `string`<br>Param(`ruleId`): `string` | `removeTariffRule` [source](apps/api/src/modules/billing/tariff.controller.ts#L65) |
 | `GET /api/containers/:containerVisitId/billing` | `JWT`<br>`billing.read` | Param(`containerVisitId`): `string` | `checkReadiness` [source](apps/api/src/modules/billing/billing-readiness.controller.ts#L12) |
-| `POST /api/containers/:visitId/service-orders` | `JWT`<br>`billing.manage` | Param(`visitId`): `string`<br>Body: [CreateServiceOrderDto](apps/api/src/modules/billing/dto/create-service-order.dto.ts) | `createDraftOrder` [source](apps/api/src/modules/billing/billing.controller.ts#L23) |
+| `POST /api/containers/:visitId/service-orders` | `JWT`<br>`billing.manage` | Param(`visitId`): `string`<br>Body: [CreateServiceOrderDto](apps/api/src/modules/billing/dto/create-service-order.dto.ts) | `createDraftOrder` [source](apps/api/src/modules/billing/billing.controller.ts#L25) |
 | `GET /api/invoices` | `JWT`<br>`billing.read` | Query: [QueryInvoicesDto](apps/api/src/modules/billing/dto/invoice/query-invoices.dto.ts) | `findMany` [source](apps/api/src/modules/billing/invoices.controller.ts#L25) |
 | `GET /api/invoices/:id` | `JWT`<br>`billing.read` | Param(`id`): `string` | `findById` [source](apps/api/src/modules/billing/invoices.controller.ts#L31) |
 | `POST /api/invoices/:invoiceId/payments` | `JWT`<br>`billing.manage` | Param(`invoiceId`): `string`<br>Body: [RecordInvoicePaymentDto](apps/api/src/modules/billing/dto/payment/record-invoice-payment.dto.ts) | `create` [source](apps/api/src/modules/billing/payments.controller.ts#L14) |
 | `GET /api/payments` | `JWT`<br>`billing.read` | Query: [QueryPaymentsDto](apps/api/src/modules/billing/dto/payment/query-payments.dto.ts) | `findMany` [source](apps/api/src/modules/billing/payments.controller.ts#L29) |
 | `GET /api/payments/:id` | `JWT`<br>`billing.read` | Param(`id`): `string` | `findById` [source](apps/api/src/modules/billing/payments.controller.ts#L35) |
-| `GET /api/service-orders` | `JWT`<br>`billing.read` | Query: [QueryServiceOrdersDto](apps/api/src/modules/billing/dto/query-service-orders.dto.ts) | `findServiceOrders` [source](apps/api/src/modules/billing/billing.controller.ts#L37) |
-| `GET /api/service-orders/:id` | `JWT`<br>`billing.read` | Param(`id`): `string` | `findServiceOrderById` [source](apps/api/src/modules/billing/billing.controller.ts#L46) |
-| `POST /api/service-orders/:id/cancel` | `JWT`<br>`billing.manage` | Param(`id`): `string`<br>Body: [CancelServiceOrderDto](apps/api/src/modules/billing/dto/cancel-service-order.dto.ts) | `cancelOrder` [source](apps/api/src/modules/billing/billing.controller.ts#L67) |
-| `POST /api/service-orders/:id/confirm` | `JWT`<br>`billing.manage` | Param(`id`): `string` | `confirmOrder` [source](apps/api/src/modules/billing/billing.controller.ts#L60) |
-| `POST /api/service-orders/:id/recalculate` | `JWT`<br>`billing.manage` | Param(`id`): `string` | `recalculateDraftOrder` [source](apps/api/src/modules/billing/billing.controller.ts#L53) |
+| `GET /api/service-orders` | `JWT`<br>`billing.read` | Query: [QueryServiceOrdersDto](apps/api/src/modules/billing/dto/query-service-orders.dto.ts) | `findServiceOrders` [source](apps/api/src/modules/billing/billing.controller.ts#L39) |
+| `GET /api/service-orders/:id` | `JWT`<br>`billing.read` | Param(`id`): `string` | `findServiceOrderById` [source](apps/api/src/modules/billing/billing.controller.ts#L48) |
+| `POST /api/service-orders/:id/cancel` | `JWT`<br>`billing.manage` | Param(`id`): `string`<br>Body: [CancelServiceOrderDto](apps/api/src/modules/billing/dto/cancel-service-order.dto.ts) | `cancelOrder` [source](apps/api/src/modules/billing/billing.controller.ts#L69) |
+| `POST /api/service-orders/:id/confirm` | `JWT`<br>`billing.manage` | Param(`id`): `string` | `confirmOrder` [source](apps/api/src/modules/billing/billing.controller.ts#L62) |
+| `POST /api/service-orders/:id/recalculate` | `JWT`<br>`billing.manage` | Param(`id`): `string` | `recalculateDraftOrder` [source](apps/api/src/modules/billing/billing.controller.ts#L55) |
 | `POST /api/service-orders/:serviceOrderId/invoice` | `JWT`<br>`billing.manage` | Param(`serviceOrderId`): `string`<br>Body: [IssueInvoiceDto](apps/api/src/modules/billing/dto/invoice/issue-invoice.dto.ts) | `issueInvoice` [source](apps/api/src/modules/billing/invoices.controller.ts#L14) |
 | `POST /api/service-orders/preview` | `JWT`<br>`billing.read` | Body: [PreviewBillingDto](apps/api/src/modules/billing/dto/preview-billing.dto.ts) | `previewBilling` [source](apps/api/src/modules/billing/billing.controller.ts#L16) |
 
@@ -789,7 +790,7 @@ Return type suy luận được ghi ở inventory JSON; response thực tế the
 | `POST /api/containers/:visitId/holds/:holdId/release` | `JWT`<br>`operational_hold.manage` | Param(`visitId`): `string`<br>Param(`holdId`): `string`<br>Body: [ReleaseOperationalHoldDto](apps/api/src/modules/operational-holds/dto/release-operational-hold.dto.ts) | `release` [source](apps/api/src/modules/operational-holds/operational-holds.controller.ts#L42) |
 | `GET /api/operational-holds/:holdId` | `JWT`<br>`operational_hold.read` | Param(`holdId`): `string` | `findById` [source](apps/api/src/modules/operational-holds/operational-holds.controller.ts#L24) |
 
-#### API partner-handover (25)
+#### API partner-handover (26)
 
 | Method / path | Auth / quyền / scope | Input | Handler / nguồn |
 | --- | --- | --- | --- |
@@ -800,17 +801,18 @@ Return type suy luận được ghi ở inventory JSON; response thực tế the
 | `GET /api/admin/partner-clients/:id` | `JWT`<br>`partner_client.manage` | Param(`id`): `string` | `findById` [source](apps/api/src/modules/partner-handover/controllers/internal/partner-client.controller.ts#L41) |
 | `POST /api/admin/partner-clients/:id/revoke` | `JWT`<br>`partner_client.manage` | Param(`id`): `string` | `revoke` [source](apps/api/src/modules/partner-handover/controllers/internal/partner-client.controller.ts#L62) |
 | `POST /api/admin/partner-clients/:id/rotate` | `JWT`<br>`partner_client.manage` | Param(`id`): `string` | `rotateKey` [source](apps/api/src/modules/partner-handover/controllers/internal/partner-client.controller.ts#L48) |
-| `GET /api/containers/:visitId/handover-summary` | `JWT`<br>`handover.read` | Param(`visitId`): `string` | `findSummary` [source](apps/api/src/modules/partner-handover/controllers/internal/transport-handover.controller.ts#L115) |
+| `GET /api/containers/:visitId/handover-summary` | `JWT`<br>`handover.read` | Param(`visitId`): `string` | `findSummary` [source](apps/api/src/modules/partner-handover/controllers/internal/transport-handover.controller.ts#L125) |
 | `GET /api/customer-warehouses` | `JWT`<br>`master_data.read` | Query: [QueryCustomerWarehouseDto](apps/api/src/modules/partner-handover/dto/query-customer-warehouse.dto.ts) | `findMany` [source](apps/api/src/modules/partner-handover/controllers/internal/customer-warehouse.controller.ts#L38) |
 | `POST /api/customer-warehouses` | `JWT`<br>`master_data.manage` | Body: [CreateCustomerWarehouseDto](apps/api/src/modules/partner-handover/dto/create-customer-warehouse.dto.ts) | `create` [source](apps/api/src/modules/partner-handover/controllers/internal/customer-warehouse.controller.ts#L25) |
 | `GET /api/customer-warehouses/:id` | `JWT`<br>`master_data.read` | Param(`id`): `string` | `findById` [source](apps/api/src/modules/partner-handover/controllers/internal/customer-warehouse.controller.ts#L47) |
 | `PATCH /api/customer-warehouses/:id` | `JWT`<br>`master_data.manage` | Param(`id`): `string`<br>Body: [UpdateCustomerWarehouseDto](apps/api/src/modules/partner-handover/dto/update-customer-warehouse.dto.ts) | `update` [source](apps/api/src/modules/partner-handover/controllers/internal/customer-warehouse.controller.ts#L57) |
-| `GET /api/handovers` | `JWT`<br>`handover.read` | Query: [QueryTransportHandoverDto](apps/api/src/modules/partner-handover/dto/query-transport-handover.dto.ts) | `findMany` [source](apps/api/src/modules/partner-handover/controllers/internal/transport-handover.controller.ts#L44) |
-| `POST /api/handovers` | `JWT`<br>`handover.create` | Body: [CreateTransportHandoverDto](apps/api/src/modules/partner-handover/dto/create-transport-handover.dto.ts) | `create` [source](apps/api/src/modules/partner-handover/controllers/internal/transport-handover.controller.ts#L27) |
-| `GET /api/handovers/:id` | `JWT`<br>`handover.read` | Param(`id`): `string` | `findById` [source](apps/api/src/modules/partner-handover/controllers/internal/transport-handover.controller.ts#L53) |
-| `POST /api/handovers/:id/dispute` | `JWT`<br>`handover.dispute` | Param(`id`): `string`<br>Body: [DisputeHandoverDto](apps/api/src/modules/partner-handover/dto/handover/dispute-handover.dto.ts) | `dispute` [source](apps/api/src/modules/partner-handover/controllers/internal/transport-handover.controller.ts#L94) |
-| `POST /api/handovers/:id/icd-confirm` | `JWT`<br>`handover.confirm` | Param(`id`): `string`<br>Body: [IcdConfirmHandoverDto](apps/api/src/modules/partner-handover/dto/handover/icd-confirm-handover.dto.ts) | `icdConfirm` [source](apps/api/src/modules/partner-handover/controllers/internal/transport-handover.controller.ts#L80) |
-| `POST /api/handovers/:id/publish` | `JWT`<br>`handover.create` | Param(`id`): `string` | `publish` [source](apps/api/src/modules/partner-handover/controllers/internal/transport-handover.controller.ts#L63) |
+| `GET /api/handovers` | `JWT`<br>`handover.read` | Query: [QueryTransportHandoverDto](apps/api/src/modules/partner-handover/dto/query-transport-handover.dto.ts) | `findMany` [source](apps/api/src/modules/partner-handover/controllers/internal/transport-handover.controller.ts#L46) |
+| `POST /api/handovers` | `JWT`<br>`handover.create` | Body: [CreateTransportHandoverDto](apps/api/src/modules/partner-handover/dto/create-transport-handover.dto.ts) | `create` [source](apps/api/src/modules/partner-handover/controllers/internal/transport-handover.controller.ts#L29) |
+| `GET /api/handovers/:id` | `JWT`<br>`handover.read` | Param(`id`): `string` | `findById` [source](apps/api/src/modules/partner-handover/controllers/internal/transport-handover.controller.ts#L63) |
+| `POST /api/handovers/:id/dispute` | `JWT`<br>`handover.dispute` | Param(`id`): `string`<br>Body: [DisputeHandoverDto](apps/api/src/modules/partner-handover/dto/handover/dispute-handover.dto.ts) | `dispute` [source](apps/api/src/modules/partner-handover/controllers/internal/transport-handover.controller.ts#L104) |
+| `POST /api/handovers/:id/icd-confirm` | `JWT`<br>`handover.confirm` | Param(`id`): `string`<br>Body: [IcdConfirmHandoverDto](apps/api/src/modules/partner-handover/dto/handover/icd-confirm-handover.dto.ts) | `icdConfirm` [source](apps/api/src/modules/partner-handover/controllers/internal/transport-handover.controller.ts#L90) |
+| `POST /api/handovers/:id/publish` | `JWT`<br>`handover.create` | Param(`id`): `string` | `publish` [source](apps/api/src/modules/partner-handover/controllers/internal/transport-handover.controller.ts#L73) |
+| `GET /api/handovers/partner-clients` | `JWT`<br>`handover.create` | - | `getPartnerClientOptions` [source](apps/api/src/modules/partner-handover/controllers/internal/transport-handover.controller.ts#L56) |
 | `GET /api/v1/external/handovers` | `PARTNER_API_KEY`<br>scope: `handover.read` | Query: [ExternalHandoverQueryDto](apps/api/src/modules/partner-handover/external/dto/external-handover-query.dto.ts) | `list` [source](apps/api/src/modules/partner-handover/external/controllers/external-handovers.controller.ts#L48) |
 | `GET /api/v1/external/handovers/:handoverId` | `PARTNER_API_KEY`<br>scope: `handover.read` | Param(`handoverId`): `string` | `getDetail` [source](apps/api/src/modules/partner-handover/external/controllers/external-handovers.controller.ts#L57) |
 | `POST /api/v1/external/handovers/:handoverId/accept` | `PARTNER_API_KEY`<br>scope: `handover.accept` | Param(`handoverId`): `string`<br>Headers(`idempotency-key`): `string \| undefined`<br>Body: [AcceptHandoverDto](apps/api/src/modules/partner-handover/external/dto/accept-handover.dto.ts) | `accept` [source](apps/api/src/modules/partner-handover/external/controllers/external-handovers.controller.ts#L66) |
@@ -818,6 +820,12 @@ Return type suy luận được ghi ở inventory JSON; response thực tế the
 | `POST /api/v1/external/handovers/:handoverId/in-transit` | `PARTNER_API_KEY`<br>scope: `handover.transit` | Param(`handoverId`): `string`<br>Headers(`idempotency-key`): `string \| undefined`<br>Body: [MarkInTransitDto](apps/api/src/modules/partner-handover/external/dto/mark-in-transit.dto.ts) | `markInTransit` [source](apps/api/src/modules/partner-handover/external/controllers/external-handovers.controller.ts#L120) |
 | `POST /api/v1/external/handovers/:handoverId/reject` | `PARTNER_API_KEY`<br>scope: `handover.accept` | Param(`handoverId`): `string`<br>Headers(`idempotency-key`): `string \| undefined`<br>Body: [RejectHandoverDto](apps/api/src/modules/partner-handover/external/dto/reject-handover.dto.ts) | `reject` [source](apps/api/src/modules/partner-handover/external/controllers/external-handovers.controller.ts#L93) |
 | `POST /api/v1/external/handovers/:handoverId/warehouse-received` | `PARTNER_API_KEY`<br>scope: `handover.confirm_warehouse` | Param(`handoverId`): `string`<br>Headers(`idempotency-key`): `string \| undefined`<br>Body: [WarehouseReceivedDto](apps/api/src/modules/partner-handover/external/dto/warehouse-received.dto.ts) | `warehouseReceived` [source](apps/api/src/modules/partner-handover/external/controllers/external-handovers.controller.ts#L186) |
+
+#### API realtime (1)
+
+| Method / path | Auth / quyền / scope | Input | Handler / nguồn |
+| --- | --- | --- | --- |
+| `GET /api/realtime/events` | `JWT` | - | `streamEvents` [source](apps/api/src/modules/realtime/realtime.controller.ts#L19) |
 
 #### API reports (8)
 
@@ -4712,92 +4720,90 @@ Không lấy số call site chia cho 205 để tuyên bố tích hợp hoàn t�
 
 | Platform | Method | Path / biểu thức nguồn | Nguồn |
 | --- | --- | --- | --- |
-| web | `GET` | `:path` | [call](apps/web/src/context/AppContext.tsx#L337) |
-| web | `GET` | `/health/ready` | [call](apps/web/src/context/AppContext.tsx#L372) |
-| web | `GET` | `/admin/roles/[dynamic:asString(r.id)]` | [call](apps/web/src/context/AppContext.tsx#L468) |
-| web | `GET` | `/handovers/[dynamic:asString(h.id)]` | [call](apps/web/src/context/AppContext.tsx#L469) |
-| web | `GET` | `/reports/summary` | [call](apps/web/src/context/AppContext.tsx#L472) |
-| web | `GET` | `/gate-passes/[dynamic:asString(pass.id)]/qr` | [call](apps/web/src/context/AppContext.tsx#L496) |
-| web | `id ? 'PATCH' : 'POST'` | `/admin/master-data/:type[dynamic:(id ? '/' + id : '')]` | [command](apps/web/src/context/AppContext.tsx#L625) |
-| web | `POST` | `/admin/master-data/:type/:id[dynamic:(list.find(d => d.id === id)?.active ? '/deactivate' : '/activate')]` | [command](apps/web/src/context/AppContext.tsx#L626) |
-| web | `POST` | `/containers/[dynamic:p.visitId]/gate-in` | [command](apps/web/src/context/AppContext.tsx#L635) |
-| web | `POST` | `/containers/:id/yard/assign` | [command](apps/web/src/context/AppContext.tsx#L637) |
-| web | `GET` | `/containers/:id/yard/recommendations` | [call](apps/web/src/context/AppContext.tsx#L638) |
-| web | `GET` | `/containers/:id/gate-pass/readiness` | [call](apps/web/src/context/AppContext.tsx#L639) |
-| web | `POST` | `/containers/[dynamic:p.visitId]/gate-pass` | [command](apps/web/src/context/AppContext.tsx#L641) |
-| web | `POST` | `/gate-pass/scan` | [call](apps/web/src/context/AppContext.tsx#L651) |
-| web | `POST` | `/gate-out` | [command](apps/web/src/context/AppContext.tsx#L654) |
-| web | `POST` | `/containers/:id/holds` | [command](apps/web/src/context/AppContext.tsx#L658) |
-| web | `POST` | `/containers/[dynamic:hold?.containerVisitId]/holds/:id/release` | [command](apps/web/src/context/AppContext.tsx#L661) |
-| web | `POST` | `/containers/:id/service-orders` | [command](apps/web/src/context/AppContext.tsx#L663) |
-| web | `POST` | `/invoices/:id/payments` | [command](apps/web/src/context/AppContext.tsx#L668) |
-| web | `POST` | `/containers/:id/inspections` | [command](apps/web/src/context/AppContext.tsx#L670) |
-| web | `POST` | `/inspections/:id/start` | [command](apps/web/src/context/AppContext.tsx#L671) |
-| web | `POST` | `/inspections/:id/start` | [command](apps/web/src/context/AppContext.tsx#L675) |
-| web | `POST` | `/inspections/:id/complete` | [command](apps/web/src/context/AppContext.tsx#L677) |
-| web | `POST` | `/gate/truck-visits` | [command](apps/web/src/context/AppContext.tsx#L679) |
-| web | `POST` | `/gate/truck-visits/:id/arrive` | [command](apps/web/src/context/AppContext.tsx#L680) |
-| web | `POST` | `/gate/truck-visits/:id/cancel` | [command](apps/web/src/context/AppContext.tsx#L680) |
-| web | `POST` | `/gate/truck-visits/:id/arrive` | [command](apps/web/src/context/AppContext.tsx#L681) |
-| web | `POST` | `/gate/truck-visits/:id/cancel` | [command](apps/web/src/context/AppContext.tsx#L682) |
-| web | `POST` | `/handovers` | [command](apps/web/src/context/AppContext.tsx#L684) |
-| web | `POST` | `/handovers/[dynamic:asString(result.data?.id)]/publish` | [command](apps/web/src/context/AppContext.tsx#L686) |
-| web | `POST` | `/handovers/:id/publish` | [command](apps/web/src/context/AppContext.tsx#L690) |
-| web | `POST` | `/handovers/:id/icd-confirm` | [command](apps/web/src/context/AppContext.tsx#L691) |
-| web | `POST` | `/handovers/:id/dispute` | [command](apps/web/src/context/AppContext.tsx#L692) |
-| web | `POST` | `/admin/partner-clients` | [command](apps/web/src/context/AppContext.tsx#L693) |
-| web | `POST` | `/admin/partner-clients/:id/rotate` | [command](apps/web/src/context/AppContext.tsx#L694) |
-| web | `POST` | `/admin/partner-clients/:id/revoke` | [command](apps/web/src/context/AppContext.tsx#L695) |
-| web | `POST` | `/integrations/edi/outbox/:id/retry` | [command](apps/web/src/context/AppContext.tsx#L696) |
-| web | `POST` | `/manifests` | [command](apps/web/src/context/AppContext.tsx#L697) |
-| web | `POST` | `/manifests/:id/master-bls` | [command](apps/web/src/context/AppContext.tsx#L698) |
-| web | `POST` | `/manifests/:id/master-bls/:mbl/house-bls` | [command](apps/web/src/context/AppContext.tsx#L699) |
-| web | `POST` | `/manifests/:id/submit` | [command](apps/web/src/context/AppContext.tsx#L700) |
-| web | `POST` | `/manifests/:id/cancel` | [command](apps/web/src/context/AppContext.tsx#L700) |
-| web | `POST` | `/containers` | [command](apps/web/src/context/AppContext.tsx#L705) |
-| web | `PATCH` | `/containers/:id` | [command](apps/web/src/context/AppContext.tsx#L708) |
-| web | `POST` | `/containers/:id/cancel` | [command](apps/web/src/context/AppContext.tsx#L709) |
-| web | `POST` | `/containers/:id/movement-orders` | [command](apps/web/src/context/AppContext.tsx#L710) |
-| web | `POST` | `/movement-orders/:id/authorize` | [command](apps/web/src/context/AppContext.tsx#L711) |
-| web | `POST` | `/movement-orders/:id/cancel` | [command](apps/web/src/context/AppContext.tsx#L712) |
-| web | `POST` | `/yard/blocks` | [command](apps/web/src/context/AppContext.tsx#L713) |
-| web | `POST` | `/yard/blocks/[dynamic:data.yardBlocks.find((b) => b.blockCode === blockCode)?.id]/slots` | [command](apps/web/src/context/AppContext.tsx#L714) |
-| web | `POST` | `/containers/:id/yard/movements` | [command](apps/web/src/context/AppContext.tsx#L715) |
-| web | `POST` | `/yard/movements/:id/start` | [command](apps/web/src/context/AppContext.tsx#L716) |
-| web | `POST` | `/yard/movements/:id/complete` | [command](apps/web/src/context/AppContext.tsx#L716) |
-| web | `POST` | `/yard/movements/:id/cancel` | [command](apps/web/src/context/AppContext.tsx#L717) |
-| web | `POST` | `/containers/:id/yard-bookings` | [command](apps/web/src/context/AppContext.tsx#L718) |
-| web | `POST` | `/yard/bookings/:id/start` | [command](apps/web/src/context/AppContext.tsx#L719) |
-| web | `POST` | `/yard/bookings/:id/complete` | [command](apps/web/src/context/AppContext.tsx#L720) |
-| web | `POST` | `/yard/bookings/:id/cancel` | [command](apps/web/src/context/AppContext.tsx#L721) |
-| web | `POST` | `/admin/tariffs` | [command](apps/web/src/context/AppContext.tsx#L726) |
-| web | `POST` | `/admin/tariffs/:id/rules` | [command](apps/web/src/context/AppContext.tsx#L732) |
-| web | `POST` | `/admin/tariffs/:id/activate` | [command](apps/web/src/context/AppContext.tsx#L734) |
-| web | `POST` | `/admin/tariffs/:id/retire` | [command](apps/web/src/context/AppContext.tsx#L734) |
-| web | `POST` | `/service-orders/preview` | [call](apps/web/src/context/AppContext.tsx#L735) |
-| web | `POST` | `/service-orders/:id/recalculate` | [command](apps/web/src/context/AppContext.tsx#L736) |
-| web | `POST` | `/service-orders/:id/confirm` | [command](apps/web/src/context/AppContext.tsx#L736) |
-| web | `POST` | `/service-orders/:id/cancel` | [command](apps/web/src/context/AppContext.tsx#L737) |
-| web | `POST` | `/service-orders/:id/invoice` | [command](apps/web/src/context/AppContext.tsx#L738) |
-| web | `POST` | `/gate-passes/:id/cancel` | [command](apps/web/src/context/AppContext.tsx#L739) |
-| web | `PUT` | `/integrations/edi/routes/[dynamic:r.shippingLineId]` | [command](apps/web/src/context/AppContext.tsx#L747) |
-| web | `POST` | `/integrations/edi/dispatch` | [command](apps/web/src/context/AppContext.tsx#L748) |
-| web | `POST` | `/integrations/edi/alerts/:id/acknowledge` | [command](apps/web/src/context/AppContext.tsx#L749) |
-| web | `POST` | `/integrations/edi/alerts/:id/resolve` | [command](apps/web/src/context/AppContext.tsx#L749) |
-| web | `POST` | `/admin/users` | [command](apps/web/src/context/AppContext.tsx#L750) |
-| web | `PUT` | `/admin/users/:id/roles` | [command](apps/web/src/context/AppContext.tsx#L751) |
-| web | `POST` | `/admin/users/:id[dynamic:(data.managedUsers.find((u) => u.id === id)?.active ? '/deactivate' : '/activate')]` | [command](apps/web/src/context/AppContext.tsx#L752) |
-| web | `PUT` | `/admin/roles/:id/permissions` | [command](apps/web/src/context/AppContext.tsx#L753) |
-| web | `PATCH` | `/notifications/:id/read` | [command](apps/web/src/context/AppContext.tsx#L754) |
-| web | `POST` | `/notifications/read-all` | [command](apps/web/src/context/AppContext.tsx#L754) |
+| web | `GET` | `:path` | [call](apps/web/src/context/AppContext.tsx#L351) |
+| web | `GET` | `/health/ready` | [call](apps/web/src/context/AppContext.tsx#L435) |
+| web | `GET` | `:path` | [call](apps/web/src/context/AppContext.tsx#L445) |
+| web | `GET` | `/auth/me` | [call](apps/web/src/context/AppContext.tsx#L693) |
+| web | `id ? 'PATCH' : 'POST'` | `/admin/master-data/:type[dynamic:(id ? '/' + id : '')]` | [command](apps/web/src/context/AppContext.tsx#L816) |
+| web | `POST` | `/admin/master-data/:type/:id[dynamic:(list.find(d => d.id === id)?.active ? '/deactivate' : '/activate')]` | [command](apps/web/src/context/AppContext.tsx#L817) |
+| web | `POST` | `/containers/[dynamic:p.visitId]/gate-in` | [command](apps/web/src/context/AppContext.tsx#L826) |
+| web | `POST` | `/containers/:id/yard/assign` | [command](apps/web/src/context/AppContext.tsx#L828) |
+| web | `GET` | `/containers/:id/yard/recommendations` | [call](apps/web/src/context/AppContext.tsx#L829) |
+| web | `GET` | `/containers/:id/gate-pass/readiness` | [call](apps/web/src/context/AppContext.tsx#L830) |
+| web | `POST` | `/containers/[dynamic:p.visitId]/gate-pass` | [command](apps/web/src/context/AppContext.tsx#L832) |
+| web | `POST` | `/gate-pass/scan` | [call](apps/web/src/context/AppContext.tsx#L842) |
+| web | `POST` | `/gate-out` | [command](apps/web/src/context/AppContext.tsx#L845) |
+| web | `POST` | `/containers/:id/holds` | [command](apps/web/src/context/AppContext.tsx#L849) |
+| web | `POST` | `/containers/[dynamic:hold?.containerVisitId]/holds/:id/release` | [command](apps/web/src/context/AppContext.tsx#L852) |
+| web | `POST` | `/containers/:id/service-orders` | [command](apps/web/src/context/AppContext.tsx#L854) |
+| web | `POST` | `/invoices/:id/payments` | [command](apps/web/src/context/AppContext.tsx#L859) |
+| web | `POST` | `/containers/:id/inspections` | [command](apps/web/src/context/AppContext.tsx#L861) |
+| web | `POST` | `/inspections/:id/start` | [command](apps/web/src/context/AppContext.tsx#L862) |
+| web | `POST` | `/inspections/:id/start` | [command](apps/web/src/context/AppContext.tsx#L866) |
+| web | `POST` | `/inspections/:id/complete` | [command](apps/web/src/context/AppContext.tsx#L868) |
+| web | `POST` | `/gate/truck-visits` | [command](apps/web/src/context/AppContext.tsx#L870) |
+| web | `POST` | `/gate/truck-visits/:id/arrive` | [command](apps/web/src/context/AppContext.tsx#L871) |
+| web | `POST` | `/gate/truck-visits/:id/cancel` | [command](apps/web/src/context/AppContext.tsx#L871) |
+| web | `POST` | `/gate/truck-visits/:id/arrive` | [command](apps/web/src/context/AppContext.tsx#L872) |
+| web | `POST` | `/gate/truck-visits/:id/cancel` | [command](apps/web/src/context/AppContext.tsx#L873) |
+| web | `POST` | `/handovers` | [command](apps/web/src/context/AppContext.tsx#L875) |
+| web | `POST` | `/handovers/[dynamic:asString(result.data?.id)]/publish` | [command](apps/web/src/context/AppContext.tsx#L877) |
+| web | `POST` | `/handovers/:id/publish` | [command](apps/web/src/context/AppContext.tsx#L881) |
+| web | `POST` | `/handovers/:id/icd-confirm` | [command](apps/web/src/context/AppContext.tsx#L882) |
+| web | `POST` | `/handovers/:id/dispute` | [command](apps/web/src/context/AppContext.tsx#L883) |
+| web | `POST` | `/admin/partner-clients` | [command](apps/web/src/context/AppContext.tsx#L884) |
+| web | `POST` | `/admin/partner-clients/:id/rotate` | [command](apps/web/src/context/AppContext.tsx#L885) |
+| web | `POST` | `/admin/partner-clients/:id/revoke` | [command](apps/web/src/context/AppContext.tsx#L886) |
+| web | `POST` | `/integrations/edi/outbox/:id/retry` | [command](apps/web/src/context/AppContext.tsx#L887) |
+| web | `POST` | `/manifests` | [command](apps/web/src/context/AppContext.tsx#L888) |
+| web | `POST` | `/manifests/:id/master-bls` | [command](apps/web/src/context/AppContext.tsx#L889) |
+| web | `POST` | `/manifests/:id/master-bls/:mbl/house-bls` | [command](apps/web/src/context/AppContext.tsx#L890) |
+| web | `POST` | `/manifests/:id/submit` | [command](apps/web/src/context/AppContext.tsx#L891) |
+| web | `POST` | `/manifests/:id/cancel` | [command](apps/web/src/context/AppContext.tsx#L891) |
+| web | `POST` | `/containers` | [command](apps/web/src/context/AppContext.tsx#L896) |
+| web | `PATCH` | `/containers/:id` | [command](apps/web/src/context/AppContext.tsx#L899) |
+| web | `POST` | `/containers/:id/cancel` | [command](apps/web/src/context/AppContext.tsx#L900) |
+| web | `POST` | `/containers/:id/movement-orders` | [command](apps/web/src/context/AppContext.tsx#L901) |
+| web | `POST` | `/movement-orders/:id/authorize` | [command](apps/web/src/context/AppContext.tsx#L902) |
+| web | `POST` | `/movement-orders/:id/cancel` | [command](apps/web/src/context/AppContext.tsx#L903) |
+| web | `POST` | `/yard/blocks` | [command](apps/web/src/context/AppContext.tsx#L904) |
+| web | `POST` | `/yard/blocks/[dynamic:data.yardBlocks.find((b) => b.blockCode === blockCode)?.id]/slots` | [command](apps/web/src/context/AppContext.tsx#L905) |
+| web | `POST` | `/containers/:id/yard/movements` | [command](apps/web/src/context/AppContext.tsx#L906) |
+| web | `POST` | `/yard/movements/:id/start` | [command](apps/web/src/context/AppContext.tsx#L907) |
+| web | `POST` | `/yard/movements/:id/complete` | [command](apps/web/src/context/AppContext.tsx#L907) |
+| web | `POST` | `/yard/movements/:id/cancel` | [command](apps/web/src/context/AppContext.tsx#L908) |
+| web | `POST` | `/containers/:id/yard-bookings` | [command](apps/web/src/context/AppContext.tsx#L909) |
+| web | `POST` | `/yard/bookings/:id/start` | [command](apps/web/src/context/AppContext.tsx#L910) |
+| web | `POST` | `/yard/bookings/:id/complete` | [command](apps/web/src/context/AppContext.tsx#L911) |
+| web | `POST` | `/yard/bookings/:id/cancel` | [command](apps/web/src/context/AppContext.tsx#L912) |
+| web | `POST` | `/admin/tariffs` | [command](apps/web/src/context/AppContext.tsx#L917) |
+| web | `POST` | `/admin/tariffs/:id/rules` | [command](apps/web/src/context/AppContext.tsx#L923) |
+| web | `POST` | `/admin/tariffs/:id/activate` | [command](apps/web/src/context/AppContext.tsx#L925) |
+| web | `POST` | `/admin/tariffs/:id/retire` | [command](apps/web/src/context/AppContext.tsx#L925) |
+| web | `POST` | `/service-orders/preview` | [call](apps/web/src/context/AppContext.tsx#L926) |
+| web | `POST` | `/service-orders/:id/recalculate` | [command](apps/web/src/context/AppContext.tsx#L927) |
+| web | `POST` | `/service-orders/:id/confirm` | [command](apps/web/src/context/AppContext.tsx#L927) |
+| web | `POST` | `/service-orders/:id/cancel` | [command](apps/web/src/context/AppContext.tsx#L928) |
+| web | `POST` | `/service-orders/:id/invoice` | [command](apps/web/src/context/AppContext.tsx#L929) |
+| web | `POST` | `/gate-passes/:id/cancel` | [command](apps/web/src/context/AppContext.tsx#L930) |
+| web | `PUT` | `/integrations/edi/routes/[dynamic:r.shippingLineId]` | [command](apps/web/src/context/AppContext.tsx#L938) |
+| web | `POST` | `/integrations/edi/dispatch` | [command](apps/web/src/context/AppContext.tsx#L939) |
+| web | `POST` | `/integrations/edi/alerts/:id/acknowledge` | [command](apps/web/src/context/AppContext.tsx#L940) |
+| web | `POST` | `/integrations/edi/alerts/:id/resolve` | [command](apps/web/src/context/AppContext.tsx#L940) |
+| web | `POST` | `/admin/users` | [command](apps/web/src/context/AppContext.tsx#L941) |
+| web | `PUT` | `/admin/users/:id/roles` | [command](apps/web/src/context/AppContext.tsx#L942) |
+| web | `POST` | `/admin/users/:id[dynamic:(data.managedUsers.find((u) => u.id === id)?.active ? '/deactivate' : '/activate')]` | [command](apps/web/src/context/AppContext.tsx#L943) |
+| web | `PUT` | `/admin/roles/:id/permissions` | [command](apps/web/src/context/AppContext.tsx#L944) |
+| web | `PATCH` | `/notifications/:id/read` | [command](apps/web/src/context/AppContext.tsx#L945) |
+| web | `POST` | `/notifications/read-all` | [command](apps/web/src/context/AppContext.tsx#L945) |
 | web | `POST` | `/auth/login` | [call](apps/web/src/services/api/auth.service.ts#L17) |
 | web | `GET` | `/auth/me` | [call](apps/web/src/services/api/auth.service.ts#L29) |
 | web | `POST` | `/auth/logout` | [call](apps/web/src/services/api/auth.service.ts#L36) |
-| web | `GET` | `/admin/tariffs` | [call](apps/web/src/services/api/billing.service.ts#L20) |
-| web | `POST` | `/service-orders/preview` | [call](apps/web/src/services/api/billing.service.ts#L24) |
-| web | `POST` | `/containers/:visitId/service-orders` | [call](apps/web/src/services/api/billing.service.ts#L34) |
-| web | `GET` | `/service-orders` | [call](apps/web/src/services/api/billing.service.ts#L43) |
-| web | `POST` | `/service-orders/:id/confirm` | [call](apps/web/src/services/api/billing.service.ts#L47) |
+| web | `GET` | `/admin/tariffs` | [call](apps/web/src/services/api/billing.service.ts#L25) |
+| web | `POST` | `/service-orders/preview` | [call](apps/web/src/services/api/billing.service.ts#L29) |
+| web | `POST` | `/containers/:visitId/service-orders` | [call](apps/web/src/services/api/billing.service.ts#L39) |
+| web | `GET` | `/service-orders` | [call](apps/web/src/services/api/billing.service.ts#L48) |
+| web | `POST` | `/service-orders/:id/confirm` | [call](apps/web/src/services/api/billing.service.ts#L52) |
 | web | `GET` | `/containers` | [call](apps/web/src/services/api/containers.service.ts#L49) |
 | web | `GET` | `/containers/:visitId` | [call](apps/web/src/services/api/containers.service.ts#L53) |
 | web | `GET` | `/containers/:visitId/events` | [call](apps/web/src/services/api/containers.service.ts#L58) |
@@ -4865,7 +4871,7 @@ Không lấy số call site chia cho 205 để tuyên bố tích hợp hoàn t�
 | mobile | `GET` | `/notifications/history?page=:page&pageSize=20:type_type_encodeURIComponent_type_:unreadOnly_unreadOnly_true_` | [call](apps/mobile/src/features/notifications/api/notification.api.ts#L10) |
 | mobile | `PATCH` | `/notifications/[dynamic:encodeURIComponent(id)]/read` | [call](apps/mobile/src/features/notifications/api/notification.api.ts#L11) |
 | mobile | `POST` | `/notifications/read-all` | [call](apps/mobile/src/features/notifications/api/notification.api.ts#L12) |
-| mobile | `GET` | `/containers/work-queue?pageSize=20&page=:page:filter_type_filter_:urgency_urgency_urgency_` | [call](apps/mobile/src/features/work-queue/screens/WorkQueueScreen.tsx#L56) |
+| mobile | `GET` | `/containers/work-queue?pageSize=20&page=:page:filter_type_filter_:urgency_urgency_urgency_` | [call](apps/mobile/src/features/work-queue/screens/WorkQueueScreen.tsx#L62) |
 | mobile | `GET` | `:path[dynamic:(path.includes('?') ? '&' : '?')]page=:page&pageSize=100` | [call](apps/mobile/src/features/yard/api/yard.api.ts#L30) |
 | mobile | `POST` | `/containers/:visitId/yard-bookings` | [call](apps/mobile/src/features/yard/api/yard.api.ts#L45) |
 | mobile | `POST` | `/containers/:visitId/inspections` | [call](apps/mobile/src/features/yard/api/yard.api.ts#L46) |
@@ -4878,6 +4884,7 @@ Không lấy số call site chia cho 205 để tuyên bố tích hợp hoàn t�
 | mobile | `POST` | `/[dynamic:(type === 'INSPECTION' ? 'inspections' : 'yard/'+routeFor(type))]/:id/start` | [call](apps/mobile/src/features/yard/api/yard.api.ts#L53) |
 | mobile | `POST` | `/[dynamic:(type === 'INSPECTION' ? 'inspections' : 'yard/'+routeFor(type))]/:id/complete` | [call](apps/mobile/src/features/yard/api/yard.api.ts#L54) |
 | mobile | `POST` | `/[dynamic:(type === 'INSPECTION' ? 'inspections' : 'yard/'+routeFor(type))]/:id/cancel` | [call](apps/mobile/src/features/yard/api/yard.api.ts#L55) |
+| mobile | `GET` | `/auth/me` | [call](apps/mobile/src/services/realtime/RealtimeProvider.tsx#L22) |
 
 
 <!-- SYSTEM-INVENTORY:END -->

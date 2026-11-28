@@ -7,7 +7,7 @@ import { PermissionsGuard } from '../auth/guards/permissions.guard';
 import { GateOutController } from '../gate-out/gate-out.controller';
 import { GatePassController } from './gate-pass.controller';
 
-function contextFor(handler: Function, controller: Function, roleCodes: string[], permissionCodes: string[]) {
+function contextFor(handler: unknown, controller: unknown, roleCodes: string[], permissionCodes: string[]) {
   return {
     getHandler: () => handler,
     getClass: () => controller,

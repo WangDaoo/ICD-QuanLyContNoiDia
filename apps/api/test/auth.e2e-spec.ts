@@ -10,6 +10,7 @@ import { PrismaService } from '../src/database/prisma.service';
 import { assertE2EDatabase } from './helpers/assert-e2e-database';
 import { disableE2ENotificationTriggers } from './helpers/disable-e2e-notification-triggers';
 import { stopE2ECronJobs } from './helpers/stop-e2e-cron-jobs';
+import { unwrapData } from './helpers/api-envelope';
 
 config({ path: path.resolve(__dirname, '../../../.env') });
 
@@ -46,7 +47,7 @@ describe('Auth E2E', () => {
       })
       .expect(200);
 
-    return response.body as AuthResult;
+    return unwrapData<AuthResult>(response.body);
   }
 
   beforeAll(async () => {
@@ -142,7 +143,7 @@ describe('Auth E2E', () => {
       })
       .expect(200);
 
-    const rotated = response.body as AuthResult;
+    const rotated = unwrapData<AuthResult>(response.body);
 
     expect(rotated.accessToken).toEqual(expect.any(String));
     expect(rotated.refreshToken).toEqual(expect.any(String));
@@ -160,7 +161,7 @@ describe('Auth E2E', () => {
       })
       .expect(200);
 
-    const rotated = rotateResponse.body as AuthResult;
+    const rotated = unwrapData<AuthResult>(rotateResponse.body);
 
     // Token cũ bị reuse
     await request(app.getHttpServer())
@@ -196,7 +197,7 @@ describe('Auth E2E', () => {
       .set('Authorization', `Bearer ${auth.accessToken}`)
       .expect(200);
 
-    expect(response.body).toEqual({
+    expect(unwrapData(response.body)).toEqual({
       success: true,
     });
 

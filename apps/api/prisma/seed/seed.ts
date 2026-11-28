@@ -4,7 +4,7 @@ import { PrismaMariaDb } from '@prisma/adapter-mariadb';
 
 import { config } from 'dotenv';
 
-import { PrismaClient } from '../../src/generated/prisma/client';
+import { PrismaClient, type User } from '../../src/generated/prisma/client';
 
 import { ROLE_CODES } from '../../src/common/constants/role-codes.constants';
 
@@ -27,7 +27,6 @@ import {
   ContainerCategory,
   ManifestStatus,
   PartnerApiClientStatus,
-  TransportHandoverStatus,
   YardLocationSource,
 } from '../../src/generated/prisma/client';
 
@@ -222,7 +221,7 @@ async function seedIcdSite() {
  *
  * Chạy seed lại KHÔNG reset password.
  */
-async function seedAdminUser(icdId: string): Promise<any> {
+async function seedAdminUser(icdId: string): Promise<User | null> {
   const name = getRequiredEnvironment('BOOTSTRAP_ADMIN_NAME');
   const email = getRequiredEnvironment('BOOTSTRAP_ADMIN_EMAIL').trim().toLowerCase();
   const password = getRequiredEnvironment('BOOTSTRAP_ADMIN_PASSWORD');
@@ -238,7 +237,7 @@ async function seedAdminUser(icdId: string): Promise<any> {
     { name: 'Công ty Samsung SEVT', email: 'consignee@icd.local', roleCode: ROLE_CODES.CONSIGNEE },
   ];
 
-  let adminUserRecord: any = null;
+  let adminUserRecord: User | null = null;
 
   for (const u of defaultUsers) {
     let user = await prisma.user.findUnique({
@@ -1091,11 +1090,11 @@ async function seedEdiRoutes(icdId: string): Promise<void> {
           shippingLineId: line.id,
         },
       },
-      update: { enabled: true, transport: 'MOCK' as any, partnerTarget: 'mock://local' },
+      update: { enabled: true, transport: 'MOCK', partnerTarget: 'mock://local' },
       create: {
         icdId,
         shippingLineId: line.id,
-        transport: 'MOCK' as any,
+        transport: 'MOCK',
         partnerTarget: 'mock://local',
         enabled: true,
       },

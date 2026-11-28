@@ -14,6 +14,7 @@ import { canOpenNotificationTarget, getNotificationTarget } from '../notificatio
 import { createNotificationApi, NOTIFICATION_TYPES } from '../api/notification.api';
 import type { NotificationRecord } from '../api/notification.api';
 import { presentNotification } from '../notification-presentation';
+import { useRealtimeRefresh } from '../../../services/realtime/useRealtimeRefresh';
 const api = createNotificationApi(apiClient);
 export function NotificationsScreen() {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
@@ -31,18 +32,21 @@ export function NotificationsScreen() {
   const [type, setType] = useState('');
   const [selected, setSelected] = useState<NotificationRecord | null>(null);
   const [targetMessage, setTargetMessage] = useState('');
-  const load = useCallback(async () => {
+  const load = useCallback(async (options: { silent?: boolean } = {}) => {
+    // `silent`: có thông báo mới qua realtime, giữ danh sách đang hiển thị trong lúc tải.
+    const silent = options.silent === true;
     const ticket = ++request.current;
-    setLoading(true); setError(''); setUnreadCount(null); setRows([]); setPages(0);
+    if (!silent) { setLoading(true); setError(''); setUnreadCount(null); setRows([]); setPages(0); }
     try {
       const response = await api.history({page, type, unreadOnly});
       if (ticket !== request.current) return;
       if (page > Math.max(1, response.meta.totalPages)) { setPage(Math.max(1, response.meta.totalPages)); return; }
-      setRows(response.data); setPages(response.meta.totalPages); setUnreadCount(response.meta.unreadCount);
-    } catch (err) { if (ticket === request.current) setError(err instanceof Error ? err.message : 'Không tải được thông báo.'); }
+      setRows(response.data); setPages(response.meta.totalPages); setUnreadCount(response.meta.unreadCount); setError('');
+    } catch (err) { if (ticket === request.current && !silent) setError(err instanceof Error ? err.message : 'Không tải được thông báo.'); }
     finally { if (ticket === request.current) setLoading(false); }
   }, [page, type, unreadOnly]);
   useFocusEffect(useCallback(() => { void load(); return () => { request.current++; }; }, [load]));
+  useRealtimeRefresh(() => load({ silent: true }), { topics: ['notifications'] });
   const markRead = async (row?: NotificationRecord) => {
     setBusy(row?.id ?? 'all'); setError('');
     try {

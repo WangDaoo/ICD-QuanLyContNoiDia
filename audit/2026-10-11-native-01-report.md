@@ -68,7 +68,7 @@ Tất cả ID sau giữ trạng thái source `FIXED`, trạng thái native `PEND
 
 ## Launcher cho người dùng
 
-Nhấp đúp [start-mobile-native-audit.bat](../start-mobile-native-audit.bat) trong File Explorer và giữ cửa sổ mở. Launcher dùng `pnpm.cmd`, kiểm guard API/database, ADB và mapping, rồi mở Metro/Expo Go. Agent chưa chạy launcher vì action khởi động Metro bị automatic approval review từ chối.
+Nhấp đúp [scripts/start-mobile-native-audit.bat](../scripts/start-mobile-native-audit.bat) trong File Explorer và giữ cửa sổ mở. Launcher dùng `pnpm.cmd`, kiểm guard API/database, ADB và mapping, rồi mở Metro/Expo Go. Agent chưa chạy launcher vì action khởi động Metro bị automatic approval review từ chối.
 
 Nếu Metro chạy nhưng Expo Go chưa mở dự án, nhập `exp://127.0.0.1:8081` tại Enter URL. Nếu lỗi, giữ nguyên dòng lỗi để chẩn đoán; không tự đổi sang API/database khác.
 

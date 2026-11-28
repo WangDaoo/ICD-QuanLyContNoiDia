@@ -24,7 +24,8 @@ test('booking detail presents the promised Vietnam schedule on a UTC device', as
   process.env.TZ = 'UTC';
   try {
     const f = screenFixture('src/features/yard/screens/YardOperationDetailScreen.tsx', {
-      '@react-navigation/native': { useNavigation: () => ({ goBack() {} }), useRoute: () => ({ params: { operationType: 'BOOKING', operationId: 'booking-1' } }) },
+      // useFocusEffect: hook realtime của màn hình chỉ đăng ký khi màn hình được focus.
+      '@react-navigation/native': { useFocusEffect: () => {}, useNavigation: () => ({ goBack() {} }), useRoute: () => ({ params: { operationType: 'BOOKING', operationId: 'booking-1' } }) },
       '../api/yard.api': { yardApi: { getOperation: async () => ({ id: 'booking-1', status: 'COMPLETED', bookingType: 'STUFFING', scheduledAt: '2026-10-03T02:30:00.000Z' }) } },
     }, 'YardOperationDetailScreen');
     // Render the route-keyed detail component rather than mocking its formatting.
@@ -139,7 +140,7 @@ test('shared heading styles preserve font and weight with line-height no greater
   ratio(typography.h1); ratio(typography.h2); ratio(typography.h3);
   assert.equal(typography.h3.fontSize, 16); assert.equal(typography.h3.fontWeight, '600');
   for (const [file, headingText, size] of [
-    ['src/components/AppHeader.tsx', 'Screen title', 13],
+    ['src/components/AppHeader.tsx', 'Screen title', 16],
     ['src/components/SessionCard.tsx', 'PHIÊN ĐĂNG NHẬP CA TRỰC', 11],
   ]) {
     const fixture = screenFixture(file, { './ConnectionBanner': { ConnectionBanner: 'ConnectionBanner' } });

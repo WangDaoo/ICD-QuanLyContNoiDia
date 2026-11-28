@@ -19,8 +19,11 @@ import type { HandoverRecord } from '../../handover/api/handover.api';
 import { HandoverSummary } from '../../handover/components/HandoverSummary';
 import { readCache, cacheScope } from '../../../storage/read-cache-store';
 import { useApiConnection } from '../../../services/api/ApiConnectionProvider';
+import { useRealtimeRefresh } from '../../../services/realtime/useRealtimeRefresh';
 import { displayCode } from '../../../presentation/labels';
 const date = (value?: string) => value ? new Date(value).toLocaleString('vi-VN') : undefined;
+/** Nhóm dữ liệu hiển thị trên hồ sơ container (lệnh giữ, phiếu ra cổng, vị trí, bàn giao...). */
+const DETAIL_TOPICS = ['containers', 'gate', 'gate-passes', 'yard', 'movement-orders', 'billing', 'inspections', 'holds', 'handovers', 'manifests'] as const;
 type Sections = { holds?: ContainerHold[]; events?: ContainerEvent[]; passes?: GatePassSummary[]; readiness?: Readiness; handover?: HandoverRecord | null; location?: ContainerRecord['currentLocation'] };
 export function ContainerDetailScreen() {
   const navigation = useNavigation<NativeStackNavigationProp<YardStackParamList>>();
@@ -40,11 +43,13 @@ export function ContainerDetailScreen() {
   const canReadHolds = hasAnyPermission(user, ['operational_hold.read']);
   const canReadHandover = hasAnyPermission(user, ['handover.read']);
   const canReadBilling = hasAnyPermission(user, ['billing.read', 'billing.manage']);
-  const load = useCallback(async () => {
+  const load = useCallback(async (options: { silent?: boolean } = {}) => {
+    // `silent`: tải lại do realtime, giữ nguyên dữ liệu đang hiển thị và không bật vòng xoay.
+    const silent = options.silent === true;
     if (!user || !canAccessMobileScreen(user, 'container.read')) { setRecord(null); setSections({}); return; }
     if (!params?.visitId) { setError('Thiếu hồ sơ lượt container. Hãy chọn kết quả tra cứu.'); return; }
     const ticket = ++request.current;
-    setLoading(true); setError(''); setSections({}); setSectionErrors([]);
+    if (!silent) { setLoading(true); setError(''); setSections({}); setSectionErrors([]); }
     const visitId = params.visitId;
     if (activeVisit.current !== visitId) { activeVisit.current = visitId; setRecord(null); setCachedAt(null); }
     const scope = cacheScope(user);
@@ -52,7 +57,7 @@ export function ContainerDetailScreen() {
     try {
       const data = await containerApi.detail(visitId);
       if (request.current !== ticket) return;
-      setRecord(data); setCachedAt(null);
+      setRecord(data); setCachedAt(null); setError('');
       void readCache.write(scope, 'container', cacheQuery, { record: data, sections: {} }).catch(() => {});
       const jobs: Array<{ key: keyof Sections; label: string; run: () => Promise<unknown> }> = [
         { key: 'events', label: 'Lịch sử', run: () => containerApi.events(visitId) },
@@ -76,6 +81,8 @@ export function ContainerDetailScreen() {
       void readCache.write(scope, 'container', cacheQuery, { record: data, sections: cachedSections }).catch(() => {});
     } catch (err) {
       if (request.current !== ticket) return;
+      // Lỗi khi tải nền: giữ bản đang hiển thị, lần tải sau sẽ thử lại.
+      if (silent) return;
       const cached = err instanceof TypeError ? await readCache.read<{ record: ContainerRecord; sections: Sections }>(scope, 'container', cacheQuery) : null;
       if (request.current !== ticket) return;
       if (cached && cached.data.record.id === visitId) {
@@ -87,12 +94,13 @@ export function ContainerDetailScreen() {
     finally { if (request.current === ticket) setLoading(false); }
   }, [params?.visitId, canReadLocation, canReadHolds, canReadHandover, user, online]);
   useFocusEffect(useCallback(() => { void load(); return () => { request.current++; }; }, [load]));
+  useRealtimeRefresh(() => load({ silent: true }), { topics: DETAIL_TOPICS, accept: change => !change.visitId || change.visitId === params?.visitId });
   const slot = sections.location?.slotCode || sections.location?.yardSlot?.slotCode;
   const readiness = sections.readiness;
   return <ScreenLayout title="Chi tiết container" subtitle={record?.container.containerNumber || params?.containerNo} onBack={() => navigation.goBack()} onRefresh={() => void load()} refreshing={loading}>
     {cachedAt !== null ? <><Text accessibilityLiveRegion="polite" style={styles.muted}>Dữ liệu đã lưu lúc {new Date(cachedAt).toLocaleString('vi-VN')} có thể đã cũ. Kết nối lại và tải mới để xem điều kiện cấp phiếu hiện tại.</Text><PrimaryButton title="Tải lại hồ sơ" variant="secondary" onPress={() => void load()} /></> : null}
     {loading && !record ? <LoadingState /> : error && cachedAt === null ? <ErrorState message={error} onRetry={() => void load()} /> : record ? <>
-      <Card title={record.container.containerNumber}><Text selectable style={styles.muted}>Nhấn giữ số container để sao chép</Text><Text selectable style={styles.value}>{record.container.containerNumber}</Text><StatusBadge label={displayCode(record.state)} variant="info" /><DetailRow label="ISO / Kích thước / Loại" value={record.container.isoCode + ' · ' + record.container.size + ' · ' + displayCode(record.container.type)} /><DetailRow label="Seal khai báo" value={record.sealNo} /><DetailRow label="Trọng lượng (kg)" value={record.grossWeight} /><DetailRow label="Vị trí bãi" value={canReadLocation ? slot || (loading ? 'Đang tải...' : sections.location === undefined ? 'Không tải được vị trí' : 'Chưa có vị trí') : 'Không được cấp quyền xem'} /><DetailRow label="Chủ hàng" value={record.houseBl?.consignee?.name} /><DetailRow label="HBL" value={record.houseBl?.hblNumber} /><DetailRow label="Vào cổng" value={date(record.gateInAt)} /><DetailRow label="Ra cổng" value={date(record.gateOutAt)} /></Card>
+      <Card title={record.container.containerNumber}><Text selectable style={styles.muted}>Nhấn giữ số container để sao chép</Text><Text selectable style={styles.value}>{record.container.containerNumber}</Text><StatusBadge label={displayCode(record.state)} variant="info" /><DetailRow label="ISO / Kích thước / Loại" value={record.container.isoCode + ' · ' + displayCode(record.container.size) + ' · ' + displayCode(record.container.type)} /><DetailRow label="Seal khai báo" value={record.sealNo} /><DetailRow label="Trọng lượng (kg)" value={record.grossWeight} /><DetailRow label="Vị trí bãi" value={canReadLocation ? slot || (loading ? 'Đang tải...' : sections.location === undefined ? 'Không tải được vị trí' : 'Chưa có vị trí') : 'Không được cấp quyền xem'} /><DetailRow label="Chủ hàng" value={record.houseBl?.consignee?.name} /><DetailRow label="HBL" value={record.houseBl?.hblNumber} /><DetailRow label="Vào cổng" value={date(record.gateInAt)} /><DetailRow label="Ra cổng" value={date(record.gateOutAt)} /></Card>
       {sectionErrors.map(message => <Notice key={message} message={message} />)}
       {sectionErrors.length ? <PrimaryButton title="Tải lại các mục" variant="secondary" onPress={() => void load()} /> : null}
       {cachedAt === null && canReadLocation && canAccessMobileScreen(user, 'yard.assign') && record.state === 'IN_YARD' && sections.location !== undefined && !slot ? <PrimaryButton title="Xếp vị trí bãi" onPress={() => navigation.navigate('YardAssignment', { visitId: record.id, containerNo: record.container.containerNumber })} /> : null}

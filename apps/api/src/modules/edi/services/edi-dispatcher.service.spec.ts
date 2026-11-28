@@ -6,6 +6,7 @@ import { EdiAlertService } from './edi-alert.service';
 import { EdiMockTransport } from '../transports/edi-mock.transport';
 import { EdiHttpsTransport } from '../transports/edi-https.transport';
 import { EdiSftpTransport } from '../transports/edi-sftp.transport';
+import type { RealtimeService } from '../../realtime/realtime.service';
 
 describe('EdiDispatcherService', () => {
   let service: EdiDispatcherService;
@@ -202,6 +203,75 @@ describe('EdiDispatcherService', () => {
         retryCount: 3,
         lastError: 'Persistent 500',
       }),
+    });
+  });
+
+  describe('realtime events', () => {
+    function outboxMessage(id: string, icdId: string) {
+      return {
+        id,
+        messageType: 'CODECO_GATE_IN',
+        idempotencyKey: `KEY-${id}`,
+        requestId: `REQ-${id}`,
+        status: EdiOutboxStatus.PENDING,
+        retryCount: 0,
+        routingSnapshot: {
+          routeId: 'route-1',
+          icdId,
+          transport: EdiTransport.MOCK,
+          partnerTarget: 'mock://target',
+          timeoutMs: 5000,
+        },
+        payloadSnapshot: { schemaVersion: 'CODECO_CANONICAL_JSON_V1' },
+      };
+    }
+
+    function serviceWithRealtime(publish: jest.Mock) {
+      return new EdiDispatcherService(
+        mockPrisma as unknown as PrismaService,
+        mockConfigService as unknown as EdiConfigService,
+        mockAlertService as unknown as EdiAlertService,
+        mockMockTransport as unknown as EdiMockTransport,
+        mockHttpsTransport as unknown as EdiHttpsTransport,
+        mockSftpTransport as unknown as EdiSftpTransport,
+        { publish } as unknown as RealtimeService,
+      );
+    }
+
+    it('publishes one edi event per ICD whose messages changed', async () => {
+      const publish = jest.fn();
+      mockPrisma.ediOutboxMessage.findMany.mockResolvedValue([
+        outboxMessage('a-1', 'icd-a'),
+        outboxMessage('a-2', 'icd-a'),
+        outboxMessage('b-1', 'icd-b'),
+      ]);
+      mockPrisma.ediOutboxMessage.updateMany.mockResolvedValue({ count: 1 });
+      mockPrisma.ediOutboxMessage.update.mockResolvedValue({});
+
+      await serviceWithRealtime(publish).dispatchPendingBatch(10);
+
+      expect(publish).toHaveBeenCalledTimes(2);
+      expect(publish).toHaveBeenCalledWith({ topics: ['edi'], source: 'system', icdId: 'icd-a' });
+      expect(publish).toHaveBeenCalledWith({ topics: ['edi'], source: 'system', icdId: 'icd-b' });
+    });
+
+    it('does not publish when another worker already locked the messages', async () => {
+      const publish = jest.fn();
+      mockPrisma.ediOutboxMessage.findMany.mockResolvedValue([outboxMessage('a-1', 'icd-a')]);
+      mockPrisma.ediOutboxMessage.updateMany.mockResolvedValue({ count: 0 });
+
+      await serviceWithRealtime(publish).dispatchPendingBatch(10);
+
+      expect(publish).not.toHaveBeenCalled();
+    });
+
+    it('does not publish when the outbox is empty', async () => {
+      const publish = jest.fn();
+      mockPrisma.ediOutboxMessage.findMany.mockResolvedValue([]);
+
+      await serviceWithRealtime(publish).dispatchPendingBatch(10);
+
+      expect(publish).not.toHaveBeenCalled();
     });
   });
 });

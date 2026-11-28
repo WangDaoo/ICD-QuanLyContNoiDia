@@ -10,7 +10,7 @@ const surveyFixture = api => screenFixture(surveyFile, {
 test('header preserves independent 8dp target gaps and wraps actual screen title at 320dp and font200%', () => {
   const f = screenFixture('src/components/AppHeader.tsx');
   const tree = f.render({ title: 'Danh sách tác nghiệp bãi và container', subtitle: 'Giờ Việt Nam UTC+7', onBack() {} });
-  const row = nodes(tree, n => n.type === 'View' && nodes(n, c => c.type === 'TouchableOpacity').length === 4).at(-1);
+  const row = nodes(tree, n => n.type === 'View' && nodes(n, c => c.type === 'TouchableOpacity').length === 3).at(-1);
   assert.ok(row.props.style.gap >= 8, 'independent header actions need 8dp clearance');
   const heading = nodes(tree, n => n.type === 'Text' && n.props.accessibilityRole === 'header')[0];
   assert.ok(heading);
@@ -244,6 +244,9 @@ test('native tab bar wraps complete labels with48dp targets and8dp independent g
   for (const label of nodes(tree, node => node.type === 'Text')) assert.equal(label.props.numberOfLines, undefined);
   assert.match(text(tree), /Giám định/);
   assert.ok(tree.props.style.gap >= 8);
+  // react-native-web 0.21 does not map accessibilityState.selected to aria-selected.
+  assert.deepEqual(actions.map(action => action.props['aria-selected']), [false, false, true, false, false]);
+  assert.deepEqual(actions.map(action => action.props.accessibilityState.selected), [false, false, true, false, false]);
 });
 test('appearance bootstrap withholds app content until persisted selection is loaded and system reset is persisted', async () => {
   let restore; const saves = [];

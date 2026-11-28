@@ -2,7 +2,7 @@ import { useViewQueryState } from '../context/useViewQueryState';
 import { ModalOverlay } from './ModalOverlay';
 import React, { useEffect, useRef, useState } from 'react';
 import { useApp } from '../context/AppContext';
-import { ServiceOrderItem, Invoice, TariffRule } from '../types';
+import { ServiceOrder, ServiceOrderItem, Invoice, TariffRule } from '../types';
 import { Receipt, Plus, CheckCircle2 } from 'lucide-react';
 import { NavTabId } from './Sidebar';
 
@@ -86,6 +86,16 @@ export const BillingView: React.FC<BillingViewProps> = ({ targetVisitId }) => {
   const [paymentError, setPaymentError] = useState('');
 
   // Tariff management form state
+  // Cancel SO modal state
+  const [cancelSoTarget, setCancelSoTarget] = useState<ServiceOrder | null>(null);
+  const [cancelReason, setCancelReason] = useState('');
+  const [cancelReasonError, setCancelReasonError] = useState('');
+
+  // Issue Invoice modal state
+  const [issueInvoiceTarget, setIssueInvoiceTarget] = useState<ServiceOrder | null>(null);
+  const [invoiceDays, setInvoiceDays] = useState<number | ''>(7);
+  const [invoiceDaysError, setInvoiceDaysError] = useState('');
+
   const [showTariffModal, setShowTariffModal] = useState(false);
   const [tariffName, setTariffName] = useState('Biểu giá mới');
   const [tariffFrom, setTariffFrom] = useState(vietnamDateInput());
@@ -147,14 +157,81 @@ export const BillingView: React.FC<BillingViewProps> = ({ targetVisitId }) => {
     if (!paymentPending.current) setShowPayModal(false);
   };
 
+  const openCancelSoModal = (so: ServiceOrder) => {
+    action.clear();
+    setCancelReason('');
+    setCancelReasonError('');
+    setCancelSoTarget(so);
+  };
+
+  const closeCancelSoModal = () => {
+    if (!action.isPending()) {
+      setCancelSoTarget(null);
+      setCancelReason('');
+      setCancelReasonError('');
+    }
+  };
+
+  const handleCancelSo = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const trimmed = cancelReason.trim();
+    if (!trimmed) {
+      setCancelReasonError('Vui lòng nhập lý do hủy.');
+      return;
+    }
+    if (trimmed.length > 500) {
+      setCancelReasonError('Lý do hủy không được vượt quá 500 ký tự.');
+      return;
+    }
+    if (!cancelSoTarget || !can('billing.manage') || action.isPending()) return;
+    const result = await action.run(() => cancelServiceOrder(cancelSoTarget.id, trimmed));
+    if (result?.success) {
+      setCancelSoTarget(null);
+      setCancelReason('');
+      setCancelReasonError('');
+    }
+  };
+
+  const openIssueInvoiceModal = (so: ServiceOrder) => {
+    action.clear();
+    setInvoiceDays(7);
+    setInvoiceDaysError('');
+    setIssueInvoiceTarget(so);
+  };
+
+  const closeIssueInvoiceModal = () => {
+    if (!action.isPending()) {
+      setIssueInvoiceTarget(null);
+      setInvoiceDays(7);
+      setInvoiceDaysError('');
+    }
+  };
+
+  const handleIssueInvoice = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const days = Number(invoiceDays);
+    if (!invoiceDays || !Number.isInteger(days) || days < 1) {
+      setInvoiceDaysError('Số ngày phải là số nguyên tối thiểu 1.');
+      return;
+    }
+    if (!issueInvoiceTarget || !can('billing.manage') || action.isPending()) return;
+    const due = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toISOString();
+    const result = await action.run(() => issueInvoice(issueInvoiceTarget.id, due));
+    if (result?.success) {
+      setIssueInvoiceTarget(null);
+      setInvoiceDays(7);
+      setInvoiceDaysError('');
+    }
+  };
+
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="page-heading flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h2 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
             <Receipt className="w-5 h-5 text-blue-600" />
-            <span>Dịch vụ & Thanh toán (Billing & Invoices)</span>
+            <span>Dịch vụ và thanh toán</span>
           </h2>
           <p className="text-xs text-slate-500 mt-1">
             Tính toán biểu phí lưu bãi, tiếp nhận, rút ruột (Stripping), kiểm định và xuất hóa đơn
@@ -171,12 +248,12 @@ export const BillingView: React.FC<BillingViewProps> = ({ targetVisitId }) => {
             className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-lg transition shadow-xs flex items-center space-x-2"
           >
             <Plus className="w-4 h-4" />
-            <span>Tạo Đơn dịch vụ (Service Order)</span>
+            <span>Tạo đơn dịch vụ</span>
           </button>
         )}
       </div>
 
-      {!showCreateSoModal && !showPayModal && !showTariffModal && !showRuleModal && (
+      {!showCreateSoModal && !showPayModal && !showTariffModal && !showRuleModal && !cancelSoTarget && !issueInvoiceTarget && (
         <CommandNotice notice={action.notice} />
       )}
       {/* Financial Overview Cards */}
@@ -263,8 +340,8 @@ export const BillingView: React.FC<BillingViewProps> = ({ targetVisitId }) => {
                 <th className="py-3 px-4">Chủ hàng (Consignee)</th>
                 <th className="py-3 px-4">Ngày xuất</th>
                 <th className="py-3 px-4">Hạn TT</th>
-                <th className="py-3 px-4">Tổng tiền</th>
-                <th className="py-3 px-4">Đã thanh toán</th>
+                <th className="py-3 px-4 text-right">Tổng tiền</th>
+                <th className="py-3 px-4 text-right">Đã thanh toán</th>
                 <th className="py-3 px-4">Trạng thái</th>
                 <th className="py-3 px-4 text-right">Thao tác</th>
               </tr>
@@ -285,15 +362,15 @@ export const BillingView: React.FC<BillingViewProps> = ({ targetVisitId }) => {
                     <td className="py-3 px-4 text-slate-500">
                       {new Date(inv.dueAt).toLocaleDateString('vi-VN')}
                     </td>
-                    <td className="py-3 px-4 font-bold text-slate-900">
+                    <td className="py-3 px-4 font-bold text-slate-900 text-right tabular-nums">
                       {inv.totalAmountVnd.toLocaleString()}₫
                     </td>
-                    <td className="py-3 px-4 font-bold text-emerald-700">
+                    <td className="py-3 px-4 font-bold text-emerald-700 text-right tabular-nums">
                       {inv.paidAmountVnd.toLocaleString()}₫
                     </td>
                     <td className="py-3 px-4">
                       <span
-                        className={`px-2 py-1 rounded-full text-caption font-bold ${
+                        className={`status-frame px-2 py-1 rounded-full text-caption font-bold ${
                           inv.status === 'PAID'
                             ? 'bg-emerald-100 text-emerald-800'
                             : inv.status === 'PARTIALLY_PAID'
@@ -352,7 +429,7 @@ export const BillingView: React.FC<BillingViewProps> = ({ targetVisitId }) => {
                   </span>
                   <span className="text-slate-600">{so.consigneeName}</span>
                   <span
-                    className={`px-2 py-1 rounded-full text-caption font-bold ${
+                    className={`status-frame px-2 py-1 rounded-full text-caption font-bold ${
                       so.status === 'INVOICED' || so.status === 'PAID'
                         ? 'bg-emerald-100 text-emerald-800'
                         : so.status === 'CONFIRMED'
@@ -381,11 +458,7 @@ export const BillingView: React.FC<BillingViewProps> = ({ targetVisitId }) => {
                       </button>
                       <button
                         disabled={action.pending}
-                        onClick={async () => {
-                          const reason = window.prompt('Lý do hủy Service Order:');
-                          if (reason && window.confirm(`Hủy đơn dịch vụ ${so.orderCode}?`))
-                            await action.run(() => cancelServiceOrder(so.id, reason));
-                        }}
+                        onClick={() => openCancelSoModal(so)}
                         className="px-3 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded-md font-bold border border-rose-200"
                       >
                         Hủy
@@ -395,15 +468,7 @@ export const BillingView: React.FC<BillingViewProps> = ({ targetVisitId }) => {
                   {so.status === 'CONFIRMED' && can('billing.manage') && (
                     <button
                       disabled={action.pending}
-                      onClick={async () => {
-                        const days = window.prompt('Hạn thanh toán (số ngày kể từ hôm nay):', '7');
-                        if (days) {
-                          const due = new Date(
-                            Date.now() + Number(days) * 24 * 60 * 60 * 1000,
-                          ).toISOString();
-                          await action.run(() => issueInvoice(so.id, due));
-                        }
-                      }}
+                      onClick={() => openIssueInvoiceModal(so)}
                       className="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-md font-bold"
                     >
                       Phát hành Hóa đơn
@@ -419,7 +484,7 @@ export const BillingView: React.FC<BillingViewProps> = ({ targetVisitId }) => {
                       <th className="pb-1">Tên dịch vụ</th>
                       <th className="pb-1">Số lượng</th>
                       <th className="pb-1">Đơn vị</th>
-                      <th className="pb-1">Đơn giá</th>
+                      <th className="pb-1 text-right">Đơn giá</th>
                       <th className="pb-1 text-right">Thành tiền</th>
                     </tr>
                   </thead>
@@ -429,7 +494,7 @@ export const BillingView: React.FC<BillingViewProps> = ({ targetVisitId }) => {
                         <td className="py-2 font-medium">{item.serviceName}</td>
                         <td className="py-2">{item.quantity}</td>
                         <td className="py-2">{item.unit}</td>
-                        <td className="py-2">{item.unitPriceVnd.toLocaleString()}₫</td>
+                        <td className="py-2 text-right tabular-nums">{item.unitPriceVnd.toLocaleString()}₫</td>
                         <td className="py-2 font-bold text-right">
                           {item.amountVnd.toLocaleString()}₫
                         </td>
@@ -473,7 +538,7 @@ export const BillingView: React.FC<BillingViewProps> = ({ targetVisitId }) => {
                     </div>
                   </div>
                   <span
-                    className={`px-2 py-1 rounded-full text-caption font-bold ${
+                    className={`status-frame px-2 py-1 rounded-full text-caption font-bold ${
                       t.status === 'ACTIVE'
                         ? 'bg-emerald-100 text-emerald-800'
                         : t.status === 'RETIRED'
@@ -528,7 +593,7 @@ export const BillingView: React.FC<BillingViewProps> = ({ targetVisitId }) => {
                   <th className="py-3 px-4">Tên dịch vụ</th>
                   <th className="py-3 px-4">Áp dụng Container</th>
                   <th className="py-3 px-4">Đơn vị tính</th>
-                  <th className="py-3 px-4">Đơn giá quy định</th>
+                  <th className="py-3 px-4 text-right">Đơn giá quy định</th>
                   <th className="py-3 px-4">Ngày miễn phí (Free days)</th>
                 </tr>
               </thead>
@@ -543,7 +608,7 @@ export const BillingView: React.FC<BillingViewProps> = ({ targetVisitId }) => {
                       {tr.containerType || 'Mọi loại'} · {tr.containerSize || 'Mọi kích thước'}
                     </td>
                     <td className="py-3 px-4 text-slate-600">{tr.unit}</td>
-                    <td className="py-3 px-4 font-bold text-emerald-700">
+                    <td className="py-3 px-4 font-bold text-emerald-700 text-right tabular-nums">
                       {tr.unitPriceVnd.toLocaleString()}₫
                     </td>
                     <td className="py-3 px-4 text-slate-600">
@@ -746,7 +811,7 @@ export const BillingView: React.FC<BillingViewProps> = ({ targetVisitId }) => {
         >
           <div className="bg-white rounded-xl max-w-md w-full p-6 shadow-xl border border-slate-200 text-xs">
             <h3 id="billing-dialog-3-title" className="text-base font-bold text-slate-900 mb-4">
-              Tạo Đơn dịch vụ (Service Order) mới
+              Tạo đơn dịch vụ mới
             </h3>
             <CommandNotice notice={action.notice} />
             <form onSubmit={handleCreateSo} className="space-y-4">
@@ -813,6 +878,141 @@ export const BillingView: React.FC<BillingViewProps> = ({ targetVisitId }) => {
                   className="px-4 py-2 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700"
                 >
                   Tạo đơn dịch vụ nháp
+                </button>
+              </div>
+            </form>
+          </div>
+        </ModalOverlay>
+      )}
+
+      {/* Cancel Service Order Modal */}
+      {cancelSoTarget && (
+        <ModalOverlay
+          aria-labelledby="billing-dialog-cancel-so-title"
+          pending={action.pending}
+          onClose={closeCancelSoModal}
+          className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center z-50 p-4"
+        >
+          <div className="bg-white rounded-xl max-w-md w-full p-6 shadow-xl border border-slate-200 text-xs">
+            <h3 id="billing-dialog-cancel-so-title" className="text-base font-bold text-slate-900 mb-2">
+              Hủy Đơn dịch vụ
+            </h3>
+            <p className="text-slate-500 mb-4">
+              Đơn dịch vụ <strong>{cancelSoTarget.orderCode}</strong> ({cancelSoTarget.containerNumber})
+            </p>
+            <CommandNotice notice={action.notice} />
+            <form onSubmit={handleCancelSo} className="space-y-4">
+              <div>
+                <label
+                  htmlFor="billing-cancel-so-reason"
+                  className="block font-semibold text-slate-700 mb-1"
+                >
+                  Lý do hủy*
+                </label>
+                <textarea
+                  id="billing-cancel-so-reason"
+                  value={cancelReason}
+                  onChange={(e) => {
+                    setCancelReason(e.target.value);
+                    if (cancelReasonError) setCancelReasonError('');
+                  }}
+                  disabled={action.pending}
+                  maxLength={500}
+                  rows={3}
+                  required
+                  aria-invalid={Boolean(cancelReasonError)}
+                  aria-describedby={cancelReasonError ? 'billing-cancel-so-error' : undefined}
+                  className="w-full px-3 py-2 border border-slate-300 rounded-lg resize-none"
+                />
+                {cancelReasonError && (
+                  <p id="billing-cancel-so-error" role="alert" className="text-rose-700 mt-1">
+                    {cancelReasonError}
+                  </p>
+                )}
+              </div>
+              <div className="flex justify-end space-x-2 pt-3 border-t border-slate-200">
+                <button
+                  type="button"
+                  disabled={action.pending}
+                  onClick={closeCancelSoModal}
+                  className="px-4 py-2 border border-slate-300 rounded-lg text-slate-700 disabled:opacity-50"
+                >
+                  Đóng
+                </button>
+                <button
+                  type="submit"
+                  disabled={action.pending}
+                  className="px-4 py-2 bg-rose-600 text-white rounded-lg font-bold hover:bg-rose-700 disabled:opacity-50 disabled:cursor-wait"
+                >
+                  {action.pending ? 'Đang hủy...' : 'Xác nhận Hủy'}
+                </button>
+              </div>
+            </form>
+          </div>
+        </ModalOverlay>
+      )}
+
+      {/* Issue Invoice Modal */}
+      {issueInvoiceTarget && (
+        <ModalOverlay
+          aria-labelledby="billing-dialog-issue-invoice-title"
+          pending={action.pending}
+          onClose={closeIssueInvoiceModal}
+          className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center z-50 p-4"
+        >
+          <div className="bg-white rounded-xl max-w-sm w-full p-6 shadow-xl border border-slate-200 text-xs">
+            <h3 id="billing-dialog-issue-invoice-title" className="text-base font-bold text-slate-900 mb-2">
+              Phát hành Hóa đơn
+            </h3>
+            <p className="text-slate-500 mb-4">
+              Đơn dịch vụ <strong>{issueInvoiceTarget.orderCode}</strong> ({issueInvoiceTarget.containerNumber})
+            </p>
+            <CommandNotice notice={action.notice} />
+            <form onSubmit={handleIssueInvoice} className="space-y-4">
+              <div>
+                <label
+                  htmlFor="billing-issue-invoice-days"
+                  className="block font-semibold text-slate-700 mb-1"
+                >
+                  Hạn thanh toán (số ngày kể từ hôm nay)*
+                </label>
+                <input
+                  id="billing-issue-invoice-days"
+                  type="number"
+                  min={1}
+                  step={1}
+                  required
+                  value={invoiceDays}
+                  disabled={action.pending}
+                  aria-invalid={Boolean(invoiceDaysError)}
+                  aria-describedby={invoiceDaysError ? 'billing-issue-invoice-error' : undefined}
+                  onChange={(e) => {
+                    setInvoiceDays(e.target.value === '' ? '' : Number(e.target.value));
+                    if (invoiceDaysError) setInvoiceDaysError('');
+                  }}
+                  className="w-full px-3 py-2 border border-slate-300 rounded-lg font-bold"
+                />
+                {invoiceDaysError && (
+                  <p id="billing-issue-invoice-error" role="alert" className="text-rose-700 mt-1">
+                    {invoiceDaysError}
+                  </p>
+                )}
+              </div>
+              <div className="flex justify-end space-x-2 pt-3 border-t border-slate-200">
+                <button
+                  type="button"
+                  disabled={action.pending}
+                  onClick={closeIssueInvoiceModal}
+                  className="px-4 py-2 border border-slate-300 rounded-lg text-slate-700 disabled:opacity-50"
+                >
+                  Đóng
+                </button>
+                <button
+                  type="submit"
+                  disabled={action.pending}
+                  className="px-4 py-2 bg-emerald-600 text-white rounded-lg font-bold hover:bg-emerald-700 disabled:opacity-50 disabled:cursor-wait"
+                >
+                  {action.pending ? 'Đang phát hành...' : 'Xác nhận Phát hành'}
                 </button>
               </div>
             </form>
