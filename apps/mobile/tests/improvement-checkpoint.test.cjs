@@ -24,7 +24,8 @@ test('booking detail presents the promised Vietnam schedule on a UTC device', as
   process.env.TZ = 'UTC';
   try {
     const f = screenFixture('src/features/yard/screens/YardOperationDetailScreen.tsx', {
-      '@react-navigation/native': { useNavigation: () => ({ goBack() {} }), useRoute: () => ({ params: { operationType: 'BOOKING', operationId: 'booking-1' } }) },
+      // useFocusEffect: hook realtime của màn hình chỉ đăng ký khi màn hình được focus.
+      '@react-navigation/native': { useFocusEffect: () => {}, useNavigation: () => ({ goBack() {} }), useRoute: () => ({ params: { operationType: 'BOOKING', operationId: 'booking-1' } }) },
       '../api/yard.api': { yardApi: { getOperation: async () => ({ id: 'booking-1', status: 'COMPLETED', bookingType: 'STUFFING', scheduledAt: '2026-10-03T02:30:00.000Z' }) } },
     }, 'YardOperationDetailScreen');
     // Render the route-keyed detail component rather than mocking its formatting.

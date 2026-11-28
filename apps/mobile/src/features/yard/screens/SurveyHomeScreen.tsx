@@ -24,6 +24,7 @@ import { containerApi } from '../../containers/api/container.api';
 import { yardApi, type InspectionRecord } from '../api/yard.api';
 import { getInspectionDisplay } from '../inspection-display';
 import type { YardStackParamList } from '../../../navigation/types';
+import { useRealtimeRefresh } from '../../../services/realtime/useRealtimeRefresh';
 
 export function SurveyHomeScreen() {
   const navigation = useNavigation<NativeStackNavigationProp<YardStackParamList>>();
@@ -45,16 +46,18 @@ export function SurveyHomeScreen() {
   const [fieldErrors, setFieldErrors] = useState<{ containerNo?: string; notes?: string }>({});
   const [success, setSuccess] = useState('');
   const canInspect = hasAnyPermission(user, ['yard.inspect']);
-  const load = useCallback(async () => {
+  const load = useCallback(async (options: { silent?: boolean } = {}) => {
     if (!hasAnyPermission(user, ['yard.read'])) { setRows([]); setHistoryLoading(false); return; }
+    // `silent`: tải lại do realtime, giữ lịch sử biên bản đang hiển thị (không đụng biểu mẫu đang nhập).
+    const silent = options.silent === true;
     const ticket = ++historyRequest.current;
-    setHistoryLoading(true); setHistoryError('');
+    if (!silent) { setHistoryLoading(true); setHistoryError(''); }
     try {
       const data = await yardApi.inspections();
       if (ticket !== historyRequest.current) return;
-      setRows(data); setHistoryLoaded(true);
+      setRows(data); setHistoryLoaded(true); setHistoryError('');
     } catch (err) {
-      if (ticket === historyRequest.current) setHistoryError(err instanceof Error ? err.message : 'Không tải được biên bản.');
+      if (ticket === historyRequest.current && !silent) setHistoryError(err instanceof Error ? err.message : 'Không tải được biên bản.');
     } finally { if (ticket === historyRequest.current) setHistoryLoading(false); }
   }, [user]);
   useFocusEffect(
@@ -63,6 +66,7 @@ export function SurveyHomeScreen() {
       return () => { historyRequest.current++; };
     }, [load]),
   );
+  useRealtimeRefresh(() => load({ silent: true }), { topics: ['inspections', 'yard', 'containers'] });
   const validateFields = () => {
     const next = { containerNo: containerNo.trim() ? undefined : 'Nhập số container.', notes: notes.trim() ? undefined : 'Nhập nội dung ghi nhận.' };
     setFieldErrors(next);

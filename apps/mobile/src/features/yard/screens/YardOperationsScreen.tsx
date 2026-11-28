@@ -15,6 +15,7 @@ import { hasAnyPermission } from '../../auth/permissions';
 import type { YardStackParamList } from '../../../navigation/types';
 import { yardApi, type OperationType, type YardOperation, type BookingType } from '../api/yard.api';
 import type { ContainerRecord } from '../../containers/api/container.api';
+import { useRealtimeRefresh } from '../../../services/realtime/useRealtimeRefresh';
 
 export function YardOperationsScreen() {
   const navigation = useNavigation<NativeStackNavigationProp<YardStackParamList>>();
@@ -32,19 +33,22 @@ export function YardOperationsScreen() {
   const [confirm,setConfirm] = useState(false);
   const [dateError, setDateError] = useState('');
   const canBook = hasAnyPermission(user,['yard.booking']) && hasAnyPermission(user,['container.read']);
-  const load = useCallback(async () => {
+  const load = useCallback(async (options: { silent?: boolean } = {}) => {
     if (!hasAnyPermission(user,['yard.read'])) return;
+    // `silent`: tải lại do realtime, giữ danh sách đang hiển thị và không bật vòng xoay.
+    const silent = options.silent === true;
     const ticket = ++request.current;
-    setLoading(true);setError('');
+    if (!silent) {setLoading(true);setError('');}
     try {
       const [operations, visits] = await Promise.all([yardApi.operations(type,params?.visitId), canBook ? yardApi.containers() : Promise.resolve({data:[]})]);
       if (ticket !== request.current) return;
-      setRows(operations.data);setContainers(visits.data);
+      setRows(operations.data);setContainers(visits.data);setError('');
     }
-    catch(err) {if (ticket === request.current) setError(err instanceof Error ? err.message : 'Không tải được lệnh tác nghiệp.');}
+    catch(err) {if (ticket === request.current && !silent) setError(err instanceof Error ? err.message : 'Không tải được lệnh tác nghiệp.');}
     finally {if (ticket === request.current) setLoading(false);}
   },[type,params?.visitId,user,canBook]);
   useFocusEffect(useCallback(() => {void load();return () => {request.current++;};},[load]));
+  useRealtimeRefresh(() => load({ silent: true }), { topics: ['yard', 'movement-orders', 'inspections', 'containers'] });
   const parsedDate = () => parseVietnamBookingDate(scheduledAt);
   const review = () => {
     setError('');

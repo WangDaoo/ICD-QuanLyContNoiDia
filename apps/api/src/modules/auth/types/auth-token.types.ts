@@ -8,6 +8,9 @@ export interface AccessTokenPayload {
   type: 'access';
 
   email: string;
+
+  /** Thời điểm hết hạn (giây, epoch) do JWT tự thêm khi ký. */
+  exp?: number;
 }
 
 export interface RefreshTokenPayload {

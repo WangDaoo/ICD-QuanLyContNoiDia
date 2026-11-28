@@ -51,6 +51,7 @@ import { ReportsModule } from './modules/reports/reports.module';
 import { PartnerHandoverModule } from './modules/partner-handover/partner-handover.module';
 
 import { NotificationsModule } from './modules/notifications/notifications.module';
+import { RealtimeModule } from './modules/realtime/realtime.module';
 import { SettingsModule } from './modules/settings/settings.module';
 
 @Module({
@@ -124,6 +125,9 @@ import { SettingsModule } from './modules/settings/settings.module';
     NotificationsModule,
 
     SettingsModule,
+
+    // Kênh SSE đẩy thông báo thay đổi dữ liệu cho Web và Mobile.
+    RealtimeModule,
   ],
   providers: [
     {

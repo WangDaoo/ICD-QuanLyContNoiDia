@@ -17,7 +17,11 @@ import { useTheme } from '../../../theme/ThemeProvider';
 import { PrimaryButton } from '../../../components/PrimaryButton';
 import { readCache, cacheScope } from '../../../storage/read-cache-store';
 import { useApiConnection } from '../../../services/api/ApiConnectionProvider';
+import { useRealtimeRefresh } from '../../../services/realtime/useRealtimeRefresh';
 import type { MainTabParamList, RootStackParamList, WorkQueueTask } from '../../../navigation/types';
+
+/** Hàng đợi gom việc Gate, bãi, kiểm hóa, lệnh giữ và chứng từ nên theo dõi mọi nhóm nghiệp vụ container. */
+const QUEUE_TOPICS = ['containers', 'gate', 'gate-passes', 'yard', 'movement-orders', 'inspections', 'holds', 'billing', 'manifests'] as const;
 
 export function WorkQueueScreen() {
   const { theme } = useTheme();
@@ -40,13 +44,15 @@ export function WorkQueueScreen() {
   const currentQuery = useRef('');
   type QueueResponse = { data: ApiWorkQueueItem[]; meta: { totalPages: number }; summary?: { total: number; overdue: number } };
 
-  const fetchData = useCallback(async () => {
+  const fetchData = useCallback(async (options: { silent?: boolean } = {}) => {
+    // `silent`: tải lại do realtime, giữ danh sách đang hiển thị và không bật vòng xoay.
+    const silent = options.silent === true;
     const ticket = ++request.current;
     if (!user) return;
     const scope = cacheScope(user);
     const query = JSON.stringify([page, filter, urgency, [...user.permissionCodes].sort()]);
     if (currentQuery.current !== query) { setItems([]); setStats(null); setPages(0); setCachedAt(null); currentQuery.current = query; }
-    setError(null); setLoading(true);
+    if (!silent) { setError(null); setLoading(true); }
     const apply = (response: QueueResponse) => {
       setPages(response.meta.totalPages);
       setItems(response.data.map(mapWorkQueueItem).filter((task): task is WorkQueueTask => !!task));
@@ -55,10 +61,12 @@ export function WorkQueueScreen() {
     try {
       const response = await apiClient.get<QueueResponse>(`/containers/work-queue?pageSize=20&page=${page}${filter ? '&type=' + filter : ''}${urgency ? '&urgency=' + urgency : ''}`);
       if (ticket !== request.current) return;
-      apply(response); setCachedAt(null);
+      apply(response); setCachedAt(null); setError(null);
       void readCache.write(scope, 'work-queue', query, response).catch(() => {});
     } catch (err) {
       if (ticket !== request.current) return;
+      // Lỗi khi tải nền: giữ danh sách đang hiển thị, lần tải sau sẽ thử lại.
+      if (silent) return;
       const cached = err instanceof TypeError ? await readCache.read<QueueResponse>(scope, 'work-queue', query) : null;
       if (ticket !== request.current) return;
       if (cached) { apply(cached.data); setCachedAt(cached.savedAt); }
@@ -68,6 +76,7 @@ export function WorkQueueScreen() {
     finally { if (ticket === request.current) { setLoading(false); setRefreshing(false); } }
   }, [page, filter, urgency, user, online]);
   useFocusEffect(useCallback(() => { void fetchData(); return () => { request.current++; }; }, [fetchData]));
+  useRealtimeRefresh(() => fetchData({ silent: true }), { topics: QUEUE_TOPICS });
 
   const handleOpenTask = (task: WorkQueueTask) => {
     const destination = getWorkQueueDestination(user, task);

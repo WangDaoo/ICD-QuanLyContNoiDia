@@ -7,6 +7,7 @@ import { YardSlotGrid } from '../components/YardSlotGrid';
 import { useAuth } from '../../auth/hooks/useAuth';
 import { hasAnyPermission } from '../../auth/permissions';
 import { LoadingState } from '../../../components/LoadingState';
+import { useRealtimeRefresh } from '../../../services/realtime/useRealtimeRefresh';
 
 export function MonitorScreen() {
   const styles = useFieldStyles();
@@ -15,19 +16,26 @@ export function MonitorScreen() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const request = useRef(0);
-  const load = useCallback(async () => {
+  const load = useCallback(async (options: { silent?: boolean } = {}) => {
     if (!hasAnyPermission(user, ['yard.read'])) return;
+    // `silent`: tải lại do realtime, giữ sơ đồ đang hiển thị và không bật vòng xoay.
+    const silent = options.silent === true;
     const ticket = ++request.current;
-    setLoading(true);
-    setError('');
+    if (!silent) {
+      setLoading(true);
+      setError('');
+    }
     try {
       const response = await loadYardSnapshot({
         canReadInspections: true,
         canReadHolds: hasAnyPermission(user, ['operational_hold.read']),
       });
-      if (ticket === request.current) setSnapshot(response);
+      if (ticket === request.current) {
+        setSnapshot(response);
+        setError('');
+      }
     } catch (err) {
-      if (ticket === request.current)
+      if (ticket === request.current && !silent)
         setError(err instanceof Error ? err.message : 'Không tải được trạng thái bãi.');
     } finally {
       if (ticket === request.current) setLoading(false);
@@ -41,6 +49,9 @@ export function MonitorScreen() {
       };
     }, [load]),
   );
+  useRealtimeRefresh(() => load({ silent: true }), {
+    topics: ['yard', 'containers', 'gate', 'inspections', 'holds', 'movement-orders'],
+  });
   return (
     <ScreenLayout
       title="Điều phối ca trực"
