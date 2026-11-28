@@ -1,0 +1,82 @@
+== api typecheck
+
+> @icd/api@0.1.0 typecheck <repo>\apps\api
+> tsc --noEmit
+
+exit=0
+== api unit
+[Nest] 2108  - 22:50:37 28/11/2026   DEBUG [EdiCorrelationService] Matched EDI ACK to outbox message outbox-1 via explicit ID
+[Nest] 2108  - 22:50:37 28/11/2026   DEBUG [EdiCorrelationService] Matched EDI ACK to outbox message outbox-2 via idempotencyKey
+[Nest] 2108  - 22:50:37 28/11/2026   DEBUG [EdiCorrelationService] Matched EDI ACK to outbox message outbox-3 via externalReference
+[Nest] 2108  - 22:50:37 28/11/2026    WARN [EdiCorrelationService] Could not correlate EDI ACK for shippingLine ship-1, externalReference: NON-EXISTENT
+[Nest] 45880  - 22:50:40 28/11/2026     LOG [SmtpEmailProvider] SMTP Email Provider initialized with host 127.0.0.1:53726
+[Nest] 43344  - 22:50:40 28/11/2026    WARN [MlClient] ML recommendation service returned HTTP status 500 for visit visit-1
+
+Test Suites: 59 passed, 59 total
+Tests:       342 passed, 342 total
+Snapshots:   0 total
+Time:        43.162 s
+Ran all test suites.
+exit=0
+== api build
+
+> @icd/api@0.1.0 build <repo>\apps\api
+> nest build
+
+exit=0
+== web typecheck
+
+> @icd/web@0.1.0 typecheck <repo>\apps\web
+> tsc --noEmit
+
+exit=0
+== web test
+✔ ghép sự kiện bị cắt giữa chừng, kể cả giữa CR LF (0.3626ms)
+✔ bỏ qua heartbeat, khối không có data và trường lạ; báo retry ngay (0.4068ms)
+✔ reset bỏ phần dở dang (0.2448ms)
+✔ src\services\report-metrics.test.ts (412.4178ms)
+ℹ tests 125
+ℹ suites 0
+ℹ pass 125
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2608.227
+exit=0
+== web build
+dist/assets/PartnerManagementView-DBD6fxH0.js   11.62 kB │ gzip:   3.66 kB
+dist/assets/DashboardView-BAiBh5Hk.js           12.47 kB │ gzip:   3.62 kB
+dist/assets/EDIView-B46tUBwJ.js                 12.59 kB │ gzip:   3.85 kB
+dist/assets/GatePassView-Dfp9pVwE.js            14.74 kB │ gzip:   4.54 kB
+dist/assets/HandoversView-CAa1Jgrh.js           21.52 kB │ gzip:   6.04 kB
+dist/assets/ManifestsView-CEBL_2St.js           22.45 kB │ gzip:   5.55 kB
+dist/assets/useGatePassExpiry-B-axBU1n.js       28.27 kB │ gzip:  10.90 kB
+dist/assets/BillingView-CiNEbNJc.js             29.00 kB │ gzip:   6.30 kB
+dist/assets/ContainersView-CPyj3Thq.js          42.34 kB │ gzip:   9.68 kB
+dist/assets/YardView-DZQQy1Cf.js                64.96 kB │ gzip:  16.58 kB
+dist/assets/index-l2ETe8kk.js                  469.76 kB │ gzip: 149.69 kB
+✓ built in 7.92s
+exit=0
+== mobile typecheck
+
+> @icd/mobile@0.1.0 typecheck <repo>\apps\mobile
+> tsc --noEmit -p tsconfig.json
+
+exit=0
+== mobile test
+✔ yard snapshot enriches exact occupied Visit IDs once and preserves actual slots (154.2892ms)
+✔ permission-scoped snapshot never requests ungranted inspection or Hold data (23.6416ms)
+✔ optional enrichment failures preserve catalog and explicitly report unavailable context (14.7184ms)
+✔ unavailable catalog rejects instead of inventing an empty operational yard (16.5661ms)
+ℹ tests 193
+ℹ suites 0
+ℹ pass 193
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2678.534
+exit=0
+== eslint changed
+exit=0

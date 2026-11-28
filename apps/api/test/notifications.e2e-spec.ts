@@ -16,6 +16,7 @@ import {
 import { assertE2EDatabase } from './helpers/assert-e2e-database';
 import { createCoreScenario } from './helpers/core-lifecycle-fixture';
 import { stopE2ECronJobs } from './helpers/stop-e2e-cron-jobs';
+import { unwrapData } from './helpers/api-envelope';
 
 config({ path: path.resolve(__dirname, '../../../.env') });
 
@@ -26,6 +27,10 @@ type AuthResult = {
     email: string;
   };
 };
+
+type DeviceResult = { success: boolean; deviceId: string };
+type MarkReadResult = { success: boolean; readAt: string };
+type ReadAllResult = { success: boolean; markedCount: number };
 
 type NotificationHistoryResponse = {
   data: Array<{
@@ -70,7 +75,7 @@ describe('Notifications Integration E2E', () => {
       .send({ email, password })
       .expect(200);
 
-    return res.body as AuthResult;
+    return unwrapData<AuthResult>(res.body);
   }
 
   async function createUserHelper(prefix: string): Promise<{
@@ -207,11 +212,11 @@ describe('Notifications Integration E2E', () => {
       })
       .expect(200);
 
-    expect(regRes.body.success).toBe(true);
-    expect(regRes.body.deviceId).toBeDefined();
+    expect(unwrapData<DeviceResult>(regRes.body).success).toBe(true);
+    expect(unwrapData<DeviceResult>(regRes.body).deviceId).toBeDefined();
 
     const device = await prisma.notificationDevice.findUniqueOrThrow({
-      where: { id: regRes.body.deviceId },
+      where: { id: unwrapData<DeviceResult>(regRes.body).deviceId },
     });
 
     expect(device.active).toBe(true);
@@ -406,8 +411,8 @@ describe('Notifications Integration E2E', () => {
       .set('Authorization', `Bearer ${user.accessToken}`)
       .expect(200);
 
-    expect(markRes.body.success).toBe(true);
-    expect(markRes.body.readAt).toEqual(expect.any(String));
+    expect(unwrapData<MarkReadResult>(markRes.body).success).toBe(true);
+    expect(unwrapData<MarkReadResult>(markRes.body).readAt).toEqual(expect.any(String));
 
     const persisted = await prisma.notification.findUniqueOrThrow({
       where: { id: targetNotif.id },
@@ -421,8 +426,8 @@ describe('Notifications Integration E2E', () => {
       .send({})
       .expect(200);
 
-    expect(readAllRes.body.success).toBe(true);
-    expect(readAllRes.body.markedCount).toBeGreaterThanOrEqual(1);
+    expect(unwrapData<ReadAllResult>(readAllRes.body).success).toBe(true);
+    expect(unwrapData<ReadAllResult>(readAllRes.body).markedCount).toBeGreaterThanOrEqual(1);
 
     // Verify unread count is now 0
     const finalHistoryRes = await request(app.getHttpServer())
@@ -450,7 +455,7 @@ describe('Notifications Integration E2E', () => {
       })
       .expect(200);
 
-    const deviceId = regRes.body.deviceId;
+    const deviceId = unwrapData<DeviceResult>(regRes.body).deviceId;
     const tokenHash = crypto.createHash('sha256').update(rawToken).digest('hex');
 
     // 2. Unregister device

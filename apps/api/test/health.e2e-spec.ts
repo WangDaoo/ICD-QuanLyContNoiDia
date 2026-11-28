@@ -8,6 +8,7 @@ import { PrismaService } from '../src/database/prisma.service';
 import { assertE2EDatabase } from './helpers/assert-e2e-database';
 import { disableE2ENotificationTriggers } from './helpers/disable-e2e-notification-triggers';
 import { stopE2ECronJobs } from './helpers/stop-e2e-cron-jobs';
+import { unwrapData } from './helpers/api-envelope';
 
 describe('Health E2E', () => {
   let app: INestApplication;
@@ -37,7 +38,7 @@ describe('Health E2E', () => {
       .get('/api/health/live')
       .expect(200);
 
-    expect(response.body).toEqual(
+    expect(unwrapData(response.body)).toEqual(
       expect.objectContaining({
         status: 'ok',
         service: 'icd-api',
@@ -50,7 +51,7 @@ describe('Health E2E', () => {
       .get('/api/health/ready')
       .expect(200);
 
-    expect(response.body).toEqual(
+    expect(unwrapData(response.body)).toEqual(
       expect.objectContaining({
         status: 'ok',
         service: 'icd-api',

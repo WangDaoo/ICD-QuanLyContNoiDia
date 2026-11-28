@@ -2459,6 +2459,105 @@
         ]
       }
     },
+    "/api/notifications/register-device": {
+      "post": {
+        "operationId": "NotificationsController_registerDevice",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterDeviceDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Notifications"
+        ]
+      }
+    },
+    "/api/notifications/unregister-device": {
+      "delete": {
+        "operationId": "NotificationsController_unregisterDevice",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UnregisterDeviceDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Notifications"
+        ]
+      }
+    },
+    "/api/notifications/history": {
+      "get": {
+        "operationId": "NotificationsController_getHistory",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Notifications"
+        ]
+      }
+    },
+    "/api/notifications/{id}/read": {
+      "patch": {
+        "operationId": "NotificationsController_markAsRead",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Notifications"
+        ]
+      }
+    },
+    "/api/notifications/read-all": {
+      "post": {
+        "operationId": "NotificationsController_markAllAsRead",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Notifications"
+        ]
+      }
+    },
     "/api/containers/{visitId}/gate-in-context": {
       "get": {
         "operationId": "GateInController_getContext",
@@ -3518,7 +3617,7 @@
           }
         },
         "responses": {
-          "201": {
+          "200": {
             "description": ""
           }
         },
@@ -4057,6 +4156,29 @@
         ]
       }
     },
+    "/api/gate-passes/{gatePassId}/qr": {
+      "get": {
+        "operationId": "GatePassController_getQr",
+        "parameters": [
+          {
+            "name": "gatePassId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "GatePass"
+        ]
+      }
+    },
     "/api/gate-passes/{gatePassId}/cancel": {
       "post": {
         "operationId": "GatePassController_cancel",
@@ -4135,105 +4257,6 @@
         },
         "tags": [
           "GateOut"
-        ]
-      }
-    },
-    "/api/notifications/register-device": {
-      "post": {
-        "operationId": "NotificationsController_registerDevice",
-        "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterDeviceDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "tags": [
-          "Notifications"
-        ]
-      }
-    },
-    "/api/notifications/unregister-device": {
-      "delete": {
-        "operationId": "NotificationsController_unregisterDevice",
-        "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UnregisterDeviceDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "tags": [
-          "Notifications"
-        ]
-      }
-    },
-    "/api/notifications/history": {
-      "get": {
-        "operationId": "NotificationsController_getHistory",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "tags": [
-          "Notifications"
-        ]
-      }
-    },
-    "/api/notifications/{id}/read": {
-      "patch": {
-        "operationId": "NotificationsController_markAsRead",
-        "parameters": [
-          {
-            "name": "id",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "tags": [
-          "Notifications"
-        ]
-      }
-    },
-    "/api/notifications/read-all": {
-      "post": {
-        "operationId": "NotificationsController_markAllAsRead",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "tags": [
-          "Notifications"
         ]
       }
     },
@@ -4494,6 +4517,20 @@
       },
       "get": {
         "operationId": "TransportHandoverController_findMany",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "TransportHandover"
+        ]
+      }
+    },
+    "/api/handovers/partner-clients": {
+      "get": {
+        "operationId": "TransportHandoverController_getPartnerClientOptions",
         "parameters": [],
         "responses": {
           "200": {
@@ -4888,6 +4925,26 @@
           "Settings"
         ]
       }
+    },
+    "/api/realtime/events": {
+      "get": {
+        "operationId": "RealtimeController_streamEvents",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "access-token": []
+          }
+        ],
+        "summary": "Nhận sự kiện thay đổi dữ liệu theo thời gian thực (SSE)",
+        "tags": [
+          "Realtime"
+        ]
+      }
     }
   },
   "info": {
@@ -5115,6 +5172,14 @@
         "type": "object",
         "properties": {}
       },
+      "RegisterDeviceDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "UnregisterDeviceDto": {
+        "type": "object",
+        "properties": {}
+      },
       "CreateContainerReceptionDto": {
         "type": "object",
         "properties": {}
@@ -5228,14 +5293,6 @@
         "properties": {}
       },
       "ConfirmGateOutDto": {
-        "type": "object",
-        "properties": {}
-      },
-      "RegisterDeviceDto": {
-        "type": "object",
-        "properties": {}
-      },
-      "UnregisterDeviceDto": {
         "type": "object",
         "properties": {}
       },

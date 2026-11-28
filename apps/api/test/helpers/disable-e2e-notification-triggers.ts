@@ -8,7 +8,7 @@ export function disableE2ENotificationTriggers(
   return builder.overrideProvider(NotificationTriggerService).useValue({
     triggerGateOutNotification: jest.fn().mockResolvedValue(null),
     triggerInspectionHoldNotification: jest.fn().mockResolvedValue(null),
-    triggerGatePassExpiringSoonNotification: jest.fn().mockResolvedValue(null),
-    triggerInvoiceIssuedNotification: jest.fn().mockResolvedValue(null),
+    triggerGateInWorkQueueNotification: jest.fn().mockResolvedValue(null),
+    triggerInvoiceEmailNotification: jest.fn().mockResolvedValue(null),
   });
 }

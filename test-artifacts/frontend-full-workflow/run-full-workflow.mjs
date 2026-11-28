@@ -1,10 +1,12 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const BASE = process.env.ICD_API_BASE || 'http://localhost:3000/api';
-const OUT_DIR =
-  process.env.ICD_TEST_OUT_DIR ||
-  'D:/Project/Đồ Án 4 +Mobile/icd-management/test-artifacts/frontend-full-workflow';
+const OUT_DIR = process.env.ICD_TEST_OUT_DIR || path.dirname(fileURLToPath(import.meta.url));
+// Mật khẩu lấy từ biến môi trường để không ghi cứng thông tin đăng nhập vào mã nguồn.
+const ADMIN_EMAIL = process.env.ICD_TEST_EMAIL || 'admin@icd.local';
+const ADMIN_PASSWORD = process.env.ICD_TEST_PASSWORD || process.env.BOOTSTRAP_ADMIN_PASSWORD || '';
 const RUN_ID = new Date().toISOString().replace(/[:.]/g, '-');
 
 let token = null;
@@ -155,9 +157,10 @@ function slotSupports(slot, containerType) {
 }
 
 async function login() {
+  if (!ADMIN_PASSWORD) throw new Error('Thiếu ICD_TEST_PASSWORD hoặc BOOTSTRAP_ADMIN_PASSWORD.');
   const res = await call('Auth', 'POST', '/auth/login', {
     auth: false,
-    body: { email: 'admin@icd.local', password: 'Admin@ICD2026!StrongPass' },
+    body: { email: ADMIN_EMAIL, password: ADMIN_PASSWORD },
   });
   const data = unwrap(rawResponse(res));
   token = data?.accessToken || null;

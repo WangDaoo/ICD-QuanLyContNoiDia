@@ -1,0 +1,354 @@
+[
+  {
+    "at": "2026-11-28T15:42:51.334Z",
+    "id": "MB-AUTH-01",
+    "title": "Màn hình đăng nhập Mobile hiển thị",
+    "status": "PASS",
+    "file": "screenshots/mobile/00-login.jpg"
+  },
+  {
+    "at": "2026-11-28T15:42:53.995Z",
+    "id": "MB-AUTH-02",
+    "title": "Sai mật khẩu bị từ chối, vẫn ở màn đăng nhập",
+    "status": "PASS",
+    "detail": "Email hoặc mật khẩu không đúng.",
+    "problems": [
+      "console: Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    ],
+    "file": "screenshots/mobile/01-login-invalid.jpg"
+  },
+  {
+    "at": "2026-11-28T15:42:56.758Z",
+    "id": "MB-ROLE-gate",
+    "title": "Vai trò gate: tab hiện trường theo quyền",
+    "status": "PASS",
+    "visibleTabs": [
+      "Cổng",
+      "Tra cứu",
+      "Việc ca"
+    ],
+    "forbidden": false,
+    "file": "screenshots/mobile/10-gate-home.jpg"
+  },
+  {
+    "at": "2026-11-28T15:42:58.342Z",
+    "id": "MB-TAB-gate-Cổng",
+    "title": "gate: mở tab Cổng",
+    "status": "PASS",
+    "problems": [],
+    "file": "screenshots/mobile/11-gate-tab-cong.jpg"
+  },
+  {
+    "at": "2026-11-28T15:42:59.984Z",
+    "id": "MB-TAB-gate-Tra cứu",
+    "title": "gate: mở tab Tra cứu",
+    "status": "PASS",
+    "problems": [],
+    "file": "screenshots/mobile/12-gate-tab-tra-cuu.jpg"
+  },
+  {
+    "at": "2026-11-28T15:43:01.652Z",
+    "id": "MB-TAB-gate-Việc ca",
+    "title": "gate: mở tab Việc ca",
+    "status": "PASS",
+    "problems": [],
+    "file": "screenshots/mobile/13-gate-tab-viec-ca.jpg"
+  },
+  {
+    "at": "2026-11-28T15:43:03.300Z",
+    "id": "MB-NOTI-gate",
+    "title": "gate: mở hộp thông báo",
+    "status": "PASS",
+    "problems": [],
+    "file": "screenshots/mobile/14-gate-notifications.jpg"
+  },
+  {
+    "at": "2026-11-28T15:43:05.508Z",
+    "id": "MB-ACC-gate",
+    "title": "gate: màn tài khoản hiển thị đúng người dùng",
+    "status": "PASS",
+    "showsUser": true,
+    "hasLogout": true,
+    "problems": [],
+    "file": "screenshots/mobile/15-gate-account.jpg"
+  },
+  {
+    "at": "2026-11-28T15:43:16.260Z",
+    "id": "MB-ROLE-yard",
+    "title": "Vai trò yard: tab hiện trường theo quyền",
+    "status": "PASS",
+    "visibleTabs": [
+      "Bãi",
+      "Giám định",
+      "Tra cứu",
+      "Việc ca"
+    ],
+    "forbidden": false,
+    "file": "screenshots/mobile/16-yard-home.jpg"
+  },
+  {
+    "at": "2026-11-28T15:43:25.858Z",
+    "id": "MB-TAB-yard-Bãi",
+    "title": "yard: mở tab Bãi",
+    "status": "PASS",
+    "problems": [],
+    "file": "screenshots/mobile/17-yard-tab-bai.jpg"
+  },
+  {
+    "at": "2026-11-28T15:43:35.541Z",
+    "id": "MB-TAB-yard-Giám định",
+    "title": "yard: mở tab Giám định",
+    "status": "PASS",
+    "problems": [],
+    "file": "screenshots/mobile/18-yard-tab-giam-dinh.jpg"
+  },
+  {
+    "at": "2026-11-28T15:43:45.168Z",
+    "id": "MB-TAB-yard-Tra cứu",
+    "title": "yard: mở tab Tra cứu",
+    "status": "PASS",
+    "problems": [],
+    "file": "screenshots/mobile/19-yard-tab-tra-cuu.jpg"
+  },
+  {
+    "at": "2026-11-28T15:43:54.844Z",
+    "id": "MB-TAB-yard-Việc ca",
+    "title": "yard: mở tab Việc ca",
+    "status": "PASS",
+    "problems": [],
+    "file": "screenshots/mobile/20-yard-tab-viec-ca.jpg"
+  },
+  {
+    "at": "2026-11-28T15:44:04.491Z",
+    "id": "MB-NOTI-yard",
+    "title": "yard: mở hộp thông báo",
+    "status": "PASS",
+    "problems": [],
+    "file": "screenshots/mobile/21-yard-notifications.jpg"
+  },
+  {
+    "at": "2026-11-28T15:44:22.744Z",
+    "id": "MB-ACC-yard",
+    "title": "yard: màn tài khoản hiển thị đúng người dùng",
+    "status": "PASS",
+    "showsUser": true,
+    "hasLogout": true,
+    "problems": [],
+    "file": "screenshots/mobile/22-yard-account.jpg"
+  },
+  {
+    "at": "2026-11-28T15:44:33.595Z",
+    "id": "MB-ROLE-operator",
+    "title": "Vai trò operator: tab hiện trường theo quyền",
+    "status": "PASS",
+    "visibleTabs": [
+      "Tra cứu",
+      "Việc ca",
+      "Điều phối"
+    ],
+    "forbidden": false,
+    "file": "screenshots/mobile/23-operator-home.jpg"
+  },
+  {
+    "at": "2026-11-28T15:44:43.231Z",
+    "id": "MB-TAB-operator-Tra cứu",
+    "title": "operator: mở tab Tra cứu",
+    "status": "PASS",
+    "problems": [],
+    "file": "screenshots/mobile/24-operator-tab-tra-cuu.jpg"
+  },
+  {
+    "at": "2026-11-28T15:44:52.869Z",
+    "id": "MB-TAB-operator-Việc ca",
+    "title": "operator: mở tab Việc ca",
+    "status": "PASS",
+    "problems": [],
+    "file": "screenshots/mobile/25-operator-tab-viec-ca.jpg"
+  },
+  {
+    "at": "2026-11-28T15:45:02.544Z",
+    "id": "MB-TAB-operator-Điều phối",
+    "title": "operator: mở tab Điều phối",
+    "status": "PASS",
+    "problems": [],
+    "file": "screenshots/mobile/26-operator-tab-dieu-phoi.jpg"
+  },
+  {
+    "at": "2026-11-28T15:45:12.180Z",
+    "id": "MB-NOTI-operator",
+    "title": "operator: mở hộp thông báo",
+    "status": "PASS",
+    "problems": [],
+    "file": "screenshots/mobile/27-operator-notifications.jpg"
+  },
+  {
+    "at": "2026-11-28T15:45:30.434Z",
+    "id": "MB-ACC-operator",
+    "title": "operator: màn tài khoản hiển thị đúng người dùng",
+    "status": "PASS",
+    "showsUser": true,
+    "hasLogout": true,
+    "problems": [],
+    "file": "screenshots/mobile/28-operator-account.jpg"
+  },
+  {
+    "at": "2026-11-28T15:45:41.125Z",
+    "id": "MB-ROLE-admin",
+    "title": "Vai trò admin: tab hiện trường theo quyền",
+    "status": "PASS",
+    "visibleTabs": [
+      "Cổng",
+      "Bãi",
+      "Giám định",
+      "Tra cứu",
+      "Việc ca"
+    ],
+    "forbidden": false,
+    "file": "screenshots/mobile/29-admin-home.jpg"
+  },
+  {
+    "at": "2026-11-28T15:45:50.718Z",
+    "id": "MB-TAB-admin-Cổng",
+    "title": "admin: mở tab Cổng",
+    "status": "PASS",
+    "problems": [],
+    "file": "screenshots/mobile/30-admin-tab-cong.jpg"
+  },
+  {
+    "at": "2026-11-28T15:46:00.429Z",
+    "id": "MB-TAB-admin-Bãi",
+    "title": "admin: mở tab Bãi",
+    "status": "PASS",
+    "problems": [],
+    "file": "screenshots/mobile/31-admin-tab-bai.jpg"
+  },
+  {
+    "at": "2026-11-28T15:46:10.097Z",
+    "id": "MB-TAB-admin-Giám định",
+    "title": "admin: mở tab Giám định",
+    "status": "PASS",
+    "problems": [],
+    "file": "screenshots/mobile/32-admin-tab-giam-dinh.jpg"
+  },
+  {
+    "at": "2026-11-28T15:46:19.762Z",
+    "id": "MB-TAB-admin-Tra cứu",
+    "title": "admin: mở tab Tra cứu",
+    "status": "PASS",
+    "problems": [],
+    "file": "screenshots/mobile/33-admin-tab-tra-cuu.jpg"
+  },
+  {
+    "at": "2026-11-28T15:46:29.523Z",
+    "id": "MB-TAB-admin-Việc ca",
+    "title": "admin: mở tab Việc ca",
+    "status": "PASS",
+    "problems": [],
+    "file": "screenshots/mobile/34-admin-tab-viec-ca.jpg"
+  },
+  {
+    "at": "2026-11-28T15:46:39.224Z",
+    "id": "MB-NOTI-admin",
+    "title": "admin: mở hộp thông báo",
+    "status": "PASS",
+    "problems": [],
+    "file": "screenshots/mobile/35-admin-notifications.jpg"
+  },
+  {
+    "at": "2026-11-28T15:46:57.468Z",
+    "id": "MB-ACC-admin",
+    "title": "admin: màn tài khoản hiển thị đúng người dùng",
+    "status": "PASS",
+    "showsUser": true,
+    "hasLogout": true,
+    "problems": [],
+    "file": "screenshots/mobile/36-admin-account.jpg"
+  },
+  {
+    "at": "2026-11-28T15:47:08.280Z",
+    "id": "MB-ROLE-docs",
+    "title": "Vai trò docs: tab hiện trường theo quyền",
+    "status": "PASS",
+    "visibleTabs": [
+      "Tra cứu",
+      "Việc ca",
+      "Điều phối"
+    ],
+    "forbidden": false,
+    "file": "screenshots/mobile/37-docs-home.jpg"
+  },
+  {
+    "at": "2026-11-28T15:47:17.929Z",
+    "id": "MB-TAB-docs-Tra cứu",
+    "title": "docs: mở tab Tra cứu",
+    "status": "PASS",
+    "problems": [],
+    "file": "screenshots/mobile/38-docs-tab-tra-cuu.jpg"
+  },
+  {
+    "at": "2026-11-28T15:47:27.572Z",
+    "id": "MB-TAB-docs-Việc ca",
+    "title": "docs: mở tab Việc ca",
+    "status": "PASS",
+    "problems": [],
+    "file": "screenshots/mobile/39-docs-tab-viec-ca.jpg"
+  },
+  {
+    "at": "2026-11-28T15:47:37.236Z",
+    "id": "MB-TAB-docs-Điều phối",
+    "title": "docs: mở tab Điều phối",
+    "status": "PASS",
+    "problems": [],
+    "file": "screenshots/mobile/40-docs-tab-dieu-phoi.jpg"
+  },
+  {
+    "at": "2026-11-28T15:47:46.884Z",
+    "id": "MB-NOTI-docs",
+    "title": "docs: mở hộp thông báo",
+    "status": "PASS",
+    "problems": [],
+    "file": "screenshots/mobile/41-docs-notifications.jpg"
+  },
+  {
+    "at": "2026-11-28T15:48:05.145Z",
+    "id": "MB-ACC-docs",
+    "title": "docs: màn tài khoản hiển thị đúng người dùng",
+    "status": "PASS",
+    "showsUser": true,
+    "hasLogout": true,
+    "problems": [],
+    "file": "screenshots/mobile/42-docs-account.jpg"
+  },
+  {
+    "at": "2026-11-28T15:48:34.415Z",
+    "id": "MB-LOOKUP-01",
+    "title": "Tra cứu container theo một phần số hiệu",
+    "status": "PASS",
+    "detail": {
+      "query": "TSTU457",
+      "containerNo": "TSTU4572430"
+    },
+    "problems": [],
+    "file": "screenshots/mobile/43-lookup-results.jpg"
+  },
+  {
+    "at": "2026-11-28T15:49:08.377Z",
+    "id": "MB-RT-01",
+    "title": "Mobile mở luồng realtime và tự làm mới \"Việc ca\" khi có thay đổi từ tài khoản khác",
+    "status": "PASS",
+    "detail": {
+      "createStatus": 201,
+      "streamOpened": true,
+      "refetchedPaths": [
+        "/containers/work-queue"
+      ],
+      "firstRefetchMs": 812,
+      "callsInQuietWindow": 0,
+      "reloads": 0
+    },
+    "files": [
+      "screenshots/mobile/44-realtime-before.jpg",
+      "screenshots/mobile/45-realtime-after.jpg"
+    ]
+  }
+]

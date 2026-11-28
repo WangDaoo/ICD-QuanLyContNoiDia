@@ -1,0 +1,634 @@
+[
+  {
+    "at": "2026-11-28T15:33:06.185Z",
+    "id": "WEB-AUTH-01",
+    "title": "Trang đăng nhập hiển thị",
+    "status": "PASS",
+    "file": "screenshots/web/00-login.png"
+  },
+  {
+    "at": "2026-11-28T15:33:06.401Z",
+    "id": "WEB-AUTH-02",
+    "title": "Sai mật khẩu bị từ chối, vẫn ở trang đăng nhập",
+    "status": "PASS",
+    "detail": "Email hoặc mật khẩu không đúng.",
+    "file": "screenshots/web/01-login-invalid.png"
+  },
+  {
+    "at": "2026-11-28T15:33:22.501Z",
+    "id": "WEB-AUTH-03",
+    "title": "Đăng nhập quản trị viên vào bảng điều khiển",
+    "status": "PASS",
+    "url": "/app/dashboard",
+    "file": "screenshots/web/02-login-success-dashboard.png"
+  },
+  {
+    "at": "2026-11-28T15:33:22.557Z",
+    "id": "WEB-RT-01",
+    "title": "Header báo kênh realtime đang kết nối trực tiếp",
+    "status": "PASS",
+    "detail": "Cập nhật trực tiếp",
+    "file": "screenshots/web/03-realtime-indicator.png"
+  },
+  {
+    "at": "2026-11-28T15:33:38.437Z",
+    "id": "WEB-TAB-dashboard",
+    "title": "Mở phân hệ Tổng quan vận hành",
+    "status": "PASS",
+    "heading": "2 công việc quá hạn",
+    "flags": {
+      "undefined": false,
+      "NaN": false,
+      "null": false,
+      "chars": 18391
+    },
+    "alerts": [],
+    "problems": [],
+    "file": "screenshots/web/10-dashboard.png"
+  },
+  {
+    "at": "2026-11-28T15:33:54.311Z",
+    "id": "WEB-TAB-work-queue",
+    "title": "Mở phân hệ Danh sách công việc",
+    "status": "PASS",
+    "heading": "Công việc cần xử lý",
+    "flags": {
+      "undefined": false,
+      "NaN": false,
+      "null": false,
+      "chars": 2261
+    },
+    "alerts": [],
+    "problems": [],
+    "file": "screenshots/web/11-work-queue.png"
+  },
+  {
+    "at": "2026-11-28T15:34:10.259Z",
+    "id": "WEB-TAB-manifests",
+    "title": "Mở phân hệ Manifest",
+    "status": "PASS",
+    "heading": "Manifest và vận đơn",
+    "flags": {
+      "undefined": false,
+      "NaN": false,
+      "null": false,
+      "chars": 10571
+    },
+    "alerts": [],
+    "problems": [],
+    "file": "screenshots/web/12-manifests.png"
+  },
+  {
+    "at": "2026-11-28T15:34:26.194Z",
+    "id": "WEB-TAB-containers",
+    "title": "Mở phân hệ Container",
+    "status": "PASS",
+    "heading": "Container",
+    "flags": {
+      "undefined": false,
+      "NaN": false,
+      "null": false,
+      "chars": 8548
+    },
+    "alerts": [],
+    "problems": [],
+    "file": "screenshots/web/13-containers.png"
+  },
+  {
+    "at": "2026-11-28T15:34:42.099Z",
+    "id": "WEB-TAB-movement-orders",
+    "title": "Mở phân hệ Lệnh di chuyển",
+    "status": "PASS",
+    "heading": "Movement Order — Lệnh cho phép container di chuyển về ICD",
+    "flags": {
+      "undefined": false,
+      "NaN": false,
+      "null": false,
+      "chars": 10046
+    },
+    "alerts": [],
+    "problems": [],
+    "file": "screenshots/web/14-movement-orders.png"
+  },
+  {
+    "at": "2026-11-28T15:34:58.002Z",
+    "id": "WEB-TAB-truck-visits",
+    "title": "Mở phân hệ Chuyến xe ra/vào",
+    "status": "PASS",
+    "heading": "Quản lý Chuyến xe ra/vào (Truck Visits)",
+    "flags": {
+      "undefined": false,
+      "NaN": false,
+      "null": false,
+      "chars": 14309
+    },
+    "alerts": [],
+    "problems": [],
+    "file": "screenshots/web/15-truck-visits.png"
+  },
+  {
+    "at": "2026-11-28T15:35:13.852Z",
+    "id": "WEB-TAB-gate-in",
+    "title": "Mở phân hệ Nhập cổng",
+    "status": "PASS",
+    "heading": "Nhập cổng",
+    "flags": {
+      "undefined": false,
+      "NaN": false,
+      "null": false,
+      "chars": 281
+    },
+    "alerts": [],
+    "problems": [],
+    "file": "screenshots/web/16-gate-in.png"
+  },
+  {
+    "at": "2026-11-28T15:35:29.813Z",
+    "id": "WEB-TAB-yard",
+    "title": "Mở phân hệ Bãi container",
+    "status": "PASS",
+    "heading": "Vận hành Bãi Container",
+    "flags": {
+      "undefined": false,
+      "NaN": false,
+      "null": false,
+      "chars": 9617
+    },
+    "alerts": [],
+    "problems": [],
+    "file": "screenshots/web/17-yard.png"
+  },
+  {
+    "at": "2026-11-28T15:35:45.705Z",
+    "id": "WEB-TAB-billing",
+    "title": "Mở phân hệ Dịch vụ & Thanh toán",
+    "status": "PASS",
+    "heading": "Dịch vụ và thanh toán",
+    "flags": {
+      "undefined": false,
+      "NaN": false,
+      "null": false,
+      "chars": 8182
+    },
+    "alerts": [],
+    "problems": [],
+    "file": "screenshots/web/18-billing.png"
+  },
+  {
+    "at": "2026-11-28T15:36:01.600Z",
+    "id": "WEB-TAB-gate-pass",
+    "title": "Mở phân hệ Xuất cổng",
+    "status": "PASS",
+    "heading": "Xuất cổng",
+    "flags": {
+      "undefined": false,
+      "NaN": false,
+      "null": false,
+      "chars": 4734
+    },
+    "alerts": [],
+    "problems": [],
+    "file": "screenshots/web/19-gate-pass.png"
+  },
+  {
+    "at": "2026-11-28T15:36:17.449Z",
+    "id": "WEB-TAB-edi",
+    "title": "Mở phân hệ EDI / CODECO",
+    "status": "PASS",
+    "heading": "EDI / CODECO",
+    "flags": {
+      "undefined": false,
+      "NaN": false,
+      "null": false,
+      "chars": 10612
+    },
+    "alerts": [],
+    "problems": [],
+    "file": "screenshots/web/20-edi.png"
+  },
+  {
+    "at": "2026-11-28T15:36:33.312Z",
+    "id": "WEB-TAB-handovers",
+    "title": "Mở phân hệ Bàn giao vận chuyển",
+    "status": "PASS",
+    "heading": "Bàn giao Vận chuyển Ngoài ICD (Partner Handover)",
+    "flags": {
+      "undefined": false,
+      "NaN": false,
+      "null": false,
+      "chars": 5112
+    },
+    "alerts": [],
+    "problems": [],
+    "file": "screenshots/web/21-handovers.png"
+  },
+  {
+    "at": "2026-11-28T15:36:49.161Z",
+    "id": "WEB-TAB-partner-clients",
+    "title": "Mở phân hệ Đối tác tích hợp API",
+    "status": "PASS",
+    "heading": "Đối tác tích hợp API",
+    "flags": {
+      "undefined": false,
+      "NaN": false,
+      "null": false,
+      "chars": 8972
+    },
+    "alerts": [],
+    "problems": [],
+    "file": "screenshots/web/22-partner-clients.png"
+  },
+  {
+    "at": "2026-11-28T15:37:05.013Z",
+    "id": "WEB-TAB-partner-api-logs",
+    "title": "Mở phân hệ Nhật ký API đối tác",
+    "status": "PASS",
+    "heading": "Nhật ký API đối tác",
+    "flags": {
+      "undefined": false,
+      "NaN": false,
+      "null": false,
+      "chars": 6046
+    },
+    "alerts": [],
+    "problems": [],
+    "file": "screenshots/web/23-partner-api-logs.png"
+  },
+  {
+    "at": "2026-11-28T15:37:20.864Z",
+    "id": "WEB-TAB-master-data",
+    "title": "Mở phân hệ Danh mục dùng chung",
+    "status": "PASS",
+    "heading": "Danh mục dùng chung",
+    "flags": {
+      "undefined": false,
+      "NaN": false,
+      "null": false,
+      "chars": 4918
+    },
+    "alerts": [],
+    "problems": [],
+    "file": "screenshots/web/24-master-data.png"
+  },
+  {
+    "at": "2026-11-28T15:37:36.727Z",
+    "id": "WEB-TAB-users-roles",
+    "title": "Mở phân hệ Người dùng & Phân quyền",
+    "status": "PASS",
+    "heading": "Người dùng & Phân quyền (RBAC)",
+    "flags": {
+      "undefined": false,
+      "NaN": false,
+      "null": false,
+      "chars": 4679
+    },
+    "alerts": [],
+    "problems": [],
+    "file": "screenshots/web/25-users-roles.png"
+  },
+  {
+    "at": "2026-11-28T15:37:52.587Z",
+    "id": "WEB-TAB-admin",
+    "title": "Mở phân hệ Báo cáo",
+    "status": "PASS",
+    "heading": "Báo cáo",
+    "flags": {
+      "undefined": false,
+      "NaN": false,
+      "null": false,
+      "chars": 4131
+    },
+    "alerts": [],
+    "problems": [],
+    "file": "screenshots/web/26-admin.png"
+  },
+  {
+    "at": "2026-11-28T15:38:08.492Z",
+    "id": "WEB-TAB-activity",
+    "title": "Mở phân hệ Nhật ký kiểm toán",
+    "status": "PASS",
+    "heading": "Nhật ký kiểm toán",
+    "flags": {
+      "undefined": false,
+      "NaN": false,
+      "null": false,
+      "chars": 10304
+    },
+    "alerts": [],
+    "problems": [],
+    "file": "screenshots/web/27-activity.png"
+  },
+  {
+    "at": "2026-11-28T15:38:24.986Z",
+    "id": "WEB-AUDIT-01",
+    "title": "Tìm nhật ký kiểm toán theo request ID trên Web",
+    "status": "PASS",
+    "detail": {
+      "requestId": "25ada8a6-400d-49d2-8d57-33f9e9db970e",
+      "totalRows": 86,
+      "matchedRows": 1
+    },
+    "file": "screenshots/web/28-audit-search-request-id.png"
+  },
+  {
+    "at": "2026-11-28T15:38:57.558Z",
+    "id": "WEB-RBAC-manager",
+    "title": "Vai trò manager: menu theo quyền",
+    "status": "PASS",
+    "roles": [
+      "MANAGER"
+    ],
+    "permissionCount": 25,
+    "expected": [
+      "dashboard",
+      "work-queue",
+      "manifests",
+      "containers",
+      "movement-orders",
+      "truck-visits",
+      "yard",
+      "billing",
+      "edi",
+      "handovers",
+      "partner-api-logs",
+      "master-data",
+      "users-roles",
+      "admin",
+      "activity"
+    ],
+    "visible": [
+      "dashboard",
+      "work-queue",
+      "manifests",
+      "containers",
+      "movement-orders",
+      "truck-visits",
+      "yard",
+      "billing",
+      "edi",
+      "handovers",
+      "partner-api-logs",
+      "master-data",
+      "users-roles",
+      "admin",
+      "activity"
+    ],
+    "guard": {
+      "target": "gate-in",
+      "landed": "/app/gate-in",
+      "blocked": true
+    },
+    "problems": [],
+    "file": "screenshots/web/40-role-manager.png"
+  },
+  {
+    "at": "2026-11-28T15:39:29.970Z",
+    "id": "WEB-RBAC-operator",
+    "title": "Vai trò operator: menu theo quyền",
+    "status": "PASS",
+    "roles": [
+      "OPERATOR"
+    ],
+    "permissionCount": 41,
+    "expected": [
+      "dashboard",
+      "work-queue",
+      "manifests",
+      "containers",
+      "movement-orders",
+      "truck-visits",
+      "gate-in",
+      "yard",
+      "billing",
+      "gate-pass",
+      "edi",
+      "handovers",
+      "master-data",
+      "admin"
+    ],
+    "visible": [
+      "dashboard",
+      "work-queue",
+      "manifests",
+      "containers",
+      "movement-orders",
+      "truck-visits",
+      "gate-in",
+      "yard",
+      "billing",
+      "gate-pass",
+      "edi",
+      "handovers",
+      "master-data",
+      "admin"
+    ],
+    "guard": {
+      "target": "users-roles",
+      "landed": "/app/users-roles",
+      "blocked": true
+    },
+    "problems": [],
+    "file": "screenshots/web/40-role-operator.png"
+  },
+  {
+    "at": "2026-11-28T15:40:02.348Z",
+    "id": "WEB-RBAC-docs",
+    "title": "Vai trò docs: menu theo quyền",
+    "status": "PASS",
+    "roles": [
+      "OPERATOR"
+    ],
+    "permissionCount": 41,
+    "expected": [
+      "dashboard",
+      "work-queue",
+      "manifests",
+      "containers",
+      "movement-orders",
+      "truck-visits",
+      "gate-in",
+      "yard",
+      "billing",
+      "gate-pass",
+      "edi",
+      "handovers",
+      "master-data",
+      "admin"
+    ],
+    "visible": [
+      "dashboard",
+      "work-queue",
+      "manifests",
+      "containers",
+      "movement-orders",
+      "truck-visits",
+      "gate-in",
+      "yard",
+      "billing",
+      "gate-pass",
+      "edi",
+      "handovers",
+      "master-data",
+      "admin"
+    ],
+    "guard": {
+      "target": "users-roles",
+      "landed": "/app/users-roles",
+      "blocked": true
+    },
+    "problems": [],
+    "file": "screenshots/web/40-role-docs.png"
+  },
+  {
+    "at": "2026-11-28T15:40:34.805Z",
+    "id": "WEB-RBAC-gate",
+    "title": "Vai trò gate: menu theo quyền",
+    "status": "PASS",
+    "roles": [
+      "GATE_STAFF"
+    ],
+    "permissionCount": 12,
+    "expected": [
+      "dashboard",
+      "work-queue",
+      "containers",
+      "movement-orders",
+      "truck-visits",
+      "gate-in",
+      "gate-pass",
+      "handovers",
+      "master-data"
+    ],
+    "visible": [
+      "dashboard",
+      "work-queue",
+      "containers",
+      "movement-orders",
+      "truck-visits",
+      "gate-in",
+      "gate-pass",
+      "handovers",
+      "master-data"
+    ],
+    "guard": {
+      "target": "users-roles",
+      "landed": "/app/users-roles",
+      "blocked": true
+    },
+    "problems": [],
+    "file": "screenshots/web/40-role-gate.png"
+  },
+  {
+    "at": "2026-11-28T15:41:07.240Z",
+    "id": "WEB-RBAC-yard",
+    "title": "Vai trò yard: menu theo quyền",
+    "status": "PASS",
+    "roles": [
+      "YARD_STAFF"
+    ],
+    "permissionCount": 10,
+    "expected": [
+      "dashboard",
+      "work-queue",
+      "containers",
+      "truck-visits",
+      "yard",
+      "handovers"
+    ],
+    "visible": [
+      "dashboard",
+      "work-queue",
+      "containers",
+      "truck-visits",
+      "yard",
+      "handovers"
+    ],
+    "guard": {
+      "target": "users-roles",
+      "landed": "/app/users-roles",
+      "blocked": true
+    },
+    "problems": [],
+    "file": "screenshots/web/40-role-yard.png"
+  },
+  {
+    "at": "2026-11-28T15:41:39.663Z",
+    "id": "WEB-RBAC-agent",
+    "title": "Vai trò agent: menu theo quyền",
+    "status": "PASS",
+    "roles": [
+      "AGENT"
+    ],
+    "permissionCount": 5,
+    "expected": [
+      "dashboard",
+      "work-queue",
+      "manifests",
+      "containers",
+      "gate-pass",
+      "handovers"
+    ],
+    "visible": [
+      "dashboard",
+      "work-queue",
+      "manifests",
+      "containers",
+      "gate-pass",
+      "handovers"
+    ],
+    "guard": {
+      "target": "users-roles",
+      "landed": "/app/users-roles",
+      "blocked": true
+    },
+    "problems": [],
+    "file": "screenshots/web/40-role-agent.png"
+  },
+  {
+    "at": "2026-11-28T15:42:12.127Z",
+    "id": "WEB-RBAC-consignee",
+    "title": "Vai trò consignee: menu theo quyền",
+    "status": "PASS",
+    "roles": [
+      "CONSIGNEE"
+    ],
+    "permissionCount": 2,
+    "expected": [
+      "dashboard",
+      "work-queue",
+      "containers",
+      "handovers"
+    ],
+    "visible": [
+      "dashboard",
+      "work-queue",
+      "containers",
+      "handovers"
+    ],
+    "guard": {
+      "target": "users-roles",
+      "landed": "/app/users-roles",
+      "blocked": true
+    },
+    "problems": [],
+    "file": "screenshots/web/40-role-consignee.png"
+  },
+  {
+    "at": "2026-11-28T15:42:47.212Z",
+    "id": "WEB-RT-02",
+    "title": "Manifest do tài khoản khác tạo tự hiện trên màn hình quản trị (không tải lại trang)",
+    "status": "PASS",
+    "detail": {
+      "createStatus": 201,
+      "manifestCode": "MF-20261128-CBB61F76",
+      "voyage": "RT-80564535",
+      "appeared": true,
+      "latencyMs": 2563,
+      "reloads": 0
+    },
+    "files": [
+      "screenshots/web/50-realtime-before.png",
+      "screenshots/web/51-realtime-after.png"
+    ]
+  }
+]

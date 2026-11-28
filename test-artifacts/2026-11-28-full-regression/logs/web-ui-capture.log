@@ -1,0 +1,32 @@
+PASS WEB-AUTH-01 Trang đăng nhập hiển thị
+PASS WEB-AUTH-02 Sai mật khẩu bị từ chối, vẫn ở trang đăng nhập
+PASS WEB-AUTH-03 Đăng nhập quản trị viên vào bảng điều khiển
+PASS WEB-RT-01 Header báo kênh realtime đang kết nối trực tiếp
+PASS WEB-TAB-dashboard Mở phân hệ Tổng quan vận hành
+PASS WEB-TAB-work-queue Mở phân hệ Danh sách công việc
+PASS WEB-TAB-manifests Mở phân hệ Manifest
+PASS WEB-TAB-containers Mở phân hệ Container
+PASS WEB-TAB-movement-orders Mở phân hệ Lệnh di chuyển
+PASS WEB-TAB-truck-visits Mở phân hệ Chuyến xe ra/vào
+PASS WEB-TAB-gate-in Mở phân hệ Nhập cổng
+PASS WEB-TAB-yard Mở phân hệ Bãi container
+PASS WEB-TAB-billing Mở phân hệ Dịch vụ & Thanh toán
+PASS WEB-TAB-gate-pass Mở phân hệ Xuất cổng
+PASS WEB-TAB-edi Mở phân hệ EDI / CODECO
+PASS WEB-TAB-handovers Mở phân hệ Bàn giao vận chuyển
+PASS WEB-TAB-partner-clients Mở phân hệ Đối tác tích hợp API
+PASS WEB-TAB-partner-api-logs Mở phân hệ Nhật ký API đối tác
+PASS WEB-TAB-master-data Mở phân hệ Danh mục dùng chung
+PASS WEB-TAB-users-roles Mở phân hệ Người dùng & Phân quyền
+PASS WEB-TAB-admin Mở phân hệ Báo cáo
+PASS WEB-TAB-activity Mở phân hệ Nhật ký kiểm toán
+PASS WEB-AUDIT-01 Tìm nhật ký kiểm toán theo request ID trên Web
+PASS WEB-RBAC-manager Vai trò manager: menu theo quyền
+PASS WEB-RBAC-operator Vai trò operator: menu theo quyền
+PASS WEB-RBAC-docs Vai trò docs: menu theo quyền
+PASS WEB-RBAC-gate Vai trò gate: menu theo quyền
+PASS WEB-RBAC-yard Vai trò yard: menu theo quyền
+PASS WEB-RBAC-agent Vai trò agent: menu theo quyền
+PASS WEB-RBAC-consignee Vai trò consignee: menu theo quyền
+PASS WEB-RT-02 Manifest do tài khoản khác tạo tự hiện trên màn hình quản trị (không tải lại trang)
+TOTAL 31 PASS 31 FAIL 0

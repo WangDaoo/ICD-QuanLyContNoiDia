@@ -9,13 +9,11 @@ export const AuditsView: React.FC = () => {
   const { auditLogs } = useApp();
   const [searchTerm, setSearchTerm] = useViewQueryState('activity', 'search', '');
 
-  const filteredLogs = auditLogs.filter(
-    (log) =>
-      log.action.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      log.entityType.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      log.entityId.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      log.actor.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      log.details.toLowerCase().includes(searchTerm.toLowerCase()),
+  const needle = searchTerm.trim().toLowerCase();
+  const filteredLogs = auditLogs.filter((log) =>
+    [log.action, log.entityType, log.entityId, log.actor, log.details, log.requestId].some((value) =>
+      (value ?? '').toLowerCase().includes(needle),
+    ),
   );
 
   return (
@@ -42,7 +40,7 @@ export const AuditsView: React.FC = () => {
           <input
             type="text"
             aria-label="Tìm nhật ký kiểm toán"
-            placeholder="Tìm theo hành động, đối tượng, người thực hiện..."
+            placeholder="Tìm theo hành động, đối tượng, người thực hiện, mã request..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full pl-9 pr-3 py-2 border border-slate-200 rounded-lg bg-slate-50 focus:outline-none focus:ring-1 focus:ring-blue-500"

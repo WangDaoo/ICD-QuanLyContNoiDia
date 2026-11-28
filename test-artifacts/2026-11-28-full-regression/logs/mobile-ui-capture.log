@@ -1,0 +1,38 @@
+PASS MB-AUTH-01 Màn hình đăng nhập Mobile hiển thị
+PASS MB-AUTH-02 Sai mật khẩu bị từ chối, vẫn ở màn đăng nhập
+PASS MB-ROLE-gate Vai trò gate: tab hiện trường theo quyền
+PASS MB-TAB-gate-Cổng gate: mở tab Cổng
+PASS MB-TAB-gate-Tra cứu gate: mở tab Tra cứu
+PASS MB-TAB-gate-Việc ca gate: mở tab Việc ca
+PASS MB-NOTI-gate gate: mở hộp thông báo
+PASS MB-ACC-gate gate: màn tài khoản hiển thị đúng người dùng
+PASS MB-ROLE-yard Vai trò yard: tab hiện trường theo quyền
+PASS MB-TAB-yard-Bãi yard: mở tab Bãi
+PASS MB-TAB-yard-Giám định yard: mở tab Giám định
+PASS MB-TAB-yard-Tra cứu yard: mở tab Tra cứu
+PASS MB-TAB-yard-Việc ca yard: mở tab Việc ca
+PASS MB-NOTI-yard yard: mở hộp thông báo
+PASS MB-ACC-yard yard: màn tài khoản hiển thị đúng người dùng
+PASS MB-ROLE-operator Vai trò operator: tab hiện trường theo quyền
+PASS MB-TAB-operator-Tra cứu operator: mở tab Tra cứu
+PASS MB-TAB-operator-Việc ca operator: mở tab Việc ca
+PASS MB-TAB-operator-Điều phối operator: mở tab Điều phối
+PASS MB-NOTI-operator operator: mở hộp thông báo
+PASS MB-ACC-operator operator: màn tài khoản hiển thị đúng người dùng
+PASS MB-ROLE-admin Vai trò admin: tab hiện trường theo quyền
+PASS MB-TAB-admin-Cổng admin: mở tab Cổng
+PASS MB-TAB-admin-Bãi admin: mở tab Bãi
+PASS MB-TAB-admin-Giám định admin: mở tab Giám định
+PASS MB-TAB-admin-Tra cứu admin: mở tab Tra cứu
+PASS MB-TAB-admin-Việc ca admin: mở tab Việc ca
+PASS MB-NOTI-admin admin: mở hộp thông báo
+PASS MB-ACC-admin admin: màn tài khoản hiển thị đúng người dùng
+PASS MB-ROLE-docs Vai trò docs: tab hiện trường theo quyền
+PASS MB-TAB-docs-Tra cứu docs: mở tab Tra cứu
+PASS MB-TAB-docs-Việc ca docs: mở tab Việc ca
+PASS MB-TAB-docs-Điều phối docs: mở tab Điều phối
+PASS MB-NOTI-docs docs: mở hộp thông báo
+PASS MB-ACC-docs docs: màn tài khoản hiển thị đúng người dùng
+PASS MB-LOOKUP-01 Tra cứu container theo một phần số hiệu
+PASS MB-RT-01 Mobile mở luồng realtime và tự làm mới "Việc ca" khi có thay đổi từ tài khoản khác
+TOTAL 37 PASS 37 FAIL 0

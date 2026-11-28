@@ -16,6 +16,9 @@ import { assertE2EDatabase } from './helpers/assert-e2e-database';
 import { createCoreScenario } from './helpers/core-lifecycle-fixture';
 import { disableE2ENotificationTriggers } from './helpers/disable-e2e-notification-triggers';
 import { stopE2ECronJobs } from './helpers/stop-e2e-cron-jobs';
+import { unwrapData } from './helpers/api-envelope';
+
+type HandoverBody = { status: string; handover_id: string };
 
 config({ path: path.resolve(__dirname, '../../../.env') });
 
@@ -64,7 +67,6 @@ describe('Partner Handover Integration E2E', () => {
   let app: INestApplication;
   let prisma: PrismaService;
   let accessToken: string;
-  let defaultIcdId: string;
 
   const adminEmail = process.env.BOOTSTRAP_ADMIN_EMAIL ?? 'admin@icd.local';
   const adminPassword =
@@ -93,11 +95,11 @@ describe('Partner Handover Integration E2E', () => {
       .send({ email: adminEmail, password: adminPassword })
       .expect(200);
 
-    const authRes = loginRes.body as AuthResult;
+    const authRes = unwrapData<AuthResult>(loginRes.body);
     accessToken = authRes.accessToken;
 
-    const icd = await prisma.icdSite.findFirstOrThrow();
-    defaultIcdId = icd.id;
+    // Dữ liệu seed phải có ít nhất một ICD trước khi chạy luồng bàn giao.
+    await prisma.icdSite.findFirstOrThrow();
   }, 60000);
 
   afterAll(async () => {
@@ -272,7 +274,7 @@ describe('Partner Handover Integration E2E', () => {
       .set('X-API-Key', partnerA.rawApiKey)
       .expect(200);
 
-    expect(detailRes.body.handover_id).toBe(handover.id);
+    expect(unwrapData<HandoverBody>(detailRes.body).handover_id).toBe(handover.id);
 
     const isolationRes = await request(app.getHttpServer())
       .get(`/api/v1/external/handovers/${handover.id}`)
@@ -316,7 +318,7 @@ describe('Partner Handover Integration E2E', () => {
       })
       .expect(201);
 
-    expect(acceptRes.body.status).toBe(TransportHandoverStatus.PARTNER_ACCEPTED);
+    expect(unwrapData<HandoverBody>(acceptRes.body).status).toBe(TransportHandoverStatus.PARTNER_ACCEPTED);
 
     const transitIdempKey = `idemp-transit-${Date.now()}`;
     const transitRes = await request(app.getHttpServer())
@@ -332,7 +334,7 @@ describe('Partner Handover Integration E2E', () => {
       })
       .expect(201);
 
-    expect(transitRes.body.status).toBe(TransportHandoverStatus.IN_TRANSIT);
+    expect(unwrapData<HandoverBody>(transitRes.body).status).toBe(TransportHandoverStatus.IN_TRANSIT);
 
     const whIdempKey = `idemp-wh-${Date.now()}`;
     const whRes = await request(app.getHttpServer())
@@ -358,7 +360,7 @@ describe('Partner Handover Integration E2E', () => {
       })
       .expect(201);
 
-    expect(whRes.body.status).toBe(TransportHandoverStatus.PARTNER_CONFIRMED);
+    expect(unwrapData<HandoverBody>(whRes.body).status).toBe(TransportHandoverStatus.PARTNER_CONFIRMED);
 
     const icdConfirmRes = await auth(
       request(app.getHttpServer()).post(`/api/handovers/${handover.id}/icd-confirm`),
@@ -442,8 +444,9 @@ describe('Partner Handover Integration E2E', () => {
       .send(payloadA)
       .expect(201);
 
-    expect(replayRes.body.status).toBe(firstRes.body.status);
-    expect(replayRes.body.handover_id).toBe(firstRes.body.handover_id);
+    expect(unwrapData<HandoverBody>(firstRes.body).status).toBe(TransportHandoverStatus.PARTNER_ACCEPTED);
+    expect(unwrapData<HandoverBody>(replayRes.body).status).toBe(unwrapData<HandoverBody>(firstRes.body).status);
+    expect(unwrapData<HandoverBody>(replayRes.body).handover_id).toBe(unwrapData<HandoverBody>(firstRes.body).handover_id);
 
     const conflictRes = await request(app.getHttpServer())
       .post(`/api/v1/external/handovers/${handover.id}/accept`)
@@ -498,7 +501,7 @@ describe('Partner Handover Integration E2E', () => {
       })
       .expect(201);
 
-    expect(rejectRes.body.status).toBe(TransportHandoverStatus.PARTNER_REJECTED);
+    expect(unwrapData<HandoverBody>(rejectRes.body).status).toBe(TransportHandoverStatus.PARTNER_REJECTED);
 
     const invalidTransitRes = await request(app.getHttpServer())
       .post(`/api/v1/external/handovers/${handover.id}/in-transit`)
